@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499901"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893399"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas Mais Frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
@@ -80,7 +80,7 @@ Atualmente não é possível alterar o "de:" campo no email.
 Pode utilizar o Azure AD Graph API para escrever a sua ferramenta de migração. Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>O fluxo de utilizador de palavra-passe é utilizado para contas locais no Azure AD B2C?
-O fluxo de utilizador de palavra-passe do Azure AD B2C para contas locais é baseado na política para o Azure AD. O Azure AD B2C da inscrição, inscreva-se ou fluxos de utilizador de reposição de início de sessão e palavra-passe, utilizam a força da palavra-passe "segura" e não expirarem as palavras-passe. Leitura a [política de palavra-passe do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter mais detalhes. Para obter informações sobre bloqueios de conta e palavras-passe, consulte [gere as ameaças aos recursos e dados no Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+O fluxo de utilizador de palavra-passe do Azure AD B2C para contas locais é baseado na política para o Azure AD. O Azure AD B2C da inscrição, inscreva-se ou fluxos de utilizador de reposição de início de sessão e palavra-passe, utilizam a força da palavra-passe "segura" e não expirarem as palavras-passe. Leitura a [política de palavra-passe do Azure AD](/previous-versions/azure/jj943764(v=azure.100)) para obter mais detalhes. Para obter informações sobre bloqueios de conta e palavras-passe, consulte [gere as ameaças aos recursos e dados no Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Pode utilizar o Azure AD Connect para migrar as identidades de consumidor que estão armazenadas no meu diretório de Active Directory no local ao Azure AD B2C?
 Não, do Azure AD Connect não foi concebido para funcionar com o Azure AD B2C. Considere utilizar o [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) para a migração de utilizador.  Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.

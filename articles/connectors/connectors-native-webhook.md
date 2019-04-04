@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182120"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895584"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Criar fluxos de trabalho baseados em eventos ou ações com webhooks e Azure Logic Apps
 
@@ -29,7 +29,7 @@ Saiba mais sobre [como criar APIs personalizadas que suportam um webhook](../log
 
 ## <a name="use-the-webhook-trigger"></a>Utilizar o acionador de webhook
 
-R [ *acionador* ](connectors-overview.md) é um evento que inicia um fluxo de trabalho de aplicação lógica. O acionador de webhook é baseado em evento, que não depende de sondagem para novos itens. Quando salvar a sua aplicação lógica com um acionador de webhook, ou quando alterar a sua aplicação lógica de desativado para ativado, o acionador de webhook *subscreve* para o serviço especificado ou o ponto final ao se registrar um *URL de retorno de chamada* com esse serviço ou o ponto final. O acionador, em seguida, utiliza esse URL para executar a aplicação lógica, conforme necessário. Como o [acionador de pedido](connectors-native-reqres.md), a aplicação lógica é acionado imediatamente quando ocorre o evento esperado. O acionador *anulações de subscrição* se remover o acionador e guardar a aplicação lógica, ou quando alterar a sua aplicação lógica do ativado para desativado.
+R [ *acionador* ](../connectors/apis-list.md) é um evento que inicia um fluxo de trabalho de aplicação lógica. O acionador de webhook é baseado em evento, que não depende de sondagem para novos itens. Quando salvar a sua aplicação lógica com um acionador de webhook, ou quando alterar a sua aplicação lógica de desativado para ativado, o acionador de webhook *subscreve* para o serviço especificado ou o ponto final ao se registrar um *URL de retorno de chamada* com esse serviço ou o ponto final. O acionador, em seguida, utiliza esse URL para executar a aplicação lógica, conforme necessário. Como o [acionador de pedido](connectors-native-reqres.md), a aplicação lógica é acionado imediatamente quando ocorre o evento esperado. O acionador *anulações de subscrição* se remover o acionador e guardar a aplicação lógica, ou quando alterar a sua aplicação lógica do ativado para desativado.
 
 Eis um exemplo que mostra como configurar um acionador HTTP no Estruturador da aplicação lógica. Os passos partem do princípio de que já tiver implementado ou que está a aceder a uma API que se segue a [webhook inscrever-se e cancelar sua assinatura padrão no logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
@@ -48,7 +48,7 @@ Eis um exemplo que mostra como configurar um acionador HTTP no Estruturador da a
 
 ## <a name="use-the-webhook-action"></a>Utilize a ação de webhook
 
-Uma [ *ação* ](connectors-overview.md) é uma operação que é definida e a execução pelo fluxo de trabalho da sua aplicação lógica. Quando uma aplicação lógica é executada uma ação do webhook, essa ação *subscreve* para o serviço especificado ou o ponto final ao se registrar um *URL de retorno de chamada* com esse serviço ou o ponto final. A ação do webhook, em seguida, aguarda até que o URL antes da retoma de aplicação lógica em execução de chamadas de serviço. A aplicação lógica anulações de subscrição do serviço ou ponto de extremidade nestes casos: 
+Uma [ *ação* ](../connectors/apis-list.md) é uma operação que é definida e a execução pelo fluxo de trabalho da sua aplicação lógica. Quando uma aplicação lógica é executada uma ação do webhook, essa ação *subscreve* para o serviço especificado ou o ponto final ao se registrar um *URL de retorno de chamada* com esse serviço ou o ponto final. A ação do webhook, em seguida, aguarda até que o URL antes da retoma de aplicação lógica em execução de chamadas de serviço. A aplicação lógica anulações de subscrição do serviço ou ponto de extremidade nestes casos: 
 
 * Quando a ação do webhook for concluída com êxito
 * Se a execução da aplicação lógica é cancelada ao aguardar uma resposta

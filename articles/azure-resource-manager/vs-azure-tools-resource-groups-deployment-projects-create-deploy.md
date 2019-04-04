@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097462"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905856"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
 Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, implemente uma aplicação Web e uma Base de Dados SQL.  
 
 Este artigo mostra como utilizar o [Visual Studio 2017 com o desenvolvimento do Azure e as cargas de trabalho ASP.NET instaladas](/dotnet/azure/dotnet-tools). Se utilizar o Visual Studio 2015 Update 2 e o Microsoft Azure SDK para .NET 2.9 ou o Visual Studio 2013 com o Azure SDK 2.9, a experiência é basicamente a mesma.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
 
@@ -148,7 +150,7 @@ Agora, está pronto para implementar o projeto. Quando implementa um projeto do 
    > [!NOTE]
    > O Visual Studio poderá pedir-lhe que instale os cmdlets do Azure PowerShell. Se lhe for solicitado, instale-os. Terá dos módulos Azure PowerShell para implementar com êxito grupos de recursos. O script do PowerShell no projeto não funciona com o novo [módulo do Azure PowerShell Az](/powershell/azure/new-azureps-module-az). 
    >
-   > Para obter mais informações, consulte [instalar e configurar os módulos do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+   > Para obter mais informações, consulte [instalar e configurar os módulos do Azure PowerShell](/powershell/azure/install-Az-ps).
    > 
    > 
 6. A implementação pode demorar alguns minutos. O estado da implementação é apresentado nas janelas **Saída**. Após concluir a implementação, a última mensagem indicará uma implementação bem sucedida com algo semelhante a:
@@ -313,4 +315,4 @@ Pode gerir o acesso ao dashboard através de grupos do RBAC. Também pode person
 Neste guia de início rápido, aprendeu a criar e implementar modelos com o Visual Studio. O próximo tutorial mostra-lhe como localizar as informações de referência de modelo para que possa criar uma conta de Armazenamento do Azure encriptada.
 
 > [!div class="nextstepaction"]
-> [Criar conta de armazenamento encriptada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Criar uma conta de armazenamento encriptada](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

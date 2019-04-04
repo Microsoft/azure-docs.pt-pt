@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
-ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093855"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916484"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Remover um ponto de final de CDN do Azure
 ## <a name="overview"></a>Descrição geral
@@ -52,12 +52,12 @@ Este tutorial orienta-o através da remoção de recursos de todos os nós de ex
    > 
    > 
 4. Selecione quais recursos de que pretende remover a partir de nós de extremidade.  Se quiser limpar todos os recursos, clique nas **remover todos** caixa de verificação.  Caso contrário, escreva o caminho de cada ativo a limpar no **caminho** caixa de texto. Abaixo formatos são suportadas no caminho.
-    1. **Remoção de URL única**: remover recurso individual, especificando o URL completo, com ou sem a extensão de ficheiro, por exemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Remoção de carateres universais**: asterisco (\*) pode ser utilizada como um caráter universal. Remover todas as pastas, subpastas e arquivos num ponto final com `/*` o caminho ou a remoção de todos os ficheiros numa pasta específica, especificando a pasta e subpastas seguido `/*`, por exemplo,`/pictures/*`.  Tenha em atenção que remoção de carateres universais não é suportada pelo Azure CDN da Akamai atualmente. 
-    3. **Remoção de domínio de raiz**: remover a raiz do ponto de extremidade com "/" no caminho.
+    1. **Remoção de URL única**: Remover recurso individual, especificando o URL completo, com ou sem a extensão de ficheiro, por exemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Remoção de carateres universais**: Asterisco (\*) pode ser utilizada como um caráter universal. Remover todas as pastas, subpastas e arquivos num ponto final com `/*` o caminho ou a remoção de todos os ficheiros numa pasta específica, especificando a pasta e subpastas seguido `/*`, por exemplo,`/pictures/*`.  Tenha em atenção que remoção de carateres universais não é suportada pelo Azure CDN da Akamai atualmente. 
+    3. **Remoção de domínio de raiz**: Remover a raiz do ponto de extremidade com "/" no caminho.
    
    > [!TIP]
-   > Tem de ser especificados para a remoção de caminhos e tem de ser um URL relativo que se ajustem o seguinte [expressão regular](https://msdn.microsoft.com/library/az24scfc.aspx). **Remover todos** e **remoção de carateres universais** não suportado pelo **CDN do Azure da Akamai** atualmente.
+   > Tem de ser especificados para a remoção de caminhos e tem de ser um URL relativo que se ajustem o seguinte [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Remover todos** e **remoção de carateres universais** não suportado pelo **CDN do Azure da Akamai** atualmente.
    > > Remoção de URL única `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Cadeia de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Remoção de carateres universais `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
@@ -75,5 +75,5 @@ Este tutorial orienta-o através da remoção de recursos de todos os nós de ex
 
 ## <a name="see-also"></a>Consulte também
 * [Pré-carregar recursos num ponto final da CDN do Azure](cdn-preload-endpoint.md)
-* [Referência da API de REST do CDN do Azure - remover ou pré-carregar um ponto final](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Referência da API de REST do CDN do Azure - remover ou pré-carregar um ponto final](/rest/api/cdn/endpoints)
 

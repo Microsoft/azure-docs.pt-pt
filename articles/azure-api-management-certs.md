@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765803"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895703"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gestão de serviço do Azure
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação dos vários serviços do Azure. 
@@ -56,4 +56,4 @@ Depois de ter um certificado de gestão que criou, (ficheiro. cer com apenas a c
     ![Definições](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que tem um certificado de gestão associado com uma subscrição, pode (depois de instalar o certificado correspondente localmente) por meio de programação ligar para o [REST API do modelo de implementação clássica](https://msdn.microsoft.com/library/azure/mt420159.aspx) e automatizar o vários recursos do Azure também estão associados essa subscrição.
+Agora que tem um certificado de gestão associado com uma subscrição, pode (depois de instalar o certificado correspondente localmente) por meio de programação ligar para o [REST API do modelo de implementação clássica](/azure/#pivot=sdkstools) e automatizar o vários recursos do Azure também estão associados essa subscrição.

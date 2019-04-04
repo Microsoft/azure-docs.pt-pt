@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 17e9d19b755c1d3ac455d9fef8406e00de3a376d
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628929"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915260"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Partilha Azure geográficos âncoras nas sessões e dispositivos com o Azure Cosmos DB back-end
 
@@ -70,7 +70,7 @@ Localize a `StorageConnectionString` propriedade e defina o valor seja igual a `
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, utilizou a Azure Cosmos DB para partilhar os identificadores de âncora entre dispositivos. Para saber mais sobre a biblioteca de âncoras espaciais do Azure, avance para o nosso guia sobre como criar e localizar as âncoras.
+Neste tutorial, utilizou a Azure Cosmos DB para partilhar os identificadores de âncora entre dispositivos. Para saber mais sobre como utilizar as âncoras espaciais do Azure numa nova aplicação Android, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Criar e localizar as âncoras usando âncoras espaciais do Azure](../create-locate-anchors-overview.md)
+> [A partir de uma nova aplicação Android](./tutorial-new-android-app.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112110"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895691"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure
 
@@ -116,7 +116,7 @@ Seguem-se as opções e os benefícios para ativar a verificação de dois passo
 **Opção 1**: [Ativar a multi-factor Authentication, alterando o estado do utilizador](../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefício**: Este é o método tradicional para exigir a verificação de dois passos. Funciona com ambos [multi-factor Authentication na cloud e no servidor do Azure multi-factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md). Ao utilizar este método requer que os utilizadores efetuar a verificação de dois passos sempre que iniciam sessão e substitui as políticas de acesso condicional.
 
-**Opção 2**: [Ativar a multi-factor Authentication com a política de acesso condicional](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Opção 2**: [Ativar a multi-factor Authentication com a política de acesso condicional](../active-directory/authentication/howto-mfa-getstarted.md).
 **Benefício**: Esta opção permite-lhe pedir para verificação de dois passos em condições específicas através de [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md). Condições específicas podem ser utilizador inícios de sessão de localizações diferentes, os dispositivos não fidedignos ou aplicações que considera duvidosos. Definir condições específicas em que exija uma verificação permite-lhe evitar avisar constante para os seus utilizadores, que podem ser uma experiência de usuário desagradáveis.
 
 Essa é a maneira mais flexível para ativar a verificação de dois passos para os seus utilizadores. Ativar uma política de acesso condicional funciona apenas para o Azure multi-factor Authentication na cloud e é uma funcionalidade premium do Azure AD. Pode encontrar mais informações sobre este método na [implementar com base na cloud do Azure multi-factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).

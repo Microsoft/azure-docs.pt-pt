@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848857"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916347"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas do Azure Monitor
 
@@ -76,11 +76,33 @@ Pode aplicar filtros para os gráficos que mostram as métricas com dimensões. 
 
 5. Pode repetir os passos 1 a 4 para aplicar vários filtros para os mesmo gráficos.
 
+## <a name="multiple-metrics-and-charts"></a>Várias métricas e gráficos
+
+Também pode criar gráficos que várias métricas de desenho ou mostram vários gráficos de métricas ao mesmo tempo. Esta funcionalidade permite-lhe:
+
+- correlacionar métricas relacionadas no mesmo gráfico para ver como um valor está relacionada para outro
+- métricas de exibição com diferentes unidades de medida próximos
+- visualmente, Agregar e comparar as métricas de vários recursos
+
+Por exemplo, se tiver 5 contas de armazenamento e quiser saber a quantidade total de espaço é consumido entre elas, pode criar um gráfico de áreas (empilhadas) que mostra os indivíduos e a soma de todos os valores em pontos específicos no tempo.
+
+### <a name="multiple-metrics-on-a-chart"></a>Várias métricas num gráfico
+
+Primeiro, [criar um novo gráfico](#create-a-new-chart). Clique em **métrica adicionar** e repita os passos para adicionar outra métrica no mesmo gráfico.
+
+### <a name="multiple-charts"></a>Vários gráficos
+
+Clique nas **adicionar gráfico** e crie outro gráfico com uma métrica diferente.
+
+### <a name="order-or-delete-multiple-charts"></a>Solicitar ou eliminar vários gráficos
+
+Para encomendar ou eliminar vários gráficos, clicar nas elipses ( **...**  ) símbolo para abrir o menu de gráfico e escolha o item de menu apropriado **mover para cima**, **mover para baixo**, ou **eliminar**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Aplicam-se de que a divisão de um gráfico
 
-Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da comparação de métrica em relação a si e identificar os segmentos afastados de uma dimensão. 
+Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da comparação de métrica em relação a si e identificar os segmentos afastados de uma dimensão.
 
-### <a name="to-apply-splitting"></a>Para aplicar a divisão
+### <a name="apply-splitting"></a>Aplicar divisão
 
 1. Clique em **aplicam-se de que a divisão** acima do gráfico.
  

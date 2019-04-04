@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: cd64bdabc2b7b34687296c855c27882925d80f63
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d6b54027adcf2b12c6ca4081a11208a31f620e8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124414"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919330"
 ---
 A tabela seguinte apresenta uma lista de quotas e limites específica [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços de Hubs de eventos, consulte [preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limite | Âmbito | Notas | Value |
+| Limite | Âmbito | Notas | Valor |
 | --- | --- | --- | --- |
-| Número de espaços de nomes de Hubs de eventos por subscrição |Subscrição |- |1,000 |
+| Número de espaços de nomes de Hubs de eventos por subscrição |Subscrição |- |100 |
 | Número de hubs de eventos por espaço de nomes |Espaço de nomes |Os pedidos subsequentes para a criação de um novo hub de eventos são rejeitados. |10 |
 | Número de partições por hub de eventos |Entidade |- |32 |
 | Número de grupos de consumidores por hub de eventos |Entidade |- |20 |

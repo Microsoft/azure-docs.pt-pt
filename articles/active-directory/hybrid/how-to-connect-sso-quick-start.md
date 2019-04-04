@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086824"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894770"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
@@ -93,7 +93,10 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 ![Portal do Azure: Painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) no seu local do Active Directory (AD) em cada floresta do AD. Esta conta de computador é necessária para a funcionalidade funcionar. Se estiver a utilizar as arquiteturas de Pass-the-Hash e atenuação de roubo de credenciais no seu ambiente no local, certifique-se de que o `AZUREADSSOACC` conta de computador não acaba no contentor de quarentena. Faça as alterações apropriadas para criar a conta de computador no contentor de computadores. Depois do SSO totalmente integrado é ativado com êxito no Assistente do Azure AD Connect, mover o `AZUREADSSOACC` conta de computador para uma unidade organizacional (UO) onde outras contas de computador são geridas para se certificar de que ele não é eliminado acidentalmente.
+> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` em seus locais do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada. Store a conta de computador numa unidade organizacional (UO) onde estão seguros de eliminações acidentais.
+
+>[!NOTE]
+> Se estiver a utilizar as arquiteturas de Pass-the-Hash e atenuação de roubo de credenciais no seu ambiente no local, efetue as alterações necessárias para garantir que o `AZUREADSSOACC` conta de computador não acaba no contentor de quarentena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Passo 3: Implementar a funcionalidade
 

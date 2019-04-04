@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649261"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917792"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Compreender a forma como o desconto de plano de reserva de software SUSE Linux Enterprise é aplicado para o Azure
 
@@ -38,7 +38,7 @@ Por exemplo, se comprar um plano para o servidor do SUSE Linux Enterprise para H
 - 1 implementada a VM com 3 ou 4 vCPUs,
 - ou a % de 77 0.77 ou cerca de uma VM com vCPUs 5 ou mais.
 
-A proporção de vCPUs 5 ou mais é 2.6. Portanto, uma reserva para SUSE com uma VM com 5 ou mais vCPUs abrange uma única parte do custo de software, o que é cerca de 77%.
+A proporção de vCPUs 5 ou mais é 2.6. Portanto, uma reserva para SUSE com uma VM com 5 ou mais vCPUs abrange uma única parte do custo de software, que é cerca de 77%.
 
 ## <a name="understand-suse-vm-usage-before-you-buy"></a>Compreender a utilização da VM do SUSE antes de comprar
 
@@ -126,10 +126,10 @@ Nomes de mercado de portal do Azure:
 
 Para saber mais sobre as reservas, veja os artigos seguintes:
 
-- [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+- [O que é o Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Efetue o pré-pagamento do SUSE planos de software com as reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 

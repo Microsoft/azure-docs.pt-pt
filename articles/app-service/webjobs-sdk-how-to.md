@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518835"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895212"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -130,7 +130,7 @@ static void Main()
 
 Na versão 3. *x*, o limite de ligação está predefinida para ligações de infinitas. Se por algum motivo precisar de alterar este limite, pode utilizar o [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) propriedade do [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) classe.
 
-Na versão 2. *x*, controlar o número de ligações simultâneas a um anfitrião utilizando o [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. 2. *x*, deve aumentar este valor da predefinição de 2 antes de iniciar seu host de WebJobs.
+Na versão 2. *x*, controlar o número de ligações simultâneas a um anfitrião utilizando o [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, deve aumentar este valor da predefinição de 2 antes de iniciar seu host de WebJobs.
 
 Saída de todos os pedidos HTTP que fizer uma função utilizando `HttpClient` fluem `ServicePointManager`. Depois de atingir o valor definido `DefaultConnectionLimit`, `ServicePointManager` começa da fila as solicitações antes de enviá-los. Suponha que sua `DefaultConnectionLimit` está definido como 2 e os pedidos de HTTP 1.000 do código faz. Inicialmente, apenas duas são permitidos pedidos por meio de para o sistema operacional. Os outros 998 são colocados em fila até que haja espaço para eles. Isso significa que seu `HttpClient` pode tempo limite porque aparenta efetuou o pedido, mas nunca foi enviado o pedido pelo sistema operacional para o servidor de destino. Pelo que poderá ver o comportamento que parece que não fazem sentido: local `HttpClient` está a demorar 10 segundos para concluir um pedido, mas o seu serviço está a devolver todos os pedidos em 200 ms. 
 
@@ -811,7 +811,7 @@ Para obter informações sobre como as funções do código assíncrono, consult
 
 Para obter informações sobre como lidar com cancelamento dos tokens, consulte a documentação de funções do Azure no [cancelamento dos tokens e de encerramento correto](../azure-functions/functions-dotnet-class-library.md#cancellation-tokens).
 
-## <a name="multiple-instances"></a>Várias instâncias
+## <a name="multiple-instances"></a>Múltiplas instâncias
 
 Se a sua aplicação web é executado em várias instâncias, é executado um trabalho Web contínuo em cada instância, à escuta de acionadores e funções de chamada. Os vários enlaces de Acionador foram concebidos para compartilhar com eficiência trabalho em colaboração entre instâncias, para que o aumento horizontal para mais instâncias permite-lhe lidar com mais carga.
 
@@ -1010,7 +1010,7 @@ config.LoggerFactory = new LoggerFactory()
 
 Este artigo tenha fornecido trechos de código que mostram como lidar com cenários comuns para trabalhar com o SDK de WebJobs. Para obter exemplos completos, consulte [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
 
-[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+['ExecutionContext']: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 ['ITelemetryInitializer']: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer

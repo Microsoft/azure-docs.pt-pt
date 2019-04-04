@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449010"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905295"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para o escalão Standard do Centro de segurança para uma maior segurança
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Fornece visibilidade e controlo sobre a cloud cargas de trabalho híbrida, Active Directory defesas que reduzem sua exposição a ameaças e deteção inteligente para o ajudar a manter o ritmo com ataques cibernéticos a evoluir rapidamente.
@@ -46,7 +46,7 @@ Para obter o escalão Standard:
 4. Selecione **padrão** para atualizar.
 5. Clique em **Guardar**.
 
-![Preços do Centro de segurança](./media/security-center-pricing/get-standard.png)
+(Os preços na imagem são por exemplo apenas para fins.) ![Preços do Centro de segurança](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > Para ativar todas as funcionalidades do Centro de segurança, tem de aplicar o padrão de escalão de preço para a subscrição que contém as máquinas virtuais aplicável. Configurar a preços de uma área de trabalho não ativa just-in-acesso à VM do tempo, controlos de aplicação adaptável e deteções de rede para recursos do Azure.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286385"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895754"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e dimensionamento nas funções durável (funções do Azure)
 
@@ -56,7 +56,7 @@ A extensão de tarefas durável implementa um aleatório exponencial término al
 O atraso máximo de sondagem é configurável através da `maxQueuePollingInterval` propriedade no [ficheiro Host. JSON](../functions-host-json.md#durabletask). Definir este tipo como um valor mais alto pode resultar em latências de processamento de mensagens superior. Latências maiores esperadas apenas depois de períodos de inatividade. Definir este tipo como um valor inferior poderá resultar em custos de armazenamento superiores, devido a transações de armazenamento maior.
 
 > [!NOTE]
-> Quando em execução nos planos de consumo de funções do Azure e o Premium, o [controlador de dimensionamento de funções do Azure](../functions-scale.md#how-the-consumption-plan-works) pesquisará cada fila de controle e o item de trabalho uma vez a cada 10 segundos. Esta consulta adicional é necessária para determinar quando ativar a instâncias de aplicações de função e para tomar decisões de dimensionamento. No momento da redação, este segundo intervalo 10 é constante e não pode ser configurado.
+> Quando em execução nos planos de consumo de funções do Azure e o Premium, o [controlador de dimensionamento de funções do Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) pesquisará cada fila de controle e o item de trabalho uma vez a cada 10 segundos. Esta consulta adicional é necessária para determinar quando ativar a instâncias de aplicações de função e para tomar decisões de dimensionamento. No momento da redação, este segundo intervalo 10 é constante e não pode ser configurado.
 
 ## <a name="storage-account-selection"></a>Seleção de conta de armazenamento
 
@@ -244,4 +244,4 @@ Se não vir os números de débito esperado e sua CPU e utilização de memória
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Create your first durable function in C#](durable-functions-create-first-csharp.md) (Criar a sua primeira função durável em C#)
+> [Criar a primeira função durável noC#](durable-functions-create-first-csharp.md)

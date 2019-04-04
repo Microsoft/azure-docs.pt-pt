@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123730"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918897"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger recursos da CDN do Azure com a autenticação de token
 
@@ -33,7 +33,7 @@ Autenticação de token é um mecanismo que permite-lhe impedir que a rede Azure
 
 Autenticação de token verifica que os pedidos são gerados por um site confiável, exigindo que os pedidos para conter um valor de token que retenções codificada informações sobre o autor do pedido. Conteúdo é fornecido para um autor de pedido apenas se as informações de codificada cumprem os requisitos; caso contrário, as solicitações serão negadas. Pode configurar os requisitos, utilizando um ou mais dos seguintes parâmetros:
 
-- País: Permitir ou negar pedidos que têm origem nos países/regiões especificados pelo respetivo [indicativo de país](https://msdn.microsoft.com/library/mt761717.aspx).
+- País: Permitir ou negar pedidos que têm origem nos países/regiões especificados pelo respetivo [indicativo de país](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Permitir apenas pedidos que correspondam a ativo especificado ou o caminho.
 - Host: Permitir ou negar pedidos que utilizam os anfitriões especificados no cabeçalho do pedido.
 - Referenciador: Permitir ou negar o pedido a partir do referenciador especificado.
@@ -120,7 +120,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida um pedido de cliente q
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Permite apenas pedidos provenientes de um ou mais países especificados. Pedidos provenientes de todos os outros países serão negados. Utilizar duas letras [indicativo de país ISO 3166](https://msdn.microsoft.com/library/mt761717.aspx) para cada país e separar cada um deles com uma vírgula; não adicione um espaço. Por exemplo, se quiser autorizar o acesso apenas a Estados Unidos e em França, introduza `US,FR`.</td>
+      >    <td>Permite apenas pedidos provenientes de um ou mais países especificados. Pedidos provenientes de todos os outros países serão negados. Utilizar duas letras [indicativo de país ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) para cada país e separar cada um deles com uma vírgula; não adicione um espaço. Por exemplo, se quiser autorizar o acesso apenas a Estados Unidos e em França, introduza `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

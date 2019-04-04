@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 4ce4cdbaf49fb743a14c7a5285ed29b9ad49faf5
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652659"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905006"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -107,18 +107,21 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel de Ubuntu para máquinas virtuais do Azure
 
-**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 14.04 LTS | 9.23 | 3.13.0-24-Generic para 3.13.0-165-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-142-generic,<br/>4.15.0-1023-Azure para 4.15.0-1037-azure |
 14.04 LTS | 9.22 | 3.13.0-24-Generic para 3.13.0-164-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.15.0-1023-Azure para 4.15.0-1036-azure |
 14.04 LTS | 9.21 | 3.13.0-24-Generic para 3.13.0-163-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.15.0-1023-Azure para 4.15.0-1035-azure |
 14.04 LTS | 9.20 | 3.13.0-24-Generic para 3.13.0-161-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-138-generic,<br/>4.15.0-1023-Azure para 4.15.0-1030-azure |
-
-||| 16.04 LTS | 9.23 | 4.4.0-21-Generic para 4.4.0-142-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-45-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1037-azure| 16.04 LTS | 9.22 | 4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-43-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1036-azure| 16.04 LTS | 9.21 | 4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-42-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1035-azure| 16.04 LTS | 9.20 | 4.4.0-21-Generic para 4.4.0-138-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-38-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1030-azure|
+|||
+16.04 LTS | 9.23 | 4.4.0-21-Generic para 4.4.0-142-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-45-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1037-azure|
+16.04 LTS | 9.22 | 4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-43-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1036-azure|
+16.04 LTS | 9.21 | 4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-42-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1035-azure|
+16.04 LTS | 9.20 | 4.4.0-21-Generic para 4.4.0-138-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic,<br/>4.11.0-13-Generic para 4.11.0-14-generic,<br/>4.13.0-16-Generic para 4.13.0-45-generic,<br/>4.15.0-13-Generic para 4.15.0-38-generic<br/>4.11.0-1009-Azure para 4.11.0-1016-azure,<br/>4.13.0-1005-Azure para 4.13.0-1018-azure <br/>4.15.0-1012-Azure para 4.15.0-1030-azure|
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões do Debian kernel com suporte para máquinas virtuais do Azure
 
-**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 Debian 7 | 9.19,9.20,9.21,9.22,9.23 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -127,7 +130,7 @@ Debian 8 | 9.19 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel de 12 do SUSE Linux Enterprise Server para máquinas virtuais do Azure
 
-**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.23 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.79-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
@@ -155,6 +158,7 @@ Imagens da galeria do Azure - Microsoft publicado | Suportadas | Suportada se a 
 Imagens da galeria do Azure - publicado de terceiros | Suportadas | Suportada se a VM é executado num sistema operativo suportado.
 Imagens personalizadas - publicado de terceiros | Suportadas | Suportada se a VM é executado num sistema operativo suportado.
 VMs migradas com o Site Recovery | Suportadas | Se uma VM de VMware ou máquina física foi migrada para o Azure com o Site Recovery, terá de desinstalar a versão mais antiga do serviço de mobilidade em execução na máquina e reinicie a máquina antes de replicá-los para outra região do Azure.
+Políticas RBAC | Não suportado | Políticas de controlo (RBAC) em VMs não são replicadas para a ativação pós-falha da VM na região de destino de acesso baseado em funções.
 
 ## <a name="replicated-machines---disk-actions"></a>Replicar máquinas - ações de disco
 
@@ -213,7 +217,7 @@ A tabela seguinte resume os limites de Site Recovery.
 - Existem dois limites a ter em consideração, por disco de dados de alterações e por dados da máquina virtual de abandono.
 - Por exemplo, se usarmos um disco Premium P20, conforme descrito na tabela abaixo, Site Recovery pode processar 5 MB de alterações por disco, no máximo de cinco esses discos por VM, devido ao limite de 25 MB/s total de alterações por VM.
 
-**Destino de armazenamento** | **E/s de disco de média de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
+**Destino de armazenamento** | **E/s de disco de média de origem** |**Alterações de dados do disco de origem médio** | **Alterações a dados de disco de origem total por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco

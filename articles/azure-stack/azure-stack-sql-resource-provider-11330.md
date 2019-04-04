@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4b9b91c17a9199c7890d17a2b721ce0803e6bd6c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ae5a824fbd96a9a76eb18811a46bfc17afa15073
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243339"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879357"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Notas de versão do fornecedor 1.1.33.0 de recursos do SQL
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Estas notas de versão descrevem as melhorias e problemas conhecidos no SQL 1.1.33.0 de versão do fornecedor de recursos.
 
@@ -50,7 +50,8 @@ Esta versão do fornecedor de recursos de SQL do Azure Stack inclui as seguintes
 
 - **Implementação de fornecedor (1.1.30.0) de recursos SQL anterior poderá falhar se não estiver ativada TLS 1.2**. Atualizar o fornecedor de recursos do SQL 1.1.33.0 para ativar o TLS 1.2 ao implementar o fornecedor de recursos, a atualizar o fornecedor de recursos ou girando segredos. 
 
-- **Falha de rotação secreta do fornecedor de recursos SQL**. Foi corrigido o problema resulta no seguinte código de erro quando alternar segredos: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Falha de rotação secreta do fornecedor de recursos SQL**. Foi corrigido o problema resulta no seguinte código de erro quando alternar segredos:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Problemas conhecidos 
 

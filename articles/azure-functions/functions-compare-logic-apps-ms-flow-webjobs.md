@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: de83cc80d64fb1862f1fdec32b704d0948ef9fc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820523"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895652"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são o Microsoft Flow, Logic Apps, funções e WebJobs?
 
@@ -26,7 +26,7 @@ Este artigo compara os seguintes serviços cloud do Microsoft:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Funções do Azure](https://azure.microsoft.com/services/functions/)
-* [WebJobs do Serviço de Aplicações do Azure ](../app-service/webjobs-create.md)
+* [WebJobs do serviço de aplicações do Azure](../app-service/webjobs-create.md)
 
 Todos estes serviços podem resolver problemas de integração e automatizar processos comerciais. Podem todos definir entradas, ações, condições e saídas. Pode executar cada um com base numa agenda ou num acionador. Cada serviço tem vantagens únicas e este artigo explica as diferenças.
 
@@ -84,11 +84,11 @@ As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos 
 
 |  | Funções | WebJobs com o SDK do WebJobs |
 | --- | --- | --- |
-|[Modelo de aplicação sem servidor](https://azure.microsoft.com/solutions/serverless/) com [dimensionamento automático](functions-scale.md#how-the-consumption-plan-works)|✔||
-|[Programação e testes no browser](functions-create-first-azure-function.md) |✔||
-|[Preços com pagamento por utilização](functions-scale.md#consumption-plan)|✔||
+|[Modelo de aplicação sem servidor](https://azure.microsoft.com/solutions/serverless/) com [dimensionamento automático](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
+|[Desenvolver e testar no browser](functions-create-first-azure-function.md) |✔||
+|[Preços de pay-per-use](functions-scale.md#consumption-plan)|✔||
 |[Integração com Logic Apps](functions-twitter-email.md)|✔||
-| Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Filas e blobs de Armazenamento do Microsoft Azure](functions-bindings-storage-blob.md)<br>[Filas e tópicos do Azure Service Bus](functions-bindings-service-bus.md)<br>[BD do Cosmos para o Azure](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de Ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| Eventos de acionador |[Temporizador](functions-bindings-timer.md)<br>[As filas de armazenamento do Azure e blobs](functions-bindings-storage-blob.md)<br>[Tópicos e filas do Service Bus do Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[As filas de armazenamento do Azure e blobs](functions-bindings-storage-blob.md)<br>[Tópicos e filas do Service Bus do Azure](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de ficheiros](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Linguagens suportadas  |C#<br>F#<br>JavaScript<br>Java (pré-visualização) |C#<sup>1</sup>|
 |Gestores de pacotes|NPM e NuGet|NuGet<sup>2</sup>|
 
@@ -119,8 +119,8 @@ A integração entre o Microsoft Flow, Logic Apps e as funções continua a melh
 
 Pode obter mais informações sobre serviços de integração utilizando as ligações seguintes:
 
-* [Tirar partido das Funções do Azure e do Serviço de Aplicações do Azure para cenários de integração por Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrações Simplificadas por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Tirar partido das funções do Azure e o serviço de aplicações do Azure para cenários de integração por Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrações simplificadas por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast de aplicações em direto de lógica](https://aka.ms/logicappslive)
 * [Microsoft Flow perguntas mais frequentes](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

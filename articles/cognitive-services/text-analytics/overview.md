@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: f79700d3b57623693bf1d0d62dd9ab171df464fb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882520"
+ms.locfileid: "58904768"
 ---
 # <a name="what-is-text-analytics-api"></a>O que é a API de análise de texto?
 
@@ -77,7 +77,7 @@ Todos os pontos finais da API de Análise de Texto aceitam dados de texto não p
 | Tamanho máximo do pedido completo | 1 MB |
 | Número máximo de documentos num pedido | 1000 documentos |
 
-O limite de taxa é de 100 chamadas por segunda e 1000 chamadas por minuto. Tenha em atenção que pode submeter uma grande quantidade de documentos numa única chamada (até 1000 documentos).
+O limite de taxa é de 100 pedidos por segundo e 1000 pedidos por minuto. Pode enviar uma grande quantidade de documentos numa única chamada (até 1000 documentos).
 
 ## <a name="unicode-encoding"></a>Codificação Unicode
 

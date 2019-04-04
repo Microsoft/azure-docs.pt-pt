@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: 5cfcbba58b4e4416a2f1a56adcbe21eeacb15a85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152171"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892301"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se dos serviços de domínio do Azure AD é a certo para seu caso de utilização
 Com o Azure AD Domain Services pode implementar cargas de trabalho nos serviços de infraestrutura do Azure, sem ter de se preocupar sobre como manter a infraestrutura de identidade no Azure. Este serviço gerido é diferente de uma implementação típica do Windows Server Active Directory que implementar e administrar por conta própria. O serviço é fácil implementar e oferece monitorização de estado de funcionamento automatizado e remediação. Estamos constantemente a desenvolver o serviço para adicionar suporte para cenários comuns de implantação.
@@ -49,7 +49,7 @@ A tabela seguinte ajuda-o a decidir entre a utilizar o Azure AD Domain Services 
 | [**Leitura de LDAP**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
 | [**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
 | [**Escrita LDAP**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Política de grupo**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**Política de Grupo**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**Implementações distribuídas geograficamente**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Serviço gerido
@@ -115,9 +115,9 @@ Talvez tenha casos de utilização de implementação em que é necessário que 
 >
 >
 
-Publicamos [diretrizes para implementar o Windows Server Active Directory em máquinas de virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx) para ajudar a facilitar a instalações faça mesmo.
+Publicamos [diretrizes para implementar o Windows Server Active Directory em máquinas de virtuais do Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) para ajudar a facilitar a instalações faça mesmo.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Recursos - dos serviços de domínio do Azure AD](active-directory-ds-features.md)
 * [Cenários de implementação - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Diretrizes para implementar o Windows Server Active Directory em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Diretrizes para implementar o Windows Server Active Directory em máquinas virtuais do Azure](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

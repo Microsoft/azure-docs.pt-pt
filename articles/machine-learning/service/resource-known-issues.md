@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791750"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892743"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
 
@@ -50,7 +50,7 @@ Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e 
 
 ## <a name="automated-machine-learning"></a>Aprendizagem automática automatizada
 
-Aprendizagem de máquina de fluxo automatizada tensor não suporta a versão de fluxo de tensor 1.13 atualmente. Instalar isso fará com que as dependências de pacote parar de funcionar. Estamos a trabalhar para corrigir este problema numa versão futura. 
+Aprendizagem de máquina de fluxo automatizada tensor não suporta a versão de fluxo de tensor 1.13 atualmente. Instalar esta versão fará com que as dependências de pacote parar de funcionar. Estamos a trabalhar para corrigir este problema numa versão futura. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Se vir este erro quando utiliza automatizada aprendizagem:
 
 1. Desanexar e, em seguida, voltar a anexar o cluster para o bloco de notas. 
 
-Se isso não resolver o problema, tente reiniciar o cluster.
+Se estes passos não resolvem o problema, tente reiniciar o cluster.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -123,7 +123,3 @@ Se efetuar uma operação de gestão num destino de computação de uma tarefa r
 ```
 
 Por exemplo, receberá um erro se tentar criar ou anexar um destino de computação a partir de um Pipeline de ML, que é enviado para execução remota.
-
-## <a name="get-more-support"></a>Obter suporte mais
-
-Pode submeter pedidos de suporte e obtenha ajuda de suporte técnico, fóruns e muito mais. [Saiba mais...](support-for-aml-services.md)

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539637"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918166"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Ativar a comunicação para instâncias de função no azure
 Funções de serviço cloud comunicam através de ligações internas e externas. Ligações externas são chamadas **pontos finais de entrada** enquanto são chamadas de ligações internas **pontos finais internos**. Este tópico descreve como modificar o [definição do serviço](cloud-services-model-and-package.md#csdef) para criar pontos finais.
 
 ## <a name="input-endpoint"></a>Ponto final de entrada
-O ponto final de entrada é usado quando deseja expor uma porta para o exterior. Especifique o tipo de protocolo e a porta do ponto de extremidade que, em seguida, aplica-se para ambas as portas externas e internas para o ponto final. Se quiser, pode especificar uma porta diferente interna para o ponto final com o [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) atributo.
+O ponto final de entrada é usado quando deseja expor uma porta para o exterior. Especifique o tipo de protocolo e a porta do ponto de extremidade que, em seguida, aplica-se para ambas as portas externas e internas para o ponto final. Se quiser, pode especificar uma porta diferente interna para o ponto final com o [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) atributo.
 
 O ponto final de entrada, pode utilizar os seguintes protocolos: **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ A biblioteca gerida do Azure fornece métodos para instâncias de função comun
 > 
 > 
 
-Pode utilizar o [instâncias](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) propriedade para recuperar instâncias de uma função. Utilizar pela primeira vez o [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para devolver uma referência para a instância de função atual e, em seguida, utilize o [função](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) propriedade para retornar uma referência para a função em si.
+Pode utilizar o [instâncias](/previous-versions/azure/reference/ee741904(v=azure.100)) propriedade para recuperar instâncias de uma função. Utilizar pela primeira vez o [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) para devolver uma referência para a instância de função atual e, em seguida, utilize o [função](/previous-versions/azure/reference/ee741918(v=azure.100)) propriedade para retornar uma referência para a função em si.
 
 Quando se liga a uma instância de função programaticamente através do SDK de .NET, é relativamente fácil de acessar as informações de ponto final. Por exemplo, depois que já ligou a um ambiente de função específica, pode obter a porta de um ponto final específico com este código:
 
@@ -111,7 +111,7 @@ O **instâncias** propriedade retorna uma coleção de **RoleInstance** objetos.
 > 
 > 
 
-Para determinar o número de porta para um ponto final interno numa instância de função, pode utilizar o [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) propriedade para retornar um objeto de dicionário que contém nomes de ponto final e o IP correspondente endereços e portas. O [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) propriedade retorna o endereço IP e porta para um ponto de extremidade especificado. O **PublicIPEndpoint** propriedade devolve a porta para um ponto final com balanceamento de carga. A parte do endereço IP do **PublicIPEndpoint** propriedade não é utilizada.
+Para determinar o número de porta para um ponto final interno numa instância de função, pode utilizar o [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) propriedade para retornar um objeto de dicionário que contém nomes de ponto final e o IP correspondente endereços e portas. O [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) propriedade retorna o endereço IP e porta para um ponto de extremidade especificado. O **PublicIPEndpoint** propriedade devolve a porta para um ponto final com balanceamento de carga. A parte do endereço IP do **PublicIPEndpoint** propriedade não é utilizada.
 
 Eis um exemplo que faz a iteração de instâncias de função.
 
@@ -368,7 +368,7 @@ Permite apenas tráfego de rede da **WebRole1** ao **WorkerRole1**, **WebRole1**
 </ServiceDefinition>
 ```
 
-Uma referência de esquema XML para os elementos usados acima pode ser encontrada [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Uma referência de esquema XML para os elementos usados acima pode ser encontrada [aqui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o serviço em nuvem [modelo](cloud-services-model-and-package.md).

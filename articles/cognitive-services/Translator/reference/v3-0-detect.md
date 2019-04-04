@@ -3,19 +3,19 @@ title: API de texto do Translator detetar método
 titlesuffix: Azure Cognitive Services
 description: Use o método detetar de API de texto do Translator.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 57b82bf65ccf002173df90fe19db444d1c087905
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857894"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916670"
 ---
 # <a name="translator-text-api-30-detect"></a>Texto do Translator API 3.0: Detect
 
@@ -48,7 +48,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_header_</td>
+    <td>_Uma autorização_<br/>_cabeçalho_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -176,7 +176,7 @@ Se ocorrer um erro, o pedido também irá devolver uma resposta de erro do JSON.
 
 O exemplo seguinte mostra como obter os idiomas suportados para a tradução de texto.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

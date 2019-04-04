@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781906"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904938"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação.
 
 Este artigo destina-se a utilizadores que têm um pouco familiarizado com modelos do Resource Manager. Ele fornece informações detalhadas sobre a estrutura e a sintaxe do modelo. Se pretender uma introdução à criação de um modelo, veja [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>Formato de modelo
 
@@ -47,11 +50,11 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 | $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implementações do grupo de recursos, utilize: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
 | apiProfile |Não | Uma versão de API que funciona como uma coleção de versões de API para tipos de recursos. Utilize este valor para evitar ter de especificar as versões de API para cada recurso no modelo. Quando especificar uma versão de perfil de API e não especificar uma versão de API para o tipo de recurso, o Resource Manager utiliza a versão de API para esse tipo de recurso que está definido no perfil.<br><br>A propriedade de perfil de API é especialmente útil quando implementar um modelo para ambientes diferentes, como o Azure Stack e o global Azure. Utilize a versão de perfil de API para se certificar de que o modelo utiliza automaticamente as versões que são suportadas nos dois ambientes. Para obter uma lista de versões de perfil de API atuais e os recursos definidos no perfil de versões de API, consulte [perfil de API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [controlar versões através de perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
-| [parameters](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
+| [parâmetros](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
 | [Variáveis](#variables) |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
 | [functions](#functions) |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
-| [resources](#resources) |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
-| [outputs](#outputs) |Não |Valores que são devolvidos após a implementação. |
+| [recursos](#resources) |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
+| [saídas](#outputs) |Não |Valores que são devolvidos após a implementação. |
 
 Cada elemento tem propriedades que pode definir. Este artigo descreve as seções do modelo em mais detalhes.
 
@@ -784,7 +787,7 @@ Não é possível utilizar o `reference` função na secção de saídas de um [
 |---------|---------|
 |[Copie as variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexo e produz esses valores. Não implemente todos os recursos. |
 |[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e devolve o ID de recurso. |
-|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída, ao criar o Balanceador de carga. |
+|[Load balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída, ao criar o Balanceador de carga. |
 
 
 <a id="comments" />

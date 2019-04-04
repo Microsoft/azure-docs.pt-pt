@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234871"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893746"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação de cache-aside no ASP.NET
 
@@ -79,7 +79,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
     using System.Data.Entity.SqlServer;
     ```
 
-1. Substitua a definição da classe `Team` pelo seguinte fragmento de código que contém uma definição da classe `Team` atualizada, bem como outras classes do programa auxiliar do Entity Framework. Neste tutorial, está a utilizar a primeira abordagem de código com o Entity Framework. Esta abordagem permite ao Entity Framework criar a base de dados a partir do código. Para obter mais informações sobre a abordagem Code First para o Entity Framework utilizado neste tutorial, veja [Code first to a new database (Code First para criar uma nova base de dados)](https://msdn.microsoft.com/data/jj193542).
+1. Substitua a definição da classe `Team` pelo seguinte fragmento de código que contém uma definição da classe `Team` atualizada, bem como outras classes do programa auxiliar do Entity Framework. Neste tutorial, está a utilizar a primeira abordagem de código com o Entity Framework. Esta abordagem permite ao Entity Framework criar a base de dados a partir do código. Para obter mais informações sobre a abordagem Code First para o Entity Framework utilizado neste tutorial, veja [Code first to a new database (Code First para criar uma nova base de dados)](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -688,8 +688,8 @@ Nesta secção, vai aprovisionar uma nova base de dados SQL Azure para a aplica�
 
     | Marcador de posição | Valor sugerido |
     | --- | --- |
-    | *{o_seu_nome_de_utilizador}* | Utilize o **início de sessão de administrador do servidor** do servidor da base de dados que acabou de criar. |
-    | *{a_sua_palavra-passe}* | Utilize a palavra-passe do servidor da base de dados que acabou de criar. |
+    | *{your_username}* | Utilize o **início de sessão de administrador do servidor** do servidor da base de dados que acabou de criar. |
+    | *{your_password}* | Utilize a palavra-passe do servidor da base de dados que acabou de criar. |
 
     Ao adicionar o nome de utilizador e a palavra-passe como uma Definição da Aplicação, o nome de utilizador e a palavra-passe não são incluídos no código. Esta abordagem ajuda a proteger essas credenciais.
 

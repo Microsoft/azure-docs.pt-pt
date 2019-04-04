@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652676"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905975"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
@@ -28,6 +28,7 @@ O novo modelo para restaurar instantâneas fornece os seguintes aprimoramentos d
 * Suporta discos de Standard SSD, juntamente com os discos Standard HDD e os discos de Premium SSD.
 *   Capacidade de utilizar contas de armazenamento originais uma VM não gerida (por disco), ao restaurar. Esta capacidade existe mesmo quando a VM tem discos que são distribuídos em contas de armazenamento. Ela acelera as operações de restauro para uma grande variedade de configurações de VM.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>O que há de novo nesta funcionalidade
 
@@ -74,9 +75,9 @@ No portal do Azure, pode ver um campo adicionado no **política de cópia de seg
 > Do Az PowerShell versão 1.6.0 e posteriores, pode atualizar o período de retenção de instantâneo de restauro imediato na política com o PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 O período de retenção do instantâneo do padrão para cada política é definido como 2 dias. Utilizador pode alterar o valor para um mínimo de 1 e um máximo de 5 dias. Para as políticas de semanais, a retenção de instantâneo é fixa para 5 dias.
 

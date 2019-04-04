@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881100"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905788"
 ---
 # <a name="how-application-gateway-works"></a>Como funciona o Gateway de aplicação
 
@@ -36,7 +36,7 @@ Depois de ter sido determinado um servidor de back-end, o gateway de aplicação
 
 Um Gateway de aplicação interna tem o endereço IP privado. O nome DNS de um Gateway de aplicação interna é internamente puder ser resolvido para o respetivo endereço IP privado. Por conseguinte, balanceadores de carga interno só podem encaminhar pedidos de clientes com acesso à VNET para o Gateway de aplicação.
 
-Tenha em atenção que os Gateways de aplicação de acesso à Internet e interno encaminhar pedidos para os servidores de back-end com endereços IP privados, se o seu recurso de conjunto de back-end que contém um endereço IP privado, configuração de NIC de VM ou um endereço resolvido internamente e se a conjunto back-end é um ponto final público, o Gateway de aplicação utiliza o seu IP público de front-end para alcançar o servidor. Se ainda não aprovisionou um endereço IP público de front-end, um é atribuído para a saída conectividade externa.
+Se o seu conjunto de back-end contém um FQDN resolvível internamente ou um endereço IP privado, o Gateway de aplicação encaminha o pedido para o servidor de back-end através de seus endereços IP privados de instância. Se o seu conjunto de back-end contém um ponto final externo ou um FQDN resolvível externamente, o Gateway de aplicação encaminha o pedido para o servidor de back-end com o respetivo endereço IP público de front-end. A resolução DNS se baseia numa zona DNS privada ou o servidor DNS personalizado se configurado ou demora a predefinição que DNS fornecido pelo Azure. Se ainda não aprovisionou um endereço IP público de front-end, um é atribuído para a saída conectividade externa.
 
 ### <a name="modifications-to-the-request"></a>Modificações ao pedido
 

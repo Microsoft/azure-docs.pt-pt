@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ed3029f2e336c03de616bc00733f1b9c104ddb86
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648578"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917894"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -32,38 +32,38 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 
 | **Região** | **Inferior Gen2 disponíveis** | **As atualizações automáticas de começar** |
 |:--- |:--- |:--- |
-| Leste da Austrália |Disponível |1 de Maio de 2019 |
-| Sudeste da Austrália |2 de abril de 2019 |1 de Junho de 2019 |
+| Leste da Austrália |Disponível |1 de Junho de 2019 |
+| Sudeste da Austrália |2 de abril de 2019 |1 de Maio de 2019 |
 | Sul do Brasil |15 de Maio de 2019 |\* |
-| Canadá Central |Disponível |1 de Maio de 2019 |
+| Canadá Central |Disponível |1 de Junho de 2019 |
 | Leste do Canadá |\* |\* |
-| EUA Central |Disponível |1 de Maio de 2019 |
+| EUA Central |Disponível |1 de Junho de 2019 |
 | Leste da China |\* |\* |
 | Leste da China 2 |\* |\* |
 | China Norte |\* |\* |
 | Norte da China 2 |\* |\* |
-| Ásia Oriental |Disponível |1 de Maio de 2019 |
-| EUA Leste |Disponível |1 de Maio de 2019 |
-| EUA Leste 2 |Disponível |A 1 de Maio. 2019 |
+| Ásia Oriental |Disponível |1 de Junho de 2019 |
+| EUA Leste |Disponível |1 de Junho de 2019 |
+| EUA Leste 2 |Disponível |A 1 de Junho. 2019 |
 | França Central |\* |\* |
 | Alemanha Central |\* |\* |
 | Alemanha Oeste-Central |1 de Setembro de 2019|2 de Janeiro de 2020 |
-| Índia Central |Disponível |1 de Maio de 2019 |
+| Índia Central |Disponível |1 de Junho de 2019 |
 | Índia do Sul |2 de abril de 2019 |1 de Junho de 2019 |
-| Leste do Japão |Disponível |1 de Maio de 2019 |
-| Oeste do Japão |Disponível |1 de Junho de 2019 |
-| Coreia do Sul Central |2 de abril de 2019 |1 de Maio de 2019 |
-| Coreia do Sul |2 de abril de 2019 |1 de Junho de 2019 |
-| EUA Centro-Norte |2 de abril de 2019 |1 de Junho de 2019 |
-| Europa do Norte |Disponível |1 de Maio de 2019 |
-| EUA Centro-Sul |Disponível |1 de Maio de 2019 |
-| Sudeste Asiático |Disponível |1 de Maio de 2019 |
-| Reino Unido Sul |2 de abril de 2019 |1 de Maio de 2019 |
+| Leste do Japão |Disponível |1 de Junho de 2019 |
+| Oeste do Japão |Disponível |1 de Maio de 2019 |
+| Coreia do Sul Central |2 de abril de 2019 |1 de Junho de 2019 |
+| Coreia do Sul |2 de abril de 2019 |1 de Maio de 2019 |
+| EUA Centro-Norte |2 de abril de 2019 |1 de Maio de 2019 |
+| Europa do Norte |Disponível |1 de Junho de 2019 |
+| EUA Centro-Sul |Disponível |1 de Junho de 2019 |
+| Sudeste Asiático |Disponível |1 de Junho de 2019 |
+| Reino Unido Sul |2 de abril de 2019 |1 de Junho de 2019 |
 | Reino Unido Oeste |\*|\* |
 | EUA Centro-Oeste |2 de Setembro de 2019 |2 de Janeiro de 2020|
-| Europa Ocidental |Disponível |1 de Maio de 2019 |
+| Europa Ocidental |Disponível |1 de Junho de 2019 |
 | EUA Oeste |2 de abril de 2019 |1 de Junho de 2019 |
-| EUA Oeste 2 |Disponível |1 de Maio de 2019 |
+| EUA Oeste 2 |Disponível |1 de Junho de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
@@ -101,47 +101,47 @@ Para obter mais informações, consulte [atualizar para ger2](upgrade-to-latest-
 
 ## <a name="migration-frequently-asked-questions"></a>Perguntas freqüentes de migração
 
-**P: Geração 2 custa o mesmo que a geração 1?**
+**P. Geração 2 custa o mesmo que a geração 1?**
 
 - R: Sim.
 
-**P: Como é que as atualizações afeta os meus scripts de automatização?**
+**P. Como é que as atualizações afeta os meus scripts de automatização?**
 
 - R: Qualquer script de automação que faz referência a um objetivo de nível de serviço deve ser alterada para corresponder ao equivalente de geração 2.  Ver detalhes [aqui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**P: O tempo que uma atualização automática normalmente demora?**
+**P. O tempo que uma atualização automática normalmente demora?**
 
 - R: Pode atualizar no local ou atualizar a partir de um ponto de restauro.  
    - Atualização in-loco fará com que o seu armazém de dados em instantes, colocar em pausa e retomar.  Um processo em segundo plano continuará enquanto o armazém de dados está online.  
    - Demora mais tempo se estiver a atualizar um ponto de restauro, porque a atualização irá passar pelo processo de restauro completa.
 
-**P: Quanto tempo demorará a atualização automática?**
+**P. Quanto tempo demorará a atualização automática?**
 
 - R: O tempo de inatividade atual para a atualização é apenas o tempo que demora a colocar em pausa e retomar o serviço, o que é entre 5 a 10 minutos. Após o período de indisponibilidade breve, um processo em segundo plano será executado uma migração de armazenamento. O período de tempo para o processo em segundo plano é depende do tamanho do seu armazém de dados.
 
-**P: Quando a atualização automática terá lugar?**
+**P. Quando a atualização automática terá lugar?**
 
 - R: Durante a sua agenda de manutenção. Tirar partido da sua agenda de manutenção escolhido irá minimizar a interrupção para o seu negócio.
 
-**P: O que devo fazer se o meu processo de atualização em segundo plano parece estar bloqueada?**
+**P. O que devo fazer se o meu processo de atualização em segundo plano parece estar bloqueada?**
 
  - R: Inicie um reindex das tabelas Columnstore. Tenha em atenção que reindexação da tabela estarão offline durante esta operação.
 
-**P: E se a geração 2 não tem o objetivo de nível de serviço tem na geração 1?**
+**P. E se a geração 2 não tem o objetivo de nível de serviço tem na geração 1?**
 - R: Se estiver a executar um DW600 ou DW1200 na geração 1, recomenda-se para utilizar DW500c ou DW1000c respectivamente, uma vez que a geração 2 fornece mais memória, recursos e um desempenho mais elevado de geração 1.
 
-**P: Pode desativar cópia de segurança geo?**
+**P. Pode desativar cópia de segurança geo?**
 - R: Não. Cópia de segurança GEO é uma funcionalidade empresarial para preservar seus dados do armazém de disponibilidade no caso de uma região fica indisponível. Abra um [pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) caso tenha outras preocupações.
 
-**P: Existe uma diferença na sintaxe de T-SQL entre a geração 1 e geração 2?**
+**P. Existe uma diferença na sintaxe de T-SQL entre a geração 1 e geração 2?**
 
 - R: Não há nenhuma alteração na sintaxe de linguagem T-SQL de geração 1, a geração 2.
 
-**P: Geração 2 suporta o Windows de manutenção?**
+**P. Geração 2 suporta o Windows de manutenção?**
 
 - R: Sim.
 
-**P: Será capaz de criar uma nova instância de geração 1 depois de atualizar minha região?**
+**P. Será capaz de criar uma nova instância de geração 1 depois de atualizar minha região?**
 
 - R: Não. Depois de atualizar uma região, a criação de novas instâncias de geração 1 será desativada.
 

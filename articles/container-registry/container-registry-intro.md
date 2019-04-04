@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530267"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894018"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
@@ -42,9 +42,9 @@ Configure tarefas de ACR para reconstruir automaticamente as imagens do aplicati
 
 * **Repositório** -um registo contém um ou mais repositórios, que armazenam grupos de imagens de contentor. O Registo de Contentores do Azure suporta espaços de nomes de repositórios com múltiplos níveis. Com espaços de nomes de vários níveis, pode agrupar coleções de imagens relacionadas com uma aplicação específica ou uma coleção de aplicações para equipas de programação ou operacionais específicas. Por exemplo:
 
-  * `myregistry.azurecr.io/aspnetcore:1.0.1` representa uma imagem transversal a toda a empresa
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem utilizada para criar aplicações .NET, partilhadas em todo o departamento de garantias
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representa uma imagem Web, agrupada na aplicação de submissões do cliente, que é propriedade do departamento de garantias
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` representa uma imagem em toda a empresa
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem utilizada para criar aplicações de .NET, partilhadas em todo o departamento de garantias
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representa uma imagem de web, agrupada na aplicação de submissões do cliente, propriedade do departamento de garantias
 
 * **Imagem** -armazenados num repositório, cada imagem é um instantâneo só de leitura de um contentor compatível com o Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens de contentor, o Azure Container Registry armazena [relacionados com formatos de conteúdo](container-registry-image-formats.md) como [executar Helm gráficos](container-registry-helm-repos.md), utilizado para implementar aplicações no Kubernetes.
 
@@ -54,10 +54,10 @@ Configure tarefas de ACR para reconstruir automaticamente as imagens do aplicati
 
 As [Tarefas do Azure Container Registry](container-registry-tasks-overview.md) (Tarefas do ACR) são um conjunto de funcionalidades no Azure Container Registry que fornecem compilações de imagens de contentores do Docker simplificadas e eficientes no Azure. Utilize as Tarefas do ACR para expandir o seu ciclo interno de programação para a cloud ao descarregar operações `docker build` para o Azure. Configure tarefas de compilação para automatizar o SO do contentor e o pipeline de aplicação de patches de arquitetura e compilar imagens automaticamente quando a sua equipa consolidar código para o controlo de origem.
 
-[Tarefas de vários passos](container-registry-tasks-overview.md#multi-step-tasks-preview), uma funcionalidade de pré-visualização das Tarefas do ACR, fornece a definição das tarefas com base em passos e a execução para a compilação, os testes e a aplicação de patches em imagens de contentor na cloud. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
+[Tarefas de vários passos](container-registry-tasks-overview.md#multi-step-tasks) fornecer a definição de tarefa com base no passo e execução para criação, teste e aplicar patches em imagens de contentor na cloud. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Create a container registry using the Azure portal (Criar um registo de contentores com o portal do Azure)](container-registry-get-started-portal.md)
-* [Create a container registry using the Azure CLI (Criar um registo de contentores com a CLI do Azure)](container-registry-get-started-azure-cli.md)
-* [Automatizar a aplicação de patches ao SO e à arquitetura com as Tarefas do ACR](container-registry-tasks-overview.md)
+* [Criar um registo de contentores com o portal do Azure](container-registry-get-started-portal.md)
+* [Criar um registo de contentores com a CLI do Azure](container-registry-get-started-azure-cli.md)
+* [Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR](container-registry-tasks-overview.md)

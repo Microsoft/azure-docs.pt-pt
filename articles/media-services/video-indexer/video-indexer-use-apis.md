@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443587"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895669"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
-
-> [!Note]
-> A API do Video Indexer V1 foi preterida no dia 1 de agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções que se encontram [aqui](https://api-portal.videoindexer.ai/). 
 
 O Video Indexer combina várias tecnologias de inteligência artificial (IA) de áudio e vídeo disponibilizadas pela Microsoft num serviço integrado, o que facilita a programação. As APIs foram concebidas para permitir que os programadores se foquem no consumo de tecnologias de IA multimédia sem se preocuparem com a escala, o alcance global, a disponibilidade e a fiabilidade da plataforma na cloud. Pode utilizar a API para carregar ficheiros, obter informações de vídeo detalhadas, obter URLs de widgets de informações e de leitor para incorporá-los na sua aplicação, entre outras tarefas.
 
@@ -211,7 +208,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="see-also"></a>Consulte também
 
-- [Descrição geral do Video Indexer](video-indexer-overview.md)
+- [Descrição geral do indexador vídeo](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Passos Seguintes

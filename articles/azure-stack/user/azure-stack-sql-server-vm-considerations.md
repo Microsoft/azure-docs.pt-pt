@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas de desempenho para o SQL Server em máquinas de virtuais do Azure Stack
-description: Disponibiliza as melhores práticas para otimizar o desempenho do SQL Server no Microsoft Azure Stack máquinas virtuais.
+title: Utilize as melhores práticas do SQL Server e para melhorar o desempenho em máquinas de virtuais do Azure Stack | Documentos da Microsoft
+description: Este artigo fornece as melhores práticas do SQL server para o ajudar a aumentar o desempenho e otimizar o SQL Server em VMs do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123407"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879069"
 ---
-# <a name="optimize-sql-server-performance"></a>Otimizar o desempenho do SQL Server
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Melhores práticas do SQL server para otimizar o desempenho no Azure Stack
 
-Este artigo fornece orientações para otimizar o desempenho do SQL Server em máquinas de virtuais do Microsoft Azure Stack. Quando executar o SQL Server em máquinas de virtuais do Azure Stack, utilize as mesmas da base de dados ajuste de desempenho opções aplicáveis ao SQL Server num ambiente de servidor no local. O desempenho da base de dados relacional numa cloud do Azure Stack depende de vários fatores. Fatores incluem o tamanho da família de uma máquina virtual e a configuração dos discos de dados.
+Este artigo fornece as melhores práticas do SQL server para otimizar o SQL Server e melhorar o desempenho em máquinas de virtuais do Microsoft Azure Stack. Quando executar o SQL Server em máquinas de virtuais do Azure Stack, utilize as mesmas da base de dados ajuste de desempenho opções aplicáveis ao SQL Server num ambiente de servidor no local. O desempenho da base de dados relacional numa cloud do Azure Stack depende de vários fatores. Fatores incluem o tamanho da família de uma máquina virtual e a configuração dos discos de dados.
 
 Durante a criação de imagens do SQL Server, [considere o aprovisionamento de máquinas virtuais no portal do Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Transfira a extensão de IaaS do SQL da gestão de Marketplace no Portal de administração do Azure Stack e transferir a sua escolha de discos rígidos virtuais de SQL máquinas virtuais (VHDs). Estes incluem-se ao SQL2014SP2, SQL2016SP1 e SQL2017.
 
@@ -37,7 +37,8 @@ Introdução a *melhor* desempenho para o SQL Server em máquinas de virtuais do
 > [!NOTE]  
 > Para orientação de desempenho do SQL Server em máquinas virtuais do Azure, consulte [este artigo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="checklist-for-sql-server-best-practices"></a>Lista de verificação para práticas recomendadas do SQL server
+
 A lista de verificação seguinte é para um desempenho ideal do SQL Server em máquinas de virtuais do Azure Stack:
 
 
@@ -112,7 +113,7 @@ Recomendamos que o serviço de armazenamento de TempDB num disco de dados, pois 
 
        Por exemplo, o PowerShell seguinte cria um novo agrupamento de armazenamento com o tamanho de intercalação definido para 64 KB e o número de colunas para 2:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

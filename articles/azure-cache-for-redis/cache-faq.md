@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
-ms.openlocfilehash: ddeaec9adc28fa5037a0fc01363e3ad6b78ceeef
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234361"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895601"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache do Azure para Redis.
@@ -192,7 +192,7 @@ Stackexchange. redis tem muitas opções. Esta secção aborda algumas das confi
 
 Normalmente, os valores predefinidos do cliente são suficientes. Pode ajustar as opções com base na carga de trabalho.
 
-* **Repetições**
+* **Tentativas**
   * Para ConnectRetry e ConnectTimeout, a orientação geral é efetuar a ativação rápida e tente novamente. Esta orientação baseia-se a sua carga de trabalho e quanto tempo no médio necessário para o seu cliente emitir um comando de Redis e receber uma resposta.
   * Deixe que o stackexchange. redis restabelece ligação automaticamente em vez de a verificar o estado de ligação e voltar a ligar-se. **Evite usar a propriedade ConnectionMultiplexer.IsConnected**.
   * Snowballing - por vezes, poderão ocorrer um problema em que a repetir a operação e as novas tentativas snowball e nunca recuperar. Se snowballing ocorrer, deve considerar a utilização de um algoritmo de repetição de término exponencial conforme descrito em [Repita orientações gerais](../best-practices-retry-general.md) publicados pelo grupo Microsoft Patterns & Practices.
@@ -392,7 +392,7 @@ Como configurar esta definição:
   > O valor especificado neste elemento de configuração é um *por núcleo* definição. Por exemplo, se tem uma máquina 4 core e quer sua definição minIOThreads esteja 200 em tempo de execução, usaria `<processModel minIoThreads="50"/>`.
   >
 
-* Fora do ASP.NET e global. asax de Web sites do Azure, utilize o [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Fora do ASP.NET e global. asax de Web sites do Azure, utilize o [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
 
   > [!NOTE]
   > O valor especificado por esta API é uma configuração global, afetar todo o AppDomain. Se tiver uma máquina 4 core e defina o minWorkerThreads e minIOThreads para 50 por CPU durante o tempo de execução, usaria ThreadPool.SetMinThreads (200, 200).
@@ -402,9 +402,9 @@ Como configurar esta definição:
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Ativar o GC de servidor obter mais débito no cliente, ao utilizar o stackexchange. redis
 Ativar o GC de servidor pode otimizar o cliente e fornecer um melhor desempenho e a produtividade ao utilizar o stackexchange. redis. Para obter mais informações sobre o GC do servidor e como ativá-lo, consulte os artigos seguintes:
 
-* [Para ativar o GC de servidor](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Noções básicas de coleta de lixo](https://msdn.microsoft.com/library/ee787088.aspx)
-* [Coleta de lixo e desempenho](https://msdn.microsoft.com/library/ee851764.aspx)
+* [Para ativar o GC de servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Noções básicas de coleta de lixo](/dotnet/standard/garbage-collection/fundamentals)
+* [Coleta de lixo e desempenho](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Considerações de desempenho em torno de ligações
@@ -469,11 +469,11 @@ Para obter mais informações sobre como começar a Cache do Azure para Redis, c
 ### <a name="managed-cache-service"></a>Serviço de Cache gerida
 [Managed Cache service foi extinto a 30 de Novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para ver documentação arquivada, consulte [arquivados documentação do serviço de Cache gerida](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+Para ver documentação arquivada, consulte [arquivados documentação do serviço de Cache gerida](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>Cache na Função
 [Cache na função foi extinto a 30 de Novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para ver documentação arquivada, consulte [documentação da Cache na função arquivados](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+Para ver documentação arquivada, consulte [documentação da Cache na função arquivados](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

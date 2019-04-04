@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517608"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895567"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -46,11 +46,11 @@ Quando cria uma nova política, não são os utilizadores, grupos, aplicações 
 Para tornar a sua política de trabalho, tem de configurar:
 
 
-|O quê           | Como                                  | Por que motivo|
-|:--            | :--                                  | :-- |
-|**Aplicações na cloud** |Selecione uma ou mais aplicações.  | O objetivo de uma política de acesso condicional é que lhe permite controlar os utilizadores autorizados como podem aceder a aplicações na cloud.|
+| O quê           | Como                                  | Por que motivo |
+| :--            | :--                                  | :-- |
+| **Aplicações na cloud** |Selecione uma ou mais aplicações.  | O objetivo de uma política de acesso condicional é que lhe permite controlar os utilizadores autorizados como podem aceder a aplicações na cloud.|
 | **Utilizadores e grupos** | Selecione pelo menos um utilizador ou grupo que está autorizado a aceder às suas aplicações na nuvem selecionada. | Uma política de acesso condicional que tenha de não utilizadores e grupos atribuídos, nunca é acionado. |
-| **Controlos de acesso** | Selecione o controlo de acesso de pelo menos um. | Se forem satisfeitas as condições, o processador de política tem de saber o que fazer.|
+| **Controlos de acesso** | Selecione o controlo de acesso de pelo menos um. | Se forem satisfeitas as condições, o processador de política tem de saber o que fazer. |
 
 
 
@@ -111,6 +111,13 @@ Para cada início de sessão, o Azure Active Directory avalia todas as política
 
 Sim, pode utilizar o Exchange ActiveSync numa política de acesso condicional.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como configurar o acesso condicional com aplicações do Office 365?
+
+Como aplicações do Office 365 estão interligadas, recomendamos que normalmente a atribuir aplicações utilizadas em conjunto durante a criação de políticas.
+
+Aplicativos interconectados comuns incluem o Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online do Office 365, Office 365 SharePoint Online e Yammer do Office 365.
+
+É importante para as políticas que necessitem de interações de utilizador, como autenticação multifator, quando o acesso é controlado no início de sessão ou a tarefa. Se não o fizer, os utilizadores não poderão concluir algumas tarefas dentro de uma aplicação. Por exemplo, se necessitar de autenticação multifator em dispositivos não geridos para acessar o SharePoint, mas não ao e-mail, os utilizadores que trabalham no respetivo e-mail não será possível anexar arquivos do SharePoint a uma mensagem. Mais informações podem ser encontradas no artigo, [quais são as dependências do serviço de acesso condicional do Azure Active Directory?](service-dependencies.md).
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: v1 para a migração de API v2
 titleSuffix: Azure Cognitive Services
-description: O ponto de extremidade de versão 1 e a criação de APIs de compreensão de idioma são preteridas. Utilize este guia para compreender como migrar para o ponto final da versão 2 e APIs de criação.
+description: O ponto de extremidade de versão 1 e APIs de compreensão de linguagem de criação são preteridas. Utilize este guia para compreender como migrar para o ponto final da versão 2 e APIs de criação.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087929"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894086"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 para o guia de migração da v2 para aplicações de LUIS
 A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs foram preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
@@ -134,7 +134,7 @@ Várias APIs que retornam metadados de LUIS têm nomes novos.
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Exemplo" o nome mudado para "sugestão"
-LUIS sugere expressões a partir de existente [expressões de ponto final](luis-how-to-review-endoint-utt.md) que pode melhorar o modelo. Na versão anterior, isso foi chamado **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugerir**. Isso é chamado **[rever expressões de ponto final](luis-how-to-review-endoint-utt.md)** no Web site do LUIS.
+LUIS sugere expressões a partir de existente [expressões de ponto final](luis-how-to-review-endpoint-utterances.md) que pode melhorar o modelo. Na versão anterior, isso foi chamado **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugerir**. Isso é chamado **[rever expressões de ponto final](luis-how-to-review-endpoint-utterances.md)** no Web site do LUIS.
 
 | versão | rota |
 |--|--|

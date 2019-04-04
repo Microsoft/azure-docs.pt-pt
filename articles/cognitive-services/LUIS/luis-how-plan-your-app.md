@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873204"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893440"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planear a sua aplicação LUIS com o domínio de assunto, objetivos e entidades
 
@@ -49,7 +49,7 @@ Quando determinar quais entidades para utilizar na sua aplicação, tenha em ate
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois da aplicação é preparada, publicado e obtém as expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](luis-how-to-review-endoint-utt.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
+Depois da aplicação é preparada, publicado e obtém as expressões de ponto de extremidade, pretendem implementar melhorias de previsão com [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md), [frase listas](luis-concept-feature.md), e [padrões](luis-concept-patterns.md). 
 
 
 * Ver [crie seu primeiro aplicativo do Language Understanding Intelligent Service (LUIS)](luis-get-started-create-app.md) para uma passo a passo rápido de como criar uma aplicação do LUIS.

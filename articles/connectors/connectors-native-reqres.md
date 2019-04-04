@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552185"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892832"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Comece com os componentes de solicitação e resposta
 Com os componentes de pedidos e respostas numa aplicação lógica, pode responder em tempo real a eventos.
@@ -34,7 +34,8 @@ Pode, por exemplo:
 Para começar a utilizar as ações de pedido e resposta numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Utilizar o acionador de pedido de HTTP
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido numa aplicação lógica. [Saiba mais sobre os acionadores](connectors-overview.md).
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido numa aplicação lógica. 
+[Saiba mais sobre os acionadores](../connectors/apis-list.md).
 
 Eis um exemplo de sequência de como configurar a um pedido HTTP no Estruturador da aplicação lógica.
 
@@ -91,7 +92,7 @@ Segue-se um campo de entrada para o acionador de pedidos HTTP de entrada.
 
 <br>
 
-**Detalhes de saída**
+**Detalhes da saída**
 
 Seguem-se detalhes de saída para o pedido.
 

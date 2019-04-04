@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762615"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917481"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](https://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
+Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
 
@@ -81,7 +81,7 @@ Quando um utilizador carrega uma imagem, o front-end em execução numa função
 6. Se estiver a utilizar o Visual Studio 2015 ou superior, altere a cadeia de ligação do SQL Server no ficheiro *Web.config* da aplicação do projeto ContosoAdsWeb e no ficheiro*ServiceConfiguration.Local.cscfg* do projeto ContosoAdsCloudService. Em cada caso, altere “(localdb)\v11.0” para “(localdb)\MSSQLLocalDB”.
 7. Prima CTRL+F5 para executar a aplicação.
 
-    Quando executa localmente um projeto do serviço em nuvem, o Visual Studio invoca automaticamente o *emulador de computação* do Azure e o *emulador de armazenamento* do Azure. O emulador de computação utiliza os recursos do computador para simular os ambientes da função da Web e da função de trabalho. O emulador de armazenamento utiliza uma base de dados [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) para simular o armazenamento na nuvem do Azure.
+    Quando executa localmente um projeto do serviço em nuvem, o Visual Studio invoca automaticamente o *emulador de computação* do Azure e o *emulador de armazenamento* do Azure. O emulador de computação utiliza os recursos do computador para simular os ambientes da função da Web e da função de trabalho. O emulador de armazenamento utiliza uma base de dados [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) para simular o armazenamento na nuvem do Azure.
 
     Quando executar um projeto do serviço em nuvem pela primeira vez, demorará um minuto ou mais até que os emuladores arranquem. Quando o arranque dos emuladores estiver concluído, o browser predefinido é aberto na home page da aplicação.
 
@@ -178,7 +178,7 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
 
     Se o serviço em nuvem e a conta do Storage estiverem em datacenters diferentes (regiões diferentes), a latência aumentará e será ser-lhe-á debitada a largura de banda fora do datacenter. A largura de banda dentro de um datacenter é gratuita.
 
-    Os grupos de afinidades do Azure fornecem um mecanismo para minimizar a distância entre os recursos num data center, o que poderá reduzir a latência. Este tutorial não utiliza grupos de afinidades. Para obter mais informações, consulte [Como Criar um Grupo de Afinidades no Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
+    Os grupos de afinidades do Azure fornecem um mecanismo para minimizar a distância entre os recursos num data center, o que poderá reduzir a latência. Este tutorial não utiliza grupos de afinidades. Para obter mais informações, consulte [Como Criar um Grupo de Afinidades no Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
 7. Clique em **Criar**.
 
     ![Nova conta do Storage](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -391,7 +391,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 8. Ainda na janela de propriedades **ContosoAdsWorker [Função]**, adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
-   * Tipo: String
+   * Escreva: String
    * Valor: Cole a mesma cadeia de ligação utilizada para o projeto de função da web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
 
        ```
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework utilizando uma classe DbContext. Uma exceção é o método HttpPost `Create`, que carrega um ficheiro e guarda-o no Blob Storage. A conversão de modelos fornece um objeto [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) para o método.
+A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework utilizando uma classe DbContext. Uma exceção é o método HttpPost `Create`, que carrega um ficheiro e guarda-o no Blob Storage. A conversão de modelos fornece um objeto [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) para o método.
 
 ```csharp
 [HttpPost]
@@ -776,6 +776,6 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte de serviços Cloud do Azure 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
-* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
-* [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+* [Como gerir Cloud Services](cloud-services-how-to-manage-portal.md)
+* [Storage do Azure](https://docs.microsoft.com/azure/storage/)
+* [Como escolher um fornecedor de serviços de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

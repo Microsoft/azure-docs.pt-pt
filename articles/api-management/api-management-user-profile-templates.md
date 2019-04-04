@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121401"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903765"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil do usuário na gestão de API do Azure
 Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
@@ -39,7 +39,7 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a> Perfil  
+##  <a name="Profile"></a> Profile  
  O **perfil** modelo permite-lhe personalizar a seção de perfil do usuário da página de perfil de utilizador no portal do programador.  
   
  ![Página de perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "página de perfil do usuário do APIM")  
@@ -106,17 +106,17 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|firstName|cadeia|Nome próprio do utilizador atual.|  
-|Apelido|cadeia|Apelido do utilizador atual.|  
-|CompanyName|cadeia|O nome da empresa do utilizador atual.|  
-|addresserEmail|cadeia|Endereço de e-mail do utilizador atual.|  
-|developersUsageStatisticsLinkk|cadeia|URL relativo para ver análises para o utilizador atual.|  
-|subscrições|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
-|aplicações|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
-|changePasswordUrl|cadeia|A URL relativa para alterar a palavra-passe do utilizador atual.|  
-|changeNameOrEmailUrl|cadeia|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
-|canChangePassword|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
-|isSystemUser|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
+|`firstName`|string|Nome próprio do utilizador atual.|  
+|`lastName`|string|Apelido do utilizador atual.|  
+|`companyName`|string|O nome da empresa do utilizador atual.|  
+|`addresserEmail`|string|Endereço de e-mail do utilizador atual.|  
+|`developersUsageStatisticsLink`|string|URL relativo para ver análises para o utilizador atual.|  
+|`subscriptions`|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
+|`applications`|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
+|`changePasswordUrl`|string|A URL relativa para alterar a palavra-passe do utilizador atual.|  
+|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
+|`canChangePassword`|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
+|`isSystemUser`|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -327,17 +327,17 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|firstName|cadeia|Nome próprio do utilizador atual.|  
-|Apelido|cadeia|Apelido do utilizador atual.|  
-|CompanyName|cadeia|O nome da empresa do utilizador atual.|  
-|addresserEmail|cadeia|Endereço de e-mail do utilizador atual.|  
-|developersUsageStatisticsLinkk|cadeia|URL relativo para ver análises para o utilizador atual.|  
-|subscrições|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
-|aplicações|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
-|changePasswordUrl|cadeia|A URL relativa para alterar a palavra-passe do utilizador atual.|  
-|changeNameOrEmailUrl|cadeia|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
-|canChangePassword|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
-|isSystemUser|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
+|`firstName`|string|Nome próprio do utilizador atual.|  
+|`lastName`|string|Apelido do utilizador atual.|  
+|`companyName`|string|O nome da empresa do utilizador atual.|  
+|`addresserEmail`|string|Endereço de e-mail do utilizador atual.|  
+|`developersUsageStatisticsLink`|string|URL relativo para ver análises para o utilizador atual.|  
+|`subscriptions`|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
+|`applications`|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
+|`changePasswordUrl`|string|A URL relativa para alterar a palavra-passe do utilizador atual.|  
+|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
+|`canChangePassword`|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
+|`isSystemUser`|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -481,7 +481,7 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
 ### <a name="controls"></a>Controlos  
  Este modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [ações de aplicação](api-management-page-controls.md#app-actions)  
+-   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
@@ -490,17 +490,17 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|firstName|cadeia|Nome próprio do utilizador atual.|  
-|Apelido|cadeia|Apelido do utilizador atual.|  
-|CompanyName|cadeia|O nome da empresa do utilizador atual.|  
-|addresserEmail|cadeia|Endereço de e-mail do utilizador atual.|  
-|developersUsageStatisticsLinkk|cadeia|URL relativo para ver análises para o utilizador atual.|  
-|subscrições|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
-|aplicações|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
-|changePasswordUrl|cadeia|A URL relativa para alterar a palavra-passe do utilizador atual.|  
-|changeNameOrEmailUrl|cadeia|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
-|canChangePassword|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
-|isSystemUser|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
+|`firstName`|string|Nome próprio do utilizador atual.|  
+|`lastName`|string|Apelido do utilizador atual.|  
+|`companyName`|string|O nome da empresa do utilizador atual.|  
+|`addresserEmail`|string|Endereço de e-mail do utilizador atual.|  
+|`developersUsageStatisticsLink`|string|URL relativo para ver análises para o utilizador atual.|  
+|`subscriptions`|Coleção de [subscrição](api-management-template-data-model-reference.md#Subscription) entidades.|As subscrições para o utilizador atual.|  
+|`applications`|Coleção de [aplicativo](api-management-template-data-model-reference.md#Application) entidades.|As aplicações do utilizador atual.|  
+|`changePasswordUrl`|string|A URL relativa para alterar a palavra-passe do utilizador atual.|  
+|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e e-mail para o utilizador atual.|  
+|`canChangePassword`|boolean|Se o utilizador atual pode alterar a palavra-passe.|  
+|`isSystemUser`|boolean|Se o utilizador atual é um membro de um internas [grupos](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   

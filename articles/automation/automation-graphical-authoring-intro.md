@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427241"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918149"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
 
@@ -48,7 +48,7 @@ Controlo da biblioteca é onde seleciona [atividades](#activities) para adiciona
 |:--- |:--- |
 | Cmdlets |Inclui todos os cmdlets que pode ser utilizados no runbook. Cmdlets são organizados por módulo. Todos os módulos que instalou na sua conta de automatização estão disponíveis. |
 | Runbooks |Inclui os runbooks na conta de automatização. Estes runbooks podem ser adicionados à tela para ser usado como runbooks subordinados. São apresentados apenas os runbooks do mesmo tipo de principal como o runbook que está a ser editado; para o gráfico são apresentados runbooks apenas baseada no PowerShell de runbooks, enquanto para runbooks de fluxo de trabalho de PowerShell gráfico são mostrados apenas PowerShell fluxo de trabalho baseada em runbooks. |
-| Elementos |Inclui a [recursos de automatização](https://msdn.microsoft.com/library/dn939988.aspx) na sua conta de automatização que pode ser utilizada no runbook. Quando adiciona um recurso a um runbook, ele adiciona uma atividade de fluxo de trabalho que obtém o recurso selecionado. No caso de recursos de variável, pode selecionar se pretende adicionar uma atividade para obter a variável ou definir a variável. |
+| Elementos |Inclui a [recursos de automatização](/previous-versions/azure/dn939988(v=azure.100)) na sua conta de automatização que pode ser utilizada no runbook. Quando adiciona um recurso a um runbook, ele adiciona uma atividade de fluxo de trabalho que obtém o recurso selecionado. No caso de recursos de variável, pode selecionar se pretende adicionar uma atividade para obter a variável ou definir a variável. |
 | Controlo do Runbook |Inclui atividades de controlo do runbook que podem ser utilizadas no runbook atual. R *junção* usa várias entradas e aguarda até que concluíram antes de continuar o fluxo de trabalho. R *código* uma ou mais linhas de código do PowerShell ou o fluxo de trabalho do PowerShell, dependendo do tipo de runbook gráfico de execuções de atividades. Pode utilizar esta atividade de código personalizado ou para a funcionalidade que é difícil de atingir com outras atividades. |
 
 ### <a name="configuration-control"></a>Controlo de configuração
@@ -249,7 +249,7 @@ O exemplo a seguir faz parte de um runbook que inicia um conjunto de máquinas v
 
 Um ciclo é quando um links de atividade de destino para sua atividade de origem ou de outra atividade que, eventualmente, vincula de volta para a respetiva origem. Ciclos não são permitidos atualmente na criação de gráficos. Se o runbook tem um ciclo, ele salva corretamente, mas recebe um erro quando é executada.
 
-![Ciclo de](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Cíclico](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Partilhar dados entre atividades
 
@@ -324,9 +324,9 @@ Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome |O nome exclusivo do parâmetro. Isto só pode conter carateres alfanuméricos e não pode conter um espaço. |
+| Name |O nome exclusivo do parâmetro. Isto só pode conter carateres alfanuméricos e não pode conter um espaço. |
 | Descrição |Uma descrição opcional para o parâmetro de entrada. |
-| Tipo |Tipo de dados esperado para o valor do parâmetro. O portal do Azure fornece um controlo apropriado para o tipo de dados para cada parâmetro ao pedir entrada. |
+| Type |Tipo de dados esperado para o valor do parâmetro. O portal do Azure fornece um controlo apropriado para o tipo de dados para cada parâmetro ao pedir entrada. |
 | Obrigatório |Especifica se deve ser fornecido um valor para o parâmetro. Não é possível iniciar o runbook se não fornecer um valor para cada parâmetro obrigatório que não tem um valor predefinido especificado. |
 | Valor Predefinido |Especifica qual valor é utilizado para o parâmetro se não for fornecido. Isso pode ser Null ou um valor específico. |
 

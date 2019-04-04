@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: c1b26b8a59ac0306fc06bf90f01642d4585a45be
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991580"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892794"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Ver e editar informações do Video Indexer
 
@@ -34,17 +34,11 @@ Este tópico mostra-lhe como ver e editar as informações do indexador de víde
 
     O jogador e as informações são sincronizadas. Por exemplo, se clicar numa palavra-chave ou da linha de transcrição, o jogador traz até para esse momento no vídeo. Pode obter a vista de leitor/informações e a sincronização em seu aplicativo. Para obter mais informações, consulte [widgets de incorporar o indexador do Azure na sua aplicação](video-indexer-embed-widgets.md). 
 
-3. Edite as informações do indexador de vídeo.
-
-    Prima Editar abaixo do vídeo. É apresentada a página que lhe mostra a divisão completa de um vídeo. A estrutura encontra-se dividida em blocos. Estes blocos fazem com que seja mais fácil percorrer os dados. Por exemplo, o bloco pode estar dividido com base nos momentos em que ocorre uma mudança de orador ou uma longa pausa. Pode criar a sua própria lista de reprodução que contenha apenas as linhas que pretende. Para mostrar apenas partes específicas do vídeo de origem, pode filtrar por tópicos/palavras-chave, sentimentos, pessoas, oradores. Pode optar por ver apenas a transcrição do vídeo ou o OCR.  
-
-    ![Informações](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba como criar suas próprias informações do indexador de vídeo com base em algum outro vídeo](video-indexer-create-new.md).
 
 ## <a name="see-also"></a>Consulte também
 
-[Descrição geral do Video Indexer](video-indexer-overview.md)
+[Descrição geral do indexador vídeo](video-indexer-overview.md)
 

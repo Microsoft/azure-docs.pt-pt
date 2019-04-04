@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: d5f6a89d279f0e1b0babc98ed59a07fa1761707f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856449"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893695"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para ativar a aprendizagem ativa, revendo os discursos de ponto final
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
 
 ## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa
-Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é efetuado pelo proprietário da aplicação ou funcionário para validar as expressões selecionadas para [rever](luis-how-to-review-endoint-utt.md), incluindo a intenção correta e todas as entidades na intenção. Depois de rever as expressões, formar e publicar a aplicação novamente. 
+Aprendizagem ativa é um processo de dois passos. Em primeiro lugar, LUIS seleciona expressões que recebe no ponto final da aplicação que necessitam de validação. O segundo passo é efetuado pelo proprietário da aplicação ou funcionário para validar as expressões selecionadas para [rever](luis-how-to-review-endpoint-utterances.md), incluindo a intenção correta e todas as entidades na intenção. Depois de rever as expressões, formar e publicar a aplicação novamente. 
 
 ## <a name="which-utterances-are-on-the-review-list"></a>As expressões são na lista de revisão
 LUIS adiciona expressões com a lista de revisão quando a parte superior disparando intenção tem uma pontuação baixa ou pontuações de principais dois objetivos estão muito próximos. 
@@ -41,4 +41,4 @@ Utilize o **[eliminar expressões com unlabelled](https://westus.dev.cognitive.m
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [rever](luis-how-to-review-endoint-utt.md) expressões de ponto final
+* Saiba como [rever](luis-how-to-review-endpoint-utterances.md) expressões de ponto final

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818707"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918268"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos de serviços Cloud
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função do serviço Cloud (funções da web e funções de trabalho). Ele também fornece considerações de implementação para ter em consideração ao planejar usar esses recursos. Cada tamanho tem um ID que implementa em sua [o ficheiro de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na [preços de serviços Cloud](https://azure.microsoft.com/pricing/details/cloud-services/) página.
@@ -60,7 +60,7 @@ Criámos o conceito de computação do Azure unidade (ACU) para fornecer uma for
 | Família de SKU | ACU/Núcleo |
 | --- | --- |
 | [ExtraSmall](#a-series) |50 |
-| [Small-ExtraLarge](#a-series) |100 |
+| [Pequenas ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
 | [A v2](#av2-series) |100 |
@@ -213,7 +213,7 @@ Como a natureza das suas alterações de carga de trabalho ou novos tamanhos VM 
 >
 
 ## <a name="get-a-list-of-sizes"></a>Obter uma lista de tamanhos
-Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API REST está documentada [aqui](https://msdn.microsoft.com/library/azure/dn469422.aspx). O código a seguir é um comando do PowerShell que irá listar todos os tamanhos disponíveis para os serviços Cloud. 
+Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API REST está documentada [aqui](/previous-versions/azure/reference/dn469422(v=azure.100)). O código a seguir é um comando do PowerShell que irá listar todos os tamanhos disponíveis para os serviços Cloud. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

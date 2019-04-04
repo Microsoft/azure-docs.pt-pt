@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449129"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905822"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Resolver problemas de domínio e problemas de certificado SSL no App Service do Azure
 
 Este artigo lista problemas comuns que poderá encontrar ao configurar um domínio ou o certificado SSL para as suas aplicações web no serviço de aplicações do Azure. Ele também descreve possíveis causas e soluções para esses problemas.
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure no [os fóruns do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problemas de certificado
 
@@ -314,7 +317,7 @@ Sim. Quando acessar o painel de domínios personalizados e SSL no portal do Azur
 
 **Posso transferir um domínio de uma subscrição para outra subscrição?**
 
-Pode mover um domínio para outro grupo de recursos/subscrição com o [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet do PowerShell.
+Pode mover um domínio para outro grupo de recursos/subscrição com o [movimentação AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) cmdlet do PowerShell.
 
 **Como posso gerir meu domínio personalizado se atualmente não tiver uma aplicação de serviço de aplicações do Azure?**
 

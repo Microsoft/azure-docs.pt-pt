@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 55284318a627186b7a20d6d36dff1953e80d5020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958563"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893236"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Teste de expressões de exemplo no LUIS
 
@@ -48,7 +48,7 @@ Se o teste com um ponto final e não pretender que a expressão com sessão inic
 ## <a name="where-to-find-utterances"></a>Onde encontrar expressões com
 LUIS armazena expressões com tudo com sessão iniciadas no log de consulta, disponível para download no [LUIS](luis-reference-regions.md) site **Apps** página de lista, bem como o LUIS [APIs de criação](https://aka.ms/luis-authoring-apis). 
 
-Qualquer expressões com os LUIS não tem certeza de que estão listados na **[rever expressões de ponto final](luis-how-to-review-endoint-utt.md)** página do [LUIS](luis-reference-regions.md) Web site. 
+Qualquer expressões com os LUIS não tem certeza de que estão listados na **[rever expressões de ponto final](luis-how-to-review-endpoint-utterances.md)** página do [LUIS](luis-reference-regions.md) Web site. 
 
 ![Rever pronunciações de ponto final](./media/luis-concept-test/review-endpoint-utterances.png)
  

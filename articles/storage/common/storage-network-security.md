@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486398"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906094"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -241,7 +241,7 @@ Cada conta de armazenamento suporta até 100 regras de rede IP, que podem ser co
 
 Para conceder acesso a partir de suas redes no local para a sua conta de armazenamento com uma regra de rede IP, tem de identificar endereços IP utilizados pela sua rede de acesso à internet. Contacte o administrador de rede para obter ajuda.
 
-Pode usar [ExpressRoute](/azure/expressroute/expressroute-introduction) para ligar a sua rede para a rede do Azure. Aqui, cada circuito está configurado com dois endereços IP públicos. Estes podem ser encontradas no Microsoft Edge e utilizar [Peering público do Azure](/azure/expressroute/expressroute-circuit-peerings) para ligar ao Microsoft Services, como o armazenamento do Azure. Para permitir a comunicação com o armazenamento do Azure, crie regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure.
+Se estiver a utilizar [ExpressRoute](/azure/expressroute/expressroute-introduction) no local, para peering público ou peering da Microsoft, terá de identificar os endereços NAT IP que são utilizados. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gerir regras de rede IP
 

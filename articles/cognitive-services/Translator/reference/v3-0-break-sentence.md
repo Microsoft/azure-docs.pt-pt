@@ -3,19 +3,19 @@ title: Método de BreakSentence de API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Use o método BreakSentence de API de texto do Translator.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8aa726d8a00e76c1b4311140a433e6c7e476dc50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884907"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916296"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Texto do Translator API 3.0: BreakSentence
 
@@ -45,7 +45,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>*Parâmetro de consulta opcionais*.<br/>Etiqueta de idioma, identificando o idioma do texto de entrada. Se não for especificado um código, deteção de idioma automática será aplicada.</td>
   </tr>
   <tr>
-    <td>script</td>
+    <td>Script</td>
     <td>*Parâmetro de consulta opcionais*.<br/>Marca de script, identificando o script utilizado pelo texto de entrada. Se não for especificado um script, será assumido o script de predefinição da linguagem.</td>
   </tr>
 </table> 
@@ -56,7 +56,7 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_header_</td>
+    <td>_Uma autorização_<br/>_cabeçalho_</td>
     <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -172,7 +172,7 @@ Se ocorrer um erro, o pedido também irá devolver uma resposta de erro do JSON.
 
 O exemplo seguinte mostra como obter os limites de frase para uma única frase. O idioma da sentença é detetado automaticamente pelo serviço.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>Curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

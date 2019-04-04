@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842515"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916467"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -134,9 +134,9 @@ Para receber informações detalhadas sobre a instalação, utilize o **-verboso
 
 Runbooks, pode utilizar qualquer uma das atividades e cmdlets definidos nos módulos que estão instalados no seu ambiente de automatização do Azure. Estes módulos não são implementados automaticamente em computadores no local, tem das instalar manualmente. A exceção é o módulo do Azure, o que é instalado por padrão e fornece acesso a cmdlets para todos os serviços do Azure e as atividades para a automatização do Azure.
 
-Como é a principal finalidade da funcionalidade do Runbook Worker híbrido gerir recursos locais, é mais provável que precisa instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar os módulos do Windows PowerShell, consulte [instalar módulos](https://msdn.microsoft.com/library/dd878350.aspx). 
+Como é a principal finalidade da funcionalidade do Runbook Worker híbrido gerir recursos locais, é mais provável que precisa instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar os módulos do Windows PowerShell, consulte [instalar módulos](/powershell/developer/windows-powershell). 
 
-Tem de ser num local referenciado por módulos que estão instalados os **PSModulePath** variável de ambiente para que a função de trabalho híbrida pode importá-los automaticamente. Para obter mais informações, consulte [modificar o caminho de instalação PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
+Tem de ser num local referenciado por módulos que estão instalados os **PSModulePath** variável de ambiente para que a função de trabalho híbrida pode importá-los automaticamente. Para obter mais informações, consulte [modificar o caminho de instalação PSModulePath](/powershell/developer/windows-powershell).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

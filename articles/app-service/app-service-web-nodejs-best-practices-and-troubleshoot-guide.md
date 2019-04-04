@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898861"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895788"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Melhores práticas e guia de resolução de problemas para aplicações de nó no Windows de serviço de aplicações do Azure
 
@@ -98,7 +98,7 @@ O valor predefinido é false. Se estiver ativada, a aplicação de nó pode liga
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-O valor predefinido é 0, o que significa que esta funcionalidade está desativada. Quando definido como um valor maior que 0, iisnode será page out de todos os processos filho cada "idlePageOutTimePeriod' em milissegundos. Ver [documentação](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx) para compreender o que page out de meio. Esta definição é útil para aplicativos que consomem uma elevada quantidade de memória e quer page out de memória no disco ocasionalmente para libertar de RAM.
+O valor predefinido é 0, o que significa que esta funcionalidade está desativada. Quando definido como um valor maior que 0, iisnode será page out de todos os processos filho cada "idlePageOutTimePeriod' em milissegundos. Ver [documentação](/windows/desktop/api/psapi/nf-psapi-emptyworkingset) para compreender o que page out de meio. Esta definição é útil para aplicativos que consomem uma elevada quantidade de memória e quer page out de memória no disco ocasionalmente para libertar de RAM.
 
 > [!WARNING]
 > Tenha cuidado ao ativar as seguintes definições de configuração em aplicações de produção. A recomendação é não ativá-los em aplicações de produção em direto.
@@ -280,9 +280,9 @@ NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. No servi�
 
 Siga estas ligações para saber mais sobre aplicações node. js no App Service do Azure.
 
-* [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](app-service-web-get-started-nodejs.md)
-* [Como depurar uma aplicação Web Node.js no Serviço de Aplicações do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Introdução às Web Apps Node.js no App Service do Azure](app-service-web-get-started-nodejs.md)
+* [Como depurar uma aplicação Web Node.js no App Service do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicações de Web do serviço de aplicações do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro de Programadores do Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Centro para Programadores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar a Consola de Depuração do Kudu Super Secreta](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

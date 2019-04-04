@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118596"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905312"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerir atribuições de funções no duplos Digital do Azure
 
 Os gémeos Digital do Azure utiliza o controlo de acesso baseado em funções ([RBAC](./security-role-based-access-control.md)) para gerir o acesso aos recursos.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Descrição geral de atribuições de função
 
@@ -36,13 +39,13 @@ Cada atribuição de função está em conformidade com a seguinte definição:
 
 A tabela abaixo descreve cada atributo:
 
-| Atributo | Nome | Necessário | Tipo | Descrição |
+| Atributo | Name | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
-| RoleId | Identificador de definição de função | Sim | Cadeia | O ID exclusivo da atribuição de função desejada. Encontre as definições de função e seu identificador consultando a API de sistema ou consultar a tabela abaixo. |
-| objectId | Identificador de objeto | Sim | Cadeia | Um ID de diretório do Azure Active Directory, o ID de objeto do principal de serviço ou o nome de domínio. O que, ou quem a atribuição de função é atribuída a. A atribuição de função têm de ser formatada vzhledem KE svému typu associado. Para o `DomainName` objectIdType, objectId tem de começar com o `“@”` caráter. |
-| objectIdType | Tipo de identificador de objeto | Sim | Cadeia | O tipo de identificador de objeto utilizado. Ver **suportado ObjectIdTypes** abaixo. |
-| caminho | Caminho de espaço | Sim | Cadeia | O caminho de acesso total para o `Space` objeto. Um exemplo é `/{Guid}/{Guid}`. Se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"`. Este caráter designa a raiz, mas a sua utilização não é recomendada. Seguem sempre o princípio do menor privilégio. |
-| TenantId | Identificador do inquilino | Varia | Cadeia | Na maioria dos casos, um inquilino do Azure Active Directory ID. Não são permitidas para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o DomainName ObjectIdType. |
+| roleId | Identificador de definição de função | Sim | String | O ID exclusivo da atribuição de função desejada. Encontre as definições de função e seu identificador consultando a API de sistema ou consultar a tabela abaixo. |
+| objectId | Identificador de objeto | Sim | String | Um ID de diretório do Azure Active Directory, o ID de objeto do principal de serviço ou o nome de domínio. O que, ou quem a atribuição de função é atribuída a. A atribuição de função têm de ser formatada vzhledem KE svému typu associado. Para o `DomainName` objectIdType, objectId tem de começar com o `“@”` caráter. |
+| objectIdType | Tipo de identificador de objeto | Sim | String | O tipo de identificador de objeto utilizado. Ver **suportado ObjectIdTypes** abaixo. |
+| caminho | Caminho de espaço | Sim | String | O caminho de acesso total para o `Space` objeto. Um exemplo é `/{Guid}/{Guid}`. Se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"`. Este caráter designa a raiz, mas a sua utilização não é recomendada. Seguem sempre o princípio do menor privilégio. |
+| tenantId | Identificador do inquilino | Varia | String | Na maioria dos casos, um inquilino do Azure Active Directory ID. Não são permitidas para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o DomainName ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores da definição de função suportadas
 
@@ -83,8 +86,8 @@ ID da sua aplicação é fornecido para si no Azure Active Directory. Para saber
 Assim que tiver o ID da aplicação, execute os seguintes comandos do PowerShell:
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 Um utilizador com o **administrador** função, em seguida, pode atribuir a função de administrador de espaço para um utilizador ao fazer um pedido de HTTP POST autenticado para o URL:
@@ -162,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valor do parâmetro** | **Necessário** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  Verdadeiro | Cadeia |   O objectId para objectIdType o ID de utilizador. |
-| YOUR_PATH | Verdadeiro | Cadeia |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  Verdadeiro | Cadeia |   O tipo de acesso para procurar. |
-| YOUR_RESOURCE_TYPE | Verdadeiro | Cadeia |  O recurso para verificar. |
+| YOUR_USER_ID |  Verdadeiro | String |   O objectId para objectIdType o ID de utilizador. |
+| YOUR_PATH | Verdadeiro | String |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  Verdadeiro | String |   O tipo de acesso para procurar. |
+| YOUR_RESOURCE_TYPE | Verdadeiro | String |  O recurso para verificar. |
 
 Um pedido com êxito irá devolver um valor booleano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao utilizador para o caminho especificado e o recurso.
 

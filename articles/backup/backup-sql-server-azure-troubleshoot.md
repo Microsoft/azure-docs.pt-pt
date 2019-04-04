@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847460"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916692"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -67,7 +67,7 @@ As tabelas a seguir são organizadas por código de erro.
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| O Azure Backup não é possível estabelecer ligação à instância do SQL. | O Azure Backup não é possível ligar à instância do SQL. | Utilize os detalhes adicionais no menu do erro portal do Azure para restringir as causas de raiz. Consulte a [resolução de problemas cópia de segurança do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) para corrigir o erro.<br/><ul><li>Se as predefinições de SQL não permitir ligações remotas, altere as definições. Consulte as ligações para alterar as definições abaixo.<ul><li>[https://msdn.microsoft.com/library/bb326495.aspx](https://msdn.microsoft.com/library/bb326495.aspx)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se existirem problemas de início de sessão, consulte as ligações para corrigi-lo abaixo:<ul><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| O Azure Backup não é possível estabelecer ligação à instância do SQL. | O Azure Backup não é possível ligar à instância do SQL. | Utilize os detalhes adicionais no menu do erro portal do Azure para restringir as causas de raiz. Consulte a [resolução de problemas cópia de segurança do SQL](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) para corrigir o erro.<br/><ul><li>Se as predefinições de SQL não permitir ligações remotas, altere as definições. Veja os artigos seguintes para obter informações sobre como alterar as definições.<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>Se existirem problemas de início de sessão, consulte as ligações para corrigi-lo abaixo:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
@@ -169,7 +169,8 @@ Esses sintomas podem surgir devido a um ou mais dos seguintes motivos:
   * VM foi encerrada durante um período prolongado devido a que a configuração da extensão na mesma expirou
   * A VM foi eliminada e a outra VM foi criada com o mesmo nome e no mesmo grupo de recursos da VM eliminada
   * Um de nós AG não recebeu a configuração de cópia de segurança completa, isto pode acontecer uma no momento do registo de grupo de disponibilidade para o cofre ou quando é adicionado um novo nó  <br>
-    Nos cenários acima, é recomendado para acionar a operação de voltar a registar na VM. Esta opção só está disponível através do PowerShell e estará brevemente disponível no portal do Azure também.
+   
+Nos cenários acima, é recomendado para acionar a operação de voltar a registar na VM. Esta opção só está disponível através do PowerShell e estará brevemente disponível no portal do Azure também.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,5 +1,5 @@
 ---
-title: Conectores para o Azure Logic Apps | Microsoft Docs
+title: Conectores para o Azure Logic Apps
 description: Automatizar fluxos de trabalho com conectores para o Azure Logic Apps, incluindo incorporado, gerido, no local, a conta de integração e conectores empresariais
 services: logic-apps
 ms.service: logic-apps
@@ -9,25 +9,27 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635446"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895888"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
 
-Conectores reproduzir uma parte integral ao criar fluxos de trabalho automatizados com o Azure Logic Apps. Ao utilizar conectores nas suas aplicações lógicas, expandir as capacidades no local e aplicações para executar tarefas com os dados que criar e já tiver na cloud. 
+Conectores fornecem acesso rápido do Azure Logic Apps para eventos, dados e ações em outras aplicações, serviços, sistemas, protocolos e plataformas. Ao utilizar conectores nas suas aplicações lógicas, expanda as capacidades para as suas aplicações na cloud e no local executar tarefas com os dados que criar e já tiver.
 
-Embora as ofertas de aplicações lógicas [~ mais de 200 conectores](https://docs.microsoft.com/connectors), este artigo descreve os conectores populares e mais usados, que são utilizados com êxito por milhares de aplicações e milhões de execuções para processar dados e informações. Conectores estão disponíveis como built-ins ou conectores geridos. 
+Embora as ofertas de aplicações lógicas [~ mais de 200 conectores](https://docs.microsoft.com/connectors), este artigo descreve os conectores populares e mais usados, que são utilizados com êxito por milhares de aplicações e milhões de execuções para processar dados e informações. Para encontrar a lista completa de conectores e informações de referência de cada conector, como disparadores, ações e limites, reveja o conector faz referência a páginas sob [descrição geral dos conectores](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [acionadores e ações](#triggers-actions).
 
 > [!NOTE]
-> Para obter a lista completa de conectores e informações de referência de cada conector, como ações, acionadores e limites, pode encontrar a lista completa sob a [descrição geral dos conectores](https://docs.microsoft.com/connectors).
+> Para integrar com um serviço ou a API que não tenha o conector, pode diretamente chamar o serviço através de um protocolo, como HTTP ou criar um [conector personalizado](#custom).
 
-* [**Built-ins**](#built-ins): estas ações incorporadas e ajuda de acionadores criar aplicações lógicas que são executadas em agendamentos personalizados, comunicar com outros pontos de extremidade, receber e responder a pedidos e chamar Azure funções, aplicações de API do Azure (aplicações Web), seu próprio APIs geridas e aplicações que podem receber pedidos publicadas com gestão de API do Azure e lógica aninhada. Também pode utilizar incorporados ações que o ajudam a organizar e controlar o fluxo de trabalho da sua aplicação lógica e também funcionam com dados.
+Conectores estão disponíveis como ações e acionadores incorporados ou conectores geridos:
 
-* **Conectores geridos**: Estes conectores fornecem acionadores e ações para aceder a outros serviços e sistemas. Alguns conectores requerem que criasse ligações que são geridas pelo Azure Logic Apps. Conectores geridos são organizados nestes grupos:
+* [**Built-ins**](#built-ins): Estas ações incorporadas e os acionadores são "nativos" para o Azure Logic Apps e ajudam a criar aplicações lógicas que execute em agendas personalizadas, comunicam com outros pontos de extremidade, receberem e respondem a pedidos e chamam as funções do Azure, Azure API Apps (aplicações Web), as suas próprias APIs gerido e publicadas com gestão de API do Azure e aplicações lógicas aninhadas que podem receber pedidos. Também pode utilizar incorporados ações que o ajudam a organizar e controlar o fluxo de trabalho da sua aplicação lógica e também funcionam com dados.
+
+* **Conectores geridos**: Implementados e geridos pela Microsoft, estes conectores fornecem acionadores e ações para aceder a outros serviços e sistemas, como o Office 365, o armazenamento de Blobs do Azure, SQL Server, Salesforce e muito mais. Alguns conectores requerem que criasse conexões, o que são geridos pelo Azure Logic Apps. Conectores geridos são organizados nestes grupos:
 
   |   |   |
   |---|---|
@@ -40,12 +42,12 @@ Embora as ofertas de aplicações lógicas [~ mais de 200 conectores](https://do
   Por exemplo, se estiver a utilizar o Microsoft BizTalk Server, as logic apps podem ligar a e comunicar com o BizTalk Server utilizando o [o BizTalk Server](#on-premises-connectors). 
   Em seguida, pode estender ou efetuar operações semelhantes ao BizTalk nas suas aplicações lógicas utilizando o [conectores de conta de integração](#integration-account-connectors). 
 
-> [!NOTE] 
+> [!NOTE]
 > Para obter a lista completa de conectores e informações de referência de cada conector, por exemplo, ações e acionadores, que são definidos por uma descrição do Swagger, além de quaisquer limites, pode encontrar a lista completa sob a [descrição geral dos conectores](/connectors/). Para obter informações sobre preços, consulte [os detalhes dos preços do Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) e o [modelo de preços do Logic Apps](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
-## <a name="built-ins"></a>Incorporações
+## <a name="built-ins"></a>Built-ins
 
 O Logic Apps fornece acionadores incorporados e ações para que possa criar fluxos de trabalho baseados no agendamento, ajudam as suas aplicações lógicas comunicar com outras aplicações e serviços, controle o fluxo de trabalho por meio de suas logic apps e gerir ou manipular os dados. 
 
@@ -74,9 +76,9 @@ Seguem-se as ações incorporadas para trabalhar com dados saídas e seus format
 
 |   |   | 
 |---|---| 
-| [![Ícone interno][data-operations-icon]<br/>**operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: criar uma única saída a partir de várias entradas com vários tipos. <br>- **Criar tabela CSV**: criar uma tabela separada por vírgulas (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: criar uma matriz de itens na outra matriz que satisfazem os critérios. <br>- **Junte-se a**: criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar esses itens com o delimitador especificado. <br>- **Analisar JSON**: criar fácil de utilizar tokens de propriedades e seus valores em JSON conteúdo para que possa utilizar essas propriedades no fluxo de trabalho. <br>- **Selecione**: criar uma matriz com objetos JSON ao transformar itens ou valores na outra matriz e mapear esses itens para propriedades especificadas. | 
-| ![Ícone interno][date-time-icon]<br/>**Data hora** | Realizar operações de carimbos de data: <p>- **Adicionar ao tempo**: adicionar o número de unidades especificado a um carimbo. <br>- **Converter fuso horário**: converter um carimbo de fuso horário de origem para o fuso horário de destino. <br>- **Hora atual**: retornar timestamp atual como uma cadeia de caracteres. <br>- **Obter tempo futuro**: devolver o timestamp atual, bem como as unidades de tempo especificado. <br>- **Obter tempo passado**: retornar timestamp atual menos as unidades de tempo especificado. <br>- **Subtrair a partir da hora**: subtrair um número de unidades de tempo de um carimbo. |
-| [![Ícone interno][variables-icon]<br/>**variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: Inserir um valor como o último item numa matriz armazenado por uma variável. <br>- **Acrescentar à variável da cadeia de caracteres**: Inserir um valor como o último caráter numa cadeia armazenado por uma variável. <br>- **Variável de diminuição**: diminuir a uma variável um valor constante. <br>- **Variável de incremento**: aumentar uma variável, um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar o tipo de dados e o valor inicial. <br>- **Definir variável**: atribuir um valor diferente para uma variável existente. |
+| [![Ícone interno][data-operations-icon]<br/>**operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: Crie uma única saída a partir de várias entradas com vários tipos. <br>- **Criar tabela CSV**: Crie uma tabela do separados por vírgulas (CSV) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Crie uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz de itens na outra matriz que satisfazem os critérios. <br>- **Junte-se a**: Criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigável de utilizador de propriedades e os respetivos valores no conteúdo JSON, pelo que pode utilizar essas propriedades no fluxo de trabalho. <br>- **Selecione**: Crie uma matriz com objetos JSON ao transformar itens ou valores na outra matriz e mapear esses itens para propriedades especificadas. | 
+| ![Ícone interno][date-time-icon]<br/>**Data e Hora** | Realizar operações de carimbos de data: <p>- **Adicionar ao tempo**: Adicione o número de unidades especificado a um carimbo. <br>- **Converter fuso horário**: Converta um carimbo de fuso horário de origem para o fuso horário de destino. <br>- **Hora atual**: Devolva o timestamp atual como uma cadeia de caracteres. <br>- **Obter tempo futuro**: Devolva o timestamp atual, bem como as unidades de tempo especificado. <br>- **Obter tempo passado**: Devolva o carimbo de hora atual menos as unidades de tempo especificado. <br>- **Subtrair a partir da hora**: Subtrai um número de unidades de tempo de um carimbo. |
+| [![Ícone interno][variables-icon]<br/>**variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: Inserir um valor como o último item numa matriz armazenado por uma variável. <br>- **Acrescentar à variável da cadeia de caracteres**: Inserir um valor como o último caráter numa cadeia armazenado por uma variável. <br>- **Variável de diminuição**: Diminua a uma variável um valor constante. <br>- **Variável de incremento**: Aumente a uma variável um valor constante. <br>- **Inicializar variável**: Crie uma variável e declarar o tipo de dados e o valor inicial. <br>- **Definir variável**: Atribua um valor diferente para uma variável existente. |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -103,7 +105,7 @@ Aqui estão alguns conectores mais usados que fornecem acesso a dados e recursos
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![Ícone de API][biztalk-server-icon]<br/>**BizTalk**</br> **Servidor** | [![Ícone de API][file-system-icon]<br/>**ficheiro</br> sistema**][file-system-doc] | [![Ícone de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Ícone de API][ibm-informix-icon]<br/>**IBM** </br> **Informix**][ibm-informix-doc] | ![Ícone de API][mysql-icon]<br/>**MySQL** | 
+| ![Ícone de API][biztalk-server-icon]<br/>**BizTalk**</br> **Servidor** | [![Ícone de API][file-system-icon]<br/>**ficheiro</br> sistema**][file-system-doc] | [![Ícone de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![Ícone de API][mysql-icon]<br/>**MySQL** | 
 | [![Ícone de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Ícone de API][postgre-sql-icon]<br/>**PostgreSQL** | [![Ícone de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Ícone de API][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![Ícone de API][teradata-icon]<br/>**Teradata** | 
 ||||| 
 
@@ -131,25 +133,36 @@ As logic apps podem aceder a sistemas empresariais, como SAP e IBM MQ:
 | [![Ícone de API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Ícone de API][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
-## <a name="more-about-triggers-and-actions"></a>Mais informações sobre os acionadores e ações
+<a name="triggers-actions"></a>
 
-Alguns conectores disponibilizam *acionadores* que notificar a sua aplicação lógica quando ocorrem eventos específicos. Então, quando esses eventos ocorrem, o acionador cria e executa uma instância da sua aplicação lógica. Por exemplo, o conector FTP fornece um acionador de "quando é adicionado ou modificado um ficheiro", que inicia a aplicação lógica, quando um ficheiro é atualizado. 
+## <a name="triggers-and-actions---more-info"></a>Acionadores e ações - obter mais informações
 
-O Logic Apps fornece estes tipos de acionadores:  
+Conectores podem fornecer *acionadores*, *ações*, ou ambos. R *acionador* é o primeiro passo em qualquer aplicação lógica, normalmente, especificando o evento que aciona o acionador e começa a executar a sua aplicação lógica. Por exemplo, o conector FTP tem um acionador que inicia a aplicação lógica "quando é adicionado ou modificado um ficheiro". Alguns acionadores verificar regularmente o evento especificado ou os dados e, em seguida, são disparados quando detetam o evento especificado ou os dados. Outros acionadores aguardarem, mas são acionados instantaneamente quando um evento específico acontece ou quando estão disponíveis novos dados. Acionadores também passam por todos os dados necessários à sua aplicação lógica. A aplicação lógica pode ler e utilizar esses dados em todo o fluxo de trabalho.
+Por exemplo, o conector do Twitter tem um acionador, "Quando um novo tweet é publicado", que passa o tweet do conteúdo em fluxo de trabalho da sua aplicação lógica. 
 
-* *Acionadores de consultas*: estes acionadores consultam o serviço a uma frequência especificada e verificações de existência de novos dados. 
+Depois de um acionador é acionado, o Azure Logic Apps cria uma instância da sua aplicação lógica e começa a executar o *ações* no fluxo de trabalho da sua aplicação lógica. As ações são os passos que siga o acionador e executam tarefas no fluxo de trabalho da sua aplicação lógica. Por exemplo, pode criar uma aplicação lógica que obtém dados do cliente da base de dados SQL e processar dados em ações subsequentes. 
 
-  Quando estão disponíveis novos dados, uma nova instância da sua aplicação lógica é criada e é executado com os dados que são passados como entrada. 
+Aqui estão os tipos gerais de acionadores que o Azure Logic Apps fornece:
 
-* *Acionadores push*: estes acionadores estão à escuta de dados novo num ponto final ou da ocorrência de um evento, que cria e executa uma instância nova da sua aplicação lógica.
+* *Acionador de periodicidade*: Este acionador é executado numa agenda especificada e não está fortemente associado com um sistema ou serviço específico.
 
-* *Acionador de periodicidade*: este acionador cria e executa uma instância da sua aplicação lógica com base numa agenda especificada.
+* *Acionador de consulta*: Este acionador consulta regularmente um serviço específico ou um sistema com base na agenda especificada, verificar a existência de novos dados ou se aconteceu um evento específico. Se estão disponíveis novos dados ou ocorreu o evento específico, o acionador cria e executa uma instância nova da sua aplicação lógica, que agora pode utilizar os dados que são passados como entrada.
 
-Os conectores também disponibilizam *ações* que executam tarefas no fluxo de trabalho da sua aplicação lógica. Por exemplo, a aplicação lógica pode ler os dados e utilizar estes dados em passos posteriores da sua aplicação lógica. Mais especificamente, a aplicação lógica pode encontrar os dados de cliente da base de dados SQL e processar esses dados mais tarde no fluxo de trabalho da sua aplicação lógica. 
+* *Push acionador*: Este acionador deve aguardar e escuta de dados nova ou da ocorrência de um evento. Quando estão disponíveis novos dados ou quando o evento ocorre, o acionador cria e executa uma instância nova da sua aplicação lógica, que agora pode utilizar os dados que são passados como entrada.
 
-Para mais informações sobre os acionadores e ações, consulte a [descrição geral dos conectores](connectors-overview.md). 
+<a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>APIs personalizadas e dos conectores 
+## <a name="connector-configuration"></a>Configuração do conector
+
+Acionadores e ações de cada conector fornecem as suas próprias propriedades de configurar. Muitos conetores também exigem que se crie primeiro um *ligação* para o serviço de destino ou o sistema e forneça as credenciais de autenticação ou outros detalhes de configuração antes de poder utilizar um acionador ou ação na sua aplicação lógica. Por exemplo, tem de autorizar uma ligação para uma conta do Twitter para aceder aos dados ou para publicar em seu nome. 
+
+Para os conectores que utilizam a OAuth, a criação de uma ligação significa a iniciar sessão no serviço, como o Office 365, Salesforce ou GitHub, onde o token de acesso é encriptado e armazenado em segurança num arquivo de segredos do Azure. Outros conectores, como o FTP e o SQL, requerem uma ligação que tenha os detalhes de configuração, como o endereço do servidor, nome de utilizador e palavra-passe. Esse detalhes de configuração de ligação são também são encriptados e armazenados em segurança. 
+
+Ligações podem acessar o serviço de destino ou o sistema para, desde que esse serviço ou o sistema permite. Para serviços que utilizam ligações de OAuth do Azure Active Directory (AD), como o Office 365 e Dynamics, Azure Logic Apps atualiza os tokens de acesso indefinidamente. Outros serviços poderão colocar o limites sobre o tempo que o Azure Logic Apps pode utilizar um token sem atualizar. Em geral, algumas ações invalidar todos os tokens de acesso, tal como alterar a palavra-passe.
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>APIs personalizadas e dos conectores
 
 Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, pode expandir a plataforma do Logic Apps por [criar aplicações API personalizadas](../logic-apps/logic-apps-create-api-app.md). Também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *qualquer* REST ou APIs baseados em SOAP, o que fazer com que essas APIs disponíveis para qualquer aplicação lógica na sua subscrição do Azure.
 Para tornar as aplicações API personalizadas ou de conectores pública para qualquer pessoa utilizar no Azure, pode [submeter os conectores para certificação Microsoft](../logic-apps/custom-connector-submit-certification.md).
@@ -159,8 +172,6 @@ Para tornar as aplicações API personalizadas ou de conectores pública para qu
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 * Para submeter ou votar em ideias para o Azure Logic Apps e conectores, visite o [site de comentários de utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
-
-* São os documentos em falta artigos ou detalhes que considera são importantes? Se Sim, pode ajudar ao adicionar os artigos existentes ou ao escrever as suas próprias. A documentação é open source e alojada no GitHub. Começar a utilizar a documentação do Azure [repositório do GitHub](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

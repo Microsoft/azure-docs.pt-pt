@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 53d9aec5a689babb637d2eff6b36ea3b8bd8d97f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 277a1d5df0e6eb828c4d3c6faed91d55defb4108
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173943"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894035"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definir atributos personalizados no Azure Active Directory B2C
 
  Todos os aplicativos do lado do cliente tem requisitos exclusivos para as informações de que tem de ser recolhidos. O inquilino B2C do Azure Active Directory (Azure AD) é fornecido com um conjunto interno de informações armazenadas em atributos, como o nome próprio, apelido, cidade e Código Postal. Com o Azure AD B2C, pode estender o conjunto de atributos armazenados em cada conta de cliente. 
  
- Pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e usá-los em seus fluxos de utilizador de inscrição, fluxos de utilizador de inscrição ou início de sessão ou fluxos de utilizador de edição de perfil. Também pode ler e gravar esses atributos utilizando o [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Utilizam atributos personalizados no Azure AD B2C [do Azure AD Graph API Extensões de esquema do](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e usá-los em seus fluxos de utilizador de inscrição, fluxos de utilizador de inscrição ou início de sessão ou fluxos de utilizador de edição de perfil. Também pode ler e gravar esses atributos utilizando o [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Utilizam atributos personalizados no Azure AD B2C [do Azure AD Graph API Extensões de esquema do](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Criar um atributo personalizado
 

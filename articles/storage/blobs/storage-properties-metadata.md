@@ -5,30 +5,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916585"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Definir e obter propriedades e metadados
 
 Objetos em Propriedades do sistema de suporte de armazenamento do Azure e os metadados definidos pelo usuário, além dos dados que contêm. Este artigo aborda as propriedades do sistema de gestão e os metadados definidos pelo utilizador com o [biblioteca de clientes de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Propriedades do sistema**: existem propriedades de sistema em cada recurso de armazenamento. Alguns deles podem ser lidos ou definidos, enquanto outras são só de leitura. Nos bastidores, algumas propriedades do sistema correspondem a determinados cabeçalhos HTTP padrão. Bibliotecas de cliente de armazenamento do Azure de manter essas propriedades para.
+* **Propriedades do sistema**: Propriedades do sistema de existir em cada recurso de armazenamento. Alguns deles podem ser lidos ou definidos, enquanto outras são só de leitura. Nos bastidores, algumas propriedades do sistema correspondem a determinados cabeçalhos HTTP padrão. Bibliotecas de cliente de armazenamento do Azure de manter essas propriedades para.
 
-* **Metadados definidos pelo utilizador**: metadados definidos pelo utilizador consiste num ou mais pares de nome-valor que especificar para um recurso de armazenamento do Azure. Pode usar os metadados para armazenar valores adicionais com um recurso. Valores de metadados são suas próprias finalidades e não afetam o comportamento do recurso.
+* **Metadados definidos pelo utilizador**: Metadados definidos pelo utilizador consiste num ou mais pares de nome-valor que especificar para um recurso de armazenamento do Azure. Pode usar os metadados para armazenar valores adicionais com um recurso. Valores de metadados são suas próprias finalidades e não afetam o comportamento do recurso.
 
 Recuperando valores de propriedade e os metadados de um recurso de armazenamento é um processo de dois passos. Antes de pode ler esses valores, deve explicitamente buscá-los ao chamar o **FetchAttributes** ou **FetchAttributesAsync** método. A exceção é se chamasse o **Exists** ou **ExistsAsync** método num recurso. Quando chama um dos seguintes métodos, o armazenamento do Azure chama o adequado **FetchAttributes** método nos bastidores como parte da chamada para o **Exists** método.
 
 > [!IMPORTANT]
 > Se achar que não tenham sido populados valores de propriedade ou metadados para um recurso de armazenamento, em seguida, verifique que o seu código chama o **FetchAttributes** ou **FetchAttributesAsync** método.
 >
-> Pares de nome/valor de metadados podem conter apenas carateres ASCII. Pares de nome/valor de metadados são cabeçalhos HTTP válidos e, por isso, tem de cumprir todas as restrições que regem os cabeçalhos HTTP. Recomenda-se que utilize a codificação do URL ou codificação de Base64 para os nomes e valores que contêm caracteres não-ASCII.
->
+> Pares de nome/valor de metadados são cabeçalhos HTTP válidos e, por isso, devem cumprir todas as restrições que regem os cabeçalhos HTTP. Os nomes dos metadados tem de ser válidos nomes de cabeçalho HTTP, podem conter apenas caracteres ASCII e devem ser tratados como maiúsculas de minúsculas. Os valores de metadados que contém carateres não ASCII devem ser codificada em Base64 ou com codificação URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Configurando e recuperando propriedades
 Para obter valores de propriedade, chamar o **FetchAttributesAsync** método no blob ou contentor para preencher as propriedades, em seguida, leia os valores.

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: a739b958ad60e39c38e81ce887edf68349340bb0
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285840"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905805"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especifique os artefactos obrigatórios para o laboratório no Azure DevTest Labs
-Como um proprietário de um laboratório, pode especificar obrigatórios artefatos que são aplicados a todas as máquinas criadas no laboratório. Imagine um cenário onde pretende que cada máquina em seu laboratório estar ligado à sua rede empresarial. Neste caso, cada utilizador do laboratório teria de adicionar um artefato de associação de domínio durante a criação da máquina virtual para se certificar de que sua máquina está ligada ao domínio empresarial. Em outras palavras, os utilizadores de laboratório, essencialmente, teria de voltar a criar uma máquina, caso eles se esqueça de aplicar os artefactos obrigatórios nos respetivos computadores. Como proprietário de um laboratório, verifique o artefacto de associação de domínio como um artefato obrigatório no seu laboratório. Este passo certifica-se de que cada máquina está ligada à rede da empresa e economizando tempo e esforço para os seus utilizadores de laboratório.
+Como proprietário de um laboratório, pode especificar obrigatórios artefatos que são aplicados a todas as máquinas criadas no laboratório. Imagine um cenário onde pretende que cada máquina em seu laboratório estar ligado à sua rede empresarial. Neste caso, cada utilizador do laboratório teria de adicionar um artefato de associação de domínio durante a criação da máquina virtual para se certificar de que sua máquina está ligada ao domínio empresarial. Em outras palavras, os utilizadores de laboratório, essencialmente, teria de voltar a criar uma máquina, caso eles se esqueça de aplicar os artefactos obrigatórios nos respetivos computadores. Como proprietário de um laboratório, verifique o artefacto de associação de domínio como um artefato obrigatório no seu laboratório. Este passo certifica-se de que cada máquina está ligada à rede da empresa e economizando tempo e esforço para os seus utilizadores de laboratório.
  
 Outros artefatos obrigatórios podem incluir uma ferramenta comuns que sua equipe usa ou um pacote de segurança relacionados com a plataforma que cada máquina tem de ter por padrão, etc. Em resumo, qualquer software comuns que todas as máquinas no seu laboratório tem de ter se torna um artefato obrigatório. Se criar uma imagem personalizada a partir de uma máquina que tenha artefactos obrigatórios aplicados a ele e, em seguida, criar uma nova máquina a partir dessa imagem, os artefactos obrigatórios são reaplicados a máquina durante a criação. Esse comportamento também significa que, apesar da imagem personalizada é antiga, sempre que criar uma máquina do mesmo a versão mais atualizada dos artefactos obrigatórios são aplicadas ao mesmo durante o fluxo de criação. 
  
 Apenas os artefatos que não têm parâmetros são suportados como obrigatório. O utilizador do laboratório não tem de introduzir parâmetros adicionais durante a criação de laboratório e, portanto, tornando o processo de criação de VMS simples. 
 
-## <a name="specify-mandatory-artifacts"></a>Especifique os artefactos obrigatórios
+## <a name="specify-mandatory-artifacts"></a>Especificar artefactos obrigatórios
 Pode selecionar artefactos obrigatórios para máquinas Windows e Linux em separado. Também pode reorganizar estes artefactos dependendo da ordem na qual pretende que sejam aplicadas. 
 
 1. Na home page do seu laboratório, selecione **Konfigurace a zásady** sob **definições**. 

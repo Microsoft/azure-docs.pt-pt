@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: c8900e639e6baba29067c50d4ac754d4dbda2dd6
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991086"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449226"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Serviço de aplicações no notas de versão de atualização 4 do Azure Stack
 
@@ -64,6 +64,8 @@ Serviço de aplicações do Azure no Azure Stack atualização 4 inclui as segui
 - Foi adicionado suporte para versão de API do serviço de aplicações de 2018-02-01
 
 - Atualiza para **inquilino de serviço de aplicações, o administrador, portais de funções e ferramentas de Kudu**. Consistente com a versão do SDK do Portal do Azure Stack.
+
+- As atualizações **runtime das funções do Azure** ao **v1.0.11959**.
 
 - Atualizações de serviço básico para melhorar a fiabilidade e ativar mais fácil diagnóstico dos problemas comuns de mensagens de erro.
 

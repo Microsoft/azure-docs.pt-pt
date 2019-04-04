@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199249"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905771"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Mover um cofre dos serviços de recuperação através de subscrições do Azure e grupos de recursos (pré-visualização pública limitada)
 
@@ -21,6 +21,8 @@ Este artigo explica como mover um cofre de serviços de recuperação configurad
 
 > [!NOTE]
 > Para mover um cofre dos serviços de recuperação e os respetivos recursos associados ao grupo de recursos diferente, deve primeiro [registar a subscrição de origem](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Pré-requisitos para mover um cofre
 
@@ -50,24 +52,24 @@ Para registar a subscrição de origem para **mover** seu Cofre de serviços de 
 1. Inicie sessão na sua conta do Azure
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Selecione a subscrição que pretende registar
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Registar esta subscrição
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Execute o comando
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Aguarde 30 minutos para a subscrição de permissões antes de começar com a operação de movimentação com o portal do Azure ou o PowerShell.
@@ -137,18 +139,18 @@ Pode mover um cofre dos serviços de recuperação e os respetivos recursos asso
 
 ## <a name="use-powershell-to-move-a-vault"></a>Utilize o PowerShell para mover um cofre
 
-Para mover um cofre dos serviços de recuperação para outro grupo de recursos, utilize o `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` necessita do nome do recurso e o tipo de recurso. Pode obter em ambos os `Get-AzureRmRecoveryServicesVault` cmdlet.
+Para mover um cofre dos serviços de recuperação para outro grupo de recursos, utilize o `Move-AzResource` cmdlet. `Move-AzResource` necessita do nome do recurso e o tipo de recurso. Pode obter em ambos os `Get-AzRecoveryServicesVault` cmdlet.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Para mover os recursos para uma subscrição diferente, inclua o `-DestinationSubscriptionId` parâmetro.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Depois de executar os cmdlets acima, será solicitado a confirmar que pretende mover os recursos especificados. Tipo **Y** para confirmar. Após uma validação com êxito, o recurso for movido.

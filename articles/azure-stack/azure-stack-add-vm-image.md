@@ -1,6 +1,6 @@
 ---
-title: Adicionar e remover uma imagem de VM para o Azure Stack | Documentos da Microsoft
-description: Adicionar ou Remover imagem personalizada do Windows ou Linux VM da sua organização para os inquilinos utilizarem.
+title: Adicionar uma imagem de VM ao Azure Stack | Documentos da Microsoft
+description: Adicionar uma imagem de VM ou remover uma imagem do Windows personalizada da sua organização ou de uma imagem de VM do Linux para os inquilinos utilizarem.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e20abfde8a4524b00e60651bbe71135d357a237
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109171"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881465"
 ---
-# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Adicionar uma imagem de VM para a oferta no Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-No Azure Stack, é possível disponibilizar imagens de máquinas virtuais aos seus utilizadores. Estas imagens podem ser utilizadas por modelos Azure Resource Manager. Também pode adicioná-los na interface do usuário do Azure Marketplace como um item do mercado. Utilize um formulário com imagem global do Azure Marketplace ou sua própria imagem personalizada. A imagem pode ser adicionada com o portal ou o Windows PowerShell.
+No Azure Stack, pode adicionar uma imagem de máquina virtual (VM) no Marketplace para disponibilizar aos seus utilizadores. Pode adicionar imagens de VM utilizando modelos Azure Resource Manager para o Azure Stack. Também pode adicionar imagens de VM para a interface do Usuário do Azure Marketplace como um item do mercado. Utilize uma imagem do global Azure Marketplace ou sua própria imagem VM personalizada. É possível adicionar a imagem de VM com o portal de administração ou o Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Adicionar uma imagem de VM através do portal
 
@@ -83,7 +83,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 3. Abra o PowerShell com uma linha de comandos elevada e execute:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -93,16 +93,16 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
    ```
 
    O **Add-AzsPlatformimage** cmdlet especifica valores utilizados por modelos do Azure Resource Manager para fazer referência a imagem de VM. Os valores incluem:
-   - **publisher**  
+   - **publicador**  
      Por exemplo: `Canonical`  
      O segmento de nome de publicador da imagem VM que os utilizadores utilizam quando implementam a imagem. Um exemplo é **Microsoft**. Inclui um espaço nem outros caracteres especiais neste campo.  
-   - **offer**  
+   - **oferta**  
      Por exemplo: `UbuntuServer`  
      O segmento de nome de oferta da imagem VM que os utilizadores utilizam quando implementam a imagem de VM. Um exemplo é **WindowsServer**. Inclui um espaço nem outros caracteres especiais neste campo.  
    - **sku**  
      Por exemplo: `14.04.3-LTS`  
      O segmento de nome SKU da imagem de VM que os utilizadores utilizam quando implementam a imagem de VM. Um exemplo é **Datacenter2016**. Inclui um espaço nem outros caracteres especiais neste campo.  
-   - **version**  
+   - **versão**  
      Por exemplo: `1.0.0`  
      A versão da imagem de VM que os utilizadores utilizam quando implementam a imagem de VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Inclui um espaço nem outros caracteres especiais neste campo.  
    - **osType**  
@@ -118,7 +118,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
  
 1. [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md).
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 2. Se utilizar **serviços de Federação do Active Directory**, utilize o seguinte cmdlet:
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -158,7 +158,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 5. Preparar uma imagem de sistema operativo Windows ou Linux no formato VHD (não VHDX), carregue a imagem à sua conta de armazenamento e obter o URI onde a imagem de VM pode ser obtida pelo PowerShell.  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -166,14 +166,14 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
 6. (Opcionalmente) Pode carregar uma matriz de discos de dados como parte da imagem VM. Crie os seus discos de dados com o cmdlet New-DataDiskObject. Abra o PowerShell a partir de uma linha de comandos elevada e execute:
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. Abra o PowerShell com uma linha de comandos elevada e execute:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -189,7 +189,7 @@ Quando já não precisar da imagem de máquina virtual que carregou, pode elimin
 
 3. Abra o PowerShell com uma linha de comandos elevada e execute:
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
@@ -197,16 +197,16 @@ Quando já não precisar da imagem de máquina virtual que carregou, pode elimin
     -version "<version>" `
    ```
    O **Remove-AzsPlatformImage** cmdlet especifica valores utilizados por modelos do Azure Resource Manager para fazer referência a imagem de VM. Os valores incluem:
-   - **publisher**  
+   - **publicador**  
      Por exemplo: `Canonical`  
      O segmento de nome de publicador da imagem VM que os utilizadores utilizam quando implementam a imagem. Um exemplo é **Microsoft**. Inclui um espaço nem outros caracteres especiais neste campo.  
-   - **offer**  
+   - **oferta**  
      Por exemplo: `UbuntuServer`  
      O segmento de nome de oferta da imagem VM que os utilizadores utilizam quando implementam a imagem de VM. Um exemplo é **WindowsServer**. Inclui um espaço nem outros caracteres especiais neste campo.  
    - **sku**  
      Por exemplo: `14.04.3-LTS`  
      O segmento de nome SKU da imagem de VM que os utilizadores utilizam quando implementam a imagem de VM. Um exemplo é **Datacenter2016**. Inclui um espaço nem outros caracteres especiais neste campo.  
-   - **version**  
+   - **versão**  
      Por exemplo: `1.0.0`  
      A versão da imagem de VM que os utilizadores utilizam quando implementam a imagem de VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Inclui um espaço nem outros caracteres especiais neste campo.  
     

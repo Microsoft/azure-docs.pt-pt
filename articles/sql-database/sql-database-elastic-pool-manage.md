@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 45769a2285965395d113f026f0ffc171873a5a99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842605"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892403"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -75,11 +75,11 @@ Para criar e gerir conjuntos elásticos da base de dados SQL com o [CLI do Azure
 | Cmdlet | Descrição |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Cria um conjunto elástico.|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devolve uma lista de conjuntos elásticos num servidor.|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Devolve uma lista de bases de dados num conjunto elástico.|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Também inclui definições de DTU do conjunto disponível, limites de armazenamento e por definições de base de dados. Para reduzir a verbosidade, limites de armazenamento adicional e por base de dados, as definições são ocultadas por predefinição.|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um conjunto elástico.|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina o conjunto elástico.|
+|[lista do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devolve uma lista de conjuntos elásticos num servidor.|
+|[lista-bds do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Devolve uma lista de bases de dados num conjunto elástico.|
+|[AZ sql elastic-pool listar-edições](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Também inclui definições de DTU do conjunto disponível, limites de armazenamento e por definições de base de dados. Para reduzir a verbosidade, limites de armazenamento adicional e por base de dados, as definições são ocultadas por predefinição.|
+|[atualização do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um conjunto elástico.|
+|[eliminação do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina o conjunto elástico.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Gerir bases de dados agrupadas
 
@@ -118,6 +118,5 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para ver um vídeo, consulte [curso de vídeo do Microsoft Virtual Academy sobre capacidades elásticas da base de dados do Azure SQL](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Para obter um tutorial de SaaS que utilizam conjuntos elásticos, veja [introdução à aplicação Wingtip SaaS](sql-database-wtp-overview.md).

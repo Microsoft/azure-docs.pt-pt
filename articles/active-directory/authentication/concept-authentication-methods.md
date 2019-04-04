@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371864"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894598"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
-Reposição de palavra-passe self-service (SSPR) do AD e multi-factor Authentication (MFA) do Azure poderão pedir para obter informações adicionais, conhecidas como métodos de autenticação ou informações de segurança, para confirmar que se é que dizem que são quando usando os recursos associados.
+Como repor a um administrador escolher métodos de autenticação para o Azure multi-factor Authentication e a palavra-passe self-service (SSPR) recomenda-se que obrigue os utilizadores registem os vários métodos de autenticação. Quando um método de autenticação não está disponível para um utilizador, pode optar por autenticar com o outro método.
 
-Os administradores podem definir na diretiva de quais métodos de autenticação estão disponíveis para utilizadores do SSPR e o MFA. Alguns métodos de autenticação podem não estar disponíveis para todas as funcionalidades.
+Os administradores podem definir na diretiva de quais métodos de autenticação estão disponíveis para utilizadores do SSPR e o MFA. Alguns métodos de autenticação podem não estar disponíveis para todas as funcionalidades. Para obter mais informações sobre como configurar as políticas veja os artigos [como implementar com êxito a reposição de palavra-passe self-service](howto-sspr-deployment.md) e [planear um multi-factor Authentication com base na cloud do Azure](howto-mfa-getstarted.md)
 
 A Microsoft recomenda administradores assegura aos usuários para selecionar mais do que o número mínimo de métodos de autenticação necessário no caso de não têm acesso a um.
 

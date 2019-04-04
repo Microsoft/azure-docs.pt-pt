@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863224"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905363"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -70,9 +70,9 @@ Opções de otimização automática disponíveis no banco de dados do Azure SQL
 | :----------------------------- | ----- | ----- |
 | **Criar índice** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente que melhorou o desempenho de consultas. | Sim | Não | 
 | **DROP INDEX** -identifica os índices redundantes e duplicados diariamente, exceto para índices exclusivos e os que não foram utilizados por um longo tempo (> 90 dias). Tenha em atenção que, de momento a opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição. | Sim | Não |
-| **FORÇAR último plano bom** - consultas de SQL identifica com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
+| **FORÇAR último plano bom** (correção de planos automática) - consultas de SQL identifica com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
 
-A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar o desempenho da sua base de dados e mostram os mesmos em [Portal do azure](sql-database-advisor-portal.md)e as expõe por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
+A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar o desempenho da sua base de dados e mostram os mesmos em [Portal do azure](sql-database-advisor-portal.md)e as expõe por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Para obter mais informações sobre FORÇAR último plano bom e configurar opções de otimização automática através de T-SQL, veja [otimização automática introduz a correção de planos automática](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
 Pode optar por manualmente aplicar recomendações de otimização com o portal ou pode permitir que a otimização automática forma autónoma aplicar recomendações de otimização para. Os benefícios de deixar o sistema de forma autónoma aplicar recomendações de otimização para si é que ele valida automaticamente lá existe um ganho de positivo para o desempenho da carga de trabalho e, se não houver nenhuma melhora no desempenho significativo detetada, será reverta automaticamente a recomendação de otimização. Tenha em atenção que no caso de consultas afetadas por recomendações que não são executadas com maior freqüência de otimização, a fase de validação pode demorar até 72 horas por predefinição.
 

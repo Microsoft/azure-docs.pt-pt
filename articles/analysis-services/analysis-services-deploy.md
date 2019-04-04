@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188594"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893610"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementar um modelo do Visual Studio
 
@@ -24,7 +24,7 @@ Depois de criar um servidor na sua subscrição do Azure, está pronto para impl
 Para começar, precisa do seguinte:
 
 * **Servidor Analysis Services** no Azure. Para obter mais informações, consulte [Criar um servidor Azure Analysis](analysis-services-create-server.md).
-* **Projeto de modelo de tabela** no SSDT ou modelo de tabela existente no nível de compatibilidade 1200 ou posterior. Nunca criou um? Experimente o [tutorial do modelo de tabela de vendas na Internet Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Projeto de modelo de tabela** no SSDT ou modelo de tabela existente no nível de compatibilidade 1200 ou posterior. Nunca criou um? Experimente o [tutorial do modelo de tabela de vendas na Internet Adventure Works](/sql/analysis-services/tabular-modeling-adventure-works-tutorial).
 * **Gateway local** - se uma ou mais origens de dados se encontrarem no local da rede da sua organização, é necessário instalar um [gateway de dados no local](analysis-services-gateway.md). O gateway é necessário para que o servidor na nuvem se ligue às suas origens de dados no local para processar e atualizar os dados no modelo.
 
 > [!TIP]

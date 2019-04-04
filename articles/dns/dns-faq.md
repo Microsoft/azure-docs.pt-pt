@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337121"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905720"
 ---
 # <a name="azure-dns-faq"></a>FAQ sobre DNS do Azure
 
@@ -80,7 +80,7 @@ A funcionalidade DNSSEC é controlada na lista de pendências de DNS do Azure. U
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>O DNS do Azure suporta transferências de zona (AXFR/IXFR)?
 
-Não. O DNS do Azure atualmente não suporta transferências de zona. Zonas DNS podem ser [importados para o DNS do Azure com a CLI do Azure](dns-import-export.md). Registos DNS são geridos através da [portal de gestão do DNS do Azure](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md), ou o [ Ferramenta CLI](dns-operations-recordsets-cli.md).
+Não. O DNS do Azure atualmente não suporta transferências de zona. Zonas DNS podem ser [importados para o DNS do Azure com a CLI do Azure](dns-import-export.md). Registos DNS são geridos através da [portal de gestão do DNS do Azure](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md), ou o [ Ferramenta CLI](dns-operations-recordsets-cli.md).
 
 A funcionalidade de transferência de zona é controlada na lista de pendências de DNS do Azure. Utilize o site de comentários para [registar o suporte para esta funcionalidade](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -149,7 +149,7 @@ Sim. O DNS do Azure suporta domínios co-hospedagem com outros serviços DNS.
 
 Para configurar a co-hospedagem, modificar os registos NS para o domínio para que apontem para os servidores de nomes de ambos os fornecedores. O servidor de nomes (NS) regista o controle de quais fornecedores recebem consultas DNS para o domínio. Pode modificar estes registos NS no DNS do Azure, o outro fornecedor e na zona principal. Zona principal é normalmente configurada a entidade de registo de nome de domínio. Para obter mais informações sobre delegação de DNS, consulte [delegação de domínio DNS](dns-domain-delegation.md).
 
-Além disso, certifique-se de que os registos DNS para o domínio são sincronizados entre os dois provedores DNS. O DNS do Azure atualmente não suporta transferências de zona DNS. Registos DNS têm de ser sincronizados através do [portal de gestão do DNS do Azure](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md), ou o [Ferramenta CLI](dns-operations-recordsets-cli.md).
+Além disso, certifique-se de que os registos DNS para o domínio são sincronizados entre os dois provedores DNS. O DNS do Azure atualmente não suporta transferências de zona DNS. Registos DNS têm de ser sincronizados através do [portal de gestão do DNS do Azure](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md), ou o [Ferramenta CLI](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>É necessário delegar meu domínio para todos os quatro servidores de nomes de DNS do Azure?
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226945"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916857"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Resolver problemas de implementação do serviço de nuvem
 Quando implementar um pacote de aplicação de serviço cloud do Azure, pode obter informações sobre a implementação a partir da **propriedades** painel no portal do Azure. Pode utilizar os detalhes neste painel para o ajudar a resolver problemas relacionados com o serviço em nuvem, e pode fornecer estas informações para o suporte do Azure ao abrir um novo pedido de suporte.
@@ -36,14 +36,14 @@ Pode encontrar os **propriedades** painel da seguinte forma:
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: não consigo aceder a meu site, mas minha implementação é iniciada e todas as instâncias de função estão prontas
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>Problema: Não consigo aceder a meu site, mas minha implementação é iniciada e todas as instâncias de função estão prontas
 A ligação de URL de Web site mostrado no portal não inclui a porta. A porta predefinida para Web sites é 80. Se a sua aplicação está configurada para ser executado numa porta diferente, tem de adicionar o número de porta correto para o URL ao aceder ao Web site.
 
 1. No portal do Azure, clique na implementação do seu serviço cloud.
 2. Na **propriedades** painel do portal do Azure, verifique as portas para as instâncias de função (sob **pontos finais de entrada**).
 3. Se a porta não for 80, adicione o valor de porta correto para o URL quando aceder à aplicação. Para especificar uma porta não predefinida, escreva o URL, seguido de dois pontos (:), seguido do número de porta, sem espaços.
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: Minhas instâncias de função reciclado sem que eu fazer nada
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>Problema: Minhas instâncias de função recicladas sem que eu fazer nada
 Serviço de recuperação ocorre automaticamente quando o Azure Deteta nós de problema e, portanto, move instâncias de função para novos nós. Quando isto ocorrer, poderá ver as instâncias de função Reciclagem automaticamente. Para saber se recuperação do serviço ocorreu:
 
 1. No portal do Azure, clique na implementação do seu serviço cloud.
@@ -52,7 +52,7 @@ Serviço de recuperação ocorre automaticamente quando o Azure Deteta nós de p
 Funções também haverá Reciclagem aproximadamente uma vez por mês durante o SO anfitrião e atualizações de SO convidado.  
 Para obter mais informações, consulte a mensagem de blogue [função instância é reiniciado devido a atualizações do SO](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
-## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: eu não é possível fazer uma alternância de VIP e receber um erro
+## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: Eu não é possível fazer uma alternância de VIP e receber um erro
 Uma alternância de VIP não é permitida se uma atualização de implementação está em curso. Implementação de atualizações podem ocorrer automaticamente quando:
 
 * Um novo sistema de operativo convidado está disponível e estão configurados para atualizações automáticas.
@@ -70,11 +70,11 @@ Esta condição poderá indicar um problema com o código, o pacote ou o ficheir
 
 Para obter mais informações sobre como resolver problemas para este problema, consulte a mensagem de blogue [dados de diagnóstico de computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [problemas comuns que causam as funções reciclem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-## <a name="problem-my-application-stopped-working"></a>Problema: O meu aplicativo deixou de funcionar
+## <a name="problem-my-application-stopped-working"></a>Problema: Meu aplicativo deixou de funcionar
 1. No portal do Azure, clique na instância de função.
 2. Na **propriedades** painel do portal do Azure, considere as seguintes condições para resolver o problema:
    * Se a instância de função recentemente tiver parado (pode verificar o valor de **abortadas**), foi possível atualizar a implementação. Espere para ver se a instância de função continua a funcionar no seu próprio.
-   * Se a instância de função for **ocupado**, verifique o código da aplicação para ver se o [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) evento é processado. Poderá ter de adicionar ou corrigir algum código que manipula esse evento.
+   * Se a instância de função for **ocupado**, verifique o código da aplicação para ver se o [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) evento é processado. Poderá ter de adicionar ou corrigir algum código que manipula esse evento.
    * Pesquisar os dados de diagnóstico e resolução de problemas de cenários na mensagem de blogue [dados de diagnóstico de computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]

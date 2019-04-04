@@ -4,21 +4,21 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b3261679b64e054bb8f750ad99983661a5b6035
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213164"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919323"
 ---
 ## <a name="specifying-formats"></a>Especificar formatos
 O Azure Data Factory suporta os seguintes tipos de formato:
 
-* [Formato de Texto](#specifying-textformat)
+* [Formato de texto](#specifying-textformat)
 * [Formato JSON](#specifying-jsonformat)
 * [Formato Avro](#specifying-avroformat)
 * [Formato ORC](#specifying-orcformat)
-* [Formato Parquet](#specifying-parquetformat)
+* [Formato parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Especificar TextFormat
 Se quiser analisar os ficheiros de texto ou escrever os dados em formato de texto, defina a propriedade `format` `type` como **TextFormat**. Também pode especificar as seguintes propriedades **opcionais** na secção `format`. Veja a secção [Exemplo de TextFormat](#textformat-example) sobre como configurar.
@@ -30,10 +30,10 @@ Se quiser analisar os ficheiros de texto ou escrever os dados em formato de text
 | escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: Se utilizar a vírgula (",") como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir "$" como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
 | nullValue |Um ou mais carateres utilizados para representar um valor nulo. |Um ou mais carateres. Os valores **predefinidos** são **"\N" e "NULL"** na leitura e **"\N"** na escrita. |Não |
-| encodingName |Especifique o nome de codificação. |Um nome de codificação válido. Veja [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
-| firstRowAsHeader |Especifica se a primeira linha é considerada um cabeçalho. Num conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Num conjunto de dados de saída, o Data Factory escreve a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para utilizar `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) em cenários de exemplo. |Verdadeiro<br/>**Falso (predefinição)** |Não |
+| encodingName |Especifique o nome de codificação. |Um nome de codificação válido. Veja [Encoding.EncodingName Property](/dotnet/api/system.text.encoding). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
+| firstRowAsHeader |Especifica se a primeira linha é considerada um cabeçalho. Num conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Num conjunto de dados de saída, o Data Factory escreve a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para utilizar `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) em cenários de exemplo. |Verdadeiro<br/>**FALSE (predefinição)** |Não |
 | skipLineCount |Indica o número de linhas a ignorar durante a leitura de dados a partir dos ficheiros de entrada. Se as propriedades skipLineCount e firstRowAsHeader forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada. <br/><br/>Veja [Cenários para utilizar `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) em cenários de exemplo. |Número inteiro |Não |
-| treatEmptyAsNull |Especifica se as cadeias nulas ou vazias são tratadas como valor nulo durante a leitura de dados a partir de um ficheiro de entrada. |**Verdadeiro (predefinição)**<br/>Falso |Não |
+| treatEmptyAsNull |Especifica se as cadeias nulas ou vazias são tratadas como valor nulo durante a leitura de dados a partir de um ficheiro de entrada. |**TRUE (predefinição)**<br/>Falso |Não |
 
 #### <a name="textformat-example"></a>Exemplo de TextFormat
 O exemplo seguinte mostra algumas das propriedades de formato para TextFormat.
@@ -78,18 +78,18 @@ Se quiser analisar os ficheiros JSON ou escrever os dados em formato JSON, defin
 | filePattern |Indica o padrão dos dados armazenados em cada ficheiro JSON. Os valores permitidos são **setOfObjects** e **arrayOfObjects**. O valor **predefinido** é **setOfObjects**. Veja a secção [Padrões de ficheiro JSON](#json-file-patterns) para obter detalhes sobre estes padrões. |Não |
 | jsonNodeReference | Se quiser iterar e extrair dados dos objetos dentro de um campo de matriz com o mesmo padrão, especifique o caminho JSON dessa matriz. Esta propriedade só é suportada quando se copiam dados a partir de ficheiros JSON. | Não |
 | jsonPathDefinition | Especifique a expressão de caminho do JSON para cada mapeamento de colunas com um nome de coluna personalizado (começar com letra minúscula). Esta propriedade só é suportada quando se copiam dados a partir de ficheiros JSON, sendo que pode extrair dados de objetos ou matrizes. <br/><br/> Para os campos no objeto raiz, comece com a raiz $; para os campos dentro da matriz escolhida pela propriedade `jsonNodeReference`, comece a partir do elemento de matriz. Veja a secção [Exemplo de JsonFormat](#jsonformat-example) sobre como configurar. | Não |
-| encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: [Encodingname](https://msdn.microsoft.com/library/system.text.encoding.aspx) propriedade. Exemplo: windows-1250 ou shift_jis. O **predefinição** valor é: **UTF-8**. |Não |
+| encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: [Encodingname](/dotnet/api/system.text.encoding) propriedade. Exemplo: windows-1250 ou shift_jis. O **predefinição** valor é: **UTF-8**. |Não |
 | nestingSeparator |Caráter utilizado para separar níveis de aninhamento. O valor predefinido é “.” (ponto). |Não |
 
 #### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
 A atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
 
-- **Tipo I: setOfObjects**
+- **Type I: setOfObjects**
 
     Cada ficheiro contém um único objeto ou múltiplos objetos delimitados por linha/concatenados. Quando esta opção está selecionada num conjunto de dados de saída, a atividade de cópia produz um único ficheiro JSON com cada objeto por linha (delimitados por linha).
 
-    * **Exemplo de JSON de objeto único**
+    * **exemplo de JSON de objeto único**
 
         ```json
         {
@@ -102,7 +102,7 @@ A atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
         }
         ```
 
-    * **Exemplo de JSON delimitado por linha**
+    * **exemplo de JSON delimitado por linha**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -110,7 +110,7 @@ A atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **Exemplo de JSON concatenado**
+    * **exemplo de JSON concatenado**
 
         ```json
         {
@@ -213,8 +213,8 @@ e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante 
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Ver especificando a definição de estrutura para conjuntos de dados retangular seção para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, pode usar **matriz [x].-property** para extrair o valor da propriedade específica do objeto xth ou pode usar **matriz [*].-property** para encontrar o valor a partir de qualquer objeto que contém como, por exemplo propriedade.
+- `structure` secção define os nomes de coluna personalizado e o tipo de dados correspondente enquanto converte dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Ver especificando a definição de estrutura para conjuntos de dados retangular seção para obter mais detalhes.
+- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, pode usar **matriz [x].-property** para extrair o valor da propriedade específica do objeto xth ou pode usar **matriz [*].-property** para encontrar o valor a partir de qualquer objeto que contém como, por exemplo propriedade.
 
 ```json
 "properties": {
@@ -286,9 +286,9 @@ e quiser copiá-lo para uma tabela SQL do Azure no seguinte formato, ao simplifi
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Ver especificando a definição de estrutura para conjuntos de dados retangular seção para obter mais detalhes.
-- `jsonNodeReference` indica a iteração e extração de dados a partir dos objetos com o mesmo padrão em orderlines **matriz**.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, "ordernumber", "orderdate" e "city" estão no objeto raiz com o caminho JSON a começar com "$.", enquanto "order_pd" e "order_price" estão definidos com o caminho derivado do elemento de matriz sem "$.".
+- `structure` secção define os nomes de coluna personalizado e o tipo de dados correspondente enquanto converte dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Ver especificando a definição de estrutura para conjuntos de dados retangular seção para obter mais detalhes.
+- `jsonNodeReference` Indica a iteração e extrair dados de objetos com o mesmo padrão em **matriz** orderlines.
+- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, "ordernumber", "orderdate" e "city" estão no objeto raiz com o caminho JSON a começar com "$.", enquanto "order_pd" e "order_price" estão definidos com o caminho derivado do elemento de matriz sem "$.".
 
 ```json
 "properties": {

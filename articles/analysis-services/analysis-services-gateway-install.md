@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110873"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894171"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 
@@ -40,7 +40,7 @@ Um gateway de dados no local é necessário quando um ou mais servidores do Azur
 * Instale o gateway num computador que permanece no e não entra em suspensão.
 * Não instale o gateway num computador wirelessly ligado à sua rede. Pode ser reduzido o desempenho.
 * Ao instalar o gateway, a conta de utilizador que tem sessão iniciada para o seu computador com necessita de registo no como privilégios de serviço. Quando a instalação estiver concluída, o serviço de gateway de dados no local utiliza a conta NT SERVICE\PBIEgwService para iniciar sessão como um serviço. Uma conta diferente pode ser especificada durante a configuração ou em serviços, após a conclusão da configuração. Definições de política de grupo Certifique-se de permitir que a conta que iniciou sessão com durante a instalação e a conta de serviço que escolher tem registo no como privilégios de serviço.
-* Inicie sessão no Azure com uma conta no Azure AD para o mesmo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que a subscrição que está a registar o gateway. B2B do Azure contas (convidado) não são suportadas quando instalar e registar um gateway.
+* Inicie sessão no Azure com uma conta no Azure AD para o mesmo [inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) que a subscrição que está a registar o gateway. B2B do Azure contas (convidado) não são suportadas quando instalar e registar um gateway.
 * Se a origens de dados estiverem numa rede Virtual do Azure (VNet), tem de configurar o [AlwaysUseGateway](analysis-services-vnet-gateway.md) propriedade do servidor.
 * O gateway (unificado) descrito aqui não é suportado nas regiões do Azure Alemanha. Em alternativa, utilize **gateway no local dedicado para o Azure Analysis Services**, instalado a partir do seu servidor **início rápido** no portal. 
 

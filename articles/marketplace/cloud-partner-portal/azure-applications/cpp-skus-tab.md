@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095998"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905618"
 ---
 # <a name="azure-application-skus-tab"></a>Separador de SKUs de aplicação do Azure
 

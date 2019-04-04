@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082114"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892420"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (. csx)
 
@@ -274,7 +274,7 @@ Não é possível utilizar `out` parâmetros nas funções assíncronas. Para li
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 
-Uma função pode aceitar uma [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parâmetro, que permite que o sistema operativo notificar o seu código quando a função está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não terminar inesperadamente de uma forma que mantém os dados num estado inconsistente.
+Uma função pode aceitar uma [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parâmetro, que permite que o sistema operativo notificar o seu código quando a função está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não terminar inesperadamente de uma forma que mantém os dados num estado inconsistente.
 
 O exemplo seguinte mostra como verificar a existência de terminação de função iminente.
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define o [blob de armazenamento](functions-bindings-storage-blob.md) entrada ou saída de ligação, e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) é um tipo de enlace de saída suportados.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define o [blob de armazenamento](functions-bindings-storage-blob.md) entrada ou saída de ligação, e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de enlace de saída suportados.
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo vários
 

@@ -1,6 +1,6 @@
 ---
 title: Ligar uma aplicação de cliente genérica do node. js para o Azure IoT Central | Documentos da Microsoft
-description: Como um desenvolvedor de dispositivo, como ligar um dispositivo genérico do node. js à sua aplicação do Azure IoT Central.
+description: Como desenvolvedor de dispositivo, como ligar um dispositivo genérico do node. js à sua aplicação do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097979"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905329"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -28,11 +28,11 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 ## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
-Na aplicação do Azure IoT Central, terá de um modelo de dispositivo com as seguintes medidas e propriedades de dispositivo definidas:
+Na aplicação do Azure IoT Central, terá de um modelo de dispositivo com as seguintes medidas, propriedades do dispositivo, definições e comandos:
 
 ### <a name="telemetry-measurements"></a>Medições de telemetria
 
-Adicione a seguinte telemetria no **medidas** página:
+Adicione a seguinte telemetria sobre o **medidas** página:
 
 | Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
@@ -41,9 +41,9 @@ Adicione a seguinte telemetria no **medidas** página:
 | Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
->   O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
+> O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
 
-Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, a telemetria não é possível apresentar na aplicação.
+Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, a telemetria não é possível apresentar na aplicação.
 
 ### <a name="state-measurements"></a>Medidas de estado
 
@@ -54,46 +54,64 @@ Adicione o seguinte estado no **medidas** página:
 | Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
 
 > [!NOTE]
->   O tipo de dados da medição de estado é a cadeia de caracteres.
+> O tipo de dados da medição de estado é a cadeia de caracteres.
 
-Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o estado não é possível apresentar na aplicação.
+Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o estado não é possível apresentar na aplicação.
 
 ### <a name="event-measurements"></a>Medições de eventos
 
-Adicione o seguinte evento no **medidas** página:
+Adicione o seguinte evento sobre o **medidas** página:
 
 | Nome a Apresentar | Nome do Campo  | Gravidade |
 | ------------ | ----------- | -------- |
 | Sobreaquecimento  | superaquecimento    | Erro    |
 
 > [!NOTE]
->   O tipo de dados da medição de eventos é a cadeia de caracteres.
+> O tipo de dados da medição de eventos é a cadeia de caracteres.
 
 ### <a name="device-properties"></a>Propriedades do dispositivo
 
-Adicione as seguintes propriedades do dispositivo na **página de propriedades**:
+Adicione as seguintes propriedades do dispositivo na **propriedades** página:
 
 | Nome a Apresentar        | Nome do Campo        | Tipo de dados |
 | ------------------- | ----------------- | --------- |
 | Número de série       | serialNumber      | texto      |
 | Fabricante do dispositivo | fabricante      | texto      |
 
-Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o aplicativo não é possível mostrar o valor de propriedade do dispositivo.
+Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, não não possível apresentar as propriedades da aplicação.
 
 ### <a name="settings"></a>Definições
 
-Adicione as seguintes **número** definições no **página de definições**:
+Adicione as seguintes **número** definições a **definições** página:
 
 | Nome a Apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx.  | Inicial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Ventoinha velocidade       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não pode receber o valor de definição.
+Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não pode receber o valor de definição.
+
+### <a name="commands"></a>Comandos
+
+Adicione o seguinte comando no **comandos** página:
+
+| Nome a Apresentar    | Nome do Campo     | Tempo Limite Predefinido | Tipo de Dados |
+| --------------- | -------------- | --------------- | --------- |
+| Contagem decrescente       | contagem decrescente      | 30              | número    |
+
+Adicione o seguinte campo de entrada para o comando de contagem regressiva:
+
+| Nome a Apresentar    | Nome do Campo     | Tipo de Dados | Valor |
+| --------------- | -------------- | --------- | ----- |
+| Contar de      | countFrom      | número    | 10    |
+
+Introduza os nomes de campos exatamente como mostrados nas tabelas no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não é possível processar o comando.
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter instruções passo a passo sobre como ligar uma aplicação node. js ao IoT Central, consulte [gerar cadeia de ligação para o dispositivo real do aplicativo](tutorial-add-device.md#generate-connection-string) e [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicione um dispositivo.
+Na aplicação do Azure IoT Central, adicione um dispositivo real para o modelo de dispositivo que criou na secção anterior.
+
+Em seguida, siga as instruções no tutorial "Adicionar um dispositivo" para [gerar uma cadeia de ligação para o dispositivo real](tutorial-add-device.md#generate-connection-string). Utilize esta cadeia de ligação na secção seguinte:
 
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 
@@ -129,12 +147,9 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     var client = clientFromConnectionString(connectionString);
     ```
 
-    > [!NOTE]
-    > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estas instruções para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#get-a-connection-string) e continuar com o resto do tutorial. Para obter mais ajuda, também pode encontrar um conjunto detalhado de instruções em [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
+    Atualizar o marcador de posição `{your device connection string}` com o [cadeia de ligação do dispositivo](tutorial-add-device.md#generate-connection-string). Neste exemplo, inicializar `targetTemperature` para zero, poderia usar a leitura atual do dispositivo ou um valor do dispositivo duplo.
 
-    Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
-
-1. Para enviar medições de telemetria, o estado e o evento para a aplicação Azure IoT Central, adicione a seguinte função para o ficheiro:
+1. Para enviar telemetria, o estado e medidas de evento para a sua aplicação do Azure IoT Central, adicione a seguinte função para o ficheiro:
 
     ```javascript
     // Send device measurements.
@@ -143,9 +158,9 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
-      var data = JSON.stringify({ 
-        temperature: temperature, 
-        humidity: humidity, 
+      var data = JSON.stringify({
+        temperature: temperature,
+        humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
         overheat: (temperature > 35) ? "ER123" : undefined });
@@ -159,13 +174,9 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
 1. Para enviar as propriedades dos dispositivos à sua aplicação do Azure IoT Central, adicione a seguinte função para o ficheiro:
 
     ```javascript
-    // Send device properties.
-    function sendDeviceProperties(twin) {
-      var properties = {
-        serialNumber: '123-ABC',
-        manufacturer: 'Contoso'
-      };
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties; ` +
+    // Send device reported properties.
+    function sendDeviceProperties(twin, properties) {
+      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
         (err ? `error: ${err.toString()}` : `status: success`)));
     }
     ```
@@ -223,7 +234,41 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     }
     ```
 
-1. Adicione o seguinte para concluir a ligação ao Azure IoT Central e conectar as funções no código do cliente:
+1. Adicione o seguinte código para lidar com um comando de contagem regressiva enviado a partir da aplicação do Centro de IoT:
+
+    ```javascript
+    // Handle countdown command
+    function onCountdown(request, response) {
+      console.log('Received call to countdown');
+
+      var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
+
+      response.send(200, (err) => {
+        if (err) {
+          console.error('Unable to send method response: ' + err.toString());
+        } else {
+          client.getTwin((err, twin) => {
+            function doCountdown(){
+              if ( countFrom >= 0 ) {
+                var patch = {
+                  countdown:{
+                    value: countFrom
+                  }
+                };
+                sendDeviceProperties(twin, patch);
+                countFrom--;
+                setTimeout(doCountdown, 2000 );
+              }
+            }
+
+            doCountdown();
+          });
+        }
+      });
+    }
+    ```
+
+1. Adicione o seguinte código para concluir a ligação ao Azure IoT Central e ligar as funções no código de cliente:
 
     ```javascript
     // Handle device connection to Azure IoT Central.
@@ -232,6 +277,9 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
         console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
       } else {
         console.log('Device successfully connected to Azure IoT Central');
+
+        // Create handler for countdown command
+        client.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
@@ -242,7 +290,12 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
             // Send device properties once on device start up.
-            sendDeviceProperties(twin);
+            var properties = {
+              serialNumber: '123-ABC',
+              manufacturer: 'Contoso'
+            };
+            sendDeviceProperties(twin, properties);
+
             // Apply device settings and handle changes to device settings.
             handleSettings(twin);
           }
@@ -268,16 +321,18 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 
     ![Ver telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. A dispositivo propriedades mosaicos atualização se a ligação for bem-sucedida.
+* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. A propriedade mosaicos atualização de dispositivo quando o dispositivo estabelece ligação:
 
     ![Ver as propriedades do dispositivo](media/howto-connect-nodejs/viewproperties.png)
 
-* Definir a temperatura de velocidade e o destino de fã do **definições** página. Os valores de definições de sincronização se a ligação for bem-sucedida.
+* Definir a temperatura de velocidade e o destino de fã do **definições** página:
 
     ![Velocidade de fã de conjunto](media/howto-connect-nodejs/setfanspeed.png)
 
+* Chamar o comando de contagem regressiva a partir da **comandos** página:
+
+    ![Chamar o comando de contagem regressiva](media/howto-connect-nodejs/callcountdown.png)
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
-* [Preparar e ligar um Raspberry Pi](howto-connect-raspberry-pi-python.md)
-<!-- Next how-tos in the sequence -->
+Agora que aprendeu como ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central, a próxima etapa sugerida é saber como [preparar e ligue-se um Raspberry Pi](howto-connect-raspberry-pi-python.md).

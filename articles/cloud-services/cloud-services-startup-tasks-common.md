@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181831"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916660"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do serviço Cloud comuns
 Este artigo fornece alguns exemplos de tarefas de arranque comuns, que talvez queira executar no seu serviço cloud. Pode utilizar tarefas de arranque para executar operações antes de uma função de inicialização. As operações que pode querer executar incluem instalar um componente, registar componentes COM, definir chaves do Registro ou a partir de um processo de execução demorada. 
@@ -68,12 +68,12 @@ No entanto, existem algumas coisas a serem observadas na utilização de *AppCmd
 
 É uma boa prática para verificar a **errorlevel** após chamar *AppCmd.exe*, que é fácil fazê-lo se encapsular a chamada para *AppCmd.exe* com um *. cmd* ficheiro. Se detectar um conhecido **errorlevel** resposta, pode ignorá-la ou transferi-los de volta.
 
-O nível de erro devolvido pelo *AppCmd.exe* estão listados no ficheiro winerror.h e também pode ser visto no [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+O nível de erro devolvido pelo *AppCmd.exe* estão listados no ficheiro winerror.h e também pode ser visto no [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gestão do nível de erro
 Este exemplo adiciona uma seção de compactação e uma entrada de compressão para JSON para o *Web. config* arquivo, com o erro de processamento e o registo.
 
-As seções relevantes da [ServiceDefinition.csdef] arquivo são mostrados aqui, que incluem a definição a [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) atributo para `elevated` dar *AppCmd.exe* permissões suficientes para alterar as definições no *Web. config* ficheiro:
+As seções relevantes da [servicedefinition. Csdef] arquivo são mostrados aqui, que incluem a definição a [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) atributo para `elevated` dar *AppCmd.exe* permissões suficientes para alterar as definições no *Web. config* ficheiro:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -125,13 +125,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adicionar regras de firewall
-No Azure, existem dois firewalls de forma eficaz. A primeira firewall controla ligações entre a máquina virtual e o mundo exterior. Esta firewall é controlado pelos [Pontos finais] elemento no [ServiceDefinition.csdef] ficheiro.
+No Azure, existem dois firewalls de forma eficaz. A primeira firewall controla ligações entre a máquina virtual e o mundo exterior. Esta firewall é controlado pelos [pontos de extremidade] elemento no [servicedefinition. Csdef] ficheiro.
 
 O segundo firewall controla ligações entre a máquina virtual e os processos dentro do que a máquina virtual. Esta firewall pode ser controlado pelo `netsh advfirewall firewall` ferramenta da linha de comandos.
 
 O Azure cria regras de firewall para os processos iniciados dentro de suas funções. Por exemplo, quando inicia um serviço ou programa, o Azure cria automaticamente as regras de firewall necessárias para permitir que esse serviço comunicar com a Internet. No entanto, se criar um serviço que é iniciado por um processo fora da sua função (como um serviço de COM+ ou uma tarefa agendada do Windows), terá de criar manualmente uma regra de firewall para permitir o acesso a esse serviço. Estas regras de firewall podem ser criadas utilizando uma tarefa de arranque.
 
-Uma tarefa de arranque que cria uma regra de firewall tem de ter uma [executionContext][tarefa] de **elevados**. Adicione a seguinte tarefa de arranque para o [ServiceDefinition.csdef] ficheiro.
+Uma tarefa de arranque que cria uma regra de firewall tem de ter uma [executionContext][tarefa] de **elevados**. Adicione a seguinte tarefa de arranque para o [servicedefinition. Csdef] ficheiro.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -161,7 +161,7 @@ Pode restringir um acesso de função da web do Azure a um conjunto de endereço
 
 Para desbloquear o **ipSecurity** secção a **applicationHost. config** de ficheiros, criar um arquivo de comando que é executado no início da função. Crie uma pasta no nível de raiz da sua função da web chamado **inicialização** e, dentro dessa pasta, criar um arquivo em lotes chamado **startup.cmd**. Adicionar este ficheiro ao seu projeto do Visual Studio e defina as propriedades **Copiar sempre** para se certificar de que está incluído no pacote.
 
-Adicione a seguinte tarefa de arranque para o [ServiceDefinition.csdef] ficheiro.
+Adicione a seguinte tarefa de arranque para o [servicedefinition. Csdef] ficheiro.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -219,7 +219,7 @@ Esta configuração de exemplo **nega** todos os IPs acedam ao servidor exceto p
 ```
 
 ## <a name="create-a-powershell-startup-task"></a>Criar uma tarefa de arranque do PowerShell
-Scripts do Windows PowerShell não podem ser chamados diretamente a partir da [ServiceDefinition.csdef] ficheiro, mas eles podem ser invocados dentro de um arquivo de lote de arranque.
+Scripts do Windows PowerShell não podem ser chamados diretamente a partir da [servicedefinition. Csdef] ficheiro, mas eles podem ser invocados dentro de um arquivo de lote de arranque.
 
 PowerShell (por predefinição) não executa scripts não assinados. A menos que se o seu script, terá de configurar o PowerShell para executar scripts não assinados. Para executar scripts não assinados, o **ExecutionPolicy** tem de ser definido como **irrestrito**. O **ExecutionPolicy** definição que utilize se baseia na versão do Windows PowerShell.
 
@@ -250,7 +250,7 @@ EXIT /B %errorlevel%
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>Criar ficheiros no armazenamento local a partir de uma tarefa de arranque
 Pode usar um recurso de armazenamento local para armazenar os ficheiros criados pela sua tarefa de arranque que é acessada mais tarde pelo seu aplicativo.
 
-Para criar o recurso de armazenamento local, adicione uma [LocalResources] secção para o [ServiceDefinition.csdef] de ficheiros e, em seguida, adicione o [LocalStorage] elemento subordinado. Atribua o recurso de armazenamento local para um nome exclusivo e um tamanho adequado para a sua tarefa de arranque.
+Para criar o recurso de armazenamento local, adicione uma [LocalResources] secção para o [servicedefinition. Csdef] de ficheiros e, em seguida, adicione o [LocalStorage] elemento subordinado. Atribua o recurso de armazenamento local para um nome exclusivo e um tamanho adequado para a sua tarefa de arranque.
 
 Para utilizar um recurso de armazenamento local na sua tarefa de arranque, terá de criar uma variável de ambiente para fazer referência a localização de recursos de armazenamento local. Em seguida, a tarefa de arranque e a aplicação são capazes de ler e escrever ficheiros para o recurso de armazenamento local.
 
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-Pode aceder a pasta de armazenamento local do SDK do Azure ao utilizar o [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) método.
+Pode aceder a pasta de armazenamento local do SDK do Azure ao utilizar o [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) método.
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -304,9 +304,9 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ## <a name="run-in-the-emulator-or-cloud"></a>Executar no emulador ou na cloud
 Pode ter sua tarefa de arranque realizar passos diferentes quando está a funcionar na cloud que se está a ser o emulador de computação. Por exemplo, pode querer utilizar uma cópia nova dos seus dados SQL apenas durante a execução no emulador. Ou talvez queira fazer algumas otimizações de desempenho para a nuvem que não precisa de fazer quando em execução no emulador.
 
-Esta capacidade para efetuar ações diferentes no emulador de computação e a cloud pode ser conseguida através da criação de uma variável de ambiente no [ServiceDefinition.csdef] ficheiro. Em seguida, testar essa variável de ambiente para um valor na sua tarefa de arranque.
+Esta capacidade para efetuar ações diferentes no emulador de computação e a cloud pode ser conseguida através da criação de uma variável de ambiente no [servicedefinition. Csdef] ficheiro. Em seguida, testar essa variável de ambiente para um valor na sua tarefa de arranque.
 
-Para criar a variável de ambiente, adicione a [Variable]/[RoleInstanceValue] elemento e criar um valor de XPath de `/RoleEnvironment/Deployment/@emulated`. O valor do **% ComputeEmulatorRunning %** variável de ambiente está `true` quando em execução no emulador de computação, e `false` quando em execução na cloud.
+Para criar a variável de ambiente, adicione a [variável]/[RoleInstanceValue] elemento e criar um valor de XPath de `/RoleEnvironment/Deployment/@emulated`. O valor do **% ComputeEmulatorRunning %** variável de ambiente está `true` quando em execução no emulador de computação, e `false` quando em execução na cloud.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -511,10 +511,10 @@ Saiba mais sobre como [tarefas](cloud-services-startup-tasks.md) trabalhar.
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Pontos finais]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Pontos Finais]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

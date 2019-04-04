@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190843"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893185"
 ---
 # <a name="monitor-server-metrics"></a>Monitorizar as métricas do servidor
 
@@ -44,7 +44,7 @@ Utilize esta tabela para determinar as métricas que são recomendadas para o se
 |CurrentConnections|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações de cliente estabelecidas.|
 |CurrentUserSessions|Sessões de utilizador atual|Contagem|Média|Número atual de sessões de utilizador estabelecidas.|
 |mashup_engine_memory_metric|Memória do motor M|Bytes|Média|Utilização da memória através de processos de motor de mashup|
-|mashup_engine_qpu_metric|Memória do motor QPU|Contagem|Média|Utilização QPU através de processos de motor de mashup|
+|mashup_engine_qpu_metric|M Engine QPU|Contagem|Média|Utilização QPU através de processos de motor de mashup|
 |memory_metric|Memória|Bytes|Média|Memória. Intervalo de 0-25 GB para S1, 0-50 GB para S2 e 0-100 GB para S4|
 |memory_thrashing_metric|Degradação de memória|Percentagem|Média|Degradação de memória média.|
 |CleanerCurrentPrice|Memória: Preço atual de limpeza|Contagem|Média|Preço atual de memória, $/byte/tempo, normalizado para 1000.|
@@ -57,7 +57,7 @@ Utilize esta tabela para determinar as métricas que são recomendadas para o se
 |MemoryUsage|Memória: Utilização da Memória|Bytes|Média|Utilização da memória do processo de servidor utilizado para calcular o preço de memória mais limpo. Igual ao contador Process\PrivateBytes mais o tamanho dos dados de mapeamento de memória, ignorando qualquer memória, que foi mapeada ou alocada pelo motor de análise dentro da memória (VertiPaq) em excesso relativamente ao mecanismo de limite de memória.|
 |Quota|Memória: Quota|Bytes|Média|Quota de memória atual, em bytes. Quota de memória também é conhecido como uma reserva de memória ou de concessão de memória.|
 |QuotaBlocked|Memória: Quotas bloqueadas|Contagem|Média|Número atual de pedidos de quota que estão bloqueados até outras quotas de memória serem libertas.|
-|VertiPaqNonpaged|Memória: VertiPaq não paginado|Bytes|Média|Bytes de memória bloqueada no conjunto de trabalho para utilização pelo mecanismo de dentro da memória.|
+|VertiPaqNonpaged|Memória: VertiPaq Nonpaged|Bytes|Média|Bytes de memória bloqueada no conjunto de trabalho para utilização pelo mecanismo de dentro da memória.|
 |VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Média|Bytes de memória paga em utilização para dados na memória.|
 |ProcessingPoolJobQueueLength|Comprimento de fila da tarefa de conjunto de processamento|Contagem|Média|Número de tarefas não-I/O na fila do pool de threads de processamento.|
 |RowsConvertedPerSec|A processar: Linhas convertidas por segundo|CountPerSecond|Média|Taxa de linhas convertidas durante o processamento.|
@@ -87,4 +87,4 @@ Utilize esta tabela para determinar as métricas que são recomendadas para o se
 ## <a name="next-steps"></a>Passos Seguintes
 [Monitorização no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Métricas no Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Métricas no Azure Monitor REST API](/rest/api/monitor/metrics)

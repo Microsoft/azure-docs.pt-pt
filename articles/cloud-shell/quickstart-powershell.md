@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106411"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905074"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Início rápido para o PowerShell no Azure Cloud Shell
 
@@ -267,7 +267,7 @@ Para autenticar servidores ou VMs através de SSH, gerar o par de chaves públic
 
 ### <a name="using-ssh"></a>Através de SSH
 
-Siga as instruções [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) para criar uma nova configuração de VM com cmdlets do AzureRM.
+Siga as instruções [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) para criar uma nova configuração de VM com cmdlets do PowerShell do Azure.
 Chamando antes `New-AzVM` para arrancar a implementação, adicione a chave pública SSH à configuração da VM.
 A VM acabada de criar irá conter a chave pública no `~\.ssh\authorized_keys` localização, ativando assim livre de credencial sessão SSH à VM.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Sob `Azure` unidade, escreva `Get-AzCommand` para obter os comandos do Azure específicas do contexto.
 
-Em alternativa, pode sempre utilizar `Get-Command *azurerm* -Module AzureRM.*` para descobrir os comandos do Azure disponíveis.
+Em alternativa, pode sempre utilizar `Get-Command *az* -Module Az.*` para descobrir os comandos do Azure disponíveis.
 
 ## <a name="install-custom-modules"></a>Instalar módulos personalizados
 

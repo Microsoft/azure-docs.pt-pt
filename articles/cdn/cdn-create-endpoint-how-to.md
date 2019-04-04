@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093685"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916823"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de final de CDN do Azure
-Este artigo descreve todas as definições para a criação de um [rede de entrega de conteúdos (CDN)](cdn-overview.md) ponto de extremidade num perfil CDN existente. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes. Para um início rápido sobre como criar um perfil e ponto final, consulte [início rápido: criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
+Este artigo descreve todas as definições para a criação de um [rede de entrega de conteúdos (CDN)](cdn-overview.md) ponto de extremidade num perfil CDN existente. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes. Para um início rápido sobre como criar um perfil e ponto final, consulte [início rápido: Criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de poder criar um ponto final da CDN, tem de ter criado pelo menos um perfil CDN, que pode conter um ou mais pontos finais CDN. Para organizar os seus pontos finais da CDN por domínio de Internet, aplicação Web ou alguns outros critérios, pode utilizar vários perfis. Porque os preços da CDN é aplicado ao nível do perfil da CDN, tem de criar vários perfis da CDN se pretender utilizar uma combinação de escalões de preço de CDN do Azure. Para criar um perfil da CDN, veja [criar um novo perfil CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
    > [!NOTE]
    > O **porta de origem** valor determina apenas o ponto final que utiliza para recuperar informações a partir do servidor de origem. O próprio ponto final só está disponível para clientes finais nas portas HTTP e HTTPS predefinidas (80 e 443), independentemente do valor **Porta de origem**.  
    > 
-   > Os pontos finais nos perfis da **CDN do Azure da Akamai** não permitem o intervalo de portas TCP completo para portas de origem. Para obter uma lista das portas de origem que não são permitidas, consulte [Portas de Origem Permitidas do Azure CDN da Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
+   > Os pontos finais nos perfis da **CDN do Azure da Akamai** não permitem o intervalo de portas TCP completo para portas de origem. Para obter uma lista das portas de origem que não são permitidas, consulte [Portas de Origem Permitidas do Azure CDN da Akamai](/previous-versions/azure/mt757337(v=azure.100)).  
    > 
    > Suporte HTTPS para domínios personalizados da CDN do Azure não é suportado no **CDN do Azure da Akamai** produtos. Para obter mais informações, veja [Configure HTTPS on an Azure CDN custom domain](cdn-custom-ssl.md) (Configurar HTTPS num domínio personalizado da CDN do Azure).
     
@@ -75,17 +75,17 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
 
     São suportadas as seguintes definições de tipo de otimização, de acordo com o tipo de perfil:
     - **CDN Standard do Azure da Microsoft** perfis:
-       - [**Entrega geral web**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Entrega geral Web**](cdn-optimization-overview.md#general-web-delivery)
 
     - **CDN Standard do Azure da Verizon** e **CDN do Azure Premium da Verizon** perfis:
-       - [**Entrega geral web**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Entrega geral Web**](cdn-optimization-overview.md#general-web-delivery)
        - [**Aceleração de site dinâmico**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
     - **CDN Standard do Azure da Akamai** perfis:
-       - [**Entrega geral web**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Entrega geral Web**](cdn-optimization-overview.md#general-web-delivery)
        - [**Transmissão geral de multimédia**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Vídeo de transmissão de multimédia a pedido**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Transferência de ficheiros grandes**](cdn-optimization-overview.md#large-file-download)
+       - [**Transmissão de video multimédia a pedido**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Transferência de ficheiro grande**](cdn-optimization-overview.md#large-file-download)
        - [**Aceleração de site dinâmico**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Selecione **Adicionar** para criar o novo ponto final.

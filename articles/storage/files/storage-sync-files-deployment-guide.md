@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: eeb9765cfd6242ecdc14dd59dd9b5337cc56c597
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a5d6f7757b5a4a5a2048c9822c4f52bee6d19bfe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481220"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905125"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -47,16 +47,16 @@ Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azu
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparar o Windows Server para ser utilizado com o Azure File Sync
 Para cada servidor que pretende utilizar com o Azure File Sync, incluindo a cada nó de servidor num Cluster de ativação pós-falha, desativar **a configuração de segurança avançada do Internet Explorer**. Isto é necessário apenas para o registo inicial do servidor. Pode reativá-la depois de o servidor estar registado.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 1. Abra o Gestor de servidor.
 2. Clique em **servidor Local**:  
-    !["Servidor local", no lado esquerdo da IU do Gestor de servidores](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
+    ![“Servidor Local” no lado esquerdo da IU do Gestor de Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
 3. No subpainel **Propriedades**, selecione a ligação para **Configuração de Segurança Avançada do IE**.  
-    ![O painel "Configuração avançada do IE segurança" na IU do Gestor de servidores](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
+    ![Painel “Configuração de Segurança Avançada do IE”, na IU do Gestor de Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
 4. Na **a configuração de segurança avançada do Internet Explorer** caixa de diálogo, selecione **desativar** para **administradores** e **utilizadores**:  
-    ![A janela de pop da configuração de segurança avançada do Internet Explorer com "Off" selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
+    ![Janela pop-up da Configuração de Segurança Avançada do Internet Explorer com “Desativado” selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 Para desativar a configuração de segurança avançada do Internet Explorer, execute o seguinte a partir de uma sessão do PowerShell elevada:
 
 ```powershell
@@ -82,7 +82,7 @@ A implementação do Azure File Sync começa com a colocação de um **serviço 
 > [!Note]
 > O serviço de sincronização de armazenamento herdadas as permissões de acesso da subscrição e grupo de recursos que tiver sido implementada no. Recomendamos que verifique quem tem acesso a ele. Entidades com acesso de escrita podem começar a sincronizar novos conjuntos de ficheiros a partir de servidores registados para este armazenamento serviço de sincronização e fazer com que dados a ser enviados para o armazenamento do Azure que seja acessível aos mesmos.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 Para implementar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **do Azure File Sync**e, em seguida, selecione **Create** para abrir o **implementar sincronização de armazenamento** separador.
 
 No painel que se abre, introduza as informações seguintes:
@@ -94,7 +94,7 @@ No painel que se abre, introduza as informações seguintes:
 
 Quando tiver terminado, selecione **criar** para implementar o serviço de sincronização de armazenamento.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 Antes de interagir com os cmdlets de gestão do Azure File Sync, terá de importar uma DLL e criar um contexto de gestão do Azure File Sync. Isto é necessário porque os cmdlets de gestão do Azure File Sync ainda não fazem parte de módulos do Azure PowerShell.
 
 > [!Note]  
@@ -158,7 +158,7 @@ Login-AzureRmStorageSync `
     -Location $region
 ```
 
-Depois de criar o contexto de sincronização de ficheiros do Azure com o `Login-AzureR,StorageSync` cmdlet, pode criar o serviço de sincronização de armazenamento. Certifique-se de que substitua `<my-storage-sync-service>` com o nome pretendido do seu serviço de sincronização de armazenamento.
+Depois de criar o contexto de sincronização de ficheiros do Azure com o `Login-AzureRmStorageSync` cmdlet, pode criar o serviço de sincronização de armazenamento. Certifique-se de que substitua `<my-storage-sync-service>` com o nome pretendido do seu serviço de sincronização de armazenamento.
 
 ```powershell
 $storageSyncName = "<my-storage-sync-service>"
@@ -170,7 +170,7 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ## <a name="install-the-azure-file-sync-agent"></a>Instalar o agente do Azure File Sync
 O agente do Azure File Sync é um pacote transferível que permite a sincronização do Windows Server com uma partilha de ficheiros do Azure. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 Pode transferir o agente a partir da [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Quando o download for concluído, clique duas vezes o pacote do MSI para iniciar a instalação do agente de sincronização de ficheiros do Azure.
 
 > [!Important]  
@@ -182,7 +182,7 @@ Recomendamos que faça o seguinte:
 
 Quando a instalação do agente do Azure File Sync estiver concluída, a interface do Usuário de registo do servidor é aberta automaticamente. Tem de ter um serviço de sincronização de armazenamento antes de registar; Veja a secção seguinte sobre como criar um serviço de sincronização de armazenamento.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 Execute o seguinte código de PowerShell para transferir a versão adequada do agente do Azure File Sync para o seu sistema operacional e instalá-lo no seu sistema.
 
 > [!Important]  
@@ -228,7 +228,7 @@ Registar o Windows Server num Serviço de Sincronização de Armazenamento estab
 > [!Note]
 > O registo do servidor utiliza as credenciais do Azure para criar uma relação de confiança entre o serviço de sincronização de armazenamento e do Windows Server, no entanto, em seguida, o servidor cria e usa sua própria identidade que é válida, desde que o servidor permanece registado e o token de assinatura de acesso partilhado (SAS do armazenamento) atual é válido. Não é possível emitir um novo token SAS para o servidor depois do servidor não está registado, isso elimina a capacidade do servidor para aceder as partilhas de ficheiros do Azure, parar a qualquer sincronização.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 A interface do Usuário de registo do servidor deverá abrir automaticamente após a instalação do agente do Azure File Sync. Se isso não acontecer, pode abri-lo manualmente da localização do ficheiro: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. Quando abrir a interface do Usuário de registo do servidor, selecione **início de sessão** para começar.
 
 Depois de iniciar sessão, lhe for pedido para as seguintes informações:
@@ -241,7 +241,7 @@ Depois de iniciar sessão, lhe for pedido para as seguintes informações:
 
 Depois de selecionar as informações apropriadas, selecione **registar** para concluir o registo do servidor. Como parte do processo de registo, é-lhe pedido que volte a iniciar sessão novamente.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 ```powershell
 $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
@@ -256,7 +256,7 @@ Um ponto final da cloud é um ponteiro para uma partilha de ficheiros do Azure. 
 > [!Important]  
 > Pode efetuar alterações a qualquer ponto final da cloud ou o ponto final do servidor no grupo de sincronização e os ficheiros sincronizados com os outros pontos finais no grupo de sincronização. Se fizer uma alteração ao ponto final da cloud (partilha de ficheiros do Azure) diretamente, as alterações primeiro tem de ser detetado por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração de início de um ponto final da cloud apenas uma vez a cada 24 horas. Para obter mais informações, consulte [ficheiros do Azure, perguntas mais frequentes sobre](storage-files-faq.md#afs-change-detection).
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 Para criar um grupo de sincronização, o [portal do Azure](https://portal.azure.com/), aceda ao seu serviço de sincronização de armazenamento e, em seguida, selecione **+ grupo de sincronização**:
 
 ![Criar um grupo de sincronização novo no portal do Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
@@ -268,7 +268,7 @@ No painel que se abre, introduza as informações seguintes para criar um grupo 
 - **Conta de armazenamento**: Se selecionou **selecione a conta de armazenamento**, é apresentado o painel outro na qual pode selecionar a conta de armazenamento que tenha a partilha de ficheiros do Azure que pretende sincronizar com.
 - **Partilha de ficheiros do Azure**: O nome da partilha de ficheiros do Azure com a qual pretende sincronizar.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 Para criar o grupo de sincronização, execute o PowerShell seguinte. Não se esqueça de substituir `<my-sync-group>` com o nome pretendido do grupo de sincronização.
 
 ```powershell
@@ -318,7 +318,7 @@ New-AzureRmStorageSyncCloudEndpoint `
 ## <a name="create-a-server-endpoint"></a>Criar um ponto final de servidor
 Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Um ponto final do servidor tem de ser um caminho de um servidor registado (em vez de uma partilha montada) e, para utilizar a camada de cloud, o caminho tem de ser num volume não pertencente ao sistema. Armazenamento ligado à rede (NAS) não é suportado.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 Para adicionar um ponto final do servidor, vá para o grupo de sincronização recém-criado e, em seguida, selecione **adicionar ponto final de servidor**.
 
 ![Adicionar um ponto final de servidor novo no painel do grupo de sincronização](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
@@ -332,7 +332,7 @@ No painel **Adicionar ponto final de servidor**, introduza as informações segu
 
 Para adicionar o ponto final do servidor, selecione **criar**. Os ficheiros agora são mantidos em sincronia entre a sua partilha de ficheiros do Azure e no Windows Server. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 Execute os seguintes comandos do PowerShell para criar o ponto final do servidor e não se esqueça de substituir `<your-server-endpoint-path>` e `<your-volume-free-space>` com os valores pretendidos.
 
 ```powershell
@@ -417,4 +417,4 @@ Para obter mais informações, consulte [interoperabilidade do Azure File Sync c
 ## <a name="next-steps"></a>Passos Seguintes
 - [Adicionar ou remover um ponto de final de servidor de sincronização de ficheiros do Azure](storage-sync-files-server-endpoint.md)
 - [Registar ou anular o registo de um servidor com o Azure File Sync](storage-sync-files-server-registration.md)
-- [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)
+- [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

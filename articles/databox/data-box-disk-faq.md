@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a192f5cbd0fb5a4dcb911f40753efcbd996a418
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793849"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892335"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
 
@@ -42,7 +42,7 @@ Os discos são encriptados com a Encriptação de Unidade BitLocker da Microsoft
 R. Se tiver 40 TB (ou menos) de dados e quiser transferi-los para o Azure, pode tirar partido dos discos do Data Box Disk.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>P. Qual é o preço dos discos do Data Box Disk?
-R. Para obter informações sobre o preço de mensagens em fila de discos do Data Box, aceda a [página de preços](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+R. Para obter informações sobre o preço de mensagens em fila de discos do Data Box, aceda a [página de preços](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como recebo os discos do Data Box Disk? 
 R.  Para obter discos do Azure Data Box, inicie sessão no portal do Azure e criar uma encomenda do Data Box para discos. Indique as suas informações de contacto e os seus detalhes de notificação. Depois de fazer a encomenda, os discos são-lhe enviados num prazo de dez dias, com base na disponibilidade.
@@ -129,8 +129,8 @@ R. O conjunto de ferramentas disponível com o disco do Data Box contém três f
  - **Ferramenta de cópia de divisão de disco de caixa de dados**: Utilize esta ferramenta se estiver a utilizar vários discos e tem um grande conjunto de dados que precisa ser dividida e copiados entre todos os discos. Essa ferramenta está atualmente disponível para Windows. Essa ferramenta não é suportada com discos geridos. Essa ferramenta também valida como ele copia os dados, pelo que pode ignorar a etapa de validação quando utilizar esta ferramenta.
 
 O conjunto de ferramentas está disponível para Windows e Linux. Pode baixar o conjunto de ferramentas aqui:
-- [Transferir o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
-- [Transferir o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
+- [Transferir o conjunto de ferramentas de disco Data Box para Windows](https://aka.ms/databoxdisktoolswin) 
+- [Transferir o conjunto de ferramentas de disco Data Box para Linux](https://aka.ms/databoxdisktoolslinux)
  
   ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Pode usar disco Data Box para transferir dados para ficheiros do Azure e, em seguida, utilizar os dados com o Azure File Sync? 
   R. Os ficheiros do Azure são suportados com o disco Data Box mas não irão funcionar bem com o Azure File Sync. Metadados não é mantido se os dados de ficheiro são utilizados com o Azure File Sync.

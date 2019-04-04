@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984208"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895820"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criar uma aplicação de compreensão de idiomas com os serviços cognitivos
 Utilize a processo de criação de aplicações para criar a sua aplicação LUIS. 
@@ -122,12 +122,12 @@ Para obter mais informações:
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>A tirar partido da funcionalidade de sugerido para aprendizagem ativa
 
-Uso [aprendizagem ativa](luis-how-to-review-endoint-utt.md)da **rever expressões de ponto final** regularmente, em vez de adicionar mais expressões de exemplo para objetivos. Uma vez que a aplicação está a receber constantemente expressões de ponto final, esta lista está crescendo e alterar.
+Uso [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md)da **rever expressões de ponto final** regularmente, em vez de adicionar mais expressões de exemplo para objetivos. Uma vez que a aplicação está a receber constantemente expressões de ponto final, esta lista está crescendo e alterar.
 
 Para obter mais informações:
 * Conceito: [Conceitos para ativar a aprendizagem ativa, revendo os discursos de ponto final](luis-concept-review-endpoint-utterances.md)
 * Tutorial: [Tutorial: Corrigir previsões não sabe por rever as expressões de ponto final](luis-tutorial-review-endpoint-utterances.md)
-* Procedimento: [Como rever os discursos de ponto final no portal do LUIS](luis-how-to-review-endoint-utt.md)
+* Procedimento: [Como rever os discursos de ponto final no portal do LUIS](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitorizar o desempenho da sua aplicação
 

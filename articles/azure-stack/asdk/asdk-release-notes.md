@@ -11,22 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.lastreviewed: 04/04/2019
+ms.openlocfilehash: ee98aee0873796c2a06db73d3365e3ff9ef87ccf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187766"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915888"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK
 
 Este artigo fornece informações sobre as alterações, correções e problemas conhecidos no Azure Stack Development Kit (ASDK). Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](../azure-stack-updates.md#determine-the-current-version).
 
 Mantenha-se atualizado com o que há de novo no ASDK inscrevendo-se para o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## <a name="build-1903"></a>Compilação 1903
+
+O payload de 1903 não inclui uma versão ASDK.
 
 ## <a name="build-11902069"></a>Compilação 1.1902.0.69
 

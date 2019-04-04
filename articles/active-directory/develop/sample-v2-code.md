@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b518235efa4cd236afd8f79cb70cf30696931fdb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1aca8eb16e9474f8ec834178748c27682372f7b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086773"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905397"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Exemplos de código do Azure Active Directory (ponto final v2.0)
 
@@ -74,7 +74,7 @@ Os exemplos seguintes mostram cliente público aplicações (aplicações de amb
 
 Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API Web ASP.NET Core 2.0
 ------------------ | -------- |  ----------| ---------- | -------------------------
-Ambiente de trabalho (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interativo | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Ambiente de trabalho (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interativo | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi)
 Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NET.png) | Autenticação Integrada do Windows |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Nome de utilizador/palavra-passe |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 Mobile (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | Interativo |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
@@ -101,11 +101,11 @@ Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/l
 
 ## <a name="web-apis"></a>APIs da Web
 
-O exemplo a seguir mostra como proteger uma API web com o ponto de final de v2.0 do Azure AD. Esta API é exercida por um aplicativo do WPF, mas ele pode ser chamado por qualquer aplicação.
+O exemplo a seguir mostra como proteger uma API web com o ponto de final de v2.0 do Azure AD. Esta API é exercida por um aplicativo do WPF, mas ele pode ser chamado por qualquer aplicação. A API web também chama Microsoft Graph.
 
 Plataforma | Sample
  -------- | -------------------
-![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (serviço) de [dotnet-nativo-aspnetcore-v2](https://github.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (serviço) de [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)
 
 ## <a name="other-microsoft-graph-samples"></a>Outros exemplos do Microsoft Graph
 

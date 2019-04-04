@@ -10,16 +10,14 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c3086f0b68f8e2bf8bdd115e483d53ea94384f1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876314"
+ms.locfileid: "58906077"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 O [do Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) módulo é utilizado para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. 
 
@@ -29,6 +27,7 @@ Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se
 
 Este início rápido requer o Azure PowerShell AZ versão 1.0.0 do módulo ou posterior. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-and-register"></a>Iniciar sessão e registar
 
@@ -77,7 +76,7 @@ Agora, crie um cofre.
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > Redundância de armazenamento pode ser modificada apenas se não existem itens de cópia de segurança protegido para o cofre.

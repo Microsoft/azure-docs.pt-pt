@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 1ca2faca6c3d34ec4c987df85fff65e0a8fdc7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e9376b0d137534f301332feaf4e99bfa937fbfa9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486063"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905482"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure PowerShell de Monitor
 Este artigo será apresentado exemplo de comandos do PowerShell para o ajudar a aceder aos recursos do Azure Monitor.
@@ -27,7 +27,7 @@ Este artigo será apresentado exemplo de comandos do PowerShell para o ajudar a 
 Se ainda não o fez, configure o PowerShell para executar no seu computador. Para obter mais informações, consulte [como instalar e configurar o PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemplos neste artigo
-Os exemplos neste artigo mostram como pode utilizar os cmdlets do Azure Monitor. Também pode rever a lista completa de cmdlets do PowerShell de Monitor do Azure no [Cmdlets do Azure Monitor (informações)](https://docs.microsoft.com/powershell/module/azurerm.insights).
+Os exemplos neste artigo mostram como pode utilizar os cmdlets do Azure Monitor. Também pode rever a lista completa de cmdlets do PowerShell de Monitor do Azure no [Cmdlets do Azure Monitor (informações)](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Iniciar sessão e utilizar as subscrições
 Inicie sessão em primeiro lugar, na sua subscrição do Azure.

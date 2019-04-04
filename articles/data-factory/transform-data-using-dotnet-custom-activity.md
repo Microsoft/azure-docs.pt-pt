@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652098"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904581"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -356,7 +356,7 @@ Se tiver o código .NET existente, escrito para uma versão 1 atividade de DotNe
   - O pacote Microsoft.Azure.Management.DataFactories NuGet já não é necessário.
   - Compilar seu código, carregar o executável e as respetivas dependências para o armazenamento do Azure e definir o caminho no `folderPath` propriedade.
 
-Para obter um exemplo completo de como o exemplo de pipeline e a DLL de ponto-a-ponto descrito na versão do Data Factory 1 artigo [utilizar atividades personalizadas num pipeline do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrito como uma atividade personalizada da fábrica de dados, consulte [ Exemplo de atividade personalizada de fábrica de dados](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
+Para obter um exemplo completo de como o exemplo de pipeline e a DLL de ponto-a-ponto descrito na versão do Data Factory 1 artigo [utilizar atividades personalizadas num pipeline do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) pode ser reescrito como uma atividade personalizada da fábrica de dados, consulte [ Exemplo de atividade personalizada de fábrica de dados](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Azure Batch
 
@@ -382,8 +382,8 @@ Se o conjunto está a utilizar a predefinição [autoScaleEvaluationInterval](ht
 Consulte os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do Hive](transform-data-using-hadoop-hive.md)
-* [Atividade PIg](transform-data-using-hadoop-pig.md)
+* [Atividade do ramo de registo](transform-data-using-hadoop-hive.md)
+* [Atividade Pig](transform-data-using-hadoop-pig.md)
 * [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Atividade de transmissão em fluxo do Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade do Spark](transform-data-using-spark.md)

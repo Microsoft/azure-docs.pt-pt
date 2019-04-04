@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402376"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893225"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações nas funções do Azure
 
@@ -23,7 +23,7 @@ As funções numa aplicação de funções partilham recursos. Entre esses recur
 
 O número de ligações disponíveis é limitado em parte porque uma aplicação de funções é executado num [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe de área de segurança no seu código é um [limite no número de ligações (atualmente em 600 ligações ativas e total de 1200 ligações)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) por instância. Quando atingir este limite, o runtime das funções cria um registo com a seguinte mensagem: `Host thresholds exceeded: Connections`.
 
-Este limite é por instância.  Quando o [controlador de escala adiciona instâncias de aplicações de função](functions-scale.md#how-the-consumption-plan-works) para processar mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não tem qualquer limite de ligações globais, e pode ter muito mais de 600 ligações ativas em todas as instâncias de Active Directory.
+Este limite é por instância.  Quando o [controlador de escala adiciona instâncias de aplicações de função](functions-scale.md#how-the-consumption-and-premium-plans-work) para processar mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não tem qualquer limite de ligações globais, e pode ter muito mais de 600 ligações ativas em todas as instâncias de Active Directory.
 
 ## <a name="static-clients"></a>Clientes estáticos
 
