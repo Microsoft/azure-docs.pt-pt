@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779254"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487758"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Criar uma máquina virtual utilizando uma palavra-passe segura armazenada no Cofre de chaves do Azure Stack
 
@@ -53,7 +53,7 @@ Os passos seguintes descrevem o processo necessário para criar uma máquina vir
 
 O script seguinte cria um cofre de chaves e armazena uma palavra-passe no Cofre de chaves, como um segredo. Utilize o `-EnabledForDeployment` parâmetro ao criar o Cofre de chaves. Este parâmetro certifica-se de que o Cofre de chaves pode ser referenciado a partir de modelos do Azure Resource Manager.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ Atualize o ficheiro azuredeploy com o URI do Cofre de chaves, secretName, adminU
 
 Agora, implemente o modelo ao utilizar o seguinte script do PowerShell:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

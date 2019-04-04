@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339606"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486704"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ligar o Azure Stack ao Azure através do ExpressRoute do Azure
 
@@ -232,7 +232,7 @@ O router é uma máquina de virtual do Windows Server (AzS-BGPNAT01) a executar 
 1. Inicie sessão no computador anfitrião do Azure Stack com a sua conta de administrador.
 1. Copie e edite o seguinte script do PowerShell. Substitua `your administrator password` com a sua palavra-passe de administrador e, em seguida, execute o script num ISE do PowerShell elevada. Esse script retorna seu **endereço externo BGPNAT**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ O router é uma máquina de virtual do Windows Server (AzS-BGPNAT01) a executar 
 
    Execute o seguinte script de um ISE do PowerShell elevada:
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ Execute os seguintes testes de ping:
 
 Por predefinição, o Windows Server 2016 não permite a pacotes de entrada ICMP através da firewall. Para cada máquina virtual que utiliza para testes de ping, tem de permitir pacotes de ICMP de entrada. Para criar uma regra de firewall para o ICMP, execute o seguinte cmdlet numa janela elevada do PowerShell:
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210531"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499238"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do SQL
 
@@ -186,14 +186,19 @@ SKUs não podem ser atribuídos a utilizadores ou grupos específicos.
 
 SKUs podem demorar até uma hora para ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU estiver totalmente criado.
 
-Para editar um SKU, aceda a **todos os serviços** > **adaptador de SQL** > **SKUs**. Selecione o SKU para modificar, faça as alterações necessárias e clique em **guardar** para guardar as alterações. Para eliminar um SKU que não é mais necessária, aceda a **todos os serviços** > **adaptador de SQL** > **SKUs**. O nome SKU com o botão direito e selecione **eliminar** eliminá-lo.
+Para editar um SKU, aceda a **todos os serviços** > **adaptador de SQL** > **SKUs**. Selecione o SKU para modificar, faça as alterações necessárias e clique em **guardar** para guardar as alterações. 
 
-> [!TIP]
-> Pode editar ou eliminar as quotas de fornecedor de recursos SQL na mesma localização.
+Para eliminar um SKU que não é mais necessária, aceda a **todos os serviços** > **adaptador de SQL** > **SKUs**. O nome SKU com o botão direito e selecione **eliminar** eliminá-lo.
+
+> [!IMPORTANT]
+> Pode demorar até uma hora para novos SKUs estar disponível no portal de utilizador.
 
 ## <a name="make-sql-databases-available-to-users"></a>Tornar as bases de dados SQL disponíveis para os utilizadores
 
 Crie planos e ofertas para tornar as bases de dados SQL disponíveis para os utilizadores. Adicionar a **Microsoft.SqlAdapter** para o plano de serviço e criar uma quota de novo.
+
+> [!IMPORTANT]
+> Pode demorar até duas horas para novas quotas para estar disponível no portal de utilizador ou antes de uma quota alterada é imposta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

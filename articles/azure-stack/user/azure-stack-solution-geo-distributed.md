@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c2b0d022c81dffe5e98932c22b9707eb10b7e63
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860589"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481727"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicação distribuída geograficamente com o Azure e o Azure Stack
 
@@ -472,7 +472,7 @@ Exporte o certificado SSL intercalado com a chave privada gerada pelo certificad
 
 Um ficheiro de chave privada é criado por meio de OpenSSL. Para exportar o certificado para PFX, execute o seguinte comando, substitua os marcadores de posição *< private-key-file >* e *< intercaladas-certificate-file >* com caminhos de chave privados e intercalados ficheiro de certificado.
 
-```PowerShell
+```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 

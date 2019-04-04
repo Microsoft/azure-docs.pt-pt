@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757328"
 documentType: LandingData
 title: Documentação da Pré-visualização do Centro de Segurança do Azure para IoT
 metadata:
-  title: Documentação da Pré-visualização do Centro de Segurança do Azure para IoT - Tutoriais, Inícios Rápidos | Microsoft Docs
+  title: 'Documentação da Pré-visualização do Centro de Segurança do Azure para IoT - Tutoriais, Inícios Rápidos | Microsoft Docs'
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -20,48 +14,48 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Utilize a Pré-visualização do Centro de Segurança do Azure (ASC) para IoT para expandir a sua vista de cibersegurança existente a toda a sua solução de IoT. Obtenha uma vista verdadeiramente panorâmica sobre a segurança de todos os seus recursos relacionados com o Azure. As opções de implementação rápida e a integração completa com os módulos duplos do Hub IoT dão-lhe uma grande variedade de opções de personalização e integração simples com as suas atuais ferramentas de gestão de dispositivos. 
+  description: "Utilize a Pré-visualização do Centro de Segurança do Azure (ASC) para IoT para expandir a sua vista de cibersegurança existente a toda a sua solução de IoT. Obtenha uma vista verdadeiramente panorâmica sobre a segurança de todos os seus recursos relacionados com o Azure. As opções de implementação rápida e a integração completa com os módulos duplos do Hub IoT dão-lhe uma grande variedade de opções de personalização e integração simples com as suas atuais ferramentas de gestão de dispositivos.\_"
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Saiba como ativar o seu Hub IoT para o ASC para IoT, instalar agentes do ASC para IoT e obtenha visibilidade sobre os seus dados e potenciais ameaças.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: Ativar o ASC para IoT
-      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-    - image:
-        src: media/index/get-started.svg
-      text: Introdução ao ASC para IoT
-      href: /azure/asc-for-iot/getting-started
-- title: Guias de procedimentos
-  items:
-  - type: paragraph
-    text: Saiba como definir políticas de segurança, proteger os seus dispositivos em relação a atividades maliciosas e responder a alertas de segurança e incidentes.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Saiba como ativar o seu Hub IoT para o ASC para IoT, instalar agentes do ASC para IoT e obtenha visibilidade sobre os seus dados e potenciais ameaças.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: Ativar o ASC para IoT
+            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
+          - image:
+              src: media/index/get-started.svg
+            text: Introdução ao ASC para IoT
+            href: /azure/asc-for-iot/getting-started
+  - title: Guias de procedimentos
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detetar ameaças com o ASC para IoT</a>
-- title: Desenvolva as suas competências com o Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Saiba como definir políticas de segurança, proteger os seus dispositivos em relação a atividades maliciosas e responder a alertas de segurança e incidentes.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detetar ameaças com o ASC para IoT</a>
+  - title: Desenvolva as suas competências com o Microsoft Learn
     items:
-    - title: Introdução à Segurança no Azure
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Mais aprendizagem interativa...</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introdução à Segurança no Azure
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Mais aprendizagem interativa...</a>
+  - title: Referência
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Atualizações de serviço</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Atualizações de serviço</a>'

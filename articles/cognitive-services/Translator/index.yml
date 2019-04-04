@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731842"
 documentType: LandingData
 title: Documentação da Tradução de Texto
 metadata:
-  title: Documentação da API de Texto do Microsoft Translator - Inícios Rápidos, Tutoriais, Referência da API - Serviços Cognitivos do Azure | Microsoft Docs
+  title: 'Documentação da API de Texto do Microsoft Translator - Inícios Rápidos, Tutoriais, Referência da API - Serviços Cognitivos do Azure | Microsoft Docs'
   description: Saiba como utilizar a Tradução de Texto para traduzir texto para vários idiomas.
   services: cognitive-services
-  author: Jann-Skotdal
+  author: v-pawal
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
@@ -20,87 +14,87 @@ metadata:
   ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
-  description: A Tradução de Texto é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. A API utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Custom Translator é uma extensão da API de Texto do Microsoft Translator, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com a API de Texto do Microsoft Translator ou com os <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Serviços de Voz da Microsoft</a>. Para obter a lista de idiomas suportados de ambos os tipos de tradução automática, neural e estatística, veja o artigo <a href="languages.md">Idiomas suportados</a>.
+  description: 'A Tradução de Texto é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. A API utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Custom Translator é uma extensão da API de Texto do Microsoft Translator, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com a API de Texto do Microsoft Translator ou com os <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Serviços de Voz da Microsoft</a>. Para obter a lista de idiomas suportados de ambos os tipos de tradução automática, neural e estatística, veja o artigo <a href="languages.md">Idiomas suportados</a>.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/translator/translator-info-overview
+            html: <p>Saiba mais sobre a API de Texto do Microsoft Translator</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é a API de Texto do Microsoft Translator?
+          - href: /azure/cognitive-services/translator/custom-translator/overview
+            html: <p>Saiba mais sobre o Custom Translator</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é o Tradutor Personalizado?
+          - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+            html: <p>Saiba como começar a utilizar o Custom Translator</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Guia rápido do Custom Translator
+  - title: Inícios rápidos de cinco minutos
     items:
-    - href: /azure/cognitive-services/translator/translator-info-overview
-      html: <p>Saiba mais sobre a API de Texto do Microsoft Translator</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: O que é a API de Texto do Microsoft Translator?
-    - href: /azure/cognitive-services/translator/custom-translator/overview
-      html: <p>Saiba mais sobre o Custom Translator</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: O que é o Tradutor Personalizado?
-    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-      html: <p>Saiba como começar a utilizar o Custom Translator</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Guia rápido do Custom Translator
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Introdução à API de Texto do Microsoft Translator:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_csharp.svg
-      title: C#
-    - image:
-        src: media/index/logo_java.svg
-      title: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/logo_go.svg
-      title: Ir
-    rows:
-    - title: Traduzir texto de um idioma para outro
-      values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-java-translate
-      - href: quickstart-nodejs-translate
-      - href: quickstart-python-translate
-      - href: quickstart-go-translate
-    - title: Converter texto de um script para outro
-      values:
-      - href: quickstart-csharp-transliterate
-      - href: quickstart-java-transliterate
-      - href: quickstart-nodejs-transliterate
-      - href: quickstart-python-transliterate
-      - href: quickstart-go-transliterate
-    - title: Identificar o idioma do texto
-      values:
-      - href: quickstart-csharp-detect
-      - href: quickstart-java-detect
-      - href: quickstart-nodejs-detect
-      - href: quickstart-python-detect
-      - href: quickstart-go-detect
-    - title: Obter traduções alternativas e utilização
-      values:
-      - href: quickstart-csharp-dictionary
-      - href: quickstart-java-dictionary
-      - href: quickstart-nodejs-dictionary
-      - href: quickstart-python-dictionary
-      - href: quickstart-go-dictionary
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como desenvolver aplicações com a API de Tradução de Texto:'
-  - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Escreva uma aplicação de WPF para a Tradução de Texto com C#</a>
-- title: Referência
-  items:
-  - type: paragraph
-    text: <p><a href="reference/v3-0-reference.md">Referência da API</a></p>
+      - type: paragraph
+        text: 'Introdução à API de Texto do Microsoft Translator:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo_java.svg
+            title: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            title: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            title: Python
+          - image:
+              src: media/index/logo_go.svg
+            title: Ir
+        rows:
+          - title: Traduzir texto de um idioma para outro
+            values:
+              - href: quickstart-csharp-translate
+              - href: quickstart-java-translate
+              - href: quickstart-nodejs-translate
+              - href: quickstart-python-translate
+              - href: quickstart-go-translate
+          - title: Converter texto de um script para outro
+            values:
+              - href: quickstart-csharp-transliterate
+              - href: quickstart-java-transliterate
+              - href: quickstart-nodejs-transliterate
+              - href: quickstart-python-transliterate
+              - href: quickstart-go-transliterate
+          - title: Identificar o idioma do texto
+            values:
+              - href: quickstart-csharp-detect
+              - href: quickstart-java-detect
+              - href: quickstart-nodejs-detect
+              - href: quickstart-python-detect
+              - href: quickstart-go-detect
+          - title: Obter traduções alternativas e utilização
+            values:
+              - href: quickstart-csharp-dictionary
+              - href: quickstart-java-dictionary
+              - href: quickstart-nodejs-dictionary
+              - href: quickstart-python-dictionary
+              - href: quickstart-go-dictionary
+  - title: Tutoriais Passo-a-Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como desenvolver aplicações com a API de Tradução de Texto:'
+      - type: paragraph
+        text: '<a href="tutorial-wpf-translation-csharp.md">Escrever uma aplicação de WPF para Tradução de Texto em C#</a>'
+  - title: Referência
+    items:
+      - type: paragraph
+        text: <p><a href="reference/v3-0-reference.md">Referência da API</a></p>

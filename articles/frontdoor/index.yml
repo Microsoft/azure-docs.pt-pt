@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 19e9bbafa1c560e7fa28be9945bc13cb0e342edc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388566"
 documentType: LandingData
-title: Documentação do Azure Front Door Service (Pré-visualização)
+title: Documentação do Azure Front Door Service
 metadata:
-  title: Documentação do Azure Front Door Service (Pré-visualização)
-  meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  title: Documentação do Azure Front Door Service
+  meta.description: 'Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.'
   services: frontdoor
   author: dlepow
   ms.service: frontdoor
@@ -17,35 +11,35 @@ metadata:
   ms.date: 9/14/2018
   ms.author: danlep
 abstract:
-  description: O Azure Front Door Service fornece um ponto de entrada dimensionável e seguro para rápido fornecimento das suas aplicações Web globais. Saiba como utilizar o Front Door com os nossos inícios rápidos, tutoriais e amostras.
+  description: 'O Azure Front Door Service fornece um ponto de entrada dimensionável e seguro para rápido fornecimento das suas aplicações Web globais. Saiba como utilizar o Front Door com os nossos inícios rápidos, tutoriais e amostras.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Crie um Front Doot para uma aplicação web global com elevada disponibilidade.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portal do Azure
-      href: quickstart-create-front-door.md
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Aprenda a configurar o Azure Front Door Service para as suas necessidades.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Crie um Front Doot para uma aplicação web global com elevada disponibilidade.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal do Azure
+            href: quickstart-create-front-door.md
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="front-door-custom-domain.md">Adicionar um domínio personalizado para o seu Front Door</a>
-    - html: <a href="front-door-custom-domain-https.md">Ativar HTTPS para um domínio personalizado</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Aprenda a configurar o Azure Front Door Service para as suas necessidades.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="front-door-custom-domain.md">Adicionar um domínio personalizado ao seu Front Door</a>
+          - html: <a href="front-door-custom-domain-https.md">Ativar HTTPS para um domínio personalizado</a>
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/cli/azure/ext/front-door">CLI do Azure</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/frontdoor">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: '<p><a href="/cli/azure/ext/front-door">CLI do Azure</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/frontdoor">API REST</a></p>

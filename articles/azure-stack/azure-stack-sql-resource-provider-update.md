@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/29/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: c4a00d62cc9ab049ed3c647e9d1e2ed1e5a28329
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5238c60493820fe6d784049da9862b4347e563c4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760010"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650914"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o fornecedor de recursos do SQL
 
@@ -74,9 +74,10 @@ Segue-se um exemplo de como utilizar o *UpdateSQLProvider.ps1* script que pode e
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Note that this might not be the most currently available version of Azure Stack PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"

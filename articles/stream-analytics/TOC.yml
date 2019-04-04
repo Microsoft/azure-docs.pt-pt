@@ -423,7 +423,7 @@ items:
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/
   - name: Blogue
-    href: https://blogs.msdn.com/b/streamanalytics/
+    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
   - name: Fórum de comentários
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Fórum
@@ -442,9 +442,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Documento técnico - Processamento de eventos em tempo real
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 83e5f3f9edd1fb58c0b79566c4bb764e7b430bcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 0066db1ee56ada20527e468e689dde84a823f284
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803651"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849518"

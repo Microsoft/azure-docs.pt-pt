@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bdb46a5e11b26f04d008160fa5a782050211b56e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122948"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484378"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Implementar o Kubernetes no Azure Stack com o Active Directory Federated Services
 
@@ -74,7 +74,7 @@ Terá de contactar o administrador do Azure Stack para configurar o seu principa
 
    - Terá das seguintes partes de informações:
 
-       | Value | Descrição |
+       | Valor | Descrição |
        | ---   | ---         |
        | Ponto final do Gestor de recursos do Azure | O Gestor de recursos do Microsoft Azure é uma estrutura de gestão que permite aos administradores implementar, gerir e monitorizar recursos do Azure. O Azure Resource Manager pode lidar com essas tarefas, como um grupo, em vez de individualmente, numa única operação.<br>O ponto final no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/`<br>O ponto de extremidade em sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
        | O ID de subscrição | O [ID de subscrição](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) é como acessa ofertas no Azure Stack. |
@@ -85,7 +85,7 @@ Terá de contactar o administrador do Azure Stack para configurar o seu principa
 
    - Abra o PowerShell com uma linha de comandos elevada, e [ligar ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o seguinte script com os parâmetros atualizados para seus valores:
 
-     ```PowerShell  
+   ```powershell  
        $armEndpoint="<Azure Resource Manager Endpoint>"
        $subscriptionId="<Your Subscription ID>"
        $username="<your user name >"
@@ -115,7 +115,7 @@ Terá de contactar o administrador do Azure Stack para configurar o seu principa
 
    - Terá das seguintes partes de informações:
 
-       | Value | Descrição |
+       | Valor | Descrição |
        | ---   | ---         |
        | Caminho do certificado | O caminho de ficheiro ou o FQDN para o certificado. |
        | Palavra-passe de certificado | A palavra-passe do certificado. |
@@ -126,7 +126,7 @@ Terá de contactar o administrador do Azure Stack para configurar o seu principa
 
    - Abra o PowerShell com uma linha de comandos elevada, e [ligar ao Azure Stack](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Execute o seguinte script com os parâmetros atualizados para seus valores:
 
-     ```PowerShell  
+    ```powershell
         
      # upload the pfx to key vault
      $tempPFXFilePath = "<certificate path>"

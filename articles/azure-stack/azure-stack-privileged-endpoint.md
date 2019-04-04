@@ -15,18 +15,18 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef75b161bcdb9e1b9658612b783dff46d1fa2502
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082675"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484343"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizar o ponto final com privilégios no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Como um operador do Azure Stack, deve utilizar o portal de administrador, PowerShell ou APIs do Azure Resource Manager para as tarefas de gestão mais diárias. No entanto, para alguns, menos operações comuns, terá de utilizar o *ponto final com privilégios* (PEP). O PEP é uma consola do PowerShell remota pré-configuradas que lhe fornece apenas o suficiente capacidades para ajudar a executar uma tarefa necessária. O ponto de extremidade usa [JEA de PowerShell (administração Just Enough)](https://docs.microsoft.com/powershell/jea/overview) para expor um conjunto restrito de cmdlets. Para acessar o PEP e invocar o conjunto limitado de cmdlets, é utilizada uma conta de baixo privilégio. Não existem contas de administrador são necessárias. Para segurança adicional, criação de scripts não é permitida.
+Na qualidade de operador do Azure Stack, deve utilizar o portal do administrador, o PowerShell ou as APIs do Azure Resource Manager para realizar a maioria das tarefas de gestão quotidianas. No entanto, para alguns, menos operações comuns, terá de utilizar o *ponto final com privilégios* (PEP). O PEP é uma consola do PowerShell remota pré-configuradas que lhe fornece apenas o suficiente capacidades para ajudar a executar uma tarefa necessária. O ponto de extremidade usa [JEA de PowerShell (administração Just Enough)](https://docs.microsoft.com/powershell/jea/overview) para expor um conjunto restrito de cmdlets. Para acessar o PEP e invocar o conjunto limitado de cmdlets, é utilizada uma conta de baixo privilégio. Não existem contas de administrador são necessárias. Para segurança adicional, criação de scripts não é permitida.
 
 Pode utilizar o PEP para realizar tarefas como o seguinte:
 
@@ -53,7 +53,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
 
     - Num sistema integrado, execute o seguinte comando a partir de uma sessão elevada do Windows PowerShell para adicionar o PEP como um anfitrião fidedigno na máquina virtual protegida em execução no anfitrião de ciclo de vida de hardware ou a estação de trabalho de acesso privilegiado.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Se estiver a executar o ASDK, inicie sessão para o anfitrião do kit de desenvolvimento.
@@ -61,7 +61,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
 2. A máquina virtual protegida em execução no anfitrião de ciclo de vida de hardware ou a estação de trabalho de acesso privilegiado, abra uma sessão do Windows PowerShell. Execute os seguintes comandos para estabelecer uma sessão remota na máquina virtual que aloja o PEP:
  
    - Num sistema integrado:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -70,7 +70,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
      O `ComputerName` parâmetro pode ser o endereço IP ou o nome DNS de uma das máquinas virtuais que aloja o PEP. 
    - Se estiver a executar o ASDK:
      
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName azs-ercs01 `
@@ -113,7 +113,7 @@ Conforme mencionado acima, o PEP é um [PowerShell JEA](https://docs.microsoft.c
 
 Então, por exemplo, para obter a lista de parâmetros para um determinado cmdlet, execute o seguinte comando:
 
-```PowerShell
+```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
@@ -125,7 +125,7 @@ Para importar a sessão PEP no seu computador local, siga os passos abaixo:
 
     -Num sistema integrado, execute o seguinte comando a partir de uma sessão elevada do Windows PowerShell para adicionar o PEP como um anfitrião fidedigno na máquina virtual protegida em execução no anfitrião de ciclo de vida de hardware ou a estação de trabalho de acesso privilegiado.
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - Se estiver a executar o ASDK, inicie sessão para o anfitrião do kit de desenvolvimento.
@@ -133,7 +133,7 @@ Para importar a sessão PEP no seu computador local, siga os passos abaixo:
 2. A máquina virtual protegida em execução no anfitrião de ciclo de vida de hardware ou a estação de trabalho de acesso privilegiado, abra uma sessão do Windows PowerShell. Execute os seguintes comandos para estabelecer uma sessão remota na máquina virtual que aloja o PEP:
  
    - Num sistema integrado:
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -142,7 +142,7 @@ Para importar a sessão PEP no seu computador local, siga os passos abaixo:
      O `ComputerName` parâmetro pode ser o endereço IP ou o nome DNS de uma das máquinas virtuais que aloja o PEP. 
    - Se estiver a executar o ASDK:
      
-     ```PowerShell
+     ```powershell
       $cred = Get-Credential
 
       $session = New-PSSession -ComputerName azs-ercs01 `
@@ -154,7 +154,7 @@ Para importar a sessão PEP no seu computador local, siga os passos abaixo:
      - **palavra-passe**: Introduza a mesma palavra-passe que foi fornecido durante a instalação para a conta de administrador de domínio AzureStackAdmin.
 
 3. Importar a sessão PEP para o seu computador local
-    ```PowerShell 
+    ```powershell 
         Import-PSSession $session
     ```
 4. Agora, pode utilizar a conclusão de tabulação e fazer a criação de scripts como de costume em sua sessão do PowerShell local com todas as funções e cmdlets do PEP, sem reduzir a postura de segurança do Azure Stack. Divirta-se!

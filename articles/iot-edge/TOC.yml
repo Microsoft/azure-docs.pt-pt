@@ -104,10 +104,12 @@ items:
       href: how-to-auto-provision-simulated-device-linux.md
     - name: Windows
       href: how-to-auto-provision-simulated-device-windows.md
-  - name: Programar e depurar módulos no VS 2017
-    href: how-to-visual-studio-develop-csharp-module.md
-  - name: Programar e depurar módulos no VS Code
-    href: how-to-vs-code-develop-module.md
+  - name: Programar e depurar módulos personalizados
+    items:
+    - name: Visual Studio 2017
+      href: how-to-visual-studio-develop-module.md
+    - name: Visual Studio Code
+      href: how-to-vs-code-develop-module.md
   - name: Implementar módulos
     items:
     - name: Portal do Azure
@@ -212,9 +214,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: a7fa87685aced399db04d2341cb021e7a9eab202
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8cd65cf2752162d2ffe000faf4c94327466edaa5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549855"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850745"

@@ -85,6 +85,10 @@ items:
       href: delete-data.md
     - name: Lidar com dados duplicados
       href: dealing-with-duplicates.md
+  - name: Monitorização
+    items:
+    - name: Utilizar métricas para monitorizar o estado de funcionamento do cluster
+      href: using-metrics.md
   - name: Trabalhar com outras ferramentas
     items:
     - name: Ligar a partir do Databricks com o Python
@@ -135,9 +139,9 @@ items:
     href: https://aka.ms/adecostestimator
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: f3be712f345e603f3959c753ad3c81faaa1e00cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7b525558fd22b2d2f61f3cc901938c449f53fb72
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402665"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847078"

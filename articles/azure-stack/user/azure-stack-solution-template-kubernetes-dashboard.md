@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 76af6d6585d52eee99548f69c92bd414068fa28d
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259215"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482594"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Aceder ao Dashboard do Kubernetes no Azure Stack 
 
@@ -106,7 +106,7 @@ Pode obter o URL para o dashboard a partir do nó principal no seu cluster.
 
 3. Anote as localizações de ficheiros. Atualizar o script com as localizações e, em seguida, abra o PowerShell com uma linha de comandos elevada. Execute o script atualizado:  
 
-    ```PowerShell   
+    ```powershell   
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 

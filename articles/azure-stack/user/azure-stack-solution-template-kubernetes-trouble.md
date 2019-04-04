@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack | Documentos da Microsoft
-description: Saiba como resolver problemas relacionados com a implementação de Kubernetes no Azure Stack.
+title: Resolver problemas de implementação de Kubernetes no Azure Stack | Documentos da Microsoft
+description: Saiba como resolver problemas de implementação de Kubernetes no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361545"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878133"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Resolver problemas relacionados com a implementação de Kubernetes no Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Resolver problemas de implementação de Kubernetes no Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!Note]  
 > Kubernetes no Azure Stack está em pré-visualização. Cenário de desligado de pilha do Azure não é atualmente suportado pela pré-visualização.
 
 O seguinte artigo analisa de resolução de problemas do seu cluster do Kubernetes. Pode rever o alerta de implementação e consultar o estado da implementação, os elementos necessários para a implementação. Poderá ter de recolher os registos de implementação do Azure Stack ou as VMs do Linux que alojam Kubernetes. Poderá também ter de contactar o administrador do Azure Stack para obter os registos de um ponto de extremidade administrativo.
 
-## <a name="overview-of-deployment"></a>Descrição geral da implementação
+## <a name="overview-of-kubernetes-deployment"></a>Descrição geral da implementação do Kubernetes
 
 Antes de iniciar a resolução de problemas do seu cluster, pode querer rever o processo de implementação de cluster de Kubernetes do Azure Stack. A implementação utiliza um modelo de solução do Azure Resource Manager para criar as VMs e instalar o motor de ACS para o seu cluster.
 
-### <a name="deployment-workflow"></a>Fluxo de trabalho de implantação
+### <a name="kubernetes-deployment-workflow"></a>Fluxo de trabalho de implementação de Kubernetes
 
 O diagrama seguinte mostra o processo geral para implementar o cluster.
 
@@ -85,7 +85,7 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
 
 Pode recolher registos nas VMs que suportam o seu cluster do Kubernetes. Também pode rever o registo de implementação. Poderá ter comunicar com o seu administrador do Azure Stack para verificar a versão do Azure Stack que terá de usar e obter registos do Azure Stack que estão relacionadas com a implementação.
 
-1. Reveja a [estado de implementação](#review-deployment-status) e [obtém os registos](#get-logs-from-a-vm) partir do nó principal no cluster do Kubernetes.
+1. Reveja os [estado de implementação](#review-deployment-status) e obter os registos a partir do nó principal no cluster do Kubernetes.
 2. Certifique-se de que está a utilizar a versão mais recente do Azure Stack. Se tiver a certeza de qual é a versão que está a utilizar, contacte o administrador do Azure Stack.
 3.  Reveja os ficheiros de criação de VM. Pode ter tinha os seguintes problemas:  
     - A chave pública pode ser inválida. Reveja a chave que criou.  

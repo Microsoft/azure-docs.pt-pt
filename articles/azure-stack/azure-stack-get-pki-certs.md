@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e0556eb5cc3d0f140067a4e3b4a9054a47b91417
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649732"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481492"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificados de pilha do Azure, geração de pedido de assinatura
 
@@ -50,13 +50,13 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 1. Instale AzsReadinessChecker num prompt do PowerShell (5.1 ou acima), ao executar o seguinte cmdlet:
 
-    ```PowerShell  
+    ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
 2. Declarar o **assunto** como um dicionário ordenado. Por exemplo:
 
-    ```PowerShell  
+    ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
 
@@ -65,7 +65,7 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 3. Declare um diretório de saída que já existe. Por exemplo:
 
-    ```PowerShell  
+    ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
@@ -73,19 +73,19 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
     Azure Active Directory
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "AAD"
     ```
 
     Serviços de Federação do Active Directory
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "ADFS"
     ```
 
 5. Declarar **nome da região** e uma **FQDN externo** se destina a implementação do Azure Stack.
 
-    ```PowerShell
+    ```powershell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ```
@@ -95,7 +95,7 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 6. Para gerar solicitações para cada nome DNS de assinatura de certificado:
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -103,7 +103,7 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 7. Em alternativa, para ambientes de Dev/Test, para gerar um pedido de certificado único com vários nomes alternativos do requerente adicione **- RequestType SingleCSR** parâmetro e o valor (**não** recomendado para ambientes de produção):
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -111,7 +111,7 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 8. Reveja o resultado:
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
 
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont

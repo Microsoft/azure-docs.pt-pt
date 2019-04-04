@@ -69,6 +69,8 @@ items:
   - name: Comparar as versões 1.x e 2.x
     displayName: migrate, migration
     href: functions-versions.md
+  - name: Plano Premium
+    href: functions-premium-plan.md
   - name: Dimensionamento e alojamento
     href: functions-scale.md
   - name: Acionadores e enlaces
@@ -107,6 +109,8 @@ items:
     href: functions-best-practices.md
   - name: Proxies de Funções
     href: functions-proxies.md
+  - name: Opções de redes
+    href: functions-networking-options.md
   - name: Endereços IP
     href: ip-addresses.md
   - name: Funções no local
@@ -267,6 +271,8 @@ items:
       href: functions-host-json.md
     - name: Funções 1.x
       href: functions-host-json-v1.md
+  - name: FAQ sobre redes
+    href: functions-networking-faq.md
   - name: Referência de OpenAPI
     href: functions-api-definition.md
 - name: Recursos
@@ -295,9 +301,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 929a483ecdf9e8345c99c036b57631b2b1110b03
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 92eed4424d952edef4b2dc203c535f1ab26ed28c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403537"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894581"

@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf831c6f8faad1892291794bc43dc13e6a17eba1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081513"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484853"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar o Kubernetes para o mercado do Azure Stack
 
@@ -69,7 +69,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
 
     - Terá das seguintes partes de informações:
 
-       | Value | Descrição |
+       | Valor | Descrição |
        | ---   | ---         |
        | Palavra-passe | Introduza uma nova palavra-passe do certificado. |
        | Caminho de certificados local | Introduza o nome de ficheiro e caminho do certificado. Por exemplo: `c:\certfilename.pfx` |
@@ -78,7 +78,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
 
     - Abra o PowerShell com uma linha de comandos elevada. Execute o seguinte script com os parâmetros atualizados para seus valores:
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -106,7 +106,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
 
 2.  Tome nota do ID de certificado novo apresentada na sua sessão do PowerShell, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. O ID será utilizado ao criar o principal de serviço.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -114,7 +114,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
 
     - Terá das seguintes partes de informações:
 
-       | Value | Descrição                     |
+       | Valor | Descrição                     |
        | ---   | ---                             |
        | ERCS IP | No ASDK, o ponto final com privilégios é normalmente `AzS-ERCS01`. |
        | Nome da aplicação | Introduza um nome simple para o principal de serviço de aplicações. |
@@ -126,7 +126,7 @@ Se usar o Active Directory Federated Services (AD FS) para o seu serviço de ges
 
     - Execute o seguinte script com os parâmetros atualizados para seus valores:
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -259,7 +259,7 @@ Para remover o item de Kubernetes:
 
 2. Localize o item atual do Cluster de Kubernetes na galeria.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -267,7 +267,7 @@ Para remover o item de Kubernetes:
 
 4. Utilize o seguinte cmdlet do PowerShell para remover o item:
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

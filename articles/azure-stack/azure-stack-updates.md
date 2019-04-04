@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894041"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487520"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerir atualizações na descrição geral do Azure Stack
 
@@ -29,7 +29,7 @@ Pacotes de atualização da Microsoft para o Azure Stack, normalmente, os sistem
 
 Cada versão das atualizações de software da Microsoft é fornecido como um pacote de atualização única. Como um operador do Azure Stack, pode importar, instalação e monitorizar o progresso da instalação destas atualizações de pacotes a partir do portal do administrador. 
 
-O fornecedor do hardware de fabricante de equipamento original (OEM) também irá lançar atualizações, como atualizações de controladores e firmware. Embora estas atualizações são entregues como pacotes separados pelo seu fornecedor de hardware de OEM, que são importados, instalaram e geridos os pacotes de atualização de forma mesmo da Microsoft, pacotes de atualização são importados, instalados e geridos.
+O fornecedor do hardware de fabricante de equipamento original (OEM) também irá lançar atualizações, como atualizações de controladores e firmware. Embora estas atualizações sejam disponibilizadas como pacotes separados pelo fornecedor de hardware do OEM, são importadas, instaladas e geridas da mesma forma que os pacotes de atualizações da Microsoft são importados, instalados e geridos.
 
 Para manter seu sistema em suporte, deve manter atualizado para um nível de versão específica do Azure Stack. Certifique-se de que revê os [política de manutenção do Azure Stack](azure-stack-servicing-policy.md).
 
@@ -48,7 +48,7 @@ Recomendamos vivamente que notifique os utilizadores de quaisquer operações de
 
 - Antes de iniciar a instalação desta atualização, execute [AzureStack teste](azure-stack-diagnostic-test.md) com os parâmetros seguintes para validar o status do seu Azure Stack e resolver quaisquer problemas operacionais detectados, incluindo todos os avisos e falhas. Também rever alertas ativos e resolver qualquer um que requerem uma ação.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 
@@ -71,7 +71,7 @@ O atualizar mosaico mostra a versão atual do Azure Stack. Pode obter o mosaico 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [O Azure Stack a política de manutenção](azure-stack-servicing-policy.md) 
+- [Azure Stack servicing policy](azure-stack-servicing-policy.md) (Política de manutenção do Azure Stack) 
 - [Gestão da região no Azure Stack](azure-stack-region-management.md)     
 
 

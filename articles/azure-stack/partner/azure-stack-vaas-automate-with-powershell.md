@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39ed9ee9dab7f2ec97d2fb6a0148db333648b227
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767112"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481472"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação de pilha do Azure com o PowerShell
 
@@ -32,7 +32,7 @@ Validação como um serviço (VaaS) fornece a capacidade de automatizar a inicia
 Este script pode ser utilizado para:
 
 > [!div class="checklist"]
-> * Instalar pré-requisitos
+> * Pré-requisitos da instalação
 > * Instalar e iniciar o agente local
 > * Inicie uma categoria de testes, como *integração*, *funcional*, *confiabilidade*
 > * Resultados do teste de relatório
@@ -43,7 +43,7 @@ Este script pode ser utilizado para:
 
 2. Execute o seguinte script para transferir o script de automação:
 
-    ```PowerShell
+    ```powershell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
     Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
@@ -52,7 +52,7 @@ Este script pode ser utilizado para:
 
 3. Execute o seguinte script com os valores de parâmetro adequado:
 
-    ```PowerShell
+    ```powershell
     $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
                           -VaaSAccountTenantId <VaaSAccountTenantId> `

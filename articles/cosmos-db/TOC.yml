@@ -284,9 +284,10 @@ items:
         href: mongodb-indexing.md
       - name: Armazenar e gerir o Spring Data
         href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-      - name: Utilizar comandos personalizados
-        href: mongodb-custom-commands.md
         maintainContext: true
+      - name: Comandos de extensão do MongoDB
+        displayName: custom commands
+        href: mongodb-custom-commands.md
   - name: API do Gremlin
     displayName: graph, graph database
     items:
@@ -658,9 +659,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: 3c25662c3068dae31f5b45f44130bbcba8840a19
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5400c02829ce14da6226fb6ce85c476b3ed96edf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805436"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886748"

@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975632"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487588"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utilizar perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -95,13 +95,13 @@ Deverá ver a versão da CLI do Azure e outras bibliotecas dependentes instalada
 
 2. Atualize o PIP. PIP é um Gestor de pacotes do Python. Abra um prompt de comando ou uma linha de comandos elevada do PowerShell e escreva o seguinte comando:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Instalar o **certifi** módulo. [Certifi](https://pypi.org/project/certifi/) um módulo e uma coleção de certificados de raiz para validar a fidedignidade de certificados SSL ao verificar a identidade dos anfitriões TLS. Abra um prompt de comando ou uma linha de comandos elevada do PowerShell e escreva o seguinte comando:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certifi
 
 1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Abra um prompt de comando ou uma linha de comandos elevada do PowerShell e escreva o seguinte comando:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -207,7 +207,7 @@ Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certifi
 
 2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
 
-    | Value | Exemplo | Descrição |
+    | Valor | Exemplo | Descrição |
     | --- | --- | --- |
     | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
     | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
@@ -277,7 +277,7 @@ Se estiver a utilizar o ASDK, terá de confiar no certificado de raiz da AC no s
 
 1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Abra um prompt de comando ou uma linha de comandos elevada do PowerShell e escreva o seguinte comando:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -327,7 +327,7 @@ Se estiver a utilizar o ASDK, terá de confiar no certificado de raiz da AC no s
 
 2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
 
-    | Value | Exemplo | Descrição |
+    | Valor | Exemplo | Descrição |
     | --- | --- | --- |
     | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
     | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
@@ -443,7 +443,7 @@ Utilize os seguintes passos para ligar ao Azure Stack:
 
 2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
 
-    | Value | Exemplo | Descrição |
+    | Valor | Exemplo | Descrição |
     | --- | --- | --- |
     | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
     | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
@@ -554,7 +554,7 @@ Utilize os seguintes passos para ligar ao Azure Stack:
 
 2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
 
-    | Value | Exemplo | Descrição |
+    | Valor | Exemplo | Descrição |
     | --- | --- | --- |
     | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
     | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |

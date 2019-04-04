@@ -2,10 +2,16 @@
 layout: HubPage
 hide_bc: true
 title: Documentação do Microsoft Azure
-description: 'Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.'
+description: Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
 ms.topic: hub-page
 featureFlags:
-  - clicktale
+- clicktale
+ms.openlocfilehash: 97fd2ffd22f4a4c883d284a2d2db060cd1c2121c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878677"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -89,7 +95,7 @@ featureFlags:
                                                 <h3>Implementar infraestrutura</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Máquinas virtuais do Linux</a></li>
-                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/">Máquinas Virtuais do Windows</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/">Máquinas virtuais do Windows</a></li>
                                                     <li><a class="barLink" href="/azure/governance/blueprints/">Azure Blueprints</a></li>
                                                 </ul>
                                             </div>
@@ -164,13 +170,13 @@ Node.js</a>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
-Go</a>
+Ir</a>
                                                     </li>
                                                 </ul></td></tr></table>
                                                <h4>Modelos de Aplicação</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Aplicações Web</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">Funções Sem Servidor</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">Funções sem Servidor</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Contentores</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Microsserviços com o Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microsserviços com o Service Fabric</a></li>
@@ -188,19 +194,19 @@ Go</a>
                                                 <h3>Gerir dados e IA</h3>
                                                 <h4>Bases de Dados Relacionais</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">Base de dados SQL como serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">Base de dados SQL enquanto serviço</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server numa VM do Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse como um serviço</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">Base de dados PostgreSQL como serviço</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">Base de dados MySQL como serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse enquanto serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">Base de dados PostgreSQL enquanto serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">Base de dados MySQL enquanto serviço</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">BD do Cosmos para o Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>Armazenamento</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/storage/">Armazenamento de Blobs</a></li>
+                                                    <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
                                                 <h4>IA e Serviços Cognitivos</h4>
                                                 <ul class="noBullet">
@@ -294,12 +300,12 @@ Azure DevOps Projects </a>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
-Fazer visita guiada pelos serviços e funcionalidades do Azure </a>
+Apresentação dos serviços e funcionalidades do Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
-Fundamentos da informática na cloud </a>
+Princípios da computação na cloud </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">
@@ -1617,6 +1623,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <a href="/azure/sentinel/">
                                                 <img src="media/index/sentinel.png" alt="" />
                                                 <p>Azure Sentinel</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>Centro de Segurança do Azure para IoT</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4843,6 +4855,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Centro de Segurança do Azure para IoT</h3>
+                                                    <p>Saiba como unificar a gestão de segurança e ativar a proteção avançada contra ameaças na sua solução de IoT</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5583,7 +5614,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#media">Suporte de dados</a>
+                        <a href="#media">Meios de comunicação social</a>
                         <ul id="media" class="cardsA">
                             <li>
                                 <a href="/azure/media-services/">
@@ -5843,7 +5874,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">Clouds Nacionais</a>
+                        <a href="#other">Clouds nacionais</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -5910,7 +5941,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                 <a href="#sdkstools">SDKs/Ferramentas</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">tudo</a>
+                        <a href="#sdkstools-all">all</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -6154,7 +6185,7 @@ CLI do Azure </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Armazenamento</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">BD do Cosmos</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6177,13 +6208,13 @@ Docker </h3>
                                                     <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Transferir para Visual Studio</a>
+                                                    <a href="https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017">Transferir para o Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Transferir para Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Transferir para o Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download para DevOps do Azure</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Transferir para o DevOps do Azure</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6227,7 +6258,7 @@ Ferramentas de Java </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Ferramentas de Python</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Ferramentas do Python</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Visual Studio</a>
@@ -6321,7 +6352,7 @@ SDK e Ferramentas do Service Fabric </h3>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Transferir Mac OS X</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Transferir CLI do Service Fabric </a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Transferir a CLI do Service Fabric </a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6349,7 +6380,7 @@ Ferramentas de SQL </h3>
                                                     <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">Ver todas as ferramentas de SQL</a>
+                                                    <a href="/sql/tools/overview-sql-tools">Ver todas as ferramentas SQL</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4dc4c9d4d936bbcf626884c5c90e16f640f268a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078181"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487775"
 ---
 # <a name="azure-stack-registration"></a>Registo do Azure Stack
 Pode registrar sua instalação do Azure Stack Development Kit (ASDK) com o Azure para transferir itens do marketplace do Azure e configurar relatórios de volta à Microsoft de dados de comércio. É necessário Registro para dar suporte a todas as funcionalidades do Azure Stack, incluindo a distribuição de mercado. Registro é necessário para que possa testar a funcionalidade importante do Azure Stack, como relatórios de utilização e distribuição de mercado. Depois de registar o Azure Stack, a utilização é comunicada ao Azure commerce. Pode vê-lo sob a subscrição utilizada para o registo. No entanto, os utilizadores ASDK para não são cobrados qualquer utilização que reportam.
@@ -32,7 +32,7 @@ Antes de utilizar estas instruções para registar o ASDK com o Azure, certifiqu
 
 Além disso, o modo de idioma do PowerShell deve ser definido como **FullLanguageMode** no computador utilizado para registar o ASDK no Azure. Para verificar se o modo de idioma atual está definido como completa, abra uma janela elevada do PowerShell e execute os seguintes comandos do PowerShell:
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -50,7 +50,7 @@ Siga estes passos para registar o ASDK com o Azure.
 
 2. Execute os seguintes comandos do PowerShell para registar a sua instalação ASDK com o Azure. Terá de iniciar sessão no seu ID de subscrição de faturação do Azure e a instalação de ASDK local. Se não tiver um ID de subscrição de faturação do Azure, ainda, pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registar o Azure Stack, incorre em sem custos na sua subscrição do Azure.<br><br>Defina um nome exclusivo para o registo ao executar o **Set-AzsRegistration** cmdlet. O **RegistrationName** parâmetro tem um valor padrão de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará.
 
-    ```PowerShell  
+    ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -89,7 +89,7 @@ Se estiver a registar Azure Stack num ambiente desligado (com nenhuma conectivid
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obter um registo de token do ambiente do Azure Stack
 No computador anfitrião ASDK, inicie o PowerShell como administrador e navegue para o **Registro** pasta na **AzureStack-Tools-mestre** diretório criado quando transferiu as ferramentas do Azure Stack. Utilize os seguintes comandos do PowerShell para importar os **RegisterWithAzure.psm1** módulo e, em seguida, utilize o **Get-AzsRegistrationToken** cmdlet para obter o token de registo:  
 
-   ```PowerShell  
+   ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
@@ -110,7 +110,7 @@ Guarde este token de registo para utilização no computador ligado à internet.
 ### <a name="connect-to-azure-and-register"></a>Ligar ao Azure e registe-se
 Na internet computador ligado, utilize os seguintes comandos do PowerShell para importar o **RegisterWithAzure.psm1** módulo e, em seguida, utilize o **Register-AzsEnvironment** cmdlet para registar com a utilização do Azure o token de registo que acabou de criar e um nome de registo único:  
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -134,7 +134,7 @@ Na internet computador ligado, utilize os seguintes comandos do PowerShell para 
 
 Em alternativa, pode utilizar o **Get-Content** cmdlet para apontar para um ficheiro que contém o token de registo:
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"

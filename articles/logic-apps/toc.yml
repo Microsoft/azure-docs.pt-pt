@@ -291,10 +291,10 @@ items:
       href: test-logic-apps-mock-data-static-results.md
   - name: Implementação
     items:
-    - name: Definir e implementar as aplicações lógicas
-      href: logic-apps-create-deploy-azure-resource-manager-templates.md
-    - name: Criar modelos de implementação - Visual Studio
+    - name: Criar modelos de aplicação lógica
       href: logic-apps-create-deploy-template.md
+    - name: Implementar modelos de aplicação lógica
+      href: logic-apps-create-deploy-azure-resource-manager-templates.md
   - name: Monitorizar
     items:
     - name: Monitorizar aplicações lógicas
@@ -381,9 +381,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: ecdde9ccf8f0558e0ed50b3bc94735def73a41af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 53c848fdd20965db63071a95c5f4f6cee4ec5c50
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887956"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894547"

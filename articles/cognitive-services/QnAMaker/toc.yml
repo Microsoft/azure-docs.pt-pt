@@ -153,6 +153,10 @@ items:
   - name: Códigos de respostas HTTP
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: Amostras
+    items:
+    - name: Bot de ajuda do Criador de FAQ
+      href: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot
   - name: SDKs
     items:
     - name: C#
@@ -193,9 +197,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogue
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: d1e2e6729539c2041604c795306f1a404c39d143
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5b3ed41dfd4ee878f948c4940bc7b642bc26cb6a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621955"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886510"

@@ -7,16 +7,28 @@ items:
       href: overview.md
     - name: Cargas de trabalho
       href: partner-workloads.md
+  - name: Conceitos
+    items:
+    - name: Computação
+      href: concepts/mainframe-compute-azure.md
+    - name: Armazenamento
+      href: concepts/mainframe-storage-azure.md
   - name: Micro Focus
     items:
     - name: Introdução
       href: microfocus/get-started.md
-    - name: Instalar o Micro Focus Enterprise Server
-      href: microfocus/set-up-micro-focus-on-azure.md
-    - name: Demonstração
+    - name: Instalar o Enterprise Server
+      href: microfocus/set-up-micro-focus-azure.md
+    - name: Executar o CICS BankDemo
       href: microfocus/demo.md
+    - name: Enterprise Server nos contentores
+      href: microfocus/run-enterprise-server-container.md
   - name: OpenFrame da TmaxSoft
-    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+    items:
+    - name: Introdução
+      href: tmaxsoft/get-started.md
+    - name: Instalar o OpenFrame
+      href: tmaxsoft/install-openframe-azure.md
   - name: IBM
     items:
     - name: Introdução
@@ -29,9 +41,15 @@ items:
       href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
     - name: Implementar o IBM DB2 pureScale
       href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
-ms.openlocfilehash: e89b8301a325ab25d78598cfd3e58e6ac74198a6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+  - name: Recursos
+    items:
+    - name: Documentação técnica
+      href: mainframe-white-papers.md
+    - name: Roteiro do Azure
+      href: https://azure.microsoft.com/updates/
+ms.openlocfilehash: c0cec35997d398045f9c34904c8ee07755724572
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342552"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895229"

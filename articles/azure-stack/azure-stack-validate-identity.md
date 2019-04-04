@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403192"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486687"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure
 
@@ -85,7 +85,7 @@ São necessários os seguintes pré-requisitos:
 
 4. Depois da ferramenta é executada, reveja o resultado. Confirme o estado está **OK** para requisitos de instalação. É apresentada uma validação com êxito semelhante à imagem seguinte:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Os exemplos seguintes fornecem orientação sobre falhas de validação comuns.
 
 ### <a name="expired-or-temporary-password"></a>Palavra-passe expirada ou temporário
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 Em alternativa, inicie sessão para o [portal do Azure](https://portal.azure.com) como o proprietário da conta e o utilizador serão forçado a alterar a palavra-passe.
 
-### <a name="unknown-user-type"></a>Tipo de utilizador desconhecido
-
-```shell
+### <a name="unknown-user-type"></a>Tipo de utilizador desconhecido 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>Conta não é um administrador
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -197,6 +197,6 @@ O Azure Stack requer que o nome de domínio é o nome de domínio primário.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-[Validar o registo do Azure](azure-stack-validate-registration.md)  
+[Validate Azure registration](azure-stack-validate-registration.md) (Validar o registo do Azure)  
 [Ver o relatório de preparação](azure-stack-validation-report.md)  
 [Considerações sobre a integração geral do Azure Stack](azure-stack-datacenter-integration.md)  

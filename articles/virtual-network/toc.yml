@@ -84,6 +84,8 @@ items:
     items:
     - name: Redes virtuais
       href: virtual-network-vnet-plan-design-arm.md
+    - name: Otimização do Desempenho do TCP/IP para as VMs do Azure
+      href: virtual-network-tcpip-performance-tuning.md
   - name: Implementação
     items:
     - name: Grupos de segurança de rede
@@ -333,7 +335,7 @@ items:
   - name: CLI do Azure
     href: /cli/azure/network
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network
+    href: /powershell/module/az.network
   - name: .NET
     href: /api/overview/azure/virtual-network
   - name: Java
@@ -366,9 +368,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: virtual-networks-faq.md
-ms.openlocfilehash: 028be4695de7d8e36bd76127523ef0f3155828ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 233a81ac0cf062475f6992f0206b609579e0fd55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998471"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849346"

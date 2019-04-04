@@ -15,6 +15,8 @@ items:
     href: quick-onboard-windows-computer.md
   - name: Computadores Linux
     href: quick-onboard-linux-computer.md
+  - name: Máquinas virtuais do Azure Stack
+    href: quick-onboard-azure-stack.md
   expanded: true
 - name: Tutoriais
   items:
@@ -193,9 +195,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Resolução de problemas
     href: security-center-troubleshooting-guide.md
-ms.openlocfilehash: b0acd0948589e4045e7c9dbd9cc423bfd0ae1e3d
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 582597639fb8681f4ac2894fb1cac7fe4ec17fcf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201182"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895144"

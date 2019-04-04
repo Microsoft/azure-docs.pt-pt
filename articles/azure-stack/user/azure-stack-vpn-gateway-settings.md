@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ac713e4abacc8cece1b14972ddf3a1f3fe2f1cdf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ff5aeddbf05011f7c7d105e6c48552bca81580c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770191"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483288"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN para o Azure Stack
 
@@ -38,7 +38,7 @@ Cada rede virtual do Azure Stack oferece suporte a um gateway de rede virtual in
 
 Quando cria um gateway de rede virtual, deve certificar-se de que o tipo de gateway está correto para a sua configuração. Requer um gateway de VPN a `-GatewayType Vpn`sinalizar; por exemplo:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn
 -VpnType RouteBased
@@ -52,9 +52,9 @@ O Azure Stack oferece o gateway de VPN SKUs mostrados na tabela seguinte.
 
 |   | Débito do gateway VPN |Gateway de VPN de túneis IPsec do máximo |
 |-------|-------|-------|
-|**SKU básico**  | 100 Mbps  | 20    |
+|**SKU básico**  | 100 Mbps  | 20    |
 |**Standard SKU**           | 100 Mbps  | 20    |
-|**SKU de elevado desempenho** | 200 Mbps    | 10    |
+|**SKU de elevado desempenho** | 200 Mbps    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>Redimensionamento de SKUs de gateway
 
@@ -72,7 +72,7 @@ Se utilizar o portal do Azure Stack para criar um gateway de rede virtual do Res
 
 O exemplo de PowerShell seguinte especifica os **- GatewaySku** como `VpnGw1`:
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1
 -GatewayType Vpn -VpnType RouteBased
@@ -86,7 +86,7 @@ No modelo de implementação do Resource Manager, cada configuração exige um t
 
    No exemplo de PowerShell seguinte, é criada uma ligação de S2S que requer que o tipo de ligação IPsec:
 
-   ```PowerShell
+   ```powershell
    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
    -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
    -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -110,7 +110,7 @@ Ao criar o gateway de rede virtual para uma configuração de gateway VPN, tem d
 
 O exemplo de PowerShell seguinte especifica os **- VpnType** como **RouteBased**. Quando cria um gateway, deve certificar-se de que o **- VpnType** está correto para a sua configuração.
 
-```PowerShell
+```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 -Location 'West US' -IpConfigurations $gwipconfig
 -GatewayType Vpn -VpnType RouteBased
@@ -127,7 +127,7 @@ A tabela seguinte lista os requisitos para gateways de VPN.
 | **Número máximo de ligações S2S**  | Não suportado | 20 | 20| 10|
 |**Suporte de encaminhamento ativo (BGP)** | Não suportado | Não suportado | Suportadas | Suportadas |
 
-### <a name="gateway-subnet"></a>Sub-rede do gateway
+### <a name="gateway-subnet"></a>Sub-rede de gateway
 
 Antes de criar um gateway de VPN, tem de criar uma sub-rede de gateway. A sub-rede do gateway tem os endereços IP que utilizam os serviços e VMs de gateway de rede virtual. Ao criar o gateway de rede virtual, VMs de gateway são implementadas na sub-rede de gateway e configuradas com as definições do gateway VPN necessárias. Não implementa qualquer outra coisa (por exemplo, VMs adicionais) para a sub-rede do gateway.
 
@@ -140,7 +140,7 @@ Além disso, certifique-se de que a sub-rede de gateway tem endereços IP sufici
 
 O exemplo de PowerShell do Resource Manager seguinte mostra uma sub-rede de gateway com o nome **GatewaySubnet**. Pode ver que a notação CIDR Especifica/27, que permite endereços IP suficientes na maioria das configurações que existem atualmente.
 
-```PowerShell
+```powershell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -155,7 +155,7 @@ Dê um nome, o endereço IP público do dispositivo VPN, ao gateway de rede loca
 
 O seguinte exemplo do PowerShell cria um novo gateway de rede local:
 
-```PowerShell
+```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
@@ -170,7 +170,7 @@ Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispo
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parâmetros de IKE Fase 1 (Modo Principal)
 
-| Propriedade              | Value|
+| Propriedade              | Valor|
 |-|-|
 | Versão do IKE           | IKEv2 |
 |Grupo Diffie-Hellman   | Grupo 2 (1024 bits) |
@@ -180,7 +180,7 @@ Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispo
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parâmetros de IKE Fase 2 (Modo Rápido)
 
-| Propriedade| Value|
+| Propriedade| Valor|
 |-|-|
 |Versão do IKE |IKEv2 |
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|

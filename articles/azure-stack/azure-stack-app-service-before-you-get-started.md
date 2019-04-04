@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb2c01052b8dc5fe346196a64e3fcbf7d1b69c2b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088439"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485755"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
@@ -61,7 +61,7 @@ Executar o *Get-AzureStackRootCert.ps1* script a partir da pasta onde extraiu os
 
 Ao executar o seguinte comando do PowerShell, terá de fornecer o ponto final com privilégios e as credenciais para o AzureStack\CloudAdmin.
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -353,7 +353,7 @@ Siga estes passos.
 13. Selecione **definições**.
 14. Selecione **permissões obrigatórias** > **conceder permissões** > **Sim**.
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -389,7 +389,7 @@ Siga estes passos.
 5. Na **credencial** janela, introduza a sua conta de administrador do AD FS na cloud e a palavra-passe. Selecione **OK**.
 6. Forneça o caminho do ficheiro de certificado e a palavra-passe de certificado para o [certificado criado anteriormente](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). O certificado que criou para este passo por predefinição é **sso.appservice.local.azurestack.external.pfx**.
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763457"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497862"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plano, oferta, quota e descrição geral da subscrição
 
@@ -47,11 +47,14 @@ Depois de criar a oferta, podem subscrever os seus utilizadores para aceder a se
 
 ## <a name="plans"></a>Planos
 
-Planos consistem em agrupamentos de um ou mais serviços. Como um operador do Azure Stack, [criar planos de](azure-stack-create-plan.md) para oferecer aos seus utilizadores. Por sua vez, os seus utilizadores subscrevem suas ofertas para utilizar os planos e serviços incluídos. Durante a criação de planos, certifique-se definir suas quotas, definir os planos de bases e considere incluir planos de suplementos opcionais.
+Os planos consistem em agrupamentos de um ou mais serviços. Como um operador do Azure Stack, [criar planos de](azure-stack-create-plan.md) para oferecer aos seus utilizadores. Por sua vez, os seus utilizadores subscrevem as suas ofertas para utilizar os planos e os serviços incluídos. Durante a criação de planos, certifique-se definir suas quotas, definir os planos de bases e considere incluir planos de suplementos opcionais.
 
 ### <a name="quotas"></a>Quotas
 
 Para ajudar a gerir a sua capacidade de nuvem, pode usar pré-configurados *quotas*, ou criar uma quota de novo para cada serviço num plano. Quotas definem os limites de recursos superior que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco máquinas virtuais (VMs).
+
+> [!IMPORTANT]
+> Pode demorar até duas horas para novas quotas para estar disponível no portal de utilizador ou antes de uma quota alterada é imposta.
 
 É possível configurar quotas por região. Por exemplo, um plano que fornece serviços de computação para a região A poderia ter uma quota de duas VMs.
 

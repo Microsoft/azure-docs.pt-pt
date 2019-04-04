@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349710"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497182"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um usuário criar até cinco VMs. Cada recurso pode ter seus próprios tipos de quotas.
+[Quotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma subscrição de utilizador pode aprovisionar ou consumir. Por exemplo, uma quota pode permitir que um utilizador crie até cinco VMs. Cada recurso pode ter os seus próprios tipos de quotas.
+
+> [!IMPORTANT]
+> Pode demorar até duas horas para novas quotas para estar disponível no portal de utilizador ou antes de uma quota alterada é imposta.
 
 ## <a name="compute-quota-types"></a>Tipos de quota de computação
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349710"
 | Capacidade máxima (em GB) de um disco gerido premium | 2048 | A capacidade máxima do premium geridos os discos que podem ser criados nesta localização. |
 
 > [!NOTE]  
-> Máximo de capacidade do disco não gerido (blobs de páginas) é separada da quota de disco gerido, deve ser definida na Quota de armazenamento.
+> A capacidade máxima do disco não gerido (blobs de páginas) está separada da quota de disco gerido. Pode definir este valor **quotas de armazenamento**.
 
-## <a name="storage-quota-types"></a>Tipos de quota de armazenamento 
+## <a name="storage-quota-types"></a>Tipos de quota de armazenamento
 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
@@ -51,15 +54,15 @@ ms.locfileid: "58349710"
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que uma subscrição pode criar nesta localização. |
 
 > [!NOTE]  
-> Pode demorar até duas horas antes de uma quota de armazenamento é imposta. Máximo de capacidade de disco gerido está separada de quota de armazenamento total, deve ser definida da Quota de computação.
+> A capacidade máxima de discos geridos está separada da quota de armazenamento total. Pode definir este valor **quotas de computação**.
 
 ## <a name="network-quota-types"></a>Tipos de quota de rede
 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| IPs públicos máximo |50 |O número máximo de IPs públicos que uma subscrição pode criar nesta localização. |
+| IPs públicos máximo |50 |O número máximo de endereços IP públicos que uma subscrição pode criar nesta localização. |
 | Redes virtuais máximos |50 |O número máximo de redes virtuais que uma subscrição pode criar nesta localização. |
-| Gateways de rede virtual máximo |1 |O número máximo de gateways de rede virtual (Gateways de VPN) que uma subscrição pode criar nesta localização. |
+| Gateways de rede virtual máximo |1 |O número máximo de gateways de rede virtual (gateways de VPN) que uma subscrição pode criar nesta localização. |
 | Ligações de rede máxima |2 |O número máximo de ligações de rede (ponto a ponto ou site a site) que uma subscrição pode criar em todos os gateways de rede virtual nesta localização. |
 | Balanceadores de carga máxima |50 |O número máximo de balanceadores de carga que uma subscrição pode criar nesta localização. |
 | NICs máximos |100 |O número máximo de interfaces de rede que uma subscrição pode criar nesta localização. |

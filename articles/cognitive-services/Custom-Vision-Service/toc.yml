@@ -57,8 +57,6 @@ items:
     href: custom-vision-onnx-windows-ml.md
   - name: Executar o modelo TensorFlow em Python
     href: export-model-python.md
-  - name: Criar um modelo com a API REST
-    href: rest-api-tutorial.md
   - name: Exportar ou eliminar dados da conta
     href: ./export-delete-data.md
   - name: Mover o seu projeto de Versão de Avaliação Limitada para o Azure
@@ -99,9 +97,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Notas de Versão
     href: release-notes.md
-ms.openlocfilehash: 5d4b5657077b92f444482aca371db0aed4ba7a75
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472792"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893556"

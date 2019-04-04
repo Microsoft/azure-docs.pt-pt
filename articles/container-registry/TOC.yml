@@ -7,13 +7,15 @@ items:
     href: container-registry-intro.md
 - name: Inícios rápidos
   items:
-  - name: Container Registry - CLI
+  - name: Criar um registo de contentor - CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Container Registry - Portal
+  - name: Criar um registo de contentor - Portal
     href: container-registry-get-started-portal.md
-  - name: Container Registry - PowerShell
+  - name: Criar um registo de contentor - PowerShell
     href: container-registry-get-started-powershell.md
-  - name: Eventos com o Event Grid - CLI
+  - name: Criar e executar imagem - CLI
+    href: container-registry-quickstart-task-cli.md
+  - name: Enviar eventos para o Event Grid - CLI
     href: container-registry-event-grid-quickstart.md
   expanded: true
 - name: Tutoriais
@@ -89,10 +91,8 @@ items:
     items:
     - name: Tarefas ACR
       href: container-registry-tasks-overview.md
-    - name: Tarefas de vários passos (pré-visualização)
+    - name: Tarefas com vários passos
       href: container-registry-tasks-multi-step.md
-    - name: Referência de tarefa de vários passos (pré-visualização)
-      href: container-registry-tasks-reference-yaml.md
   - name: Registos e outros serviços do Azure
     items:
     - name: Azure Container Instances
@@ -119,6 +119,8 @@ items:
     href: /javascript/api/overview/azure/container-registry
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: Tarefas ACR em YAML
+    href: container-registry-tasks-reference-yaml.md
   - name: Esquema de webhook
     href: container-registry-webhook-reference.md
   - name: Esquema do Event Grid
@@ -140,9 +142,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 3b5c8cc63db967fd582d15765f2fd1ca1c7bbb3e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 987b70f527afe9b9d09eeef70c7fa706c3e58932
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847673"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917877"
