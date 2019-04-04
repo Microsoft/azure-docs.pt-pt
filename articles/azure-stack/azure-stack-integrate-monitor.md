@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258739"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904003"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com o Azure Stack
 
@@ -81,13 +81,13 @@ Configure o ficheiro de plug-in "Azurestack_plugin.py" com os seguintes parâmet
 
 | Parâmetro | Descrição | Exemplo |
 |---------|---------|---------|
-| *arm_endpoint* | Ponto final do Gestor de recursos (administrador) do Azure |https:\//adminmanagement.local.azurestack.external |
-| *api_endpoint* | Ponto final do Gestor de recursos (administrador) do Azure  | https:\//adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Ponto final do Gestor de recursos (administrador) do Azure | https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Ponto final do Gestor de recursos (administrador) do Azure  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | ID de subscrição de administrador | Obter através do portal de administrador ou o PowerShell |
 | *User_name* | O nome de utilizador do operador subscrição | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Palavra-passe de subscrição de operador | mypassword |
 | *Client_id* | Cliente | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *region* |  Nome da região do Azure Stack | local |
+| *Região* |  Nome da região do Azure Stack | local |
 |  |  |
 
 * O GUID do PowerShell que é fornecida é universal. Pode usá-lo para cada implementação.
@@ -96,35 +96,36 @@ Configure o ficheiro de plug-in "Azurestack_plugin.py" com os seguintes parâmet
 
 Se não estiver a utilizar o Operations Manager, Nagios ou uma solução baseada em Nagios, pode utilizar o PowerShell para ativar uma vasta gama de soluções para integrar com o Azure Stack de monitorização.
 
-1. Para utilizar o PowerShell, certifique-se de que tenha [PowerShell instalado e configurado](azure-stack-powershell-configure-quickstart.md) para um ambiente de operador do Azure Stack. Instalar o PowerShell num computador local que pode alcançar o ponto de final do Gestor de recursos (administrador) (https:\//adminmanagement. [ Região]. [External_FQDN]).
+1. Para utilizar o PowerShell, certifique-se de que tenha [PowerShell instalado e configurado](azure-stack-powershell-configure-quickstart.md) para um ambiente de operador do Azure Stack. Instalar o PowerShell num computador local que pode alcançar o ponto de final do Gestor de recursos (administrador) (https://adminmanagement. [ Região]. [External_FQDN]).
 
 2. Execute os seguintes comandos para estabelecer ligação ao ambiente do Azure Stack como um operador do Azure Stack:
 
-   ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
+   ```powershell
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Utilizar comandos, como os exemplos seguintes para trabalhar com alertas:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## <a name="learn-more"></a>Saiba mais

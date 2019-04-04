@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 1b3538755233e59fb474be810e63907dfc4b8f5c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811562"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891055"
 ---
 **Back-end do .NET (c#)**:
   
@@ -81,7 +81,7 @@ ms.locfileid: "42811562"
     // When adding record, send a push notification via APNS
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK, 
-        // see http://aka.ms/nodejshubs
+        // see https://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
 
         // Create a payload that contains the new item Text.

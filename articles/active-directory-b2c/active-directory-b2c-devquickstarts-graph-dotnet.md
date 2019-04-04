@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075906"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895059"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Utilizar a Graph API do Azure AD
 
 >[!NOTE]
-> Tem de utilizar o [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) para gerir utilizadores num diretório do Azure AD B2C. Isto é diferente do Microsoft Graph API. Sabia mais [aqui](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
+> Tem de utilizar o [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) para gerir utilizadores num diretório do Azure AD B2C. Isto é diferente do Microsoft Graph API. Sabia mais [aqui](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
 Inquilinos do Azure Active Directory (Azure AD) B2C tendem a ser muito grandes. Isso significa que muitas tarefas de gestão comuns do inquilino precisam ser executadas por meio de programação. Um principal exemplo é a gestão de utilizadores. Poderá ter de migrar um arquivo de utilizador existente a um inquilino do B2C. Pode querer alojar o registo de utilizador na sua própria página e criar contas de utilizador no seu diretório do Azure AD B2C em segundo plano. Esses tipos de tarefas exigem a capacidade de criar, ler, atualizar e eliminar contas de utilizador. Pode realizar estas tarefas, utilizando o Azure AD Graph API.
 
@@ -239,7 +239,7 @@ Content-Length: 338
 }
 ```
 
-A maioria dessas propriedades neste pedido é necessários para criar utilizadores de consumidor. Para obter mais informações, clique em [aqui](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Tenha em atenção que o `//` comentários foram incluídos para fins de ilustração. Não incluí-los numa solicitação real.
+A maioria dessas propriedades neste pedido é necessários para criar utilizadores de consumidor. Para obter mais informações, clique em [aqui](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser). Tenha em atenção que o `//` comentários foram incluídos para fins de ilustração. Não incluí-los numa solicitação real.
 
 Para ver o pedido, execute um dos seguintes comandos:
 
@@ -248,7 +248,7 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-O `Create-User` comando recebe um ficheiro. JSON como um parâmetro de entrada. Contém uma representação JSON de um objeto de usuário. Existem dois ficheiros. JSON de exemplo no código de exemplo: `usertemplate-email.json` e `usertemplate-username.json`. É possível modificar esses arquivos para se adequar às suas necessidades. Além dos campos necessários acima, estão incluídos vários campos opcionais que pode utilizar estes ficheiros. Podem encontrar detalhes sobre os campos opcionais na [referência de entidade do Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity).
+O `Create-User` comando recebe um ficheiro. JSON como um parâmetro de entrada. Contém uma representação JSON de um objeto de usuário. Existem dois ficheiros. JSON de exemplo no código de exemplo: `usertemplate-email.json` e `usertemplate-username.json`. É possível modificar esses arquivos para se adequar às suas necessidades. Além dos campos necessários acima, estão incluídos vários campos opcionais que pode utilizar estes ficheiros. Podem encontrar detalhes sobre os campos opcionais na [referência de entidade do Azure AD Graph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity).
 
 Pode ver como o pedido POST é construído em `B2CGraphClient.SendGraphPostRequest(...)`.
 
@@ -257,7 +257,7 @@ Pode ver como o pedido POST é construído em `B2CGraphClient.SendGraphPostReque
 * Ele inclui o objeto de utilizador JSON no corpo do pedido.
 
 > [!NOTE]
-> Se as contas que pretende migrar a partir de um arquivo de utilizador existente tem menos fortes de palavra-passe que o [força da senha forte imposta pelo Azure AD B2C](https://msdn.microsoft.com/library/azure/jj943764.aspx), pode desativar o requisito de palavra-passe segura utilizando o `DisableStrongPassword` valor no `passwordPolicies` propriedade. Por exemplo, pode modificar o pedido de utilizador de criar fornecido acima da seguinte forma: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
+> Se as contas que pretende migrar a partir de um arquivo de utilizador existente tem menos fortes de palavra-passe que o [força da senha forte imposta pelo Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), pode desativar o requisito de palavra-passe segura utilizando o `DisableStrongPassword` valor no `passwordPolicies` propriedade. Por exemplo, pode modificar o pedido de utilizador de criar fornecido acima da seguinte forma: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 > 
 > 
 
@@ -317,7 +317,7 @@ B2C Delete-User <object-id-of-user>
 
 Inspecione o `B2CGraphClient.SendGraphDeleteRequest(...)` método para obter detalhes sobre como enviar este pedido.
 
-Pode realizar muitas outras ações com o Azure AD Graph API para além da gestão de utilizadores. O [referência da API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) fornece detalhes sobre cada ação, juntamente com pedidos de exemplo.
+Pode realizar muitas outras ações com o Azure AD Graph API para além da gestão de utilizadores. O [referência da API do Azure AD Graph](/previous-versions/azure/ad/graph/api/api-catalog) fornece detalhes sobre cada ação, juntamente com pedidos de exemplo.
 
 ## <a name="use-custom-attributes"></a>Utilizar atributos personalizados
 A maioria dos aplicativos de consumidor tem de armazenar algum tipo de informações de perfil do usuário personalizada. Uma forma que pode fazer isso é definir um atributo personalizado no seu inquilino do B2C. Em seguida, pode tratar esse atributo da mesma forma que tratar qualquer outra propriedade num objeto de utilizador. Pode atualizar o atributo, elimine o atributo, consultar o atributo, envie o atributo como uma afirmação no início de sessão de tokens e muito mais.

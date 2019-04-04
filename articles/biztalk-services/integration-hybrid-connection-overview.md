@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 347ea75673336574f7517f2f7d0c802b0ed16560
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765548"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918302"
 ---
 # <a name="hybrid-connections-overview"></a>Descrição geral das Ligações Híbridas
 
@@ -91,12 +91,12 @@ As seguintes portas TCP são utilizadas pelas Ligações Híbridas:
 | 80, 443 |Estas portas são utilizadas para alguns pedidos de dados ao Azure. Mais ainda, se as portas 9352 e 5671 não estiverem utilizáveis, *significa* que as portas 80 e 443 serão as portas de contingência utilizadas para a transmissão de dados e o canal de controlo.<br/><br/>Permita ligações de saída para estas portas. <br/><br/>**Nota** Não recomendamos a sua utilização como portas de contingência em vez das outras portas TCP. O HTTP/WebSocket é utilizado como protocolo em vez do TCP nativo dos canais de dados. Pode resultar num desempenho inferior. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Criar e Gerir Ligações Híbridas](integration-hybrid-connection-create-manage.md)
+[Criar e gerir Ligações Híbridas](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Consultar Também
-[API REST para Gerir os BizTalk Services no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)  
-[Criar um Serviço BizTalk](biztalk-provision-services.md)  
+[API REST para gerir os BizTalk Services no Microsoft Azure](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[Serviços BizTalk: Plano de Edições](biztalk-editions-feature-chart.md)  
+[Criar um BizTalk Service](biztalk-provision-services.md)  
 [Serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812383"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918676"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Descrição geral de certificados para serviços Cloud do Azure
 Os certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma visão geral de ambos os tipos de certificado, como ao [criar](#create) e implementá-las para o Azure.
@@ -69,7 +69,7 @@ Pode utilizar qualquer ferramenta disponível para criar um certificado autoassi
 Existem duas formas fáceis de criar um certificado no Windows, com o `makecert.exe` utilitário ou IIS.
 
 ### <a name="makecertexe"></a>Makecert.exe
-Esse utilitário foi preterido e já não está documentado aqui. Para obter mais informações, consulte [este artigo MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
+Esse utilitário foi preterido e já não está documentado aqui. Para obter mais informações, consulte [este artigo MSDN](/windows/desktop/SecCrypto/makecert).
 
 ### <a name="powershell"></a>PowerShell
 ```powershell

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446329"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915692"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planeamento da capacidade de computação do Azure Stack
 O [tamanhos VM suportados no Azure Stack](./user/azure-stack-vm-sizes.md) são um subconjunto desses suportado no Azure. Azure impõe limites de recursos ao longo de muitos vetores para evitar o consumo excessivo de recursos (servidor local e o nível de serviço). Sem gerar alguns limites no consumo de inquilino, as experiências de inquilino irão afetado quando outros inquilinos overconsume recursos. Para funcionamento em rede de saída da VM, existem limites de largura de banda no local no Azure Stack que correspondem a limitações do Azure. Para recursos de armazenamento, limites de IOPs de armazenamento foram implementados no Azure Stack para evitar básico consumo excessivo de recursos por inquilinos para acesso de armazenamento.  
@@ -45,7 +45,7 @@ O cálculo seguinte resulta na memória total e disponível que pode ser utiliza
 
   Memória disponível para colocação de VM = memória de memória Total do servidor – reserva da resiliência – utilizada ao executar VMs - sobrecarga de infraestrutura do Azure Stack <sup>1</sup>
 
-  Reserva de resiliência = H + R * (n-1) + V * (N-2)
+  Reserva de resiliência = H + R * ((N-1) * H) + V * (N-2)
 
 > Em que:
 > - H = tamanho da memória de servidor único
@@ -53,7 +53,7 @@ O cálculo seguinte resulta na memória total e disponível que pode ser utiliza
 > - R = a reserva do sistema operativo para a sobrecarga de SO<sup>2</sup>
 > - V = maior VM in a unidade de escala
 
-  <sup>1</sup> infraestrutura do azure Stack sobrecarga = 208 GB
+  <sup>1</sup> infraestrutura do azure Stack sobrecarga = 230 GB
 
   <sup>2</sup> a reserva do sistema operativo para sobrecarga = 15% de memória do nó. O valor de reserva do sistema operativo é uma estimativa e varia com base na capacidade de memória física do servidor e a sobrecarga de sistema de operativo geral.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996784"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895018"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -35,7 +35,7 @@ Irá aprender:
 * Como ver os registos do servidor web, incluindo mensagens de erro detalhadas e de pedidos falhados.
 * Como enviar registos de diagnóstico ao armazenamento do Azure da conta e visualizá-los lá.
 
-Se tiver o Visual Studio Ultimate, também pode usar [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) para depuração. IntelliTrace não é abrangido neste tutorial.
+Se tiver o Visual Studio Ultimate, também pode usar [IntelliTrace](/visualstudio/debugger/intellitrace) para depuração. IntelliTrace não é abrangido neste tutorial.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial funciona com o ambiente de desenvolvimento, o projeto web e a aplicação de serviço de aplicações que configurou no [criar uma aplicação ASP.NET no App Service do Azure](app-service-web-get-started-dotnet-framework.md). Para as secções de WebJobs, terá da aplicação que criar no [começar com o SDK de WebJobs do Azure][GetStartedWJ].
@@ -252,14 +252,14 @@ Se a função [escreveu logs](https://github.com/Azure/azure-webjobs-sdk/wiki), 
 ```
 * Se achar que o depurador não avance para o código que deseja depurar, poderá ter de alterar a definição de Just My Code.  Para obter mais informações, consulte [Especifique se pretende depurar o código de utilizador apenas usando o Just My Code no Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Um temporizador é iniciada no servidor quando ativar a funcionalidade de depuração remota e, após 48 horas a funcionalidade é desativada automaticamente. Este limite de 48 horas é feito por razões de segurança e desempenho. Pode facilmente voltar a ativá a funcionalidade de quantas vezes desejar. É recomendável deixá-lo desativada quando não estiver depurando ativamente.
-* Pode anexar manualmente o depurador a qualquer processo, não apenas o processo de aplicação (w3wp.exe). Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Pode anexar manualmente o depurador a qualquer processo, não apenas o processo de aplicação (w3wp.exe). Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
 ## <a name="logsoverview"></a>Descrição geral de registos de diagnóstico
 Um aplicativo ASP.NET que é executado num aplicativo de serviço de aplicações, pode criar os seguintes tipos de registos:
 
 * **Registos de rastreio de aplicação**<br/>
-  O aplicativo cria estes registos ao chamar métodos para o [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) classe.
-* **Registos do servidor Web**<br/>
+  O aplicativo cria estes registos ao chamar métodos para o [Trace](/dotnet/api/system.diagnostics.trace) classe.
+* **Registos de servidores Web**<br/>
   O servidor web cria uma entrada de registo para cada solicitação HTTP para a aplicação.
 * **Registos de mensagem de erro detalhadas**<br/>
   O servidor web cria uma página HTML com algumas informações adicionais para pedidos HTTP falhados (pedidos que resultam num código de estado 400 ou superior).
@@ -633,7 +633,7 @@ Para obter ajuda com uma pergunta específica de resolução de problemas, inici
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depuração no Visual Studio
-Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) e [dicas de depuração com o Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](/visualstudio/debugger/debugging-in-visual-studio) e [dicas de depuração com o Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Depuração no Azure remota
 Para obter mais informações sobre depuração remota para aplicações de serviço de aplicações e WebJobs, consulte os seguintes recursos:
@@ -650,14 +650,14 @@ Não há nenhum introduções completas e atualizadas para rastreamento do ASP.N
 
 * [Monitorização e telemetria (criação de aplicações na Cloud reais com o Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   Capítulo do livro eletrônico com recomendações para rastreamento em aplicações na cloud do Azure.
-* [Rastreamento do ASP.NET](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [Rastreamento do ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
   Velha, mas ainda um bom recurso para uma introdução básica para o assunto.
-* [Ouvintes de rastreamento](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  Informações sobre ouvintes de rastreamento, mas não mencionar a [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Passo a passo: Integração de rastreamento do ASP.NET com o rastreamento de System. Diagnostics](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Ouvintes de rastreamento](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
+  Informações sobre ouvintes de rastreamento, mas não mencionar a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
+* [Descrição Passo a Passo: Integração de rastreamento do ASP.NET com o rastreamento de System. Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Este artigo também é antigo, mas inclui algumas informações adicionais que não abrange o artigo introdutório.
 * [Rastreio em modos de exibição do ASP.NET MVC Razor](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Além de rastreamento em modos de exibição do Razor, a mensagem também explica como criar um filtro de erro para iniciar a sessão de todas as exceções sem tratamento num aplicativo MVC. Para obter informações sobre como registrar exceções, tudo sem tratamento num aplicativo Web Forms, consulte o exemplo de global. asax na [um exemplo completo para manipuladores de erro](https://msdn.microsoft.com/library/bb397417.aspx) no MSDN. No MVC ou Web Forms, se quiser registrar determinadas exceções, mas permitir que a estrutura padrão manipulação vigor para os mesmos, pode ser capturado e gerar novamente como no exemplo seguinte:
+  Além de rastreamento em modos de exibição do Razor, a mensagem também explica como criar um filtro de erro para iniciar a sessão de todas as exceções sem tratamento num aplicativo MVC. Para obter informações sobre como registrar exceções, tudo sem tratamento num aplicativo Web Forms, consulte o exemplo de global. asax na [um exemplo completo para manipuladores de erro](/previous-versions/bb397417(v=vs.140)) no MSDN. No MVC ou Web Forms, se quiser registrar determinadas exceções, mas permitir que a estrutura padrão manipulação vigor para os mesmos, pode ser capturado e gerar novamente como no exemplo seguinte:
 
 ``` c#
 try

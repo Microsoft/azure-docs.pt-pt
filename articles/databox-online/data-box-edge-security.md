@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403396"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891808"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Segurança de borda de caixa de dados e proteção de dados
 
@@ -35,6 +35,7 @@ O serviço de Gateway de caixa de Edge/dados de caixa de dados é um serviço de
 
 - Acesso ao serviço de Gateway de caixa de Edge/dados de caixa de dados requer a sua organização tenha um Enterprise Agreement (EA) ou uma subscrição do fornecedor de soluções Cloud (CSP). Para obter mais informações, aceda a [Inscreva-se uma subscrição do Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Uma vez que o serviço de gestão está alojado no Azure, é protegida pelos recursos de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+- Para operações de gestão do SDK, chave de encriptação está disponível para a extremidade da caixa de dados / recurso de Gateway de caixa de dados sob **propriedades do dispositivo**. Pode ver a chave de encriptação apenas se tiver permissões para a Graph API do recurso.
 
 ## <a name="data-box-edge-device-protection"></a>Proteção de dispositivos do Edge de caixa de dados
 
@@ -44,7 +45,8 @@ O dispositivo de limite de caixa de dados é um dispositivo no local que ajuda a
 - É protegida sempre por uma palavra-passe do dispositivo.
 - É um dispositivo bloqueado. O dispositivo BMC e BIOS estiver protegido por palavra-passe com acesso de usuário limitado para o BIOS.
 - Tem o arranque seguro ativado.
-- Executa o Windows Defender o Device Guard. O Device Guard permite que execute apenas aplicações fidedignas que define nas suas políticas de integridade de código. 
+- Executa o Windows Defender o Device Guard. O Device Guard permite que execute apenas aplicações fidedignas que define nas suas políticas de integridade de código.
+- Tem uma chave dentro a capa de front-que pode ser utilizada para bloquear o dispositivo. Nós recomendamos que depois de configurar o dispositivo, abra a capa. Localize a chave e, em seguida, bloquear a capa para impedir que qualquer acesso não autorizado para os discos de dados localizados no início do dispositivo.
 
 ### <a name="protect-the-device-via-activation-key"></a>Proteger o dispositivo através de chave de ativação
 

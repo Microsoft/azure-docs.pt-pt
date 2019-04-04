@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187101"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892811"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Serviços de domínio do Azure Active Directory (AD) para fornecedores de soluções de Cloud do Azure (CSP)
 Este artigo explica como pode utilizar o Azure AD Domain Services numa subscrição Azure CSP.
@@ -41,7 +41,7 @@ Para obter mais informações, consulte o [descrição geral do Azure CSP](https
 ## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Vantagens da utilização do Azure AD Domain Services numa subscrição Azure CSP
 O Azure AD Domain Services fornece serviços compatíveis do Windows Server AD no Azure, como o LDAP, autenticação de Kerberos/NTLM, associação a um domínio, política de grupo e DNS. Ao longo de décadas, muitos aplicativos criados para trabalhar no AD usando esses recursos. Muitos fornecedores de software independentes (ISVs) tem criar e implementar aplicações no local dos clientes. Esses aplicativos são oneroso para suportar uma vez que o que muitas vezes requer acesso aos diferentes ambientes em que esses aplicativos são implantados. Com subscrições do Azure CSP, tem uma alternativa mais simples com o dimensionamento e flexibilidade do Azure.
 
-O Azure AD Domain Services agora suporta subscrições do Azure CSP. Agora pode implementar a sua aplicação numa subscrição Azure CSP associada ao diretório do Azure AD do seu cliente. Como resultado, os seus funcionários (equipe de suporte) podem gerenciar, administrar e as máquinas virtuais em que a aplicação é implementada utilizando as credenciais empresariais da sua organização do serviço. Além disso, pode aprovisionar um domínio gerido do Azure AD Domain Services para o diretório do seu cliente do Azure AD. A aplicação está ligada ao domínio gerido do seu cliente. Que se baseiam em Kerberos/NTLM, LDAP, por conseguinte, os recursos na sua aplicação ou o [API System. DirectoryServices](https://msdn.microsoft.com/library/system.directoryservices) funcionam de forma totalmente integrada no diretório do seu cliente. O cliente final muito beneficiado consumir seu aplicativo como um serviço, sem a necessidade de se preocupar em manter a infraestrutura da que aplicação é implementada no.
+O Azure AD Domain Services agora suporta subscrições do Azure CSP. Agora pode implementar a sua aplicação numa subscrição Azure CSP associada ao diretório do Azure AD do seu cliente. Como resultado, os seus funcionários (equipe de suporte) podem gerenciar, administrar e as máquinas virtuais em que a aplicação é implementada utilizando as credenciais empresariais da sua organização do serviço. Além disso, pode aprovisionar um domínio gerido do Azure AD Domain Services para o diretório do seu cliente do Azure AD. A aplicação está ligada ao domínio gerido do seu cliente. Que se baseiam em Kerberos/NTLM, LDAP, por conseguinte, os recursos na sua aplicação ou o [API System. DirectoryServices](/dotnet/api/system.directoryservices) funcionam de forma totalmente integrada no diretório do seu cliente. O cliente final muito beneficiado consumir seu aplicativo como um serviço, sem a necessidade de se preocupar em manter a infraestrutura da que aplicação é implementada no.
 
 Todos de faturação pelos recursos do Azure consumidos em que a subscrição, incluindo o Azure AD Domain Services, é cobrada é com. Mantém o controlo total sobre a relação com o cliente quando se trata de vendas, faturação, suporte técnico etc. Com a flexibilidade da plataforma Azure CSP, uma pequena equipa de suporte a agentes pode servir muitos desses clientes que têm instâncias da sua aplicação implementada.
 

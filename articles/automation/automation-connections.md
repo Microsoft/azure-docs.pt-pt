@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e00eb5756d34c7ca8cecc741b4832c583a6ed087
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e7dccc4a396d4cf8af1062057c4c3ce6efe978ed
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439022"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918030"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
 Um recurso de ligação da automatização contém as informações necessárias para ligar a uma aplicação ou serviço externo a partir de um runbook ou configuração DSC. Isto pode incluir as informações necessárias para autenticação, como um nome de utilizador e palavra-passe, além das informações de ligação, como um URL ou uma porta. O valor de uma conexão é manter todas as propriedades para ligar a uma determinada aplicação num recurso em vez de criar diversas variáveis. O utilizador pode editar os valores de uma ligação num único local, e pode passar o nome de uma ligação para um runbook ou configuração DSC num único parâmetro. As propriedades de uma ligação podem ser acedidas no runbook ou configuração DSC com o **Get-AutomationConnection** atividade. 
 
-Quando cria uma ligação, tem de especificar um *tipo de ligação*. O tipo de ligação é um modelo que define um conjunto de propriedades. A ligação define valores para cada propriedade definida no seu tipo de ligação. Tipos de ligação são adicionados ao automatização do Azure em módulos de integração ou criados com o [do Azure da API de automação](https://msdn.microsoft.com/library/azure/mt163818.aspx) se o módulo de integração inclui um tipo de ligação e é importado para sua conta de automatização. Caso contrário, terá de criar um ficheiro de metadados para especificar um tipo de ligação de automatização.  Para obter mais informações sobre isso, consulte [módulos de integração](automation-integration-modules.md).  
+Quando cria uma ligação, tem de especificar um *tipo de ligação*. O tipo de ligação é um modelo que define um conjunto de propriedades. A ligação define valores para cada propriedade definida no seu tipo de ligação. Tipos de ligação são adicionados ao automatização do Azure em módulos de integração ou criados com o [do Azure da API de automação](/previous-versions/azure/reference/mt163818(v=azure.100)) se o módulo de integração inclui um tipo de ligação e é importado para sua conta de automatização. Caso contrário, terá de criar um ficheiro de metadados para especificar um tipo de ligação de automatização.  Para obter mais informações sobre isso, consulte [módulos de integração](automation-integration-modules.md).  
 
 >[!NOTE]
 >Os elementos seguros na automatização do Azure incluem as credenciais, certificados, ligações e variáveis encriptadas. Esses ativos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada num sistema gerido Key Vault. Antes de armazenar um recurso seguro, a chave é carregada a partir do Key Vault e, em seguida, utilizada para encriptar o elemento. Este processo é gerido pela automatização do Azure.

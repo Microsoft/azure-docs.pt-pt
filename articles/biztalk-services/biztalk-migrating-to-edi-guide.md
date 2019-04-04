@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: e6f0b11c99cbe8778b51024c418ffba70da61a77
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983035"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917384"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migre soluções EDI do BizTalk Server para os serviços BizTalk: Guia técnico
 
@@ -32,7 +32,7 @@ Intercâmbio de dados Eletrónicos (EDI) é um dos meios mais predominantes por 
 
 Embora alguns clientes olham para os serviços do BizTalk como plataforma "green field" para novas soluções EDI, muitos clientes têm soluções EDI do BizTalk Server atuais, que podem optar por migrar para o Azure. Como é arquitetado de EDI do BizTalk Services com base no mesmo entidades-chave como a arquitetura de EDI do BizTalk Server (comércio de parceiros, entidades, contratos), é possível migrar os artefactos de EDI do BizTalk Server para os serviços BizTalk.
 
-Este documento discute algumas das diferenças envolvidas com migração artefactos de EDI do BizTalk Server para os serviços BizTalk. Este documento pressupõe um conhecimento prático dos processos e contratos de parceiros comerciais EDI do BizTalk Server. Para obter mais informações sobre o EDI do BizTalk Server, consulte [comerciais parceiro de gestão através do BizTalk Server](https://msdn.microsoft.com/library/bb259970.aspx).
+Este documento discute algumas das diferenças envolvidas com migração artefactos de EDI do BizTalk Server para os serviços BizTalk. Este documento pressupõe um conhecimento prático dos processos e contratos de parceiros comerciais EDI do BizTalk Server. Para obter mais informações sobre o EDI do BizTalk Server, consulte [comerciais parceiro de gestão através do BizTalk Server](/biztalk/core/trading-partner-management-using-biztalk-server).
 
 ## <a name="which-version-of-biztalk-server-edi-artifacts-can-be-migrated-to-biztalk-services"></a>Qual é a versão dos artefactos de EDI do BizTalk Server pode ser migrada para os serviços BizTalk?
 O módulo de EDI do BizTalk Server foi significativamente melhorado para o BizTalk Server 2010, quando ele foi remodeled para incluir parceiros, perfis e contratos. Os serviços do BizTalk usa o mesmo modelo para organizar os parceiros comerciais e as divisões de negócios dentro desses parceiros comerciais. Como resultado, a migrar os artefactos EDI do BizTalk Server 2010 e versões posteriores para os serviços do BizTalk, é um processo muito mais direta. Para migrar os artefactos EDI associados com versões anteriores ao BizTalk Server 2010, tem de atualizar primeiro para o BizTalk Server 2010 e, em seguida, migrar seus artefactos EDI para os serviços BizTalk.
@@ -65,10 +65,10 @@ Os serviços BizTalk fornecem uma experiência de configuração de fácil de us
 Ainda mais este documento disponibiliza orientações conceptuais por migrar algumas das diferentes artefatos de EDI do BizTalk Server para os serviços BizTalk.
 
 ## <a name="sendreceive-ports-to-trading-partners"></a>Envio/receção de portas para parceiros comerciais
-BizTalk Server, configurar localizações recebidas e portas de recebimento para receber mensagens EDI/XML de parceiros comerciais e configurar as portas de envio para enviar mensagens EDI/XML para o parceiro comercial. Em seguida, obstruir estas portas para um contrato de parceiro comercial utilizando a consola de administração do BizTalk Server. Nos serviços do BizTalk, as localizações onde recebe as mensagens de parceiros comerciais e de onde envia mensagens para parceiros comerciais são configuradas como parte do contrato de parceiro comercial propriamente dito (como parte das definições de transporte) no Portal de serviços do BizTalk.  Por isso, não temos o conceito de "portas de envio" e "locais de recebimento", por si só, dos serviços BizTalk. Para obter mais informações, consulte [criar contratos](https://msdn.microsoft.com/library/windowsazure/hh689908.aspx).
+BizTalk Server, configurar localizações recebidas e portas de recebimento para receber mensagens EDI/XML de parceiros comerciais e configurar as portas de envio para enviar mensagens EDI/XML para o parceiro comercial. Em seguida, obstruir estas portas para um contrato de parceiro comercial utilizando a consola de administração do BizTalk Server. Nos serviços do BizTalk, as localizações onde recebe as mensagens de parceiros comerciais e de onde envia mensagens para parceiros comerciais são configuradas como parte do contrato de parceiro comercial propriamente dito (como parte das definições de transporte) no Portal de serviços do BizTalk.  Por isso, não temos o conceito de "portas de envio" e "locais de recebimento", por si só, dos serviços BizTalk. Para obter mais informações, consulte [criar contratos](/previous-versions/azure/hh689908(v=azure.100)).
 
 ## <a name="pipelines-bridges"></a>Pipelines (pontes)
-No EDI do BizTalk Server, os pipelines são entidades de processamento de mensagem também podem incluir a lógica personalizada para recursos de processamento específico, conforme exigido pelo aplicativo. Para os serviços do BizTalk, o equivalente seria uma ponte EDI. No entanto nos serviços do BizTalk, por enquanto, pontes EDI são "fechados".  Ou seja, não é possível adicionar suas próprias atividades personalizadas para uma bridge EDI. Qualquer processamento personalizado deve ser feito fora a ponte EDI em seu aplicativo, antes ou depois da mensagem aciona a ponte configurada como parte do contrato de parceiro comercial. EAI bridges tem a opção para efetuar o processamento personalizado. Se pretender que o processamento personalizado, pode usar EAI bridges antes ou depois da mensagem é processada pela ponte EDI. Para obter mais informações, consulte [como incluir código de personalizado em pontes](https://msdn.microsoft.com/library/azure/dn232389.aspx).
+No EDI do BizTalk Server, os pipelines são entidades de processamento de mensagem também podem incluir a lógica personalizada para recursos de processamento específico, conforme exigido pelo aplicativo. Para os serviços do BizTalk, o equivalente seria uma ponte EDI. No entanto nos serviços do BizTalk, por enquanto, pontes EDI são "fechados".  Ou seja, não é possível adicionar suas próprias atividades personalizadas para uma bridge EDI. Qualquer processamento personalizado deve ser feito fora a ponte EDI em seu aplicativo, antes ou depois da mensagem aciona a ponte configurada como parte do contrato de parceiro comercial. EAI bridges tem a opção para efetuar o processamento personalizado. Se pretender que o processamento personalizado, pode usar EAI bridges antes ou depois da mensagem é processada pela ponte EDI. Para obter mais informações, consulte [como incluir código de personalizado em pontes](/previous-versions/azure/dn232389(v=azure.100)).
 
 Pode inserir um fluxo de publicação/subscrição com código personalizado e/ou através de mensagens de filas e tópicos antes do contrato de parceiro comercial recebe a mensagem ou depois do contrato de processa a mensagem e a encaminha para um ponto de extremidade do barramento de serviço do Service Bus.
 
@@ -93,7 +93,7 @@ Outro exemplo de nova funcionalidade no transforma os serviços BizTalk são a *
 Ainda outro exemplo é o **If-Then-Else** operação do mapa de expressão.  Fazer uma operação if-then-else era possível no mapeador de pontos do BizTalk, mas necessário functoids de vários para realizar uma tarefa aparentemente simples.
 
 ### <a name="migrating-biztalk-server-maps"></a>Migrando do BizTalk Server mapeia
-Os serviços BizTalk do Microsoft Azure fornece uma ferramenta para migrar o BizTalk Server mapeia para transformações de serviços do BizTalk. O **BTMMigrationTool** está disponível como parte dos **ferramentas** pacote fornecido com o [download do SDK dos serviços BizTalk](https://go.microsoft.com/fwlink/p/?LinkId=235057). Para obter mais informações sobre a ferramenta, consulte [converter um mapa do BizTalk para dos serviços do BizTalk transformar](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Os serviços BizTalk do Microsoft Azure fornece uma ferramenta para migrar o BizTalk Server mapeia para transformações de serviços do BizTalk. O **BTMMigrationTool** está disponível como parte dos **ferramentas** pacote fornecido com o [download do SDK dos serviços BizTalk](https://go.microsoft.com/fwlink/p/?LinkId=235057). Para obter mais informações sobre a ferramenta, consulte [converter um mapa do BizTalk para dos serviços do BizTalk transformar](/previous-versions/azure/hh949812(v=azure.100)).
 
 Também pode ver um exemplo por Sandro Pereira, MVP do BizTalk, sobre como [migrar mapas do BizTalk Server para os serviços BizTalk transformações](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
@@ -103,13 +103,13 @@ Se precisar de migrar a orquestração do BizTalk Server para o Microsoft Azure 
 * [*Como integrar um serviço de fluxo de trabalho do WCF com tópicos e filas do Service Bus* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) por Salvatori Paulo. 
 * [*Criar aplicações com o Windows Workflow Foundation e do Azure* sessão](https://go.microsoft.com/fwlink/p/?LinkId=237314) da conferência Build 2011.
 * [*Centro de programadores do Windows Workflow Foundation*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
-* [*Documentação de Windows Workflow Foundation 4 (WF4)* ](https://msdn.microsoft.com/library/dd489441.aspx) no MSDN.
+* [*Documentação de Windows Workflow Foundation 4 (WF4)* ](/dotnet/framework/windows-workflow-foundation/index) no MSDN.
 
 ## <a name="other-considerations"></a>Outras considerações
 Seguem-se algumas considerações que é necessário efetuar ao utilizar os serviços BizTalk.
 
 ### <a name="fallback-agreements"></a>Contratos de contingência
-Processamento de EDI do BizTalk Server tem o conceito de "Contratos de contingência".  Os serviços BizTalk faz **não** tem um conceito de contrato de contingência até agora.  Consulte os tópicos de documentação do BizTalk [a função de contratos no processamento de EDI](https://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configuração Global ou de propriedades do contrato de contingência](https://msdn.microsoft.com/library/bb245981.aspx) para obter informações sobre como os contratos de contingência são usados no BizTalk Servidor.
+Processamento de EDI do BizTalk Server tem o conceito de "Contratos de contingência".  Os serviços BizTalk faz **não** tem um conceito de contrato de contingência até agora.  Consulte os tópicos de documentação do BizTalk [a função de contratos no processamento de EDI](https://go.microsoft.com/fwlink/p/?LinkId=237317) e [Configuração Global ou de propriedades do contrato de contingência](/biztalk/core/configuring-global-or-fallback-agreement-properties) para obter informações sobre como os contratos de contingência são usados no BizTalk Servidor.
 
 ### <a name="routing-to-multiple-destinations"></a>Encaminhamento para vários destinos
 Pontes de serviços do BizTalk, no respetivo estado atual não suporta encaminhamento de mensagens para vários destinos com um publicar-subscrever o modelo. Em vez disso, pode encaminhar mensagens de uma ponte de serviços do BizTalk para um tópico do Service Bus, que, em seguida, pode ter várias subscrições para receber a mensagem em mais do que um ponto de extremidade.

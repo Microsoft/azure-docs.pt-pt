@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091322"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918370"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pré-carregar recursos num ponto final da CDN do Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,7 +49,7 @@ Este tutorial orienta-o através da pré-carregar o conteúdo em cache em todos 
    > [!TIP]
    > Depois de começar a inserir textos, mais **caminho de conteúdo** caixas de texto serão apresentado para permitir a criação de uma lista de vários recursos. Para eliminar ativos na lista, selecione o botão de reticências (...), em seguida, selecione **eliminar**.
    > 
-   > Cada caminho de conteúdo tem de ser um URL relativo que se adeque às seguintes [expressões regulares](https://msdn.microsoft.com/library/az24scfc.aspx):  
+   > Cada caminho de conteúdo tem de ser um URL relativo que se adeque às seguintes [expressões regulares](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Carregar um único caminho de arquivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Carrega um único ficheiro com a cadeia de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
@@ -68,6 +68,6 @@ Este tutorial orienta-o através da pré-carregar o conteúdo em cache em todos 
 
 ## <a name="see-also"></a>Consulte também
 * [Remover um ponto de final de CDN do Azure](cdn-purge-endpoint.md)
-* [Referência da API de REST do CDN do Azure: pré-carregar o conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referência da API de REST do CDN do Azure: limpar o conteúdo a partir de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Referência da API de REST do CDN do Azure: Pré-carregar o conteúdo num ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referência da API de REST do CDN do Azure: Limpar o conteúdo a partir de um ponto final](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

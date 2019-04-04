@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886442"
+ms.locfileid: "58891485"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -125,9 +125,7 @@ Chamadas de previsão com um limiar de probabilidade elevada de interpretar tend
 
 ## <a name="manage-training-iterations"></a>Gerir iterações de treinamento
 
-Treinar o seu classificador de cada vez, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizado. Pode ver todas as iterações no painel esquerdo dos **desempenho** separador. Quando seleciona um, tem a opção de torná-lo a _predefinido iteração_ ao clicar o **predefinir** botão na parte superior. O _predefinido iteração_ é o modelo que irá ser utilizado por predefinição, quando consulta por meio da API de predição (numa aplicação, por exemplo). Se recusar a atualizar o _predefinido iteração_, pode continuar a preparar o seu modelo sem afetar o comportamento da aplicação atual; então, quando estiver satisfeito com o modelo aprimorado, pode atualizar a predefinição.
-
-No painel esquerdo irá também encontrar os **eliminar** botão, que pode utilizar para eliminar uma iteração se ele está obsoleto. Quando elimina uma iteração, elimine quaisquer imagens que estão associadas exclusivamente com o mesmo.
+Treinar o seu classificador de cada vez, cria uma nova _iteração_ com suas próprias métricas de desempenho atualizado. Pode ver todas as iterações no painel esquerdo dos **desempenho** separador. No painel esquerdo irá também encontrar os **eliminar** botão, que pode utilizar para eliminar uma iteração se ele está obsoleto. Quando elimina uma iteração, elimine quaisquer imagens que estão associadas exclusivamente com o mesmo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

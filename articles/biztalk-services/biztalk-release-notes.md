@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093546"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918880"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão para serviços BizTalk do Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093546"
 As notas de versão para os serviços BizTalk do Microsoft Azure contêm os problemas conhecidos nesta versão.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>O que há de novo na atualização de Novembro dos serviços BizTalk
-* Encriptação em repouso pode ser ativada no Portal de serviços do BizTalk. Ver [ativar a encriptação em inatividade no Portal dos serviços BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* Encriptação em repouso pode ser ativada no Portal de serviços do BizTalk. Ver [ativar a encriptação em inatividade no Portal dos serviços BizTalk](/previous-versions/azure/dn874052(v=azure.100)).
 
 ## <a name="update-history"></a>Atualizar histórico
 ### <a name="october-update"></a>Atualização de Outubro
@@ -39,14 +39,14 @@ As notas de versão para os serviços BizTalk do Microsoft Azure contêm os prob
   * **Cenário**: Registrou uma implementação de serviço BizTalk utilizando uma conta organizacional num Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Neste cenário, apenas os utilizadores do Azure Active Directory dentro da mesma organização podem gerir o serviço BizTalk utilizando o portal dos serviços do BizTalk. Não é possível utilizar uma conta Microsoft.  
 * Quando cria um BizTalk Service, são automaticamente registrados no Portal de serviços do BizTalk.
   * **Cenário**: Iniciar sessão no Azure, criar um BizTalk Service e, em seguida, selecione **gerir** pela primeira vez. Quando abre o portal dos serviços do BizTalk, o serviço BizTalk registra automaticamente e está pronto para as suas implementações.  
-    Ver [Portal dos serviços de registro e a atualizar uma implementação de serviços do BizTalk do BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+    Ver [Portal dos serviços de registro e a atualizar uma implementação de serviços do BizTalk do BizTalk](/previous-versions/azure/hh689837(v=azure.100)).  
 
 ### <a name="august-14-update"></a>Atualização de 14 de Agosto
-* Contrato e bridge desassociar – negociação de contratos de parceiros e pontes agora estão desassociados no Portal de serviços do BizTalk. Agora, criar contratos e pontes separadamente e, em tempo de execução pontes resolver para um contrato com base nos valores na mensagem de EDI. Ver [criar contratos dos serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689908.aspx), [criar uma ponte EDI com o Portal dos serviços BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [criar uma ponte de AS2 utilizando o Portal dos serviços BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx)e [ Como é que pontes de resolver os contratos em tempo de execução?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Contrato e bridge desassociar – negociação de contratos de parceiros e pontes agora estão desassociados no Portal de serviços do BizTalk. Agora, criar contratos e pontes separadamente e, em tempo de execução pontes resolver para um contrato com base nos valores na mensagem de EDI. Ver [criar contratos dos serviços BizTalk do Azure](/previous-versions/azure/hh689908(v=azure.100)), [criar uma ponte EDI com o Portal dos serviços BizTalk](/previous-versions/azure/dn793986(v=azure.100)), [criar uma ponte de AS2 utilizando o Portal dos serviços BizTalk](/previous-versions/azure/dn793993(v=azure.100))e [ Como é que pontes de resolver os contratos em tempo de execução?](/previous-versions/azure/dn794001(v=azure.100))  
 * A opção para criar modelos para contratos foi descontinuada.  
-* Para o contrato de lado de envio, agora é possível especificar conjuntos de delimitador diferentes para cada esquema. Esta configuração é especificada nas definições do protocolo de contrato do lado de envio. Para obter mais informações, consulte [Create X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [criar um contrato EDIFACT no BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Duas novas entidades também são adicionadas à API de OM do TPM para a mesma finalidade. Ver [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* Padrão construções XSD, incluindo tipos derivados, agora são suportadas. Ver [XSD de padrão de utilização construções em seus mapas](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [tipos derivados de utilização em cenários de mapeamento e exemplos](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 oferece suporte a novos algoritmos MIC para a assinatura da mensagem e novos algoritmos de criptografia. Ver [criar um contrato de AS2 nos serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* Para o contrato de lado de envio, agora é possível especificar conjuntos de delimitador diferentes para cada esquema. Esta configuração é especificada nas definições do protocolo de contrato do lado de envio. Para obter mais informações, consulte [Create X12 contrato nos BizTalk Services do Azure](/previous-versions/azure/hh689847(v=azure.100)) e [criar um contrato EDIFACT no BizTalk Services do Azure](/previous-versions/azure/dn606267(v=azure.100)). Duas novas entidades também são adicionadas à API de OM do TPM para a mesma finalidade. Ver [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) e [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100)).  
+* Padrão construções XSD, incluindo tipos derivados, agora são suportadas. Ver [XSD de padrão de utilização construções em seus mapas](/previous-versions/azure/dn793987(v=azure.100)) e [tipos derivados de utilização em cenários de mapeamento e exemplos](/previous-versions/azure/).  
+* AS2 oferece suporte a novos algoritmos MIC para a assinatura da mensagem e novos algoritmos de criptografia. Ver [criar um contrato de AS2 nos serviços BizTalk do Azure](/previous-versions/azure/hh689890(v=azure.100)).  
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
@@ -85,7 +85,7 @@ Se existirem espaços em branco para além de um segmento IEA, o recurso de desm
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Controlo no Portal dos serviços BizTalk
 Eventos de rastreio são capturados até o processamento de mensagens EDI e qualquer correlação. Se uma mensagem falhar fora o estágio de protocolo, controlo mostrará a conclusão com êxito. Nesta situação, consulte a secção de registo sob o **detalhes** coluna na **controlo** para obter detalhes de erro.
-X12 receber e enviar definições ([Create X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) fornecem informações sobre a fase de protocolo.  
+X12 receber e enviar definições ([Create X12 contrato nos BizTalk Services do Azure](/previous-versions/azure/hh689847(v=azure.100))) fornecem informações sobre a fase de protocolo.  
 
 ### <a name="update-agreement"></a>Atualizar o contrato
 O Portal de serviços do BizTalk permite-lhe modificar o qualificador de uma identidade quando é configurado um contrato. Isso pode resultar em Propriedades inconsistentes. Por exemplo, há um contrato com ZZ:1234567 e ZZ:7654321 o qualificador. As definições de perfil de Portal dos serviços BizTalk, pode alterar ZZ:1234567 ser 01:ChangedValue. Abrir o contrato e 01:ChangedValue é apresentado em vez de ZZ:1234567.
@@ -109,7 +109,8 @@ Considere um cenário na seguinte ordem:
 * Feche o ficheiro de .bcs (fechando a guia no Visual Studio) sem guardar as alterações.  
 * Abra o ficheiro de .bcs novamente no Explorador de soluções.  
   Notará que enquanto o ficheiro de .bridgeconfig associado tem o novo nome que especificou, o nome da entidade na superfície de design ainda é o nome antigo. Se tentar abrir a configuração de ponte clicando duas vezes o componente de ponte, receberá o erro seguinte:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Para evitar este cenário, certifique-se de que guardar as alterações depois de mudar o nome das entidades num projeto do BizTalk Service.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  Para evitar este cenário, certifique-se de que guardar as alterações depois de mudar o nome das entidades num projeto do BizTalk Service.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Projeto dos BizTalk Services baseia-se com êxito, mesmo que um artefato foi excluído de um projeto do Visual Studio
 Considere um cenário onde adiciona um artefacto (por exemplo, um arquivo XSD) para um projeto do BizTalk Service, incluir esse artefato na configuração da Bridge (por exemplo, ao especificá-la como um tipo de mensagem de pedido) e, em seguida, excluí-lo a partir do projeto do Visual Studio. Nesse caso, compilar o projeto não fornecerá nenhum erro, desde que o artefacto eliminado está disponível no disco na mesma localização de onde ele foi incluído no projeto do Visual Studio.
@@ -224,5 +225,5 @@ Assumir um cenário em que tem uma ponte XML implementada na subscrição de pr�
 Em todo este documento, o termo 'pipelines' e "pontes" são utilizados alternadamente. Ambos significam, essencialmente, a mesma coisa, o que é, uma unidade de processamento de mensagem implementada nos serviços BizTalk.  
 
 ### <a name="concepts"></a>Conceitos
-[Serviços BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[Serviços BizTalk](/previous-versions/azure/hh689864(v=azure.100))   
 

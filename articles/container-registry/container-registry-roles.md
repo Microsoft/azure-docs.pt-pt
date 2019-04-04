@@ -3,28 +3,30 @@ title: O Azure Container Registry - funções e permissões
 description: Utilize o controlo de acesso baseado em função do Azure (RBAC) e gestão de identidades e acessos (IAM) para fornecer permissões detalhadas para recursos num Azure container registry.
 services: container-registry
 author: dlepow
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593629"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894273"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Permissões e funções de registo de contentor do Azure
 
 O serviço do Azure Container Registry suporta um conjunto de funções do Azure que fornecer diferentes níveis de permissões para um Azure container registry. Utilizar o Azure [controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para atribuir permissões específicas para os utilizadores ou principais que precisam para interagir com um registo de serviço.
 
-| / Permissões da função       | [Access Resource Manager](#access-resource-manager) | [Criar/eliminar registo](#create-and-delete-registry) | [Enviar imagem](#push-image) | [Imagem de extração](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Alterar as políticas](#change-policies) |   [Imagens de início de sessão](#sign-images)  |
+| / Permissões da função       | [Gestor de recursos de acesso](#access-resource-manager) | [Criar/eliminar registo](#create-and-delete-registry) | [Enviar imagem](#push-image) | [Imagem de extração](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Alterar as políticas](#change-policies) |   [Imagens de início de sessão](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietário | X | X | X | X | X | X |  |  
 | Contribuinte | X | X | X |  X | X | X |  |  
 | Leitor | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | X |  |  |  
+| AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Diferenciar a utilizadores e serviços
@@ -61,7 +63,7 @@ A capacidade de `docker pull` um não-colocados em quarentena de imagem ou extra
 
 ## <a name="delete-image-data"></a>Eliminar dados de imagem
 
-A capacidade de [eliminar imagens de contentor ou de repositórios](container-registry-delete.md).
+A capacidade de [eliminar imagens de contentor](container-registry-delete.md), ou eliminar outro [suportado artefactos](container-registry-image-formats.md) , como gráficos Helm, de um registo.
 
 ## <a name="change-policies"></a>Alterar as políticas
 

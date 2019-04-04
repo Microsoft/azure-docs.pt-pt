@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097445"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918778"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Criar os BizTalk Services com o Portal do Azure
 
@@ -68,7 +68,7 @@ A identidade do Serviço do Controlo de Acesso é um conjunto de credenciais que
 > 
 > 
 
-Em [Gerir o Espaço de Nomes do ACS](https://msdn.microsoft.com/library/azure/hh674478.aspx), pode ver uma lista de algumas diretrizes e recomendações.
+Em [Gerir o Espaço de Nomes do ACS](/previous-versions/azure/azure-services/hh674478(v=azure.100)), pode ver uma lista de algumas diretrizes e recomendações.
 
 ## <a name="requirements-explained"></a>Requisitos explicados
 Estes requisitos não se aplicam à Edição Gratuita.
@@ -93,7 +93,7 @@ A conta do Azure pode ter várias subscrições e pode ser gerida por qualquer p
 <br/><br/>
 Quando cria um BizTalk Service, pode utilizar um Servidor SQL do Azure existente, uma SQL Database do Azure ou criar automaticamente um novo servidor ou base de dados.
 <br/><br/>
-O dimensionamento da SQL Database é configurado automaticamente. Normalmente, o dimensionamento predefinido é suficiente para um BizTalk Service. Alterar o dimensionamento terá impactos nos preços. Veja <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Contas e Faturação na Base de Dados SQL do Azure</a>
+O dimensionamento da SQL Database é configurado automaticamente. Normalmente, o dimensionamento predefinido é suficiente para um BizTalk Service. Alterar o dimensionamento terá impactos nos preços. Consulte <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> contas e faturação na base de dados SQL do Azure</a>
 <br/><br/>
 <strong>Notas</strong>
 <br/>
@@ -168,12 +168,12 @@ As Ligações Híbridas são utilizadas para ligar um site do Azure ou um servi�
 Agora que é criado um BizTalk Service, familiarize-se com os diferentes [os serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](biztalk-dashboard-monitor-scale-tabs.md). O BizTalk Service está pronto para as suas aplicações. Para começar a criar aplicações, veja [BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Consulte também
-* [Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)<br/>
+* [Serviços BizTalk: Plano de Edições](biztalk-editions-feature-chart.md)<br/>
 * [Serviços BizTalk: Gráfico de estado](biztalk-service-state-chart.md)<br/>
-* [Serviços BizTalk: Cópia de segurança e restauro](biztalk-backup-restore.md)<br/>
-* [Serviços BizTalk: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [Serviços BizTalk: Cópia de Segurança e Restauro](biztalk-backup-restore.md)<br/>
+* [Serviços BizTalk: Limitação](biztalk-throttling-thresholds.md)<br/>
 * [Serviços BizTalk: Nome do emissor e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
-* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Como posso começar a utilizar o SDK dos BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Ligações Híbridas](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d8456595e244237a0fd92fae82a43a878ad41080
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857673"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893629"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar a sua aplicação LUIS no portal do LUIS
 <a name="train-your-app"></a>
@@ -132,5 +132,5 @@ Consulte o teste do batch [conceitos](luis-concept-batch-test.md) e Aprenda [com
 
 Se o teste indica que a sua aplicação LUIS não reconhece o corretas intenções e entidades, pode trabalhar para melhorar a precisão da sua aplicação LUIS, expressões com mais de etiquetagem ou adicionar recursos. 
 
-* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endoint-utt.md) 
+* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 

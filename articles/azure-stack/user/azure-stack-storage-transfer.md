@@ -14,22 +14,22 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774342"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905958"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utilizar ferramentas de transferência de dados para o armazenamento do Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Microsoft Azure Stack fornece um conjunto de serviços de armazenamento para discos, blobs, tabelas, filas e funções de gestão de conta. Pode utilizar um conjunto de ferramentas de armazenamento do Azure para gerir ou mover dados de ou para armazenamento do Azure Stack. Este artigo fornece uma descrição geral das ferramentas disponíveis.
 
 Os requisitos de determinam qual das seguintes ferramentas funciona melhor para:
 
-* [AZCopy](#azcopy)
+* [AzCopy](#azcopy)
 
     Um utilitário de armazenamento específicos, da linha de comandos que pode baixar para copiar dados de um objeto a outro objeto dentro de sua conta de armazenamento, ou entre contas de armazenamento.
 
@@ -71,7 +71,7 @@ Existem duas versões do utilitário AzCopy: AzCopy no Windows e o AzCopy no Lin
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Exemplos de comandos do AzCopy para transferência de dados
 
-Os exemplos seguintes, siga os cenários típicos para copiar dados para e de blobs do Azure Stack. Para obter mais informações, consulte [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) e [AzCopy no Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+Os exemplos seguintes, siga os cenários típicos para copiar dados para e de blobs do Azure Stack. Para obter mais informações, consulte [AzCopy no Windows](../../storage/common/storage-use-azcopy.md) e [AzCopy no Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Transferir todos os blobs num disco local
 
@@ -156,7 +156,7 @@ Este exemplo partem do princípio de que tem com êxito [PowerShell instalado pa
    > [!NOTE]
    > Este script tem de ser executado no diretório de raiz para **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name

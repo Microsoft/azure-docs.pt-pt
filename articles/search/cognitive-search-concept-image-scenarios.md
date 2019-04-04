@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430272"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916976"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
 
@@ -34,7 +34,7 @@ Não é possível desativar a normalização de imagem. As competências que ite
 
 | Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageAction   | Definido como "none" se nenhuma ação deve ser realizada quando são encontrados imagens incorporadas ou arquivos de imagem. <br/>Definido como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da abertura do documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde para PDFs na sua origem de dados, cada página é processada para uma imagem de saída.  A funcionalidade é igual a "generateNormalizedImages" para tipos de ficheiro não PDF.<br/>Para qualquer opção que não é "none", as imagens vão ser expostas no *normalized_images* campo. <br/>A predefinição é "none". Esta configuração apenas é pertinente para o blob de origens de dados, quando "dataToExtract" está definida como "contentAndMetadata." |
+| imageAction   | Definido como "none" se nenhuma ação deve ser realizada quando são encontrados imagens incorporadas ou arquivos de imagem. <br/>Definido como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da abertura do documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde para PDFs na sua origem de dados, cada página é processada para uma imagem de saída.  A funcionalidade é igual a "generateNormalizedImages" para tipos de ficheiro não PDF.<br/>Para qualquer opção que não é "none", as imagens vão ser expostas no *normalized_images* campo. <br/>A predefinição é "none". Esta configuração apenas é pertinente para o blob de origens de dados, quando "dataToExtract" está definida como "contentAndMetadata." <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se existirem mais de 1000 imagens num documento, a primeira 1000 serão extraídos e será gerado um aviso. |
 |  normalizedImageMaxWidth | A largura máxima (em pixéis) de normalizado imagens geradas. A predefinição é 2000.|
 |  normalizedImageMaxHeight | A altura máxima (em pixéis) para imagens normalizadas geradas. A predefinição é 2000.|
 
@@ -220,7 +220,7 @@ Como um auxiliar, se tiver de transformar as coordenadas normalizadas para o esp
 ## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analisar a habilidade de imagem](cognitive-search-skill-image-analysis.md)
-+ [OCR skill](cognitive-search-skill-ocr.md)
++ [Habilidade de OCR](cognitive-search-skill-ocr.md)
 + [Habilidade de intercalação de texto](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Como mapear campos plena](cognitive-search-output-field-mapping.md)

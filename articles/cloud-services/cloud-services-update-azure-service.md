@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008098"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917231"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço em nuvem
 
@@ -28,7 +28,7 @@ Atualizar um serviço cloud, incluindo suas funções e o SO convidado, é um pr
 ## <a name="update-an-azure-service"></a>Atualizar um serviço do Azure
 Azure organiza as instâncias de função em agrupamentos lógicos chamados domínios de atualização (UD). Domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizadas como um grupo.  Atualizações do Azure, uma cloud service um UD de cada vez, que permite que instâncias em outros domínios de atualização para continuar a enviar tráfego.
 
-O número predefinido de domínios de atualização é 5. Pode especificar um número diferente de domínios de atualização, incluindo o atributo de upgradeDomainCount no ficheiro de definição do serviço (. csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) ou [esquema de WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+O número predefinido de domínios de atualização é 5. Pode especificar um número diferente de domínios de atualização, incluindo o atributo de upgradeDomainCount no ficheiro de definição do serviço (. csdef). Para obter mais informações sobre o atributo upgradeDomainCount, consulte [esquema de WebRole](/previous-versions/azure/reference/gg557553(v=azure.100)) ou [esquema de WorkerRole](/previous-versions/azure/reference/gg557552(v=azure.100)).
 
 Ao efetuar uma atualização direta de uma ou mais funções no seu serviço, o Azure atualiza conjuntos de instâncias de função, de acordo com o domínio de atualização ao qual pertencem. Atualizações do Azure, todas as instâncias num determinado domínio de atualização – como pará-los, atualizá-las, trazendo-os de fazer uma cópia online – passa, então, o domínio seguinte. Ao parar apenas as instâncias em execução no domínio de atualização atual, o Azure torna-se de que uma atualização ocorre com o menor impacto possível no serviço em execução. Para obter mais informações, consulte [como a atualização continua](#howanupgradeproceeds) mais adiante neste artigo.
 
@@ -82,7 +82,7 @@ Os itens seguintes não são suportados durante uma atualização:
 * Alterar-se de que a contagem de domínios de atualização.
 * Diminuir o tamanho dos recursos locais.
 
-Se estiver a efetuar outras atualizações à definição do seu serviço, por exemplo, a diminuir o tamanho do recurso local, tem de efetuar uma atualização de troca de VIP em vez disso. Para obter mais informações, consulte [trocar implementação](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+Se estiver a efetuar outras atualizações à definição do seu serviço, por exemplo, a diminuir o tamanho do recurso local, tem de efetuar uma atualização de troca de VIP em vez disso. Para obter mais informações, consulte [trocar implementação](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
@@ -106,7 +106,7 @@ O controlador de malha será Aguarde 30 minutos para cada instância de função
 
 Ao atualizar um serviço de uma única instância para várias instâncias de seu serviço será desativado enquanto a atualização é executada devido aos serviços de atualizações do Azure de forma. A disponibilidade de serviço de guaranteeing de contrato de nível do serviço aplica-se apenas a serviços que são implementados com mais de uma instância. A lista seguinte descreve como os dados em cada unidade são afetados por cada cenário de atualização de serviço do Azure:
 
-|Cenário|Unidade C|Unidade D|Unidade E|
+|Cenário|C Drive|Unidade D|E Drive|
 |--------|-------|-------|-------|
 |Reinício da VM|Preservados|Preservados|Preservados|
 |Reinício de portal|Preservados|Preservados|Destruída|
@@ -121,7 +121,7 @@ Para minimizar o período de indisponibilidade ao atualizar um serviço de inst�
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Reversão de uma atualização
-O Azure fornece flexibilidade na gestão de serviços durante uma atualização, permitindo-lhe iniciar operações adicionais num serviço, depois do pedido de atualização inicial é aceite pelo controlador de malha do Azure. Uma reversão só pode ser executada quando uma atualização (alteração de configuração) ou a atualização está no **em curso** estado na implementação. Uma atualização ou a atualização é considerada em curso, desde que existe pelo menos uma instância do serviço que ainda não foi atualizado para a nova versão. Para testar se é permitida uma reversão, verifique o valor do sinalizador RollbackAllowed, devolvido pelo [implementação Obtenha](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [obter propriedades do serviço Cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx) operações, é definido como true.
+O Azure fornece flexibilidade na gestão de serviços durante uma atualização, permitindo-lhe iniciar operações adicionais num serviço, depois do pedido de atualização inicial é aceite pelo controlador de malha do Azure. Uma reversão só pode ser executada quando uma atualização (alteração de configuração) ou a atualização está no **em curso** estado na implementação. Uma atualização ou a atualização é considerada em curso, desde que existe pelo menos uma instância do serviço que ainda não foi atualizado para a nova versão. Para testar se é permitida uma reversão, verifique o valor do sinalizador RollbackAllowed, devolvido pelo [implementação Obtenha](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço Cloud](/previous-versions/azure/reference/ee460806(v=azure.100)) operações, é definido como true.
 
 > [!NOTE]
 > Apenas faz sentido chamar reversão num **in-loco** de atualização porque as atualizações de troca de VIP envolvem a substituição de uma instância em execução toda do seu serviço com o outro.
@@ -135,13 +135,13 @@ Reversão de uma atualização em curso tem os seguintes efeitos sobre a impleme
 
 Isto é funcionalmente fornecido pelas seguintes funcionalidades:
 
-* O [reversão de atualização ou atualizar](https://msdn.microsoft.com/library/azure/hh403977.aspx) operação, o que pode ser chamada numa atualização de configuração (acionada chamando [alterar configuração da implementação](https://msdn.microsoft.com/library/azure/ee460809.aspx)) ou uma atualização (acionada chamando [ Atualizar implementação](https://msdn.microsoft.com/library/azure/ee460793.aspx)), desde que existe pelo menos uma instância no serviço que ainda não foi atualizado para a nova versão.
-* O elemento de bloqueado e o elemento de RollbackAllowed, que são devolvidas como parte do corpo de resposta a [implementação Obtenha](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [obter propriedades do serviço Cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx) operações:
+* O [reversão de atualização ou atualizar](/previous-versions/azure/reference/hh403977(v=azure.100)) operação, o que pode ser chamada numa atualização de configuração (acionada chamando [alterar configuração da implementação](/previous-versions/azure/reference/ee460809(v=azure.100))) ou uma atualização (acionada chamando [ Atualizar implementação](/previous-versions/azure/reference/ee460793(v=azure.100))), desde que existe pelo menos uma instância no serviço que ainda não foi atualizado para a nova versão.
+* O elemento de bloqueado e o elemento de RollbackAllowed, que são devolvidas como parte do corpo de resposta a [implementação Obtenha](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço Cloud](/previous-versions/azure/reference/ee460806(v=azure.100)) operações:
 
   1. O elemento de bloqueado permite-lhe detectar quando uma operação de mutação pode ser invocada numa determinada implantação.
-  2. O elemento de RollbackAllowed permite-lhe detetar quando o [reversão atualização ou atualizar](https://msdn.microsoft.com/library/azure/hh403977.aspx) operação pode ser chamada numa determinada implantação.
+  2. O elemento de RollbackAllowed permite-lhe detetar quando o [reversão atualização ou atualizar](/previous-versions/azure/reference/hh403977(v=azure.100)) operação pode ser chamada numa determinada implantação.
 
-  Para efetuar uma reversão, não é necessário que verificar o bloqueado e os elementos de RollbackAllowed. Ele é suficiente para confirmar que RollbackAllowed está definido como true. Estes elementos são obtidos apenas se esses métodos são invocados utilizando o cabeçalho de pedido definido como "x-ms-version: 2011-10-01" ou uma versão posterior. Para obter mais informações sobre cabeçalhos de controle de versão, consulte [controle de versão do serviço de gestão](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+  Para efetuar uma reversão, não é necessário que verificar o bloqueado e os elementos de RollbackAllowed. Ele é suficiente para confirmar que RollbackAllowed está definido como true. Estes elementos são obtidos apenas se esses métodos são invocados utilizando o cabeçalho de pedido definido como "x-ms-version: 2011-10-01 "ou uma versão posterior. Para obter mais informações sobre cabeçalhos de controle de versão, consulte [controle de versão do serviço de gestão](/previous-versions/azure/gg592580(v=azure.100)).
 
 Existem algumas situações em que uma reversão de uma atualização ou não é suportada a atualização, estes são os seguintes:
 
@@ -149,9 +149,9 @@ Existem algumas situações em que uma reversão de uma atualização ou não é
 * Limitações de quota - se a atualização foi um reduzir verticalmente a operação poderá já não tem quota de computação suficiente para concluir a operação de reversão. Cada subscrição do Azure tem uma quota associada a ele, que especifica o número máximo de núcleos que podem ser consumidos por todos os serviços alojados que pertencem a essa subscrição. Se efetuar uma reversão de uma determinada atualização colocaria a sua subscrição através da quota, em seguida, que não será ativada uma reversão.
 * Condição de corrida - se a atualização inicial foi concluída, não é possível uma reversão.
 
-Um exemplo de quando a reversão de uma atualização pode ser útil é se estiver a utilizar o [atualizar implementação](https://msdn.microsoft.com/library/azure/ee460793.aspx) operação no modo manual para controlar a velocidade a que uma importante atualização in-loco para o seu Azure alojado o serviço é implementada.
+Um exemplo de quando a reversão de uma atualização pode ser útil é se estiver a utilizar o [atualizar implementação](/previous-versions/azure/reference/ee460793(v=azure.100)) operação no modo manual para controlar a velocidade a que uma importante atualização in-loco para o seu Azure alojado o serviço é implementada.
 
-Durante a implementação da atualização de chamar [atualizar implementação](https://msdn.microsoft.com/library/azure/ee460793.aspx) no modo manual e começar a percorrer os domínios de atualização. Se em algum momento, para monitorizar a atualização, observar algumas instâncias de função nos domínios de atualização do primeiro que examine tem deixar de responder, pode chamar o [reversão atualização ou atualizar](https://msdn.microsoft.com/library/azure/hh403977.aspx) operação na implementação, que irá deixar inalterados as instâncias que ainda não tinham sido atualizadas e as instâncias de reversão que atualizaram para o anterior pacote de serviço e a configuração.
+Durante a implementação da atualização de chamar [atualizar implementação](/previous-versions/azure/reference/ee460793(v=azure.100)) no modo manual e começar a percorrer os domínios de atualização. Se em algum momento, para monitorizar a atualização, observar algumas instâncias de função nos domínios de atualização do primeiro que examine tem deixar de responder, pode chamar o [reversão atualização ou atualizar](/previous-versions/azure/reference/hh403977(v=azure.100)) operação na implementação, que irá deixar inalterados as instâncias que ainda não tinham sido atualizadas e as instâncias de reversão que atualizaram para o anterior pacote de serviço e a configuração.
 
 <a name="multiplemutatingoperations"></a>
 
@@ -162,11 +162,11 @@ Depois do pedido inicial para o serviço de atualização foi recebido pelo cont
 
 Iniciar uma segunda operação de atualização, embora a primeira atualização está em curso irá efetuar semelhante para a operação de reversão. Se a segunda atualização estiver em modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente levando a instâncias de vários domínios de atualização estar offline no mesmo ponto no tempo.
 
-As operações de mutação são da seguinte forma: [alterar a configuração de implementação](https://msdn.microsoft.com/library/azure/ee460809.aspx), [atualizar implementação](https://msdn.microsoft.com/library/azure/ee460793.aspx), [estado de implementação de atualização](https://msdn.microsoft.com/library/azure/ee460808.aspx), [eliminar implementação ](https://msdn.microsoft.com/library/azure/ee460815.aspx), e [reverter ou atualização](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+As operações de mutação são os seguintes: [Alterar a configuração de implementação](/previous-versions/azure/reference/ee460809(v=azure.100)), [atualizar implementação](/previous-versions/azure/reference/ee460793(v=azure.100)), [Atualizar estado da implementação](/previous-versions/azure/reference/ee460808(v=azure.100)), [eliminar implementação](/previous-versions/azure/reference/ee460815(v=azure.100)), e [reversão A atualização](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Duas operações, [implementação Obtenha](https://msdn.microsoft.com/library/azure/ee460804.aspx) e [obter propriedades do serviço Cloud](https://msdn.microsoft.com/library/azure/ee460806.aspx), retornar o sinalizador de bloqueado que pode ser examinado para determinar se uma operação de mutação pode ser invocada numa determinada implantação.
+Duas operações, [implementação Obtenha](/previous-versions/azure/reference/ee460804(v=azure.100)) e [obter propriedades do serviço Cloud](/previous-versions/azure/reference/ee460806(v=azure.100)), retornar o sinalizador de bloqueado que pode ser examinado para determinar se uma operação de mutação pode ser invocada numa determinada implantação.
 
-Para chamar a versão destes métodos, que retorna o sinalizador de bloqueado, tem de definir o cabeçalho do pedido como "x-ms-version: 2011-10-01" ou posterior. Para obter mais informações sobre cabeçalhos de controle de versão, consulte [controle de versão do serviço de gestão](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+Para chamar a versão destes métodos, que retorna o sinalizador de bloqueado, tem de definir o cabeçalho do pedido como "x-ms-version: 2011-10-01 "ou posterior. Para obter mais informações sobre cabeçalhos de controle de versão, consulte [controle de versão do serviço de gestão](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
@@ -187,6 +187,6 @@ O diagrama seguinte ilustra como um serviço que contém duas funções são dis
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
-[Como monitorizar serviços Cloud](cloud-services-how-to-monitor.md)  
-[Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)  
+[Como gerir serviços Cloud](cloud-services-how-to-manage-portal.md)  
+[Como Monitorizar os Serviços Cloud](cloud-services-how-to-monitor.md)  
+[Como configurar os serviços Cloud](cloud-services-how-to-configure-portal.md)  

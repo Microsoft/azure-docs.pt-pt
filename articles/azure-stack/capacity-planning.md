@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/29/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/29/2019
+ms.openlocfilehash: e4678b445dce5b337fb7d51e1b938adb944b4440
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095522"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648729"
 ---
 # <a name="azure-stack-capacity-planning"></a>Planeamento da capacidade de pilha do Azure
 Ao avaliar uma solução de pilha do Azure, existem opções de configuração de hardware que têm um impacto direto na capacidade geral da Cloud do Azure Stack. Estas são as escolhas clássicas de CPU, densidade de memória, configuração de armazenamento e geral escala de solução ou número de servidores. Ao contrário de uma solução de Virtualização tradicionais, não é aplicável a aritmética simple desses componentes para determinar a capacidade utilizável. O primeiro motivo para isso é que o Azure Stack foi concebido para alojar os componentes de infraestrutura ou de gestão dentro da solução em si. O segundo motivo é que alguns da capacidade da solução está reservado para oferecer suporte a resiliência; a atualização de software da solução de forma a minimizar a interrupção das cargas de trabalho de inquilino.
@@ -34,25 +34,11 @@ Uma solução do Azure Stack foi concebida como um cluster hiperconvergido de co
 
 O recurso físico apenas que não está aprovisionado excesso numa solução do Azure Stack é a memória do servidor. Os outros recursos da CPU núcleos, largura de banda de rede e capacidade de armazenamento, irão ser overprovisioned para fazer o melhor uso de recursos disponíveis. Ao calcular a capacidade disponível para uma solução, a memória de servidor físico é o principal Contribuidor. A utilização de outros recursos é, em seguida, compreender a proporção de aprovisionar em excesso que é possível e qual será aceitável para a carga de trabalho pretendida.
 
-Aproximadamente 28 VMs são utilizadas para alojar a infraestrutura do Azure Stack e, no total, consumir cerca de 208 GB de memória e 124 núcleos virtuais.  A lógica para este número de VMs é para satisfazer a separação de serviço necessário para satisfazer necessidades de segurança, escalabilidade, manutenção e aplicação de patches de requisitos. Esta estrutura de serviço interno permite a futura introdução de novos serviços de infraestrutura como eles são desenvolvidos.
+Aproximadamente 30 VMs são utilizadas para alojar a infraestrutura do Azure Stack e, no total, consumir cerca de 230 GB de memória e 140 núcleos virtuais. A lógica para este número de VMs é para satisfazer a separação de serviço necessário para satisfazer necessidades de segurança, escalabilidade, manutenção e aplicação de patches de requisitos. Esta estrutura de serviço interno permite a futura introdução de novos serviços de infraestrutura como eles são desenvolvidos.
 
 Para suportar a atualização automática de toda a infraestrutura de servidor físico e componentes de software de infraestrutura, ou o patch e atualização e o utilizador VM posicionamentos não irão consumir todos os recursos de memória de unidade de escala. Uma quantidade de memória total em todos os servidores de uma unidade de escala será não alocada para oferecer suporte a requisitos de resiliência da solução. Por exemplo, quando é atualizada a imagem do Windows Server do servidor físico, as VMs alojadas no servidor são movidas em outro lugar dentro da unidade de escala enquanto imagens do Windows Server do servidor é atualizado. Quando a atualização estiver concluída, o servidor é reiniciado e retornado para cargas de trabalho de manutenção. O objetivo de patch e atualização de uma solução do Azure Stack é para evitar a necessidade de parar VMs alojadas. No lutando para cumprir esse objetivo, o mínimo de capacidade de memória de um servidor é não alocado para permitir o movimento de VMs dentro da unidade de escala. Esta colocação e movimento se aplica a VMs de infraestrutura e as VMs criadas em nome de utilizador ou do inquilino da solução do Azure Stack. Os resultados de implementação final são, de modo a que a quantidade de memória reservada para suportar o movimento de VM necessário pode ser muito mais do que a capacidade de um único servidor devido a desafios de posicionamento quando as VMs têm diferentes requisitos de memória. Um custo adicional na categoria de utilização de memória é que a própria instância do Windows Server. A instância de base do sistema operativo para cada servidor irá consumir a memória para o sistema operativo e suas tabelas de página virtual juntamente com a memória usada pelo Hyper-V no gerenciamento de cada uma das VMs alojadas.
 
-Uma descrição mais detalhada sobre as complexidades de cálculos de capacidade é descrever posteriormente nesta secção. Nesta Introdução, os exemplos seguintes são fornecidos para ajudar a compreender a capacidade disponível de diversos tamanhos de solução. Estes são estimativas e assim fazem suposições sobre o uso de memória VM que não poderá ser verdadeiro para instalações de produção do inquilino. Para esta tabela, o tamanho de VM do Azure de D2 padrão é utilizado. VMs do Azure de D2 padrão são definidas com 2 CPUs virtuais e 7 GB de memória.
-
-|     |Por capacidade do servidor|| Capacidade de unidade de escala|  |  |||
-|-----|-----|-----|-----|-----|-----|-----|-----|
-|     | Memória | Núcleos de CPU | Número de servidores | Memória | Núcleos de CPU | As VMs do inquilino<sup>1</sup>     | / Núcleo elevada<sup>2</sup>    |
-|Exemplo 1|256 GB|28|4|1024 GB| 112 | 54 |4:3|
-|Exemplo 2|512 GB|28|4|2024 GB|112|144|4:1|
-|Exemplo 3|384 GB|28|12|4608 GB|336|432|3:1|
-|     |     |     |     |     |     |     |     |
-
-> <sup>1</sup> VMs D2 padrão.
-> 
-> <sup>2</sup> núcleo Virtual a proporção de núcleos físicos.
-
-Conforme mencionado acima, a capacidade VM é determinada com a memória disponível. Os virtual núcleos para rácios de núcleos físicos exemplificar como a densidade VM irá alterar a capacidade de CPU disponível, a menos que a solução é construída com um grande número de núcleos físicos (outra CPU é escolhida). O mesmo é verdadeiro para capacidade de armazenamento e capacidade de cache de armazenamento.
+A capacidade VM é determinada com a memória disponível. Os virtual núcleos para rácios de núcleos físicos exemplificar como a densidade VM irá alterar a capacidade de CPU disponível, a menos que a solução é construída com um grande número de núcleos físicos (outra CPU é escolhida). O mesmo é verdadeiro para capacidade de armazenamento e capacidade de cache de armazenamento.
 
 Os exemplos acima de densidade de VM destinam-se apenas a fins de explicação. Existe mais complexidade nos cálculos de suporte. É necessário para compreender melhor as opções de planeamento de capacidade e a capacidade de resultante, disponível contacto com a Microsoft ou de um parceiro de solução.
 

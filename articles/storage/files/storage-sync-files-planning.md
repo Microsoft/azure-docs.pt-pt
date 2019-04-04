@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480724"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918642"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -278,6 +278,8 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | Ásia Oriental           | Sudeste Asiático     |
 | EUA Leste             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
+| Coreia do Sul Central       | Coreia do Sul        |
+| Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
 | EUA Centro-Norte    | EUA Centro-Sul   |
 | Sul da Índia         | Índia Central      |
@@ -293,6 +295,6 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 ## <a name="next-steps"></a>Passos Seguintes
 * [Considere as definições de proxy e firewall](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
-* [Implementar os ficheiros do Azure](storage-files-deployment-guide.md)
+* [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)
 * [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
-* [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)
+* [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

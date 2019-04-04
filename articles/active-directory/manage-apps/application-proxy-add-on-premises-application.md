@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f2de6eb0171e5e1c792e8860a56f014dad501f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314829"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917843"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -49,7 +49,7 @@ Para elevada disponibilidade no seu ambiente de produção, é recomendável ter
 
 1. Fisicamente, localize o servidor do conector perto os servidores de aplicações para otimizar o desempenho entre o conector e a aplicação. Para obter mais informações, consulte [considerações sobre a topologia de rede](application-proxy-network-topology.md).
 
-2. O servidor do conector e os servidores de aplicativos da web devem pertencer ao mesmo domínio do Active Directory. Ter os servidores no mesmo domínio é um requisito para utilizar o início de sessão único (SSO) com a autenticação integrada do Windows (IWA) e Kerberos Constrained Delegation (KCD). Se o servidor do conector e a servidores de aplicações web estiverem em domínios diferentes do Active Directory, terá de utilizar a delegação baseada em recursos para início de sessão único. Para obter mais informações, consulte [KCD para início de sessão único com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md).
+2. O servidor do conector e os servidores de aplicativos da web devem pertencer ao mesmo domínio do Active Directory ou span domínios fidedignas. Ter os servidores no mesmo domínio ou domínios de confiança é um requisito para utilizar o início de sessão único (SSO) com a autenticação integrada do Windows (IWA) e Kerberos Constrained Delegation (KCD). Se o servidor do conector e a servidores de aplicações web estiverem em domínios diferentes do Active Directory, terá de utilizar a delegação baseada em recursos para início de sessão único. Para obter mais informações, consulte [KCD para início de sessão único com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md).
 
 #### <a name="software-requirements"></a>Requisitos de software
 
@@ -172,20 +172,20 @@ Agora que já preparou o seu ambiente e instalado um conector, está pronto para
 
     | Campo | Descrição |
     | :---- | :---------- |
-    | **Nome** | O nome da aplicação que será apresentado no painel de acesso e no portal do Azure. |
+    | **Name** | O nome da aplicação que será apresentado no painel de acesso e no portal do Azure. |
     | **URL interno** | O URL para aceder à aplicação a partir de dentro da rede privada. Pode fornecer um caminho específico no servidor de back-end para publicação, enquanto o resto do servidor não é publicado. Dessa forma, pode publicar sites diferentes no mesmo servidor que aplicações diferentes e atribuir cada uma de suas próprias regras de acesso e o nome.<br><br>Se publicar um caminho, certifique-se de que inclui todas as imagens, scripts e folhas de estilo necessários para a sua aplicação. Por exemplo, se seu aplicativo está em https:\//yourapp/aplicação e utiliza imagens localizadas em https:\//yourapp/suporte de dados, em seguida, deve publicar https:\//yourapp/ como o caminho. Este URL interno não tem de ser os seus utilizadores verão a página de destino. Para obter mais informações, consulte [definir uma página inicial personalizada para aplicações publicadas](application-proxy-configure-custom-home-page.md). |
     | **URL externo** | O endereço que os utilizadores acedam a aplicação a partir de fora da rede. Se não pretender utilizar o domínio de Proxy de aplicações predefinido, ler sobre [domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).|
     | **Pré-autenticação** | Como o Proxy da aplicação verifica os utilizadores antes de conceder acesso à sua aplicação.<br><br>**O Azure Active Directory** -Proxy da aplicação redireciona os utilizadores iniciem sessão com o Azure AD, que autentica as respetivas permissões para o diretório e a aplicação. É recomendável manter esta opção como predefinição, para que possam tirar partido das funcionalidades de segurança do Azure AD como o acesso condicional e multi-factor Authentication. **O Azure Active Directory** é necessária para monitorizar a aplicação com a segurança de aplicações do Microsoft Cloud.<br><br>**Pass-through** -os utilizadores não têm a autenticação no Azure Active Directory para aceder à aplicação. Pode ainda configurar os requisitos de autenticação back-end. |
-    | **Grupo do conector** | Conectores de processam o acesso remoto à sua aplicação e grupos de conectores ajudá-lo a organizar os conectores e aplicações por região, rede ou para fins. Se não tem quaisquer grupos de conector ainda criados, a sua aplicação é atribuída a **predefinido**.<br><br>Se a sua aplicação utilizar WebSockets para se ligar, todos os conectores do grupo tem de ser versão 1.5.612.0 ou posterior.|
+    | **Grupo do Conector** | Conectores de processam o acesso remoto à sua aplicação e grupos de conectores ajudá-lo a organizar os conectores e aplicações por região, rede ou para fins. Se não tem quaisquer grupos de conector ainda criados, a sua aplicação é atribuída a **predefinido**.<br><br>Se a sua aplicação utilizar WebSockets para se ligar, todos os conectores do grupo tem de ser versão 1.5.612.0 ou posterior.|
 
 5. Se for necessário, configure **definições adicionais**. Para a maioria dos aplicativos, deve manter estas definições em seus Estados de predefinição. 
 
     | Campo | Descrição |
     | :---- | :---------- |
-    | **Tempo limite da aplicação de back-end** | Definir este valor como **longo** apenas se a sua aplicação está lenta autenticar e ligar. |
-    | **Utilizar Cookie somente de HTTP** | Definir este valor como **Sim** para que o Proxy de aplicações cookies incluem o sinalizador de HTTPOnly no cabeçalho de resposta HTTP. Se utilizar os serviços de ambiente de trabalho remoto, definir este valor como **não**.|
-    | **Utilizar Cookie seguro**| Definir este valor como **Sim** transmitir cookies através de um canal seguro, como um pedido HTTPS encriptado.
-    | **Utilizar Cookie persistente**| Manter este valor definido como **não**. Esta definição só deve ser utilizada para aplicações que não é possível partilhar cookies entre processos. Para obter mais informações sobre as definições de cookie consulte [as definições de Cookie para aceder a aplicações no local no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
+    | **Tempo Limite da Aplicação de Back-end** | Definir este valor como **longo** apenas se a sua aplicação está lenta autenticar e ligar. |
+    | **Utilizar Cookie Apenas HTTP** | Definir este valor como **Sim** para que o Proxy de aplicações cookies incluem o sinalizador de HTTPOnly no cabeçalho de resposta HTTP. Se utilizar os serviços de ambiente de trabalho remoto, definir este valor como **não**.|
+    | **Utilizar Cookie Seguro**| Definir este valor como **Sim** transmitir cookies através de um canal seguro, como um pedido HTTPS encriptado.
+    | **Utilizar Cookie Persistente**| Manter este valor definido como **não**. Esta definição só deve ser utilizada para aplicações que não é possível partilhar cookies entre processos. Para obter mais informações sobre as definições de cookie consulte [as definições de Cookie para aceder a aplicações no local no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
     | **Traduzir URLs em cabeçalhos** | Manter este valor como **Sim** , a menos que seu aplicativo necessário o cabeçalho de anfitrião original no pedido de autenticação. |
     | **Traduzir URLs no corpo de aplicação** | Manter este valor como **não** a menos que tenha inserido no código HTML links para outras aplicações no local e não utilizar domínios personalizados. Para obter mais informações, consulte [vincular a tradução com Proxy de aplicações](application-proxy-configure-hard-coded-link-translation.md).<br><br>Definir este valor como **Sim** se pretender monitorizar esta aplicação com o Microsoft Cloud App Security (MCAS). Para obter mais informações, consulte [configurar a monitorização de acesso de aplicações em tempo real com o Microsoft Cloud App Security e Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    
@@ -239,4 +239,4 @@ Fez tudo isto:
 Está pronto para configurar a aplicação para início de sessão único. Utilize a seguinte hiperligação para escolher um método de início de sessão único e para obter tutoriais de início de sessão únicos. 
 
 > [!div class="nextstepaction"]
->[Configure single sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method) (Configurar o início de sessão único)
+>[Configurar o início de sessão único](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

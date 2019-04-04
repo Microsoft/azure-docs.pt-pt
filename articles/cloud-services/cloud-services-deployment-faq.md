@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078824"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916262"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementação de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
@@ -70,7 +70,7 @@ Uma vez que o serviço em nuvem é um recurso de clássico que não é diretamen
  
 - Implementar através da REST API.
 
-    Ao implementar através da API de REST de gestão de serviço, poderia contornar a limitação ao especificar um URL de SAS para o armazenamento de BLOBs, que irá funcionar com a conta clássica e o armazenamento do Azure Resource Manager. Saiba mais sobre a propriedade 'PackageUrl' [aqui](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+    Ao implementar através da API de REST de gestão de serviço, poderia contornar a limitação ao especificar um URL de SAS para o armazenamento de BLOBs, que irá funcionar com a conta clássica e o armazenamento do Azure Resource Manager. Saiba mais sobre a propriedade 'PackageUrl' [aqui](/previous-versions/azure/reference/ee460813(v=azure.100)).
   
 - Implementar através de [portal do Azure](https://portal.azure.com).
 

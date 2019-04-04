@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 04/02/2019
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: cee2eff3cd57e37fa0567cd406f3e6f20a7aa8ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8a53a63b7425935e117d7af951717999bc9340b7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893376"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso de procedimentos armazenados no SQL Data Warehouse
 Sugestões para a implementação de procedimentos armazenados no armazém de dados SQL do Azure para o desenvolvimento de soluções.

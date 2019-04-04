@@ -3,7 +3,7 @@ title: Criar e carregar um VHD do Red Hat Enterprise Linux para utilização no 
 description: Saiba como criar e carregar um Azure disco rígido virtual (VHD) que contém um sistema operativo Red Hat Linux.
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: ''
 tags: ''
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 03/28/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: ad0419cee3fc5c838d6d81adf9040432b9feaf07
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242234"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883129"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparar uma máquina de virtual baseada em Red Hat para o Azure Stack
 
@@ -100,6 +101,13 @@ Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e i
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```
+
+1. Parar e desinstalar a inicialização da cloud:
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento da inicialização, que é normalmente o padrão. Modificar `/etc/ssh/sshd_config` para incluir a seguinte linha:
@@ -246,15 +254,17 @@ Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e i
     dracut -f -v
     ```
 
-1. Desinstale o cloud-init:
+1. Parar e desinstalar a inicialização da cloud:
 
     ```bash
+    systemctl stop cloud-init
     yum remove cloud-init
     ```
 
 1. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento da inicialização:
 
     ```bash
+    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -265,22 +275,55 @@ Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e i
     ClientAliveInterval 180
     ```
 
-1. O pacote de WALinuxAgent `WALinuxAgent-<version>`, tiver sido enviado para o repositório de recursos extras do Red Hat. Ative o repositório de extras ao executar o seguinte comando:
+1. Ao criar um vhd personalizado para o Azure Stack, tenha em atenção que não funcionam em ambientes do Azure Stack que estejam a executar uma compilação antes de 1903 WALinuxAgent versão entre 2.2.20 e 2.2.35.1 (ambos os exclusivo). Para resolver este problema, aplique a correção de 1901/1902 ou siga a segunda metade dessa parte de instruções. 
+
+Se estiver a executar uma compilação do Azure Stack 1903 (ou superior) ou tem a correção de 1901/1902, transfira o pacote de WALinuxAgent a partir do repositório do Red Hat extras da seguinte forma:
+    
+   O pacote de WALinuxAgent `WALinuxAgent-<version>`, tiver sido enviado para o repositório de recursos extras do Red Hat. Ative o repositório de extras ao executar o seguinte comando:
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Instale o agente Linux do Azure ao executar o seguinte comando:
+   Instale o agente Linux do Azure ao executar o seguinte comando:
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    Ative o serviço de waagent:
+   Ative o serviço de waagent:
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+Se estiver a executar uma compilação do Azure Stack antes de 1903 e não aplicou a correção de 1901/1902, em seguida, siga estas instruções para transferir o WALinuxAgent:
+    
+   a.   Transferir setuptools
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. Transfira e deszipe a versão mais recente do agente do nosso github. Este é um exemplo onde podemos transferir "2.2.36" versão a partir do repositório do github.
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. Não crie espaço de comutação em disco do sistema operativo.
@@ -420,6 +463,13 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
     ```bash
     dracut -f -v
+    ```
+
+1. Parar e desinstalar a inicialização da cloud:
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
     ```
 
 1. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento da inicialização. Esta definição é normalmente o padrão. Modificar `/etc/ssh/sshd_config` para incluir a seguinte linha:
@@ -581,6 +631,10 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
     Install latest repo update
     yum update -y
 
+    Stop and Uninstall cloud-init
+    systemctl stop cloud-init
+    yum remove cloud-init
+    
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -657,15 +711,15 @@ Para resolver este problema, adicione módulos do Hyper-V para initramfs e recon
 
 Editar `/etc/dracut.conf`e adicione o seguinte conteúdo:
 
-    ```sh
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-    ```
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 Recrie initramfs:
 
-    ```bash
-    dracut -f -v
-    ```
+```bash
+dracut -f -v
+```
 
 Para obter mais informações, consulte [reconstruir initramfs](https://access.redhat.com/solutions/1958).
 

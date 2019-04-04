@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001563"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916313"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o Ciclo de Vida de uma função Web ou de Trabalho em .NET
-Quando cria uma função de trabalho, estender o [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) classe que fornece métodos para substituição que lhe permitem responder a eventos de ciclo de vida. Para funções da web essa classe é opcional, para que deve usá-lo para responder a eventos de ciclo de vida.
+Quando cria uma função de trabalho, estender o [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) classe que fornece métodos para substituição que lhe permitem responder a eventos de ciclo de vida. Para funções da web essa classe é opcional, para que deve usá-lo para responder a eventos de ciclo de vida.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Estender a classe RoleEntryPoint
-O [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) classe inclui métodos chamados pelo Azure quando ele **começa**, **executa**, ou **interrompe** uma função web ou de trabalho. Opcionalmente, pode substituir estes métodos para gerir a inicialização de função, sequências de encerramento de função ou o thread de execução da função. 
+O [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) classe inclui métodos chamados pelo Azure quando ele **começa**, **executa**, ou **interrompe** uma função web ou de trabalho. Opcionalmente, pode substituir estes métodos para gerir a inicialização de função, sequências de encerramento de função ou o thread de execução da função. 
 
 Ao estender **RoleEntryPoint**, deve estar ciente dos seguintes comportamentos dos métodos:
 
-* O [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) e [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) métodos retornam um valor booleano, portanto, é possível retornar **false** entre esses métodos.
+* O [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) e [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) métodos retornam um valor booleano, portanto, é possível retornar **false** entre esses métodos.
   
    Se seu código retornar **false**, o processo de função está a ser encerrado abruptamente, sem executar qualquer sequência de encerramento pode ter no local. Em geral, deve evitar retornando **false** partir a **OnStart** método.
 * Qualquer não detetada exceção dentro de uma sobrecarga de um **RoleEntryPoint** método é tratado como uma exceção não processada.
   
-   Se ocorrer uma exceção dentro de um dos métodos de ciclo de vida, o Azure irá elevar o [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) eventos e, em seguida, o processo é encerrado. Depois de sua função foi colocada offline, será reiniciada pelo Azure. Quando ocorre uma exceção não processada, o [parar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) o evento não é gerado e o **OnStop** método não é chamado.
+   Se ocorrer uma exceção dentro de um dos métodos de ciclo de vida, o Azure irá elevar o [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) eventos e, em seguida, o processo é encerrado. Depois de sua função foi colocada offline, será reiniciada pelo Azure. Quando ocorre uma exceção não processada, o [parar](/previous-versions/azure/reference/ee758136(v=azure.100)) o evento não é gerado e o **OnStop** método não é chamado.
 
-Se a sua função não for iniciado, ou está a reciclar entre a inicializar, ocupado e os Estados de parar, seu código pode ser a gerar uma exceção sem tratamento dentro de um dos eventos de ciclo de vida reinicia a função de cada vez. Neste caso, utilize o [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) evento para determinar a causa da exceção e processá-la adequadamente. Sua função pode também ser retornar a partir do [executar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) método, o que faz com que a função reiniciar. Para obter mais informações sobre Estados de implementação, consulte [problemas que causa funções comuns para reciclagem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Se a sua função não for iniciado, ou está a reciclar entre a inicializar, ocupado e os Estados de parar, seu código pode ser a gerar uma exceção sem tratamento dentro de um dos eventos de ciclo de vida reinicia a função de cada vez. Neste caso, utilize o [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) evento para determinar a causa da exceção e processá-la adequadamente. Sua função pode também ser retornar a partir do [executar](/previous-versions/azure/reference/ee772746(v=azure.100)) método, o que faz com que a função reiniciar. Para obter mais informações sobre Estados de implementação, consulte [problemas que causa funções comuns para reciclagem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
 > Se estiver a utilizar o **ferramentas do Azure para Microsoft Visual Studio** para desenvolver seu aplicativo, os modelos de projeto de função estendem automaticamente o **RoleEntryPoint** classe para, no  *WebRole.cs* e *WorkerRole.cs* ficheiros.

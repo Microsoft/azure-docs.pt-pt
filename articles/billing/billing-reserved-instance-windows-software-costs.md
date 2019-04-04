@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648525"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918727"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos de software não incluídos com instâncias de VM reservadas do Azure
 
-Se não tiver um benefício de utilização híbrida do Azure nas suas instâncias de máquina virtual reservada, em seguida, que lhe é cobrada com os medidores de software listados nas secções seguintes.
+Se não tiver um benefício híbrido do Azure nas suas instâncias de máquina virtual reservada, em seguida, é-lhe cobrada os medidores de software listados na secção seguinte.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Medidores de software do Windows não incluídos no custo de reserva
 
@@ -66,13 +66,13 @@ Se não tiver um benefício de utilização híbrida do Azure nas suas instânci
 
 ## <a name="rates-for-azure-meters"></a>Taxas de medidores do Azure
 
-Pode obter o custo de cada um destes medidores pela API de RateCard do Azure. Para obter informações sobre como obter as taxas de para um medidor do azure, consulte [Obtenha informações sobre o preço e os metadados de recursos utilizados numa subscrição do Azure](https://msdn.microsoft.com/library/azure/mt219004).
+Pode obter o custo de cada um destes medidores pela API de RateCard do Azure. Para obter informações sobre como obter as taxas de para um medidor do azure, consulte [Obtenha informações sobre o preço e os metadados de recursos utilizados numa subscrição do Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as reservas para o Azure, veja os artigos seguintes:
 
 - [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
-- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerir reservas para o Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)

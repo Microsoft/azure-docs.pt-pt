@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35c30ec97d4c033a687204b926d2f686c52be069
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108261"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916030"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>Serviços BizTalk: Resolução de problemas com os registos de operações
 
@@ -31,8 +31,8 @@ ms.locfileid: "58108261"
 Os registos de operações é uma funcionalidade de serviços de gestão que permite-lhe ver o histórico de registos de operações executadas nos seus serviços do Azure, incluindo os serviços BizTalk. Isto permite-lhe ver os dados históricos relacionados com operações de gestão na sua subscrição do BizTalk Service até 180 dias.
 
 > [!NOTE]
-> Esta funcionalidade só captura os registos para operações de gestão nos serviços do BizTalk, como quando o serviço foi iniciado, de segurança até, e assim por diante. Essas operações são controladas usando o [APIs de REST do serviço BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). Para obter uma lista completa das operações que são controlados usando os serviços de gestão, consulte [operações controladas através do Azure serviços de gestão](#bizops).<br/><br/>
-> Isso não captura os registos de atividades relacionadas ao tempo de execução do BizTalk Service (por exemplo, a mensagem processada pelo pontes e assim por diante.). Para ver estes registos, utilize a vista de controlo do portal dos serviços BizTalk. Para obter mais informações, consulte [mensagens de controlo](https://msdn.microsoft.com/library/azure/hh949805.aspx).
+> Esta funcionalidade só captura os registos para operações de gestão nos serviços do BizTalk, como quando o serviço foi iniciado, de segurança até, e assim por diante. Essas operações são controladas usando o [APIs de REST do serviço BizTalk](/previous-versions/azure/reference/dn232347(v=azure.100)). Para obter uma lista completa das operações que são controlados usando os serviços de gestão, consulte [operações controladas através do Azure serviços de gestão](#bizops).<br/><br/>
+> Isso não captura os registos de atividades relacionadas ao tempo de execução do BizTalk Service (por exemplo, a mensagem processada pelo pontes e assim por diante.). Para ver estes registos, utilize a vista de controlo do portal dos serviços BizTalk. Para obter mais informações, consulte [mensagens de controlo](/previous-versions/azure/hh949805(v=azure.100)).
 > 
 > 
 
@@ -70,9 +70,9 @@ A tabela seguinte lista as operações que são controladas usando os serviços 
 * [Serviços BizTalk: Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [Serviços BizTalk: Gráfico de estado de aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [Serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [Serviços BizTalk: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [Serviços BizTalk: Limitação](https://go.microsoft.com/fwlink/p/?LinkID=302282)
 * [Serviços BizTalk: Nome do emissor e chave do emissor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Como posso começar a utilizar o SDK dos BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

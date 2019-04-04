@@ -3,7 +3,7 @@ title: Exemplo do PowerShell - Deteção de ameaças e auditoria - Base de Dados
 description: Script de exemplo do Azure PowerShell para configurar a deteção de ameaças e auditoria numa base de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: threat-detection
+ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d206d3f95f28fe058e836c3d0abbf0f270329657
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5e838aa0bda0620958e679ab614cc238df607fdd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857322"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891536"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Utilize o PowerShell para configurar a deteção de ameaças e auditoria de uma base de dados SQL
 

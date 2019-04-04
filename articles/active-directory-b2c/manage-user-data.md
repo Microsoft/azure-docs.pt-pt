@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b03e02a783245459fa28126b73eac2459f6aad67
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182851"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893100"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir dados de utilizador no Azure Active Directory B2C
 
- Este artigo descreve como pode gerir os dados de utilizador no Azure Active Directory (Azure AD) B2C usando as operações que são fornecidas pelos [do Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). Gestão de dados de utilizador inclui a eliminar ou exportar dados de registos de auditoria.
+ Este artigo descreve como pode gerir os dados de utilizador no Azure Active Directory (Azure AD) B2C usando as operações que são fornecidas pelos [do Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog). Gestão de dados de utilizador inclui a eliminar ou exportar dados de registos de auditoria.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Eliminar dados de utilizador
 
-Dados de utilizador são armazenados no diretório do Azure AD B2C e nos registos de auditoria. Todos os dados de auditoria de utilizador são retidos durante 30 dias no Azure AD B2C. Se quiser eliminar dados de utilizador dentro desse período de 30 dias, pode utilizar o [eliminar um utilizador](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser) operação. Uma operação de eliminação é necessária para cada um dos inquilinos do Azure AD B2C, onde os dados podem residir. 
+Dados de utilizador são armazenados no diretório do Azure AD B2C e nos registos de auditoria. Todos os dados de auditoria de utilizador são retidos durante 30 dias no Azure AD B2C. Se quiser eliminar dados de utilizador dentro desse período de 30 dias, pode utilizar o [eliminar um utilizador](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operação. Uma operação de eliminação é necessária para cada um dos inquilinos do Azure AD B2C, onde os dados podem residir. 
 
 Cada utilizador no Azure AD B2C está atribuído um ID de objeto. O ID de objeto fornece um identificador inequívoca a utilizar para eliminar dados de utilizador no Azure AD B2C. Dependendo da sua arquitetura, o ID de objeto pode ser um identificador de correlação útil em outros serviços, como financeiro, marketing e bases de dados de gestão de relação de cliente. 
 

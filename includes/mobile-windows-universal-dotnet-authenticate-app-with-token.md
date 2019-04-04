@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
-ms.openlocfilehash: b5368123d6d96e6a58a6926539d6ef22ec68c28b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d71d52257b6e8cfa243207c9bfdb5c7de7d3dd37
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440357"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891048"
 ---
 1. No arquivo de projeto MainPage.xaml.cs, adicione as seguintes **usando** instruções:
    
@@ -50,7 +50,7 @@ ms.locfileid: "52440357"
                 App.MobileService.CurrentUser = user;
    
                 // Consider adding a check to determine if the token is 
-                // expired, as shown in this post: http://aka.ms/jww5vp.
+                // expired, as shown in this post: https://aka.ms/jww5vp.
    
                 success = true;
                 message = string.Format("Cached credentials for user - {0}", user.UserId);

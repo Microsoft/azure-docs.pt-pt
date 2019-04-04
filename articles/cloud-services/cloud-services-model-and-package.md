@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238187"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917316"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como empacotá-lo?
 Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)* e um pacote de serviço *(. cspkg)*. Ambas as **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrever a estrutura de serviço em nuvem e de configuração; coletivamente chamados o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. O Azure cria um serviço em nuvem, tanto o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -38,8 +38,8 @@ Quando o serviço em nuvem está em execução no Azure, pode reconfigurá-lo at
 
 <a name="csdef"></a>
 
-## <a name="servicedefinitioncsdef"></a>Servicedefinition. Csdef
-O **servicedefinition. Csdef** ficheiro Especifica as definições que são utilizadas pelo Azure para configurar um serviço em nuvem. O [esquema de definição de serviço do Azure (. csdef ficheiro)](https://msdn.microsoft.com/library/azure/ee758711.aspx) fornece o formato permitido para um ficheiro de definição de serviço. O exemplo seguinte mostra as definições que podem ser definidas para as funções Web e de trabalho:
+## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
+O **servicedefinition. Csdef** ficheiro Especifica as definições que são utilizadas pelo Azure para configurar um serviço em nuvem. O [esquema de definição de serviço do Azure (. csdef ficheiro)](/previous-versions/azure/reference/ee758711(v=azure.100)) fornece o formato permitido para um ficheiro de definição de serviço. O exemplo seguinte mostra as definições que podem ser definidas para as funções Web e de trabalho:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ O **servicedefinition. Csdef** ficheiro Especifica as definições que são util
 </ServiceDefinition>
 ```
 
-Pode consultar o [esquema de definição de serviço](https://msdn.microsoft.com/library/azure/ee758711.aspx) para uma melhor compreensão do esquema XML usado aqui, no entanto, aqui está uma explicação rápida de alguns dos elementos:
+Pode consultar o [esquema de definição de serviço](/previous-versions/azure/reference/ee758711(v=azure.100)) para uma melhor compreensão do esquema XML usado aqui, no entanto, aqui está uma explicação rápida de alguns dos elementos:
 
 **Sites**  
 Contém as definições para os Web sites ou aplicações web alojadas no IIS7.
@@ -119,7 +119,7 @@ Contém tarefas que estão a ser executadas quando a função for iniciada. As t
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-A configuração das definições do serviço em nuvem é determinada pelos valores na **serviceconfiguration. Cscfg** ficheiro. Especifique o número de instâncias que pretende implementar para cada função neste ficheiro. Os valores para as definições de configuração que definiu no ficheiro de definição de serviço são adicionados ao arquivo de configuração de serviço. Os thumbprints para quaisquer certificados de gestão que estão associados com o serviço em nuvem também são adicionados ao ficheiro. O [esquema de configuração de serviço do Azure (. cscfg ficheiro)](https://msdn.microsoft.com/library/azure/ee758710.aspx) fornece o formato permitido para um ficheiro de configuração do serviço.
+A configuração das definições do serviço em nuvem é determinada pelos valores na **serviceconfiguration. Cscfg** ficheiro. Especifique o número de instâncias que pretende implementar para cada função neste ficheiro. Os valores para as definições de configuração que definiu no ficheiro de definição de serviço são adicionados ao arquivo de configuração de serviço. Os thumbprints para quaisquer certificados de gestão que estão associados com o serviço em nuvem também são adicionados ao ficheiro. O [esquema de configuração de serviço do Azure (. cscfg ficheiro)](/previous-versions/azure/reference/ee758710(v=azure.100)) fornece o formato permitido para um ficheiro de configuração do serviço.
 
 O ficheiro de configuração de serviço não é empacotado com o aplicativo, mas é carregado para o Azure como um arquivo separado e é utilizado para configurar o serviço em nuvem. Pode carregar um novo ficheiro de configuração de serviço sem implementar novamente o seu serviço cloud. Os valores de configuração para o serviço cloud podem ser alterados enquanto o serviço em nuvem está em execução. O exemplo seguinte mostra as definições de configuração que podem ser definidas para as funções Web e de trabalho:
 
@@ -141,9 +141,9 @@ O ficheiro de configuração de serviço não é empacotado com o aplicativo, ma
 </ServiceConfiguration>
 ```
 
-Pode consultar o [esquema de configuração do serviço](https://msdn.microsoft.com/library/azure/ee758710.aspx) para melhor compreender o esquema XML utilizado aqui, no entanto, aqui está uma explicação rápida dos elementos:
+Pode consultar o [esquema de configuração do serviço](/previous-versions/azure/reference/ee758710(v=azure.100)) para melhor compreender o esquema XML utilizado aqui, no entanto, aqui está uma explicação rápida dos elementos:
 
-**instâncias**  
+**Instâncias**  
 Configura o número de instâncias para a função em execução. Para impedir que o seu serviço cloud potencialmente ficarem indisponíveis durante as atualizações, recomenda-se que implemente mais de uma instância de suas funções com acesso à web. Ao implementar mais de uma instância, é a cumprir as diretrizes a [do Azure de computação ao nível do contrato serviço (SLA)](https://azure.microsoft.com/support/legal/sla/), que garante a conectividade externa de 99,95% para as funções de acesso à Internet quando dois ou mais instâncias de função são implementada para um serviço.
 
 **ConfigurationSettings**  
@@ -208,11 +208,11 @@ Pode atualizar a configuração do seu serviço cloud durante a execução no Az
   Apenas pode atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, eliminado ou alterado enquanto uma instância de função está online, Azure normalmente demora a instância de offline para atualizar o certificado e colocá-lo novamente online após concluir a alteração.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Lidar com alterações de configuração com eventos de tempo de execução do serviço
-O [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclui a [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) espaço de nomes, que fornece classes para interação com o ambiente do Azure a partir de uma função. O [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) classe define os seguintes eventos são gerados antes e depois uma alteração de configuração:
+O [biblioteca de tempo de execução do Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) inclui a [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)) espaço de nomes, que fornece classes para interação com o ambiente do Azure a partir de uma função. O [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) classe define os seguintes eventos são gerados antes e depois uma alteração de configuração:
 
-* **[Alterar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) eventos**  
+* **[Alterar](/previous-versions/azure/reference/ee758134(v=azure.100)) eventos**  
   Isto ocorre antes da alteração de configuração é aplicada a uma instância especificada de uma função, dando-lhe uma oportunidade de se desliga as instâncias de função, se necessário.
-* **[Alterado](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) eventos**  
+* **[Alterado](/previous-versions/azure/reference/ee758129(v=azure.100)) eventos**  
   Ocorre após a alteração de configuração é aplicada a uma instância especificada de uma função.
 
 > [!NOTE]

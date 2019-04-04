@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517152"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905567"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilizar o Azure Data Box para enviar dados para a camada de blob de armazenamento do Azure adequada
 
 O Azure Data Box move grandes quantidades de dados para o Azure ao enviar-lhe um dispositivo de armazenamento proprietárias. Preencha o dispositivo com dados e retorná-lo. Os dados de caixa de dados são carregados para um escalão padrão associado com a conta de armazenamento. Em seguida, pode mover os dados para outra camada de armazenamento.
 
 Este artigo descreve como os dados que são carregados por caixa de dados podem ser movidos para uma camada de blob de acesso frequente, esporádico ou arquivo.  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>Escolha a camada de armazenamento correta para os seus dados
 
@@ -58,7 +61,7 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
 
 2. Inicie sessão no Azure PowerShell. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Defina as variáveis para a conta de armazenamento, a chave de acesso, o contentor e o contexto de armazenamento.
 
@@ -66,12 +69,12 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Obter todos os blobs no contentor.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Defina o escalão de todos os blobs no contentor para o arquivo.
 
@@ -91,7 +94,7 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116903"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895737"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Lote de teste com um conjunto de expressões de exemplo
 
@@ -100,7 +100,7 @@ As duas secções do gráfico em verde correspondeu a predição esperada.
 
 Se o teste indica que a sua aplicação LUIS não reconhece o corretas intenções e entidades, pode trabalhar para melhorar o desempenho da sua aplicação LUIS expressões com mais de etiquetagem ou adicionar recursos. 
 
-* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endoint-utt.md) 
+* [Identifique expressões sugeridas com os LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Utilizar as funcionalidades para melhorar o desempenho da sua aplicação LUIS](luis-how-to-add-features.md) 
 * [Compreender o teste com este tutorial do batch](luis-tutorial-batch-testing.md)
 * [Aprenda conceitos de teste de batch](luis-concept-batch-test.md).

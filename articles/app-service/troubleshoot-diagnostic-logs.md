@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339640"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894923"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar registo de diagnósticos para aplicações no serviço de aplicações do Azure
 ## <a name="overview"></a>Descrição geral
@@ -36,10 +36,10 @@ Pode ativar ou desativar os seguintes tipos de registos:
 
 * **Detalhadas de registo de erro** -informações detalhadas para qualquer solicitação que resulta num código de estado HTTP 400 ou superior. Pode conter informações que podem ajudar a determinar o motivo pelo qual o servidor devolveu o código de erro. Um arquivo HTML é gerado para cada erro no sistema de ficheiros da aplicação e até 50 erros (ficheiros) são retidos. Quando o número de ficheiros HTML exceder 50, ficheiros de 26 mais antigos são automaticamente eliminados.
 * **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. É útil se pretender melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada erro de sistema de ficheiros da aplicação. Políticas de retenção de ficheiros são os mesmos que o registo acima de erro detalhado.
-* **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
+* **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](/windows/desktop/Http/w3c-logging). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
-Diagnóstico de aplicação permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) classe para registar informações no registo de diagnóstico de aplicação. Por exemplo:
+Diagnóstico de aplicação permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](/dotnet/api/system.diagnostics.trace) classe para registar informações no registo de diagnóstico de aplicação. Por exemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -58,10 +58,10 @@ Quando ativa **diagnóstico de aplicação**, também é escolher o **nível**. 
 | Nível| Categorias de registo incluídos |
 |-|-|
 |**Desativado** | Nenhuma |
-|**Error** | Erro, crítico |
+|**Erro** | Erro, crítico |
 |**Aviso** | Aviso, erro, críticos|
 |**Informações** | Informação, aviso, erro, críticos|
-|**Verbose** | Rastreio, Debug, Info, aviso, erro, crítico (todas as categorias) |
+|**Verboso** | Rastreio, Debug, Info, aviso, erro, crítico (todas as categorias) |
 |-|-|
 
 Para **registo de aplicações**, pode ativar a opção de sistema de ficheiros temporariamente para fins de depuração. Esta opção se desligar automaticamente em 12 horas. Pode também ativar a opção de armazenamento de BLOBs para selecionar um contentor de BLOBs para escrever os registos.
@@ -101,7 +101,7 @@ Segue-se a estrutura de diretório que os registos são armazenados em:
 * **Registos de aplicações** -/LogFiles/aplicação /. Esta pasta contém um ou mais ficheiros de texto que contém informações produzidas pelo registo de aplicações.
 * **Falha de rastreios de pedido** -/ LogFiles/W3SVC # # # /. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Certifique-se de que baixe o arquivo XSL no mesmo diretório como o ficheiro (s) o XML como o arquivo XSL fornece funcionalidade de formatação e filtrar o conteúdo dos ficheiros pelo XML quando visualizado no Internet Explorer.
 * **Registos de erros de detalhadas** -/LogFiles/DetailedErrors /. Esta pasta contém um ou mais arquivos. htm que fornecem informações abrangentes para quaisquer erros HTTP que ocorreram.
-* **Os registos do servidor da Web** -/LogFiles/http/RawLogs. Esta pasta contém uma ou mais ficheiros de texto formatado utilizando o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Os registos do servidor da Web** -/LogFiles/http/RawLogs. Esta pasta contém uma ou mais ficheiros de texto formatado utilizando o [formato de ficheiro de registo expandido de W3C](/windows/desktop/Http/w3c-logging).
 * **Logs de implantação** -/ LogFiles/Git. Esta pasta contém registos gerados pelos processos de implantação interna utilizados pelo serviço de aplicações do Azure, bem como registos para implementações do Git. Também pode encontrar registos de implementação em D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ Diagnóstico de aplicação armazena informações num formato específico para 
 
 O conjunto base de dados armazenados é a mesma em ambos os tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento. Utilizar o sistema de ficheiros para o armazenamento de registo é útil quando precisa ter acesso imediato ao solucionar um problema porque os ficheiros de registo são atualizados quase instantaneamente. Armazenamento de BLOBs é utilizado para fins de arquivamento, porque os ficheiros são colocados em cache e, em seguida, libertados para o contentor de armazenamento com base numa agenda.
 
-**Sistema de Ficheiros**
+**Sistema de ficheiros**
 
 Cada linha com sessão iniciada no sistema de arquivos ou recebidas usando a transmissão em fluxo é o seguinte formato:
 
@@ -222,7 +222,7 @@ Rastreios de pedido falhado são armazenados nos arquivos XML chamados **. XML d
 Registos de erros detalhados são documentos HTML que fornecem informações mais detalhadas sobre os erros HTTP que ocorreram. Uma vez que eles são simplesmente os documentos HTML, eles podem ser exibidos num navegador da web.
 
 ### <a name="web-server-logs"></a>Registos de servidores Web
-Os registos do servidor web são formatados com o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Estas informações podem ser lidos com um editor de texto ou analisado com o uso, como utilitários [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
+Os registos do servidor web são formatados com o [formato de ficheiro de registo expandido de W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidos com um editor de texto ou analisado com o uso, como utilitários [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Os registos produzidos pelo App Service do Azure não suportam o **s-computername**, **s-ip**, ou **cs-version** campos.

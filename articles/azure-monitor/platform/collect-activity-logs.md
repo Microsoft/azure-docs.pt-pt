@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540436"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905992"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recolher e analisar registos de atividades do Azure na área de trabalho do Log Analytics no Azure Monitor
 
@@ -31,7 +31,7 @@ Utilizar o registo de atividades, pode determinar a *o que*, *quem*, e *quando* 
 Ao ligar os seus registos de atividades do Azure para uma área de trabalho do Log Analytics, pode:
 
 - Analisar os registos de atividades com exibições predefinidas
-- Analisar e registos de pesquisa e atividade de várias subscrições do Azure
+- Analisar e pesquisar registos de atividade de várias subscrições do Azure
 - Manter os registos de atividade durante mais de 90 dias<sup>1</sup>
 - Correlacionar os registos de atividades com o outro Azure dados de plataforma e da aplicação
 - Ver as atividades operacionais agregadas por Estado

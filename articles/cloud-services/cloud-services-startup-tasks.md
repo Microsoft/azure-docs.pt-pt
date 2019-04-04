@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007784"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917622"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de arranque para um serviço cloud
 Pode utilizar tarefas de arranque para executar operações antes de uma função de inicialização. As operações que pode querer executar incluem instalar um componente, registar componentes COM, definir chaves do Registro ou a partir de um processo de execução demorada.
@@ -30,7 +30,7 @@ Pode utilizar tarefas de arranque para executar operações antes de uma funçã
 > 
 
 ## <a name="how-startup-tasks-work"></a>Como funcionam as tarefas de arranque
-Tarefas de arranque são ações que são executadas antes das funções começarem e são definidas no [ServiceDefinition.csdef] ficheiro utilizando o [tarefa] elemento dentro do [arranque] elemento. Com frequência as tarefas de arranque são arquivos em lote, mas eles também podem ser aplicativos de console ou arquivos em lote que começam de scripts do PowerShell.
+Tarefas de arranque são ações que são executadas antes das funções começarem e são definidas no [servicedefinition. Csdef] ficheiro utilizando o [tarefa] elemento dentro do [arranque] elemento. Com frequência as tarefas de arranque são arquivos em lote, mas eles também podem ser aplicativos de console ou arquivos em lote que começam de scripts do PowerShell.
 
 Variáveis de ambiente passam informações para uma tarefa de arranque e armazenamento local pode ser usado para passar informações fora de uma tarefa de arranque. Por exemplo, uma variável de ambiente, pode especificar o caminho para um programa que pretende instalar, e pode escrever nos ficheiros para o armazenamento local que, em seguida, pode ser lido mais tarde por suas funções.
 
@@ -50,20 +50,20 @@ A seguir listam-se o procedimento de arranque de função no Azure:
    * O **em segundo plano** e **primeiro plano** tarefas são iniciadas de forma assíncrona, em paralelo para a tarefa de arranque.  
      
      > [!WARNING]
-     > IIS pode não estar totalmente configurado durante a fase de tarefa de arranque no processo de inicialização, para que os dados específicos da função poderão não estar disponíveis. Devem utilizar tarefas de arranque que dados de função específicas [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > IIS pode não estar totalmente configurado durante a fase de tarefa de arranque no processo de inicialização, para que os dados específicos da função poderão não estar disponíveis. Devem utilizar tarefas de arranque que dados de função específicas [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. O processo de função de anfitrião é iniciado e o site for criado no IIS.
-4. O [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) método é chamado.
+4. O [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) método é chamado.
 5. A instância é marcada como **pronto** e o tráfego é encaminhado para a instância.
-6. O [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) método é chamado.
+6. O [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) método é chamado.
 
 ## <a name="example-of-a-startup-task"></a>Exemplo de uma tarefa de arranque
-Tarefas de arranque são definidas na [ServiceDefinition.csdef] , além de ficheiros a **tarefa** elemento. O **commandLine** atributo especifica o nome e os parâmetros do arranque batch ficheiro ou a consola de comando, o **executionContext** atributo especifica o nível de privilégio da tarefa de arranque e o **taskType** atributo especifica como a tarefa será executada.
+Tarefas de arranque são definidas na [servicedefinition. Csdef] , além de ficheiros a **tarefa** elemento. O **commandLine** atributo especifica o nome e os parâmetros do arranque batch ficheiro ou a consola de comando, o **executionContext** atributo especifica o nível de privilégio da tarefa de arranque e o **taskType** atributo especifica como a tarefa será executada.
 
 Neste exemplo, uma variável de ambiente **MyVersionNumber**, é criada para a tarefa de arranque e definido para o valor "**1.0.0.0**".
 
-**Servicedefinition. Csdef**:
+**ServiceDefinition.csdef**:
 
 ```xml
 <Startup>
@@ -88,7 +88,7 @@ EXIT /B 0
 > 
 
 ## <a name="description-of-task-attributes"></a>Descrição de atributos de tarefas
-O seguinte descreve os atributos do **tarefa** elemento no [ServiceDefinition.csdef] ficheiro:
+O seguinte descreve os atributos do **tarefa** elemento no [servicedefinition. Csdef] ficheiro:
 
 **linha de comandos** -Especifica a linha de comandos para a tarefa de arranque:
 
@@ -112,7 +112,7 @@ O seguinte descreve os atributos do **tarefa** elemento no [ServiceDefinition.cs
 **taskType** -Especifica a forma como uma tarefa de arranque é executada.
 
 * **Simples**  
-  Tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada na [ServiceDefinition.csdef] ficheiro. Quando um **simples** tarefa de arranque terminar com um **errorlevel** igual a zero, a próxima **simples** é executada a tarefa de arranque. Se existirem mais **simples** tarefas de arranque para executar, em seguida, a função em si será iniciada.   
+  Tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada na [servicedefinition. Csdef] ficheiro. Quando um **simples** tarefa de arranque terminar com um **errorlevel** igual a zero, a próxima **simples** é executada a tarefa de arranque. Se existirem mais **simples** tarefas de arranque para executar, em seguida, a função em si será iniciada.   
   
   > [!NOTE]
   > Se o **simples** tarefa termina com um diferente de zero **errorlevel**, a instância será bloqueada. Subsequentes **simples** tarefas de arranque e a função em si, não serão iniciado.
@@ -120,7 +120,7 @@ O seguinte descreve os atributos do **tarefa** elemento no [ServiceDefinition.cs
   > 
   
     Para garantir que seu arquivo em lotes termina com uma **errorlevel** de zero, execute o comando `EXIT /B 0` no final do seu processo de ficheiro de batch.
-* **em segundo plano**  
+* **background**  
   Tarefas são executadas de forma assíncrona, em paralelo com o arranque da função.
 * **em primeiro plano**  
   Tarefas são executadas de forma assíncrona, em paralelo com o arranque da função. A principal diferença entre uma **em primeiro plano** e uma **em segundo plano** tarefa é que uma **em primeiro plano** tarefas impede que a função de reciclagem ou encerrar até que a tarefa terminou. O **em segundo plano** tarefas não têm essa restrição.
@@ -128,13 +128,13 @@ O seguinte descreve os atributos do **tarefa** elemento no [ServiceDefinition.cs
 ## <a name="environment-variables"></a>Variáveis de ambiente
 Variáveis de ambiente são uma forma para passar informações para uma tarefa de arranque. Por exemplo, pode colocar o caminho para um blob que contém um programa para instalar, ou os números de porta que irá utilizar a sua função ou as definições para controlar as funcionalidades de sua tarefa de arranque.
 
-Existem dois tipos de variáveis de ambiente para tarefas de arranque variáveis de ambiente estático e variáveis de ambiente com base em membros do [RoleEnvironment] classe. Ambos estão no [ambiente] secção a [ServiceDefinition.csdef] arquivo e tanto uso o [Variable] elemento e **nome** atributo.
+Existem dois tipos de variáveis de ambiente para tarefas de arranque variáveis de ambiente estático e variáveis de ambiente com base em membros do [RoleEnvironment] classe. Ambos estão no [ambiente] secção a [servicedefinition. Csdef] arquivo e tanto uso o [variável] elemento e **nome** atributo.
 
-Variáveis de ambiente estáticos utiliza a **valor** atributo da [Variable] elemento. O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem o valor estático "**1.0.0.0**". Outro exemplo seria criar um **StagingOrProduction** variável de ambiente que pode definir manualmente para valores de "**de teste**"ou"**produção**" para executar ações de arranque diferentes com base no valor do **StagingOrProduction** variável de ambiente.
+Variáveis de ambiente estáticos utiliza a **valor** atributo da [variável] elemento. O exemplo acima cria a variável de ambiente **MyVersionNumber** que tem o valor estático "**1.0.0.0**". Outro exemplo seria criar um **StagingOrProduction** variável de ambiente que pode definir manualmente para valores de "**de teste**"ou"**produção**" para executar ações de arranque diferentes com base no valor do **StagingOrProduction** variável de ambiente.
 
-Variáveis de ambiente com base nos membros da classe RoleEnvironment não utilize o **valor** atributo da [Variable] elemento. Em vez disso, o [RoleInstanceValue] elemento subordinado, com o adequado **XPath** valor de atributo, são utilizados para criar uma variável de ambiente com base num membro específico do [RoleEnvironment] classe. Os valores para o **XPath** atributo para aceder a várias [RoleEnvironment] valores podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
+Variáveis de ambiente com base nos membros da classe RoleEnvironment não utilize o **valor** atributo da [variável] elemento. Em vez disso, o [RoleInstanceValue] elemento subordinado, com o adequado **XPath** valor de atributo, são utilizados para criar uma variável de ambiente com base num membro específico do [ RoleEnvironment] classe. Os valores para o **XPath** atributo para aceder a várias [RoleEnvironment] valores podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
 
-Por exemplo, para criar uma variável de ambiente que é "**true**" quando a instância está em execução no emulador de computação, e "**false**" quando em execução na cloud, utilize o seguinte [Variable] e [RoleInstanceValue] elementos:
+Por exemplo, para criar uma variável de ambiente que é "**true**" quando a instância está em execução no emulador de computação, e "**false**" quando em execução na cloud, utilize o seguinte [variável ] e [RoleInstanceValue] elementos:
 
 ```xml
 <Startup>
@@ -163,8 +163,8 @@ Saiba como executar algumas [tarefas de arranque comuns](cloud-services-startup-
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Tarefa]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Arranque]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Tempo de execução]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variável]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370003"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904904"
 ---
 # <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
@@ -25,6 +25,8 @@ Por exemplo, se executar o Microsoft [aci-wordcount] [ aci-wordcount] imagem de 
 *MinLength*: O número mínimo de carateres de uma palavra para a mesma a contar. Um número mais alto ignora palavras comuns, como "de" e "a".
 
 Se precisar de passar segredos como variáveis de ambiente, o Azure Container Instances suporta [secure valores](#secure-values) para contentores do Windows e Linux.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Exemplo da CLI do Azure
 
@@ -255,6 +257,6 @@ Cenários de baseado em tarefas, como um grande conjunto de dados com vários co
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

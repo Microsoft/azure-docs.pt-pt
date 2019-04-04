@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993179"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891689"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -26,7 +26,7 @@ Permissões de função incluem:
 *  **Processo** -os utilizadores podem ligar a e executar operações de processo na base de dados e analisar dados de base de dados do modelo.
 *  **Leitura** -os utilizadores podem utilizar uma aplicação de cliente para ligar a e analisar dados de base de dados do modelo.
 
-Ao criar um projeto de modelo em tabela, pode criar funções e adicionar utilizadores ou grupos a essas funções utilizando o Gestor de funções no SSDT. Quando implantado num servidor, utilize o SSMS, [cmdlets do PowerShell do Analysis Services](https://msdn.microsoft.com/library/hh758425.aspx), ou [linguagem de script de modelo em tabela](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para adicionar ou remover funções e membros de utilizador.
+Ao criar um projeto de modelo em tabela, pode criar funções e adicionar utilizadores ou grupos a essas funções utilizando o Gestor de funções no SSDT. Quando implantado num servidor, utilize o SSMS, [cmdlets do PowerShell do Analysis Services](/sql/analysis-services/powershell/analysis-services-powershell-reference), ou [linguagem de script de modelo em tabela](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) para adicionar ou remover funções e membros de utilizador.
 
 > [!NOTE]
 > Grupos de segurança tem de ter o `MailEnabled` definida como `True`.
@@ -45,7 +45,7 @@ Ao criar um projeto de modelo em tabela, pode criar funções e adicionar utiliz
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhum**|Os membros não é possível modificar o esquema do modelo e não é possível consultar dados.|  
+    |**Nenhuma**|Os membros não é possível modificar o esquema do modelo e não é possível consultar dados.|  
     |**Leitura**|Membros podem consultar os dados (com base nos filtros de linha), mas não é possível modificar o esquema do modelo.|  
     |**Ler e processar**|Os membros podem consultar dados (com base nos filtros de nível de linha) e executadas operações de processo e processar tudo, mas não é possível modificar o esquema do modelo.|  
     |**Processo**|Os membros podem executar operações de processo e processar tudo. Não é possível modificar o esquema do modelo e não é possível consultar dados.|  
@@ -120,13 +120,13 @@ Neste exemplo, um utilizador externo de B2B e um grupo são adicionados à funç
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Para adicionar funções e os utilizadores com o PowerShell
 
-O [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) módulo fornece cmdlets de gestão de base de dados de tarefa específica e o cmdlet Invoke-Scmd para fins gerais que aceita uma consulta de linguagem de scripts de modelo em tabela (TMSL) ou um script. Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
+O [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) módulo fornece cmdlets de gestão de base de dados de tarefa específica e o cmdlet Invoke-Scmd para fins gerais que aceita uma consulta de linguagem de scripts de modelo em tabela (TMSL) ou um script. Os cmdlets seguintes são utilizados para gerir funções de base de dados e utilizadores.
   
 |Cmdlet|Descrição|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Adicione um membro a uma função de base de dados.| 
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Remova um membro de uma função de base de dados.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Execute um script TMSL.|
+|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Adicione um membro a uma função de base de dados.| 
+|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Remova um membro de uma função de base de dados.|   
+|[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Execute um script TMSL.|
 
 ## <a name="row-filters"></a>Filtros de linha  
 

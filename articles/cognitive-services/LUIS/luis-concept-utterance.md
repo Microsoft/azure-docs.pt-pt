@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984363"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895127"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreender o que são expressões com boa para a sua aplicação LUIS
 
@@ -72,7 +72,7 @@ Em cada iteração do modelo, não adicione uma grande quantidade de expressões
 
 LUIS baseia-se em vigor modelos com expressões com cuidadosamente selecionadas pelo autor do modelo do LUIS. Adicionar expressões com demasiados não é importante porque introduz confusão.  
 
-É melhor começar com algumas expressões, em seguida, [rever expressões de ponto final](luis-how-to-review-endoint-utt.md) para extração correta de entidade e de predição de intenção.
+É melhor começar com algumas expressões, em seguida, [rever expressões de ponto final](luis-how-to-review-endpoint-utterances.md) para extração correta de entidade e de predição de intenção.
 
 ## <a name="punctuation-marks"></a>Marcas de pontuação
 
@@ -88,11 +88,11 @@ O treinamento é geralmente não determinística: a predição de expressão pod
 
 ## <a name="testing-utterances"></a>Teste de expressões 
 
-Os desenvolvedores devem começar a testar seus aplicativos de LUIS com tráfego real através do envio expressões com o [ponto final de predição](luis-how-to-azure-subscription.md) URL. Estas expressões são utilizados para melhorar o desempenho dos objetivos e entidades com [rever expressões com](luis-how-to-review-endoint-utt.md). Testes submetidos com o site do LUIS painel de teste não são enviados através do ponto final e não contribuem para a aprendizagem ativa. 
+Os desenvolvedores devem começar a testar seus aplicativos de LUIS com tráfego real através do envio expressões com o [ponto final de predição](luis-how-to-azure-subscription.md) URL. Estas expressões são utilizados para melhorar o desempenho dos objetivos e entidades com [rever expressões com](luis-how-to-review-endpoint-utterances.md). Testes submetidos com o site do LUIS painel de teste não são enviados através do ponto final e não contribuem para a aprendizagem ativa. 
 
 ## <a name="review-utterances"></a>Expressões de revisão
 
-Depois do modelo estiver preparado, publicada e de recebimento [ponto final](luis-glossary.md#endpoint) consultas, [rever as expressões](luis-how-to-review-endoint-utt.md) sugerido pelo LUIS. LUIS seleciona expressões com ponto final com pontuações de baixas para a intenção ou a entidade. 
+Depois do modelo estiver preparado, publicada e de recebimento [ponto final](luis-glossary.md#endpoint) consultas, [rever as expressões](luis-how-to-review-endpoint-utterances.md) sugerido pelo LUIS. LUIS seleciona expressões com ponto final com pontuações de baixas para a intenção ou a entidade. 
 
 ## <a name="best-practices"></a>Melhores práticas
 

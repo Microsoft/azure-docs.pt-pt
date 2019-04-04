@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984854"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916738"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilizar o Azure Monitor para VMs (pré-visualização) mapa para compreender os componentes da aplicação
 Visualizar os componentes da aplicação detetada em máquinas de virtuais Windows e Linux em execução no seu ambiente pode ser observado de duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou através de grupos de VMs do Azure Monitor do Azure. 
@@ -43,7 +43,7 @@ No lado direito do painel, clique nas **registo de eventos** ícone para mudar o
 
 ![Lista de pesquisa de registo no painel de propriedades](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Fechar *Logs** e retornar para o **propriedades** painel e selecione **alertas** para ver alertas que o alerta geradas para a VM a partir de critérios de estado de funcionamento. Mapa integra-se com alertas do Azure para mostrar alertas acionados para o servidor selecionado no intervalo de tempo selecionado. O servidor apresenta um ícone se existem alertas atuais e o painel de alertas de máquina lista os alertas. 
+Fechar **Logs** e retornar para o **propriedades** painel e selecione **alertas** para ver alertas que o alerta geradas para a VM a partir de critérios de estado de funcionamento. Mapa integra-se com alertas do Azure para mostrar alertas acionados para o servidor selecionado no intervalo de tempo selecionado. O servidor apresenta um ícone se existem alertas atuais e o painel de alertas de máquina lista os alertas. 
 
 ![Alertas de computador no painel de propriedades](./media/vminsights-maps/properties-pane-alerts-01.png)
 

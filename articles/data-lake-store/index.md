@@ -1,16 +1,22 @@
 ---
-title: 'Documentação do Armazenamento do Azure Data Lake Ger1 - Tutoriais, Referência da API | Microsoft Docs'
-description: 'Saiba como configurar, gerir e aceder a um repositório de hiperescala do data lake compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão.'
+title: Documentação do Armazenamento do Azure Data Lake Ger1 - Tutoriais, Referência da API | Microsoft Docs
+description: Saiba como configurar, gerir e aceder a um repositório de hiperescala do data lake compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão.
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
+ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904666"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentação de Armazenamento do Azure Data Lake Ger1
 
@@ -175,7 +181,7 @@ Saiba como utilizar o Armazenamento do Azure Data Lake Ger1 (anteriormente conhe
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de Comandos</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">CLI do Azure</a></p>
                     </div>
                 </div>

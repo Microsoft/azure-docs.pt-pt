@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449361"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904853"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – implementar HSMs numa rede virtual existente com o PowerShell
 
@@ -34,6 +34,9 @@ Uma típica, de elevada disponibilidade, arquitetura de implementação em vári
 ![Implementação em várias regiões](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
 Este tutorial concentra-se num par de HSMs e o Gateway do ExpressRoute necessária (veja acima de 1 de sub-rede) que está a ser integrado ao existente virtual de rede (veja acima de 1 de VNET).  Todos os outros recursos são recursos do Azure standard. O mesmo processo de integração pode ser utilizado para HSMs na sub-rede 4 na VNET 3 acima.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,13 +59,13 @@ Os HSMs de aprovisionamento e a integração numa rede virtual existente atravé
 Conforme mencionado acima, qualquer atividade de aprovisionamento requer que o serviço de HSM dedicados está registado para a sua subscrição. Para validar que, execute o seguinte comando do PowerShell na shell do portal de cloud do Azure. 
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
+Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
 O seguinte comando verifica os recursos de rede necessários para o serviço de HSM dedicados.
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
 ```
 
 Os dois comandos devem retornar um status de "Registada" (conforme mostrado abaixo) antes de qualquer prosseguir.  Se precisar de se registar para este serviço, contacte o seu representante de conta Microsoft.
@@ -130,20 +133,20 @@ Assim que os ficheiros são carregados, está pronto para criar recursos.
 Antes da criação de HSM novos recursos há alguns pré-requisitos recursos que deve certificar-se estão em vigor. Tem de ter uma rede virtual com intervalos de sub-rede para computação, HSMs e gateway. Os seguintes comandos servem como um exemplo do que seria criar uma rede virtual.
 
 ```powershell
-$compute = New-AzureRmVirtualNetworkSubnetConfig `
+$compute = New-AzVirtualNetworkSubnetConfig `
   -Name compute `
   -AddressPrefix 10.2.0.0/24
 ```
 
 ```powershell
-$delegation = New-AzureRmDelegation `
+$delegation = New-AzDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 
 ```
 
 ```powershell
-$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+$hsmsubnet = New-AzVirtualNetworkSubnetConfig ` 
   -Name hsmsubnet ` 
   -AddressPrefix 10.2.1.0/24 ` 
   -Delegation $delegation 
@@ -152,7 +155,7 @@ $hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-$gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
+$gwsubnet= New-AzVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
   -AddressPrefix 10.2.255.0/26
 
@@ -160,7 +163,7 @@ $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-New-AzureRmVirtualNetwork `
+New-AzVirtualNetwork `
   -Name myHSM-vnet `
   -ResourceGroupName myRG `
   -Location westus `
@@ -176,7 +179,7 @@ Depois de todos os pré-requisitos são cumpridos, execute o seguinte comando pa
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
+New-AzResourceGroupDeployment -ResourceGroupName myRG `
      -TemplateFile .\Deploy-2HSM-toVNET-Template.json `
      -TemplateParameterFile .\Deploy-2HSM-toVNET-Params.json `
      -Name HSMdeploy -Verbose
@@ -195,10 +198,10 @@ Para verificar se os dispositivos aprovisionados e ver os atributos do dispositi
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG"
 $resourceName = "HSM1"  
-Get-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+Get-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
 
 ```
 
@@ -218,7 +221,7 @@ Uma vez iniciada sessão na VM do Linux pode iniciar sessão para o HSM com o en
 
 ```powershell
 
-(Get-AzureRmResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
+(Get-AzResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
 
 ```
 Quando tiver o endereço IP, execute o seguinte comando:
@@ -262,10 +265,10 @@ Se tiver concluído recursos neste grupo de recursos, pode removê-lo tudo com o
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG" 
 $resourceName = "HSMdeploy"  
-Remove-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
+Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
 
 ```
 
@@ -273,8 +276,8 @@ Remove-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourc
 
 Depois de concluir os passos do tutorial, recursos de HSM dedicados são aprovisionado e está disponível na sua rede virtual. Agora, está numa posição para complementar esta implementação com mais recursos, conforme exigido pela sua arquitetura de implementação preferenciais. Para obter mais informações em ajudar a planear a implementação, consulte os documentos de conceitos. Recomenda-se um design com dois HSMs numa região primária endereçamento disponibilidade ao nível do rack e dois HSMs numa região secundária, disponibilidade regional de endereçamento. O ficheiro de modelo utilizado neste tutorial pode ser facilmente utilizado como base para uma implementação de HSM dois, mas tem de ter seus parâmetros modificados para satisfazer os seus requisitos.
 
-* [Elevada disponibilidade](high-availability.md)
+* [Elevada Disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Redes](networking.md)
 * [Monitorização](monitoring.md)
-* [Capacidade de suporte](supportability.md)
+* [Suportabilidade](supportability.md)

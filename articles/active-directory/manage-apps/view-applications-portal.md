@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec039beecdcfa6dacd19e5910209c58f13543fce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199889"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918404"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Ver as aplicações do seu inquilino do Azure Active Directory
 
@@ -39,23 +39,19 @@ As aplicações do inquilino do Azure AD são visíveis na secção **Aplicaçõ
 
 Para localizar as aplicações do inquilino:
 
-1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação do lado esquerdo, clique em **Azure Active Directory**. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**. 
 
-2. No painel Azure Active Directory, clique em **Aplicações empresariais**. 
+2. Na **do Azure Active Directory** painel, selecione **aplicações empresariais**. 
 
-3. No menu pendente **Tipo de Aplicação**, selecione **Todas as Aplicações** e clique em **Aplicar**. É apresentada uma amostra aleatória das aplicações do seu inquilino.
-
-    ![Aplicações empresariais](media/view-applications-portal/open-enterprise-apps.png)
+3. Do **tipo de aplicação** menu pendente, selecione **todos os aplicativos**e escolha **aplicar**. É apresentada uma amostra aleatória das aplicações do seu inquilino.
    
-4. Para ver mais aplicações, clique em **Mostrar mais**, na parte inferior da lista. Dependendo do número de aplicações no inquilino, poderá ser mais fácil [procurar uma aplicação específica](#search-for-a-tenant-application) em vez de percorrer a lista.
+4. Para ver mais aplicações, selecione **carregar mais** na parte inferior da lista. Dependendo do número de aplicações no inquilino, poderá ser mais fácil [procurar uma aplicação específica](#search-for-a-tenant-application) em vez de percorrer a lista.
 
 ## <a name="select-viewing-options"></a>Selecionar as opções de visualização
 
-Nesta secção, selecione as opções segundo o que está à procura.
+Selecione as opções de acordo com o que está procurando.
 
-1. Pode ver as aplicações de acordo com opções para **Tipo de Aplicação**, **Estado da Aplicação** e **Visibilidade da aplicação**. 
-
-    ![Opções para procurar](media/view-applications-portal/search-options.png)
+1. Pode ver as aplicações por **tipo de aplicação**, **estado da aplicação**, e **visibilidade de aplicativo**. 
 
 2. Em **Tipo de Aplicação**, escolha uma das seguintes opções:
 
@@ -65,32 +61,32 @@ Nesta secção, selecione as opções segundo o que está à procura.
 
 3. Em **Estado da Aplicação**, escolha **Qualquer**, **Desativada** ou **Ativada**. A opção **Qualquer** inclui aplicações desativadas e ativadas.
 
-4. Em **Visibilidade da Aplicação**, escolha **Qualquer** ou **Oculta**. A opção **Oculta** mostra as aplicações que estão no inquilino, mas que não estão visíveis para os utilizadores.
+4. Em **Visibilidade da Aplicação**, escolha **Qualquer** ou **Oculta**. O **Hidden** opção mostra aplicações que estiverem no inquilino, mas não são visíveis para os utilizadores.
 
-5. Depois de escolheres as opções que pretende, clique em **Aplicar**.
+5. Depois de escolher as opções que pretende, selecione **aplicar**.
  
 
 ## <a name="search-for-a-tenant-application"></a>Procurar uma aplicação do inquilino
 
-Para procurar uma aplicação específica:
+Para procurar um determinado aplicativo:
 
-1. No menu **Tipo de Aplicação**, selecione **Todas as Aplicações** e clique em **Aplicar**.
+1. Na **tipo de aplicação** menu, selecione **todos os aplicativos**e escolha **aplicar**.
 
-2. Introduza o nome da aplicação que quer encontrar. Se a aplicação tiver sido adicionada ao inquilino do Azure AD, aparecerá nos resultados da pesquisa. Este exemplo mostra que o GitHub não foi adicionado às aplicações do inquilino.
+2. Introduza o nome da aplicação que quer encontrar. Se a aplicação foi adicionada ao seu inquilino do Azure AD, ele é apresentada nos resultados da pesquisa. Este exemplo mostra que o GitHub não tenha sido adicionado para as aplicações de inquilino.
 
     ![Procurar uma aplicação](media/view-applications-portal/search-for-tenant-application.png)
 
-3. Experimente introduzir as primeiras letras do nome de uma aplicação.  Este exemplo mostra todas as aplicações que começam com **Sales**.
+3. Experimente introduzir as primeiras letras do nome de uma aplicação. Este exemplo mostra todas as aplicações que começam com **Sales**.
 
     ![Procurar com prefixo](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a ver as aplicações que estão no seu inquilino do Azure AD e a filtrar a lista de aplicações por tipo de aplicação, estado e visibilidade. Também aprendeu a procurar aplicações específicas.
+Neste início rápido, aprendeu como ver as aplicações no inquilino do Azure AD. Aprendeu a filtrar a lista de aplicações ao tipo de aplicação, o estado e visibilidade. Também aprendeu a procurar aplicações específicas.
 
-Agora que já localizou a aplicação de que estava à procura, pode avançar para [Add more applications to your tenant](add-application-portal.md) (Adicionar mais aplicações ao inquilino) ou clique na aplicação para ver ou editar propriedades e opções de configuração. Por exemplo, pode configurar o início de sessão único. 
+Agora que descobriu que a aplicação foram à procura, pode continuar a [adicionar mais aplicações com o seu inquilino](add-application-portal.md). Em alternativa, pode selecionar a aplicação para ver ou editar as propriedades e opções de configuração. Por exemplo, pode configurar o início de sessão único. 
 
 > [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-portal.md) (Configurar o início de sessão único)
+> [Configurar o início de sessão único](configure-single-sign-on-portal.md)
 
 

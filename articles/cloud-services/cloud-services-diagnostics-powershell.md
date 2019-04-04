@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4c4b5491bba072ba22ec20e164b7315691877a22
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b20fa7a1f43369cde85c2535637eec7ceb1d3c29
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055768"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918336"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Ativar diagnósticos nos serviços de Cloud do Azure com o PowerShell
 Pode recolher dados de diagnóstico, como registos de aplicações, contadores de desempenho etc. do serviço Cloud com a extensão de diagnóstico do Azure. Este artigo descreve como ativar a extensão de diagnóstico do Azure para um serviço em nuvem com o PowerShell.  Ver [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para os pré-requisitos necessários para este artigo.
@@ -136,5 +136,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Próximos Passos
 * Para obter orientações adicionais sobre como utilizar o diagnóstico do Azure e outras técnicas para solucionar problemas, consulte [ativar diagnósticos nos serviços Cloud do Azure e máquinas virtuais](cloud-services-dotnet-diagnostics.md).
-* O [esquema de configuração de diagnósticos](https://msdn.microsoft.com/library/azure/dn782207.aspx) explica as várias opções de configurações de xml para a extensão de diagnóstico.
+* O [esquema de configuração de diagnósticos](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot2) explica as várias opções de configurações de xml para a extensão de diagnóstico.
 * Para saber como ativar a extensão de diagnóstico para máquinas virtuais, veja [criar uma Máquina Virtual do Windows com monitorização e diagnóstico com o modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md)

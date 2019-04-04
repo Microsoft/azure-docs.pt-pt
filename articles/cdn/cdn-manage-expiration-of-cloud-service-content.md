@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540278"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917962"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerir a expiração do conteúdo da web na CDN do Azure
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ O exemplo de ficheiro de configuração XML seguinte mostra como definir o `<cli
 Para utilizar o **cacheControlMaxAge** atributo, tem de definir o valor da **cacheControlMode** atributo para `UseMaxAge`. Esta definição causou o cabeçalho de HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, para ser adicionado à resposta. O formato do valor de intervalo de tempo para o **cacheControlMaxAge** atributo é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é utilizado como o valor do `Cache-Control` `max-age` diretiva. Para obter mais informações sobre o `<clientCache>` elemento, consulte [Cache do cliente <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Definir cabeçalhos Cache-Control através de programação
-Para aplicativos ASP.NET, controla a CDN comportamento de cache por meio de programação, definindo a **HttpResponse.Cache** propriedade da .NET API. Para obter informações sobre o **HttpResponse.Cache** propriedade, veja [propriedade HttpResponse.Cache](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [HttpCachePolicy classe](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Para aplicativos ASP.NET, controla a CDN comportamento de cache por meio de programação, definindo a **HttpResponse.Cache** propriedade da .NET API. Para obter informações sobre o **HttpResponse.Cache** propriedade, veja [propriedade HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) e [HttpCachePolicy classe](/dotnet/api/system.web.httpcachepolicy).  
 
 Para por meio de programação aplicação conteúdo em cache no ASP.NET, siga estes passos:
    1. Certifique-se de que o conteúdo está marcado como em cache através da definição `HttpCacheability` para `Public`. 
@@ -132,6 +132,6 @@ Pode verificar facilmente as definições de TTL de seu conteúdo da web. Com o 
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Leia os detalhes sobre o **clientCache** elemento](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Leia a documentação para o **HttpResponse.Cache** propriedade](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Leia a documentação para o **HttpCachePolicy classe**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Leia a documentação para o **HttpResponse.Cache** propriedade](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Leia a documentação para o **HttpCachePolicy classe**](/dotnet/api/system.web.httpcachepolicy)  
 * [Saiba mais sobre conceitos de colocação em cache](cdn-how-caching-works.md)

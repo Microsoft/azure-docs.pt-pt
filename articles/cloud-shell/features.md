@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: damaerte
-ms.openlocfilehash: 7e2ead6d5fc13b0d7517258d75148d50a3f1bc62
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fe04c5450ecd2c21affa5cbb89c627bc30cf7b6f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246360"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903459"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Azure Cloud Shell
 
@@ -60,7 +60,7 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 |Categoria   |Name   |
 |---|---|
 |Ferramentas do Linux            |Bash<br> zsh<br> sh<br> tmux<br> aprofundar<br>               |
-|Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |Código (editor de Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controlo de origem         |git                    |
 |Ferramentas de compilação            |Tornar<br> Maven<br> npm<br> pip         |
@@ -82,5 +82,5 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 ## <a name="next-steps"></a>Passos Seguintes
 [Guia de introdução do Cloud Shell de bash](quickstart.md) <br>
 [PowerShell no guia de introdução do Cloud Shell](quickstart-powershell.md) <br>
-[Saiba mais sobre a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

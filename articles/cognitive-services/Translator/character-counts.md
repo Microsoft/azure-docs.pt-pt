@@ -3,19 +3,19 @@ title: Caráter contagens - API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Como a API de texto do Translator contabiliza os carateres.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2164070c8f0efe2898e3780cac30a80c9f1ca986
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874418"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917418"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Como a API de texto do Translator contabiliza os carateres
 

@@ -1,6 +1,6 @@
 ---
 title: Tamanhos de máquinas virtuais suportados no Azure Stack | Documentos da Microsoft
-description: Referência para os tamanhos VM suportadas no Azure Stack.
+description: Referência para os tamanhos de Máquina Virtual suportadas no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176264"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886476"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamanhos de máquinas virtuais suportados no Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Este artigo lista os tamanhos de máquina virtual (VM) que estão disponíveis no Azure Stack.
+Este artigo lista os tamanhos de máquinas virtuais que estão disponíveis no Azure Stack.
 
-O disco IOPS (entrada/saída operações por segundo) no Azure Stack é uma função do tamanho da VM, em vez do tipo de disco. Isso significa que, para uma série de Standard_Fs VM, independentemente de se escolher o SSD ou HDD para o tipo de disco, o limite de IOPS para um disco de dados adicionais único é 2300 IOPS. Os limites IOPS impostos é um limite (máximo possível) para impedir que os vizinhos ruidosos. Não é uma garantia de IOPS que obterá um tamanho de VM específicos.
+O disco IOPS (entrada/saída operações por segundo) no Azure Stack é uma função do tamanho de máquina virtual (VM) em vez do tipo de disco. Isso significa que, para uma série de Standard_Fs VM, independentemente de se escolher o SSD ou HDD para o tipo de disco, o limite de IOPS para um disco de dados adicionais único é 2300 IOPS. Os limites IOPS impostos é um limite (máximo possível) para impedir que os vizinhos ruidosos. Não é uma garantia de IOPS que obterá um tamanho de VM específicos.
 
-## <a name="general-purpose"></a>Fins gerais
+## <a name="virtual-machine-general-purpose"></a>Fins gerais da máquina virtual
 
 Tamanhos de VM para fins gerais oferecem um rácio de CPU / memória equilibrado. São utilizados para teste e desenvolvimento, pequenas a médias bases de dados e baixa para servidores web com tráfego médio. Cada disco de dados é 2300 IOPS para tamanhos de VM premium, exceto para a série de básico A. Para A básica, o tamanho do disco de dados é de 500 IOPS.
 

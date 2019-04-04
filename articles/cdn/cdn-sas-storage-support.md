@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170399"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918557"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -86,10 +86,11 @@ Esta opção só está disponível para **CDN do Azure Premium da Verizon** perf
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL Rewrite regra - à esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL Rewrite regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![regra reescrita de URLs de CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Depois da nova regra é ativada, qualquer pessoa pode aceder a ficheiros no contentor especificado no ponto final da CDN, independentemente de se estiver usando um token SAS no URL. Este é o formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Depois da nova regra é ativada, qualquer pessoa pode aceder a ficheiros no contentor especificado no ponto final da CDN, independentemente de se estiver usando um token SAS no URL. Este é o formato:
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por exemplo:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -124,7 +125,7 @@ Para utilizar a autenticação de token de segurança de CDN do Azure, tem de te
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL Rewrite regra - à esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL Rewrite regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![regra reescrita de URLs de CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Se renovar a SAS, certifique-se de que atualizar a regra de reescrita de URLs com o novo token SAS. 
@@ -137,7 +138,7 @@ Como parâmetros SAS não são visíveis para a CDN do Azure, a CDN do Azure nã
 | --- | --- |
 | Iniciar | O tempo que pode começar a CDN do Azure para aceder ao ficheiro de Blobs. Devido a relógio skew (quando é recebido um sinal de relógio em momentos diferentes para diferentes componentes), escolha uma hora 15 minutos anteriormente, se pretender que o recurso estejam disponíveis imediatamente. |
 | Terminar | O tempo após o qual da CDN do Azure já não pode aceder ao ficheiro de Blobs. Anteriormente ficheiros em cache no CDN do Azure ainda estão acessíveis. Para controlar o tempo de expiração de ficheiros, defina a hora de expiração adequado no token de segurança de CDN do Azure ou remover o recurso. |
-| Endereços IP permitidos | Opcional. Se estiver a utilizar **CDN do Azure da Verizon**, pode definir este parâmetro para os intervalos definidos na [CDN do Azure da Verizon Edge intervalos de IP servidor](https://msdn.microsoft.com/library/mt757330.aspx). Se estiver a utilizar **CDN do Azure da Akamai**, não é possível definir o parâmetro de intervalos IP, porque os endereços IP não são estáticos.|
+| Endereços IP permitidos | Opcional. Se estiver a utilizar **CDN do Azure da Verizon**, pode definir este parâmetro para os intervalos definidos na [CDN do Azure da Verizon Edge intervalos de IP servidor](/azure/cdn/cdn-pop-list-api). Se estiver a utilizar **CDN do Azure da Akamai**, não é possível definir o parâmetro de intervalos IP, porque os endereços IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para um pedido efetuado com a conta SAS. Recomenda-se a definição de HTTPS.|
 
 ## <a name="next-steps"></a>Passos Seguintes

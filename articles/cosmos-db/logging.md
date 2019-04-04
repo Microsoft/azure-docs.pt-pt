@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259776"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904870"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
 
 Depois de começar a utilizar um ou mais bases de dados do Azure Cosmos DB, pode querer monitorizar como e quando as suas bases de dados são acedidos. Este artigo fornece uma descrição geral dos registos que estão disponíveis na plataforma do Azure. Saiba como ativar o registo de diagnóstico para efeitos de enviar registos para de monitorização [armazenamento do Azure](https://azure.microsoft.com/services/storage/), como transmitir registos para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e como exportar registos para [deregistosdoAzureMonitor](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Registos disponíveis no Azure
 
@@ -132,7 +135,7 @@ Se já tiver instalado o Azure PowerShell e não souber a versão do tipo de con
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. O Azure PowerShell obtém todas as subscrições associadas com esta conta e, por predefinição, utiliza a primeira.
@@ -140,13 +143,13 @@ Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azur
 Se tiver mais de uma subscrição, poderá ter de especificar a subscrição específica que foi utilizada para criar o seu Cofre de chaves do Azure. Para ver as subscrições da sua conta, escreva o seguinte comando:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Em seguida, para especificar a subscrição que está associada à conta do Azure Cosmos DB que está fazendo logon, escreva o seguinte comando:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Apesar de poder utilizar uma conta de armazenamento existente para os seus regis
 Para facilitar ainda mais a gestão, neste tutorial, utilizamos o mesmo grupo de recursos como aquela que contém a base de dados do Azure Cosmos DB. Substitua os valores para o **ContosoResourceGroup**, **contosocosmosdblogs**, e **e.u.a. Centro-Norte** parâmetros, conforme aplicável:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Defina o nome da conta do Azure Cosmos DB como uma variável chamada **conta**, onde **ResourceName** é o nome da conta do Azure Cosmos DB.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Ativar registo
-Para ativar o registo para o Azure Cosmos DB, utilize o `Set-AzureRmDiagnosticSetting` cmdlet com variáveis para a nova conta de armazenamento, conta do Azure Cosmos DB e a categoria para ativar o registo. Execute o seguinte comando e defina a **-ativado** sinalizador para **$true**:
+Para ativar o registo para o Azure Cosmos DB, utilize o `Set-AzDiagnosticSetting` cmdlet com variáveis para a nova conta de armazenamento, conta do Azure Cosmos DB e a categoria para ativar o registo. Execute o seguinte comando e defina a **-ativado** sinalizador para **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 A saída do comando deve assemelhar-se o exemplo a seguir:
@@ -221,7 +224,7 @@ A saída do comando confirma que o registo está agora ativado para a base de da
 Opcionalmente, também pode definir a política de retenção para os seus registos, que os registos mais antigos são automaticamente eliminados. Por exemplo, definir a política de retenção com o **- RetentionEnabled** sinalizador definido como **$true**. Definir o **- RetentionInDays** parâmetro para **90** para que os registos com mais de 90 dias são eliminados automaticamente.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Primeiro, crie uma variável para o nome do contentor. A variável é utilizada 
 Para listar todos os blobs neste contentor, escreva:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 A saída do comando deve assemelhar-se o exemplo a seguir:
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Em seguida, obter uma lista de todos os blobs:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Encaminhe esta lista através do `Get-AzureStorageBlobContent` comando para transferir os blobs para a pasta de destino:
+Encaminhe esta lista através do `Get-AzStorageBlobContent` comando para transferir os blobs para a pasta de destino:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Para transferir seletivamente blobs, utilize carateres universais. Por exemplo:
 * Se tiver várias bases de dados e pretender transferir registos para apenas uma base de dados com o nome **CONTOSOCOSMOSDB3**, utilize o comando:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Se tiver vários grupos de recursos e pretender transferir registos para apenas um grupo de recursos, utilize o comando `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Se pretende transferir todos os registos para o mês de Julho de 2017, utilize o comando `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 Também pode executar os seguintes comandos:
 
-* Para consultar o estado das definições de diagnóstico para o seu recurso de base de dados, utilize o comando `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Para desativar o registo do **DataPlaneRequests** categoria para o seu recurso de conta de base de dados, utilize o comando `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Para consultar o estado das definições de diagnóstico para o seu recurso de base de dados, utilize o comando `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Para desativar o registo do **DataPlaneRequests** categoria para o seu recurso de conta de base de dados, utilize o comando `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 Os blobs que são devolvidos em cada uma dessas consultas são armazenados como texto e formatados como um blob JSON, conforme mostrado no seguinte código:
@@ -437,11 +440,11 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 
 | Campo de armazenamento do Azure ou a propriedade | Propriedade de registos de Monitor do Azure | Descrição |
 | --- | --- | --- |
-| **tempo** | **TimeGenerated** | A data e hora (UTC) em que ocorreu a operação. |
+| **hora** | **TimeGenerated** | A data e hora (UTC) em que ocorreu a operação. |
 | **resourceId** | **Recurso** | A conta do Azure Cosmos DB para o qual os registos estão ativados.|
-| **category** | **Categoria** | Para os registos do Azure Cosmos DB, **DataPlaneRequests** é o valor só estão disponível. |
+| **categoria** | **Categoria** | Para os registos do Azure Cosmos DB, **DataPlaneRequests** é o valor só estão disponível. |
 | **operationName** | **OperationName** | Nome da operação. Este valor pode ser qualquer uma das seguintes operações: Criar, atualizar, ler, ReadFeed, eliminação, substituição, executar, SqlQuery, consulta, JSQuery, Head, HeadFeed ou Upsert.   |
-| **Propriedades** | n/d | O conteúdo deste campo é descrito nas linhas que se seguem. |
+| **propriedades** | n/d | O conteúdo deste campo é descrito nas linhas que se seguem. |
 | **activityId** | **activityId_g** | O GUID exclusivo para a operação com sessão iniciada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente de utilizador do cliente que está a efetuar o pedido. O formato é {nome do agente de utilizador} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recurso: Base de dados, contentores, documentos, anexo, utilizador, permissão, StoredProcedure, acionador, UserDefinedFunction ou oferta. |
@@ -450,7 +453,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |
 | **requestCharge** | **requestCharge_s** | O número de RUs que são utilizados pela operação |
 | **collectionRid** | **collectionId_s** | O ID exclusivo para a coleção.|
-| **Duração** | **duration_s** | A duração da operação, em tiques. |
+| **duração** | **duration_s** | A duração da operação, em tiques. |
 | **requestLength** | **requestLength_s** | O comprimento do pedido, em bytes. |
 | **responseLength** | **responseLength_s** | O comprimento da resposta, em bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor é não vazia quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para autenticação. O valor aponta para o ID de recurso do utilizador. |
@@ -459,7 +462,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 
 - Para compreender como ativar o registo e também as categorias de métricas e registos que são suportadas por vários serviços do Azure, leia ambos os [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure os registos de diagnóstico ](../azure-monitor/platform/diagnostic-logs-overview.md) artigos.
 - Leia os seguintes artigos para saber mais sobre os hubs de eventos:
-   - [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+   - [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Leia [transferir registos de diagnóstico e métricas do armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Leia [pesquisas de registos de compreender nos registos do Azure Monitor](../log-analytics/log-analytics-log-search-new.md).

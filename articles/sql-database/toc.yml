@@ -233,7 +233,7 @@ items:
         href: sql-database-data-discovery-and-classification.md
       - name: Avaliação de vulnerabilidades
         href: sql-vulnerability-assessment.md
-      - name: Deteção de ameaças
+      - name: Proteção Avançada Contra Ameaças
         href: sql-database-threat-detection-overview.md
     - name: Regras de firewall de IP ao nível do servidor
       items:
@@ -729,9 +729,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 43ed2064f7bba7799bdcbc275e255ed551d7c4a3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: c5499ed8f5fc5de742ff75c0692221f54a56b1a0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540572"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894564"

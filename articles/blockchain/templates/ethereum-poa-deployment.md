@@ -10,14 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549073"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905924"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 [Esta solução](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) foi projetado para facilitar a implantação, configuração e regular a uma rede de Ethereum com vários membros consortium prova da autoridade com o mínimo de conhecimento do Azure e Ethereum.
@@ -75,7 +77,7 @@ Muitas vezes, um membro de consórcio deve participar de governação de rede, m
 
 5.  **Membro de consórcio** utiliza a chave privada para iniciar um pedido de aceitar os nós de validador **operador** implantou para participar em seu nome
 
-### <a name="azure-monitor"></a>Monitor do Azure
+### <a name="azure-monitor"></a>Azure Monitor
 
 Esta solução também vem com o Azure Monitor para controlar as estatísticas de nó e de rede. Para os desenvolvedores de aplicativos, isso fornece visibilidade sobre o blockchain subjacente para controlar as estatísticas de geração de bloco. Operadores de rede podem utilizar o Azure Monitor para rapidamente detetar e prevenir falhas de rede por meio de estatísticas de infraestrutura e consultáveis registos. Para obter mais informações, consulte [monitorização de serviços](#service-monitoring).
 
@@ -200,7 +202,7 @@ Depois de uma subscrição está protegida, aceda ao portal do Azure. Selecione 
 
 A secção seguinte explica como configurar requisitos de espaço do primeiro membro na rede. O fluxo de implementação está dividido em cinco etapas: Noções básicas, regiões de implementação, o tamanho de rede e desempenho, Ethereum definições, Azure Monitor.
 
-#### <a name="basics"></a>Noções Básicas
+#### <a name="basics"></a>Noções básicas
 
 Sob **Noções básicas**, especifique os valores de parâmetros padrão para qualquer implementação, tais como a subscrição, grupo de recursos e propriedades de máquinas virtuais básico.
 
@@ -208,15 +210,15 @@ Segue-se uma descrição detalhada de cada parâmetro:
 
 Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
 ---|---|---|---
-Criar uma nova rede ou de rede existente de associação?|Crie uma nova rede ou ingresse numa rede de consórcio já existente|Criar novo de junção existentes|Criar Novo
-Endereço de e-mail (opcional)|Receberá uma notificação por e-mail quando a implementação é concluída com informações sobre a implementação.|Endereço de e-mail válido|N/D
-Nome de utilizador VM|Nome de utilizador de administrador de cada VM implementada (apenas carateres alfanuméricos)|1 e 64 carateres|N/D
+Criar uma nova rede ou de rede existente de associação?|Crie uma nova rede ou ingresse numa rede de consórcio já existente|Criar novo de junção existentes|Criar Nova
+Endereço de e-mail (opcional)|Receberá uma notificação por e-mail quando a implementação é concluída com informações sobre a implementação.|Endereço de e-mail válido|ND
+Nome de utilizador VM|Nome de utilizador de administrador de cada VM implementada (apenas carateres alfanuméricos)|1 e 64 carateres|ND
 Tipo de autenticação|O método para autenticar para a máquina virtual.|Chave pública de palavra-passe ou SSH|Palavra-passe
-Palavra-passe (tipo de autenticação = a palavra-passe)|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas.  A palavra-passe tem de conter 3 dos seguintes procedimentos: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial. Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 e 72 carateres|N/D
-Chave SSH (tipo de autenticação = a chave pública)|A chave secure shell utilizada para início de sessão remoto.||N/D
-Subscrição|A subscrição ao qual pretende implementar a rede de consórcio||N/D
-Grupo de recursos|O grupo de recursos ao qual pretende implementar a rede de consórcio.||N/D
-Localização|A região do Azure para o grupo de recursos.||N/D
+Palavra-passe (tipo de autenticação = a palavra-passe)|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas.  A palavra-passe tem de conter 3 dos seguintes procedimentos: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial. Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 e 72 carateres|ND
+Chave SSH (tipo de autenticação = a chave pública)|A chave secure shell utilizada para início de sessão remoto.||ND
+Subscrição|A subscrição ao qual pretende implementar a rede de consórcio||ND
+Grupo de Recursos|O grupo de recursos ao qual pretende implementar a rede de consórcio.||ND
+Localização|A região do Azure para o grupo de recursos.||ND
 
 Uma implementação de exemplo é mostrada abaixo: ![painel básico](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -229,11 +231,11 @@ Segue-se uma descrição detalhada de cada parâmetro:
   Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
   ---|---|---|---
   Número de regiões|Número de regiões para implementar a rede de consórcio|1, 2, 3, 4, 5|1
-  Primeira região|Primeira região para implementar a rede de consórcio|Permitido todas as regiões do Azure|N/D
-  Segunda região|Segunda região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 2)|Permitido todas as regiões do Azure|N/D
-  Terceira região|Terceira região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 3)|Permitido todas as regiões do Azure|N/D
-  Região quarto|Quarto região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 4)|Permitido todas as regiões do Azure|N/D
-  Quinto região|Quinto região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 5)|Permitido todas as regiões do Azure|N/D
+  Primeira região|Primeira região para implementar a rede de consórcio|Permitido todas as regiões do Azure|ND
+  Segunda região|Segunda região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 2)|Permitido todas as regiões do Azure|ND
+  Terceira região|Terceira região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 3)|Permitido todas as regiões do Azure|ND
+  Região quarto|Quarto região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 4)|Permitido todas as regiões do Azure|ND
+  Quinto região|Quinto região para implementar a rede de consórcio (visível apenas quando o número de regiões está selecionado como 5)|Permitido todas as regiões do Azure|ND
 
 Uma implementação de exemplo é mostrada abaixo: ![regiões de implementação](./media/ethereum-poa-deployment/deployment-regions.png)
 
@@ -250,7 +252,7 @@ Segue-se uma descrição detalhada de cada parâmetro:
   Desempenho de armazenamento do nó de validador|O tipo de disco gerido de segurança todos os nós de validador implementado.|Standard SSD ou Premium|SSD Standard
   Tamanho de máquina virtual do nó de validador|O tamanho de máquina virtual utilizado para nós de validador.|Padrão A, Standard D, Standard D-v2, Standard F série, DS padrão e Standard FS|Standard D1 v2
 
-[Os detalhes dos preços de armazenamento](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 [Detalhes dos preços de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
@@ -272,14 +274,14 @@ Segue-se uma descrição detalhada de cada parâmetro:
 
   Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
   ---|---|---|---
-ID de membro Consortium|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. No caso de uma rede privada, ID de membro deve ser exclusivo em organizações diferentes na mesma rede.  Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões. Tome nota do valor deste parâmetro, uma vez que precisará para partilhá-lo com outros membros de junção para garantir que não existe nenhum colisão.|0-255|N/D
+ID de membro Consortium|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. No caso de uma rede privada, ID de membro deve ser exclusivo em organizações diferentes na mesma rede.  Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões. Tome nota do valor deste parâmetro, uma vez que precisará para partilhá-lo com outros membros de junção para garantir que não existe nenhum colisão.|0-255|ND
 ID da rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública.|5 - 999,999,999|10101010
-Endereço de Ethereum de administrador|Endereço da conta Ethereum que é utilizado para participar no PoA governação.  Recomendamos que utilize MetaMask para gerar um endereço de Ethereum.|42 carateres alfanuméricos, começando com 0 x|N/D
+Endereço de Ethereum de administrador|Endereço da conta Ethereum que é utilizado para participar no PoA governação.  Recomendamos que utilize MetaMask para gerar um endereço de Ethereum.|42 carateres alfanuméricos, começando com 0 x|ND
 Opções Avançadas|Opções avançadas para Ethereum definições|Ativar ou desativar|Desativar
-IP público (as opções avançadas de = Enable)|Implementa a rede por trás de um Gateway de VNet e remove o acesso de peering. Se esta opção estiver selecionada, todos os membros tem de utilizar um Gateway de VNet para a ligação para ser compatível.|VNet privada de IP público|IP Público
+IP público (as opções avançadas de = Enable)|Implementa a rede por trás de um Gateway de VNet e remove o acesso de peering. Se esta opção estiver selecionada, todos os membros tem de utilizar um Gateway de VNet para a ligação para ser compatível.|VNet privada de IP público|IP público
 Bloquear o limite de gás (opções avançadas = Enable)|O limite de gás bloco inicial da rede|Qualquer numérico|50,000,00
 Período de Reseal de bloqueio (seg)|A frequência com que blocos vazios serão criados quando não há nenhuma transação na rede. Uma freqüência mais alta terá finality mais rápida, mas os custos de armazenamento maior.|Qualquer numérico|15
-Contrato de permissão de transação (opções avançadas = Enable)|Bytecode para o contrato de concessão de permissões de transação. Restringe a implementação de contrato inteligente e execução para uma lista de permitidos de contas de Ethereum.|Contrato bytecode|N/D
+Contrato de permissão de transação (opções avançadas = Enable)|Bytecode para o contrato de concessão de permissões de transação. Restringe a implementação de contrato inteligente e execução para uma lista de permitidos de contas de Ethereum.|Contrato bytecode|ND
 
 Uma implementação de exemplo é mostrada abaixo: ![ethereum definições](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -293,9 +295,9 @@ O painel de monitorização permite-lhe configurar um recurso de registos do Azu
   ---|---|---|---
 Monitorização|Opção para ativar a monitorização|Ativar ou desativar|Ativar
 Ligue-se aos registos existentes do Azure Monitor|Crie uma nova instância de registos do Azure Monitor ou ingresse numa instância existente|Criar nova ou associar existente|Criar novo
-Monitorizar a localização (ligar ao registos existentes do Azure Monitor = criar novos)|A região onde o novo Azure Monitor regista a instância será implementada|Regiões de registos de todos os Azure Monitor|N/D
-ID de área de trabalho de análise de registo existente (Connect existente do Azure Monitor registos = Junte-se existente)|Instância de registos de ID de área de trabalho do Monitor do Azure existente||N/D
-Chave primária do existente log analytics (ligar aos registos existentes do Azure Monitor = Junte-se existente)|A chave primária utilizada para ligar à instância de registos existente do Azure Monitor||N/D
+Monitorizar a localização (ligar ao registos existentes do Azure Monitor = criar novos)|A região onde o novo Azure Monitor regista a instância será implementada|Regiões de registos de todos os Azure Monitor|ND
+ID de área de trabalho de análise de registo existente (Connect existente do Azure Monitor registos = Junte-se existente)|Instância de registos de ID de área de trabalho do Monitor do Azure existente||ND
+Chave primária do existente log analytics (ligar aos registos existentes do Azure Monitor = Junte-se existente)|A chave primária utilizada para ligar à instância de registos existente do Azure Monitor||ND
 
 
 Uma implementação de exemplo é mostrada abaixo: ![monitor do azure](./media/ethereum-poa-deployment/azure-monitor.png)
@@ -395,7 +397,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -405,13 +407,13 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### <a name="service-monitoring"></a>Monitorização de serviços
+### <a name="service-monitoring"></a>Monitorização do serviço
 
 Pode localizar o seu portal do Azure Monitor ao seguir a ligação no e-mail de implementação ou ao localizar o parâmetro na saída da implementação \[OMS\_PORTAL\_URL\].
 

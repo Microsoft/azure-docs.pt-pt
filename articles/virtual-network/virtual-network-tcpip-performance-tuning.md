@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852014"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905108"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
 
@@ -128,7 +128,7 @@ A recomendação atual para o Azure é definir a afixação de MSS de TCP para 1
 
 #### <a name="latency-and-round-trip-time"></a>Tempo de latência e de ida e volta
 
-Latência de rede é regida pela velocidade da luz através de uma rede óptica de fibra. A realidade é que o débito de rede do TCP é também efetivamente governados (práticos valores máximos) devido do tempo de ida e volta (RTT) entre dois dispositivos de rede.
+Latência de rede é regida pela velocidade da luz através de uma rede óptica de fibra. A realidade é que débito de rede do TCP é também efetivamente governados (práticos máximos) devido a tempo de ida e volta (RTT) entre dois dispositivos de rede.
 
 | | | | |
 |-|-|-|-|
@@ -343,7 +343,7 @@ Pode encontrar informações adicionais abaixo:
 
 - [Resolução de problemas de desempenho de rede do Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
-- [How to validate VPN throughput to a virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet) (Como validar o débito da VPN para uma rede virtual)
+- [Como validar o débito de VPN para uma rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Detetar comportamentos TCP ineficientes
 

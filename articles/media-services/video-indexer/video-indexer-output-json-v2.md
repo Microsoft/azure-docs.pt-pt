@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650094"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892582"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
 
-Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, ocrs, rostos, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
+Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, OCRs, enfrenta, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 
 Também visualmente pode examinar informações resumidas do vídeo ao premir o **reproduzir** botão no vídeo sobre o [Video Indexer](https://www.videoindexer.ai/) Web site. Para obter mais informações, consulte [ver e editar informações de vídeo](video-indexer-view-edit.md).
 
@@ -83,7 +83,7 @@ Esta secção mostra o resumo das informações.
 |faces|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
-|audioEffects| Pode conter zero ou mais audioEffects. Para obter mais informações, consulte [audioEffects](#audioeffects).|
+|audioEffects| Pode conter zero ou mais audioEffects. Para obter mais informações, consulte [audioEffects](#audioEffects).|
 |etiquetas| Pode conter zero ou mais etiquetas. Para obter mais informações, consulte [etiquetas](#labels).|
 |marcas| Pode conter zero ou mais marcas. Para obter mais informações, consulte [marcas](#brands).|
 |Estatísticas | Para obter mais informações, consulte [estatísticas](#statistics).|
@@ -153,14 +153,14 @@ Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista da
 |sourceLanguage|Idioma de origem do vídeo (supondo que um idioma principal). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |language|O idioma de informações (traduzido do idioma de origem). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |transcrição|O [transcrição](#transcript) dimensão.|
-|OCR|O [ocr](#ocr) dimensão.|
+|OCR|O [OCR](#ocr) dimensão.|
 |palavras-chave|O [palavras-chave](#keywords) dimensão.|
 |blocos|Pode conter um ou mais [blocos](#blocks)|
 |faces|O [rostos](#faces) dimensão.|
 |etiquetas|O [etiquetas](#labels) dimensão.|
 |capturas de|O [capturas](#shots) dimensão.|
 |marcas|O [marcas](#brands) dimensão.|
-|audioEffects|O [audioEffects](#audioeffects) dimensão.|
+|audioEffects|O [audioEffects](#audioEffects) dimensão.|
 |sentimentos|O [sentimentos](#sentiments) dimensão.|
 |visualContentModeration|O [visualContentModeration](#visualcontentmoderation) dimensão.|
 |textualContentModeration|O [textualContentModeration](#textualcontentmoderation) dimensão.|
@@ -419,61 +419,85 @@ Exemplo:
   ] 
 ```
 
+#### <a name="scenes"></a>nos bastidores
+
+|Name|Descrição|
+|---|---|
+|ID|O ID da cena.|
+|instâncias|Uma lista de intervalos de tempo dessa cena (uma cena só pode ter 1 instância).|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### <a name="shots"></a>capturas de
 
 |Name|Descrição|
 |---|---|
 |ID|O ID de captura.|
-|keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
-|instâncias|Uma lista de intervalos de tempo desta captura (capturas de tem apenas 1 instância).|
+|keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Cada instância de quadro-chave tem um campo de thumbnailId, que contém a miniatura do quadro-chave ID.|
+|instâncias|Uma lista de intervalos de tempo desta captura (uma captura só pode ter 1 instância).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### <a name="brands"></a>marcas

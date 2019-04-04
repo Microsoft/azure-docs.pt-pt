@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838804"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905890"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Este é um fluxo de dados de alto nível para o resumo de passos para copiar com
 ![Descrição geral de alto nível](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. O desenvolvedor de dados cria um runtime de integração autoalojado dentro de uma fábrica de dados do Azure com um cmdlet do PowerShell. Atualmente, o portal do Azure não suporta esta funcionalidade.
-2. O desenvolvedor de dados cria um serviço ligado para um arquivo de dados no local, especificando a instância do runtime de integração autoalojado que ele deve utilizar para ligar aos arquivos de dados. Como parte da configuração de serviço ligado, o desenvolvedor de dados utiliza a aplicação do Gestor de credenciais (atualmente não suportada) para a definição de tipos de autenticação e credenciais. A aplicação do Gestor de credenciais se comunica com o arquivo de dados para testar a ligação e o runtime de integração autoalojado para guardar as credenciais.
+2. O desenvolvedor de dados cria um serviço ligado para um arquivo de dados no local, especificando a instância do runtime de integração autoalojado que ele deve utilizar para ligar aos arquivos de dados.
 3. O nó do runtime de integração autoalojado encripta as credenciais com o Windows dados DPAPI Protection Application Programming Interface () e guarda as credenciais localmente. Se vários nós forem definidos para elevada disponibilidade, as credenciais são ainda mais sincronizadas em todos os outros nós. Cada nó encripta as credenciais utilizando DPAPI e armazena-os localmente. Sincronização de credenciais é transparente para o desenvolvedor de dados e é manipulada pelo ir autoalojado.    
 4. O serviço Data Factory se comunica com o runtime de integração autoalojado para agendamento e gestão de tarefas por meio de um *canal de controlo* que utiliza uma fila compartilhada do Azure Service Bus. Quando uma tarefa de atividade tem de ser executado, Data Factory coloca em fila o pedido, juntamente com informações de credenciais (caso as credenciais já não estão armazenadas no runtime de integração autoalojado). O runtime de integração autoalojado inicia a tarefa depois da fila de consulta.
 5. O runtime de integração autoalojado copia dados de um arquivo no local para um armazenamento na cloud, ou vice versa dependendo da configuração a atividade de cópia no pipeline de dados. Para este passo, o runtime de integração autoalojado se comunica diretamente com os serviços de armazenamento baseado na nuvem, como o armazenamento de Blobs do Azure através de um canal de seguro (HTTPS).
@@ -329,7 +329,7 @@ Se encontrar erros semelhantes aos seguintes, é provável devido a uma configur
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Ativar o acesso remoto a partir de uma intranet  
-Se utilizar o PowerShell ou a aplicação do Gestor de credenciais para encriptar as credenciais de outro computador (na rede) que não seja em que o runtime de integração autoalojado é instalado, pode ativar o **acesso remoto a partir da Intranet**opção. Se executar o PowerShell ou a aplicação do Gestor de credenciais para encriptar as credenciais no mesmo computador em que o runtime de integração autoalojado é instalado, não é possível ativar **acesso remoto a partir da Intranet**.
+Se utilizar o PowerShell para encriptar as credenciais de outro computador (na rede) que não seja em que o runtime de integração autoalojado é instalado, pode ativar a **acesso remoto a partir da Intranet** opção. Se executar o PowerShell para encriptar as credenciais no mesmo computador em que o runtime de integração autoalojado é instalado, não é possível ativar **acesso remoto a partir da Intranet**.
 
 Deve habilitar **acesso remoto a partir da Intranet** antes de adicionar outro nó para elevada disponibilidade e escalabilidade.  
 
@@ -339,9 +339,7 @@ Se estiver a utilizar uma firewall de terceiros, é possível abrir manualmente 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> A aplicação do Gestor de credenciais ainda não está disponível para encriptar as credenciais no Azure Data Factory V2.  
+``` 
 
 Se optar por não abrir a porta 8060 na máquina de runtime de integração autoalojado, utilize mecanismos que não seja o aplicativo de credenciais de definição para configurar as credenciais do arquivo de dados. Por exemplo, pode utilizar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 

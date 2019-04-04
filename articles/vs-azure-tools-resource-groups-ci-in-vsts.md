@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456351"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894154"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure
 Para implementar um modelo do Azure, executar tarefas em várias etapas: Cópia de compilação, teste, para o Azure (também denominado "Teste") e para implementar o modelo. Existem duas formas diferentes de implementar modelos de serviços de DevOps do Azure. Ambos os métodos fornece os mesmos resultados, pelo que deve escolher aquele que melhor se adequa a seu fluxo de trabalho.
@@ -37,7 +37,7 @@ Independentemente do cenário, se tiver quaisquer artefactos necessários para a
 * Binários de aplicativo
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Modelos aninhados e Scripts de configuração
-Ao utilizar os modelos fornecidos pelo Visual Studio (ou criados com trechos de código do Visual Studio), o script do PowerShell não só prepara os artefactos, ele também parametriza o URI para os recursos para implementações diferentes. O script, em seguida, copia os artefactos para um contentor seguro no Azure, cria um token SaS para esse contentor e, em seguida, transfere a informação para a implementação do modelo. Ver [criar uma implementação de modelo](https://msdn.microsoft.com/library/azure/dn790564.aspx) para saber mais sobre modelos aninhados.  Quando utilizar as tarefas nos serviços de DevOps do Azure, tem de selecionar as tarefas adequadas para a sua implementação do modelo e se for necessário, passar valores de parâmetros do passo de preparação para a implementação do modelo.
+Ao utilizar os modelos fornecidos pelo Visual Studio (ou criados com trechos de código do Visual Studio), o script do PowerShell não só prepara os artefactos, ele também parametriza o URI para os recursos para implementações diferentes. O script, em seguida, copia os artefactos para um contentor seguro no Azure, cria um token SaS para esse contentor e, em seguida, transfere a informação para a implementação do modelo. Ver [criar uma implementação de modelo](/previous-versions/azure/reference/dn790564(v=azure.100)) para saber mais sobre modelos aninhados.  Quando utilizar as tarefas nos serviços de DevOps do Azure, tem de selecionar as tarefas adequadas para a sua implementação do modelo e se for necessário, passar valores de parâmetros do passo de preparação para a implementação do modelo.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Configurar a implementação contínua nos Pipelines do Azure
 Para chamar o script do PowerShell nos Pipelines do Azure, terá de atualizar o seu pipeline de compilação. Em resumo, as etapas são: 

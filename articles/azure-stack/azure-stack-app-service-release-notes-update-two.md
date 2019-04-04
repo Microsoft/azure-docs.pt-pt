@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98d084794accb99e0fecac85f7de861ec35bc15e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848903"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446035"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicações no notas de versão de atualização 2 do Azure Stack
 
@@ -52,6 +52,8 @@ Consulte a [documentação antes de começar a utilizar](azure-stack-app-service
 Serviço de aplicações do Azure no Azure Stack Update 2 inclui as seguintes melhorias e correções:
 
 - Atualiza para **inquilino de serviço de aplicações, o administrador, portais de funções e ferramentas de Kudu**. Consistente com a versão do SDK do Portal do Azure Stack.
+
+- As atualizações **runtime das funções do Azure** ao **v1.0.11612**.
 
 - Atualizações de serviço básico para melhorar a fiabilidade e ativar mais fácil diagnóstico dos problemas comuns de mensagens de erro.
 

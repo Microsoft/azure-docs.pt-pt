@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101878"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499782"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do MySQL
 
@@ -90,16 +90,19 @@ Como melhor prática, todos os servidores de hospedagem num SKU devem ter as mes
 
 SKUs não podem ser atribuídos a utilizadores ou grupos específicos.
 
-SKUs podem demorar até uma hora para ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU estiver totalmente criado.
+Para editar um SKU, aceda a **todos os serviços** > **MySQL adaptador** > **SKUs**. Selecione o SKU para modificar, faça as alterações necessárias e clique em **guardar** para guardar as alterações. 
 
-Para editar um SKU, aceda a **todos os serviços** > **MySQL adaptador** > **SKUs**. Selecione o SKU para modificar, faça as alterações necessárias e clique em **guardar** para guardar as alterações. Para eliminar um SKU que não é mais necessária, aceda a **todos os serviços** > **MySQL adaptador** > **SKUs**. O nome SKU com o botão direito e selecione **eliminar** eliminá-lo.
+Para eliminar um SKU que não é mais necessária, aceda a **todos os serviços** > **MySQL adaptador** > **SKUs**. O nome SKU com o botão direito e selecione **eliminar** eliminá-lo.
 
-> [!TIP]
-> Pode editar ou eliminar as quotas de fornecedor de recursos MySQL na mesma localização.
+> [!IMPORTANT]
+> Pode demorar até uma hora para novos SKUs estar disponível no portal de utilizador.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Tornar os servidores de base de dados MySQL disponíveis para os seus utilizadores
 
 Crie planos e ofertas para que os servidores de base de dados MySQL disponíveis para os utilizadores. Adicionar o serviço de Microsoft.MySqlAdapter ao plano e criar uma quota de novo. MySQL não permite a limitava o tamanho dos bancos de dados.
+
+> [!IMPORTANT]
+> Pode demorar até duas horas para novas quotas para estar disponível no portal de utilizador ou antes de uma quota alterada é imposta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

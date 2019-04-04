@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e08e6ca4f6413b475bd8a0e5ff30b74921c2f0e6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227458"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891064"
 ---
 A CLI do Azure permite-lhe criar e gerir recursos do Azure no macOS, Linux e Windows. Este artigo fornece detalhes sobre alguns dos comandos mais comuns para criar e gerir máquinas virtuais (VMs).
 
@@ -46,7 +46,7 @@ Para obter mais ajuda com os parâmetros de linha de comandos específicos e op�
 ## <a name="disks-and-images"></a>Discos e imagens
 | Tarefa | Comandos da CLI Azure |
 | --- | --- |
-| Adicionar um disco de dados a uma VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Adicionar um disco de dados a uma VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Remover um disco de dados de uma VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | Redimensionar um disco | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Tirar um instantâneo de um disco | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |

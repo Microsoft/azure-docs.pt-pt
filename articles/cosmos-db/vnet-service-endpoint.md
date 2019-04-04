@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894940"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acesso do Azure Cosmos DB a partir de redes virtuais (VNet)
 
@@ -54,6 +54,9 @@ As regras do NSG são utilizadas para limitar a conectividade de e para uma sub-
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>Pontos finais de serviço estão disponíveis para todas as VNets?
 Não, apenas o Azure Resource Manager redes virtuais podem ter o ponto final de serviço ativado. Redes virtuais clássicas não suportam os pontos finais de serviço.
+
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Pode me "Aceitar ligações dos datacenters do Azure público" quando o acesso ao ponto final de serviço está ativado para o Azure Cosmos DB?  
+Isto é necessário apenas se pretender que a sua conta do Azure Cosmos DB para ser acedida por outra parte do Azure de primeira dos serviços, como a fábrica de dados do Azure, Azure Search ou qualquer serviço que é implementado numa determinada região do Azure.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

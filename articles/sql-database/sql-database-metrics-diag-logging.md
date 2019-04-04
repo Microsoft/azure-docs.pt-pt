@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863139"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905208"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -64,14 +64,14 @@ Pode configurar bases de dados SQL do Azure e bases de dados de instância para 
 | :------------------- | ----- | ----- |
 | [Todas as métricas](#all-metrics): Contém a percentagem de DTU/CPU, limite de DTU/da CPU, físico dados lidos percentagem, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e percentagem de armazenamento do XTP. | Sim | Não |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de execução de consulta como a utilização da CPU e estatísticas de duração de consulta. | Sim | Sim |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que as suas consultas aguardado), como CPU, o registo e o bloqueio. | Sim | Sim |
-| [Erros](#errors-dataset): Contém informações sobre erros do SQL na base de dados. | Sim | Sim |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo a base de dados gasto aguardando tipos diferentes de espera. | Sim | Não |
-| [Tempos limite](#time-outs-dataset): Contém informações sobre tempos limite na base de dados. | Sim | Não |
-| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos na base de dados. | Sim | Não |
-| [Os deadlocks](#deadlocks-dataset): Contém informações sobre eventos de deadlock no banco de dados. | Sim | Não |
-| [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre as recomendações de otimização automática na base de dados. | Sim | Não |
-| [SQLInsights](#intelligent-insights-dataset): Contém informações inteligentes sobre o desempenho. Para obter mais informações, consulte [informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que as suas consultas aguardado) como, por exemplo são a CPU, o registo e o bloqueio. | Sim | Sim |
+| [Erros](#errors-dataset): Contém informações sobre erros do SQL num banco de dados. | Sim | Sim |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados gasto aguardando tipos diferentes de espera. | Sim | Não |
+| [Tempos limite](#time-outs-dataset): Contém informações sobre tempos limite num banco de dados. | Sim | Não |
+| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Sim | Não |
+| [Os deadlocks](#deadlocks-dataset): Contém informações sobre eventos de travamento num banco de dados. | Sim | Não |
+| [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre as recomendações de otimização automática para uma base de dados. | Sim | Não |
+| [SQLInsights](#intelligent-insights-dataset): Contém informações inteligentes sobre o desempenho para bases de dados. Para obter mais informações, consulte [informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
 
 > [!IMPORTANT]
 > Conjuntos elásticos e as instâncias geridas que a sua própria telemetria de diagnóstico separado dos bancos de dados que contêm. Isso é importante observar que a telemetria de diagnóstico está configurada em separado para cada um destes recursos, como documentado a seguir.

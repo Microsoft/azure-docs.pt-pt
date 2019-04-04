@@ -215,7 +215,7 @@ items:
     items:
     - name: Rever pronunciações de ponto final
       displayName: active learning
-      href: luis-how-to-review-endoint-utt.md
+      href: luis-how-to-review-endpoint-utterances.md
     - name: Adicionar Lista de Expressões
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
@@ -410,9 +410,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 5e9083be98a8a27f4c7b66f6b662d9659777f0ed
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db4e3cf9cad70556b057645dec52c9705fb29079
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438144"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896113"

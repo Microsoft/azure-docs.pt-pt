@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540161"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918285"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerir a CDN do Azure, colocação em cache da política nos serviços de multimédia do Azure
 Serviços de multimédia do Azure fornece baseada em HTTP transmissão em fluxo adaptável e transferência progressiva. HTTP com base em transmissão em fluxo é altamente dimensionável, com benefícios de colocação em cache em proxy e as camadas CDN, bem como a colocação em cache do lado do cliente. Pontos finais de transmissão em fluxo fornece capacidades de transmissão em fluxo gerais e também a configuração para cabeçalhos de cache HTTP. Pontos finais de transmissão em fluxo define Cache-Control de HTTP: duração máxima e Expires cabeçalhos. Pode obter mais informações para cabeçalhos de cache HTTP partir [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -39,7 +39,7 @@ Serviços de multimédia do Azure fornecem [integrado CDN](https://azure.microso
 Pode utilizar o portal do Azure ou APIs de serviços de multimédia do Azure para configurar os valores de cabeçalho de cache.
 
 1. Para configurar cabeçalhos de cache através do portal do Azure, consulte [como gerir pontos finais de transmissão em fluxo](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) secção Configurar o ponto final de transmissão em fluxo.
-2. REST API dos serviços de multimédia do Azure [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+2. REST API dos serviços de multimédia do Azure [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
 3. SDK de .NET, dos serviços de multimédia do Azure [StreamingEndpointCacheControl propriedades](https://go.microsoft.com/fwlink/?LinkId=615302).
 
 ## <a name="cache-configuration-precedence-order"></a>Ordem de precedência de configuração de cache

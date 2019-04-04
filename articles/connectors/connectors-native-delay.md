@@ -1,5 +1,5 @@
 ---
-title: Adicionar um atraso nas logic apps | Microsoft Docs
+title: Adicionar um atraso no logic apps | Documentos da Microsoft
 description: Descrição geral do atraso e atraso-até ações e como utilizá-los com uma aplicação lógica do Azure.
 services: ''
 documentationcenter: ''
@@ -15,39 +15,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963677"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893729"
 ---
-# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Começar a utilizar o retardamento e o atraso-até ações
-Utilizando o atraso e "atraso-até" ações, pode concluir cenários de fluxo de trabalho.
+# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Comece com o atraso e o atraso-até ações
+Ao utilizar o atraso e "atraso-até" ações, pode completar cenários de fluxo de trabalho.
 
 Pode, por exemplo:
 
-* Aguarde até que um dia da semana para enviar uma atualização do Estado através de correio eletrónico.
-* Atrase o fluxo de trabalho até que uma chamada HTTP tem tempo a concluir antes da saída deste Estado e obter o resultado.
+* Aguarde até um dia da semana para enviar uma atualização de estado por e-mail.
+* Atrasar o fluxo de trabalho até que uma chamada HTTP tenha tempo termine antes de a retomar e obter o resultado.
 
 Para começar a utilizar a ação de atraso numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Utilizar as ações de atraso
-Uma ação é uma operação que é efetuada pelo fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre as ações](connectors-overview.md).
 
-Eis um exemplo de sequência de como utilizar um passo de atraso numa aplicação lógica:
+Uma ação é uma operação que é executada pelo fluxo de trabalho que está definido numa aplicação lógica. 
+[Saiba mais sobre as ações](../connectors/apis-list.md).
+
+Eis um exemplo de sequência de como usar um passo de atraso numa aplicação lógica:
 
 1. Depois de adicionar um acionador, clique em **novo passo** para adicionar uma ação.
-2. Procurar **atraso** para trazer as ações de atraso. Neste exemplo, vamos selecionará **atraso**.
+2. Procure **atraso** para apresentar as ações de atraso. Neste exemplo, selecionaremos **atraso**.
    
     ![Ações de atraso](./media/connectors-native-delay/using-action-1.png)
-3. Conclua quaisquer propriedades da ação para configurar o atraso.
+3. Conclua qualquer uma das propriedades de ação para configurar o atraso.
    
     ![Configuração de atraso](./media/connectors-native-delay/using-action-2.png)
 4. Clique em **guardar** para publicar e ativar a aplicação lógica.
 
 ## <a name="action-details"></a>Detalhes da ação
-O acionador de recorrência tem as seguintes propriedades que podem ser configuradas.
+O acionador de periodicidade tem as seguintes propriedades que podem ser configuradas.
 
 ### <a name="delay-action"></a>Ação de atraso
 Esta ação atrasa a execução de um determinado intervalo de tempo.
@@ -55,23 +57,23 @@ A * significa que é um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Contagem * |contagem |O número de unidades de tempo de atraso |
-| Unidade * |unidade |A unidade de tempo: `Second`, `Minute`, `Hour`, ou`Day` |
+| Contagem de * |count |O número de unidades de tempo de atraso |
+| Unit* |unidade |A unidade de tempo: `Second`, `Minute`, `Hour`, ou `Day` |
 
 <br>
 
-### <a name="delay-until-action"></a>Atraso-até ação
+### <a name="delay-until-action"></a>Atraso-até a ação
 Esta ação atrasa a execução até uma data/hora especificada.
 A * significa que é um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Ano * |carimbo de data/hora |O ano de atraso até (GMT) |
+| Ano * |carimbo de data/hora |Ano até à atraso até (GMT) |
 | Mês * |carimbo de data/hora |O mês de atraso até (GMT) |
 | Dia * |carimbo de data/hora |O dia de atraso até (GMT) |
 
 <br>
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis nas logic apps observando nosso [lista APIs](apis-list.md).
+Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis no logic apps examinando nossos [lista APIs](apis-list.md).
 

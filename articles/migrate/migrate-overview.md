@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999964"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894974"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -37,7 +37,7 @@ O Azure Migrate ajuda-o a:
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 -  Só pode criar um projeto do Azure Migrate em áreas geográficas indicadas a seguir. No entanto, isso não restringe a capacidade de criar avaliações para outras localizações do Azure de destino.
 
-    **Geografia** | **Localização de armazenamento**
+    **Geografia** | **Localização do armazenamento**
     --- | ---
     Azure Government | Gov (US) - Virginia
     Ásia | Sudeste asiático ou Ásia Oriental
@@ -62,10 +62,10 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>O Azure Migrate suporta atualmente 33 regiões como localizações dos destinos de migração. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida para E.U.A. Leste.
 **Tipo de armazenamento** | O tipo de discos geridos que pretende alocar para todas as VMs que fazem parte da avaliação. Se o critério de dimensionamento for *no local dimensionamento* pode especificar o tipo de disco de destino como os discos premium (predefinição), os discos standard SSD ou discos HDD standard. Para *dimensionamento com base no desempenho*, juntamente com as opções acima, também tem a opção de selecionar automático que irá garantir que o disco a recomendação do tamanho é automaticamente feito com base nos dados de desempenho das VMs. Por exemplo, se quer atingir um [única instância de VM SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), talvez queira especificar o tipo de armazenamento como discos geridos Premium, que irão garantir que todos os discos na avaliação irão ser recomendados como discos geridos Premium. Note que o Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Instâncias Reservadas** |  Se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. O Azure Migrate calcula o custo em conformidade.
-**Critérios de dimensionamento** | Dimensionamento pode basear-se no **histórico de desempenho** das VMs no local (predefinição) ou **como no local**, sem considerar o histórico de desempenho.
+**Critério de dimensionamento** | Dimensionamento pode basear-se no **histórico de desempenho** das VMs no local (predefinição) ou **como no local**, sem considerar o histórico de desempenho.
 **Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%.
 **Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. A definição de conforto predefinida é 1,3x.
-**Série das VMs** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
+**Série de VM** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
 **Moeda** | A moeda de faturação. Predefinição é não utilizados no compromisso E.U.A.
 **Desconto (%)** | Eventuais descontos para uma subscrição específica que receba sobre a oferta do Azure. A predefinição é 0%.
 **Tempo de atividade de VM** | Se não se pretender que as VMs em execução 24x7 no Azure, pode especificar a duração (número de dias por mês) e o número de horas por dia para que eles estariam em execução e as estimativas de custos serão efetuadas em conformidade. O valor predefinido é 31 dias por mês e 24 horas por dia.
@@ -103,6 +103,12 @@ Depois de avaliar as máquinas no local, pode utilizar algumas ferramentas para 
 
 - **Azure Site Recovery**: Pode utilizar o Azure Site Recovery para migrar para o Azure. Para tal, tem de [preparar os componentes do Azure](../site-recovery/tutorial-prepare-azure.md) de que precisa, incluindo uma conta de armazenamento e uma rede virtual. No local, [prepare o ambiente do VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Quando estiver tudo preparado, configure e ative a replicação para o Azure e migre as VMs. [Saiba mais](../site-recovery/vmware-azure-tutorial.md).
 - **Migração de base de dados do Azure**: Se as máquinas no local estiver a executar uma base de dados, como o SQL Server, MySQL ou Oracle, pode utilizar o [Azure Database Migration Service](../dms/dms-overview.md) para migrá-los para o Azure.
+
+## <a name="want-to-learn-more-from-community-experts"></a>Quer saber mais no especialistas da Comunidade?
+Visite o [migrar fórum MSDN do Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) ou [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate)
+
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.  
+Se tiver dúvidas ou precisar de ajuda, crie uma [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se o pedido de suporte requer documentação de orientação técnica mais aprofundada, visite [planos de suporte do Azure](https://azure.microsoft.com/support/plans/)     
 
 
 ## <a name="next-steps"></a>Passos Seguintes

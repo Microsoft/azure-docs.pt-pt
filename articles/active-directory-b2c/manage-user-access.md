@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ec3aa6f3d6e7037e2ed59baeb0657fbdabcf3ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2fb9de7781fae51792e2802002a3cf68974dec83
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154614"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894861"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso de utilizador no Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Dependendo regulamento do aplicativo, o consentimento dos pais poderá ter de se
 
 Segue-se um exemplo de um fluxo de utilizador para a coleta de consentimento dos pais:
 
-1. Uma [do Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) operação identifica o utilizador como menor e devolve os dados de utilizador para o aplicativo sob a forma de um token JSON não assinado.
+1. Uma [do Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) operação identifica o utilizador como menor e devolve os dados de utilizador para o aplicativo sob a forma de um token JSON não assinado.
 
 2. O aplicativo processa o token JSON e mostra um ecrã para o menor, notificar em contato com ele ou ela que é necessário o consentimento dos pais e solicitar o consentimento de um encarregado de educação online. 
 

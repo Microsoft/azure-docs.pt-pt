@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58111485"
+ms.locfileid: "58896164"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
 
@@ -131,7 +131,7 @@ public static class BindingExpressionsExample
 
 O processo de compilação cria um *Function* arquivo numa pasta de função na pasta de compilação. Conforme observado anteriormente, este ficheiro não deve ser editada diretamente. Não é possível alterar a configuração de ligação ou desativar a função ao editar este ficheiro. 
 
-O objetivo deste ficheiro é fornecer informações para o controlador de dimensionamento para utilizar para [dimensionamento decisões sobre o plano de consumo](functions-scale.md#how-the-consumption-plan-works). Por esse motivo, o ficheiro tem apenas informações de Acionador, não de entrada ou ligações de saída.
+O objetivo deste ficheiro é fornecer informações para o controlador de dimensionamento para utilizar para [dimensionamento decisões sobre o plano de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esse motivo, o ficheiro tem apenas informações de Acionador, não de entrada ou ligações de saída.
 
 O gerado *Function* ficheiro inclui um `configurationSource` propriedade que indica o tempo de execução a utilização de atributos de .NET para associações, em vez *Function* configuração. Segue-se um exemplo:
 
@@ -274,7 +274,7 @@ Não é possível utilizar `out` parâmetros nas funções assíncronas. Para li
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelamento
 
-Uma função pode aceitar uma [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parâmetro, que permite que o sistema operativo notificar o seu código quando a função está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não terminar inesperadamente de uma forma que mantém os dados num estado inconsistente.
+Uma função pode aceitar uma [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parâmetro, que permite que o sistema operativo notificar o seu código quando a função está prestes a ser terminada. Pode utilizar esta notificação para se certificar de que a função não terminar inesperadamente de uma forma que mantém os dados num estado inconsistente.
 
 O exemplo seguinte mostra como verificar a existência de terminação de função iminente.
 
@@ -369,7 +369,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define o [blob de armazenamento](functions-bindings-storage-blob.md) entrada ou saída de ligação, e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) é um tipo de enlace de saída suportados.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define o [blob de armazenamento](functions-bindings-storage-blob.md) entrada ou saída de ligação, e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de enlace de saída suportados.
 
 ### <a name="multiple-attribute-example"></a>Exemplo de atributo vários
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537906"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918540"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do Batch de forma eficiente
 
@@ -89,7 +89,7 @@ A cadeia de expansão reduz o número de chamadas de API que são necessárias p
 * Cadeia de caracteres de expandir este exemplo Especifica que as informações de estatísticas devem ser retornadas para cada item na lista: `stats`.
 
 > [!NOTE]
-> Ao construir a qualquer um dos tipos de cadeia de caracteres de consulta de três (filtrar, selecione e expanda), tem de garantir que os nomes de propriedade e o caso de corresponder ao de suas contrapartes de elemento da REST API. Por exemplo, ao trabalhar com o .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) classe, tem de especificar **estado** em vez de **estado**, apesar da propriedade do .NET é [ CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Consulte a tabela abaixo para mapeamentos de propriedades entre o .NET e REST APIs.
+> Ao construir a qualquer um dos tipos de cadeia de caracteres de consulta de três (filtrar, selecione e expanda), tem de garantir que os nomes de propriedade e o caso de corresponder ao de suas contrapartes de elemento da REST API. Por exemplo, ao trabalhar com o .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) classe, tem de especificar **estado** em vez de **estado**, apesar da propriedade do .NET é [ CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state). Consulte a tabela abaixo para mapeamentos de propriedades entre o .NET e REST APIs.
 > 
 > 
 
@@ -106,11 +106,11 @@ A cadeia de expansão reduz o número de chamadas de API que são necessárias p
 ## <a name="efficient-querying-in-batch-net"></a>Eficiente de consulta no .NET do Batch
 Dentro de [.NET do Batch] [ api_net] API, o [ODATADetailLevel] [ odata] classe é utilizada para fornecer o filtro, selecione e expanda as cadeias de caracteres para listar operações. A classe de ODataDetailLevel tem três propriedades de cadeia de caracteres público que podem ser especificadas no construtor ou definidas diretamente no objeto. , Em seguida, passar o objeto de ODataDetailLevel como um parâmetro para as várias operações de lista, tal como [ListPools][net_list_pools], [ListJobs][net_list_jobs], e [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: Limite o número de itens que são devolvidos.
-* [ODATADetailLevel][odata].[ SelectClause][odata_select]: Especifique os valores de propriedade são devolvidos com cada item.
-* [ODATADetailLevel][odata].[ ExpandClause][odata_expand]: Obter dados para todos os itens numa única chamada de API em vez de chamadas separadas para cada item.
+* [ODATADetailLevel][odata].[FilterClause][odata_filter]: Limite o número de itens que são devolvidos.
+* [ODATADetailLevel][odata].[SelectClause][odata_select]: Especifique os valores de propriedade são devolvidos com cada item.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Obter dados para todos os itens numa única chamada de API em vez de chamadas separadas para cada item.
 
-O fragmento de código seguinte utiliza a API .NET do Batch para consultar o serviço Batch para as estatísticas de um conjunto específico de conjuntos de forma eficaz. Neste cenário, o utilizador de Batch tem conjuntos de teste e produção. O conjunto de teste IDs são prefixados com "teste" e o conjunto de produção IDs são prefixados com "prod". No fragmento, *myBatchClient* é uma instância corretamente inicializada do [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) classe.
+O fragmento de código seguinte utiliza a API .NET do Batch para consultar o serviço Batch para as estatísticas de um conjunto específico de conjuntos de forma eficaz. Neste cenário, o utilizador de Batch tem conjuntos de teste e produção. O conjunto de teste IDs são prefixados com "teste" e o conjunto de produção IDs são prefixados com "prod". No fragmento, *myBatchClient* é uma instância corretamente inicializada do [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) classe.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> Uma instância do [ODATADetailLevel] [ odata] que está configurado com Select e cláusulas de expansão podem também ser passadas a métodos de Get apropriados, como [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), para limitar a quantidade de dados que são devolvidos.
+> Uma instância do [ODATADetailLevel] [ odata] que está configurado com Select e cláusulas de expansão podem também ser passadas a métodos de Get apropriados, como [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), para limitar a quantidade de dados que são devolvidos.
 > 
 > 
 
@@ -179,7 +179,7 @@ Nomes de propriedade no filtro, selecione e expanda as cadeias de caracteres *te
 ## <a name="example-construct-a-filter-string"></a>Exemplo: construir uma cadeia de filtro
 Quando constrói uma cadeia de filtro para [ODATADetailLevel.FilterClause][odata_filter], consulte a tabela acima em "Mapeamentos para cadeias de caracteres de filtro" para a página de documentação encontrar a API REST, que corresponde do operação de lista que pretende executar. Encontrará as propriedades filtráveis e os operadores suportados na primeira tabela multirow nessa página. Se pretender obter todas as tarefas cujo código de saída foi diferente de zero, por exemplo, esta linha no [lista as tarefas associadas uma tarefa] [ rest_list_tasks] Especifica a cadeia de caracteres de propriedade aplicável e operadores permitidos:
 
-| Propriedade | Operações permitidas | Tipo |
+| Propriedade | Operações permitidas | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Portanto, a cadeia de filtro para listar todas as tarefas com um código de saí
 ## <a name="example-construct-a-select-string"></a>Exemplo: construir uma seqüência de caracteres select
 Para construir [ODATADetailLevel.SelectClause][odata_select], consulte a tabela acima em "Mapeamentos para cadeias de caracteres select" e navegue para a página de REST API que corresponde ao tipo de entidade que está a listar. Encontrará as propriedades selecionáveis e os operadores suportados na primeira tabela multirow nessa página. Se desejar recuperar apenas o ID e a linha de comandos para cada tarefa numa lista, por exemplo, irá encontrar estas linhas na tabela aplicável no [obter informações sobre uma tarefa][rest_get_task]:
 
-| Propriedade | Tipo | Notas |
+| Propriedade | Type | Notas |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -246,7 +246,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Maximize a utilização de recursos de computação do Azure Batch com tarefas de nós simultâneas](batch-parallel-node-tasks.md) está outro artigo relacionado ao desempenho de aplicações do Batch. Alguns tipos de cargas de trabalho podem beneficiar da execução de tarefas paralelas em maior, mas menos – nós de computação. Veja a [cenário de exemplo](batch-parallel-node-tasks.md#example-scenario) no artigo para obter detalhes sobre um cenário como esse.
 
 
-[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics

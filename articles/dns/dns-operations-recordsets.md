@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651248"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906111"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerir registos DNS e conjuntos de registros no DNS do Azure com o Azure PowerShell
 
@@ -33,9 +33,9 @@ Este artigo mostra-lhe como gerir registos DNS para a sua zona DNS com o Azure P
 
 Os exemplos neste artigo partem do princípio de que já [instalado Azure PowerShell, iniciou sessão e criou uma zona DNS](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Introdução
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>Introdução
 
 Antes de criar registos DNS no DNS do Azure, terá primeiro de compreender como o DNS do Azure organiza os registos DNS em conjuntos de registos DNS.
 
@@ -398,4 +398,4 @@ Saiba mais sobre [zonas e registos no DNS do Azure](dns-zones-records.md).
 <br>
 Saiba como [proteger suas zonas e registos](dns-protect-zones-recordsets.md) ao utilizar o DNS do Azure.
 <br>
-Reveja os [documentação de referência do PowerShell de DNS do Azure](/powershell/module/azurerm.dns).
+Reveja os [documentação de referência do PowerShell de DNS do Azure](/powershell/module/az.dns).

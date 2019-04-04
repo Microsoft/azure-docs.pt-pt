@@ -3,19 +3,19 @@ title: Personalização de tradução - API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Utilize o Microsoft Translator Hub para criar seu próprio sistema de tradução automática com a sua terminologia preferencial e estilo.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124019"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918234"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 
@@ -47,14 +47,14 @@ Podem encontrar mais detalhes sobre os diversos níveis de personalização com 
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor personalizado em comparação com o Hub
 
-|   | **Hub** | **Tradutor personalizado**|
+|   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
 |Estado da funcionalidade de personalização   | Disponibilidade Geral  | Disponibilidade Geral |
 | Versão de API de texto  | Apenas v2   | Apenas v3 |
 | Personalização de SMT | Sim   | Não |
 | Personalização de NMT | Não    | Sim |
 | Nova personalização de serviços de voz unificada | Não    | Sim |
-| [Sem rastreio](https://www.aka.ms/notrace) | Sim  | Sim |
+| [Sem Rastreio](https://www.aka.ms/notrace) | Sim  | Sim |
 
 ## <a name="collaborative-translations-framework"></a>Framework de traduções de colaboração
 

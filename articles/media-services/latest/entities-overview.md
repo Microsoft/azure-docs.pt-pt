@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804875"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891961"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvimento com os serviços de multimédia de v3 APIs
 
@@ -47,7 +47,7 @@ Consulte a [obter a política de chave conteúda - .NET](get-content-key-policy-
 
 As operações marcadas com `x-ms-long-running-operation` nos serviços de multimédia do Azure [swagger ficheiros](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) são longos em execução de operações. 
 
-Para obter detalhes sobre como controlar as operações assíncronas do Azure, consulte [operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Para obter detalhes sobre como controlar as operações assíncronas do Azure, consulte [operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Serviços de multimédia têm as seguintes operações de longa execução:
 
@@ -65,7 +65,6 @@ Serviços de multimédia têm as seguintes operações de longa execução:
 * Iniciar StreamingEndpoint
 * Parar StreamingEndpoint
 * Dimensionamento StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, ordenação, paginação de entidades de serviços de multimédia
 
@@ -356,4 +355,4 @@ A tabela seguinte mostra como essas opções podem ser aplicadas para o [transfo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
+[Um ficheiro do Stream](stream-files-dotnet-quickstart.md)

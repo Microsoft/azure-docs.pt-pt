@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536855"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915362"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Ativar diagnósticos do Azure nos serviços Cloud do Azure
 Ver [descrição geral de diagnóstico do Azure](../azure-diagnostics.md) para um plano de fundo do diagnóstico do Azure.
@@ -191,7 +191,7 @@ No Visual Studio **Explorador de servidores**, navegue para a conta de armazenam
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Esquema de ficheiro de configuração
-O ficheiro de configuração de diagnósticos define os valores que são usados para inicializar as definições de diagnóstico de configuração quando o agente de diagnóstico é iniciado. Consulte a [referência de esquema mais recente](https://msdn.microsoft.com/library/azure/mt634524.aspx) para valores válidos e exemplos.
+O ficheiro de configuração de diagnósticos define os valores que são usados para inicializar as definições de diagnóstico de configuração quando o agente de diagnóstico é iniciado. Consulte a [referência de esquema mais recente](/azure/azure-monitor/platform/diagnostics-extension-schema) para valores válidos e exemplos.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Se tiver problemas, consulte [resolução de problemas do diagnóstico do Azure](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306447"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916177"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além do 1433 para ADO.NET 4.5
 
@@ -43,11 +43,11 @@ A sequência é o seguinte:
 
 1. ADO.NET 4.5 (ou posterior) inicia uma breve interação com a cloud do Azure e recebe um número de porta dinamicamente identificados.
 
-   * É o número da porta dinamicamente identificados no intervalo de 11000 11999 ou 14000 14999.
+   * É o número da porta dinamicamente identificados no intervalo de 11000 11999.
 2. ADO.NET, em seguida, liga para o servidor de base de dados SQL diretamente, sem middleware entre.
 3. As consultas são enviadas diretamente para a base de dados e os resultados são retornados diretamente ao cliente.
 
-Certifique-se de que a porta de intervalos de 11000 11999 e 14000-14999 no seu computador de cliente do Azure permanecem disponíveis para ADO.NET 4.5 interações de cliente com a base de dados SQL.
+Certifique-se de que a porta de intervalos de 11000-11999 no seu computador de cliente do Azure permanecem disponíveis para ADO.NET 4.5 interações de cliente com a base de dados SQL.
 
 * Em particular, as portas no intervalo tem de ser gratuitas a qualquer bloqueadores de saída.
 * Na sua VM do Azure, o **Firewall do Windows com segurança avançada** controla as definições de porta.
@@ -82,8 +82,8 @@ Esta secção esclarece os monikers que se referem às versões do produto. Ele 
 * Ligar à base de dados SQL do Azure V12 através de redirecionamento https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
-* [Descrição geral do desenvolvimento de banco de dados SQL](sql-database-develop-overview.md)
+* [Descrição Geral da Programação da Base de Dados SQL](sql-database-develop-overview.md)
 * [Firewall de base de dados SQL do Azure](sql-database-firewall-configure.md)
-* [How to: Configure firewall settings on SQL Database (Como: configurar as definições da firewall na Base de Dados SQL)](sql-database-configure-firewall-settings.md)
+* [Como: Configurar as definições da firewall na Base de Dados SQL](sql-database-configure-firewall-settings.md)
 
 

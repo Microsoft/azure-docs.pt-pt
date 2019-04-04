@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4757b20e1a3d9830c2d52a5fbc85fd935b27fb62
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7862e4d5c4dd603dacf5784df6c4194392ebc351
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245040"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918200"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Tamanho da pasta TEMP predefinida é demasiado pequeno numa função de web/de trabalho de serviço na nuvem
 O diretório temporário do padrão de uma função de trabalho ou web de serviço do cloud tem um tamanho máximo de 100 MB, as quais podem se tornar total em algum momento. Este artigo descreve como evitar ficar sem espaço para o diretório temporário de.
@@ -33,8 +33,8 @@ As padrão Windows as variáveis de ambiente TEMP e TMP estão disponíveis para
 ## <a name="suggestion-to-fix-the-problem"></a>Sugestão para corrigir o problema
 Implemente uma das seguintes alternativas:
 
-* Configurar um recurso de armazenamento local e acessá-la diretamente em vez de utilizar TEMP ou TMP. Para aceder a um recurso de armazenamento local a partir do código que está a executar no seu aplicativo, chame o [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) método.
-* Configurar um recurso de armazenamento local e aponte os diretórios TEMP e TMP para apontar para o caminho do recurso de armazenamento local. Essa modificação deve ser efetuada dentro de [Roleentrypoint](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) método.
+* Configurar um recurso de armazenamento local e acessá-la diretamente em vez de utilizar TEMP ou TMP. Para aceder a um recurso de armazenamento local a partir do código que está a executar no seu aplicativo, chame o [RoleEnvironment.GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) método.
+* Configurar um recurso de armazenamento local e aponte os diretórios TEMP e TMP para apontar para o caminho do recurso de armazenamento local. Essa modificação deve ser efetuada dentro de [Roleentrypoint](/previous-versions/azure/reference/ee772851(v=azure.100)) método.
 
 O exemplo de código seguinte mostra como modificar os diretórios de destino para TEMP e TMP de dentro do método de OnStart:
 

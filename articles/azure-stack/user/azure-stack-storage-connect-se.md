@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763372"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622013"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Ligar o Explorador de armazenamento para uma subscrição do Azure Stack ou uma conta de armazenamento
 
@@ -49,25 +49,27 @@ Exportar e, em seguida, importar o certificado do Azure Stack para o ASDK. Para 
 
 1. Abra `mmc.exe` numa máquina de anfitrião do Azure Stack ou numa máquina local com uma ligação VPN ao Azure Stack. 
 
-2. Na **arquivo**, selecione **Adicionar/Remover Snap-in**e, em seguida, adicione **certificados** gerir **minha conta de usuário**.
+2. Na **arquivo**, selecione **Adicionar/Remover Snap-in**. Selecione **certificados** no snap-ins disponíveis. 
 
-3.  Sob **consola de certificação de raiz da consola\certificado (computador Local) \Trusted Raiz Fidedigna\Certificados**. Encontrar **AzureStackSelfSignedRootCert**.
+3. Selecione **conta de computador**e, em seguida, selecione **próxima**. Selecione **computador Local**e, em seguida, selecione **concluir**.
+
+4.  Sob **consola de certificação de raiz da consola\certificado (computador Local) \Trusted Raiz Fidedigna\Certificados**. Encontrar **AzureStackSelfSignedRootCert**.
 
     ![Carregue o certificado de raiz do Azure stack através de mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. O certificado com o botão direito, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **X.509 com codificação Base 64 (. CER)**.
+5. O certificado com o botão direito, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **X.509 com codificação Base 64 (. CER)**.
 
     O certificado exportado será utilizado no próximo passo.
 
-5. Iniciar o Explorador de armazenamento, e se vir a **ligar ao armazenamento do Azure** diálogo caixa, cancelá-lo.
+6. Iniciar o Explorador de armazenamento, e se vir a **ligar ao armazenamento do Azure** diálogo caixa, cancelá-lo.
 
-6. Sobre o **edite** menu, aponte para **certificados SSL**e, em seguida, selecione **importar certificados**. Utilize a caixa de diálogo do selecionador de ficheiros para encontrar e abrir o certificado que foi exportado no passo anterior.
+7. Sobre o **edite** menu, aponte para **certificados SSL**e, em seguida, selecione **importar certificados**. Utilize a caixa de diálogo do selecionador de ficheiros para encontrar e abrir o certificado que foi exportado no passo anterior.
 
     Depois de importar o certificado, lhe for pedido para reiniciar o Explorador de armazenamento.
 
     ![Importar o certificado para o Explorador de armazenamento](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Depois de reinicia o Explorador de armazenamento, selecione o **edite** menu e certifique-se **Azure Stack de destino** está selecionada. Se não estiver, selecione **Azure Stack de destino**e, em seguida, reinicie o Explorador de armazenamento para que a alteração entre em vigor. Esta configuração é necessária para ser compatível com o seu ambiente do Azure Stack.
+8. Depois de reinicia o Explorador de armazenamento, selecione o **edite** menu e certifique-se **APIs do destino do Azure Stack** está selecionada. Se não estiver, selecione **Azure Stack de destino**e, em seguida, reinicie o Explorador de armazenamento para que a alteração entre em vigor. Esta configuração é necessária para ser compatível com o seu ambiente do Azure Stack.
 
     ![Certifique-se de que o Azure Stack de destino está selecionado](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ Utilize os seguintes passos para ligar o Explorador de armazenamento a uma subsc
 
     ![Adicionar uma conta do Azure Stack](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Na caixa de diálogo de armazenamento do Azure, ligar em **ambiente do Azure**, selecione **Azure** ou **Azure China**, que depende da conta do Azure Stack que está a ser utilizada, selecione **Iniciar sessão** para iniciar sessão com a conta do Azure Stack associada com pelo menos uma subscrição ativa do Azure Stack.
+3. Na caixa de diálogo de armazenamento do Azure, ligar em **ambiente do Azure**, selecione **Azure**, **Azure China**, **Azure Alemanha**,  **Azure US Government**, ou **adicionar o novo ambiente**, que depende da conta do Azure Stack que está a ser utilizada. Selecione **iniciar sessão** para iniciar sessão com a conta do Azure Stack associada com pelo menos uma subscrição ativa do Azure Stack.
 
     ![Ligar ao armazenamento do Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

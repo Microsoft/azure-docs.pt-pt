@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089357"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894906"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar os utilizadores com identidades sociais
 Quando planeia migrar o seu fornecedor de identidade para o Azure AD B2C, também terá de migrar os utilizadores com identidades sociais. Este artigo explica como migrar as contas de identidades das redes sociais existentes, tais como: Contas do Facebook, LinkedIn, Microsoft e Google para o Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, essas migrações são menos comuns.
@@ -63,7 +63,7 @@ A lista seguinte mostra as propriedades que são necessárias quando cria um uti
 * **userIdentities** -um ou mais registos de UserIdentity que especificam o social conta tipo e o identificador de utilizador exclusivo do fornecedor de identidade de redes sociais.
 * [opcional] **otherMails** – para a conta de redes sociais apenas, endereços de e-mail do utilizador 
 
-Para obter mais informações, consulte: [Referência da Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Para obter mais informações, consulte: [Referência da Graph API](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Migrar a conta de rede social (apenas)
 Para criar conta de redes sociais apenas, sem as credenciais da conta local. Envie pedido POST de HTTPS para o Graph API. O corpo do pedido contém as propriedades do utilizador para criar conta de redes sociais. No mínimo, tem de especificar as propriedades necessárias. 

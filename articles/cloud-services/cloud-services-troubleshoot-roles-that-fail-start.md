@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255426"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918421"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas de funções do serviço Cloud que falharem ao iniciar
 Seguem-se alguns problemas comuns e soluções relacionadas para serviços Cloud do Azure, funções que falharem ao iniciar.
@@ -75,8 +75,8 @@ Pode utilizar o ambiente de trabalho remoto para aceder à função e ver inform
 Navegar para o Web site agora irá devolver mensagens de erro mais explícitas:
 
 * Erro de servidor na aplicação '/'.
-* Descrição: Uma exceção não processada ocorreu durante a execução da solicitação da web atual. Consulte o rastreio de pilha para obter mais informações sobre o erro e em que foi gerado no código.
-* Detalhes da exceção: FileNotFoundException: não foi possível carregar o ficheiro ou a assemblagem ' Microsoft.WindowsAzure.StorageClient, versão = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' ou uma de suas dependências. O sistema não é possível localizar o ficheiro especificado.
+* Descrição: Ocorreu uma exceção não processada durante a execução da solicitação da web atual. Consulte o rastreio de pilha para obter mais informações sobre o erro e em que foi gerado no código.
+* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o ficheiro ou a assemblagem ' Microsoft.WindowsAzure.StorageClient, versão = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' ou uma de suas dependências. Não é possível ao sistema localizar o ficheiro especificado.
 
 Por exemplo:
 
@@ -96,7 +96,7 @@ Para obter melhores resultados na através deste método de diagnóstico, deve u
 7. Quando a função for iniciada, irá ver informações de erro detalhadas no Internet Explorer. Também pode utilizar o Windows padrão, ferramentas de resolução de problemas para diagnosticar melhor o problema.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnosticar problemas com o IntelliTrace
-Para a função de trabalho e funções da web que utilizam o .NET Framework 4, pode usar [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), que está disponível no Microsoft Visual Studio Enterprise.
+Para a função de trabalho e funções da web que utilizam o .NET Framework 4, pode usar [IntelliTrace](/visualstudio/debugger/intellitrace), que está disponível no Microsoft Visual Studio Enterprise.
 
 Siga estes passos para implementar o serviço com o IntelliTrace habilitado:
 

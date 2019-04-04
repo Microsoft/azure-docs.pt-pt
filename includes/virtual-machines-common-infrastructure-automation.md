@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125188"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891058"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize as ferramentas de automatização de infraestrutura com máquinas virtuais no Azure
 Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à escala, alguma forma de automatização é normalmente pretende-se. Existem muitas ferramentas e soluções que permitem-lhe automatizar a implementação de toda a infraestrutura do Azure e o ciclo de vida de gestão. Este artigo apresenta algumas das ferramentas de automatização de infraestruturas que pode utilizar no Azure. Essas ferramentas normalmente se adaptam a uma das abordagens seguintes:
@@ -80,7 +80,7 @@ Configurações de DSC definem o que instalar num computador e como configurar o
 
 Aprenda a:
 
-- [Criar uma configuração de DSC básica](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Criar uma configuração de DSC básica](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
 - [Configurar um servidor de solicitação de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver).
 - [Utilizar o DSC para Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 

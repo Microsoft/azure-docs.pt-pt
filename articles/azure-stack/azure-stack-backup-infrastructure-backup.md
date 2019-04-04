@@ -14,16 +14,16 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: da1ae76925ffeba7a1df57b4121f8cfe20b2887f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285926"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882111"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Cópia de segurança e recuperação de dados para o Azure Stack com o serviço de cópia de segurança da infraestrutura
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Pode criar cópias de segurança e restaurar dados de serviço com o serviço de cópia de segurança da infraestrutura e de configuração. Cada instalação do Azure Stack contém uma instância do serviço. Pode utilizar cópias de segurança criadas pelo serviço para a reimplementação da Cloud do Azure Stack para restaurar a identidade, segurança e dados do Azure Resource Manager. 
 
@@ -32,7 +32,7 @@ Pode ativar a cópia de segurança quando estiver pronto para colocar a sua clou
 Antes de ativar seu serviço de cópia de segurança, certifique-se de que tem [requisitos no local](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> O serviço de cópia de segurança de infraestrutura não inclui dados de utilizador e aplicações. Consulte a [proteger as VMs implementadas no Azure Stack](user/azure-stack-manage-vm-protect.md) para obter mais informações sobre como proteger a VM de IaaS com base em aplicações. Para obter uma compreensão abrangente de como proteger as aplicações no Azure Stack, consulte a [onsiderations do Azure Stack para o whitepaper de recuperação de desastre e continuidade empresariais](http://aka.ms/azurestackbcdrconsiderationswp).
+> O serviço de cópia de segurança de infraestrutura não inclui dados de utilizador e aplicações. Consulte a [proteger as VMs implementadas no Azure Stack](user/azure-stack-manage-vm-protect.md) para obter mais informações sobre como proteger a VM de IaaS com base em aplicações. Para obter uma compreensão abrangente de como proteger as aplicações no Azure Stack, consulte a [considerações sobre o Azure Stack para o whitepaper de recuperação de desastre e continuidade empresariais](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>O serviço de cópia de segurança da infraestrutura
 
@@ -48,7 +48,7 @@ Os serviços de contenham as seguintes funcionalidades.
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Verifique os requisitos para o serviço de cópia de segurança da infraestrutura
 
-- **Localização de armazenamento**  
+- **Localização do armazenamento**  
   Precisa de uma partilha de ficheiros acessível a partir do Azure Stack que pode conter sete cópias de segurança. Cada cópia de segurança é cerca de 10 GB. A partilha deve ser capaz de armazenar 140 GB de cópias de segurança. Para obter mais informações sobre como selecionar uma localização de armazenamento para o serviço de cópia de segurança de infraestrutura do Azure Stack, veja [requisitos do controlador de cópia de segurança](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credenciais**  
   Precisa de uma conta de utilizador de domínio e as credenciais, por exemplo, pode usar as credenciais de administrador do Azure Stack.

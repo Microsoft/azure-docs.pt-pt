@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499255"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904632"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -37,6 +37,7 @@ Após a funcionalidade de execução no modo de auditoria durante um período ra
 ## <a name="deployment-requirements"></a>Requisitos de implementação
 
 * Todos os controladores de domínio que obtenham o agente de controlador de domínio de serviço para proteção de palavra-passe do Azure AD instalada deve executar o Windows Server 2012 ou posterior. Este requisito não implica que o domínio do Active Directory ou a floresta também tem de ser ao nível funcional Windows Server 2012 domínio ou floresta. Conforme mencionado na [princípios de Design](concept-password-ban-bad-on-premises.md#design-principles), não existe mínimo DFL ou FFL necessário para qualquer um do DC proxy ou agente de software ser executado.
+* Todas as máquinas que obtém o serviço de agente do controlador de domínio instalado tem de ter .NET 4.5 instalado.
 * Todas as máquinas que obtenham o proxy de serviço para proteção de palavra-passe do Azure AD instalada deve executar o Windows Server 2012 R2 ou posterior.
 * Todas as máquinas onde será instalado o serviço de Proxy de proteção de palavra-passe do Azure AD tem de ter .NET 4.7 instalado.
   .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -44,7 +45,7 @@ Após a funcionalidade de execução no modo de auditoria durante um período ra
 * Conectividade de rede tem de existir entre, pelo menos, um controlador de domínio em cada domínio e pelo menos um servidor que aloja o serviço de proxy para a proteção de palavra-passe. Essa conectividade tem de permitir o controlador de domínio aceder a porta de mapeador de ponto final do RPC 135 e a porta do servidor RPC no serviço de proxy. Por predefinição, a porta do servidor RPC é uma porta dinâmica da RPC, mas pode ser configurado para [utilizar uma porta estática](#static).
 * Todos os computadores que alojam o serviço de proxy tem de ter acesso à rede para os seguintes pontos finais:
 
-    |**Endpoint**|**Objetivo**|
+    |**Ponto Final**|**Objetivo**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Pedidos de autenticação|
     |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de palavra-passe do Azure AD|
@@ -109,6 +110,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Este modo não funciona em sistemas de operativos do Server Core. Em vez disso, utilize um dos seguintes modos de autenticação. Além disso, este modo pode falhar se a configuração de segurança avançada do Internet Explorer está ativada. A solução é desativar essa configuração, registe-se o proxy e, em seguida, reativá-la.
 
@@ -133,7 +135,6 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 
        Ainda não tem de especificar o *- ForestCredential* parâmetro, que está reservado para futuras funcionalidades.
 
-   
    Registo do serviço de proxy para a proteção de palavra-passe é necessário apenas uma vez durante a vida útil do serviço. Depois disso, o serviço de proxy efetuará automaticamente qualquer outra manutenção necessária.
 
    > [!TIP]
@@ -149,6 +150,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Este modo não funcionará em sistemas de operativos do Server Core. Em vez disso, utilize um dos seguintes modos de autenticação de dois. Além disso, este modo pode falhar se a configuração de segurança avançada do Internet Explorer está ativada. A solução é desativar essa configuração, registe-se o proxy e, em seguida, reativá-la.  
 
@@ -162,6 +164,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
         Em seguida, conclua a autenticação ao seguir as instruções apresentadas num dispositivo diferente.
 
      * Modo de autenticação silenciosa (baseado em palavra-passe):
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -174,7 +177,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 
    > [!NOTE]
    > Se vários servidores de proxy estão instalados no seu ambiente, não importa qual o servidor proxy utiliza para registar a floresta.
-
+   >
    > [!TIP]
    > Pode haver um atraso considerável antes da conclusão na primeira vez que este cmdlet é executado para um inquilino do Azure específico. A menos que é comunicada uma falha, não se preocupe este atraso.
 
@@ -221,6 +224,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
 1. Opcional: Configure o serviço de proxy para a proteção de palavra-passe escutar numa porta específica.
    * O software do agente de controlador de domínio para a proteção de palavra-passe nos controladores de domínio utiliza o RPC sobre TCP para comunicar com o serviço de proxy. Por predefinição, o serviço de proxy escuta em qualquer ponto de extremidade RPC disponível dinâmico. Mas pode configurar o serviço para escutar numa porta TCP específica, se isso é necessário devido a topologia de redes ou requisitos de firewall no seu ambiente.
       * <a id="static" /></a>Para configurar o serviço para ser executado sob uma porta estática, utilize o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -229,6 +233,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
          > Tem de parar e reiniciar o serviço para que essas alterações entrem em vigor.
 
       * Para configurar o serviço para ser executado sob uma porta dinâmica, utilize o mesmo procedimento mas definido *StaticPort* a zero:
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```

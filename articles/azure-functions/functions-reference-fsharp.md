@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734664"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894360"
 ---
 # <a name="azure-functions-f-developer-reference"></a>As funções do Azure F# referência para programadores
 
@@ -115,7 +115,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Token de cancelamento
-Se a sua função precisa lidar graciosamente com encerramento, pode dar um [ `CancellationToken` ](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) argumento. Pode ser combinado com `async`, por exemplo:
+Se a sua função precisa lidar graciosamente com encerramento, pode dar um [ `CancellationToken` ](/dotnet/api/system.threading.cancellationtoken) argumento. Pode ser combinado com `async`, por exemplo:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 As assemblagens seguintes são adicionadas automaticamente por funções do Azure, ambiente de alojamento:
 
-* `mscorlib`,
+* `mscorlib`, 
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -294,7 +294,7 @@ O `#load` diretiva só funciona com `.fsx` (F# script) ficheiros e não com `.fs
 Para obter mais informações, consulte os seguintes recursos:
 
 * [F#Guia](/dotnet/articles/fsharp/index)
-* [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
+* [Melhores práticas para as funções do Azure](functions-best-practices.md)
 * [Referência para programadores das Funções do Azure](functions-reference.md)
 * [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
 * [Funções do Azure de teste](functions-test-a-function.md)

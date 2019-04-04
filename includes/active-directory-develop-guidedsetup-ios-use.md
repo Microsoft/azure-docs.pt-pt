@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203537"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891063"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar o Microsoft Authentication Library (MSAL) para obter um token para o Microsoft Graph API
 
@@ -215,7 +215,7 @@ O `acquireTokenSilent` método processa a aquisições de token e a renovação 
 
 Eventualmente, `acquireTokenSilent` falhará – por exemplo, o utilizador tem sessão ou foi alterado a palavra-passe noutro dispositivo. Quando a MSAL Deteta que o problema pode ser resolvido, exigindo que uma ação interativa, ele é disparado um `MSALErrorCode.interactionRequired` exceção. Seu aplicativo pode manipular essa exceção de duas formas:
 
-1. Fazer uma chamada contra `acquireToken` imediatamente, o que resulta em pedir ao utilizador para iniciar sessão. Esse padrão é normalmente usado em aplicativos online onde não há nenhum conteúdo offline no aplicativo disponível para o utilizador. O exemplo de aplicação gerado por esta configuração assistida usa esse padrão: para ver isso em tempo de ação a primeira que executar o aplicativo. Uma vez que nenhum utilizador usou o aplicativo `applicationContext.allAccounts().first` irá conter um valor nulo e um ` MSALErrorCode.interactionRequired ` exceção será gerada. O código no exemplo, em seguida, processa a exceção ao chamar `acquireToken` resultando em pedir ao utilizador para iniciar sessão.
+1. Fazer uma chamada contra `acquireToken` imediatamente, o que resulta em pedir ao utilizador para iniciar sessão. Esse padrão é normalmente usado em aplicativos online onde não há nenhum conteúdo offline no aplicativo disponível para o utilizador. O exemplo de aplicação gerado por esta configuração assistida usa esse padrão: para ver isso em tempo de ação a primeira que executar o aplicativo. Uma vez que nenhum utilizador usou o aplicativo `applicationContext.allAccounts().first` irá conter um valor nulo e um `MSALErrorCode.interactionRequired` exceção será gerada. O código no exemplo, em seguida, processa a exceção ao chamar `acquireToken` resultando em pedir ao utilizador para iniciar sessão.
 
 2. Aplicativos também podem tornar uma indicação visual para o usuário que um interativo início de sessão é necessário, para que o usuário pode selecionar o momento certo para iniciar sessão ou a aplicação pode repetir `acquireTokenSilent` num momento posterior. Isto é normalmente utilizado quando o utilizador pode utilizar outras funcionalidades da aplicação sem a ser interrompida – por exemplo, não existe conteúdo offline no aplicativo. Neste caso, o usuário pode decidir quando pretende iniciar sessão para aceder ao recurso protegido ou para atualizar as informações Desatualizadas ou seu aplicativo pode optar por repetir `acquireTokenSilent` quando a rede é restaurada depois de ser temporariamente indisponível.
 

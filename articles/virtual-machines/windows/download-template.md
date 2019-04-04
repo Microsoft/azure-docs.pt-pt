@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984533"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903119"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
 Quando cria uma VM no Azure com o portal ou PowerShell, um modelo do Resource Manager é criado automaticamente para. Pode utilizar este modelo rapidamente duplicar uma implementação. O modelo contém informações sobre todos os recursos num grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para oferecer suporte a VM no grupo de recursos, incluindo os recursos de rede.
@@ -29,7 +29,7 @@ Quando cria uma VM no Azure com o portal ou PowerShell, um modelo do Resource Ma
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2. Um menu da esquerda, selecione **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
-4. Selecione **script de automação**.
+4. Selecione **exportar modelo**.
 5. Selecione **transferir** no menu na parte superior e guarde o ficheiro. zip para o computador local.
 6. Abra o ficheiro. zip e extraia os ficheiros para uma pasta. O ficheiro. zip contém:
    

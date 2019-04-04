@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077127"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916279"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Resolução de problemas de pontos finais de CDN do Azure que devolvem um código de 404 Estado
 Este artigo permite-lhe resolver problemas com pontos finais de rede de entrega conteúdo (CDN) que retornam códigos de estado de resposta HTTP 404.
@@ -76,7 +76,7 @@ Verifique sua **HTTP** e **portas HTTPS**. Na maioria dos casos, 80 e 443 estão
 No entanto, suponha que o URL para o ficheiro de origem que testado anteriormente é http:\//www.contoso.com:8080/file.txt. Tenha em atenção a *: 8080* parte no final do segmento do nome de anfitrião. Que número dá instruções ao browser para utilizar a porta 8080 para ligar ao servidor web em www\.contoso.com, portanto precisará digitar *8080* no **porta HTTP** campo. É importante ter em atenção que estas definições de porta afetam apenas porta em que o ponto final utiliza para obter informações a partir da origem.
 
 > [!NOTE]
-> **CDN Standard do Azure da Akamai** os pontos finais não permitem o intervalo de portas TCP completo para origens.  Para obter uma lista das portas de origem que não são permitidas, consulte [Portas de Origem Permitidas do Azure CDN da Akamai](https://msdn.microsoft.com/library/mt757337.aspx).  
+> **CDN Standard do Azure da Akamai** os pontos finais não permitem o intervalo de portas TCP completo para origens.  Para obter uma lista das portas de origem que não são permitidas, consulte [Portas de Origem Permitidas do Azure CDN da Akamai](/previous-versions/azure/mt757337(v=azure.100)).  
 > 
 > 
 

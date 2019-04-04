@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629624"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906128"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -21,6 +21,9 @@ O Gateway de aplicação do Azure é composta por vários componentes que pode c
 ![Gráfico de fluxo de componentes de Gateway de aplicação](./media/configuration-overview/configuration-overview1.png)
 
 Esta imagem ilustra uma aplicação que tenha três serviços de escuta. As duas primeiras são serviços de escuta de múltiplos sites para `http://acme.com/*` e `http://fabrikam.com/*`, respectivamente. Ambos escutam na porta 80. O terceiro é um serviço de escuta básico que tenha a terminação de Secure Sockets Layer (SSL)-a-ponto.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -136,11 +139,11 @@ Ver [certificados suportados para a terminação de SSL](https://docs.microsoft.
 Suporte de protocolo HTTP/2 está disponível para clientes que se ligam para ouvintes de gateway de aplicação apenas. A comunicação para agrupamentos de servidores de back-end é através de HTTP/1.1. Por predefinição, o suporte de HTTP/2 está desativado. O trecho de código do Azure PowerShell seguinte mostra como ativar esta opção:
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>Suporte do WebSocket

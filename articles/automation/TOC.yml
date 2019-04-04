@@ -186,7 +186,7 @@ items:
     - name: Ligações
       href: automation-connections.md
     - name: Certificados
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Variáveis
       href: shared-resources/variables.md
     - name: Atualizar módulos do Azure PowerShell
@@ -287,9 +287,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 8f42d0470de8e67ff3f06d5e11f0b3167a3811be
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 509751acb1293e84ab966e1c25121dcc543dac49
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801713"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895771"

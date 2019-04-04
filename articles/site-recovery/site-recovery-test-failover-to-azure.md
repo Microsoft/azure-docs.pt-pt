@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904717"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure 
 
@@ -42,7 +42,7 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
     - Testar a tentativas de recuperação de site para criar VMs numa sub-rede com o mesmo nome e o mesmo endereço IP que foi fornecido no **computação e rede** definições da VM.
     - Se uma sub-rede com o mesmo nome não está disponível na rede virtual do Azure utilizada para a ativação pós-falha de teste, em seguida, o teste de VM é criada na primeira sub-rede por ordem alfabética.
     - Se o mesmo endereço IP não está disponível na sub-rede, VM recebe outro endereço IP disponível na sub-rede. [Saiba mais](#create-a-network-for-test-failover).
-4. Se estiver a fazer failover para o Azure e a encriptação de dados estiver ativada, no **chave de encriptação**, selecione o certificado que foi emitido quando ativou a encriptação durante a instalação do fornecedor. Pode ignorar este passo de encriptação não está ativada.
+4. Se estiver a fazer failover para o Azure e a encriptação de dados estiver ativada, no **chave de encriptação**, selecione o certificado que foi emitido quando ativou a encriptação durante a instalação do fornecedor. Pode ignorar este passo se não estiver ativada a encriptação.
 5. Controlar o progresso de ativação pós-falha no **tarefas** separador. Deverá conseguir ver a máquina de réplica de teste no portal do Azure.
 6. Para iniciar uma ligação de RDP à VM do Azure, precisa [adicionar um endereço IP público](https://aka.ms/addpublicip) na interface de rede da VM.
 7. Quando está tudo a funcionar conforme esperado, clique em **ativação pós-falha de teste de limpeza**. Esta ação elimina as VMs que foram criadas durante a ativação pós-falha de teste.
@@ -71,7 +71,7 @@ Nos seguintes cenários, a ativação pós-falha requer uma etapa extra intermed
     * VMBus
     * storflt
     * intelide
-    * ATAPI
+    * atapi
 * VM de VMware que não têm o DHCP ativado, deixou de se estão a utilizar DHCP ou IP estático de endereços.
 
 Em todos os outros casos, não é necessária nenhuma etapa intermediária e ativação pós-falha demora muito menos tempo.

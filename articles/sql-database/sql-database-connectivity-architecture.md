@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/03/2019
+ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661791"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918608"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -37,7 +37,7 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 > - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos
 > - Lógica de implementação automatizada cria um servidor de base de dados SQL, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy`
 >
-> Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 12000. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
+> Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 11999. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
 > [!NOTE]
 > Este tópico aplica-se para os servidores de base de dados do Azure SQL que alojam bases de dados individuais e conjuntos elásticos, o SQL Data Warehouse bases de dados, base de dados do Azure para MySQL, base de dados do Azure para MariaDB e base de dados do Azure para PostgreSQL. Para simplificar, a base de dados SQL é utilizado quando nos Referimos a base de dados SQL, o SQL Data Warehouse, o banco de dados do Azure para MySQL, base de dados do Azure para MariaDB e base de dados do Azure para PostgreSQL.
 
@@ -57,7 +57,7 @@ Os passos seguintes descrevem como é estabelecida uma ligação para uma base d
 
 Base de dados SQL do Azure suporta as seguintes três opções para a definição de política de ligação de um servidor de base de dados SQL:
 
-- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente para o nó que aloja a base de dados. Para ativar a conectividade, os clientes têm de permitir regras de firewall de saída para todos os endereços de IP do Azure na região a utilizar grupos de segurança de rede (NSG) com [etiquetas de serviço](../virtual-network/security-overview.md#service-tags)) para portas 11000-12000, não apenas o IP do gateway de base de dados do Azure SQL endereços na porta 1433. Porque pacotes ir diretamente para a base de dados, latência e débito melhoraram o desempenho.
+- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente para o nó que aloja a base de dados. Para ativar a conectividade, os clientes têm de permitir regras de firewall de saída para todos os endereços de IP do Azure na região a utilizar grupos de segurança de rede (NSG) com [etiquetas de serviço](../virtual-network/security-overview.md#service-tags)) para portas 11000-11999, não apenas o IP do gateway de base de dados do Azure SQL endereços na porta 1433. Porque pacotes ir diretamente para a base de dados, latência e débito melhoraram o desempenho.
 - **Proxy:** Neste modo, todas as ligações são transmitidas por proxy através de gateways de base de dados do Azure SQL. Para ativar a conectividade, o cliente tem de ter regras de firewall de saída que permitam apenas o gateway da base de dados do Azure SQL endereços IP (normalmente, dois endereços IP por região). Escolher este modo pode resultar numa maior latência e débito mais baixo, dependendo da natureza da carga de trabalho. Recomendamos vivamente o `Redirect` política de ligação ao longo o `Proxy` política de ligação para a menor latência e o débito mais elevado.
 - **predefinição:** Esta é a ligação política em vigor em todos os servidores após a criação, a menos que alterar explicitamente a diretiva de conexão para um `Proxy` ou `Redirect`. A política em vigor depende se conexões têm origem no Azure (`Redirect`) ou fora do Azure (`Proxy`).
 

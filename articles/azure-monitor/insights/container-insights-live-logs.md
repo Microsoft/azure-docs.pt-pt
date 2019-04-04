@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187999"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904751"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Como ver o contentor registos em tempo real com o Azure Monitor para contentores (pré-visualização)
-Esta funcionalidade, que está atualmente em pré-visualização, fornece uma vista em tempo real sobre os seus registos de contentor do Azure Kubernetes Service (AKS) (stdout/stderr) sem ter de executar os comandos de kubectl. Quando seleciona esta opção, o novo painel é apresentada abaixo da tabela de dados de desempenho de contentores no **contentores** vista.  Mostra o registo em direto gerado pelo mecanismo de contentor para auxiliar mais ainda na resolução de problemas em tempo real.  
+Esta funcionalidade, que está atualmente em pré-visualização, fornece uma vista em tempo real sobre os seus registos de contentor do Azure Kubernetes Service (AKS) (stdout/stderr) sem ter de executar os comandos de kubectl. Quando seleciona esta opção, o novo painel é apresentada abaixo da tabela de dados de desempenho de contentores no **contentores** vista.  Mostra o registo em direto gerado pelo mecanismo de contentor para auxiliar mais ainda na resolução de problemas em tempo real. **Contribuinte** acesso ao recurso de cluster é necessário para esta funcionalidade funcione.
 
 Live registos suporta três diferentes métodos para controlar o acesso para os registos:
 

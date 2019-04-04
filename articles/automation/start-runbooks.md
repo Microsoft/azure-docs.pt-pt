@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620585"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918455"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Iniciar um runbook na automatização do Azure
 
@@ -84,7 +84,7 @@ O serviço da web de automatização do Azure fornece a funcionalidade especial 
 
 ### <a name="named-values"></a>Valores com nome
 
-Se o parâmetro é o tipo de dados [object], então pode usar o seguinte formato JSON para lhe enviar uma lista de valores nomeados: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Estes valores têm de ser tipos simples. O runbook recebe o parâmetro como uma [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) com propriedades correspondentes a cada valor nomeado.
+Se o parâmetro é o tipo de dados [object], então pode usar o seguinte formato JSON para lhe enviar uma lista de valores nomeados: *{Name1: 'Value1', Name2: 'Value2', Name3: 'Value3'}*. Estes valores têm de ser tipos simples. O runbook recebe o parâmetro como uma [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) com propriedades correspondentes a cada valor nomeado.
 
 Considere o runbook de teste abaixo, que aceita um parâmetro de nome de utilizador.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328873"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918472"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gerir serviços Cloud do Azure com a automatização do Azure
 Este guia apresenta-lhe para o serviço de automatização do Azure e como ele pode ser usado para simplificar a gestão de serviços cloud do Azure.
@@ -32,7 +32,7 @@ A automatização do Azure fornece um motor de execução do fluxo de trabalho a
 Reduzir o overhead operacional e liberar IT / equipa do DevOps para se dedicar ao trabalho que adiciona business value movendo as tarefas de gestão na cloud a ser executada automaticamente pela automatização do Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Como pode automatização do Azure ajudar a gerir serviços cloud do Azure?
-Serviços cloud do Azure podem ser geridos na automatização do Azure, utilizando os cmdlets do PowerShell que estão disponíveis no [ferramentas do Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). A automatização do Azure tem estes cmdlets do PowerShell cloud service disponíveis de imediato, para que possa executar todas as suas tarefas de gestão de serviço cloud no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e 3º sistemas de terceiros.
+Serviços cloud do Azure podem ser geridos na automatização do Azure, utilizando os cmdlets do PowerShell que estão disponíveis no [ferramentas do Azure PowerShell](/powershell/). A automatização do Azure tem estes cmdlets do PowerShell cloud service disponíveis de imediato, para que possa executar todas as suas tarefas de gestão de serviço cloud no serviço. Também pode emparelhar estes cmdlets na automatização do Azure com os cmdlets para outros serviços do Azure, para automatizar tarefas complexas em serviços do Azure e 3º sistemas de terceiros.
 
 Alguns usos de exemplo da automatização do Azure para gerir serviços Cloud do Azure incluem:
 
@@ -42,6 +42,6 @@ Alguns usos de exemplo da automatização do Azure para gerir serviços Cloud do
 ## <a name="next-steps"></a>Próximos Passos
 Agora que aprendeu as noções básicas da automatização do Azure e como ele pode ser usado para gerir serviços cloud do Azure, siga estas ligações para saber mais sobre a automatização do Azure.
 
-* [Descrição geral da automatização do Azure](../automation/automation-intro.md)
+* [Descrição Geral da Automatização do Azure](../automation/automation-intro.md)
 * [O meu primeiro runbook](../automation/automation-first-runbook-graphical.md)
 * [Mapa de aprendizagem de automatização do Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
