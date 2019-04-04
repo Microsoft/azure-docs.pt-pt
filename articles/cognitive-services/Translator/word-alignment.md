@@ -3,7 +3,7 @@ title: Alinhamento de palavra - API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Receba informações de alinhamento do word da API de texto do Translator.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.custom: seodec18
-ms.openlocfilehash: bdb52e48b6a962c5b38e837f1e2bc0064539951e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: cc795d6b164a97351ec8806c6b7c8bed0c0c1266
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734596"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916908"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento do word
 

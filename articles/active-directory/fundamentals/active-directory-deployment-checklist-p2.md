@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8046721244b31539dc79eba3f2ba11d34c2df256
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904190"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de recursos do Azure Active Directory
 
@@ -32,7 +32,7 @@ Muitas das recomendações neste guia podem ser implementadas com o Azure AD gra
 
 Pode encontrar informações adicionais sobre o licenciamento nas seguintes páginas:
 
-* [Licenciamento Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Licenciamento do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Orientação de licenciamento do Azure AD B2B](../b2b/licensing-guidance.md)
@@ -46,7 +46,7 @@ Nesta fase, os administradores ativar funcionalidades de segurança de linha de 
 | [Designar mais do que um administrador global](../users-groups-roles/directory-emergency-access.md) | Atribua, pelo menos, duas contas de administrador global permanente apenas na cloud para utilização, se houver uma emergência. Estas contas não são utilizado diariamente e devem ter palavras-passe compridas e complexas. | Azure AD Gratuito |
 | [Utilize as funções administrativas não global, sempre que possível](../users-groups-roles/directory-assign-admin-roles.md) | Permitir que os administradores apenas o que precisam de acesso ao apenas as áreas que precisam de acesso a. Nem todos os administradores precisam ser os administradores globais. | Azure AD Gratuito |
 | [Ativar a Privileged Identity Management para controlar a utilização da função de administrador](../privileged-identity-management/pim-getting-started.md) | Ative a Privileged Identity Management iniciar o controlo da utilização da função de administrador. | Azure AD Premium P2 |
-| [Implementar a reposição personalizada de palavra-passe](../authentication/howto-sspr-deployment.md) | Reduz as chamadas de suporte técnico para reposições de palavra-passe, permitindo que a equipe de TI repor a palavra-passe através de políticas de, como um controle de administrador. | Azure AD Básico |
+| [Implementar a reposição de palavra-passe self-service](../authentication/howto-sspr-deployment.md) | Reduz as chamadas de suporte técnico para reposições de palavra-passe, permitindo que a equipe de TI repor a palavra-passe através de políticas de, como um controle de administrador. | Azure AD Básico |
 | [Criar uma lista de personalizado banidas palavra-passe específica da organização](../authentication/howto-password-ban-bad-configure.md) | Impedir que os utilizadores criem palavras-passe que incluem comuns palavras ou frases de sua organização ou área. | Azure AD Básico |
 | [Ativar a integração no local com a proteção de palavra-passe do Azure AD](../authentication/concept-password-ban-bad-on-premises.md) | Expandir a lista de palavra-passe banidas ao seu diretório no local, para garantir que as palavras-passe conjunto locais também estão em conformidade com o global e específico de inquilino excluído listas de palavra-passe. | Azure AD Premium P1 |
 | [Ativar a orientação de palavra-passe da Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Parar exigir que os utilizadores para alterar a palavra-passe numa agenda definida, desativar os requisitos de complexidade e os usuários é mais apto a memorizar as palavras-passe e mantê-los algo que é seguro. | Azure AD Gratuito |

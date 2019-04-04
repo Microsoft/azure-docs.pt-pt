@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 57a97d76a864a644426296cf24401b2210709d39
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805810"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906213"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -1433,7 +1433,7 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Obtém o perfil de atualização do cluster |
 > | Ação | Microsoft.ContainerService/managedClusters/write | Cria um novo cluster gerido ou atualiza um existente |
 > | Ação | Microsoft.ContainerService/openShiftClusters/delete | Eliminar um Cluster de Open Shift |
-> | Ação | Microsoft.ContainerService/openShiftClusters/read | Um cluster de Open Shift |
+> | Ação | Microsoft.ContainerService/openShiftClusters/read | Obter um Cluster de Open Shift |
 > | Ação | Microsoft.ContainerService/openShiftClusters/write | Cria um novo Cluster de Shift aberto ou atualiza um já existente |
 > | Ação | Microsoft.ContainerService/openShiftManagedClusters/delete | Eliminar um Cluster gerido Open Shift |
 > | Ação | Microsoft.ContainerService/openShiftManagedClusters/read | Obter um Cluster gerido Open Shift |
@@ -5902,4 +5902,4 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Funções personalizadas para recursos do Azure](custom-roles.md)
-- [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas para recursos do Azure)
+- [Funções incorporadas para recursos do Azure](built-in-roles.md)

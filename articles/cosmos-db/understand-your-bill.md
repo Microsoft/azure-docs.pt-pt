@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890564"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877644"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a sua fatura do Azure Cosmos DB
 
-Como um serviço de base de dados nativas da cloud totalmente gerido, o Azure Cosmos DB simplifica a faturação por cobrar apenas para o débito aprovisionado e consumidos de armazenamento. Não são as taxas de licença adicionais, hardware, os custos de utilitário, ou os custos do recurso em comparação comparados a no local ou alojado no IaaS alternativas. Ao considerar as várias capacidades de região do Azure Cosmos DB, o serviço de base de dados fornece uma redução substancial nos custos em comparação comparada o existente no local ou soluções de IaaS.
+Como um serviço de base de dados nativas da cloud totalmente gerido, o Azure Cosmos DB simplifica a faturação por cobrar apenas para o débito aprovisionado e consumidos de armazenamento. Não há encargos de licenças adicionais, hardware, os custos de utilitário ou os custos do recurso em comparação comparados no local ou alojado no IaaS alternativas. Ao considerar as várias capacidades de região do Azure Cosmos DB, o serviço de base de dados fornece uma redução substancial nos custos em comparação comparada o existente no local ou de soluções de IaaS.
 
 Com o Azure Cosmos DB, a faturação por hora com base no débito aprovisionado e o armazenamento consumido. Para o débito aprovisionado, a unidade de faturação é 100 RU/seg por hora, cobrada US $0.008 por hora, partindo do princípio de preços pública padrão, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). Para o armazenamento consumido, é faturado US $0,25 por 1 GB de armazenamento por mês, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
@@ -94,7 +94,7 @@ Pode adicionar/remover regiões do Azure em qualquer parte do mundo para a sua c
 
 Vamos supor que tem um contentor do Cosmos do Azure em E.U.A. oeste. O contentor é criado com débito de 10 mil RU/seg e armazena 1 TB de dados deste mês. Vamos supor que adiciona três regiões (E.U.A. leste, Europa do Norte e Ásia Oriental) à sua conta do Cosmos do Azure, cada um com o mesmo armazenamento e débito. A fatura mensal total será (assumindo 30 dias num mês). A fatura seria da seguinte forma: 
 
-|**Item** |**Utilização (mensal)** |**Taxa de** |**Custo mensal** |
+|**Item** |**Utilização (mensal)** |**Tarifa** |**Custo Mensal** |
 |---------|---------|---------|-------|
 |Conta de débito para o contentor em E.U.A. Oeste      | 10 mil RU/seg * 24 * 30    |US $0.008 por 100 RU/seg por hora   |$576|
 |Conta de débito para três regiões adicionais – E.U.A Leste, Europa do Norte e Ásia Oriental       | 3 * 10 mil RU/seg * 24 * 30    |US $0.008 por 100 RU/seg por hora  |$1,728|
@@ -108,7 +108,7 @@ Vamos supor que tem um contentor do Cosmos do Azure em E.U.A. oeste. O contentor
 
 Vamos supor que criar um contentor do Cosmos do Azure em E.U.A. oeste. O contentor é criado com débito de 10 mil RU/seg e armazena 1 TB de dados deste mês. Suponhamos que adiciona três regiões (E.U.A. leste, Europa do Norte e Ásia Oriental), cada um com o mesmo armazenamento e débito e quiser ter a capacidade para escrever os contentores em todas as regiões à sua conta do Cosmos do Azure. A fatura mensal total será (supondo 30 dias num mês) da seguinte forma:
 
-|**Item** |**Utilização (mensal)**|**Taxa de** |**Custo mensal** |
+|**Item** |**Utilização (mensal)**|**Tarifa** |**Custo Mensal** |
 |---------|---------|---------|-------|
 |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)       | 10 mil RU/seg * 24 * 30    |US $0.016 por 100 RU/seg por hora    |$1,152 |
 |Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (todas as regiões são graváveis)        | (3 + 1) * 10 mil RU/seg * 24 * 30    |US $0.016 por 100 RU/seg por hora   |$4,608 |
@@ -194,7 +194,7 @@ A fatura mensal total será (supondo 30 dias/720 horas num mês) vai ser calcula
 | | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (120 K RU/sec /100 * $0.016) * 200 hours = $1,280`  |$7,680  |
 |[701-720] |D1:20K <br/>D2:50K <br/>C1: -- |Conta de débito para o contentor em E.U.A. oeste (todas as regiões são graváveis)  |`D1: 20 K RU/sec/100 *$0.016 * 20 hours = $64` <br/>`D2: 50 K RU/sec/100 *$0.016 * 20 hours = $160` |$224  |
 | | |Conta de débito para 2 regiões adicionais: E.U.A. leste, Europa do Norte (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
-|| |**Custo mensal total**  | |**$38,688**   |
+|| |**Custo Total Mensal**  | |**$38,688**   |
 
 ## <a name="proactively-estimating-your-monthly-bill"></a>Estimar proativamente a fatura mensal  
 
@@ -218,7 +218,7 @@ Vejamos outro exemplo, o qual pretende calcular proativamente a sua fatura antes
 
 Total de RU/s: 500 + 400 = 900 custo por hora: 900/100 * US $0.008 = US $0.072 esperado custo mensal de débito (assumindo 31 dias): $0.072 * 24 * 31 = us $53.57
 
-**Custo mensal total**
+**Custo Total Mensal**
 
 Custo mensal total = custo mensal para armazenamento + custo mensal de débito de custo mensal Total = $25,00 + us $53.57 = us $78.57
 
@@ -234,7 +234,7 @@ Capacidade de Cosmos DB reservada do Azure permite-lhe comprar o débito aprovis
 
 Total (sem capacidade de reserva) será (assumindo 30 dias ou horas de 720): 
 
-|**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Montante faturado (por hora)**| **Montante faturado (mensal)**|
+|**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Montante Faturado (por hora)**| **Montante Faturado (mensal)**|
 |----|----|----|----|----|
 |EUA Leste|$0.008 |50 K|$4|$2,880 |
 |Leste do Japão|$0.009 |50 K| $4.50 |$3,240 |
@@ -248,7 +248,7 @@ Vamos considerar que comprou capacidade de reserva em vez disso. Pode adquirir c
 
 O que efetivamente comprou é um crédito de 8 $ por hora, por 100 mil RU/seg, com o preço de lista na região E.U.A. leste, com o preço de US $6.40 por hora. Em seguida, pode desenhar para baixo desta reserva débito pré-pago à hora para a capacidade de débito aprovisionado em qualquer região do Azure global nos respetivos preços lista regionais definido para a sua subscrição. Neste exemplo, onde Aprovisiona 50 mil RU/seg cada nas regiões E.U.A. leste e leste do Japão, será capaz de desenhar us $8.00 que vale a pena do débito aprovisionado por hora e será cobrado o excesso de US $0,50 por hora (ou 360 us $/ mês). 
 
-|**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Montante faturado (por hora)**| **Montante faturado (mensal)**|
+|**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Montante Faturado (por hora)**| **Montante Faturado (mensal)**|
 |----|----|----|----|----|
 |EUA Leste|$0.008 |50 K|$4|$2,880 |
 |Leste do Japão|$0.009 |50 K| $4.50 |$3,240 |
