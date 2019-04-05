@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370521"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046586"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -150,7 +150,7 @@ Amostragem adaptável está ativada por predefinição para todos os aplicativos
 
 ### <a name="turning-off-adaptive-sampling"></a>Desativar a amostragem adaptável
 
-A funcionalidade de amostragem padrão pode ser desabilitada ao adicionar o serviço do Application Insights, no método ```ConfigureServices```, utilizando ```ApplicationInsightsServiceOptions```:
+A funcionalidade de amostragem padrão pode ser desabilitada ao adicionar o serviço do Application Insights, no método ```ConfigureServices```, utilizando ```ApplicationInsightsServiceOptions``` dentro do `Startup.cs` ficheiro:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

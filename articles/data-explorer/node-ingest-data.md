@@ -1,19 +1,18 @@
 ---
 title: 'Início rápido: Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure'
 description: Neste início rápido, irá aprender a ingerir (carregar) dados para o Azure Data Explorer com o Node.js.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: 0a23c171d99d46eb29dd589867ce70ca2739ff29
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756451"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047658"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Início rápido: Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure
 
@@ -25,7 +24,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 Além de uma subscrição do Azure, precisa do seguinte para concluir este início rápido:
 
-* [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
+* [Um cluster de teste e a base de dados](create-cluster-database-portal.md)
 
 * [Node.js](https://nodejs.org/en/download/) instalado no seu computador de desenvolvimento
 

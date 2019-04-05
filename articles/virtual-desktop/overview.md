@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577191"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049443"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é o Windows Virtual Desktop Preview? 
 
@@ -54,12 +54,12 @@ Também pode atribuir e conectar os usuários a suas áreas de trabalho virtual:
 
 Existem algumas coisas que precisa para configurar a área de Trabalho Virtual do Windows e ligar com êxito os usuários a seus ambientes de trabalho do Windows e aplicativos.
 
-Em primeiro lugar, certifique-se de que tem as licenças apropriadas para os seus utilizadores com base no ambiente de trabalho e aplicações que planeia implementar:
+Primeiro, certifique-se de que tem o [apropriado de licenças](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os seus utilizadores com base no ambiente de trabalho e aplicações que planeia implementar:
 
 |SO|Licença necessária|
 |---|---|
-|Sessão multi do Windows 10 Enterprise ou Windows 10. o único-sessão|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Sessão multi do Windows 10 Enterprise ou Windows 10. o único-sessão|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
+|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS cliente de licença de acesso (CAL) com o Software Assurance|
 
 A infraestrutura precisa dos seguintes pontos para oferecer suporte a área de Trabalho Virtual do Windows:

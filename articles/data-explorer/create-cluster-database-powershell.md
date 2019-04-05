@@ -1,19 +1,18 @@
 ---
 title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell'
 description: Saiba como criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell
-services: data-explorer
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 84b0cbfd7e8ec6709b79328220aac7c9ae904bdb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472485"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047165"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell
 
@@ -118,4 +117,4 @@ Agora tem um cluster e uma base de dados.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Comandos de Az.Kusto adicionais](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
-* [Quickstart: Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)
+* [Início rápido: Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)

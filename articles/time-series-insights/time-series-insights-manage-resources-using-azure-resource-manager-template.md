@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009385"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045905"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights com modelos Azure Resource Manager
 
@@ -34,10 +34,13 @@ O Time Series Insights suporta os seguintes recursos:
 Um modelo do Resource Manager é um ficheiro JSON que define a infraestrutura e a configuração de recursos num grupo de recursos. Para obter mais informações, consulte os seguintes documentos:
 
 - [Gestor de recursos descrição geral do Azure - implementação do modelo](../azure-resource-manager/resource-group-overview.md#template-deployment)
-- [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Tipos de recursos de Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 O [201-timeseriesinsights-ambiente-com-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) modelo de início rápido é publicado no GitHub. Este modelo cria um ambiente do Time Series Insights, uma fonte de eventos de subordinados configurado para consumir eventos a partir de um Hub de eventos e políticas que concedem acesso aos dados do ambiente de acesso. Se não for especificado um Hub de eventos existente, será criada com a implementação.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implementar o modelo de início rápido com o PowerShell localmente
 
@@ -110,8 +113,8 @@ Para criar um ficheiro de parâmetros, copiar os [201-timeseriesinsights-ambient
    | eventSourceDisplayName | Um nome amigável opcional para mostrar nas interfaces de utilizador ou as ferramentas em vez do nome de origem do evento. |
    | eventSourceTimestampPropertyName | A propriedade de evento que será utilizada como o timestamp a fonte de eventos. Se não for especificado um valor para timestampPropertyName, ou se null ou a cadeia vazia é especificada, será utilizada a hora de criação do evento. |
    | eventSourceKeyName | O nome da chave de acesso partilhado que o serviço do Time Series Insights irá utilizar para ligar ao hub de eventos. |
-   | accessPolicyReaderObjectIds | Uma lista de IDs dos utilizadores ou aplicações no Azure AD que devem ter acesso de leitor ao ambiente de objetos. O objectId do principal de serviço pode ser obtido ao chamar o **Get-AzureRMADUser** ou o **Get-AzureRMADServicePrincipal** cmdlets. Ainda, a criar uma política de acesso para grupos do Azure AD não é suportada. |
-   | accessPolicyContributorObjectIds | Uma lista de IDs dos utilizadores ou aplicações no Azure AD que devem ter acesso de Contribuidor para o ambiente de objetos. O objectId do principal de serviço pode ser obtido ao chamar o **Get-AzureRMADUser** ou o **Get-AzureRMADServicePrincipal** cmdlets. Ainda, a criar uma política de acesso para grupos do Azure AD não é suportada. |
+   | accessPolicyReaderObjectIds | Uma lista de IDs dos utilizadores ou aplicações no Azure AD que devem ter acesso de leitor ao ambiente de objetos. O objectId do principal de serviço pode ser obtido ao chamar o **Get-AzADUser** ou o **Get-AzADServicePrincipal** cmdlets. Ainda, a criar uma política de acesso para grupos do Azure AD não é suportada. |
+   | accessPolicyContributorObjectIds | Uma lista de IDs dos utilizadores ou aplicações no Azure AD que devem ter acesso de Contribuidor para o ambiente de objetos. O objectId do principal de serviço pode ser obtido ao chamar o **Get-AzADUser** ou o **Get-AzADServicePrincipal** cmdlets. Ainda, a criar uma política de acesso para grupos do Azure AD não é suportada. |
 
 Por exemplo, ficheiro de parâmetros seguintes seria usado para criar um ambiente e uma origem de evento que lê eventos a partir do hub de eventos existente. Ele também cria duas políticas de acesso que concedem acesso de contribuinte ao ambiente.
 
@@ -155,27 +158,27 @@ Para obter mais informações, consulte a [parâmetros](../azure-resource-manage
 A partir de uma linha de comandos do PowerShell, execute o seguinte comando:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 São-lhe pedido para iniciar sessão na sua conta do Azure. Após fazer logon, execute o seguinte comando para ver as subscrições disponíveis:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Este comando devolve uma lista de subscrições do Azure disponíveis. Escolha uma subscrição para a sessão atual ao executar o comando seguinte. Substitua `<YourSubscriptionId>` com o GUID da subscrição do Azure que pretende utilizar:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Definir o grupo de recursos
 
-Se não tiver um recurso existente de grupo, criar um novo grupo de recursos com o **New-AzureRmResourceGroup** comando. Forneça o nome do grupo de recursos e localização que pretende utilizar. Por exemplo:
+Se não tiver um recurso existente de grupo, criar um novo grupo de recursos com o **New-AzResourceGroup** comando. Forneça o nome do grupo de recursos e localização que pretende utilizar. Por exemplo:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Se tiver êxito, é apresentado um resumo do novo grupo de recursos.
@@ -190,38 +193,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testar a implementação
 
-Validar a sua implementação ao executar o `Test-AzureRmResourceGroupDeployment` cmdlet. Ao testar a implementação, fornece os parâmetros exatamente como faria quando executar a implantação.
+Validar a sua implementação ao executar o `Test-AzResourceGroupDeployment` cmdlet. Ao testar a implementação, fornece os parâmetros exatamente como faria quando executar a implantação.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 ### <a name="create-the-deployment"></a>Criar a implementação
 
-Para criar a nova implementação, execute o `New-AzureRmResourceGroupDeployment` cmdlet e forneça os parâmetros necessários, quando lhe for pedido. Os parâmetros incluem um nome para a sua implementação, o nome do seu grupo de recursos e o caminho ou URL para o ficheiro de modelo. Se o **modo** parâmetro não for especificado, o valor predefinido de **Incremental** é utilizado. Para obter mais informações, consulte [Incremental e completas implementações](../azure-resource-manager/deployment-modes.md).
+Para criar a nova implementação, execute o `New-AzResourceGroupDeployment` cmdlet e forneça os parâmetros necessários, quando lhe for pedido. Os parâmetros incluem um nome para a sua implementação, o nome do seu grupo de recursos e o caminho ou URL para o ficheiro de modelo. Se o **modo** parâmetro não for especificado, o valor predefinido de **Incremental** é utilizado. Para obter mais informações, consulte [Incremental e completas implementações](../azure-resource-manager/deployment-modes.md).
 
 O seguinte comando pede-lhe os cinco parâmetros necessários na janela do PowerShell:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
 Para especificar um ficheiro de parâmetros em vez disso, utilize o seguinte comando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 Também pode utilizar parâmetros inline ao executar o cmdlet de implementação. O comando é o seguinte:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Para executar uma [concluída](../azure-resource-manager/deployment-modes.md) implantação, defina o **modo** parâmetro **concluída**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação

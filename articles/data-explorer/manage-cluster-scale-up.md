@@ -1,19 +1,18 @@
 ---
-title: Dimensionar cluster do Explorador de dados do Azure para acomodar a pedido de alteração
+title: Aumentar verticalmente um cluster do Explorador de dados do Azure para acomodar a pedido de alteração
 description: Este artigo descreve os passos para aumentar verticalmente e reduzir verticalmente um cluster do Explorador de dados do Azure com base no pedido de alteração.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 71f1d197b4a3fb437607f876ea524e582e62c0fd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 565953c8e0c6f9765d5eeb16a9fa18c3e79b8370
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756334"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044939"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Gerir o aumento vertical de cluster para acomodar a pedido de alteração
 

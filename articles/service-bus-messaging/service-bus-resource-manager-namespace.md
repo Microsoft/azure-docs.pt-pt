@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496926"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045087"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com um modelo Azure Resource Manager
 Neste início rápido, vai criar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus do tipo **Messaging** com um **padrão** SKU. O artigo também define os parâmetros que são especificados para a execução da implantação. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager). Para o modelo completo, consulte a [modelo de espaço de nomes do Service Bus] [ Service Bus namespace template] no GitHub.
@@ -34,17 +34,20 @@ Neste início rápido, vai criar um modelo do Azure Resource Manager que cria um
 > 
 > Para verificar os modelos mais recentes, visite o [modelos de início rápido do Azure] [ Azure Quickstart Templates] Galeria e pesquisa do Service Bus.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="quick-deployment"></a>Implementação rápida
 Para executar o exemplo sem escrever qualquer JSON e executar o comando do PowerShell/CLI, selecione o botão seguinte:
 
-[![Implementar no Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Deploy para o Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Para criar e implementar o modelo manualmente, percorra as secções seguintes neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este início rápido, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se quiser usar **do Azure PowerShell** para implementar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+Se quiser usar **do Azure PowerShell** para implementar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Se quiser usar **CLI do Azure** para implementar o modelo do Resource Manager [instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
@@ -134,12 +137,12 @@ Crie um ficheiro JSON com o nome **Parameters. JSON MyServiceBusNamespace** com 
 2. Execute o seguinte comando para iniciar sessão no Azure:
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. Se tiver emita os seguintes comandos para definir o contexto de subscrição atual:
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="deploy-resources"></a>Implementar recursos
@@ -156,12 +159,12 @@ Para implementar os recursos com o Azure PowerShell, mude para a pasta onde guar
 2. Criar um grupo de recursos do Azure.
 
     ```azurepowershell
-    New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 3. Implemente o modelo do Resource Manager. Especifique os nomes de implantação propriamente dita, o grupo de recursos, o ficheiro JSON para o modelo, o ficheiro JSON para os parâmetros
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
     ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Utilizar a CLI do Azure para implementar o modelo

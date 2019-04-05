@@ -3,17 +3,17 @@ title: Compreender o carregamento de ficheiros do IoT Hub do Azure | Documentos 
 description: Guia do desenvolvedor – utilize a funcionalidade de carregamento de ficheiros do IoT Hub para gerir a carregar ficheiros a partir de um dispositivo para um contentor de BLOBs de armazenamento do Azure.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008564"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050735"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o IoT Hub
 

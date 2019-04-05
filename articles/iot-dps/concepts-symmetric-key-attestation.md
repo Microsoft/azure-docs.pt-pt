@@ -3,19 +3,19 @@ title: Serviço de Azure aprovisionamento de dispositivos do IoT Hub - atestado 
 description: Este artigo fornece uma descrição geral conceptual do atestado de chave simétrica com o serviço de aprovisionamento de dispositivos de IoT.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 80828876ffe8b58697cfaacad4991354ac070730
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: philmea
+ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971795"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050949"
 ---
-# <a name="symmetric-key-attestation"></a>Atestado de chave simétrico
+# <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
 Este artigo descreve o processo de atestado de identidade ao utilizar as chaves simétricas com o serviço de aprovisionamento de dispositivos. 
 

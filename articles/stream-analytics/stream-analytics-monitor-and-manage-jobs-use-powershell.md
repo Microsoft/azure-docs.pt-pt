@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 2755064190e787baa31ea0da7c375365fa6c29b5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 27ee1980fd60a2e301830f198a5f65c4d89df59f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733338"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046534"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorizar e gerir tarefas do Stream Analytics com cmdlets do Azure PowerShell
 Saiba como monitorizar e gerir os recursos de Stream Analytics com cmdlets do Azure PowerShell e scripts do powershell que são executadas tarefas básicas do Stream Analytics.
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlets do Azure PowerShell para o Stream Analytics
 Os seguintes cmdlets PowerShell do Azure pode ser utilizados para monitorizar e gerir tarefas do Azure Stream Analytics. Observe que o Azure PowerShell tem versões diferentes. 
-**Os exemplos apresentados o primeiro comando é para o Azure PowerShell 0.9.8, o segundo comando é para o Azure PowerShell 1.0.** Os comandos do Azure PowerShell 1.0 sempre terá "AzureRM" no comando.
+**Os exemplos apresentados o primeiro comando é para o Azure PowerShell 0.9.8, o segundo comando é para o Azure PowerShell 1.0.** Os comandos do Azure PowerShell 1.0 sempre terá "Az" no comando.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Apresenta uma lista de todas as tarefas do Stream Analytics definidas na subscrição do Azure ou do grupo de recursos especificado ou obtém as informações da tarefa sobre uma tarefa específica num grupo de recursos.
@@ -200,7 +200,7 @@ Get-AzStreamAnalyticsQuota –Location "Central US"
 
 Este comando do PowerShell devolve informações sobre a quota e utilização de unidades de transmissão em fluxo na região E.U.A. Central.
 
-### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
+### <a name="get-azurestreamanalyticstransformation--get-azstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | Get-AzStreamAnalyticsTransformation
 Obtém informações sobre uma transformação específica definida numa tarefa do Stream Analytics.
 
 **Exemplo 1**

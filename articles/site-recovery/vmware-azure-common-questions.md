@@ -8,17 +8,16 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418798"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051925"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
 Este artigo fornece respostas a perguntas comuns que vemos ao implementar a recuperação após desastre de VMs de VMware no local para o Azure. Se tiver questões depois de ler este artigo, publique o [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="general"></a>Geral
 ### <a name="how-is-site-recovery-priced"></a>Como é que o Site Recovery é cobrado?
@@ -323,7 +322,7 @@ Após a ativação pós-falha, pode acessar as VMs do Azure através de uma liga
 O Azure foi concebido para ser resiliente. Recuperação de site foi desenvolvida para ativação pós-falha para um datacenter secundário do Azure, de acordo com o SLA do Azure. Quando ocorre a ativação pós-falha, devemos verificar se os metadados e cofres permanecem na mesma região geográfica que escolheu para o cofre.
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
-[Ativação pós-falha](site-recovery-failover.md) não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell](/powershell/module/azurerm.siterecovery) para acionar uma ativação pós-falha.
+[Ativação pós-falha](site-recovery-failover.md) não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell](/powershell/module/az.recoveryservices) para acionar uma ativação pós-falha.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Pode falhar novamente para uma localização diferente?
 Sim, se a ativação pós-falha para o Azure, pode reativação pós-falha para uma localização diferente se original não estiver disponível. [Saiba mais](concepts-types-of-failback.md#alternate-location-recovery-alr).

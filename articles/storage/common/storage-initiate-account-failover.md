@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668569"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044968"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (pré-visualização)
 
@@ -23,6 +23,8 @@ Este artigo mostra como iniciar uma ativação pós-falha de conta para a conta 
 
 > [!WARNING]
 > Uma ativação pós-falha de conta normalmente resulta em alguma perda de dados. Para compreender as implicações de uma ativação pós-falha de conta e preparar para a perda de dados, reveja [compreender o processo de ativação pós-falha de conta](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +37,7 @@ Antes de realizar uma ativação pós-falha de conta na sua conta de armazenamen
 
 Quando iniciar uma ativação pós-falha de conta para a sua conta de armazenamento, os registos DNS para o ponto final secundário são atualizados para que o ponto final secundário torna-se o ponto final primário. Certifique-se de que compreenda o impacto potencial à sua conta de armazenamento antes de iniciar uma ativação pós-falha.
 
-Para estimar o grau de perda de dados provavelmente antes de iniciar uma ativação pós-falha, verifique os **hora da última sincronização** propriedade usando o `Get-AzureRmStorageAccount` cmdlet do PowerShell e incluem o `-IncludeGeoReplicationStats` parâmetro. Em seguida, verifique o `GeoReplicationStats` propriedade para a sua conta. 
+Para estimar o grau de perda de dados provavelmente antes de iniciar uma ativação pós-falha, verifique os **hora da última sincronização** propriedade usando o `Get-AzStorageAccount` cmdlet do PowerShell e incluem o `-IncludeGeoReplicationStats` parâmetro. Em seguida, verifique o `GeoReplicationStats` propriedade para a sua conta. 
 
 Após a ativação pós-falha, seu tipo de conta de armazenamento será convertido automaticamente para o armazenamento localmente redundante (LRS) na nova região primária. Pode reativar o armazenamento georredundante (GRS) ou armazenamento georredundante de acesso de leitura (RA-GRS) para a conta. Tenha em atenção que a conversão de LRS para GRS ou RA-GRS implica um custo adicional. Para obter mais informações, consulte [detalhes dos preços da largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -105,5 +107,5 @@ az storage account failover \ --name accountName
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Failover conta e de recuperação após desastre (pré-visualização) no armazenamento do Azure](storage-disaster-recovery-guidance.md)
-- [Conceber aplicações de elevada disponibilidade com o RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Conceber aplicações de elevada disponibilidade com RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 - [Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 

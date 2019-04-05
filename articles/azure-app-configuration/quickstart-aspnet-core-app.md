@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578123"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051444"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -87,7 +87,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
+        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     Segredo Manager é utilizada apenas para testar a aplicação web localmente. Quando a aplicação for implementada, por exemplo, a [App Service do Azure](https://azure.microsoft.com/services/app-service/web), utilize uma aplicação de definir, por exemplo, **cadeias de ligação** no serviço de aplicações. Utilize esta definição em vez de armazenar a cadeia de ligação com o Gestor de segredo.
 

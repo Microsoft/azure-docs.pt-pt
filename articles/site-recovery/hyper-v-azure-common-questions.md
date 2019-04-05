@@ -8,17 +8,16 @@ ms.service: site-recovery
 ms.date: 03/18/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4888d019065e557cb49574e2268515323b3fd005
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8a7694f3a94f9bda7dc905fabbd7adf0e4b7d0f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310715"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047182"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
 Este artigo fornece respostas a perguntas comuns que vemos ao replicar VMs de Hyper-V no local para o Azure. 
-
 
 ## <a name="general"></a>Geral
 
@@ -188,7 +187,7 @@ Após a ativação pós-falha, pode acessar as VMs do Azure através de uma liga
 O Azure foi concebido para ser resiliente. Recuperação de site foi desenvolvida para ativação pós-falha para um datacenter secundário do Azure, de acordo com o SLA do Azure. Quando ocorre a ativação pós-falha, devemos verificar se os metadados e cofres permanecem na mesma região geográfica que escolheu para o cofre.
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
-[Ativação pós-falha](site-recovery-failover.md) não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell](/powershell/module/azurerm.siterecovery) para acionar uma ativação pós-falha.
+[Ativação pós-falha](site-recovery-failover.md) não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell](/powershell/module/az.siterecovery) para acionar uma ativação pós-falha.
 
 ### <a name="how-do-i-fail-back"></a>Como posso efetuar a ativação pós-falha?
 

@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/04/2019
+ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864954"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051228"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início rápido: Utilizar o Machine Learning Services (com R) na base de dados do Azure SQL (pré-visualização)
 
@@ -98,7 +98,8 @@ O exercício seguinte debruça-se sobre o primeiro modelo de interação, como t
     b <- 2
     c <- a/b
     d <- a*b
-    print(c, d)'
+    print(c(c, d))
+    '
     ```
 
 2. Partindo do princípio de que tem tudo configurado corretamente, é calculado o resultado certo e a função `print` de R devolve-o na janela **Messages** (Mensagens).
@@ -522,5 +523,5 @@ Para obter mais informações sobre o Machine Learning Services, consulte os art
 - [SQL do Azure da base de dados serviços de Machine Learning (com R)](sql-database-machine-learning-services-overview.md)
 - [Serviços de Machine Learning do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [Tutorial: Aprenda a análise de na base de dados com o R no SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Instruções completas de ciência de dados para R e SQL Server)
+- [Instruções de ciência de dados ponto a ponto para R e o SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
 - [Tutorial: Utilizar funções de RevoScaleR R com dados do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

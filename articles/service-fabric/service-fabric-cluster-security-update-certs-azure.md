@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315282"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050242"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 Recomenda-se familiarizar com como o Service Fabric utiliza certificados X.509 e estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender é que um certificado de cluster e o que é utilizado para, antes de prosseguir.
@@ -33,6 +33,9 @@ O Service fabric permite-lhe especificar os dois certificados de cluster, um sit
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Adicionar um certificado de cluster secundário com o portal
 Não é possível adicionar o certificado de cluster secundário através do portal do Azure, utilize o Azure powershell. O processo é descrito mais adiante neste documento.
 
@@ -45,7 +48,7 @@ Se sua intenção é remover o certificado que está marcado como primário, em 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicionar um certificado secundário através do Powershell do Resource Manager
 > [!TIP]
-> Agora, é melhor e mais fácil adicionar um certificado secundário com o [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. Não precisa de seguir o resto dos passos nesta secção.  Além disso, não é necessário o modelo utilizado originalmente para criar e implementar o cluster ao utilizar o [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
+> Agora, é melhor e mais fácil adicionar um certificado secundário com o [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. Não precisa de seguir o resto dos passos nesta secção.  Além disso, não é necessário o modelo utilizado originalmente para criar e implementar o cluster ao utilizar o [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 Estes passos partem do princípio de que está familiarizado com o funcionamento do Gestor de recursos e tiver implementado pelo menos um cluster do Service Fabric com um modelo do Resource Manager e que tem o modelo que utilizou para configurar o cluster útil. Também é assumido que está familiarizado com o JSON.
 
@@ -195,19 +198,19 @@ Editar o ficheiro de parâmetro de modelo do Resource Manager, adicione dois nov
 - Inicie sessão na sua conta do Azure e selecione a subscrição do azure específica. Este é um passo importante para quem tem acesso a mais do que uma subscrição do azure.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 Teste o modelo antes de implantá-lo. Utilize o mesmo grupo de recursos que o cluster está a ser implementado na.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Implemente o modelo para o grupo de recursos. Utilize o mesmo grupo de recursos que o cluster está a ser implementado na. Execute o comando New-AzureRmResourceGroupDeployment. Não é necessário especificar o modo, uma vez que o valor predefinido é **incremental**.
+Implemente o modelo para o grupo de recursos. Utilize o mesmo grupo de recursos que o cluster está a ser implementado na. Execute o comando New-AzResourceGroupDeployment. Não é necessário especificar o modo, uma vez que o valor predefinido é **incremental**.
 
 > [!NOTE]
 > Se definir o modo como concluída, pode eliminar inadvertidamente recursos que não estão no seu modelo. Portanto, não usá-lo neste cenário.
@@ -215,7 +218,7 @@ Implemente o modelo para o grupo de recursos. Utilize o mesmo grupo de recursos 
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 Eis um exemplo de manchas fora do mesmo powershell.
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

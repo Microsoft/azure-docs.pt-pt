@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485404"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051534"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com a REST API
 
@@ -29,6 +29,9 @@ ms.locfileid: "58485404"
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 Vista de grupo de segurança devolve as regras de segurança de rede configurado e eficaz que são aplicadas a uma máquina virtual. Esta funcionalidade é útil para auditar e diagnosticar os grupos de segurança de rede e regras que estão configuradas numa VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como obter as regras de segurança eficazes e aplicadas a uma máquina virtual com a REST API
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -50,7 +53,7 @@ armclient login
 
 Execute o seguinte script para retornar um machineThe virtual o código a seguir precisa variáveis:
 
-- **subscriptionId** -o id de subscrição também pode ser obtido com o **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** -o id de subscrição também pode ser obtido com o **Get-AzSubscription** cmdlet.
 - **resourceGroupName** -o nome do grupo de recursos que contém as máquinas virtuais.
 
 ```powershell

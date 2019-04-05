@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 2a2e289423eda53d610b2346193f6ee8a30b9c48
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917690"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048814"
 ---
 # <a name="azure-stack-1903-update"></a>Atualização de 1903 de pilha do Azure
 
@@ -64,6 +64,12 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 
 - Melhorias para a deteção e remediação de condições do espaço em disco insuficiente.
 
+### <a name="secret-management"></a>Gestão de segredos
+
+- O Azure Stack suporta agora a rotação do certificado de raiz utilizado por certificados para a rotação de secreta externa. Para obter mais informações, [veja este artigo](azure-stack-rotate-secrets.md).
+
+- 1903 contém aprimoramentos de desempenho para a rotação de segredo que reduzem o tempo que demora a executar a rotação secreta interna.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
@@ -91,7 +97,7 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 
 - Quando executa [AzureStack teste](azure-stack-diagnostic-test.md), será apresentada uma mensagem de aviso do controlador de gestão de placas base (BMC). Pode ignorar este aviso.
 
-- <!-- 2468613 - IS --> Durante a instalação desta atualização, poderá ver alertas com o título `Error – Template for FaultType UserAccounts.New is missing.` pode ignorar com segurança estes alertas. Os alertas fechar automaticamente depois de concluída a instalação desta atualização.
+- <!-- 2468613 - IS --> Durante a instalação desta atualização, poderá ver alertas com o título **erro – o modelo para typu FaultType UserAccounts.New está em falta.** Pode ignorar com segurança estes alertas. Os alertas fechar automaticamente depois de concluída a instalação desta atualização.
 
 ## <a name="post-update-steps"></a>Passos de pós-atualização
 
@@ -151,9 +157,9 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 - Uma VM do Ubuntu 18.04 criado com autorização de SSH ativada não permitirá que use as chaves SSH para iniciar sessão. Como solução, utilize o acesso VM para a extensão do Linux para implementar as chaves SSH após o aprovisionamento ou utilizar a autenticação baseada em palavra-passe.
 
-- Se não tiver um anfitrião de ciclo de vida do Hardware (HLH): Antes de compilação 1902, era necessário definir diretiva de grupo *computador configuração Windows Settings\Local \ opções* para **Enviar LM e NTLM – utilizar a segurança de sessão de NTLMv2 se negociado**. Desde compilação 1902, tem de deixar-o como **não definido** ou defina-o como **apenas a resposta de enviar NTLMv2** (que é um valor predefinido). Caso contrário, não será possível estabelecer uma sessão remota do PowerShell e receberá uma *o acesso é negado* erro:
+- Se não tiver um anfitrião de ciclo de vida do Hardware (HLH): antes de compilação 1902, era necessário definir diretiva de grupo **computador configuração Windows Settings\Local \ opções** para **Enviar LM e NTLM – utilizar a segurança de sessão de NTLMv2 se negociado**. Desde compilação 1902, tem de deixar-o como **não definido** ou defina-o como **apenas a resposta de enviar NTLMv2** (que é o valor predefinido). Caso contrário, não será possível estabelecer uma sessão remota do PowerShell e verá uma **o acesso é negado** erro:
 
-   ```PowerShell
+   ```shell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
@@ -169,7 +175,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 <!-- 3239127 - IS, ASDK -->
 - No portal do Azure Stack, quando altera um endereço IP estático para uma configuração de IP que está vinculado a um adaptador de rede anexado a uma instância VM, verá uma mensagem de aviso que indica 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     Pode ignorar esta mensagem; o endereço IP será alterado, mesmo que a instância VM não é reinicializado.
 
@@ -193,7 +199,6 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 <!-- 2352906 - IS ASDK --> 
 - Tem de registar o fornecedor de recursos de armazenamento antes de criar a sua primeira função do Azure na subscrição.
-
 
 <!-- ### Usage -->
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316257"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050684"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters do HDInsight
 
@@ -22,14 +22,17 @@ HDInsight fornece elasticidade, dando-lhe a opção de aumentar verticalmente e 
 
 Por exemplo, se tiver algum processamento em lotes que ocorre uma vez por dia ou uma vez por mês, o cluster do HDInsight pode ser aumentado alguns minutos antes que o evento agendado para que haja memória suficiente e poder de computação de CPU.  Mais tarde, depois do processamento é concluído e uso novamente a ficar inativo, pode reduzir verticalmente o cluster do HDInsight para menos nós de trabalho.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="utilities-to-scale-clusters"></a>Utilitários para dimensionar clusters
 
 A Microsoft fornece os seguintes utilitários para dimensionar clusters:
 
 |Utilitário | Descrição|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nome do Cluster > - TargetInstanceCount \<NewSize >|
 |[CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[Redimensionar AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) – grupo de recursos \<grupo de recursos >-name \<nome do Cluster > – contagem de instâncias de destino \<NewSize >|
 |[CLI clássica do Azure](hdinsight-administer-use-command-line.md)|o Azure hdinsight cluster redimensionamento \<clusterName > \<contagem de instâncias de destino >|
 |[Portal do Azure](https://portal.azure.com)|Abra o painel de cluster do HDInsight, selecione **tamanho do Cluster** no menu do lado esquerdo, em seguida, no painel de tamanho de Cluster, escreva o número de nós de trabalho e selecione guardar.|  
@@ -326,4 +329,4 @@ A última opção é a estar atento rara ocasião em que o HDFS entra em modo se
 
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
+* [Gerir clusters do HDInsight através da IU do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)

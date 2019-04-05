@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670256"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049902"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de redes do Service Fabric
 Pode integrar o seu cluster do Azure Service Fabric com outras funcionalidades de rede do Azure. Neste artigo, vamos mostrar como criar clusters que utilizam as seguintes funcionalidades:
@@ -34,6 +34,9 @@ Service Fabric é executado num conjunto de dimensionamento de máquina de virtu
 O Service Fabric é exclusivo a partir de outras funcionalidades de rede num aspecto. O [portal do Azure](https://portal.azure.com) internamente utiliza o fornecedor de recursos do Service Fabric para a chamada para um cluster para obter informações sobre nós e aplicativos. O fornecedor de recursos do Service Fabric requer acesso de entrada acessível ao público para a porta de gateway HTTP (porta 19080, por padrão) no ponto final de gestão. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utiliza o ponto final de gestão para gerir o cluster. O fornecedor de recursos do Service Fabric também utiliza esta porta consultar as informações sobre o cluster, para apresentar no portal do Azure. 
 
 Se a porta 19080 não está acessível a partir do fornecedor de recursos do Service Fabric, uma mensagem, como *não encontrados nós* é apresentada no portal, e sua lista de nó e o aplicativo parece vazia. Se pretender ver o seu cluster no portal do Azure, o Balanceador de carga deve expor um endereço IP público e seu grupo de segurança de rede tem de permitir o tráfego de entrada porta 19080. Se a configuração não cumprir estes requisitos, o portal do Azure não apresenta o estado do cluster.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Modelos
 
@@ -51,7 +54,7 @@ No exemplo a seguir, vamos começar com uma rede virtual existente com o nome Ex
 Geralmente, um endereço IP público estático é um recurso dedicado gerenciado separadamente a partir da VM ou VMs que está atribuída a. Ele é aprovisionado num grupo de recursos de rede dedicado (em vez de no recurso de cluster do Service Fabric de grupo em si). Crie um endereço IP público estático denominado staticIP1 no mesmo ExistingRG grupo de recursos, no portal do Azure ou através do PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ Os exemplos neste artigo, utilizamos o Template de Service Fabric. Pode utilizar
 6. Implemente o modelo:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Após a implementação, a rede virtual deve incluir o novo conjunto de dimensionamento de VMs. O tipo de nó de conjunto de dimensionamento de máquina virtual deverá mostrar a rede virtual existente e a sub-rede. Também pode utilizar protocolo de ambiente de trabalho remoto (RDP) para aceder à VM que já estava na rede virtual e enviar um ping a nova escala para VMs do conjunto:
@@ -276,13 +279,13 @@ Para obter outro exemplo, veja [que não é específico para o Service Fabric](h
 8. Implemente o modelo:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Após a implementação, pode ver que o Balanceador de carga está ligado para o endereço IP público estático do outro grupo de recursos. O ponto de final de ligação do Service Fabric cliente e [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ponto de endpoint para o FQDN do DNS do endereço IP estático.
@@ -378,9 +381,9 @@ Este cenário substitui o Balanceador de carga externo no modelo padrão do Serv
 7. Implemente o modelo:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Após a implementação, o seu Balanceador de carga utiliza o endereço IP privado estático 10.0.0.250. Se tiver outra máquina dessa mesma rede virtual, pode ir para o interno [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ponto final. Tenha em atenção que se liga a um de nós por detrás do Balanceador de carga.
@@ -595,9 +598,15 @@ Num cluster de tipo de nó de dois, um tipo de nó é no balanceador de carga ex
 7. Implemente o modelo:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Após a implementação, pode ver dois balanceadores de carga no grupo de recursos. Se navegar os balanceadores de carga, pode ver os IP endereço e a gestão de pontos finais públicos (as portas 19000 e 19080) atribuídos para o endereço IP público. Também pode ver o estático interno endereço e a aplicação de ponto final de IP (porta 80) atribuído ao balanceador de carga interno. Ambos os balanceadores de carga, utilize o conjunto de back-end de conjunto de dimensionamento do mesmo máquina virtual.
+
+## <a name="next-steps"></a>Passos Seguintes
+[Criar um cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Após a implementação, pode ver dois balanceadores de carga no grupo de recursos. Se navegar os balanceadores de carga, pode ver os IP endereço e a gestão de pontos finais públicos (as portas 19000 e 19080) atribuídos para o endereço IP público. Também pode ver o estático interno endereço e a aplicação de ponto final de IP (porta 80) atribuído ao balanceador de carga interno. Ambos os balanceadores de carga, utilize o conjunto de back-end de conjunto de dimensionamento do mesmo máquina virtual.

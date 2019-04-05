@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077161"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051175"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -169,7 +169,7 @@ Além de criar, gerir e eliminar a recursos com o portal do Azure, pode automati
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-O Azure PowerShell é um conjunto de módulos que fornecem cmdlets para gerir o Azure. Pode utilizar os cmdlets para criar, gerir e remover serviços do Azure. Os cmdlets podem ajudá-lo pode obter implementações consistentes, econômicas e automáticas. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
+O Azure PowerShell é um conjunto de módulos que fornecem cmdlets para gerir o Azure. Pode utilizar os cmdlets para criar, gerir e remover serviços do Azure. Os cmdlets podem ajudá-lo pode obter implementações consistentes, econômicas e automáticas. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
 #### <a name="azure-command-line-interface"></a>Interface de linha de comandos do Azure
 
@@ -477,7 +477,7 @@ Existem várias opções para implementar uma rede virtual.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [Interface de linha de comandos (CLI)](../../virtual-network/quick-create-cli.md)
+- [Interface de Linha de Comandos (CLI)](../../virtual-network/quick-create-cli.md)
 
 - Modelos Azure Resource Manager
 
@@ -491,5 +491,5 @@ Pode ajudar a proteger redes virtuais do Azure através de um grupo de seguranç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar um VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
-- [Criar uma VM de Linux](../../virtual-machines/linux/quick-create-portal.md)
+- [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
+- [Criar uma VM do Linux](../../virtual-machines/linux/quick-create-portal.md)

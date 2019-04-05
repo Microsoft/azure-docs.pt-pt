@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 70e28377b19b682f2191e0a8fb95792101fa8ec7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621741"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045685"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -29,10 +29,10 @@ Este artigo descreve as alterações que foram introduzidas no Serviços de mult
 Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de v2 de serviços de multimédia herdadas](../previous/media-services-overview.md), deve rever as seguintes diretrizes e as seguintes considerações antes de migrar para as APIs v3. Existem muitos benefícios e os novos recursos da API v3 que melhoram a experiência de desenvolvedor e recursos dos serviços de multimédia. No entanto, como o chamado no [problemas conhecidos do](#known-issues) secção deste artigo, também existem algumas limitações devido a alterações entre as versões de API. Esta página será mantida à medida que a equipe de serviços de multimédia faz melhorias contínuas para as APIs v3 e aborda as lacunas entre as versões. 
 
 > [!NOTE]
-> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
 
 ## <a name="benefits-of-media-services-v3"></a>Benefícios do suporte de dados dos serviços de v3
-
+  
 ### <a name="api-is-more-approachable"></a>A API é mais acessível
 
 *  A v3 baseia-se numa superfície da API unificada que expõe uma funcionalidade incorporada de gestão e de operações no Azure Resource Manager. Modelos Azure Resource Manager podem ser utilizados para criar e implementar as transformações, pontos finais de transmissão em fluxo, os eventos em direto e muito mais.
@@ -105,7 +105,7 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
+* Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
 * Terá de aprovisionar unidades reservadas de multimédia (MRUs) na sua conta para controlar a simultaneidade e o desempenho das suas tarefas, especialmente aqueles envolvendo vídeo ou áudio de análise. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir os MRUs usando [CLI 2.0 para serviços de multimédia v3](media-reserved-units-cli-how-to.md), utilizando o [portal do Azure](../previous/media-services-portal-scale-media-processing.md), ou utilizando o [v2 APIs](../previous/media-services-dotnet-encoding-units.md). Terá de aprovisionar MRUs, se estiver a utilizar os serviços de multimédia v2 ou v3 APIs.
 * Entidades de serviços de suporte de dados criadas com a v3 que API não pode ser gerida pela v2 API.  
 * Não é recomendado para gerir as entidades que foram criadas com as APIs do v2 por meio das APIs v3. Seguem-se exemplos das diferenças que tornam as entidades em duas versões incompatíveis:   

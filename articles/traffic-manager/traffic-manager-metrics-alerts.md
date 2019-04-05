@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200195"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045309"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>O Gestor de tráfego métricas e alertas
 
@@ -58,7 +58,7 @@ Esta métrica pode ser apresentada como um valor agregado que representa o estad
 
 *Figura 4: Modo de divisão de métricas de estado do ponto final*
 
-Pode consumir estas métricas através de [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md)do portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [da CLI do Azure](https://docs.microsoft.com/cli/azure/monitor), e [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), ou a seção de métricas de experiência do portal do Gestor de tráfego.
+Pode consumir estas métricas através de [serviço do Azure Monitor](../azure-monitor/platform/metrics-supported.md)do portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [da CLI do Azure](https://docs.microsoft.com/cli/azure/monitor), e [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), ou a seção de métricas de experiência do portal do Gestor de tráfego.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alertas em métricas de Gestor de tráfego
 Além de processamento e exibição de métricas do Gestor de tráfego, o Azure Monitor permite aos clientes configurar e receber alertas associados a estas métricas. Pode escolher o que as condições que devem ser atendidas nestas métricas para um alerta a ocorrer, a frequência com que essas condições necessitam a monitorizar e como os alertas devem ser enviados para si. Para obter mais informações, consulte [documentação de alertas do Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

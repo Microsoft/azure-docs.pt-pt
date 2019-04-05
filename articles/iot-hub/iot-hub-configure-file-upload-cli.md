@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: robin.shahan
-ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010791"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048967"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar o IoT Hub, carregamentos de ficheiros com a CLI do Azure
 
@@ -143,6 +143,6 @@ Siga estas ligações para saber mais sobre como gerir o IoT Hub do Azure:
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [guia para programadores do IoT Hub](iot-hub-devguide.md)
+* [Guia do programador do IoT Hub](iot-hub-devguide.md)
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteger a sua solução de IoT desde o backup](../iot-fundamentals/iot-security-ground-up.md)

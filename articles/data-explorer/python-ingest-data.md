@@ -1,19 +1,18 @@
 ---
 title: 'Início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure'
 description: Neste início rápido, irá aprender a ingerir (carregar) dados para o Azure Data Explorer com o Python.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757709"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046466"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure
 

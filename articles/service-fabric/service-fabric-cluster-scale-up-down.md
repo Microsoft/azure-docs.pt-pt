@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
-ms.openlocfilehash: f201ac1f0ea5a4bc07e8c052e7653194140e8759
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669372"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049186"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Reduzir ou aumentar horizontalmente um cluster
 
@@ -27,6 +27,9 @@ ms.locfileid: "58669372"
 > Leia esta secção antes de aumentar
 
 Dimensionar recursos de computação para a origem a carga de trabalho de aplicação requer um planejamento intencional, quase sempre irá demorar mais de uma hora para concluir para um ambiente de produção e exige que compreender a sua carga de trabalho e o contexto de negócios; na verdade se nunca tiver feito essa atividade antes, recomenda-se começar por ler e entender [considerações de planeamento de capacidade do cluster de Service Fabric](service-fabric-cluster-capacity.md), antes de continuar o restante deste documento. Esta recomendação é evitar problemas de LiveSite indesejados, e também é recomendável que testar com êxito as operações que decidir executar em relação a um ambiente de não produção. Em qualquer altura, pode [comunicar problemas de produção ou pedido de suporte pago para o Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Para os engenheiros alocados para executar estas operações que possuem o contexto apropriado, este artigo descreverá as operações de dimensionamento, mas tem de decidir e compreender as operações são adequadas para seu caso de utilização; Por exemplo, quais recursos para dimensionamento (CPU, armazenamento, memória), que direção de dimensionamento (vertical ou horizontalmente) e quais operações a serem executadas (modelo do Resource a implementação, do Portal, o PowerShell/CLI).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Dimensionar um cluster do Service Fabric dentro ou para fora usando regras de dimensionamento automático ou manual
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido no cluster do Service Fabric é configurado como um conjunto de dimensionamento de máquina virtual separada. Cada tipo de nó, em seguida, pode ser reduzido horizontalmente ou horizontalmente de forma independente, têm conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente. Saiba mais sobre ele na [tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) documento. Uma vez que os tipos de nós no cluster do Service Fabric são constituídos por conjuntos de dimensionamento de máquinas virtuais no back-end, terá de configurar regras de dimensionamento automático para cada conjunto de dimensionamento de máquinas virtuais/tipo do nó.
@@ -42,9 +45,9 @@ Atualmente, não é possível especificar as regras de dimensionamento automáti
 Para obter a lista de conjunto de dimensionamento de máquinas virtuais que compõem o cluster, execute os seguintes cmdlets:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
+Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
 
-Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
+Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Definir regras de dimensionamento automático para o conjunto de dimensionamento de máquinas virtuais/tipo do nó
@@ -79,10 +82,10 @@ Siga as instruções/exemplo no [Galeria de modelos de início rápido](https://
 O código seguinte obtém um conjunto de dimensionamento por nome e aumenta a **capacidade** do conjunto de dimensionamento em 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity += 1
 
-Update-AzureRmVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName $scaleset.ResourceGroupName -VMScaleSetName $scaleset.Name -VirtualMachineScaleSet $scaleset
 ```
 
 Este código define a capacidade para 6.
@@ -192,7 +195,7 @@ else
 }
 ```
 
-No código **sfctl** abaixo, o comando seguinte é utilizado para aceder ao valor **node-name** do último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+Na **sfctl** código abaixo, é utilizado o seguinte comando para obter o **nome do nó** valor o último nó criado: `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -208,7 +211,7 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Utilize as seguintes consultas **sfctl** para verificar o estado de cada passo
 >
-> **Verificar o estado de desativação**
+> **Verificar o estado de Desativação**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
 > **Verificar o estado de paragem**
@@ -220,10 +223,10 @@ sfctl node remove-state --node-name _nt1vm_5
 Agora que o nó do Service Fabric foi removido do cluster, o conjunto de dimensionamento de máquinas virtuais pode ser reduzido horizontalmente. No exemplo abaixo, a capacidade do conjunto de dimensionamento foi reduzida em 1.
 
 ```powershell
-$scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
+$scaleset = Get-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
 $scaleset.Sku.Capacity -= 1
 
-Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
+Update-AzVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
 Este código define a capacidade para 5.

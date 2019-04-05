@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803226"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046995"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
 Este artigo recolhe num único local muitas das perguntas mais frequentes sobre a análise de tráfego no observador de rede do Azure.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Quais são os pré-requisitos para utilizar a análise de tráfego?
 
@@ -51,11 +54,11 @@ Sua conta tem de cumprir um dos seguintes procedimentos para ativar a análise d
         
 Para verificar as funções atribuídas a um utilizador para uma subscrição:
 
-1. Inicie sessão no Azure, utilizando **Login-AzureRmAccount**. 
+1. Inicie sessão no Azure, utilizando **AzAccount de início de sessão**. 
 
-2. Selecione a subscrição que se necessário, utilizando **Select-AzureRmSubscription**. 
+2. Selecione a subscrição que se necessário, utilizando **AzSubscription selecione**. 
 
-3. Para listar todas as funções que são atribuídas a um utilizador especificado, utilize **Get-AzureRmRoleAssignment - SignInName [e-mail do utilizador] - IncludeClassicAdministrators**. 
+3. Para listar todas as funções que são atribuídas a um utilizador especificado, utilize **Get AzRoleAssignment - SignInName [e-mail do utilizador] - IncludeClassicAdministrators**. 
 
 Se não está a ver quaisquer dados, contacte o administrador de subscrição relevante para obter acesso para executar os comandos. Para obter mais detalhes, consulte [gerir o controlo de acesso baseado em funções com o Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Contacte o suporte se o problema persistir.
 O fornecedor de Microsoft. insights tem de estar registado para o flow logging funcione corretamente. Se não tiver a certeza se o fornecedor de Microsoft. insights está registado para a sua subscrição, substitua *xxxxx-xxxxx-xxxxxx-xxxx* no comando seguinte e execute os seguintes comandos do PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Configurei a solução. Por que não estou a ver nada no dashboard?
@@ -170,7 +173,7 @@ Está a ver as informações de recursos no dashboard; No entanto, não há esta
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>Posso configurar a análise de tráfego com o PowerShell ou um modelo Azure Resource Manager ou o cliente?
 
-Pode configurar a análise de tráfego utilizando o Windows PowerShell da versão 6.2.1 e posteriores. Para configurar o registo do fluxo e análise de tráfego para um NSG específico utilizando o cmdlet do conjunto, consulte [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Para obter o registo do fluxo e o estado de análise de tráfego para um NSG específico, consulte [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+Pode configurar a análise de tráfego utilizando o Windows PowerShell da versão 6.2.1 e posteriores. Para configurar o registo do fluxo e análise de tráfego para um NSG específico utilizando o cmdlet do conjunto, consulte [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obter o registo do fluxo e o estado de análise de tráfego para um NSG específico, consulte [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Atualmente, não é possível utilizar um modelo Azure Resource Manager para configurar a análise de tráfego.
 

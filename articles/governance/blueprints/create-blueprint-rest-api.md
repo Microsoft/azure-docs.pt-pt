@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bbba3eb717658459b4bf6f61d61455d13844a333
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885966"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045820"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -29,6 +29,9 @@ Aprender a criar e atribuir esquemas permite a definição de padrões comuns pa
 > - Remover um esquema que foi atribuído a uma subscrição
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 

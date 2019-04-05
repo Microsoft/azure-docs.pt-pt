@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695902"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045582"
 ---
 # <a name="azure-relay-faqs"></a>FAQ de reencaminhamento do Azure
 
 Este artigo responde a algumas perguntas mais frequentes (FAQ) sobre [reencaminhamento do Azure](https://azure.microsoft.com/services/service-bus/). Para o Azure preços e de suporte informações, consulte a [FAQs do suporte do Azure](https://azure.microsoft.com/support/faq/).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
@@ -80,10 +83,10 @@ Reencaminhamentos abertos ao utilizar o **netTCPRelay** associação WCF tratar 
 | Nome da quota | Âmbito |  Notas | Valor |
 | --- | --- | --- | --- |
 | Serviços de escuta em simultâneo num reencaminhamento |Entidade |Pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |25 |
-| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de Nomes |- |5.000 |
-| Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de Nomes |- |10,000 |
-| Tamanho da mensagem [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) retransmite |Espaço de Nomes |Mensagens de entrada que excederem estes quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
-| Tamanho da mensagem [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) retransmite |Espaço de Nomes |Sem limite no tamanho da mensagem. |Ilimitado |
+| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de nomes |- |5.000 |
+| Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de nomes |- |10,000 |
+| Tamanho da mensagem [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) retransmite |Espaço de nomes |Mensagens de entrada que excederem estes quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
+| Tamanho da mensagem [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) retransmite |Espaço de nomes |Sem limite no tamanho da mensagem. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>O reencaminhamento tem quaisquer quotas de utilização?
 Por predefinição, para qualquer serviço cloud, a Microsoft define uma quota de utilização mensal agregado que é calculada em todas as subscrições de um cliente. Compreendemos que às vezes suas necessidades podem exceder estes limites. Pode contactar o suporte ao cliente em qualquer altura, para que possamos avaliar as suas necessidades e ajustar estes limites em conformidade. Para o Service Bus, as quotas de utilização de agregação são os seguintes:
@@ -111,13 +114,13 @@ Para utilizar o PowerShell para mover um espaço de nomes de uma subscrição do
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas

@@ -1,21 +1,20 @@
 ---
-title: Analisar dados com o bloco de notas do Jupyter e Kqlmagic
-description: Este tópico mostra-lhe como analisar dados com o bloco de notas do Jupyter e KQLmagic
-services: data-explorer
+title: Utilizar um bloco de notas do Jupyter para analisar dados no Explorador de dados do Azure
+description: Este tópico mostra-lhe como analisar dados no Explorador de dados do Azure com um bloco de notas do Jupyter e a extensão de Kqlmagic.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 0e7d6148297dd4208374d9900e10564ac4052c67
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756218"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045070"
 ---
-# <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Analisar dados com o bloco de notas do Jupyter e KQL mágica
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Utilizar uma extensão de bloco de notas do Jupyter e Kqlmagic para analisar dados no Explorador de dados do Azure
 
 O bloco de notas do Jupyter é uma aplicação web de código-fonte aberto que permite-lhe criar e partilhar documentos contendo código, equações, visualizações e texto narrativo. Utilização inclui a limpeza de dados e transformação, simulação numérica, modelação estatística, visualização de dados e aprendizagem automática.
 [O bloco de notas do Jupyter](https://jupyter.org/) suporta funções de mágicas que expandem as capacidades do kernel ao suportar os comandos adicionais. Magic KQL é um comando que estende os recursos do kernel do Python no bloco de notas do Jupyter para que possa executar consultas de linguagem de Kusto nativamente. Pode facilmente combinar Python e Kusto linguagem de consulta para consultar e visualizar dados utilizando rich Plot.ly biblioteca integrada com `render` comandos. Origens de dados para a execução de consultas são suportadas. Estas origens de dados incluem o Explorador de dados do Azure, um serviço de exploração de dados rápida e altamente dimensionável para o registo e dados de telemetria, bem como os registos do Azure Monitor e o Application Insights. Magic KQL também funciona com a extensão de blocos de notas do Azure, o laboratório de Jupyter e o Jupyter de código do Visual Studio.

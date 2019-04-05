@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a3c75d98bda89a4330f064ce944f8b08bbf4734d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659563"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046245"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
@@ -41,16 +41,19 @@ Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) no Azure através de um modelo
 > * [Monitorizar um cluster](service-fabric-tutorial-monitor-cluster.md)
-> * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * [Reduzir ou aumentar horizontalmente um cluster](service-fabric-tutorial-scale-cluster.md)
 > * Atualizar o runtime de um cluster
 > * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [módulo do Azure PowerShell na versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou a [CLI do Azure ](/cli/azure/install-azure-cli).
+* Instale [do Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [da CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) no Azure
 * Configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2017](https://www.visualstudio.com) e as cargas de trabalho **desenvolvimento no Azure**, **desenvolvimento em ASP.NET e na Web** e **desenvolvimento em várias plataformas .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 
@@ -59,9 +62,9 @@ Antes de começar este tutorial:
 Inicie sessão na sua conta do Azure, selecione a sua subscrição antes de executar os comandos do Azure.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ## <a name="get-the-runtime-version"></a>Obter a versão de runtime
@@ -69,14 +72,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 Depois de ter ligado ao Azure e selecionado a subscrição que contém o cluster do Service Fabric, pode obter a versão de runtime do cluster.
 
 ```powershell
-Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
+Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
 Em alternativa, pode obter apenas uma lista de todos os clusters na sua subscrição com o seguinte:
 
 ```powershell
-Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
+Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
 Tome nota do valor de **ClusterCodeVersion**. Este valor vai ser utilizado na secção seguinte.
@@ -92,7 +95,7 @@ Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 Com uma lista de versões, pode dizer ao cluster do Azure Service Fabric para atualizar para um runtime mais recente. Por exemplo, se versão `6.0.219.9494` estiver disponível para atualizar para a mesma, utilize o seguinte comando para atualizar o cluster.
 
 ```powershell
-Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
+Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
                                     -Name aztestcluster `
                                     -UpgradeMode Manual `
                                     -Version "6.0.219.9494"
@@ -200,6 +203,11 @@ sfctl cluster upgrade-status
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
+> * Obter a versão do runtime do cluster
+> * Atualizar o runtime do cluster
+> * Monitorizar a atualização
+
+[!div class="checklist"]
 > * Obter a versão do runtime do cluster
 > * Atualizar o runtime do cluster
 > * Monitorizar a atualização

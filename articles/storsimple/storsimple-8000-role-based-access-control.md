@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793616"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049477"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple
 
 Este artigo fornece uma breve descrição de como o controlo de acesso de controlo (RBAC) pode ser utilizado para o dispositivo StorSimple. RBAC oferece gestão de acessos detalhada para o Azure. Utilize o RBAC para conceder acesso sem restrições apenas a quantidade certa de acesso para os utilizadores do StorSimple para realizar seus trabalhos em vez de dar a todos os utilizadores. Para obter mais informações sobre as noções básicas de gestão de acesso no Azure, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
 
 Este artigo aplica-se a dispositivos de série 8000 do StorSimple com o Update 3.0 ou mais tarde no portal do Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>Funções do RBAC para o StorSimple
 
@@ -46,14 +48,14 @@ No exemplo a seguir, vamos começar com a função incorporada **leitor** que pe
 
 2. Iniciar sessão no Azure.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. Exporte a função de leitor como um modelo JSON no seu computador.
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. Abra o ficheiro JSON no Visual Studio. Verá que uma função RBAC típica consiste em três seções principais, **ações**, **NotActions**, e **AssignableScopes**.
@@ -62,7 +64,7 @@ No exemplo a seguir, vamos começar com a função incorporada **leitor** que pe
 
     Utilize o PowerShell para ver todos os fornecedores de recursos disponíveis e registados na sua subscrição.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     Também pode procurar os cmdlets do PowerShell disponíveis gerir os fornecedores de recursos.
 
@@ -102,7 +104,7 @@ No exemplo a seguir, vamos começar com a função incorporada **leitor** que pe
 
 6. Importe a função RBAC personalizada de volta para o ambiente.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 Esta função deverá agora aparecer na lista de funções no **controlo de acesso** painel.
@@ -114,7 +116,7 @@ Para obter mais informações, aceda a [funções personalizadas](../role-based-
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Saída de exemplo para criação da função personalizada através do PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -127,7 +129,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -141,8 +143,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

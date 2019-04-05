@@ -3,17 +3,17 @@ title: Descrição Geral do Serviço Aprovisionamento de Dispositivos no Hub IoT
 description: Descreve o aprovisionamento de dispositivos no Azure com o Serviço de Aprovisionamento de Dispositivos e o Hub IoT
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: HT
+ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316419"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051475"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionar dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de cloud pública integrada para todas as suas necessidades de solução IoT. O Serviço Aprovisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toques e just-in-time no hub IoT certo sem que seja necessária a intervenção humana, permitindo aos clientes aprovisionar milhões de dispositivos de forma segura e dimensionável.
@@ -110,12 +110,12 @@ Cada subscrição do Azure possui limites de quota predefinidos que podem afetar
 
 Para obter mais detalhes sobre os limites de quotas:
 
-* [Limites do Serviço das Subscrições do Azure](../azure-subscription-service-limits.md)
+* [Limites do serviço de subscrição do Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes do Azure relacionados
 O Serviço de Aprovisionamento de Dispositivos automatiza o aprovisionamento de dispositivos com o Hub IoT do Azure. Saiba mais sobre o [Hub IoT](https://docs.microsoft.com/azure/iot-hub/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora já tem uma descrição geral do aprovisionamento de dispositivos IoT no Azure. O passo seguinte é experimentar um cenário de IoT ponto a ponto.
 > [!div class="nextstepaction"]
 > [Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](quick-setup-auto-provision.md)

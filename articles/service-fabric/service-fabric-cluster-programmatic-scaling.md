@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949624"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047944"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric através de programação 
 
 Clusters do Service Fabric em execução no Azure são criados sobre conjuntos de dimensionamento de máquina virtual.  [Dimensionamento de clusters](./service-fabric-cluster-scale-up-down.md) descreve como clusters do Service Fabric podem ser dimensionados manualmente ou com regras de dimensionamento automático. Este artigo descreve como gerir as credenciais e dimensionar um cluster no ou horizontalmente com o Azure fluent SDK, que é um cenário mais avançado de computação. Para uma descrição geral, leia [métodos programáticos de coordenação de operações de dimensionamento do Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gerir credenciais
 Um desafio de escrever um serviço para processar o dimensionamento é que o serviço tem de ser capaz de aceder aos recursos de conjunto de dimensionamento de máquina virtual sem um início de sessão interativo. Aceder ao cluster do Service Fabric é fácil se o serviço de dimensionamento é modificar a sua própria aplicação do Service Fabric, mas são necessárias credenciais para aceder ao conjunto de dimensionamento. Para iniciar sessão, pode utilizar um [principal de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) criados com o [CLI do Azure](https://github.com/azure/azure-cli).
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Em alternativa, o tamanho do conjunto de dimensionamento de máquina virtual também pode ser gerido com cmdlets do PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) Pode obter o objeto de conjunto de dimensionamento de máquina virtual. A capacidade atual está disponível através do `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, o conjunto de dimensionamento no Azure pode ser atualizado com o [ `Update-AzureRmVmss` ](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) comando.
+Em alternativa, o tamanho do conjunto de dimensionamento de máquina virtual também pode ser gerido com cmdlets do PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) Pode obter o objeto de conjunto de dimensionamento de máquina virtual. A capacidade atual está disponível através do `.sku.capacity` propriedade. Depois de alterar a capacidade para o valor pretendido, o conjunto de dimensionamento no Azure pode ser atualizado com o [ `Update-AzVmss` ](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) comando.
 
 Como adicionar um conjunto de dimensionamento instância deve ser ao adicionar manualmente um nó, tudo o que é necessário para iniciar um novo nó do Service Fabric, uma vez que o conjunto de dimensionamento modelo inclui extensões para associar automaticamente novas instâncias ao cluster do Service Fabric. 
 

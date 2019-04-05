@@ -14,18 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2a4c3adb39ebf6e58770348eccc8c78e8ff92167
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804472"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049625"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
 Num cenário de produção, crie clusters do Azure Service Fabric com modelos do Resource Manager. Modelos do Resource Manager fornecem maior controle das propriedades de recurso e certifique-se de que tem um modelo de recursos consistentes.
 
 Modelos do Gestor de recursos de exemplo estão disponíveis para Windows e Linux no [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser utilizados como ponto de partida para o modelo de cluster. Baixe `azuredeploy.json` e `azuredeploy.parameters.json` e editá-los para satisfazer os seus requisitos personalizados.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para implementar o `azuredeploy.json` e `azuredeploy.parameters.json` modelos que transferiu anteriormente, utilize os seguintes comandos do CLI do Azure:
 
@@ -45,8 +47,8 @@ $Location="westus"
 $Template="azuredeploy.json"
 $Parameters="azuredeploy.parameters.json"
 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
 ## <a name="azure-service-fabric-resources"></a>Recursos de infraestrutura de serviço do Azure

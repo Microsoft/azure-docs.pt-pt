@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4fa9026405789a6a90bbb9213cc54346aa8374c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845407"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045274"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Criar recursos do Service Bus com modelos Azure Resource Manager
 
@@ -29,8 +29,8 @@ Os modelos do Resource Manager do Azure ajudam a definir os recursos para implem
 
 > [!NOTE]
 > Os exemplos neste artigo mostram como utilizar o Azure Resource Manager para criar um espaço de nomes do Service Bus e a entidade de mensagens (fila). Para outros exemplos de modelo, visite o [Galeria de modelos de início rápido do Azure] [ Azure Quickstart Templates gallery] e procure **do Service Bus**.
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="service-bus-resource-manager-templates"></a>Modelos do Resource Manager do Service Bus
 
@@ -164,27 +164,27 @@ Para obter mais informações, consulte a [parâmetros](../azure-resource-manage
 A partir de uma linha de comandos do PowerShell, execute o seguinte comando:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 São-lhe pedido para iniciar sessão na sua conta do Azure. Após fazer logon, execute o seguinte comando para ver as subscrições disponíveis:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Este comando devolve uma lista de subscrições do Azure disponíveis. Escolha uma subscrição para a sessão atual ao executar o comando seguinte. Substitua `<YourSubscriptionId>` com o GUID da subscrição do Azure que pretende utilizar:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Definir o grupo de recursos
 
-Se não tiver um recurso existente de grupo, criar um novo grupo de recursos com o **New-AzureRmResourceGroup** comando. Forneça o nome do grupo de recursos e localização que pretende utilizar. Por exemplo:
+Se não tiver um recurso existente de grupo, criar um novo grupo de recursos com o **New-AzResourceGroup** comando. Forneça o nome do grupo de recursos e localização que pretende utilizar. Por exemplo:
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Se tiver êxito, é apresentado um resumo do novo grupo de recursos.
@@ -199,38 +199,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Testar a implementação
 
-Validar a sua implementação ao executar o `Test-AzureRmResourceGroupDeployment` cmdlet. Ao testar a implementação, fornece os parâmetros exatamente como faria quando executar a implantação.
+Validar a sua implementação ao executar o `Test-AzResourceGroupDeployment` cmdlet. Ao testar a implementação, fornece os parâmetros exatamente como faria quando executar a implantação.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="create-the-deployment"></a>Criar a implementação
 
-Para criar a nova implementação, execute o `New-AzureRmResourceGroupDeployment` cmdlet e forneça os parâmetros necessários, quando lhe for pedido. Os parâmetros incluem um nome para a sua implementação, o nome do seu grupo de recursos e o caminho ou URL para o ficheiro de modelo. Se o **modo** parâmetro não for especificado, o valor predefinido de **Incremental** é utilizado. Para obter mais informações, consulte [Incremental e completas implementações](../azure-resource-manager/deployment-modes.md).
+Para criar a nova implementação, execute o `New-AzResourceGroupDeployment` cmdlet e forneça os parâmetros necessários, quando lhe for pedido. Os parâmetros incluem um nome para a sua implementação, o nome do seu grupo de recursos e o caminho ou URL para o ficheiro de modelo. Se o **modo** parâmetro não for especificado, o valor predefinido de **Incremental** é utilizado. Para obter mais informações, consulte [Incremental e completas implementações](../azure-resource-manager/deployment-modes.md).
 
 O seguinte comando pede-lhe os três parâmetros na janela do PowerShell:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 Para especificar um ficheiro de parâmetros em vez disso, utilize o seguinte comando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 Também pode utilizar parâmetros inline ao executar o cmdlet de implementação. O comando é o seguinte:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Para executar uma [concluída](../azure-resource-manager/deployment-modes.md) implantação, defina o **modo** parâmetro **concluída**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ### <a name="verify-the-deployment"></a>Verificar a implementação

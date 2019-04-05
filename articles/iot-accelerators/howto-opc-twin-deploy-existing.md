@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759534"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047267"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar duplo de OPC para um projeto existente
 
@@ -30,10 +30,7 @@ O núcleo do módulo é a identidade do Supervisor. O supervisor gere duplo de p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-> [!NOTE]
-> Nota: Devido a dependência no módulo AzureRM, implementação atualmente só é suportada no Windows.
-
-Certifique-se de que tem o PowerShell e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensões instaladas.   Se não o tiver feito isso ainda, clone o repositório do GitHub.  Abra uma linha de comandos ou terminal e execute:
+Certifique-se de que tem o PowerShell e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensões instaladas.   Se não o tiver feito isso ainda, clone o repositório do GitHub.  Abra uma linha de comandos ou terminal e execute:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ Inquilino do AAD para utilizar.
 Agora que sabe como implementar duplo de OPC para um projeto existente, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Proteger a comunicação de cliente de OPC e OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Proteger a comunicação do Cliente OPC e OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)

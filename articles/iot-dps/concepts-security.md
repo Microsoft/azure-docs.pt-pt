@@ -3,17 +3,17 @@ title: Conceitos de segurança no serviço de aprovisionamento de dispositivos d
 description: Descreve os conceitos específicos a dispositivos com o serviço aprovisionamento de dispositivos e IoT Hub de aprovisionamento de segurança
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946566"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046905"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de aprovisionamento de dispositivos IoT Hub 
 

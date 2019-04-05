@@ -1,19 +1,18 @@
 ---
-title: Dimensionar cluster do Explorador de dados do Azure para acomodar a pedido de alteração
+title: Aumentar horizontalmente um cluster do Explorador de dados do Azure para acomodar a pedido de alteração
 description: Este artigo descreve os passos para aumentar e reduzir horizontalmente um cluster do Explorador de dados do Azure com base no pedido de alteração.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755078"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044239"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerir o cluster aumentar horizontalmente para acomodar a pedido de alteração
 
@@ -45,7 +44,7 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes est�
     | --- | --- |
     | **Agregação de tempo** | Selecione um critério de agregação, como **média**. |
     | **Nome da métrica** | Selecione a métrica que pretende que a operação de dimensionamento seja baseada no, tal como **utilização da Cache**. |
-    | **Estatística de intervalo de agregação de tempo** | Escolha entre **médio**, **mínimo**, **máxima**, e **soma**. |
+    | **Estatística de intervalo de agregação** | Escolha entre **médio**, **mínimo**, **máxima**, e **soma**. |
     | **Operador** | Escolha a opção adequada, tais como **maior que ou igual a**. |
     | **Limiar** | Escolha um valor adequado. Por exemplo, para utilização de cache, 80 por cento é um ponto de partida. |
     | **Duração (em minutos)** | Escolha uma quantidade apropriada de tempo para o sistema consultar novamente quando o cálculo de métricas. Comece com o padrão de 10 minutos. |

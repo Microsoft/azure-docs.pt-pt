@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878436"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046191"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina Virtual Windows dados ciência
 
@@ -50,6 +50,9 @@ Neste artigo, aprenderá a usar sua DSVM para efetuar várias tarefas de ciênci
 
 * Precisa de uma subscrição do Azure. Pode inscrever-se numa avaliação gratuita [aqui](https://azure.microsoft.com/free/).
 * Estão disponíveis instruções para o aprovisionamento de uma Máquina Virtual de ciência de dados no portal do Azure em [criar uma máquina virtual](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Explorar dados e desenvolver modelos com o Microsoft ML Server ou Python
 Pode usar as linguagens como R e Python para fazer sua análise de dados na DSVM.
@@ -223,22 +226,22 @@ Pode utilizar o Azure Powershell para criar uma partilha de serviço de ficheiro
 
 ```powershell
 # Authenticate to Azure.
-Connect-AzureRmAccount
+Connect-AzAccount
 # Select your subscription
-Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+Get-AzSubscription –SubscriptionName "<your subscription name>" | Select-AzSubscription
 # Create a new resource group.
-New-AzureRmResourceGroup -Name <dsvmdatarg>
+New-AzResourceGroup -Name <dsvmdatarg>
 # Create a new storage account. You can reuse existing storage account if you wish.
-New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
+New-AzStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
 # Set your current working storage account
-Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
+Set-AzCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
 # Create an Azure File Service Share
-$s = New-AzureStorageShare <<teamsharename>>
+$s = New-AzStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
-New-AzureStorageDirectory -Share $s -Path <directory name>
+New-AzStorageDirectory -Share $s -Path <directory name>
 # List the share to confirm that everything worked
-Get-AzureStorageFile -Share $s
+Get-AzStorageFile -Share $s
 ```
 
 Agora que já criou uma partilha de ficheiros do Azure, pode montá-la em qualquer máquina virtual no Azure. É altamente recomendável que a VM está no mesmo centro de dados do Azure como a conta de armazenamento para evitar custos de transferência de dados e de latência. Aqui estão os comandos para montar a unidade no DSVM que pode executar no Azure Powershell.
@@ -308,7 +311,7 @@ Depois de executar o comando do AzCopy para copiar para um blob do Azure, verá 
 
 ![Captura de ecrã da conta de armazenamento, exibindo o ficheiro CSV carregado](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Mova dados de VM para BLOBs do Azure: Explorador de armazenamento do Azure**
+**Mova dados de VM para BLOBs do Azure: Explorador do Storage do Azure**
 
 Também pode carregar dados do ficheiro local na VM com o Explorador de armazenamento do Azure:
 

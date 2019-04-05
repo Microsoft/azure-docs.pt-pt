@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894154"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047333"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure
 Para implementar um modelo do Azure, executar tarefas em várias etapas: Cópia de compilação, teste, para o Azure (também denominado "Teste") e para implementar o modelo. Existem duas formas diferentes de implementar modelos de serviços de DevOps do Azure. Ambos os métodos fornece os mesmos resultados, pelo que deve escolher aquele que melhor se adequa a seu fluxo de trabalho.
@@ -28,6 +28,8 @@ Para implementar um modelo do Azure, executar tarefas em várias etapas: Cópia 
 2. Adicione que vários serviços do Azure DevOps criar passos, cada um, executar uma tarefa de fase.
 
 Este artigo demonstra as duas opções. A primeira opção tem a vantagem de utilizar o mesmo script usado por desenvolvedores no Visual Studio e fornecer consistência em todo o ciclo de vida. A segunda opção oferece uma alternativa conveniente para o script interno. Ambos os procedimentos partem do princípio de que já tiver um projeto de implantação do Visual Studio marcado para os serviços de DevOps do Azure.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Copiar artefactos para o Azure
 Independentemente do cenário, se tiver quaisquer artefactos necessários para a implementação de modelo, tem de dar acesso do Azure Resource Manager para eles. Estes artefactos podem incluir arquivos, como:
@@ -87,7 +89,7 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
       
       Para scripts do PowerShell, utilize:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Para a CLI do Azure, utilize:
       

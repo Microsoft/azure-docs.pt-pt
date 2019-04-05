@@ -9,16 +9,18 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a10b4d7fac29a6b016b5660b0430d042f2443fbd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498082"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046092"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
 Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [FAQs do suporte do Azure](https://azure.microsoft.com/support/faq/) para gerais informações de preços e de suporte do Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
@@ -107,13 +109,13 @@ A seguinte sequência de comandos do PowerShell move um espaço de nomes de uma 
 
 ```powershell
 # Create a new resource group in target subscription
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move namespace from source subscription to target subscription
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

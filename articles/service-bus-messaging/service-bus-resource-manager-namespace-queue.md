@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 370ef54f39c585ffe0babd4aa54ed7ed89e9dfbc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849605"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047794"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus e uma fila usando um modelo Azure Resource Manager
 
@@ -38,8 +38,8 @@ Para o modelo completo, consulte a [modelo de espaço de nomes e a fila do Servi
 > * [Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Para verificar os modelos mais recentes, visite o [modelos de início rápido do Azure] [ Azure Quickstart Templates] Galeria e procure **do Service Bus**.
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>O que irá implementar?
 
@@ -49,7 +49,7 @@ Com este modelo, implementa um espaço de nomes do Service Bus com uma fila.
 
 Para executar automaticamente a implementação, clique no seguinte botão:
 
-[![Implementar no Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Deploy para o Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -125,7 +125,7 @@ Para a sintaxe JSON e propriedades, consulte [espaços de nomes](/azure/template
 ## <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
@@ -139,7 +139,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que criou e implantou recursos com o Azure Resource Manager, saiba como gerir estes recursos ao visualizar estes artigos:
 
-* [Gerir o Service Bus com o PowerShell](service-bus-manage-with-ps.md)
+* [Gerir o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
 * [Gerir recursos do Service Bus com o Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

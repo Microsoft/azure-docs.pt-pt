@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539025"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049432"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas mais frequentes (FAQ) sobre a API de pesquisa de imagens do Bing
 
@@ -25,11 +25,11 @@ Encontre respostas para perguntas freqüentes sobre conceitos, código e cenári
 
 Os cabeçalhos seguintes podem ocorrer nas respostas de API de pesquisa de imagens do Bing.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|O ID exclusivo que Bing atribuída ao utilizador|
-|`BingAPIs-Market`|O mercado que foi utilizado para satisfazer o pedido|
-|`BingAPIs-TraceId`|A entrada de log no servidor de API do Bing para este pedido (para obter suporte)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |O ID exclusivo que Bing atribuída ao utilizador |
+| `BingAPIs-Market`   |O mercado que foi utilizado para satisfazer o pedido |
+| `BingAPIs-TraceId`  |A entrada de log no servidor de API do Bing para este pedido (para obter suporte) |
 
 É particularmente importante manter o ID de cliente e retorná-lo com as solicitações subseqüentes. Ao fazê-lo, a pesquisa irá utilizar em contexto na classificação os resultados da pesquisa e também proporcionar uma experiência de usuário consistente.
 
@@ -63,6 +63,6 @@ Essa abordagem também protege a chave de API de exposição ao público, uma ve
 
 É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para ele em nosso [web site do Uservoice](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
- [Estouro de pilha: Serviços cognitivos](https://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

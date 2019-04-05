@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436753"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047352"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desativar)
 
@@ -34,6 +34,8 @@ No portal, o **propriedades** secção da entidade respectivos permite alterar o
 
 O portal permite apenas desativar completamente as filas. Também pode desativar a enviar e receber operações separadamente com o Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs no SDK do .NET Framework, ou com um modelo do Azure Resource Manager através da CLI do Azure ou do Azure PowerShell.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="suspension-states"></a>Estados de suspensão
 
 Os Estados que podem ser definidos para uma fila são:
@@ -48,11 +50,11 @@ Para as subscrições e tópicos, apenas **Active Directory** e **desativado** p
 O [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) enumeração também define um conjunto de Estados de transição que só pode ser definido pelo sistema. O comando do PowerShell para desativar uma fila é mostrado no exemplo a seguir. O comando de reativação é equivalente, definindo `Status` para **Active**.
 
 ```powershell
-$q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
+$q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
 
 $q.Status = "Disabled"
 
-Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
+Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI'
 description: Neste tutorial, vai aprender a ligar ao Azure Data Explorer com o Power BI e a visualizar os seus dados.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757745"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049885"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI
 
@@ -34,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 Além das subscrições do Azure e do Power BI, precisa do seguinte para concluir este tutorial:
 
-* [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
+* [Um cluster de teste e a base de dados](create-cluster-database-portal.md)
 
 * [Dados de exemplo os StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 

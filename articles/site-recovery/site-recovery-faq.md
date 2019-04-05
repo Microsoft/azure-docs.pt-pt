@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
-ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 231533f9609a4cf8cc11bedf88aafdfd37d1cb7e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313373"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050123"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo resume as perguntas mais frequentes sobre o Azure Site Recovery. 
@@ -36,9 +36,9 @@ Sim, pode replicar VMs do Azure entre regiões do Azure. [Saiba mais](site-recov
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>O que preciso no Hyper-V para orquestrar a replicação com o Site Recovery?
 Para o servidor de anfitrião Hyper-V, o que precisa depende do cenário de implementação. Confira os pré-requisitos do Hyper-V para:
 
-* [Replicar VMs de Hyper-V (sem VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replicar VMs de Hyper-V (com VMM) para o Azure](site-recovery-vmm-to-azure.md)
-* [Replicar VMs de Hyper-V para um datacenter secundário](site-recovery-vmm-to-vmm.md)
+* [Replicar VMs Hyper-V (sem o VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replicar VMs Hyper-V (com o VMM) para o Azure](site-recovery-vmm-to-azure.md)
+* [Replicar VMs Hyper-V para um datacenter secundário](site-recovery-vmm-to-vmm.md)
 * Se estiver a replicar para um datacenter secundário, leia sobre [sistemas operativos convidados suportados para VMs de Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
 * Se estiver a replicar para o Azure, o Site Recovery suporta todos os sistemas operativos convidados que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -153,7 +153,7 @@ O Azure foi concebido para ser resiliente. Recuperação de sites já foi desenv
 Pode acionar uma ativação pós-falha não planeada do site secundário. A Recuperação de Sites não necessita de conectividade do site primário para efetuar a ativação pós-falha.
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
-A ativação pós-falha não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell da recuperação de Site](/powershell/module/azurerm.siterecovery) para acionar uma ativação pós-falha. Reativação pós-falha é uma ação simple no portal do Site Recovery.
+A ativação pós-falha não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell da recuperação de Site](/powershell/module/az.recoveryservices) para acionar uma ativação pós-falha. Reativação pós-falha é uma ação simple no portal do Site Recovery.
 
 Para automatizar o pode utilizar o Orchestrator no local ou o Operations Manager para detetar uma falha de máquina virtual e, em seguida, acionar a ativação pós-falha utilizando o SDK.
 

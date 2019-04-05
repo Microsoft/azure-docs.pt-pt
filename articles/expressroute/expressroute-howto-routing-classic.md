@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103830"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045718"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar um peering para um circuito do ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -35,6 +35,9 @@ Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de s
 **Acerca dos modelos de implementação do Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
@@ -59,17 +62,17 @@ Para iniciar sessão na sua conta do Azure, utilize os exemplos seguintes:
 1. Abra a consola do PowerShell com direitos elevados e ligue-se à sua conta.
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. Verifique as subscrições da conta.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. Em seguida, utilize o cmdlet seguinte para adicionar a sua subscrição do Azure para o PowerShell para o modelo de implementação clássica.
@@ -84,7 +87,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
 
 ### <a name="to-create-azure-private-peering"></a>Para criar um peering privado do Azure
 
-1. **Crie um circuito do ExpressRoute.**
+1. **Crie um circuito ExpressRoute.**
 
    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
 2. **Verifique o circuito de ExpressRoute para se certificar de que está aprovisionado.**
@@ -187,7 +190,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
 
 ### <a name="to-create-azure-public-peering"></a>Para criar um peering público do Azure
 
-1. **Crie um circuito do ExpressRoute**
+1. **Criar um circuito do ExpressRoute**
 
    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering público do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
 2. **Verifique o circuito de ExpressRoute para verificar se é aprovisionado**
@@ -291,7 +294,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
 
 ### <a name="to-create-microsoft-peering"></a>Para criar peering da Microsoft
 
-1. **Crie um circuito do ExpressRoute**
+1. **Criar um circuito do ExpressRoute**
   
    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
 2. **Verifique o circuito de ExpressRoute para verificar se é aprovisionado**

@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665326"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045803"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
 Existem muitas perguntas freqüentes sobre o Service Fabric pode fazer e como ele deve ser usado. Este documento aborda muitas dessas perguntas comuns e suas respostas.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>A configuração do cluster e gestão
 
@@ -133,7 +136,7 @@ Não. VMs de baixa prioridade não são suportadas.
 Seguem-se significa para a sua aplicação obter as credenciais para autenticar no Cofre de chaves:
 
 R. Durante a tarefa de compilação/remessa seus aplicativos, pode extrair um certificado para o pacote de dados da sua aplicação SF e utilizá-lo para autenticar para o Cofre de chaves.
-B. Para anfitriões MSI ativada do conjunto de dimensionamento de máquinas virtuais, pode desenvolver um SetupEntryPoint simples do PowerShell para a sua aplicação SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do Cofre de chaves](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
+B. Para anfitriões MSI ativada do conjunto de dimensionamento de máquinas virtuais, pode desenvolver um SetupEntryPoint simples do PowerShell para a sua aplicação SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do Cofre de chaves](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
 
 ## <a name="application-design"></a>Design do aplicativo
 
@@ -189,4 +192,4 @@ Siga os [blog do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefa
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre [principais conceitos do Service Fabric](service-fabric-technical-overview.md) e [melhores práticas](service-fabric-best-practices-overview.md)
+Saiba mais sobre [principais conceitos do Service Fabric](service-fabric-technical-overview.md) e [melhores práticas](service-fabric-best-practices-overview.md) ice concepts](service-fabric-technical-overview.md) de recursos de infraestrutura e [melhores práticas](service-fabric-best-practices-overview.md)

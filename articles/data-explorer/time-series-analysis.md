@@ -1,19 +1,18 @@
 ---
-title: Análise de série de tempo de Explorador de dados do Azure
-description: 'Saiba mais sobre análise de série de tempo no Explorador de dados do Azure '
-services: data-explorer
+title: Analisar dados de séries de tempo com o Explorador de dados do Azure
+description: Saiba como analisar dados de séries de tempo na cloud com o Explorador de dados do Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 6a77e399e4de6ec41e74d1e5b9f9f518126958c2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 496c033e3df096cdada2b3facba3e73092ffd755
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756774"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051500"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série de tempo no Explorador de dados do Azure
 

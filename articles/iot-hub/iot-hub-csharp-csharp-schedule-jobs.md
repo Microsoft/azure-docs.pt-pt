@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: robin.shahan
-ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: db34734e9fbb8635f1a62def8a877d83d02e2206
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008887"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044445"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Agendar e difundir tarefas (.NET/.NET)
 

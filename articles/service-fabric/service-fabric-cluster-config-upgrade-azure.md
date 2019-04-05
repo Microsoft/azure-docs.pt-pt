@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 818136f24eb063e2bd7217d5441bda19bf141317
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666601"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047018"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster no Azure 
 
@@ -28,6 +28,9 @@ Este artigo descreve como personalizar as várias configurações de recursos de
 > [!NOTE]
 > Nem todas as definições estão disponíveis no portal, e é um [melhor prática para personalizá-lo com um modelo Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portal destina-se a Dev\Test de recursos de infraestrutura do serviço do cenário apenas.
 > 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalize as configurações de cluster utilizando modelos do Resource Manager
 Clusters do Azure podem ser configurados através do modelo de Gestor de recursos de JSON. Para saber mais sobre as definições diferentes, veja [definições de configuração para clusters](service-fabric-cluster-fabric-settings.md). Por exemplo, os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção com o Explorador de recursos do Azure.
@@ -54,7 +57,7 @@ Também pode personalizar as definições de cluster em uma das seguintes formas
 - Utilize o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) para exportar e atualizar o modelo do Resource Manager.
 - Uso [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) para exportar e atualizar o modelo do Resource Manager.
 - Utilize o [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) para exportar e atualizar o modelo do Resource Manager.
-- Utilizar o Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) e [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) comandos para modificar a definição diretamente.
+- Utilizar o Azure PowerShell [Set-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Set-azServiceFabricSetting) e [Remove-AzServiceFabricSetting](https://docs.microsoft.com/powershell/module/az.servicefabric/Remove-azServiceFabricSetting) comandos para modificar a definição diretamente.
 - Utilizar a CLI do Azure [definição do az sf cluster](https://docs.microsoft.com/cli/azure/sf/cluster/setting) comandos para modificar a definição diretamente.
 
 ## <a name="next-steps"></a>Passos Seguintes

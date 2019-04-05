@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007943"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048304"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho para o Gestor de Tráfego
 
@@ -78,9 +78,9 @@ As ferramentas sobre esses sites medida DNS latências e apresentar os resolver 
 
 [Sobre métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md)
 
-[Testar as definições do Gestor de tráfego](traffic-manager-testing-settings.md)
+[Testar as definições do Gestor de Tráfego](traffic-manager-testing-settings.md)
 
-[Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações do Traffic Manager (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlets do Gestor de tráfego do Azure](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Cmdlets do Gestor de tráfego do Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

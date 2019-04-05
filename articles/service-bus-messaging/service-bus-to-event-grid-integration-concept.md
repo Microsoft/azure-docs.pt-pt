@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 8c33418a8de4510bd8e45487c2f97bd204750dec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485104"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049851"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -34,6 +34,9 @@ Para ativar a funcionalidade, precisa dos seguintes itens:
 * Além disso, precisa de uma subscrição do Event Grid para o espaço de nomes do Service Bus. Esta subscrição recebe uma notificação do Event Grid a indicar que existem mensagens a ser escolhidas. Os subscritores típicos podem ser a funcionalidade Logic Apps do Serviço de Aplicações do Azure, as Funções do Azure ou um webhook que contacta uma aplicação Web. Em seguida, o subscritor processa as mensagens. 
 
 ![19][]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se tem acesso de contribuinte
 Aceda ao seu espaço de nomes do Service Bus e, em seguida, selecione **controlo de acesso (IAM)** e selecione **atribuições de funções** separador. Certifique-se de que tem o acesso de contribuinte ao espaço de nomes. 
@@ -152,20 +155,20 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Confirme que instalou o Azure PowerShell. [Transfira o instalador](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
+Confirme que instalou o Azure PowerShell. [Transfira o instalador](https://docs.microsoft.com/powershell/azure/install-Az-ps). Selecione **Windows + X** e, em seguida, abra uma nova consola do PowerShell com permissões de Administrador. Em alternativa, pode utilizar uma shell de comandos no portal do Azure.
 
 ```powershell-interactive
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
+Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 
 # This might be installed already
-Install-Module AzureRM.ServiceBus
+Install-Module Az.ServiceBus
 
-$NSID = (Get-AzureRmServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
+$NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
 A partir daqui, pode explorar as outras opções de configuração ou testar que eventos estão a fluir.

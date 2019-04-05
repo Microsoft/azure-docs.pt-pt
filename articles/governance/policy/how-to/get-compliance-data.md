@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802963"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048714"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de compatibilidade dos recursos do Azure
 
@@ -30,7 +30,7 @@ Antes de examinar os métodos para gerar relatórios sobre compatibilidade, vamo
 > [!WARNING]
 > Se está a ser comunicado o estado de conformidade como **não registada**, certifique-se de que o **policyinsights** (controlam o fornecedor de recursos é registado e que o utilizador tem o acesso adequado baseado em funções As permissões RBAC), conforme descrito em [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Acionadores de avaliação
 
@@ -57,7 +57,7 @@ Uma análise de avaliação para uma subscrição ou um grupo de recursos pode s
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
 - `{YourRG}` -Substituir pelo nome do seu grupo de recursos
-- `{subscriptionId}` - substituir pelo ID da subscrição
+- `{subscriptionId}` -Substituir pelo seu ID de subscrição
 
 A análise suporta a avaliação dos recursos numa subscrição ou num grupo de recursos. Iniciar uma verificação pelo âmbito de aplicação com uma API REST **POST** comando utilizando as estruturas URI seguintes:
 

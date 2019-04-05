@@ -1,19 +1,18 @@
 ---
 title: Escrever consultas para o Explorador de dados do Azure
 description: Este procedimento, irá aprender a executar consultas básicas e mais avançadas para o Explorador de dados do Azure.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758696"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048491"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Escrever consultas para o Explorador de dados do Azure
 
@@ -902,7 +901,7 @@ StormEvents
 
 [**Plug-in do funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Calcula o funil dos passos de sequência concluído dentro de diferentes períodos de tempo.
 
-A consulta seguinte verifica o funil de conclusão da sequência: `Hail -> Tornado -> Thunderstorm -> Wind` em tempos "gerais" de uma hora, quatro horas e um dia (`[1h, 4h, 1d]`).
+A consulta seguinte verifica o funil de conclusão da sequência: `Hail -> Tornado -> Thunderstorm -> Wind` em "gerais" tempos de uma hora, quatro horas e um dia (`[1h, 4h, 1d]`).
 
 **\[**[**Clique para executar consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 

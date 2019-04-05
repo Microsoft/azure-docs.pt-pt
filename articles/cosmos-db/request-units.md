@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762978"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047329"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de pedido no Azure Cosmos DB
 
@@ -71,6 +71,7 @@ Embora a estimar o número de RUs por segundo para aprovisionar, considere os se
 * Saiba mais sobre como [globalmente dimensionar o débito aprovisionado](scaling-throughput.md).
 * Saiba como [débito de aprovisionar num contentor do Azure Cosmos](how-to-provision-container-throughput.md).
 * Saiba como [débito de aprovisionar uma base de dados do Azure Cosmos](how-to-provision-database-throughput.md).
+* Saiba como [encontrar as cobranças de unidades de pedido para uma operação](find-request-unit-charge.md).
 * Saiba como [otimizar o débito aprovisionado de custo no Azure Cosmos DB](optimize-cost-throughput.md).
 * Saiba como [otimizar leituras e gravações de custos no Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Saiba como [otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md).

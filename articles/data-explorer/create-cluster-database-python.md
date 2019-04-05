@@ -1,19 +1,18 @@
 ---
 title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados com o Python'
-description: Saiba como criar um cluster do Explorador de dados do Azure e a base de dados com o Python
-services: data-explorer
+description: Saiba como criar um cluster do Explorador de dados do Azure e a base de dados com o Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472587"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045206"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o Python
 
@@ -130,4 +129,4 @@ Agora tem um cluster e uma base de dados.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)
+> [Início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)

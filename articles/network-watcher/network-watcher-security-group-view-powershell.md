@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9cc06e97730ac846e8aa42c2cee77dfe17be99bb
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b22dd2dcf575362b96d150ef98148076f4ec631f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089651"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047590"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com o PowerShell
 
@@ -30,9 +30,12 @@ ms.locfileid: "39089651"
 
 Vista de grupo de segurança devolve as regras de segurança de rede configurado e eficaz que são aplicadas a uma máquina virtual. Esta funcionalidade é útil para auditar e diagnosticar os grupos de segurança de rede e regras que estão configuradas numa VM para garantir que o tráfego está a ser corretamente permitido ou negado. Neste artigo, mostramos como obter as regras de segurança configurado e eficaz para uma máquina virtual com o PowerShell
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>Antes de começar
 
-Neste cenário, irá executar o `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet para obter as informações de regra de segurança.
+Neste cenário, irá executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet para obter as informações de regra de segurança.
 
 Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
@@ -42,19 +45,19 @@ O cenário abordado neste artigo obtém as regras de segurança configurado e ef
 
 ## <a name="retrieve-network-watcher"></a>Obter o observador de rede
 
-A primeira etapa é obter a instância do observador de rede. Esta variável é passada para o `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet.
+A primeira etapa é obter a instância do observador de rede. Esta variável é passada para o `Get-AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 ```
 
 ## <a name="get-a-vm"></a>Obtenha uma VM
 
-Uma máquina virtual é necessária para executar o `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo seguinte obtém um objeto VM.
+Uma máquina virtual é necessária para executar o `Get-AzNetworkWatcherSecurityGroupView` cmdlet contra. O exemplo seguinte obtém um objeto VM.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
+$VM = Get-AzVM -ResourceGroupName testrg -Name testvm1
 ```
 
 ## <a name="retrieve-security-group-view"></a>Obter vista de grupo de segurança
@@ -62,7 +65,7 @@ $VM = Get-AzurermVM -ResourceGroupName testrg -Name testvm1
 A próxima etapa é obter o resultado de vista do grupo de segurança.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## <a name="viewing-the-results"></a>Visualizar os resultados

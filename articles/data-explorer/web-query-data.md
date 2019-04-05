@@ -1,19 +1,18 @@
 ---
 title: 'Início rápido: Consultar dados no Explorador de dados do Azure'
 description: Neste início rápido, irá aprender a consultar e partilhar dados no Azure Data Explorer.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1774ae943dc96e07837a3cd155b5980ff732ceb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756142"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050565"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Início rápido: Consultar dados no Explorador de dados do Azure
 
@@ -193,4 +192,4 @@ Não criou recursos neste início rápido, mas se quiser remover um ou ambos os 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Escrever consultas do Azure Data Explorer](write-queries.md)
+> [Escrever consultas para o Explorador de dados do Azure](write-queries.md)

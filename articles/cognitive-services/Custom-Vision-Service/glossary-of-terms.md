@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352107"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048941"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossário de termos de serviço de visão personalizada
 
@@ -32,7 +32,6 @@ Quando cria um projeto, selecione um "domínio" para esse projeto. O domínio ot
 - **O domínio de alimento.** Otimizado para pratos, que verá um menu do restaurante. Não foi otimizado para reconhecer frutos individuais ou vegetables. Se quiser classificar fotografias de frutas individuais ou vegetables, utilize o domínio genérico para essa finalidade.
 - **O domínio de ponto de referência.** Otimizado para pontos de referência reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o ponto de referência é claramente visível no fotografia, mesmo que o ponto de referência é um pouco obstructed por um grupo de pessoas que está a representar na sua frente.
 - **O domínio de varejo.** Otimizado para classificar imagens num catálogo de compra ou o Web site de compra. Se pretender alta precisão quando classificar dresses, intuição, shirts, etc., em seguida, utilizar o domínio de varejo.
-- **O domínio para adultos.** Otimizado para definir melhor entre o conteúdo para adultos e o conteúdo não adulto. Por exemplo, se deseja bloquear imagens de pessoas em bathing de encriptação, este domínio permite-lhe criar um classificador personalizado para fazer isso.
 - **O domínio geral.** Adequado para uma ampla variedade de tarefas de classificação de imagens.
 
 Os modelos gerados pelo **compact domínios** possa ser exportada com a funcionalidade de exportação de iteração. Eles são otimizados para as restrições de classificação em tempo real em dispositivos móveis. Classificadores criadas com um domínio compact poderão ser um pouco menos exatos um domínio padrão com a mesma quantidade de dados de treinamento. A desvantagem é que eles são suficientemente pequenos para serem executados localmente na quase em tempo real. 

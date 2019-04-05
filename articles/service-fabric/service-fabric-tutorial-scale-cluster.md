@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 05a30bee8e6eb0db2e06d6d5a3a7af0d0759fb4c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669508"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049409"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -38,15 +38,18 @@ Nesta série de tutoriais, ficará a saber como:
 > * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) no Azure através de um modelo
 > * [Monitorizar um cluster](service-fabric-tutorial-monitor-cluster.md)
 > * Reduzir ou aumentar horizontalmente um cluster
-> * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [módulo do Azure PowerShell na versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou a [CLI do Azure ](/cli/azure/install-azure-cli).
+* Instale [do Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [da CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) no Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Considerações importantes e diretrizes
@@ -98,7 +101,7 @@ Se estão a dimensionar em, remover nós de um tipo de nó de Bronze [nível de 
 Guardar as alterações para o *Template* e *Parameters. JSON* ficheiros.  Para implementar o modelo atualizado, execute o seguinte comando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 Ou o seguinte comando da CLI do Azure:
 ```azure-cli
@@ -804,7 +807,7 @@ Na *Parameters. JSON* de ficheiros, adicione os seguintes novos parâmetros e va
 Guardar as alterações para o *Template* e *Parameters. JSON* ficheiros.  Para implementar o modelo atualizado, execute o seguinte comando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 Ou o seguinte comando da CLI do Azure:
 ```azure-cli
@@ -815,16 +818,16 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 Depois de criar um cluster do Service Fabric, pode dimensionar um cluster horizontalmente ao remover um tipo de nó (conjunto de dimensionamento de máquina virtual) e todos nós do mesmo. Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster. Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
 
 > [!WARNING]
-> Utilizar Remove-AzureRmServiceFabricNodeType remover um tipo de nó de um cluster de produção não é recomendada a ser utilizada com frequência. É um comando perigoso como elimina o recurso de conjunto de dimensionamento de máquina virtual por trás do tipo de nó. 
+> Utilizar Remove AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção não é recomendada a ser utilizada com frequência. É um comando perigoso como elimina o recurso de conjunto de dimensionamento de máquina virtual por trás do tipo de nó. 
 
-Para remover o tipo de nó, execute o [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) cmdlet.  O tipo de nó tem de ser Gold ou Silver [nível de durabilidade] [ durability] o cmdlet elimina o conjunto de dimensionamento associado ao tipo de nó e demora algum tempo a concluir.  Em seguida, execute o [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet em cada um de nós para remover, que elimina o estado do nó e remove os nós do cluster. Se existirem serviços em nós, em seguida, os serviços são primeiro movidos para outro nó. Se o Gestor de clusters não é possível encontrar um nó para o serviço/réplica, em seguida, a operação é atrasado/bloqueado.
+Para remover o tipo de nó, execute o [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  O tipo de nó tem de ser Gold ou Silver [nível de durabilidade] [ durability] o cmdlet elimina o conjunto de dimensionamento associado ao tipo de nó e demora algum tempo a concluir.  Em seguida, execute o [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet em cada um de nós para remover, que elimina o estado do nó e remove os nós do cluster. Se existirem serviços em nós, em seguida, os serviços são primeiro movidos para outro nó. Se o Gestor de clusters não é possível encontrar um nó para o serviço/réplica, em seguida, a operação é atrasado/bloqueado.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ O SKU de VM para todos os tipos de três nós está definido para o *vmImageSku*
 Guardar as alterações para o *Template* e *Parameters. JSON* ficheiros.  Para implementar o modelo atualizado, execute o seguinte comando:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 Ou o seguinte comando da CLI do Azure:
 ```azure-cli
@@ -879,7 +882,19 @@ Neste tutorial, ficou a saber como:
 
 Em seguida, avance para o tutorial seguinte para saber como atualizar o runtime de um cluster.
 > [!div class="nextstepaction"]
-> [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+ND reduzir horizontalmente))
+> * Adicionar e remover tipos de nós (ampliar e reduzir horizontalmente)
+> * Recursos de nó de aumento (aumento vertical)
+
+Em seguida, avance para o tutorial seguinte para saber como atualizar o runtime de um cluster.
+> [!div class="nextstepaction"]
+> [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster

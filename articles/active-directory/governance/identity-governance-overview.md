@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579721"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045489"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governação de identidade do Azure AD?
 
@@ -56,7 +56,7 @@ Normalmente, os delegados IT decisões de aprovação para os tomadores de decis
 
 As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md), conjugadas com o aprovisionamento do utilizador [aplicações SaaS](../saas-apps/tutorial-list.md) ou [as aplicações integradas com SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  As organizações também podem controlar quais [os utilizadores convidados têm acesso a aplicações no local](../b2b/hybrid-cloud-to-on-premises.md).  Estes podem de direitos de acesso, em seguida, ser regularmente revisados recorrente [revisões de acesso do Azure AD](access-reviews-overview.md).
 
-Quando um utilizador tenta aceder a aplicações, o Azure AD impõe [acesso condicional](/azure/active-directory/conditional-access/) políticas. Por exemplo, políticas de acesso condicional podem incluir exibindo um [termos de utilização](active-directory-tou.md) e [garantir que o usuário concordou esses termos](../conditional-access/require-tou.md) antes de poder aceder a uma aplicação.
+Quando um utilizador tenta aceder a aplicações, o Azure AD impõe [acesso condicional](/azure/active-directory/conditional-access/) políticas. Por exemplo, políticas de acesso condicional podem incluir exibindo um [termos de utilização](../conditional-access/terms-of-use.md) e [garantir que o usuário concordou esses termos](../conditional-access/require-tou.md) antes de poder aceder a uma aplicação.
 
 ## <a name="privileged-access-lifecycle"></a>Ciclo de vida do acesso privilegiado
 
@@ -69,19 +69,19 @@ O Azure AD Privileged Identity Management (PIM) fornece controlos adicionais ada
 Embora não haja nenhuma recomendação para cada cliente ou a solução perfeita, as seguintes configurações fornecem um guia para que políticas de linha de base, a Microsoft recomenda para garantir uma força de trabalho mais segura e produtiva.
 
 - [Configurações de acesso de dispositivos e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [A proteger o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
+- [Proteger o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Revisões de acesso
 
 - [O que é uma revisão de acesso?](access-reviews-overview.md)
 - [Gerir o acesso de utilizador com as revisões de acesso](manage-user-access-with-access-reviews.md)
-- [Gerir o acesso de convidado com as revisões de acesso](manage-guest-access-with-access-reviews.md)
+- [Gerir o acesso de convidado com revisões de acesso](manage-guest-access-with-access-reviews.md)
 - [Iniciar uma revisão de acesso de funções do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Termos de utilização
 
-- [O que posso fazer com os Termos de Utilização?](active-directory-tou.md)
+- [O que posso fazer com os Termos de utilização?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

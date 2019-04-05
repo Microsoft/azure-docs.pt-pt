@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871067"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045769"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade ao nível do inquilino para o Centro de segurança do Azure
 Este artigo ajuda-o a começar a utilizar ao fazer várias ações que maximizar os benefícios de que Centro de segurança do Azure oferece. Realizar essas ações permite-lhe obter visibilidade em todas as subscrições do Azure que estejam ligadas ao seu inquilino do Azure Active Directory e eficaz de gerir a postura de segurança da sua organização em escala ao aplicar políticas de segurança em vários assinaturas de forma aggregative.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupos de gestão
 Grupos de gestão do Azure oferecem a capacidade de gerenciar com eficiência o acesso, políticas e relatórios sobre os grupos de subscrições, bem como gerir eficazmente o estado do Azure de todo o executar ações sobre o grupo de gestão de raiz. Cada inquilino do Azure AD é atribuído um grupo de gestão único de nível superior denominado o grupo de gestão de raiz. Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo permite políticas globais e atribuições de RBAC a ser aplicado ao nível do diretório. 

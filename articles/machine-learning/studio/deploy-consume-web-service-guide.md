@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116712"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046024"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio serviços da Web: Implementação e consumo
 
@@ -49,7 +49,7 @@ O fornecedor de recursos do Azure Machine Learning Studio para serviços da web 
 
 O fornecedor de recursos do Azure Machine Learning Studio para serviços da web permite a implementação e gestão de serviços da web utilizando cmdlets do PowerShell.
 
-Para utilizar os cmdlets, tem primeiro de iniciar sessão sua conta do Azure a partir de ambiente do PowerShell, utilizando o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. Se não estiver familiarizado com como chamar comandos do PowerShell que são baseados no Resource Manager, veja [utilizar o Azure PowerShell com o Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Para utilizar os cmdlets, tem primeiro de iniciar sessão sua conta do Azure a partir de ambiente do PowerShell, utilizando o [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. Se não estiver familiarizado com como chamar comandos do PowerShell que são baseados no Resource Manager, veja [utilizar o Azure PowerShell com o Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Para exportar a sua experimentação preditiva, utilize [este código de exemplo](https://github.com/ritwik20/AzureML-WebServices). Depois de criar o ficheiro de .exe do código, pode digitar:
 
@@ -78,7 +78,7 @@ Segue-se um exemplo:
 
 Consulte os seguintes artigos e o código de exemplo para obter detalhes adicionais:
 
-* [Cmdlets Studio do Azure Machine Learning](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) referência no MSDN
+* [Cmdlets Studio do Azure Machine Learning](https://docs.microsoft.com/powershell/module/az.machinelearning) referência no MSDN
 * Exemplo [passo a passo](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) no GitHub
 
 ## <a name="consume-the-web-services"></a>Consumir os serviços web
@@ -88,7 +88,7 @@ Consulte os seguintes artigos e o código de exemplo para obter detalhes adicion
 Pode testar o seu serviço web a partir do portal do Azure Machine Learning Web Services. Isto inclui o teste do serviço de solicitação-resposta (RRS) e interfaces de serviço de execução de lotes (BES).
 
 * [Implementar um serviço Web novo](publish-a-machine-learning-web-service.md)
-* [Implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* [Implementar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
 * [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>A partir do Excel

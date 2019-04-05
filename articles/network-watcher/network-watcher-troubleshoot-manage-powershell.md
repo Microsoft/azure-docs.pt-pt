@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 51fb834c0c6a3602ed0edfee6256183eefb2026b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b25ebeadff46ea04c2adf5add6aeb86b751681ad
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889493"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047216"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Resolver problemas de Gateway de rede Virtual e ligações com o PowerShell de observador de rede do Azure
 
@@ -30,6 +30,9 @@ ms.locfileid: "57889493"
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
 Observador de rede oferece muitos recursos que diz respeito à Noções básicas sobre os recursos de rede no Azure. Um desses recursos é o recurso de resolução de problemas. Resolução de problemas de recursos pode ser chamada através do portal, o PowerShell, a CLI ou a REST API. Quando chamado, o observador de rede inspeciona o estado de funcionamento de um Gateway de rede Virtual ou uma ligação e devolve conclusões.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -43,11 +46,11 @@ Resolução de problemas de recursos fornece a capacidade de resolver os problem
 
 ## <a name="retrieve-network-watcher"></a>Obter o observador de rede
 
-A primeira etapa é obter a instância do observador de rede. O `$networkWatcher` variável é transmitida para o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet no passo 4.
+A primeira etapa é obter a instância do observador de rede. O `$networkWatcher` variável é transmitida para o `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet no passo 4.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Obter uma ligação de Gateway de rede Virtual
@@ -55,7 +58,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Neste exemplo, a resolução de problemas de recursos está a ser foi executada numa conexão. Também pode passá-lo um Gateway de rede Virtual.
 
 ```powershell
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -63,20 +66,20 @@ $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceG
 Resolução de problemas de recursos devolve dados sobre o estado de funcionamento do recurso, também economiza registos para uma conta de armazenamento para ser revisto. Neste passo, vamos criar uma conta de armazenamento, se existir uma conta de armazenamento existente pode utilizá-lo.
 
 ```powershell
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzureStorageContainer -Name logs
+$sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
+$sc = New-AzStorageContainer -Name logs
 ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Executar a resolução de problemas de recursos do observador de rede
 
-Resolver problemas relacionados com recursos com o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. O cmdlet, transmitimos o objeto do observador de rede, o Id da ligação ou Gateway de rede Virtual, o id de conta de armazenamento e o caminho para armazenar os resultados.
+Resolver problemas relacionados com recursos com o `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. O cmdlet, transmitimos o objeto do observador de rede, o Id da ligação ou Gateway de rede Virtual, o id de conta de armazenamento e o caminho para armazenar os resultados.
 
 > [!NOTE]
-> O `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet é de longa execução e pode demorar alguns minutos a concluir.
+> O `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet é de longa execução e pode demorar alguns minutos a concluir.
 
 ```powershell
-Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
+Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
 Depois de executar o cmdlet, o observador de rede analisa o recurso para verificar o estado de funcionamento. Ele retorna os resultados para o shell e armazena os registos dos resultados na conta de armazenamento especificada.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190896"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: Integração do Active Directory do Azure com eDigitalResearch
 
@@ -89,7 +89,7 @@ Para configurar e testar o Azure AD início de sessão único com eDigitalResear
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste eDigitalResearch](#create-a-edigitalresearch-test-user)**  - para ter um equivalente da Eduarda Almeida na eDigitalResearch que está ligado à representação de utilizador do Azure AD.
+1. **[Criar um utilizador de teste eDigitalResearch](#create-an-edigitalresearch-test-user)**  - para ter um equivalente da Eduarda Almeida na eDigitalResearch que está ligado à representação de utilizador do Azure AD.
 1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     d. Clique em **Criar**.
   
-### <a name="create-a-edigitalresearch-test-user"></a>Criar um utilizador de teste eDigitalResearch
+### <a name="create-an-edigitalresearch-test-user"></a>Criar um utilizador de teste eDigitalResearch
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no eDigitalResearch. 
 
@@ -218,7 +218,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 

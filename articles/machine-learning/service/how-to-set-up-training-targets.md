@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122374"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046160"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
@@ -38,14 +38,14 @@ Neste artigo, irá aprender a utilizar vários destinos de computação para a p
 O serviço do Azure Machine Learning tem suporte variado em destinos de computação diferentes. Inicia um ciclo de vida de desenvolvimento do modelo típico com dev/experimentação numa pequena quantidade de dados. Nesta fase, recomendamos que utilize um ambiente local. Por exemplo, seu computador local ou uma VM com base na cloud. À medida que aumentar verticalmente o seu treinamento em conjuntos de dados maiores ou fazer o treinamento distribuído, recomendamos que utilize a computação do Azure Machine Learning para criar um cluster único ou vários node que é dimensionado automaticamente sempre que submete uma execução. Também pode anexar seus próprios recursos de computação, embora o suporte para vários cenários podem variar como detalhadas abaixo:
 
 
-|Destino de treinamento de computação| Aceleração por GPU | Automatizada<br/> a otimização de hiper-parâmetros | Automatizada</br> machine learning | O Azure Machine Learning Pipelines |
+|Destino de treinamento de computação| Aceleração por GPU | Automatizado<br/> a otimização de hiper-parâmetros | Automatizado</br> machine learning | O Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Todos os computação destinos podem ser reutilizados para várias tarefas de formação**. Por exemplo, depois de anexar uma VM remota à área de trabalho, pode reutilizá-lo para várias tarefas.
@@ -92,7 +92,7 @@ Utilize as secções abaixo para configurar estes destinos de computação:
 * [Computador local](#local)
 * [Computação do Azure Machine Learning](#amlcompute)
 * [Máquinas virtuais remotas](#vm)
-* [O Azure HDInsight](#hdinsight)
+* [Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Computador local
@@ -118,7 +118,10 @@ Pode criar um ambiente de computação do Azure Machine Learning a pedido quando
 
 #### <a name="run-based-creation"></a>Criação baseados em execução
 
-Pode criar a computação do Azure Machine Learning como um destino de computação no tempo de execução. A computação é criada automaticamente para a execução. As escalas de cluster até ao número de **max_nodes** que especificou na sua configuração de execução. A computação é eliminada automaticamente depois da execução for concluída.
+Pode criar a computação do Azure Machine Learning como um destino de computação no tempo de execução. A computação é criada automaticamente para a execução. A computação é eliminada automaticamente depois da execução for concluída. 
+
+> [!NOTE]
+> Para especificar o número máximo de nós para utilizar, normalmente seria definido `node_count` para o número de nós. Não há atualmente (04/04/2019) um bug que isso impede o trabalho. Como solução, utilize o `amlcompute._cluster_max_node_count` propriedade de configuração de execução. Por exemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Criação de computação do Azure Machine Learning baseados em execução está atualmente em pré-visualização. Não utilize a criação com base em execução, se utilizar a otimização de hiper-parâmetros automatizado ou automatizada de aprendizagem automática. Para utilizar a otimização de hiper-parâmetros ou aprendizagem automática, crie uma [computação persistente](#persistent) de destino em vez disso.
@@ -416,7 +419,7 @@ Em alternativa, pode:
 
 Consulte estes blocos de notas para obter exemplos de treinamento com vários destinos de computação:
 * [procedimentos-to-use-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutoriais/img-classificação-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

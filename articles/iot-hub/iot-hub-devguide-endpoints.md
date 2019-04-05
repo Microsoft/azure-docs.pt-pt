@@ -3,17 +3,17 @@ title: Compreender os pontos finais do IoT Hub do Azure | Documentos da Microsof
 description: Guia do programador - informações de referência sobre o IoT Hub pontos finais com acesso de dispositivo e voltado para o serviço.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5015068f9b165190bef3b0cb97ddb194e173303e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201437"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045922"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais do IoT Hub
 

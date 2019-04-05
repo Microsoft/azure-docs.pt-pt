@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359464"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049685"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
-*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
+*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
 
 Neste artigo, irá aprender a utilizar a extensão de funções de Azure de código do Visual Studio para criar localmente e testar uma função durável "hello world".  Esta função será orquestrar e em conjunto da cadeia de chamadas para outras funções. Em seguida, publique o código de função no Azure.
 
@@ -125,7 +125,29 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 5. Usando uma ferramenta como [Postman](https://www.getpostman.com/) ou [cURL](https://curl.haxx.se/), enviar um pedido de HTTP POST para o ponto de final do URL.
 
-6. Para parar a depuração, prima Shift + F1 no VS Code.
+    A resposta é o resultado inicial da função HTTP nos informar a orquestração durável foi iniciado com êxito.  Ainda não é o resultado final da orquestração.  A resposta inclui alguns URLs útil.  Por enquanto, vamos consultar o estado da orquestração.
+
+6. Copie o valor de URL para `statusQueryGetUri`, cole-o na barra de endereço do navegador e execute o pedido.
+
+    O pedido irá consultar a instância de orquestração para o estado. Obterá uma resposta eventual que é semelhante ao seguinte.  Isto mostra-na instância tiver sido concluída e inclui as saídas ou os resultados da função durável.
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. Para parar a depuração, prima **Shift + F5** no VS Code.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 

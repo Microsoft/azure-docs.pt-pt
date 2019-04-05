@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862085"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051687"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
@@ -64,6 +64,8 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
     ```powershell
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  Se o `AzsControlPlane` parâmetro está incluído quando **teste AzureStack** é executada, verá a seguinte falha no **teste AzureStack** saída: **Falha do Azure Stack controle plano Web sites resumo**. Pode ignorar este erro específico.
 
 - Quando o Azure Stack é gerido pelo System Center Operations Manager (SCOM), certifique-se de atualizar o [pacote de gestão para o Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) para versão 1.0.3.11 antes de aplicar 1902.
 

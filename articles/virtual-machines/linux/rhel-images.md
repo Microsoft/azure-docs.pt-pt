@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011661"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045427"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imagens de Red Hat Enterprise Linux no Azure
 Este artigo descreve as imagens de Red Hat Enterprise Linux (RHEL) disponíveis no Azure Marketplace, juntamente com as políticas em torno de seus nomenclatura e retenção.
@@ -65,7 +65,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Convenção de nomenclatura atual
 Todas as imagens RHEL atualmente publicadas utilizam o modelo de pay as you go e estão ligadas ao [Red Hat atualização de infra-estrutura (RHUI) no Azure](https://aka.ms/rhui-update). Devido a uma limitação de design do RHUI, uma nova Convenção de nomenclatura foi adotada para imagens RHEL 7 de famílias. A nomenclatura do família de RHEL 6 não foram alterada neste momento.
 
-A limitação é o fato de que quando um não-seletiva `yum update` é executada numa VM ligado ao RHUI, a versão RHEL for atualizada para o versão mais recente da família atual. Para obter mais informações, consulte [esta ligação](https://aka.ms/rhui-udate). Isso pode resultar em confusão quando uma imagem RHEL 7.2 aprovisionada se torna a 7,6 RHEL após uma atualização. Ainda pode aprovisionar a partir de uma imagem mais antiga, conforme ilustrado nos exemplos acima, especificando a versão necessária explicitamente. Se a versão necessária não for especificada durante o aprovisionamento de uma nova imagem RHEL 7, em seguida, a imagem mais recente será aprovisionada.
+A limitação é o fato de que quando um não-seletiva `yum update` é executada numa VM ligado ao RHUI, a versão RHEL for atualizada para o versão mais recente da família atual. Para obter mais informações, consulte [esta ligação](https://aka.ms/rhui-update). Isso pode resultar em confusão quando uma imagem RHEL 7.2 aprovisionada se torna a 7,6 RHEL após uma atualização. Ainda pode aprovisionar a partir de uma imagem mais antiga, conforme ilustrado nos exemplos acima, especificando a versão necessária explicitamente. Se a versão necessária não for especificada durante o aprovisionamento de uma nova imagem RHEL 7, em seguida, a imagem mais recente será aprovisionada.
 
 >[!NOTE]
 > No RHEL para o conjunto SAP de imagens, a versão RHEL permanece fixa. Assim, sua Convenção de nomenclatura inclui uma versão específica no SKU.

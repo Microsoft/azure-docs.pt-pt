@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
-ms.openlocfilehash: fcf10152be645eb92596894a3e89258908d747c4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e6b429189491af71f6215f1c7660be5965741bf7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668369"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044832"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Aumentar verticalmente um tipo de nó principal do cluster de Service Fabric
 Este artigo descreve como aumentar verticalmente um tipo de nó principal do Service Fabric cluster ao aumentar os recursos de máquina virtual. Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerido separadamente. Depois de criar um cluster do Service Fabric, pode dimensionar um tipo de nó de cluster verticalmente (alterar os recursos de nós) ou atualizar o sistema operativo do tipo de nó VMs.  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
@@ -29,6 +29,9 @@ Este artigo descreve como aumentar verticalmente um tipo de nó principal do Ser
 >
 > Recomendamos que não altere o SKU de VM de um tipo de nó/conjunto de dimensionamento, a menos que ele está em execução no [durabilidade de Silver ou superior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Alterar tamanho da SKU de VM é uma operação de infraestrutura do destrutiva dados no local. Sem capacidade algum atraso ou monitorizar esta alteração, é possível que a operação pode causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem monitorização de estado. Isso significa que o seu tipo de nó primário, o que está a executar recursos de infraestrutura do serviço com estado serviços do sistema, ou qualquer tipo de nó que está a executar o seu trabalho com monitorização de estado do aplicativo é carregado.
 >
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Atualizar o tamanho e o sistema operativo do tipo de nó primário VMs
 Eis o processo para atualizar o tamanho da VM e o sistema operativo do tipo de nó primário VMs.  Após a atualização, o tipo de nó primário VMs são Standard D4_V2 de tamanho e em execução do Windows Server 2016 Datacenter com contentores.
@@ -56,13 +59,13 @@ $clusterloc="southcentralus"
 $subscriptionID="<your subscription ID>"
 
 # sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId $subscriptionID 
 
 # Create a new resource group for your deployment and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Deploy the two node type cluster.
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
     -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
 
 # Connect to the cluster and check the cluster health.
@@ -80,7 +83,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth
 
 # Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
     -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
 
 # Check the cluster health again. All 15 nodes should be healthy.
@@ -120,7 +123,7 @@ foreach($name in $nodeNames){
 
 # Remove the scale set
 $scaleSetName="NTvm1"
-Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Remove-AzVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
 Write-Host "Removed scale set $scaleSetName"
 
 $lbname="LB-sfupgradetest-NTvm1"
@@ -128,23 +131,23 @@ $oldPublicIpName="PublicIP-LB-FE-0"
 $newPublicIpName="PublicIP-LB-FE-2"
 
 # Store DNS settings of public IP address related to old Primary NodeType into variable 
-$oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
+$oldprimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
 
 $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
 
 $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 
 # Remove Load Balancer related to old Primary NodeType. This will cause a brief period of downtime for the cluster
-Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+Remove-AzLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 
 # Remove the old public IP
-Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+Remove-AzPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 
 # Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
-$PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
+$PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
-Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 
 # Check the cluster health
 Get-ServiceFabricClusterHealth

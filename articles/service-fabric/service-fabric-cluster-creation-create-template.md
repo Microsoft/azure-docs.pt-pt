@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ddfd8ce14ca20c7094fa927aeafc36ae53271499
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665513"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046193"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Criar um modelo de Gestor de recursos de cluster do Service Fabric
 
@@ -28,6 +28,9 @@ Uma [cluster do Azure Service Fabric](service-fabric-deploy-anywhere.md) é um c
 Segurança do cluster é configurada quando o cluster, primeiro é configurado e não é possível alterar mais tarde. Antes de configurar um cluster, leia [cenários de segurança de cluster do Service Fabric][service-fabric-cluster-security]. No Azure, o Service Fabric utiliza x509 certificado para proteger o seu cluster e seus pontos de extremidade, autenticar clientes e encripta os dados. Também é recomendado proteger o acesso aos pontos finais de gestão do Azure Active Directory. O Azure AD inquilinos e os utilizadores devem ser criados antes de criar o cluster.  Para obter mais informações, leia [configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 Antes de implementar um cluster de produção para executar cargas de trabalho de produção, certifique-se de que leia primeiro o [lista de verificação de preparação de produção](service-fabric-production-readiness-checklist.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 Modelos do Gestor de recursos de exemplo estão disponíveis no [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser utilizados como ponto de partida para o modelo de cluster.
@@ -242,13 +245,13 @@ Os módulos do RM não têm a capacidade de gerar a configuração do Azure AD p
 Utilize o seguinte comando do PowerShell para testar o modelo do Resource Manager com um ficheiro de parâmetros:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 No caso de problemas e obter mensagens enigmática, em seguida, utilize "-Debug" como uma opção.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 O diagrama seguinte ilustra onde o seu Cofre de chaves e a configuração do Azure AD encaixam em seu modelo do Resource Manager.

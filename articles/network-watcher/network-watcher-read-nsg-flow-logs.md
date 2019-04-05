@@ -13,18 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cddf6526a798195e3e3091af766fee28791ac522
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112704"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050600"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 
 Saiba como ler entradas dos registos de fluxo NSG com o PowerShell.
 
 Registos de fluxo NSG são armazenados numa conta de armazenamento na [blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Os blobs de blocos são constituídos por blocos menores. Cada registo é um blob de bloco separado que é gerado a cada hora. Novos registos são gerados a cada hora, os registos são atualizados com novas entradas de intervalos de poucos minutos com os dados mais recentes. Este artigo irá aprender a ler partes de registos de fluxo.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -53,10 +56,10 @@ function Get-NSGFlowLogCloudBlockBlob {
 
     process {
         # Retrieve the primary storage account key to access the NSG logs
-        $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
+        $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
         # Setup a new storage context to be used to query the logs
-        $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+        $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
         # Container name used by NSG flow logs
         $ContainerName = "insights-logs-networksecuritygroupflowevent"
@@ -65,7 +68,7 @@ function Get-NSGFlowLogCloudBlockBlob {
         $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
         # Gets the storage blog
-        $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
+        $Blob = Get-AzStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
         # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
         $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob

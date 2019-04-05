@@ -51,12 +51,10 @@ items:
         href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Concluir uma revisão de acesso
         href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-  - name: Termos de utilização
-    href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: 29c83bb644e635351f4ac7ed7283ad2953ff66cf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 888743ac9205c9b524327dd7b1b6631201b52a39
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576275"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049205"

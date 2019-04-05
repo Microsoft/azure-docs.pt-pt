@@ -3,17 +3,17 @@ title: Gateway de protocolo do IoT do Azure | Documentos da Microsoft
 description: Como utilizar um gateway de protocolo do IoT do Azure para expandir o seu IoT Hub recursos e suporte de protocolo para permitir que os dispositivos para ligar ao seu hub utilizando protocolos não suportados nativamente pelo IoT Hub.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009856"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046432"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Suporte para protocolos adicionais para o IoT Hub
 O IoT Hub do Azure suporta nativamente comunicação pelos protocolos MQTT, AMQP e HTTPS. Em alguns casos, dispositivos ou gateways de campo podem não ser capazes de usar um desses protocolos padrão e exigem adaptação de protocolo. Nesses casos, pode utilizar um gateway personalizado. Um gateway de personalizado permite a adaptação de protocolo para pontos finais do IoT Hub preenchendo o tráfego de e para o IoT Hub. Pode utilizar o [gateway de protocolo do IoT do Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) como um gateway personalizado para ativar a adaptação de protocolo para o IoT Hub.

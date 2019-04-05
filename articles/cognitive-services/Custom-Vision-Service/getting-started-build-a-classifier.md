@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891485"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051482"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -56,9 +56,8 @@ No seu browser, navegue para o [página da web de visão personalizada](https://
     |__Comida__|Otimizado para fotos de pratos conforme os veria num menu do restaurante. Se quiser classificar fotografias de frutas individuais ou vegetables, utilize o domínio de alimento.|
     |__Pontos de referência__|Otimizado para pontos de referência reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o ponto de referência é claramente visível na fotografia. Este domínio funciona mesmo que o ponto de referência é um pouco obstructed por pessoas na sua frente.|
     |__Retalho__|Otimizado para imagens que se encontram num catálogo de compra ou o Web site de compra. Se pretender que o serviço de alta precisão classificar entre dresses, intuição e shirts, utilize este domínio.|
-    |__Adulto__|Otimizado para definir melhor o conteúdo para adultos e conteúdo não adulto. Por exemplo, se deseja bloquear imagens de pessoas em bathing de encriptação, este domínio permite-lhe criar um classificador personalizado para fazer isso.|
     |__Domínios compactos__| Otimizado para as restrições de classificação em tempo real em dispositivos móveis. Os modelos de gerados por domínios compactos podem ser exportados para executar localmente.|
-    
+
 1. Por fim, selecione __criar projeto__.
 
 ## <a name="choose-training-images"></a>Escolha as imagens de formação

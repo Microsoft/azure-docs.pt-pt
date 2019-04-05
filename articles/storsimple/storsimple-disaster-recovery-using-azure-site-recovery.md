@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084883"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051942"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação após desastre automatizada com o Azure Site Recovery para partilhas de ficheiros alojadas no StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>Descrição geral
 O Microsoft Azure StorSimple é uma solução de armazenamento de cloud híbrida que resolve as complexidades normalmente associadas a partilhas de ficheiros de dados não estruturados. StorSimple utiliza o armazenamento na cloud como uma extensão da solução no local e automaticamente os dados de camadas em armazenamento no local e o armazenamento na cloud. Integrado a proteção de dados, no local e instantâneos da cloud, que elimina a necessidade de uma infraestrutura de armazenamento sprawling.
 
@@ -167,7 +170,7 @@ Pode criar um plano de recuperação no ASR para automatizar o processo de ativa
    
 1. Na conta de automatização, clique em **variáveis** &gt; **adicionar uma variável** e adicione as seguintes variáveis. Pode optar por encriptar estes recursos. Estas variáveis são o plano de recuperação específico. Se planear a recuperação, que irá criar no próximo passo, nome é TestPlan, em seguida, as variáveis devem ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
-   - **BaseUrl**: O url do Gestor de recursos para a cloud do Azure. Obter usando **Get-AzureRmEnvironment | Nome de Select-Object, ResourceManagerUrl** cmdlet.
+   - **BaseUrl**: O url do Gestor de recursos para a cloud do Azure. Obter usando **Get-AzEnvironment | Nome de Select-Object, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: O grupo do Gestor de recursos que tem o recurso do StorSimple.
    - *RecoveryPlanName***-ManagerName**: O recurso do StorSimple que tenha o dispositivo StorSimple.
    - *RecoveryPlanName***-DeviceName**: O dispositivo StorSimple que tem de efetuar a ativação pós-falha.

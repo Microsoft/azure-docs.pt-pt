@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106054"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046687"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementar uma VM a partir dos VHDs
 
@@ -32,13 +32,14 @@ Para mais informações sobre imagens VM, consulte as seguintes mensagens de blo
 - [Imagem de VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [PowerShell de imagem VM "Como"](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisite-install-the-necessary-tools"></a>Pré-requisito: instalar as ferramentas necessárias
 
 Se ainda não o fez, instale o Azure PowerShell e CLI do Azure, com as instruções seguintes:
 
-- [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## <a name="deployment-steps"></a>Passos da implementação

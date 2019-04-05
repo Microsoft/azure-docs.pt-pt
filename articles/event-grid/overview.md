@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770481"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045410"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -114,13 +114,13 @@ O Azure Event Grid tem um modelo de preços “pagar por evento”, de modo que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Route Storage Blob events](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) (Encaminhar eventos do Blob de Armazenamento)  
+* [Encaminhar eventos de armazenamento de BLOBs](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Utilize o Event Grid para responder a eventos de blobs de armazenamento.
 * [Criar e subscrever eventos personalizados](custom-event-quickstart.md)  
   Utilize o início rápido do Azure Event Grid para começar a enviar os seus próprios eventos personalizados para qualquer ponto final imediatamente.
-* [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md) (Utilizar o Logic Apps como Processador de Eventos)  
+* [Utilizar o Logic Apps como um manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Um tutorial sobre como criar uma aplicação com o Logic Apps para reagir a eventos enviados pelo Event Grid.
 * [Transmitir macrodados em fluxo para um armazém de dados](event-grid-event-hubs-integration.md)  
   Um tutorial que utiliza as Funções do Azure para transmitir dados em fluxo dos Hubs de Eventos para o SQL Data Warehouse.
-* [Event Grid REST API reference](/rest/api/eventgrid) (Referência da API REST do Event Grid)  
+* [Referência da API de REST de grelha de eventos](/rest/api/eventgrid)  
   Fornece conteúdos de referência para a gestão de subscrições de eventos, encaminhamento e filtragem.

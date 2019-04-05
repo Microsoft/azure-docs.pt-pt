@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 501f215ae3daf24db6307b4f8afb0c7d3271d8a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361868"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048924"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrar para as ferramentas de desenvolvimento baseado no Azure Resource Manager para clusters do HDInsight
 
@@ -94,7 +94,7 @@ Antes de poder utilizar os cmdlets do HDInsight, tem de ligar à sua conta do Az
 ### <a name="renamed-cmdlets"></a>Cmdlets do nome mudado
 Para listar os cmdlets de ASM do HDInsight na consola do Windows PowerShell:
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 A tabela seguinte lista os cmdlets ASM e seus nomes no modo Resource Manager:
 
@@ -180,7 +180,7 @@ Novo comando:
         -SshCredential $sshCredentials
 
 
-**Eliminar cluster**
+**Eliminar o cluster**
 
 Antigo comando (ASM):
 

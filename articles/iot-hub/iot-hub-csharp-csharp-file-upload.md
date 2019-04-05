@@ -8,13 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: robin.shahan
-ms.openlocfilehash: d661f8834aec77957e0fd2713cde5da9a48903fd
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010581"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046774"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub com .NET
 
@@ -173,8 +173,8 @@ Agora pode executar as aplicações.
 
 Neste tutorial, aprendeu a utilizar as capacidades de carregamento de arquivo do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do hub IoT e cenários com os seguintes artigos:
 
-* [Criar um hub IoT através de programação](iot-hub-rm-template-powershell.md)
-* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
+* [Crie um hub IoT de forma programática](iot-hub-rm-template-powershell.md)
+* [Introdução ao SDK C](iot-hub-device-sdk-c-intro.md)
 * [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
 Para explorar ainda mais os recursos do IoT Hub, veja:

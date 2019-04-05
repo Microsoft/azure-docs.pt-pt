@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099401"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051585"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade no local através de gateways de VPN
 
 O Gateway de VPN do Azure permite-lhe criar solução híbrida que atender à necessidade de uma ligação segura entre a sua rede no local e a rede virtual do Azure. Como os seus requisitos são exclusivos, portanto, é a escolha do dispositivo VPN no local. O Azure suporta atualmente [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que constantemente são validados em parceria com fornecedores de dispositivos. Reveja as definições de configuração específicos do dispositivo antes de configurar o dispositivo VPN no local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [suportados parâmetros de IPsec](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são utilizadas para estabelecer ligações. Atualmente, não há nenhuma forma para que possa especificar ou selecionar uma combinação de parâmetros de IPsec do Gateway de VPN do Azure. Para estabelecer uma ligação com êxito entre no local e o Azure, as definições do dispositivo VPN no local tem de estar em conformidade com os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. Se as definições estiverem corretas, aqui é uma perda de conectividade e até agora esses problemas de resolução de problemas não foi trivial e, normalmente, levou horas para identificar e corrigir o problema.
 
 Com o observador de rede do Azure resolver problemas de funcionalidade, pode diagnosticar problemas com o seu Gateway e as ligações e dentro de minutos tiver informações suficientes para tomar uma decisão informada para resolver o problema.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -57,7 +60,7 @@ Estes problemas são difíceis de resolver problemas e as principais causas, mui
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Resolução de problemas com o observador de rede do Azure
 
-Para diagnosticar a sua ligação, ligue para o Azure PowerShell e iniciar o `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. Pode encontrar os detalhes sobre como utilizar este cmdlet em [resolver problemas de Gateway de rede Virtual e ligações - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet pode demorar alguns minutos para concluir.
+Para diagnosticar a sua ligação, ligue para o Azure PowerShell e iniciar o `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. Pode encontrar os detalhes sobre como utilizar este cmdlet em [resolver problemas de Gateway de rede Virtual e ligações - PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet pode demorar alguns minutos para concluir.
 
 Assim que o cmdlet for concluído, pode navegar para a localização de armazenamento especificada no cmdlet para obter informações detalhadas sobre sobre o problema e os registos. O observador de rede do Azure cria uma pasta de zip que contém os ficheiros de registo seguinte:
 
@@ -104,10 +107,10 @@ Resolução de problemas do observador de rede do Azure funcionalidade permite-l
 | ConnectionIsMarkedDisconnected | A ligação foi marcada como "desligada". |Não|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem uma ligação configurada. | Sim |
 | ConnectionMarkedStandby | O serviço subjacente é marcado como modo de espera.| Sim|
-| Autenticação | Erro de correspondência de chave pré-compartilhada. | Sim|
+| Authentication | Erro de correspondência de chave pré-compartilhada. | Sim|
 | PeerReachability | O gateway de ponto a ponto não está acessível. | Sim|
 | IkePolicyMismatch | O gateway de mesmo nível tem políticas de IKE que não são suportadas pelo Azure. | Sim|
-| Erro de WfpParse | Ocorreu um erro ao analisar o registo da WFP. |Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o registo da WFP. |Sim|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

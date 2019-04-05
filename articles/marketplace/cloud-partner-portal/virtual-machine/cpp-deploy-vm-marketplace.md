@@ -14,17 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d800d2a9c4eced2fa347658ecbb5b7a97031d997
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ee3e2b452dedbf791bdc05bbc81b07531e1f075
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838702"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049318"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Implementar uma máquina virtual do Azure Marketplace
 
 Este artigo explica como implementar uma máquina de virtual (VM) pré-configurada de um Azure Marketplace, com o script do Azure PowerShell fornecido.  Este script também expõe os pontos de extremidade do WinRM HTTP e HTTPS na VM.  O script exige que já tenha um certificado carregado para o Azure Key Vault, conforme descrito em [criar certificados para o Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="vm-deployment-template"></a>Modelo de implementação de VM
 
@@ -53,7 +54,7 @@ Edite o seguinte script do PowerShell do Azure e executá-lo para implementar a 
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json" -newStorageAccountName "test$postfix" -dnsNameForPublicIP $vmName -adminUserName "isv" -adminPassword $pwd -vmSize "Standard_A2" -vmName $vmName -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id 
+New-AzResourceGroupDeployment -Name "dplvm$postfix" -ResourceGroupName "$rgName" -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-winrm-keyvault-windows/azuredeploy.json" -newStorageAccountName "test$postfix" -dnsNameForPublicIP $vmName -adminUserName "isv" -adminPassword $pwd -vmSize "Standard_A2" -vmName $vmName -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id 
 
 ```
 

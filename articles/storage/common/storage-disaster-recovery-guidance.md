@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486071"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051194"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Após desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure
 
@@ -22,6 +22,9 @@ A Microsoft está empenhada garantir que os serviços do Azure estão sempre dis
 O armazenamento do Azure suporta a ativação pós-falha de conta (pré-visualização) para contas de armazenamento georredundante. Com a ativação pós-falha de conta, pode iniciar o processo de ativação pós-falha para a sua conta de armazenamento se o ponto final primário ficar indisponível. A ativação pós-falha atualiza o ponto final secundário para se tornar o ponto final primário para a sua conta de armazenamento. Depois de concluída a ativação pós-falha, os clientes podem começar a escrever para o novo ponto final primário.
 
 Este artigo descreve os conceitos e o processo envolvido com uma conta de ativação pós-falha e explica como preparar a sua conta de armazenamento para a recuperação com o mínimo de impacto de cliente. Para saber como iniciar uma ativação pós-falha de conta no portal do Azure ou do PowerShell, veja [inicie uma ativação pós-falha de conta (pré-visualização)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Escolha a opção de redundância certo
 
@@ -122,14 +125,14 @@ A pré-visualização destina-se apenas a utilização de não produção. Contr
 Para se registar na pré-visualização, execute os seguintes comandos no PowerShell. Certifique-se substituir o marcador de posição entre parênteses Retos com o seu próprio ID de subscrição:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Pode demorar 1 a 2 dias para receber a aprovação para a pré-visualização. Para verificar que o registo foi aprovado, execute o seguinte comando:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Considerações adicionais 
@@ -177,5 +180,5 @@ Extreme circunstâncias em que uma região é perdida devido a um desastre signi
 ## <a name="see-also"></a>Consulte também
 
 * [Inicie uma ativação pós-falha de conta (pré-visualização)](storage-initiate-account-failover.md)
-* [Conceber aplicações de elevada disponibilidade com o RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+* [Conceber aplicações de elevada disponibilidade com RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 

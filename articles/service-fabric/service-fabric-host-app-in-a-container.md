@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
-ms.openlocfilehash: 0c9b94cec0cd925b23942ac8619bb941ff0995fd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668336"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048474"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -32,6 +32,9 @@ Neste tutorial, ficará a saber como:
 > * Criar uma SQL Database do Azure
 > * Criar um registo de contentor do Azure
 > * Implementar uma aplicação do Service Fabric no Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -67,7 +70,7 @@ Recomendamos a [Base de Dados SQL do Azure](/azure/sql-database/sql-database-get
 $subscriptionID="<subscription ID>"
 
 # Sign in to your Azure account and select your subscription.
-Login-AzureRmAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId $subscriptionID 
 
 # The data center and resource name for your resources.
 $dbresourcegroupname = "fabrikam-fiber-db-group"
@@ -88,21 +91,21 @@ $clientIP = "<client IP>"
 $databasename = "call-center-db"
 
 # Create a new resource group for your deployment and give it a name and a location.
-New-AzureRmResourceGroup -Name $dbresourcegroupname -Location $location
+New-AzResourceGroup -Name $dbresourcegroupname -Location $location
 
 # Create the SQL server.
-New-AzureRmSqlServer -ResourceGroupName $dbresourcegroupname `
+New-AzSqlServer -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # Create the firewall rule to allow your development computer to access the server.
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
+New-AzSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowClient" -StartIpAddress $clientIP -EndIpAddress $clientIP
 
 # Creeate the database in the server.
-New-AzureRmSqlDatabase  -ResourceGroupName $dbresourcegroupname `
+New-AzSqlDatabase  -ResourceGroupName $dbresourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
     -RequestedServiceObjectiveName "S0"
@@ -136,9 +139,9 @@ $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
 $registryname="fabrikamregistry$(Get-Random)"
 
-New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
+New-AzResourceGroup -Name $acrresourcegroupname -Location $location
 
-$registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupname -Name $registryname -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName $acrresourcegroupname -Name $registryname -EnableAdminUser -Sku Basic
 ```
 
 ## <a name="create-a-service-fabric-cluster-on-azure"></a>Criar um cluster do Service Fabric no Azure
@@ -185,20 +188,20 @@ Anteriormente, criou uma regra de firewall de SQL para dar acesso à sua aplica�
 ```powershell
 # Create a virtual network service endpoint
 $clusterresourcegroup = "<cluster resource group>"
-$resource = Get-AzureRmResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
+$resource = Get-AzResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
 $vnetName = $resource.Name
 
 Write-Host 'Virtual network name: ' $vnetName 
 
 # Get the virtual network by name.
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName $clusterresourcegroup `
   -Name              $vnetName
 
 Write-Host "Get the subnet in the virtual network:"
 
 # Get the subnet, assume the first subnet contains the Service Fabric cluster.
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
 
 $subnetName = $subnet.Name
 $subnetID = $subnet.Id
@@ -207,21 +210,21 @@ $addressPrefix = $subnet.AddressPrefix
 Write-Host "Subnet name: " $subnetName " Address prefix: " $addressPrefix " ID: " $subnetID
 
 # Assign a Virtual Service endpoint 'Microsoft.Sql' to the subnet.
-$vnet = Set-AzureRmVirtualNetworkSubnetConfig `
+$vnet = Set-AzVirtualNetworkSubnetConfig `
   -Name            $subnetName `
   -AddressPrefix   $addressPrefix `
   -VirtualNetwork  $vnet `
-  -ServiceEndpoint Microsoft.Sql | Set-AzureRmVirtualNetwork
+  -ServiceEndpoint Microsoft.Sql | Set-AzVirtualNetwork
 
 $vnet.Subnets[0].ServiceEndpoints;  # Display the first endpoint.
 
 # Add a SQL DB firewall rule for the virtual network service endpoint
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig `
+$subnet = Get-AzVirtualNetworkSubnetConfig `
   -Name           $subnetName `
   -VirtualNetwork $vnet;
 
 $VNetRuleName="ServiceFabricClusterVNetRule"
-$vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
+$vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
   -ResourceGroupName      $dbresourcegroupname `
   -ServerName             $servername `
   -VirtualNetworkRuleName $VNetRuleName `
@@ -248,13 +251,13 @@ $acrresourcegroupname = "fabrikam-acr-group"
 $clusterresourcegroupname="fabrikamcallcentergroup"
 
 # Remove the Azure SQL DB
-Remove-AzureRmResourceGroup -Name $dbresourcegroupname
+Remove-AzResourceGroup -Name $dbresourcegroupname
 
 # Remove the container registry
-Remove-AzureRmResourceGroup -Name $acrresourcegroupname
+Remove-AzResourceGroup -Name $acrresourcegroupname
 
 # Remove the Service Fabric cluster
-Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
+Remove-AzResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -269,7 +272,7 @@ Neste tutorial, ficou a saber como:
 Na parte seguinte do tutorial, saiba como [Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/install-Az-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md
@@ -281,5 +284,8 @@ Na parte seguinte do tutorial, saiba como [Implementar uma aplicação de conten
 [link-azure-sql]: /azure/sql-database/
 
 [fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
+[fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
+[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
+m-web-page.png
 [fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
 [publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png

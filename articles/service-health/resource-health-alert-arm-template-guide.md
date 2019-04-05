@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663439"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047522"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de estado de funcionamento de recursos com modelos do Resource Manager
 
@@ -22,30 +22,32 @@ O Azure mantém de estado de funcionamento do recurso informado sobre o estado d
 > [!NOTE]
 > Alertas de estado de funcionamento do recurso estão atualmente em pré-visualização.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir as instruções nesta página, terá de configurar algumas coisas antecipadamente:
 
-1. Tem de instalar o [módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. Tem de instalar o [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Precisa [criar ou reutilizar um grupo de ação](../azure-monitor/platform/action-groups.md) configurado para notificá-lo
 
 ## <a name="instructions"></a>Instruções
 1. Com o PowerShell, inicie sessão no Azure com a sua conta e selecione a subscrição que pretende interagir com
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > Pode usar `Get-AzureRmSubscription` para listar as subscrições, terá acesso ao.
+    > Pode usar `Get-AzSubscription` para listar as subscrições, terá acesso ao.
 
 2. Localizar e guarde o ID de Gestor de recursos do Azure completa para o seu grupo de ação
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Criar e guardar um modelo do Resource Manager para alertas de estado de funcionamento do recurso, como `resourcehealthalert.json` ([veja os detalhes abaixo](#resource-manager-template-for-resource-health-alerts))
 
 4. Criar uma nova implementação do Azure Resource Manager utilizando este modelo
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. Será solicitado a digitar o nome do alerta e o ID de recurso do grupo de ação que copiou anteriormente:
 

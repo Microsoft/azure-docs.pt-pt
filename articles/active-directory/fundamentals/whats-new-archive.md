@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b49ce05eb3309f5b21761dc55ab17a1a18f7cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670936"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051959"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -466,7 +466,7 @@ Para obter mais informações sobre a proteção de palavra-passe do Azure AD, c
 
 Durante a criação de seus termos de utilização (ToU), é também criado um novo modelo de política de acesso condicional para "todos os convidados" e "todas as aplicações". Este novo modelo de política aplica-se os termos de utilização recém-criado, simplificando a criação e o processo de imposição para convidados.
 
-Para obter mais informações, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -478,7 +478,7 @@ Para obter mais informações, consulte [do Azure Active Directory termos da fun
 
 Durante a criação de seus termos de utilização (ToU), também é criado um novo modelo de política de acesso condicional "personalizado". Este novo modelo de política permite-lhe criar os termos de utilização e, em seguida, imediatamente aceda ao painel de criação da política de acesso condicional, sem precisar navegar manualmente através do portal.
 
-Para obter mais informações, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -727,7 +727,7 @@ Quando configurar as aplicações baseadas em SAML SSO, pode testar a integraç�
 Para obter mais informações, consulte:
 
 - [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
-- [Como depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+- [Como depurar o início de sessão individual baseado em SAML para as aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
 ---
  
@@ -739,7 +739,7 @@ Para obter mais informações, consulte:
  
 Os administradores podem agora selecionar um determinado termos de utilização e ver todos os utilizadores tenham consentimento ao que termos de utilização e o que data/hora ocorreu.
 
-Para obter mais informações, consulte a [termos do Azure AD de utilização da funcionalidade](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte a [termos do Azure AD de utilização da funcionalidade](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
  
@@ -782,7 +782,7 @@ Para obter mais informações, consulte [configurar o início de sessão único 
 
 AD termos de utilização do Azure foram movidas de pré-visualização pública para disponibilidade geral.
 
-Para obter mais informações, consulte a [termos do Azure AD de utilização da funcionalidade](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte a [termos do Azure AD de utilização da funcionalidade](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -884,7 +884,7 @@ Alguns utilizadores não tiverem recebido notificações para aplicações empre
 Para obter mais informações, consulte:
 
 - [Gerir certificados para início de sessão único federado no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
-- [Relatórios de atividade de auditoria no portal do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+- [Relatório de atividade de auditoria no portal do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
  
 ---
  
@@ -1215,7 +1215,7 @@ Azure AD Connect é a ferramenta preferencial para sincronizar dados entre o Azu
 
 Esta versão tem as seguintes atualizações e alterações:
 
-**Problemas de fixos**
+**Problemas corrigidos**
 
 - Corrigi a janela de tempo em tarefas em segundo plano para a página de filtragem de partições quando mudar para a página seguinte.
 
@@ -1414,7 +1414,7 @@ Siga estes passos.
 
 4. Agora, pode rever os termos de utilização aceitaram. 
 
-Para obter mais informações, consulte a [termos do Azure AD da funcionalidade de utilização (pré-visualização)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte a [termos do Azure AD da funcionalidade de utilização (pré-visualização)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
  
@@ -1454,7 +1454,7 @@ Uma opção para administradores requer que os utilizadores expandam os termos d
 
 Selecione **nos** ou **desativar** para exigir que os utilizadores expandam os termos de utilização. O **no** definição requer que os utilizadores vejam os termos de utilização antes de os aceitarem.
 
-Para obter mais informações, consulte a [termos do Azure AD da funcionalidade de utilização (pré-visualização)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte a [termos do Azure AD da funcionalidade de utilização (pré-visualização)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
 
@@ -1807,7 +1807,7 @@ Pode utilizar os termos do Azure AD de utilização nos seguintes cenários:
 - Termos de utilização com base em atributos de um utilizador (por exemplo, médicos versus enfermeiras) ou doméstica versus a colaboradores internacionais, feito por grupos dinâmicos específicos
 - Termos de utilização específicos para aceder a aplicações de elevado impacto comercial, como o Salesforce
 
-Para obter mais informações, consulte [termos do Azure AD de utilização](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+Para obter mais informações, consulte [termos do Azure AD de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 

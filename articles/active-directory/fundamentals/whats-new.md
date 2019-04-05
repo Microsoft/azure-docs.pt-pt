@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757647"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046704"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -157,7 +157,7 @@ Para ajudar a impedir que os administradores bloqueiem acidentalmente a próprio
 **Categoria de serviço:** Termos de Utilização  
 **Capacidade de produto:** Governação
 
-Atualizámos os nossos termos existentes de experiências de utilização para ajudar a melhorar como rever e aceitar os termos de utilização num dispositivo móvel. Agora pode ampliar e reduzir, volte atrás, transferir as informações e selecione hiperlinks. Para obter mais informações sobre os termos atualizados de utilização, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
+Atualizámos os nossos termos existentes de experiências de utilização para ajudar a melhorar como rever e aceitar os termos de utilização num dispositivo móvel. Agora pode ampliar e reduzir, volte atrás, transferir as informações e selecione hiperlinks. Para obter mais informações sobre os termos atualizados de utilização, consulte [do Azure Active Directory termos da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -534,7 +534,7 @@ Para obter mais informações sobre como obter e utilizar esta timestamp, consul
  
 Os administradores podem agora ativar a **exigir que os utilizadores dar consentimento em todos os dispositivos** opção para exigir aos utilizadores para aceitarem os termos de utilização em cada dispositivo que estiver a utilizar no seu inquilino.
 
-Para obter mais informações, consulte a [por dispositivo termos da seção de utilização dos Azure Active Directory termos de funcionalidade utilização](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
+Para obter mais informações, consulte a [por dispositivo termos da seção de utilização dos Azure Active Directory termos de funcionalidade utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
@@ -547,7 +547,7 @@ Para obter mais informações, consulte a [por dispositivo termos da seção de 
 
 Os administradores podem agora ativar a **expirar consentimentos** opção que torna os termos de utilização expirar para todos os seus utilizadores com base na agenda recorrente especificada. O agendamento pode ser anualmente, bi anualmente, trimestralmente ou mensalmente. Depois dos termos de utilização expirarem, os utilizadores têm voltem.
 
-Para obter mais informações, consulte a [adicionar termos da seção de utilização dos Azure Active Directory termos de funcionalidade utilização](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Para obter mais informações, consulte a [adicionar termos da seção de utilização dos Azure Active Directory termos de funcionalidade utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
@@ -559,7 +559,7 @@ Para obter mais informações, consulte a [adicionar termos da seção de utiliz
 
 Os administradores agora podem especificar um período de tempo que o utilizador tem voltem a termos de utilização. Por exemplo, os administradores podem especificar que os utilizadores têm voltem a termos de utilização de todos os 90 dias.
 
-Para obter mais informações, consulte a [adicionar termos da seção de utilização dos Azure Active Directory termos de funcionalidade utilização](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Para obter mais informações, consulte a [adicionar termos da seção de utilização dos Azure Active Directory termos de funcionalidade utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

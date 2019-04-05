@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662419"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045838"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: ver as mensagens encaminhadas
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>Regras para encaminhar as mensagens
 
@@ -280,10 +282,10 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Utilize o PowerShell para limpar os recursos
 
-Para remover o grupo de recursos, utilize o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). `$resourceGroup` foi definido como **ContosoResources** início deste tutorial.
+Para remover o grupo de recursos, utilize o [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) comando. `$resourceGroup` foi definido como **ContosoResources** início deste tutorial.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

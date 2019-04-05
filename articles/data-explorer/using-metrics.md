@@ -1,19 +1,18 @@
 ---
 title: Monitorizar o desempenho, a Estado de funcionamento e a utilização com métricas de Explorador de dados do Azure
 description: Saiba como utilizar as métricas do Explorador de dados do Azure para monitorizar o desempenho, a integridade e a utilização do cluster.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: 5252ca8898439b63a8819f6abfd634de0786932b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851939"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050622"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorizar o desempenho, a Estado de funcionamento e a utilização com métricas de Explorador de dados do Azure
 
@@ -41,17 +40,17 @@ No painel de métricas:
 
 1. Para criar um gráfico de métricas, selecione **métrica** nome e relevantes **agregação** por métrica conforme especificado abaixo. O **Resource** e **espaço de nomes de métrica** selecionadores são pré-selecionada ao seu cluster do Explorador de dados do Azure.
 
-    **Métricas** | **Unit** | **Agregação** | **Descrição de métrica**
+    **Métrica** | **Unidade** | **Agregação** | **Descrição de métrica**
     |---|---|---|---|
-    | Utilização da cache | Percentagem | AVG, Max, Min | Rácio entre o tamanho de cache necessárias (de acordo com a política de cache definida) e o tamanho de total cache do cluster (tamanho total dos SSD para a atividade do utilizador). Uma utilização média da cache de 80% ou inferior é um Estado sustentável para um cluster. Se a utilização de cache média for superior a 80%, o cluster deve estar [aumentado verticalmente](manage-cluster-scale-up.md) a um armazenamento com otimização de escalão de preço ou [aumentados horizontalmente](manage-cluster-scale-out.md) para mais instâncias. Em alternativa, adaptar-se a política de cache (menos dias em cache). Se a utilização de cache é superior a 100%, o tamanho dos dados sejam armazenados em cache, de acordo com a política de colocação em cache, é maior do que o tamanho total da cache no cluster. |
-    | CPU | Percentagem | AVG, Max, Min | Rácio entre o total de utilização de CPU e de CPU disponível em todo o cluster. Uma CPU média de 80% ou inferior é sustentável para um cluster. O valor máximo de CPU é 100%, que significa que existem não existem recursos de computação adicionais para processar dados. Quando um cluster não está a executar corretamente, verifique o valor máximo da CPU para determinar se existem CPUs específicas que são bloqueados. |
-    | Eventos processados (para os Hubs de eventos) | Contagem | Max, Min, soma | Número total de eventos enviados pelos Hubs de eventos e recebido pelo cluster. Os eventos são divididos em eventos rejeitados e eventos aceites pelo mecanismo de cluster. |
-    | Latência de ingestão | Segundos | AVG, Max, Min | Latência de dados ingeridos desde o momento em que os dados foram recebidos no cluster até que ele está pronto para consulta. Latência de ingestão é medida em segundos. O período de latência de ingestão depende do cenário de ingestão. |
-    | Resultado de ingestão | Contagem | Contagem | Número total de operações de ingestão que falhou e foi concluída com êxito. Uso **aplicam-se de que a divisão** para criar registos de sucesso e falhar os resultados.|
-    | Utilização de ingestão | Percentagem | AVG, Max, Min | Relação entre os recursos reais usados para ingestão de dados e o total de recursos atribuídos na política de capacidade para fazer a ingestão de mensagens em fila. A política de capacidade predefinida é não mais de 512 operações de ingestão em simultâneo ou 75% dos recursos de cluster investidos em ingestão. A utilização de ingestão de média de 80% ou inferior é um Estado sustentável para um cluster. Valor máximo da utilização de ingestão está 100%, o que significa que todas as capacidade de ingestão de cluster é usada e pode resultar numa fila de ingestão. |
-    | Volume de ingestão (em MB) | Contagem | Max, Min, soma | O tamanho total dos dados ingeridos para o cluster (em MB). As unidades são o número de MB de dados ingeridos antes da compressão. |
+    | Utilização da cache | Percentagem | AVG, Max, Min | Percentagem de recursos de cache alocados atualmente em uso pelo cluster. Cache refere-se ao tamanho de SSD alocado para a atividade do utilizador, de acordo com a política de cache definida. Uma utilização média da cache de 80% ou inferior é um Estado sustentável para um cluster. Se a utilização de cache média for superior a 80%, o cluster deve estar [aumentado verticalmente](manage-cluster-scale-up.md) a um armazenamento com otimização de escalão de preço ou [aumentados horizontalmente](manage-cluster-scale-out.md) para mais instâncias. Em alternativa, adaptar-se a política de cache (menos dias em cache). Se a utilização de cache é superior a 100%, o tamanho dos dados sejam armazenados em cache, de acordo com a política de colocação em cache, é maior do que o tamanho total da cache no cluster. |
+    | CPU | Percentagem | AVG, Max, Min | Percentagem de recursos de computação alocados atualmente em utilização por máquinas no cluster. Uma CPU média de 80% ou inferior é sustentável para um cluster. O valor máximo de CPU é 100%, que significa que existem não existem recursos de computação adicionais para processar dados. Quando um cluster não está a executar corretamente, verifique o valor máximo da CPU para determinar se existem CPUs específicas que são bloqueados. |
+    | Eventos processados (para os Hubs de eventos) | Contagem | Max, Min, soma | Número total de eventos leem os hubs de eventos e processados pelo cluster. Os eventos são divididos em eventos rejeitados e eventos aceites pelo mecanismo de cluster. |
+    | Latência de ingestão | Segundos | AVG, Max, Min | Latência de dados ingeridos, desde o momento em que os dados foram recebidos no cluster até que ele está pronto para consulta. O período de latência de ingestão depende do cenário de ingestão. |
+    | Resultado de ingestão | Contagem | Contagem | Número total de operações de ingestão que falhou e foi concluída com êxito. Uso **aplicam-se de que a divisão** para criar registos de sucesso e falha resultados e analisar as dimensões (**valor** > **estado**).|
+    | Utilização de ingestão | Percentagem | AVG, Max, Min | Percentagem de recursos reais usados para ingerir dados de total de recursos alocados, na política de capacidade, para efetuar a ingestão. A política de capacidade predefinida é não mais de 512 operações de ingestão em simultâneo ou 75% dos recursos de cluster investidos em ingestão. Utilização média de ingestão de 80% ou inferior é um Estado sustentável para um cluster. O valor máximo da utilização de ingestão é 100%, o que significa que todas as capacidade de ingestão de cluster é usada e pode resultar numa fila de ingestão. |
+    | Volume de ingestão (em MB) | Contagem | Max, Min, soma | O tamanho total dos dados ingeridos para o cluster (em MB) antes da compressão. |
     | Keep alive de | Contagem | Méd. | Controla a capacidade de resposta do cluster. Um cluster totalmente reativo devolve o valor de 1 e um cluster de bloqueados ou desconectado retorna 0. |
-    | Duração da consulta | Segundos | Contagem, média, Mín, Máx, soma | Tempo total até que os resultados da consulta são recebidos. |
+    | Duração da consulta | Segundos | Contagem, média, Mín, Máx, soma | Total de tempo até que os resultados da consulta são recebidos (não inclui a latência de rede). |
     | | | |
 
     Informações adicionais relativamente à [suportado métricas de cluster do Explorador de dados do Azure](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
@@ -69,4 +68,4 @@ Informações adicionais sobre como utilizar o [Explorador de métricas](/azure/
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+> [Início rápido: Consultar dados no Explorador de dados do Azure](web-query-data.md)

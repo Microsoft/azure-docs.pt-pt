@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877232"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049702"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
 
 Configurar um servidor de configuração no local quando utiliza [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. O servidor de configuração coordena as comunicações entre VMware e Azure no local e gere a replicação de dados. Este artigo resume as tarefas comuns para gerir o servidor de configuração após a sua implementação.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="access-configuration-server"></a>Servidor de configuração de acesso
 
@@ -234,28 +237,28 @@ ProxyPassword="Password"
 
 Opcionalmente, pode eliminar o servidor de configuração com o PowerShell.
 
-1. [Instalar](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) o módulo Azure PowerShell.
+1. [Instalar](https://docs.microsoft.com/powershell/azure/install-Az-ps) o módulo Azure PowerShell.
 2. Inicie sessão sua conta do Azure, utilizando este comando:
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Selecione a subscrição do cofre.
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Defina o contexto do cofre.
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. Obter o servidor de configuração.
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Elimine o servidor de configuração.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> Pode utilizar o **-força** opção em Remove-AzureRmSiteRecoveryFabric para eliminação forçada do servidor de configuração.
+> Pode utilizar o **-força** opção em Remove-AzSiteRecoveryFabric para eliminação forçada do servidor de configuração.
 
 ## <a name="generate-configuration-server-passphrase"></a>Gerar frase de acesso do servidor de configuração
 

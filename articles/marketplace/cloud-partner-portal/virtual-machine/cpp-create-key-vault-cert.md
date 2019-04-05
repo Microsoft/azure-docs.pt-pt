@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4223f9ec3bfaeacf7843508b13b5b5d81474311f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197328"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045701"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Criar certificados para o Azure Key Vault
 
@@ -31,6 +31,9 @@ Este artigo explica como aprovisionar os certificados autoassinados necessários
 
 Pode utilizar um novo ou um grupo de recursos do Azure existente para esse trabalho.  A primeira abordagem é utilizada na explicação seguinte.
 
+
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="create-the-certificate"></a>Criar o certificado
 
@@ -130,7 +133,7 @@ Copie o conteúdo dos [modelo de implementação de Cofre de chaves](./cpp-key-v
         $id = $accountSelected.Id
                               
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzureRmADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
       }
       catch
       {
@@ -181,9 +184,9 @@ Copie o conteúdo dos [modelo de implementação de Cofre de chaves](./cpp-key-v
      Write-Host "-----------------------------------" 
     
     # Create key vault and configure access
-    New-AzureRmResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
     
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
         
 ```
 

@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 728839accbce80ece6795e098d5d2855320fab06
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883129"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006675"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparar uma máquina de virtual baseada em Red Hat para o Azure Stack
 
@@ -264,7 +264,6 @@ Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e i
 1. Certifique-se de que o servidor SSH está instalado e configurado para iniciar no momento da inicialização:
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -277,7 +276,7 @@ Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e i
 
 1. Ao criar um vhd personalizado para o Azure Stack, tenha em atenção que não funcionam em ambientes do Azure Stack que estejam a executar uma compilação antes de 1903 WALinuxAgent versão entre 2.2.20 e 2.2.35.1 (ambos os exclusivo). Para resolver este problema, aplique a correção de 1901/1902 ou siga a segunda metade dessa parte de instruções. 
 
-Se estiver a executar uma compilação do Azure Stack 1903 (ou superior) ou tem a correção de 1901/1902, transfira o pacote de WALinuxAgent a partir do repositório do Red Hat extras da seguinte forma:
+    Se estiver a executar uma compilação do Azure Stack 1903 (ou superior) ou tem a correção de 1901/1902, transfira o pacote de WALinuxAgent a partir do repositório do Red Hat extras da seguinte forma:
     
    O pacote de WALinuxAgent `WALinuxAgent-<version>`, tiver sido enviado para o repositório de recursos extras do Red Hat. Ative o repositório de extras ao executar o seguinte comando:
 
@@ -298,7 +297,7 @@ Se estiver a executar uma compilação do Azure Stack 1903 (ou superior) ou tem 
     ```
     
     
-Se estiver a executar uma compilação do Azure Stack antes de 1903 e não aplicou a correção de 1901/1902, em seguida, siga estas instruções para transferir o WALinuxAgent:
+    Se estiver a executar uma compilação do Azure Stack antes de 1903 e não aplicou a correção de 1901/1902, em seguida, siga estas instruções para transferir o WALinuxAgent:
     
    a.   Transferir setuptools
     ```bash
@@ -312,15 +311,15 @@ Se estiver a executar uma compilação do Azure Stack antes de 1903 e não aplic
     unzip v2.2.36.zip
     cd WALinuxAgent-2.2.36
     ```
-    c. Install setup.py
+    c. Instalar setup.py
     ```bash
     sudo python setup.py install
     ```
-    d. Restart waagent
+    d. Reiniciar waagent
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. Teste se a versão do agente corresponde ao seu transferido. Neste exemplo, deve ser 2.2.36.
     
     ```bash
     waagent -version

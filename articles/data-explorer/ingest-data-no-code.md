@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Atividade de diagnóstico e dados de registo no Explorador de dados do Azure sem uma linha de código de ingestão'
 description: Neste tutorial, irá aprender ingerir dados para o Explorador de dados do Azure sem uma linha de código e consultar dados.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
-ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/14/2019
+ms.openlocfilehash: 7006c6dcfb149247a066b850f59da626b2826e31
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756847"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051908"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
@@ -269,7 +268,7 @@ Registos de diagnóstico do Azure permitem exportar métricas para uma conta de 
 
 1. Crie um hub de eventos com um modelo Azure Resource Manager no portal do Azure. Para seguir o resto dos passos neste artigo, clique com botão direito a **implementar no Azure** e, em seguida, selecione **abrir numa janela nova**. O **implementar no Azure** botão leva-o para o portal do Azure.
 
-    [![Implementar no botão do Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy do botão do Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Crie um espaço de nomes de Hubs de eventos e um hub de eventos para os registos de diagnóstico.
 
@@ -282,7 +281,7 @@ Registos de diagnóstico do Azure permitem exportar métricas para uma conta de 
     | **Subscrição** | *A sua subscrição* | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
     | **Grupo de recursos** | *test-resource-group* | Crie um novo grupo de recursos. |
     | **Localização** | Selecione a região que melhor atenda às suas necessidades. | Crie o espaço de nomes de Hubs de eventos na mesma localização que outros recursos.
-    | **Namespace name** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique o seu espaço de nomes.
+    | **Nome do espaço de nomes** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique o seu espaço de nomes.
     | **Nome do hub de eventos** | *DiagnosticLogsData* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. |
     | **Nome do grupo de consumidores** | *adxpipeline* | Crie um nome de grupo de consumidor. Os grupos de consumidores permitem que cada aplicação de consumo tenha uma vista separada do fluxo de eventos. |
     | | |
@@ -368,7 +367,7 @@ Agora precisa de criar as ligações de dados para os seus registos de diagnóst
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Nome da ligação de dados** | *DiagnosticsLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | **Espaço de nomes de hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | **Espaço de nomes do hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | **Hub de eventos** | *diagnosticlogsdata* | O hub de eventos que criou. |
     | **Grupo de consumidores** | *adxpipeline* | O grupo de consumidores definido no hub de eventos que criou. |
     | | |
@@ -397,9 +396,9 @@ Repita os passos no criar a ligação de dados para a secção de registos de di
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Nome da ligação de dados** | *ActivityLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | **Espaço de nomes de hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | **Espaço de nomes do hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | **Hub de eventos** | *insights-operational-logs* | O hub de eventos que criou. |
-    | **Grupo de consumidores** | *$Default* | Grupo de consumidores predefinido. Se for necessário, pode criar um grupo de consumidores diferentes. |
+    | **Grupo de consumidores** | *$Predefinição* | Grupo de consumidores predefinido. Se for necessário, pode criar um grupo de consumidores diferentes. |
     | | |
 
     Tabela de destino:
@@ -461,4 +460,4 @@ Resultados de consulta:
 Aprenda a escrever muitas consultas mais sobre os dados extraídos a partir do Explorador de dados do Azure utilizando o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Escrever consultas do Azure Data Explorer](write-queries.md)
+> [Escrever consultas para o Explorador de dados do Azure](write-queries.md)

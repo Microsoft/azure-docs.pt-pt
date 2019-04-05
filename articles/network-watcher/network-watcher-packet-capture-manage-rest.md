@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 49a703164b302443d8b50ba950cf23b8601cb599
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 614c3e1831680fff50058cd5192449f8e6e28179
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480707"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049801"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerir capturas de pacotes com o observador de rede do Azure com a API de REST do Azure
 
@@ -39,6 +39,9 @@ Este artigo orienta-o por tarefas de gestão diferentes que estão atualmente di
 - [**Iniciar uma captura de pacotes**](#start-packet-capture)
 - [**Parar uma captura de pacotes**](#stop-packet-capture)
 - [**eliminar uma captura de pacotes**](#delete-packet-capture)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -60,7 +63,7 @@ Execute o seguinte script para retornar uma máquina virtual. Estas informaçõe
 
 O código a seguir precisa variáveis:
 
-- **subscriptionId** -o id de subscrição também pode ser obtido com o **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** -o id de subscrição também pode ser obtido com o **Get-AzSubscription** cmdlet.
 - **resourceGroupName** -o nome do grupo de recursos que contém as máquinas virtuais.
 
 ```powershell

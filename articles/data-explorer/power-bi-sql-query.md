@@ -1,19 +1,18 @@
 ---
-title: 'Início rápido: Visualizar dados utilizando uma consulta SQL no Power BI'
+title: 'Início rápido: Visualize os dados a partir do Explorador de dados do Azure com uma consulta SQL no Power BI'
 description: 'Neste início rápido, irá aprender a utilizar uma das três opções para visualizar dados no Power BI: uma consulta SQL em relação a um cluster do Explorador de dados do Azure.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756342"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045512"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início rápido: Visualizar dados utilizando o conector do Explorador de dados do Azure para o Power BI
 
@@ -86,4 +85,4 @@ Se já não precisar do relatório que criou para este início rápido, elimine 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Visualizar dados utilizando uma consulta importada no Power BI](power-bi-connector.md)
+> [Início rápido: Visualizar dados utilizando uma consulta importada no Power BI](power-bi-connector.md)

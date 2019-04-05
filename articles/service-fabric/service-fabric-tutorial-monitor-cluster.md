@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662453"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045650"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorizar um cluster do Service Fabric no Azure
 
@@ -38,16 +38,19 @@ Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) no Azure através de um modelo
 > * Monitorizar um cluster
-> * [Reduzir ou aumentar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
-> * [Atualizar o tempo de execução de um cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Reduzir ou aumentar horizontalmente um cluster](service-fabric-tutorial-scale-cluster.md)
+> * [Atualizar o runtime de um cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale o [módulo do Azure PowerShell na versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) ou a [CLI do Azure ](/cli/azure/install-azure-cli).
+* Instale [do Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [da CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um seguro [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * Programa de configuração [recolha de diagnóstico](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) para o cluster
 * Ativar a [EventStore serviço](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) no cluster

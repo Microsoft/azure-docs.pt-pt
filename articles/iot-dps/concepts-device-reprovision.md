@@ -3,29 +3,29 @@ title: Conceitos de dispositivo de reprovisioná para o serviço de aprovisionam
 description: Descreve o dispositivo reprovisionamento conceitos para o serviço de aprovisionamento de dispositivos do Azure IoT Hub
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712284"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050854"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceitos de reprovisionamento de dispositivos no Hub IoT
 
 Durante o ciclo de vida de uma solução de IoT, é comum para mover dispositivos entre IoT hubs. Os motivos para essa mudança podem incluir os seguintes cenários:
 
-* **Geolocalização / GeoLatency**: como um dispositivo se move entre localizações, a latência de rede é melhorada fazendo com que o dispositivo migrado para um hub IoT com mais detalhes.
+* **Geolocalização / GeoLatency**: Como um dispositivo se move entre localizações, a latência de rede é melhorada fazendo com que o dispositivo migrado para um hub IoT com mais detalhes.
 
-* **Vários inquilinos**: um dispositivo pode ser utilizado dentro da mesma solução de IoT e reatribuído a um novo cliente, ou o site do cliente. Esse novo cliente pode ser atendido através de um hub de IoT diferente.
+* **Vários inquilinos**: Um dispositivo pode ser utilizado dentro da mesma solução de IoT e reatribuído a um novo cliente, ou o site do cliente. Esse novo cliente pode ser atendido através de um hub de IoT diferente.
 
-* **Alteração de solução**: um dispositivo foi movido para uma solução de IoT nova ou atualizada. Esta reatribuição pode exigir que o dispositivo para comunicar com um novo hub IoT que está ligado a outros componentes de back-end.
+* **Alteração de solução**: Um dispositivo foi movido para uma solução de IoT nova ou atualizada. Esta reatribuição pode exigir que o dispositivo para comunicar com um novo hub IoT que está ligado a outros componentes de back-end.
 
-* **Quarentena**: semelhante a uma alteração de solução. Um dispositivo que está a funcionar incorretamente comprometido ou desatualizada pode ser reatribuída a um hub IoT que só pode atualizar e voltar em conformidade. Depois do dispositivo está a funcionar corretamente, migrou, em seguida, voltar ao seu hub principal.
+* **Quarentena**: Semelhante a uma alteração de solução. Um dispositivo que está a funcionar incorretamente comprometido ou desatualizada pode ser reatribuída a um hub IoT que só pode atualizar e voltar em conformidade. Depois do dispositivo está a funcionar corretamente, migrou, em seguida, voltar ao seu hub principal.
 
 Reprovisionamento essas necessidades de suporte entre os endereços do serviço aprovisionamento de dispositivos. Dispositivos possam ser reatribuídos automaticamente para os hubs IoT novo, com base na política de reprovisionamento que esteja configurada na entrada de inscrição do dispositivo.
 
@@ -51,11 +51,11 @@ Dependendo do cenário, como um dispositivo é movido entre IoT hubs, também po
 
 Dependendo do cenário, um dispositivo, normalmente, envia um pedido para uma instância de serviço de aprovisionamento na reinicialização. Também suporta um método para acionar manualmente o aprovisionamento a pedido. A política de reprovisionamento numa entrada de inscrição determina como o instância do serviço de aprovisionamento de dispositivos no trata dessas solicitações de provisionamento. A diretiva também determina se os dados de estado do dispositivo devem ser migrados durante reprovisionamento. As mesmas políticas estão disponíveis para inscrições individuais e grupos de inscrição:
 
-* **Voltar a aprovisionar e migrar dados**: esta política é a predefinição para novas entradas de inscrição. Esta política efetua uma ação quando os dispositivos associados a entrada de inscrição submetem um novo pedido (1). Dependendo da configuração de entrada de inscrição, o dispositivo pode ser reatribuído para outro IoT hub. Se o dispositivo está mudando a IoT hubs, o registo de dispositivos com o hub IoT inicial será removido. As informações de estado do dispositivo atualizadas do que o hub IoT inicial serão migradas para o hub IoT novo (2). Durante a migração, estado do dispositivo será considerado como **atribuir**.
+* **Voltar a aprovisionar e migrar dados**: Esta política é a predefinição para novas entradas de inscrição. Esta política efetua uma ação quando os dispositivos associados a entrada de inscrição submetem um novo pedido (1). Dependendo da configuração de entrada de inscrição, o dispositivo pode ser reatribuído para outro IoT hub. Se o dispositivo está mudando a IoT hubs, o registo de dispositivos com o hub IoT inicial será removido. As informações de estado do dispositivo atualizadas do que o hub IoT inicial serão migradas para o hub IoT novo (2). Durante a migração, estado do dispositivo será considerado como **atribuir**.
 
     ![O aprovisionamento com o serviço aprovisionamento de dispositivos](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Voltar a aprovisionar e repor a configuração inicial**: esta política efetua uma ação quando os dispositivos associados a entrada de inscrição submetem um novo pedido de aprovisionamento (1). Dependendo da configuração de entrada de inscrição, o dispositivo pode ser reatribuído para outro IoT hub. Se o dispositivo está mudando a IoT hubs, o registo de dispositivos com o hub IoT inicial será removido. Os dados de configuração inicial que a instância do serviço de aprovisionamento recebida quando o dispositivo foi aprovisionado é fornecida para o novo IoT hub (2). Durante a migração, estado do dispositivo será considerado como **atribuir**.
+* **Voltar a aprovisionar e repor a configuração inicial**: Esta política efetua uma ação quando os dispositivos associados a entrada de inscrição submetem um novo pedido de aprovisionamento (1). Dependendo da configuração de entrada de inscrição, o dispositivo pode ser reatribuído para outro IoT hub. Se o dispositivo está mudando a IoT hubs, o registo de dispositivos com o hub IoT inicial será removido. Os dados de configuração inicial que a instância do serviço de aprovisionamento recebida quando o dispositivo foi aprovisionado é fornecida para o novo IoT hub (2). Durante a migração, estado do dispositivo será considerado como **atribuir**.
 
     Esta política é frequentemente utilizada para uma reposição sem alterar os hubs IoT de fábrica.
 

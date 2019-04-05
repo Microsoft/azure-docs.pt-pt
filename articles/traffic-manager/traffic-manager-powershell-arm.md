@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442108"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045752"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Com o PowerShell para gerir o Gestor de tráfego
 
 O Azure Resource Manager é a interface de gestão preferenciais para serviços do Azure. Perfis do Gestor de tráfego do Azure podem ser geridos através de APIs baseadas no Azure Resource Manager e ferramentas.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-model"></a>Modelo de recursos
 
@@ -253,10 +255,10 @@ Estas alterações podem ser feitas, obter/atualizar/definir o ponto final ou o 
 
 ### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exemplo 1: Ativar e desativar um perfil do Gestor de tráfego
 
-Para ativar um perfil do Gestor de tráfego, utilize `Enable-AzureRmTrafficManagerProfile`. O perfil pode ser especificado com um objeto de perfil. O objeto de perfil pode ser passado via o pipeline ou utilizando o '-TrafficManagerProfile' parâmetro. Neste exemplo, especificamos o perfil, o nome do grupo de recursos e perfil.
+Para ativar um perfil do Gestor de tráfego, utilize `Enable-AzTrafficManagerProfile`. O perfil pode ser especificado com um objeto de perfil. O objeto de perfil pode ser passado via o pipeline ou utilizando o '-TrafficManagerProfile' parâmetro. Neste exemplo, especificamos o perfil, o nome do grupo de recursos e perfil.
 
 ```powershell
-Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Enable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
 Para desativar um perfil do Gestor de tráfego:
@@ -269,13 +271,13 @@ O cmdlet Disable-AzTrafficManagerProfile solicita a confirmação. Esta linha de
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exemplo 2: Ativar e desativar um ponto de final do Gestor de tráfego
 
-Para ativar um ponto de final do Gestor de tráfego, utilize `Enable-AzureRmTrafficManagerEndpoint`. Existem duas formas para especificar o ponto final
+Para ativar um ponto de final do Gestor de tráfego, utilize `Enable-AzTrafficManagerEndpoint`. Existem duas formas para especificar o ponto final
 
 1. Utilizando um objeto de TrafficManagerEndpoint transmitido através do pipeline ou utilizando o '-TrafficManagerEndpoint' parâmetro
 2. Usando o nome do ponto final, o tipo de ponto final, o nome do perfil e o nome do grupo de recursos:
 
 ```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Enable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 Da mesma forma, para desativar um ponto de final do Gestor de tráfego:
@@ -323,4 +325,4 @@ Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzT
 
 [Monitorização do Gestor de tráfego](traffic-manager-monitoring.md)
 
-[Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)
+[Considerações de desempenho do Gestor de tráfego](traffic-manager-performance-considerations.md)

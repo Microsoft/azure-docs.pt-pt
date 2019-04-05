@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/05/2019
 ms.author: monhaber
-ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3d9658a6b7501714a6aad0e8eaa30ce587284bfe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863156"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046211"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger os seus recursos de rede no Centro de segurança do Azure
 Centro de segurança do Azure analisa continuamente o estado de segurança dos seus recursos do Azure para práticas recomendadas de segurança de rede. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiar ao longo do processo de configuração de controlos necessários para proteger e proteger os seus recursos.
@@ -30,9 +30,10 @@ Este artigo aborda recomendações que se aplicam aos recursos do Azure a partir
 > O **redes** página permite-lhe mergulhar no seu estado de funcionamento de recursos do Azure de uma perspectiva de rede. O mapa de rede e adaptável controlos de rede estão disponíveis para o escalão standard do Centro de segurança do Azure apenas. [Se utilizar o escalão gratuito, pode clicar no botão para **exibir rede legado** e receba recomendações de recursos de rede](#legacy-networking).
 >
 
-O **redes** painel fornece uma descrição geral das seções profunda pode aprofundar para obter mais informações sobre o estado de funcionamento dos seus recursos de rede:
+O **redes** página fornece uma descrição geral das seções profunda pode aprofundar para obter mais informações sobre o estado de funcionamento dos seus recursos de rede:
 
 - Mapa de rede (apenas no escalão Standard de centro de segurança do Azure)
+- Proteção de Rede Ajustável
 - Recomendações de segurança de rede.
 - Legado **redes** painel (o painel rede anterior) 
  
