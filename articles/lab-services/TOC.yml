@@ -137,6 +137,8 @@ items:
         href: devtest-lab-add-claimable-vm.md
       - name: Criar e gerir VMs com a CLI do Azure
         href: devtest-lab-vmcli.md
+      - name: Criar uma VM com o Azure PowerShell
+        href: devtest-lab-vm-powershell.md
       - name: Criar uma VM a partir de um modelo do Resource Manager
         href: devtest-lab-use-resource-manager-template.md
       - name: Reiniciar uma VM
@@ -277,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas mais frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: bee44d9ce7378bd48960c47ed9be9c7f53e23110
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886680"
+ms.locfileid: "58894445"

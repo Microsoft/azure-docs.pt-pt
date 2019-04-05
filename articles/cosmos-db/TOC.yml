@@ -469,6 +469,9 @@ items:
       href: how-to-create-container.md
     - name: Consultar um contentor
       href: how-to-query-container.md
+    - name: 'Modelação e partição de dados: um exemplo real'
+      displayName: model, partition, example
+      href: how-to-model-partition-example.md
     - name: Configurar TTL
       displayName: delete, delete data, ttl
       href: how-to-time-to-live.md
@@ -659,9 +662,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: 5400c02829ce14da6226fb6ce85c476b3ed96edf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2c9b87d1cdecb70a581086d04eba55e30d9ad78a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886748"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917588"
