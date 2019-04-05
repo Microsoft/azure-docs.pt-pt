@@ -3,17 +3,17 @@ title: Glossário do IoT Hub do Azure dos termos | Documentos da Microsoft
 description: Guia do programador - um glossário de termos comuns relacionados ao IoT Hub do Azure.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551675"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045973"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
 Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
@@ -49,13 +49,13 @@ O [portal do Microsoft Azure](https://portal.azure.com) é um local central onde
 ## <a name="azure-powershell"></a>Azure PowerShell
 [O Azure PowerShell](/powershell/azure/overview) é uma coleção de cmdlets que pode utilizar para gerir o Azure com o Windows PowerShell. Pode utilizar os cmdlets para criar, testar, implementar e gerir soluções e serviços disponibilizados através da plataforma do Azure.
 
-## <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 [O Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite-lhe trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar os recursos da sua solução numa operação única e coordenada.
 
-## <a name="azure-service-bus"></a>Azure Service Bus
+## <a name="azure-service-bus"></a>Service Bus do Azure
 [Do Service Bus](../service-bus/index.md) fornece comunicação com mensagens empresariais à capacidade de nuvem e de comunicação retransmitida que lhe permite ligar soluções no local à cloud. Alguns tutoriais do IoT Hub tornam a utilizar o Service Bus [filas](../service-bus-messaging/service-bus-messaging-overview.md).
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 [O armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento na cloud. Ele inclui o serviço de armazenamento de BLOBs que pode utilizar para armazenar dados de objetos não estruturados. Alguns tutoriais do IoT Hub utilizam o armazenamento de Blobs.
 
 ## <a name="back-end-app"></a>Aplicação de back-end
@@ -158,7 +158,7 @@ Uma mensagem de interativa é um [cloud-para-dispositivo](#cloud-to-device) mens
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
-## <a name="iot-hub"></a>Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 O IoT Hub é um serviço totalmente gerido do Azure que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução de back-end. Para obter mais informações, consulte [o que é o IoT Hub do Azure?](about-iot-hub.md) Utilizar o seu [subscrição do Azure](#subscription), pode criar os hubs IoT para processar o seu IoT cargas de trabalho de mensagens.
 
 ## <a name="iot-hub-metrics"></a>Métricas do IoT Hub
@@ -170,7 +170,7 @@ O [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md) é uma 
 ## <a name="iot-hub-resource-rest-api"></a>REST API do IoT Hub recursos
 Pode utilizar o [API do REST de recursos do IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para gerir os hubs IoT no seu [subscrição do Azure](#subscription) efetuar operações como criar, atualizar e excluir os hubs.
 
-## <a name="iot-solution-accelerators"></a>Aceleradores de soluções de IoT
+## <a name="iot-solution-accelerators"></a>Aceleradores de soluções IoT
 Aceleradores de solução de IoT do Azure reúne, vários serviços do Azure em soluções. Estas soluções permitem que comece a trabalhar rapidamente com implementações de ponto-a-ponto dos cenários de IoT comuns. Para obter mais informações, consulte [quais são os Aceleradores de solução de IoT do Azure?](../iot-accelerators/about-iot-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli"></a>A extensão de IoT para a CLI do Azure 
@@ -226,7 +226,7 @@ Configura [regras de encaminhamento](iot-hub-devguide-messages-read-custom.md) d
 ## <a name="sasl-plain"></a>SASL SIMPLES
 SASL simples é um protocolo que o protocolo AMQP utiliza-se para transferir os tokens de segurança.
 
-## <a name="service-rest-api"></a>API REST do Serviço
+## <a name="service-rest-api"></a>API REST do serviço
 Pode utilizar o [API REST do serviço](https://docs.microsoft.com/rest/api/iothub/service) da solução de back-end para gerir os seus dispositivos. A API permite-lhe obter e atualizar [dispositivo duplo](#device-twin) propriedades, invocar [métodos diretos](#direct-method)e a agenda [tarefas](#job). Normalmente, deve usar uma do nível mais elevado [SDKs de serviço](#azure-iot-service-sdks) conforme mostrado nos tutoriais do IoT Hub.
 
 ## <a name="shared-access-signature"></a>Assinatura de acesso partilhado
@@ -235,7 +235,7 @@ Assinaturas de acesso partilhado (SAS) são um mecanismo de autenticação com b
 ## <a name="shared-access-policy"></a>Política de acesso partilhado
 Uma política de acesso partilhado define as permissões concedidas a qualquer pessoa que tenha um válido [chave primária ou secundária](#primary-and-secondary-keys) associados a essa política. Pode gerir as chaves e políticas de acesso partilhado do hub no [portal](#azure-portal).
 
-## <a name="simulated-device"></a>Dispositivo de simulação
+## <a name="simulated-device"></a>Dispositivo simulado
 Para sua comodidade, muitos dos tutoriais do IoT Hub utilizam dispositivos simulados que lhe permite executar os exemplos no seu computador local. Por outro lado, um [dispositivo físico](#physical-device) é um dispositivo real, como um Raspberry Pi que se liga a um hub IoT.
 
 ## <a name="solution"></a>Solução
