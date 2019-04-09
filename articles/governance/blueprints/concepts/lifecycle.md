@@ -1,7 +1,6 @@
 ---
 title: Compreender o ciclo de vida de um plano gráfico
 description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e detalhes sobre cada fase.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001569"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266618"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
 
@@ -85,7 +84,7 @@ O esquema de núcleo também pode ser eliminado. A eliminar o esquema de núcleo
 
 Eliminar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#delete-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#delete-a-blueprint).
 
-## <a name="assignments"></a>Atribuições
+## <a name="assignments"></a>Tarefas
 
 Há vários pontos durante o ciclo de vida de que um plano gráfico pode ser atribuído a uma subscrição. Quando o modo de uma versão do esquema estiver **publicado**, em seguida, essa versão pode ser atribuído a uma subscrição. Este ciclo de vida que permite que as versões de um plano gráfico para ser utilizado e ativamente atribuído enquanto está a ser desenvolvida uma versão mais recente.
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554539"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261178"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Início rápido: Criar uma sala de bate-papo com as funções do Azure e o serviço SignalR com Java
 
@@ -64,7 +64,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 1. Em **local.settings.json**, cole a cadeia de ligação no valor da definição **AzureSignalRConnectionString**. Guarde o ficheiro.
 
-1. O ficheiro principal que contém as funções estão na *src/main/java/com/function/Functions.java*:
+1. O ficheiro principal que contém as funções estão na *src/chat/java/src/main/java/com/function/Functions.java*:
 
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **SendMessage** - recebe uma mensagem de chat no corpo do pedido e utiliza o *SignalR* de saída de enlace transmitir a mensagem a todos ligados aplicações cliente.

@@ -8,11 +8,11 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058446"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275458"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -37,12 +37,12 @@ O Azure Migrate ajuda-o a:
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 -  Só pode criar um projeto do Azure Migrate em áreas geográficas indicadas a seguir. No entanto, isso não restringe a capacidade de criar avaliações para outras localizações do Azure de destino.
 
-    **Geografia** | **Localização do armazenamento**
+    **Geografia** | **Localização de armazenamento**
     --- | ---
-    Azure Government | Gov (US) - Virginia
+    Azure Government | US Gov - Virginia
     Ásia | Sudeste asiático ou Ásia Oriental
     Europa | Europa do Norte ou da Europa Ocidental
-    Estados Unidos | E.U.A. Leste ou oeste dos E.U.A.
+    Estados Unidos da América | E.U.A. Leste ou oeste dos E.U.A.
 
     A geografia associada ao projeto de migração é utilizada para armazenar os metadados detetados a partir do ambiente no local. Metadados são armazenados em uma das regiões com base na geografia especificada para o projeto de migração. Se utilizar a visualização de dependências através da criação de uma nova área de trabalho do Log Analytics, a área de trabalho é criada na mesma região que o projeto.
 - A funcionalidade de visualização de dependência não está disponível no Azure Government.

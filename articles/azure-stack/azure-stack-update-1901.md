@@ -16,16 +16,16 @@ ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: bf355aec2a76a42986320a74447860a8baa968ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649412"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257406"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização de 1901 de pilha do Azure
 
-*Aplica-se a: Sistemas integrados do Azure Stack*
+*Aplica-se a Sistemas integrados do Azure Stack*
 
 Este artigo descreve o conteúdo do pacote de atualização de 1901. A atualização inclui melhorias, correções e novas funcionalidades para esta versão do Azure Stack. Este artigo também descreve os problemas conhecidos nesta versão e inclui uma ligação para transferir a atualização. Problemas conhecidos são divididos em problemas diretamente relacionados com o processo de atualização e problemas com a compilação (após a instalação).
 
@@ -102,7 +102,7 @@ Esta atualização inclui as seguintes novas funcionalidades e melhorias para o 
          `Get-AzsInfrastructureVolume` foi preterido. Utilizar o novo cmdlet `Get-AzsVolume`.  
          `Get-AzsStorageSystem` foi preterido.  Utilizar o novo cmdlet `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` foi preterido. O `StorageSubSystem` objeto contém a propriedade de capacidade.  
-   * **Módulo de Azs.Compute.Admin**  
+   * **Módulo Azs.Compute.Admin**  
          Correção de erro - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Chamar `ConvertTo-PlatformImageObject` apenas no caminho do sucesso.  
          BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Chamando ConvertTo-VmExtensionObject apenas no caminho do sucesso.  
    * **Módulo de Azs.Storage.Admin**  
@@ -315,6 +315,10 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- A configuração de syslog não é persistente através de um ciclo de atualização, resultando no cliente do syslog para perder a respetiva configuração e as mensagens syslog para parar a ser reencaminhados. Este problema aplica-se a todas as versões do Azure Stack desde os de disponibilidade geral do cliente de syslog (1809).
+A solução é para reconfigurar o cliente de syslog depois de aplicar uma atualização do Azure Stack.
 
 ## <a name="download-the-update"></a>Transferir a atualização
 

@@ -3,17 +3,17 @@ title: Ligar uma aplicação de cliente genérica do node. js para o Azure IoT C
 description: Como desenvolvedor de dispositivo, como ligar um dispositivo genérico do node. js à sua aplicação do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/04/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905329"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259971"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -36,7 +36,7 @@ Adicione a seguinte telemetria sobre o **medidas** página:
 
 | Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatura  | temperatura | F     | 60  | 110 | 0              |
+| Temperatura  | temperatura | S     | 60  | 110 | 0              |
 | Humidade     | humidade    | %     | 0   | 100 | 0              |
 | Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
@@ -51,7 +51,7 @@ Adicione o seguinte estado no **medidas** página:
 
 | Nome a Apresentar | Nome do Campo  | Valor 1 | Nome a Apresentar | Valor 2 | Nome a Apresentar |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
+| Modo da Ventoinha     | fanmode     | 1       | Em execução      | 0       | Parado      |
 
 > [!NOTE]
 > O tipo de dados da medição de estado é a cadeia de caracteres.
@@ -75,7 +75,7 @@ Adicione as seguintes propriedades do dispositivo na **propriedades** página:
 
 | Nome a Apresentar        | Nome do Campo        | Tipo de dados |
 | ------------------- | ----------------- | --------- |
-| Número de série       | serialNumber      | texto      |
+| Número de Série       | serialNumber      | texto      |
 | Fabricante do dispositivo | fabricante      | texto      |
 
 Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, não não possível apresentar as propriedades da aplicação.
@@ -87,7 +87,7 @@ Adicione as seguintes **número** definições a **definições** página:
 | Nome a Apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx.  | Inicial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Ventoinha velocidade       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
+| Definir Temperatura | setTemperature | S     | 0        | 20  | 200  | 80      |
 
 Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não pode receber o valor de definição.
 
@@ -97,13 +97,13 @@ Adicione o seguinte comando no **comandos** página:
 
 | Nome a Apresentar    | Nome do Campo     | Tempo Limite Predefinido | Tipo de Dados |
 | --------------- | -------------- | --------------- | --------- |
-| Contagem decrescente       | contagem decrescente      | 30              | número    |
+| Contagem decrescente       | Contagem decrescente      | 30              | number    |
 
 Adicione o seguinte campo de entrada para o comando de contagem regressiva:
 
 | Nome a Apresentar    | Nome do Campo     | Tipo de Dados | Valor |
 | --------------- | -------------- | --------- | ----- |
-| Contar de      | countFrom      | número    | 10    |
+| Contar de      | countFrom      | number    | 10    |
 
 Introduza os nomes de campos exatamente como mostrados nas tabelas no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não é possível processar o comando.
 

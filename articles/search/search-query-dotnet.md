@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287014"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264952"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Início rápido: 3 - consultar um índice da Azure Search noC#
 
@@ -157,4 +157,4 @@ O código de exemplo acima utiliza a consola para produzir os resultados da pesq
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se ainda não fez isso, reveja o código de exemplo [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) no GitHub, juntamente com [como utilizar o Azure Search a partir de um aplicativo .NET ](search-howto-dotnet-sdk.md) para obter mais descrições de códigos de exemplo. 
+Se ainda não fez isso, reveja o código de exemplo [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) no GitHub, juntamente com [como utilizar o Azure Search a partir de um aplicativo .NET](search-howto-dotnet-sdk.md) para obter mais descrições de códigos de exemplo. 

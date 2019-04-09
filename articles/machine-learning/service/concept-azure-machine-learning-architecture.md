@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577327"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269134"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: Conceitos e arquitetura
 
 Este artigo descreve a arquitetura e conceitos do serviço Azure Machine Learning. Os principais componentes do serviço e o fluxo de trabalho geral para utilizar o serviço são apresentados no diagrama seguinte:
 
-[![Arquitetura de serviço do Azure Machine Learning e o fluxo de trabalho](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Afluxo de trabalho e arquitetura do serviço de Machine Learning zure](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 O fluxo de trabalho em geral, segue essa seqüência:
 
@@ -66,7 +66,7 @@ Quando cria uma nova área de trabalho, este cria automaticamente vários recurs
 
 Uma taxonomia da área de trabalho é ilustrada no diagrama seguinte:
 
-[![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![WTaxonomia orkspace](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experimentação
 
@@ -80,7 +80,7 @@ Em sua forma mais simples, um modelo é um trecho de código que usa entrada e p
 
 Um modelo é produzido por uma execução no Azure Machine Learning. Também pode utilizar um modelo que está preparado fora do Azure Machine Learning. Pode registrar um modelo numa área de trabalho do serviço do Azure Machine Learning.
 
-O serviço do Azure Machine Learning é agnóstico quanto a estrutura. Quando cria um modelo, pode utilizar qualquer estrutura de aprendizado de máquina populares, como Scikit-saiba, XGBoost, PyTorch, TensorFlow, Chainer e Microsoft Cognitive Toolkit (anteriormente designado CNTK).
+O serviço do Azure Machine Learning é agnóstico quanto a estrutura. Quando cria um modelo, pode utilizar qualquer estrutura de aprendizado de máquina populares, como Scikit-saiba, XGBoost, PyTorch, TensorFlow e Chainer.
 
 Para obter um exemplo de preparar um modelo, consulte [Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -185,6 +185,10 @@ O Azure Machine Learning pode criar dois tipos de imagens:
 
 * **Imagem FPGA**: Utilizado quando implementa numa matriz de porta de campos programáveis no Azure.
 * **Imagem do docker**: Usado ao implementar em destinos que não seja FPGA de computação. Os exemplos são o Azure Container Instances e o Azure Kubernetes Service.
+
+O serviço Azure Machine Learning fornece uma imagem base, o que é utilizada por predefinição. Também pode fornecer suas próprias imagens personalizadas.
+
+Para obter mais informações, consulte a configurar e registar a secção de imagem do [implementar modelos](how-to-deploy-and-where.md#configureimage).
 
 Para obter um exemplo de criação de uma imagem, veja [implementar um modelo de classificação de imagem no Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

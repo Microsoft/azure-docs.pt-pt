@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
 ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058769"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272296"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 

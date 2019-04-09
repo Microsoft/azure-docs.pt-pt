@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 04/06/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342427"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269559"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Dados de segurança e privacidade no Azure Search
 
@@ -31,7 +31,7 @@ O Azure Search está certificado para os seguintes padrões, como [anunciado em 
 + [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
 + [GxP (21 CFR parte 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS nível 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [PCI DSS Nível 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [Austrália IRAP DLM não classificado](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Conformidade com os padrões aplicam-se às funcionalidades de disponibilidade geral. Funcionalidades de pré-visualização são certificadas quando eles fazem a transição para disponibilidade geral e não pode ser utilizados em soluções com requisitos rígidos padrões. Certificação de conformidade é documentada em [conformidade de descrição geral do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e o [Centro de fidedignidade](https://www.microsoft.com/en-us/trustcenter). 
@@ -58,6 +58,8 @@ Vários mecanismos de segurança estão disponível ao nível do Azure e criar a
 
 Todos os serviços do Azure suportam controlos de acesso baseado em funções (RBAC) para definir níveis de acesso de forma consistente em todos os serviços. Por exemplo, visualização de dados confidenciais, como a chave de administrador, está limitado às funções de proprietário e contribuinte, ao passo que ver o estado do serviço está disponível para membros de qualquer função. RBAC fornece funções de proprietário, Contribuidor e leitor. Por predefinição, todos os administradores de serviço são membros da função de proprietário.
 
+<a name="service-access-and-authentication"></a>
+
 ## <a name="service-access-and-authentication"></a>Autenticação e acesso de serviço
 
 Enquanto o Azure Search herda as salvaguardas de segurança da plataforma do Azure, também fornece sua própria autenticação baseada em chave. Uma chave de api é uma cadeia de caracteres composta por letras e números gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. Envio de uma chave válida é considerado uma prova do pedido provém de uma entidade fidedigna. 
@@ -65,11 +67,11 @@ Enquanto o Azure Search herda as salvaguardas de segurança da plataforma do Azu
 Existem dois níveis de acesso ao seu serviço de pesquisa, ativado por dois tipos de chaves:
 
 * Acesso de administrador (válido por qualquer operação de leitura / escrita para o serviço)
-* Acesso de consulta (válido para operações só de leitura, como consultas em relação a um índice)
+* Acesso de consulta (válido para operações só de leitura, como consultas, a coleção de documentos de um índice)
 
-*Chaves de administração* são criadas quando o serviço é aprovisionado. Existem duas chaves de administração, designadas como *primário* e *secundário* para mantê-los diretamente, mas na verdade eles são intercambiáveis. Cada serviço tem duas chaves administrativas para que pode implementá-um sem perderem o acesso ao seu serviço. Pode voltar a gerar a chave de administrador, mas não é possível adicionar a contagem de chave de administrador total. Há um máximo de duas chaves de administração por serviço de pesquisa.
+*Chaves de administração* são criadas quando o serviço é aprovisionado. Existem duas chaves de administração, designadas como *primário* e *secundário* para mantê-los diretamente, mas na verdade eles são intercambiáveis. Cada serviço tem duas chaves administrativas para que pode implementá-um sem perderem o acesso ao seu serviço. Pode [chave de administração de voltar a gerar](search-security-api-keys.md#regenerate-admin-keys) periodicamente por segurança do Azure as práticas recomendadas, mas não é possível adicionar à contagem de chave de administrador total. Há um máximo de duas chaves de administração por serviço de pesquisa.
 
-*Chaves de consulta* são criadas conforme necessário e foram projetados para aplicativos de cliente que chamam diretamente a pesquisa. Pode criar até 50 chaves de consulta. No código da aplicação, especifique o URL de pesquisa e uma chave de api de consulta para permitir o acesso só de leitura para o serviço. O código da aplicação também especifica o índice utilizado pela sua aplicação. Juntos, o ponto final, uma chave de api para acesso só de leitura e um índice de destino definem o nível de acesso e o âmbito da ligação da sua aplicação de cliente.
+*Chaves de consulta* são criadas conforme necessário e foram concebidos para aplicações cliente que emitem consultas. Pode criar até 50 chaves de consulta. No código da aplicação, especifique o URL de pesquisa e uma chave de api de consulta para permitir o acesso só de leitura para a coleção de documentos de um índice específico. Juntos, o ponto final, uma chave de api para acesso só de leitura e um índice de destino definem o nível de acesso e o âmbito da ligação da sua aplicação de cliente.
 
 Autenticação é necessária em cada pedido, em que cada solicitação é composta por uma chave obrigatória, uma operação e um objeto. Quando encadeadas, os dois níveis de permissão (completos ou somente leitura) e o contexto (por exemplo, uma operação de consulta num índice) é suficiente para fornecer segurança de espectro completo sobre as operações de serviço. Para obter mais informações sobre chaves, consulte [criar e gerir as chaves de api](search-security-api-keys.md).
 
@@ -83,17 +85,11 @@ Acesso de administrador e programador a índices é indiferenciado: ambos precis
 
 Para soluções de arquitetura "multitenancy" exigir que os limites de segurança ao nível do índice, essas soluções incluem, geralmente, uma camada intermediária, que os clientes utilizam para lidar com isolamento de índice. Para obter mais informações sobre o caso de utilização do multi-inquilino, consulte [padrões de Design para aplicações SaaS multi-inquilino e Azure Search](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access-from-client-apps"></a>Acesso de administrador a partir de aplicações de cliente
+## <a name="admin-access"></a>Acesso de administrador
 
-A API de REST de gestão do Azure Search é uma extensão do Azure Resource Manager e compartilha as respetivas dependências. Como tal, o Active Directory é um pré-requisito para a administração de serviços do Azure Search. Todos os pedidos administrativos a partir do código de cliente têm de ser autenticados com o Azure Active Directory antes do pedido atinge o Gestor de recursos.
+[Acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determina se tem acesso aos controles sobre o serviço e o respetivo conteúdo. Se for um proprietário ou contribuinte num serviço Azure Search, pode utilizar o portal ou o PowerShell **Az.Search** módulo para criar, atualizar ou eliminar objetos no serviço. Também pode utilizar o [API do REST de gestão do Azure Search](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-Pedidos de dados com o Azure Search ponto final de serviço, como criar índice (API do REST de serviço de pesquisa do Azure) ou documentos de pesquisa (Azure Search Service REST API), utilizam uma chave de api no cabeçalho do pedido.
-
-Se o seu código de aplicativo lida com operações de administração do serviço, bem como operações de dados em índices de pesquisa ou documentos, implementar duas abordagens de autenticação em seu código: a chave de acesso nativa para o Azure Search e a autenticação do Active Directory metodologia exigida pelo Resource Manager. 
-
-Para obter informações sobre a estruturação de um pedido no Azure Search, consulte [REST do Azure Search Service](https://docs.microsoft.com/rest/api/searchservice/). Para obter mais informações sobre os requisitos de autenticação para o Resource Manager, consulte [utilize o Gestor de recursos autenticação API para aceder a subscrições](../azure-resource-manager/resource-manager-api-authentication.md).
-
-## <a name="user-access-to-index-content"></a>Acesso de utilizador para indexar conteúdo
+## <a name="user-access"></a>Acesso do utilizador
 
 Por predefinição, o acesso de utilizador para um índice é determinado pela chave de acesso na solicitação de consulta. A maioria dos desenvolvedores criar e atribuir [ *chaves de consulta* ](search-security-api-keys.md) para pedidos de pesquisa do lado do cliente. Uma chave de consulta concede acesso de leitura a todos os conteúdos no índice.
 

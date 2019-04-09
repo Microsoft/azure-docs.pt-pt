@@ -1,10 +1,9 @@
 ---
-title: Diferenças do T-SQL de instância de gerida de base de dados SQL do Azure | Documentos da Microsoft
+title: As diferenças do T-SQL de instância gerida de base de dados SQL do Azure | Documentos da Microsoft
 description: Este artigo aborda as diferenças do T-SQL entre uma instância gerida na base de dados do Azure SQL e SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010605"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260498"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
-A opção de implementação de instância gerida fornece compatibilidade com o motor de base de dados de servidor de SQL no local. A maioria das funcionalidades do motor de base de dados do SQL Server é suportada numa instância gerida.
-
-![Migração](./media/sql-database-managed-instance/migration.png)
-
-Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças. <a name="Differences"></a>
+Este artigo resume e explica as diferenças de sintaxe e o comportamento entre a instância gerida da base de dados SQL do Azure e no local motor de base de dados do SQL Server. <a name="Differences"></a>
 
 - [Disponibilidade](#availability) incluindo as diferenças nos [Always-On](#always-on-availability) e [cópias de segurança](#backup),
 - [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
@@ -33,6 +29,10 @@ Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este
 - [Funcionalidades](#functionalities) incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [ Eventos expandidos](#extended-events), [bibliotecas externas](#external-libraries), [Filestream e Filetable](#filestream-and-filetable), [pesquisa semântica de texto completo](#full-text-semantic-search), [ligado servidores](#linked-servers), [Polybase](#polybase), [replicação](#replication), [restaurar](#restore-statement), [Service Broker](#service-broker), [ Os procedimentos armazenados, funções e disparadores](#stored-procedures-functions-triggers),
 - [Recursos que têm um comportamento diferente em instâncias geridas](#Changes)
 - [Limitações temporárias e problemas conhecidos](#Issues)
+
+A opção de implementação de instância gerida fornece compatibilidade com o motor de base de dados de servidor de SQL no local. A maioria das funcionalidades do motor de base de dados do SQL Server é suportada numa instância gerida.
+
+![Migração](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -409,7 +409,7 @@ A replicação está disponível para pré-visualização pública para a instâ
 - Sintaxe não suportada
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
-- Origem  
+- Fonte  
   - `FROM URL` (Armazenamento de Blobs do azure) é apenas suportada opção.
   - `FROM DISK`/`TAPE`/ dispositivo de cópia de segurança não é suportado.
   - Os conjuntos de cópia de segurança não são suportados.
@@ -473,7 +473,7 @@ As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamanho TEMPDB
 
-Tamanho máximo do ficheiro de `tempdb` não pode ser greather que 24 GB/core no escalão fins gerais. Máx. `tempdb` tamanho no escalão crítico para a empresa é limitado com o tamanho de armazenamento de instância. `tempdb` sempre é dividido em arquivos de dados de 12. Este tamanho máximo por ficheiro não pode ser alterado e novos ficheiros que podem ser adicionados a `tempdb`. Algumas consultas podem devolver um erro se precisarem de mais de 24GB / núcleo em `tempdb`.
+Tamanho máximo do ficheiro de `tempdb` não pode ser superior a 24 GB/core no escalão fins gerais. Máx. `tempdb` tamanho no escalão crítico para a empresa é limitado com o tamanho de armazenamento de instância. `tempdb` sempre é dividido em arquivos de dados de 12. Este tamanho máximo por ficheiro não pode ser alterado e novos ficheiros que podem ser adicionados a `tempdb`. Algumas consultas podem devolver um erro se precisarem de mais de 24GB / núcleo em `tempdb`.
 
 ### <a name="cannot-restore-contained-database"></a>Não é possível restaurar a base de dados contida
 
@@ -494,7 +494,7 @@ Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição e
 
 Neste exemplo, bancos de dados existentes continuarão a funcionar e cresça sem qualquer problema, desde que não são adicionados novos ficheiros. No entanto novas bases de dados não foi possível ser criados ou restaurados porque não existe espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todas as bases de dados não atinja o limite de tamanho de instância. Nesse caso o erro devolvido não fica claro.
 
-Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) através de vistas de sistema. Se estiver a atingir este limite tentar [vazio e elimine alguns dos ficheiros mais pequenos, usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou shitch para [escalão crítico para a empresa que não tem este limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) através de vistas de sistema. Se estiver a atingir este limite tentar [vazio e elimine alguns dos ficheiros mais pequenos, usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para [escalão crítico para a empresa que não tem este limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 

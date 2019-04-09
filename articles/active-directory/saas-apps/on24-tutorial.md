@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f95420397a502af8e939c8a53fe5635b82dc0f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893650"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Active Directory do Azure com a ligação de SAML de ambiente Virtual ON24
 
@@ -231,7 +231,7 @@ Nesta secção, vai ativar Eduarda Almeida a utilizar do Azure-início de sessã
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida na ligação de SAML de ambiente Virtual ON24. Trabalhar com [equipa de suporte de ligação de SAML de ambiente Virtual ON24](https://www.on24.com/about-us/support/) para adicionar os utilizadores na plataforma ON24 ligação de SAML de ambiente Virtual. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -239,9 +239,9 @@ Quando clica no mosaico de ligação de SAML de ambiente Virtual ON24 no painel 
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

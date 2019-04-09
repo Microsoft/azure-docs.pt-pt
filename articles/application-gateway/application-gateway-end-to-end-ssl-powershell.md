@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101555"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269355"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar SSL ponto a ponto com o Gateway de aplicação com o PowerShell
 
@@ -52,20 +52,17 @@ O processo de configuração é descrito nas seções a seguir.
 
 Esta secção explica como criar um grupo de recursos que contém o gateway de aplicação.
 
-
 1. Inicie sessão na sua conta do Azure.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. Selecione a subscrição a utilizar para este cenário.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. Crie um grupo de recursos. (Ignore este passo se estiver a utilizar um grupo de recursos existente.)
 
@@ -77,7 +74,6 @@ Esta secção explica como criar um grupo de recursos que contém o gateway de a
 
 O exemplo seguinte cria uma rede virtual e duas sub-redes. Uma sub-rede é utilizada para armazenar o gateway de aplicação. A outra sub-rede é utilizada para os back-ends que alojam a aplicação web.
 
-
 1. Atribua um intervalo de endereços da sub-rede a utilizar para o gateway de aplicação.
 
    ```powershell
@@ -86,8 +82,7 @@ O exemplo seguinte cria uma rede virtual e duas sub-redes. Uma sub-rede é utili
 
    > [!NOTE]
    > Sub-redes configuradas para um gateway de aplicação devem ser redimensionados adequadamente. Um gateway de aplicação pode ser configurado para até 10 instâncias. Cada instância terá um endereço IP da sub-rede. Muito pequeno de uma sub-rede pode afetar negativamente aumentar horizontalmente um gateway de aplicação.
-   > 
-   > 
+   >
 
 2. Atribua um intervalo de endereços a ser utilizado para o conjunto de endereços de back-end.
 
@@ -130,7 +125,6 @@ Todos os itens de configuração são definidos antes de criar o gateway de apli
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. Crie uma configuração de IP Front-end. Esta definição é mapeada um endereço IP privado ou público para o front-end do gateway de aplicação. O passo seguinte associa o endereço IP público no passo anterior com a configuração de IP Front-end.
 
    ```powershell
@@ -145,7 +139,6 @@ Todos os itens de configuração são definidos antes de criar o gateway de apli
 
    > [!NOTE]
    > Um nome de domínio completamente qualificado (FQDN) também é um valor válido para utilizar em vez de um endereço IP para os servidores de back-end. Ativá-la utilizando o **- BackendFqdns** mudar. 
-
 
 4. Configure a porta IP de front-end para o ponto de final IP público. Esta porta é a porta que os utilizadores finais que se ligam a.
 
@@ -177,7 +170,7 @@ Todos os itens de configuração são definidos antes de criar o gateway de apli
    > Se estiver a utilizar os cabeçalhos de anfitrião e indicação de nome de servidor (SNI) no back-end, a chave pública obtida pode não ser o site pretendido para os fluxos de tráfego. Se estiver em dúvida, visite https://127.0.0.1/ nos servidores de back-end para confirmar a qual o certificado é utilizado para o *predefinição* enlace SSL. Utilize a chave pública do que a solicitação nesta secção. Se estiver a utilizar cabeçalhos de host e SNI com ligações de HTTPS e não receber uma resposta e o certificado de uma solicitação de navegador manual para https://127.0.0.1/ nos servidores de back-end, tem de configurar um enlace de SSL padrão neles. Se fizer isso, as pesquisas falharem e o back-end não está na lista de permissões.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Todos os itens de configuração são definidos antes de criar o gateway de apli
     O exemplo seguinte define a versão do protocolo mínimo **TLSv1_2** e permite **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** apenas.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação

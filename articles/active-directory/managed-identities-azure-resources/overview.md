@@ -16,11 +16,11 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058565"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261467"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
 
@@ -135,9 +135,9 @@ Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 * [Serviço de Aplicações do Azure](/azure/app-service/overview-managed-identity)
 * [Funções do Azure](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-* [Service Bus do Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
-* [API Management do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+* [Hubs de Eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Gestão de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
 ## Que serviços do Azure suportam a funcionalidade?<a name="which-azure-services-support-managed-identity"></a>

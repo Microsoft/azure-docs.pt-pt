@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075634"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275900"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Comece com certificados do Key Vault
 Os cenários seguintes realçam vários das utilizações de principal de serviço de gestão de certificados do Key Vault incluindo os passos adicionais necessários para criar seu primeiro certificado no seu Cofre de chaves.
@@ -101,6 +101,17 @@ Tenha em atenção - este processo, através do passo 3.1, é uma operação ún
 -   Se não existirem não existem outras operações, a primeira coisa de que o Cofre de chaves faz é enviar um aviso de expiração. 
 
 -   Além disso, o utilizador pode editar a política, o que está funcional no momento da importação, mas, contém padrões em que nenhuma informação foi especificada na importação. Ex. Não existem informações de emissor  
+
+### <a name="formats-of-import-we-support"></a>Formatos de importação suportamos
+Suportamos o seguinte tipo de importação para o formato de ficheiro PEM. Um único certificado PEM codificado, juntamente com um PKCS n. º 8 codificado, chave não encriptada que tem o seguinte
+
+---BEGIN CERTIFICADO------END CERTIFICADO--
+
+---BEGIN PRIVATE KEY------END PRIVATE KEY--
+
+Na intercalação de certificado, damos suporte a formatos PEM com base 2. Também é possível intercalar um único certificado codificado PKCS n. º 8 ou um base64 codificado P7B ficheiro. ---BEGIN CERTIFICADO------END CERTIFICADO--
+
+Atualmente não suportamos chaves EC no formato PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Criação de um certificado com uma AC não fez uma parceria com o Key Vault  
  Esse método permite trabalhar com outras ACs que Fornecedores têm uma parceria de Key Vault, que significa que a sua organização pode trabalhar com uma autoridade de certificação da sua preferência.  

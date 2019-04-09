@@ -1,7 +1,6 @@
 ---
 title: Criar políticas e ver os dados de conformidade através de programação
 description: Este artigo descreve a criação e gestão de políticas do Azure Policy a por meio de programação.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/31/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768609"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276495"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
 
@@ -253,4 +252,4 @@ Reveja os artigos seguintes para obter mais informações sobre os comandos e co
 - [Módulos do PowerShell do Azure](/powershell/module/az.resources/#policies)
 - [Comandos de política CLI do Azure](/cli/azure/policy?view=azure-cli-latest)
 - [Fornecedor de recursos de informações de política referência da REST API](/rest/api/policy-insights)
-- [Organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md)
+- [Organizar recursos com os grupos de gestão do Azure](../../management-groups/overview.md)

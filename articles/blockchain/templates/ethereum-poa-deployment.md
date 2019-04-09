@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905924"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274795"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
 
@@ -279,7 +279,7 @@ ID da rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  
 Endereço de Ethereum de administrador|Endereço da conta Ethereum que é utilizado para participar no PoA governação.  Recomendamos que utilize MetaMask para gerar um endereço de Ethereum.|42 carateres alfanuméricos, começando com 0 x|ND
 Opções Avançadas|Opções avançadas para Ethereum definições|Ativar ou desativar|Desativar
 IP público (as opções avançadas de = Enable)|Implementa a rede por trás de um Gateway de VNet e remove o acesso de peering. Se esta opção estiver selecionada, todos os membros tem de utilizar um Gateway de VNet para a ligação para ser compatível.|VNet privada de IP público|IP público
-Bloquear o limite de gás (opções avançadas = Enable)|O limite de gás bloco inicial da rede|Qualquer numérico|50,000,00
+Bloquear o limite de gás (opções avançadas = Enable)|O limite de gás bloco inicial da rede|Qualquer numérico|50000000
 Período de Reseal de bloqueio (seg)|A frequência com que blocos vazios serão criados quando não há nenhuma transação na rede. Uma freqüência mais alta terá finality mais rápida, mas os custos de armazenamento maior.|Qualquer numérico|15
 Contrato de permissão de transação (opções avançadas = Enable)|Bytecode para o contrato de concessão de permissões de transação. Restringe a implementação de contrato inteligente e execução para uma lista de permitidos de contas de Ethereum.|Contrato bytecode|ND
 

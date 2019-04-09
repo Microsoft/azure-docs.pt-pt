@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800442"
 documentType: LandingData
 title: Documentação para o serviço Azure Blueprints
 metadata:
-  title: Documentação do Azure Blueprints - Tutoriais, Referência da API
-  description: O Azure Blueprints é um serviço no Azure que serve para criar, definir e implementar artefactos no ambiente do Azure.
-  services: blueprints
+  title: 'Documentação do Azure Blueprints - Tutoriais, Referência da API'
+  description: 'O Azure Blueprints é um serviço no Azure que serve para criar, definir e implementar artefactos no ambiente do Azure.'
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints
@@ -18,34 +11,34 @@ metadata:
   ms.date: 03/26/2019
   ms.author: dacoulte
 abstract:
-  description: O Azure Blueprints ajuda-o a implementar e atualizar os ambientes de cloud de forma repetível através de artefactos compostos, como os modelos do Azure Resource Manager, para aprovisionar recursos, controlos de acesso baseado em funções e políticas.
+  description: 'O Azure Blueprints ajuda-o a implementar e atualizar os ambientes de cloud de forma repetível através de artefactos compostos, como os modelos do Azure Resource Manager, para aprovisionar recursos, controlos de acesso baseado em funções e políticas.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Aprenda a criar, atribuir e gerir as definições de esquemas no Azure.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        alt: Portal do Azure
-        src: ./media/portal.svg
-      text: Portal do Azure
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST
-        src: ./media/rest.svg
-      text: REST
-      href: create-blueprint-rest-api.md
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Aprenda a criar, atribuir e gerir as definições de esquemas no Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Portal do Azure
+              src: ./media/portal.svg
+            text: Portal do Azure
+            href: create-blueprint-portal.md
+          - image:
+              alt: REST
+              src: ./media/rest.svg
+            text: REST
+            href: create-blueprint-rest-api.md
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Linguagens
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
-    - title: REST
-      html: <p><a href="/rest/api/blueprints/">Referência da API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+          - title: Linguagens
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">SDK do Azure para .NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/blueprints/">Referência da API</a></p>

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057647"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266142"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Linux no seu cluster do Service Fabric
 

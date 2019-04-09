@@ -205,9 +205,6 @@ items:
   items:
   - name: Azure Machine Learning
     href: ../service/
-  - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/cognitive-toolkit/
-    maintainContext: true
   - name: Galeria de IA do Azure
     href: https://gallery.azure.ai
   - name: Cortana Analytics
@@ -254,9 +251,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Vídeos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: 823a3044a4f839c4244014483e8d17739ca8e64b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: abbfaafe3652fbe2fb5ade86cc732c558f6ebff1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886070"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269095"

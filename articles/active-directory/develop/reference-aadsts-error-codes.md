@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295458"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271803"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -58,7 +58,7 @@ ms.locfileid: "58295458"
 | AADSTS50007 | PartnerEncryptionCertificateMissing - não foi encontrado o certificado de encriptação do parceiro para esta aplicação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para obter isso. |
 | AADSTS50008 | InvalidSamlToken - asserção de SAML está em falta ou incorrectamente configurado no token. Contacte o seu fornecedor de federação. |
 | AADSTS50010 | AudienceUriValidationFailed - público-alvo URI falha na validação da aplicação, uma vez que foram configuradas sem audiências de token. |
-| AADSTS50011 | InvalidReplyTo - o endereço de resposta está em faltando, configurada incorretamente, ou não corresponde ao endereço de resposta configurado para a aplicação. Experimente a resolução indicada em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Se continuar a ver problemas, contacte o proprietário da aplicação ou o administrador de aplicações. |
+| AADSTS50011 | InvalidReplyTo - o endereço de resposta está em faltando, configurada incorretamente, ou não corresponde ao endereço de resposta configurado para a aplicação.  Como uma resolução Certifique-se de adicionar este endereço de resposta em falta para a aplicação do Azure Active Directory ou ter alguém, com as permissões para gerir a sua aplicação no Active Directory, fazer isso para.|
 | AADSTS50012 | Falha na autenticação de AuthenticationFailed - para um dos seguintes motivos:<ul><li>O nome do requerente do certificado de assinatura não está autorizado</li><li>Uma política de autoridade fidedigna correspondente não foi encontrada para o nome do requerente autorizados</li><li>A cadeia de certificados não é válida</li><li>O certificado de assinatura não é válido</li><li>Política não está configurada no inquilino</li><li>Thumbprint do certificado de assinatura não está autorizado</li><li>Asserção de cliente contém uma assinatura inválida</li></ul> |
 | AADSTS50013 | InvalidAssertion - asserção é inválido devido a vários motivos: O emissor de tokens não corresponde à api versão dentro de seu tempo válido no intervalo - expirado token de atualização - com formato incorreto - na asserção não é um token de atualização principal. |
 | AADSTS50014 | GuestUserInPendingState - resgate do utilizador está num estado pendente. A conta de utilizador convidado não é totalmente criada ainda. |
@@ -153,7 +153,7 @@ ms.locfileid: "58295458"
 | AADSTS70007 | UnsupportedResponseMode - a aplicação devolveu um valor não suportado de `response_mode` quando solicitar um token.  |
 | AADSTS70008 | O token de atualização expirou ExpiredOrRevokedGrant - devido a inatividade. O token foi emitido em XXX e estivesse inativo para um determinado período de tempo. |
 | AADSTS70011 | InvalidScope - âmbito pedido pela aplicação é inválido. |
-| AADSTS70012 | MsaServerError - Ocorreu um erro de servidor ao autenticar um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abrir um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - Ocorreu um erro de servidor ao autenticar um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - erro de fluxo de dispositivo do OAuth 2.0. Autorização está pendente. O dispositivo tentará novamente o pedido de consulta. |
 | AADSTS70018 | BadVerificationCode - código de verificação inválida devido ao usuário digitando-se no código do usuário errado para o fluxo de código de dispositivo. Autorização não está aprovada. |
 | AADSTS70019 | CodeExpired - código de verificação expirou. Peça ao utilizador repita o início de sessão. |

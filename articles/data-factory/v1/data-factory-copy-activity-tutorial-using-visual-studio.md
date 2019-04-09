@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 71e1f7d85d823add804e8ef5dcb6126cffc21902
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2d04cdfb3ec12406e60fcb265966e0271b7220d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009905"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258067"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com atividade de cópia com o Visual Studio
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "59009905"
 > * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
@@ -374,7 +374,7 @@ Neste tutorial, irá criar um Azure Data Factory para copiar dados de um blob do
 3. Criou **conjuntos de dados** que descrevem dados de entrada e saída para pipelines.
 4. Criou um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como sink. 
 
-Para ver como utilizar uma atividade do Hive do HDInsight para transformar dados com o cluster Azure HDInsight, consulte [ Tutorial: Crie seu primeiro pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
+Para ver como utilizar uma atividade do Hive do HDInsight para transformar dados com o cluster Azure HDInsight, consulte [Tutorial: Crie seu primeiro pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
 
 Pode encadear duas atividades (executar uma atividade após a outra) ao definir o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Consulte [Scheduling and execution in Data Factory (Agendamento e execução no Data Factory)](data-factory-scheduling-and-execution.md) para obter informações detalhadas. 
 

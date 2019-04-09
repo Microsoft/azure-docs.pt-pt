@@ -53,6 +53,8 @@ items:
       href: devtest-lab-concepts.md
     - name: Cenários
       items:
+      - name: Cenários populares para utilizar o DevTest Labs
+        href: devtest-lab-guidance-get-started.md
       - name: Utilizar laboratórios para programadores
         href: devtest-lab-developer-lab.md
       - name: Utilizar laboratórios para ambientes de teste
@@ -109,8 +111,6 @@ items:
     - name: Configurar a infraestrutura de DevTest Labs na sua empresa
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
-      - name: Introdução ao DevTest Labs
-        href: devtest-lab-guidance-get-started.md
       - name: Aumentar verticalmente a sua implementação do DevTest Labs
         href: devtest-lab-guidance-scale.md
       - name: Orquestrar a implementação do DevTest Labs
@@ -279,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas mais frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a5312fc1c99072c10337bd00569a608825df3bc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894445"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262878"

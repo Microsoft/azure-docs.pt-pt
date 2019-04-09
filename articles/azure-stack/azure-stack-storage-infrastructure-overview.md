@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760278"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271293"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Gerir a infraestrutura de armazenamento para o Azure Stack
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Este artigo descreve o estado de funcionamento e o estado operacional dos recursos de infraestrutura de armazenamento do Azure Stack. Esses recursos incluem unidades de armazenamento e volumes. As informações neste tópico podem ser inestimáveis quando tentar resolver vários problemas, como uma unidade não pode ser adicionada a um conjunto.
 
@@ -32,7 +32,7 @@ Este artigo descreve o estado de funcionamento e o estado operacional dos recurs
 
 ### <a name="drives"></a>Unidades
 
-O Azure Stack, o software Windows Server definido capacidades de armazenamento, com uma combinação de espaços de armazenamento direto (S2D) e o Clustering de ativação pós-falha do servidor de Windows, para proporcionar um desempenho elevado, o serviço de armazenamento dimensionáveis e resilientes.
+Com tecnologia de software do Windows Server, o Azure Stack define as capacidades de armazenamento com uma combinação de espaços de armazenamento direto (S2D) e Clustering de ativação pós-falha no Windows Server para fornecer um alto desempenho, dimensionável e o serviço de armazenamento resiliente.
 
 Parceiros de sistema do Azure Stack integrado oferecem inúmeras variações de solução, incluindo uma vasta gama de flexibilidade de armazenamento. Atualmente pode selecionar uma combinação de três tipos de unidade: NVMe (memória não volátil Express), SATA/SSD (unidade de estado sólido), de SAS HDD (unidade de disco rígido).
 
@@ -199,7 +199,7 @@ Uma unidade de estado de funcionamento incorreto atualmente não pode ser escrit
 | Mídia com falha | A unidade de falha e não será utilizada pelos espaços de armazenamento mais.<br> <br>**Ação:** Substitua a unidade logo que possível para garantir a resiliência completa. |
 | Falha de hardware do dispositivo | Ocorreu uma falha de hardware nesta unidade. <br> <br>**Ação:** Substitua a unidade logo que possível para garantir a resiliência completa. |
 | Atualizar o firmware | O Azure Stack está a atualizar o firmware da unidade. Este é um estado temporário que, normalmente, dura menos de um minuto e durante o qual o tempo outras unidades no agrupamento de lidar com todas as leituras e escritas.<br> <br>**Ação:** Aguarde para o Azure Stack concluir a atualização e verificar o estado mais tarde. |
-| A Iniciar | A unidade está a preparar para a operação. Deve ser um estado temporário - quando tiver terminado, que a unidade deve fazer a transição para um Estado operacional diferente.<br> <br>**Ação:** Aguarde para o Azure Stack concluir a operação e verifique o estado mais tarde. |
+| A iniciar | A unidade está a preparar para a operação. Deve ser um estado temporário - quando tiver terminado, que a unidade deve fazer a transição para um Estado operacional diferente.<br> <br>**Ação:** Aguarde para o Azure Stack concluir a operação e verifique o estado mais tarde. |
  
 
 ## <a name="reasons-a-drive-cant-be-pooled"></a>Motivos de que uma unidade não pode ser agrupada

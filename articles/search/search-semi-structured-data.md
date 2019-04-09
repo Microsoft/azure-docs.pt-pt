@@ -1,22 +1,22 @@
 ---
-title: Tutorial de pesquisa JSON no armazenamento de Blobs do Azure - Azure Search
-description: Neste tutorial, aprenda a pesquisar dados semiestruturados e dados de Blob do Azure com o Azure Search.
+title: 'Tutorial: Indexar dados semiestruturados strutured em blobs JSON - Azure Search'
+description: Aprenda a indexar e pesquisar semiestruturados blobs de JSON do Azure com o Azure Search e Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 8436bb1fc84d5a944b35cd7b2c9667d2148c0af3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201352"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270474"
 ---
-# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutorial: Pesquisar dados semiestruturados no armazenamento na cloud do Azure
+# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial: Indexar e pesquisar dados semiestruturados (JSON blobs) no Azure Search
 
 O Azure Search pode indexar documentos JSON e matrizes no armazenamento de Blobs do Azure com um [indexador](search-indexer-overview.md) que sabe como ler dados semiestruturados. Os dados semiestruturados contêm etiquetas ou marcações que separam o conteúdo dentro dos dados. Ele divide a diferença entre dados não estruturados, o que devem ser totalmente indexadas e estruturados formalmente dados que seguem um modelo de dados, como um esquema de banco de dados relacional, que pode ser indexado numa base por campo.
 
@@ -33,37 +33,47 @@ Neste tutorial, utilize o [as APIs de REST do Azure Search](https://docs.microso
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial.
+Os seguintes serviços, ferramentas e dados são utilizados neste início rápido. 
 
-[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para conter dados de exemplo.
+[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial. 
 
-[Utilizar o Postman](https://www.getpostman.com/) ou outro cliente REST para enviar os pedidos. Instruções sobre como configurar um pedido HTTP no Postman é fornecidos na secção seguinte.
+[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)e, em seguida [criar um contentor de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Uma vez que irá utilizar um nome de conta de armazenamento e a chave para a ligação, certifique-se de que nível de acesso público do contentor está definido como "Contentor (acesso de leitura anónimo para o contentor)".
 
-## <a name="set-up-postman"></a>Configurar o Postman
+[Aplicação de ambiente de trabalho postman](https://www.getpostman.com/) é utilizado para enviar pedidos para o Azure Search.
 
-Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explore pesquisa APIs REST do Azure com o Postman](search-fiddler.md).
+[Json.zip de versões de avaliação clínica](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contém os dados utilizados neste tutorial. Transfira e deszipe esse arquivo para a sua própria pasta. Dados são originados [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), convertido em JSON para este tutorial.
 
-O método de pedido para todas as chamadas neste tutorial é "POST". As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e a sua "admin key" (a chave de administração é um marcador de posição para a sua chave primária de pesquisa), respetivamente. O corpo é onde vai colocar o conteúdo efetivo da chamada. Consoante o cliente que estiver a utilizar, poderão existir algumas variações em relação à forma como constrói a sua consulta, mas estas são as essenciais.
+## <a name="get-a-key-and-url"></a>Obter uma chave e o URL
 
-  ![Pesquisa semiestruturada](media/search-semi-structured-data/postmanoverview.png)
+As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
 
-Para as chamadas REST abrangidas neste tutorial, é precisa a sua api-key de pesquisa. Pode encontrar a sua api-key em **Chaves** dentro do serviço de pesquisa. Esta api-key tem de estar no cabeçalho de todas as chamadas à API (substitua "admin key" na captura de ecrã anterior pela mesma) que este tutorial lhe dá instruções para fazer. Mantenha a chave, uma vez que vai precisar dela para cada chamada.
+1. [Inicie sessão no portal do Azure](https://portal.azure.com/)e no seu serviço de pesquisa **descrição geral** página, obter o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-  ![Pesquisa semiestruturada](media/search-semi-structured-data/keys.png)
+1. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
+
+![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+
+Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="prepare-sample-data"></a>Preparar dados de exemplo
 
-1. **Transfira [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** e deszipe-o para a própria pasta. Dados são originados [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), convertido em JSON para este tutorial.
+1. Localize os dados de exemplo transferidos para o seu sistema.
 
-2. Entrar para o [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento do Azure, abra o **dados** contentor e clique em **carregar**.
+1. [Inicie sessão no portal do Azure](https://portal.azure.com), navegue para a conta de armazenamento do Azure e o contentor de BLOBs e clique em **carregar**.
 
-3. Clique em **Avançadas**, introduza "clinical-trials-json" e, em seguida, carregue todos os ficheiros JSON que transferiu.
+1. Clique em **Avançadas**, introduza "clinical-trials-json" e, em seguida, carregue todos os ficheiros JSON que transferiu.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/clinicalupload.png)
 
 Quando o carregamento estiver concluído, os ficheiros devem aparecer na sua própria subpasta dentro do contentor de dados.
 
-## <a name="connect-your-search-service-to-your-container"></a>Ligar o serviço de pesquisa ao contentor
+## <a name="set-up-postman"></a>Configurar o Postman
+
+Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explore pesquisa APIs REST do Azure com o Postman](search-fiddler.md).
+
+O método de pedido para todas as chamadas neste tutorial é **POST**. As chaves de cabeçalho são "Content-type" e "api-key". Os valores das chaves de cabeçalho são "application/json" e a sua "admin key" (a chave de administração é um marcador de posição para a sua chave primária de pesquisa), respetivamente. O corpo é onde vai colocar o conteúdo efetivo da chamada. Consoante o cliente que estiver a utilizar, poderão existir algumas variações em relação à forma como constrói a sua consulta, mas estas são as essenciais.
+
+  ![Pesquisa semiestruturada](media/search-semi-structured-data/postmanoverview.png)
 
 Estamos a utilizar o Postman para fazer três chamadas à API para o serviço de pesquisa para criar uma origem de dados, um índice e um indexador. A origem de dados inclui um ponteiro para a sua conta de armazenamento e os dados JSON. O serviço de pesquisa faz a ligação ao carregar os dados.
 
@@ -276,4 +286,4 @@ A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recurs
 Pode anexar algoritmos com tecnologia de IA a um pipeline de indexador. Como próximo passo, avance para o tutorial seguinte.
 
 > [!div class="nextstepaction"]
-> [Indexar Documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+> [Indexar documentos no armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)

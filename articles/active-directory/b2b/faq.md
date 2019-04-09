@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877368"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260396"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração do Azure Active Directory B2B FAQs
 
@@ -60,7 +60,7 @@ A menos que um utilizador é atribuído a função de administrador limitado ou 
 Sim! Quando configurar esta política, tenha cuidado para evitar a acidentalmente bloquear o acesso para membros e administradores.
 Para bloquear o acesso de um utilizador convidado para o [portal do Azure](https://portal.azure.com), utilizar uma política de acesso condicional na API de modelo de implementação clássica do Windows Azure:
 1. Modificar a **todos os utilizadores** para que ele contém apenas os membros de grupo.
-   ![Captura de ecrã que mostra o grupo de todos os utilizadores onde o UserType não é convidado igual ](media/faq/modify-all-users-group.png)
+   ![Captura de ecrã que mostra o grupo de todos os utilizadores onde o UserType não é convidado igual](media/faq/modify-all-users-group.png)
 2. Crie um grupo dinâmico que contenha os utilizadores convidados.
    ![Captura de ecrã que mostra um novo grupo de todos os utilizadores convidados](media/faq/group-with-guest-users.png)
 3. Configure uma política de acesso condicional para bloquear os utilizadores de convidado de aceder ao portal, conforme mostrado no vídeo seguinte:

@@ -16,16 +16,16 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767214"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264714"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerir o acesso a recursos com o controlo de acesso de Azure Stack Role-Based
 
-*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Azure Stack suporta o controlo de acesso baseado em funções (RBAC), o mesmo [modelo de segurança para gestão de acesso](https://docs.microsoft.com/azure/role-based-access-control/overview) que utiliza o Microsoft Azure. Pode utilizar o RBAC para gerir o utilizador, grupo ou aplicação acesso aos serviços, recursos e subscrições.
 
@@ -40,28 +40,6 @@ O Azure Stack tem três funções básicas que pode aplicar a todos os tipos de 
 * **Proprietário** podem gerir tudo, incluindo o acesso aos recursos.
 * **Contribuinte** podem gerir tudo, exceto o acesso aos recursos.
 * **Leitor** podem ver tudo, mas não é possível fazer alterações.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Hierarquia de recursos e herança
-
-O Azure Stack tem a seguinte hierarquia de recursos:
-
-* Cada subscrição pertence a um diretório.
-* Cada grupo de recursos pertence a uma subscrição.
-* Cada recurso pertence a um grupo de recursos.
-
-Acesso que concede a um âmbito principal é herdado em âmbitos subordinados. Por exemplo:
-
-* Atribuir a função de leitor a um grupo do Azure AD no âmbito da subscrição. Os membros desse grupo podem ver a cada grupo de recursos e recursos na subscrição.
-* Atribua a função de contribuinte a um aplicativo no âmbito do grupo de recursos. O aplicativo pode gerir os recursos de todos os tipos no grupo de recursos, mas não outros grupos de recursos na subscrição.
-
-### <a name="assigning-roles"></a>Atribuir funções
-
-Pode atribuir mais de uma função a um utilizador e cada função pode ser associada a outro âmbito. Por exemplo:
-
-* Atribuir a função de leitor do TestUser-A à subscrição 1.
-* Atribuição de função TestUser-A o proprietário a TestVM-1.
-
-O Azure [atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) artigo fornece informações detalhadas sobre a ver, atribuir e exclusão de funções.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Hierarquia de recursos e herança
 

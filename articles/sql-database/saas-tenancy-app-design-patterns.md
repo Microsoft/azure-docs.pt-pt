@@ -4,7 +4,7 @@ description: Saiba mais sobre os requisitos e dados comuns padrões de arquitetu
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217874"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260549"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de bases de dados de SaaS de multi-inquilino
 
-Ao conceber uma aplicação SaaS de multi-inquilino, precisa escolher cuidadosamente o modelo de inquilinos que melhor se adequa às necessidades da sua aplicação.  Um modelo de inquilinos determina como os dados de cada inquilino são mapeados para o armazenamento.  Sua escolha de design do aplicativo de impactos de modelo de inquilinos e de gestão.  Mudar para um modelo diferente mais tarde, às vezes, é dispendiosa.
+Este artigo descreve os vários modelos de inquilinos disponíveis para uma aplicação SaaS de multi-inquilino.
 
-Este artigo descreve os modelos de inquilinos alternativo.
+Ao conceber uma aplicação SaaS de multi-inquilino, precisa escolher cuidadosamente o modelo de inquilinos que melhor se adequa às necessidades da sua aplicação.  Um modelo de inquilinos determina como os dados de cada inquilino são mapeados para o armazenamento.  Sua escolha de design do aplicativo de impactos de modelo de inquilinos e de gestão.  Mudar para um modelo diferente mais tarde, às vezes, é dispendiosa.
 
 ## <a name="a-saas-concepts-and-terminology"></a>R. SaaS conceitos e terminologia
 
@@ -184,10 +184,10 @@ Nesse modelo híbrido, as bases de dados de inquilino único para os inquilinos 
 
 A tabela seguinte resume as diferenças entre os modelos de inquilinos principal.
 
-| Medida | Aplicação autónoma | Base de dados por inquilino | Em partição horizontal multi-inquilino |
+| Medição | Aplicação autónoma | Base de dados por inquilino | Em partição horizontal multi-inquilino |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Escala | Médio<br />1-100s | Muito alta<br />1-100,000s | Ilimitado<br />1-1,000,000s |
-| Isolamento de inquilino | Muito alta | Elevado | Baixa; exceto para qualquer inquilino individual (ou seja, num db de MT). |
+| Dimensionamento | Média<br />1-100s | Muito alta<br />1-100,000s | Sem limite<br />1-1,000,000s |
+| Isolamento de inquilino | Muito alta | Elevada | Baixa; exceto para qualquer inquilino individual (ou seja, num db de MT). |
 | Custo de base de dados por inquilino | Alta; é dimensionado para picos. | Baixa; conjuntos utilizados. | Mais baixo, para inquilinos pequenos no bds de MT. |
 | Gestão e monitorização de desempenho | Por inquilino apenas | Agregado + por inquilino | Agregar; Embora é por inquilino apenas para singles. |
 | Complexidade de desenvolvimento | Baixa | Baixa | Médio; devido à fragmentação. |

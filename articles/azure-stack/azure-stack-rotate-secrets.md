@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050259"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271735"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rodar segredos no Azure Stack
 
@@ -300,11 +300,11 @@ O **Start-SecretRotation** cmdlet gira os segredos de infraestrutura de um siste
 
 | Parâmetro | Type | Necessário | Posição | Predefinição | Descrição |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | Falso  | com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos. Diretório de fim tem de ser **\Certificates**. |
-| CertificatePassword | SecureString | Falso  | com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecido no - PfXFilesPath. Valor obrigatório se PfxFilesPath é fornecida quando são revezados de segredos externos. |
-| Interno | String | Falso | com o nome | Nenhuma | Sinalizador interno tem de ser utilizado sempre que um operador do Azure Stack deseja girar segredos de infra-estrutura interna. |
-| PathAccessCredential | PSCredential | Falso  | com o nome  | Nenhuma  | A credencial do PowerShell para a partilha de ficheiros do **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos.  |
-| ReRun | SwitchParameter | Falso  | com o nome  | Nenhuma  | Tem de ser utilizada voltar a executar em qualquer altura rotação secreta está a tentar novamente após uma tentativa falhada. |
+| `PfxFilesPath` | String  | Falso  | com o nome  | Nenhuma  | O caminho de partilha de ficheiros para o **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos. Diretório de fim tem de ser **\Certificates**. |
+| `CertificatePassword` | SecureString | Falso  | com o nome  | Nenhuma  | A palavra-passe para todos os certificados fornecido no - PfXFilesPath. Valor obrigatório se PfxFilesPath é fornecida quando são revezados de segredos externos. |
+| `Internal` | String | Falso | com o nome | Nenhuma | Sinalizador interno tem de ser utilizado sempre que um operador do Azure Stack deseja girar segredos de infra-estrutura interna. |
+| `PathAccessCredential` | PSCredential | Falso  | com o nome  | Nenhuma  | A credencial do PowerShell para a partilha de ficheiros do **\Certificates** certificados de ponto final de rede do diretório que contém todos os externo. Apenas é necessário quando efetuar a rotação de segredos externos.  |
+| `ReRun` | SwitchParameter | Falso  | com o nome  | Nenhuma  | Tem de ser utilizada voltar a executar em qualquer altura rotação secreta está a tentar novamente após uma tentativa falhada. |
 
 ### <a name="examples"></a>Exemplos
 

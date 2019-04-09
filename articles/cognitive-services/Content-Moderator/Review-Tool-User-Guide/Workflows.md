@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
 ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056117"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263082"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definir e utilizar fluxos de trabalho de moderação
 

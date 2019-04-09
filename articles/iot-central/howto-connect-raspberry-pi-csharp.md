@@ -1,19 +1,19 @@
 ---
 title: Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (C#) | Documentos da Microsoft
-description: Como um desenvolvedor de dispositivo, como ligar um Raspberry Pi a sua aplicação do Azure IoT Central usando a linguagem c#.
+description: Como desenvolvedor de dispositivo, como ligar um Raspberry Pi a sua aplicação do Azure IoT Central utilizando C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108363"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275968"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (c#)
 
@@ -25,37 +25,34 @@ Este artigo descreve como, como um desenvolvedor de dispositivo, para ligar um R
 
 Para concluir os passos neste artigo, tem os seguintes componentes:
 
-* [.NET core 2](https://www.microsoft.com/net) instalado no computador de desenvolvimento. Também deverá ter como um editor de código adequado [Visual Studio Code](https://code.visualstudio.com/).
 * Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-* Um dispositivo de Raspberry Pi com o sistema de operativo Raspbian.
-
+* Um dispositivo de Raspberry Pi com o sistema de operativo Raspbian. O Raspberry Pi tem de ser capaz de ligar à internet. Para obter mais informações, consulte [configurar o seu Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 ## <a name="sample-devkits-application"></a>**Exemplo Devkits** aplicação
 
-Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplicativo um **Raspberry Pi** modelo de dispositivo com as seguintes características: 
+Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplicativo um **Raspberry Pi** modelo de dispositivo com as seguintes características:
 
 - Telemetria, que inclui as seguintes medidas que recolherá o dispositivo:
-    - Humidade
-    - Temperatura
-    - Pressão
-    - Magnetômetro (X, Y, Z)
-    - Acelerômetro (X, Y, Z)
-    - Por giroscópio (X, Y, Z)
+  - Humidade
+  - Temperatura
+  - Pressão
+  - Magnetômetro (X, Y, Z)
+  - Acelerômetro (X, Y, Z)
+  - Por giroscópio (X, Y, Z)
 - Definições
-    - Tensão
-    - Atual
-    - Ventoinha velocidade
-    - Botão de alternar do Runtime de integração.
+  - Tensão
+  - Atual
+  - Ventoinha velocidade
+  - Botão de alternar do Runtime de integração.
 - Propriedades
-    - Morrem número propriedade do dispositivo
-    - Propriedade de cloud de localização
+  - Morrem número propriedade do dispositivo
+  - Propriedade de cloud de localização
 
-Para obter detalhes completos sobre a configuração do modelo de dispositivo, consulte [detalhes do modelo de dispositivo do Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
-
+Para todos os detalhes da configuração do modelo de dispositivo, consulte a [detalhes do modelo de dispositivo do Raspberry Pi](#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir da **Raspberry Pi** modelo do dispositivo e tome nota da cadeia de ligação do dispositivo. Para obter mais informações, consulte [adicionar um dispositivo real à sua aplicação do Azure IoT Central](tutorial-add-device.md).
+Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir da **Raspberry Pi** modelo do dispositivo. Tome nota do dispositivo detalhes de ligação (**ID de âmbito**, **ID do dispositivo**, e **chave primária**). Para obter mais informações, consulte [adicionar um dispositivo real à sua aplicação do Azure IoT Central](tutorial-add-device.md).
 
 ### <a name="create-your-net-application"></a>Criar a sua aplicação .NET
 
@@ -86,7 +83,7 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
         <RuntimeIdentifiers>win-arm;linux-arm</RuntimeIdentifiers>
       </PropertyGroup>
       <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.5.2" />
+        <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.19.0" />
       </ItemGroup>
     </Project>
     ```
@@ -272,12 +269,9 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
 
 ## <a name="run-your-net-application"></a>Execute a sua aplicação .NET
 
-Adicione a cadeia de ligação específicos do dispositivo para o código para o dispositivo autenticar com o Azure IoT Central. Tomou nota desta cadeia de ligação quando adicionou o seu dispositivo real à sua aplicação do Azure IoT Central.
+Adicione a cadeia de ligação específicos do dispositivo para o código para o dispositivo autenticar com o Azure IoT Central. Siga estas instruções para [gerar a cadeia de ligação do dispositivo](concepts-connectivity.md#get-a-connection-string) utilizando o **ID de âmbito**, **ID de dispositivo**, e **chave primária** é feita uma Observe de anteriormente.
 
-  > [!NOTE]
-   > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estas instruções para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#get-a-connection-string) e continuar com o resto do tutorial.
-
-1. Substitua `{your device connection string}` no **Program.cs** ficheiro com a cadeia de ligação que apontou anteriormente.
+1. Substitua `{your device connection string}` no **Program.cs** ficheiro com a cadeia de ligação que gerou.
 
 1. Execute o seguinte comando no seu ambiente de linha de comandos:
 
@@ -286,7 +280,7 @@ Adicione a cadeia de ligação específicos do dispositivo para o código para o
    dotnet publish -r linux-arm
    ```
 
-1. Copiar o `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` pasta para o seu dispositivo Raspberry Pi. Pode utilizar o **scp** comandos para copiar os ficheiros, por exemplo:
+1. Copiar o `pisample\bin\Debug\netcoreapp2.1\linux-arm\publish` pasta para o seu dispositivo Raspberry Pi. Pode utilizar o **scp** comandos para copiar os ficheiros, por exemplo:
 
     ```cmd/sh
     scp -r publish pi@192.168.0.40:publish
@@ -321,8 +315,7 @@ Adicione a cadeia de ligação específicos do dispositivo para o código para o
 
      ![Raspberry Pi recebe a alteração da definição](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
-
-## <a name="raspberry-pi-device-template-details"></a>Detalhes do modelo do raspberry PI dispositivo
+## <a name="raspberry-pi-device-template-details"></a>Detalhes do modelo do raspberry Pi dispositivo
 
 Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplicativo um **Raspberry Pi** modelo de dispositivo com as seguintes características:
 
@@ -357,17 +350,17 @@ Ativar/desativar definições
 
 | Nome a apresentar | Nome do campo | No texto | Desativar o texto | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | Desativado     |
+| IR           | activateIR | ATIVADO      | DESATIVADO      | Inativa     |
 
 ### <a name="properties"></a>Propriedades
 
 | Type            | Nome a apresentar | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/A       |
+| Texto            | Localização     | localização   | N/D       |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como ligar um Raspberry Pi a sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
+Agora que aprendeu como ligar um Raspberry Pi a sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
 
 * [Ligar uma aplicação de cliente genérica do node. js para o Azure IoT Central](howto-connect-nodejs.md)

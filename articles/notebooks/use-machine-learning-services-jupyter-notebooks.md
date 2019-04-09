@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eb162e51a6091b22abd4a8d12275423d726b1785
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763950"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263286"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Utilizar o serviço Azure Machine Learning num bloco de notas
 
@@ -47,7 +47,7 @@ Blocos de notas do Azure está pré-configurada com o ambiente necessário para 
 
 A documentação do Azure Machine Learning Services contém uma variedade de outros recursos que guiá-lo a trabalhar com o serviço Machine Learning em blocos de notas:
 
-- [Quickstart: Utilizar o Python para começar a utilizar com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Início rápido: Utilizar o Python para começar a utilizar com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Tutorial #1: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 - [Tutorial #2: Implementar um modelo de classificação de imagem na instância de contentor do Azure (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Tutorial: Preparar um modelo de classificação com aprendizagem automática no serviço Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)

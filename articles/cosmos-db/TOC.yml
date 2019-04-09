@@ -319,6 +319,8 @@ items:
         href: bulk-executor-graph-dotnet.md
       - name: Criação de partições de dados de gráficos
         href: graph-partitioning.md
+      - name: Otimizar as consultas do Gremlin
+        href: graph-execution-profile.md
       - name: Armazenar e gerir o Spring Data
         href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
         maintainContext: true
@@ -665,9 +667,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: 8f70665eba9fa6b542b546f592b22ba516af06b4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d13fd91e079349bac4e57bc0224916075389d61e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047100"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257863"

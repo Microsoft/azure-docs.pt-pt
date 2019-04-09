@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851199"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261994"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações web com OpenID Connect e Azure Active Directory
 
@@ -47,12 +47,12 @@ OpenID Connect descreve um documento de metadados que contém a maior parte das 
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-Os metadados são um documento simples do JavaScript Object Notation (JSON). Consulte o seguinte fragmento para obter um exemplo. Conteúdo do trecho é completamente descrito no [especificação do OpenID Connect](https://openid.net). Tenha em atenção nesse inquilino fornecendo vez `common` no local de {inquilino} acima irá resultar em URIs de inquilino específico no objeto JSON devolvido.
+Os metadados são um documento simples do JavaScript Object Notation (JSON). Consulte o seguinte fragmento para obter um exemplo. Conteúdo do trecho é completamente descrito no [especificação do OpenID Connect](https://openid.net). Tenha em atenção que fornecer um ID de inquilino vez `common` no local de {inquilino} acima irá resultar em URIs de inquilino específico no objeto JSON devolvido.
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -64,6 +64,8 @@ Os metadados são um documento simples do JavaScript Object Notation (JSON). Con
     ...
 }
 ```
+
+Se a aplicação tem as chaves de assinatura personalizadas como resultado de utilizar o [mapeamento de afirmações](active-directory-claims-mapping.md) recurso, tem a acrescentar um `appid` consultar o parâmetro que contém o ID da aplicação para obter um `jwks_uri` apontando para a sua aplicação da chave de assinatura informações. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém um `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Enviar o pedido de início de sessão
 
@@ -91,13 +93,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de independente de inquilino |
-| client_id |obrigatório |O Id de aplicação atribuída à aplicação quando registou com o Azure AD. Pode encontrar isto no Portal do Azure. Clique em **do Azure Active Directory**, clique em **registos das aplicações**, escolha a aplicação e localize o Id da aplicação na página de aplicativo. |
+| client_id |obrigatório |O ID de aplicação atribuída à aplicação quando registou com o Azure AD. Pode encontrar isto no portal do Azure. Clique em **do Azure Active Directory**, clique em **registos das aplicações**, escolha a aplicação e localize o ID da aplicação na página de aplicativo. |
 | response_type |obrigatório |Tem de incluir `id_token` OpenID Connect para início de sessão. Também pode incluir outros response_types, tal como `code` ou `token`. |
 | scope | Recomendado | A especificação de OpenID Connect exige que o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Este e outros âmbitos OIDC são ignorados no ponto final da versão 1.0, mas ainda é uma prática recomendada para clientes compatíveis com os padrões. |
 | Valor de uso único |obrigatório |Um valor incluído na solicitação, gerada pela aplicação, que está incluída no resultante `id_token` como uma afirmação. A aplicação pode, em seguida, verifique se este valor para mitigar ataques de repetição de token. O valor é, normalmente, uma cadeia de caracteres aleatória, exclusiva ou o GUID que pode ser utilizado para identificar a origem do pedido. |
 | redirect_uri | Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Se estiver em falta, o agente de utilizador será enviado para um dos URIs registado para a aplicação, aleatoriamente de redirecionamento. O comprimento máximo é de 255 bytes |
 | response_mode |opcional |Especifica o método que deve ser utilizado para enviar o authorization_code resultante para a sua aplicação. Valores suportados são `form_post` para *postagem de formulário do HTTP* e `fragment` para *fragmento da URL*. Para aplicativos web, recomendamos que utilize `response_mode=form_post` para garantir que a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
-| state |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| estado |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário. Atualmente, os únicos valores válidos são 'login', 'none' e "consentimento". `prompt=login` força o utilizador introduza as credenciais desse pedido, eliminando-início de sessão único. `prompt=none` é o oposto - assegura que o utilizador não é apresentado qualquer linha de comandos interativa tipo. Se o pedido não pode ser concluído silenciosamente por meio de início de sessão único, o ponto final devolve um erro. `prompt=consent` acionadores o OAuth consentimento a caixa de diálogo depois do utilizador inicia sessão, solicitando que o usuário para conceder permissões à aplicação. |
 | login_hint |opcional |Pode ser usada para preencher previamente o campo de endereço de e-mail/nome de utilizador da página início de sessão do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação. |
 
@@ -118,7 +120,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parâmetro | Descrição |
 | --- | --- |
 | id_token |O `id_token` que solicitou a aplicação. Pode utilizar o `id_token` para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
-| state |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| estado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -179,13 +181,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| post_logout_redirect_uri |Recomendado |O URL que o utilizador deve ser redirecionado para depois de terminar a sessão com êxito. Se não incluído, o utilizador é apresentado uma mensagem genérica. |
+| post_logout_redirect_uri |Recomendado |O URL que o utilizador deve ser redirecionado para depois de terminar com êxito. Se não incluído, o utilizador é apresentado uma mensagem genérica. |
 
 ## <a name="single-sign-out"></a>Fim de sessão único
 
 Quando redireciona o utilizador para o `end_session_endpoint`, do Azure AD limpa a sessão do utilizador do navegador. No entanto, o utilizador poderá ainda estar conectado a outros aplicativos que utilizam o Azure AD para autenticação. Para permitir que esses aplicativos para o utilizador terminar sessão em simultâneo, o Azure AD envia um pedido HTTP GET para registrada `LogoutUrl` de todos os aplicativos que o utilizador tem atualmente sessão iniciado no. Aplicativos devem responder a essa solicitação limpar todas as sessões que identifica o usuário e retornando um `200` resposta. Se desejar suportar o início de sessão único na sua aplicação, tem de implementar como, por exemplo um `LogoutUrl` no código da aplicação. Pode definir o `LogoutUrl` do portal do Azure:
 
-1. Navegue para o [Portal do Azure](https://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Escolha o seu Active Directory ao clicar na sua conta no canto superior direito da página.
 3. No painel de navegação esquerda, escolha **do Azure Active Directory**, em seguida, escolha **registos das aplicações** e selecione a aplicação.
 4. Clique em **definições**, em seguida, **propriedades** e localize o **URL de fim de sessão** caixa de texto. 
@@ -200,7 +202,7 @@ Para adquirir os tokens de acesso, terá de modificar o pedido de início de ses
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'
@@ -228,7 +230,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | --- | --- |
 | id_token |O `id_token` que solicitou a aplicação. Pode utilizar o `id_token` para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
 | Código |Authorization_code que solicitou a aplicação. A aplicação pode utilizar o código de autorização para pedir um token de acesso para o recurso de destino. Authorization_codes tiverem vida curta e normalmente expiram após cerca de 10 minutos. |
-| state |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
+| estado |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
 
 ### <a name="error-response"></a>Resposta de erro
 

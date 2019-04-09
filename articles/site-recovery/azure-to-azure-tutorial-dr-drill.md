@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 314cb943585247189baeb6ab3c90f78e1a1ad445
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313157"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260277"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -54,4 +54,4 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Executar uma ativação pós-falha ](azure-to-azure-tutorial-failover-failback.md)
+> [Executar uma ativação pós-falha](azure-to-azure-tutorial-failover-failback.md)

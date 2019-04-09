@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: befb5370dce5b9b7617370f0b14d471dfeb35437
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 1cb99bba1fa5c762af57a1ad26d034974ff196a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051687"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271837"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
@@ -80,7 +80,7 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 - A compilação de 1902 introduz uma nova interface de utilizador no portal do administrador do Azure Stack para a criação de planos, ofertas, quotas e planos de suplementos. Para obter mais informações, incluindo capturas de ecrã, consulte [criar planos, ofertas e quotas](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Melhoramentos de fiabilidade de expansão de capacidade durante a adicionar o nó ao alternar o estado da unidade de escala de "Armazenamento Expanding" para o estado de execução.
+- Melhoramentos de fiabilidade de expansão de capacidade durante uma operação de adicionar nó ao alternar o estado da unidade de escala de "Armazenamento Expanding" para "Em execução".
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -104,9 +104,6 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
     - Verifique o estado de nós de recursos de infraestrutura do serviço do serviço de consola de recuperação de emergência (ERCS) e repará-los, conforme necessário
     - Verifique o estado de nós de recursos de infraestrutura do serviço XRP e repará-los, conforme necessário
     - Verifique o estado de nós de recursos de infraestrutura do serviço de armazenamento consistente do Azure (ACS) e repará-los, conforme necessário
-
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Melhoramentos de fiabilidade de expansão de capacidade durante a adicionar o nó ao alternar o estado da unidade de escala de "Armazenamento Expanding" para o estado de execução.    
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -259,6 +256,10 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>Syslog 
+- A configuração de syslog não é persistente através de um ciclo de atualização, resultando no cliente do syslog para perder a respetiva configuração e as mensagens syslog para parar a ser reencaminhados. Este problema aplica-se a todas as versões do Azure Stack desde os de disponibilidade geral do cliente de syslog (1809).
+A solução é para reconfigurar o cliente de syslog depois de aplicar uma atualização do Azure Stack.
 
 ## <a name="download-the-update"></a>Transferir a atualização
 

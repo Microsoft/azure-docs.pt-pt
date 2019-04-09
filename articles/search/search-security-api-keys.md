@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/06/2019
 ms.author: heidist
-ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286606"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273418"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir as chaves de api para um serviço Azure Search
 
@@ -53,30 +53,37 @@ Pode obter as chaves de acesso no portal ou através da [API REST da gestão](ht
 
 ## <a name="create-query-keys"></a>Criar chaves de consulta
 
-Chaves de consulta são utilizadas para acesso só de leitura para documentos dentro de um índice. Restringir o acesso e de operações nas aplicações de cliente é essencial para proteger os ativos de pesquisa no seu serviço. Utilize sempre uma chave de consulta, em vez de uma chave de administração para qualquer consulta provenientes de uma aplicação de cliente.
+Chaves de consulta são utilizadas para acesso só de leitura para documentos dentro de um índice para operações de filtragem de uma coleção de documentos. Consultas de pesquisa, filtro e sugestões são todas as operações que recebem uma chave de consulta. Qualquer operação só de leitura que retorna o sistema de definições de dados ou de objeto, por exemplo, um Estado de definição ou o indexador de índice, requer uma chave de administração.
+
+Restringir o acesso e de operações nas aplicações de cliente é essencial para proteger os ativos de pesquisa no seu serviço. Utilize sempre uma chave de consulta, em vez de uma chave de administração para qualquer consulta provenientes de uma aplicação de cliente.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Lista os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para a sua subscrição.
 3. Selecione o serviço e na página Descrição geral, clique em **configurações** >**chaves**.
 4. Clique em **gerir chaves de consulta**.
-5. Utilize a consulta já gerada para o seu serviço ou criar até 50 novas chaves de consulta. A chave de consulta padrão não tem o nome, mas as chaves de consulta adicionais podem ser nomeadas para capacidade de gestão.
+5. Utilize a chave de consulta já gerada para o seu serviço ou criar até 50 novas chaves de consulta. A chave de consulta padrão não tem o nome, mas as chaves de consulta adicionais podem ser nomeadas para capacidade de gestão.
 
    ![Criar ou utilizar uma chave de consulta](media/search-security-overview/create-query-key.png) 
-
 
 > [!Note]
 > Um exemplo de código que mostra a utilização de chave de consulta pode ser encontrado na [consultar um índice da Azure Search no C# ](search-query-dotnet.md).
 
+<a name="regenerate-admin-keys"></a>
+
 ## <a name="regenerate-admin-keys"></a>Regenerar chaves de administração
 
-Duas chaves administrativas são criadas para cada serviço, para que pode girar uma chave primária, com a chave secundária para acesso contínuo.
-
-Se voltar a gerar chaves primárias e secundárias ao mesmo tempo, todas as aplicações com qualquer chave para aceder às operações de serviço já não terá acesso ao serviço.
+Duas chaves administrativas são criadas para cada serviço, para que pode girar uma chave primária, com a chave secundária para continuidade do negócio.
 
 1. Na **configurações** >**chaves** página, copie a chave secundária.
 2. Para todos os aplicativos, Atualize as definições de chave de api para utilizar a chave secundária.
 3. Regenere a chave primária.
 4. Atualize todas as aplicações para utilizar a nova chave primária.
+
+Se regenerar inadvertidamente ambas as chaves ao mesmo tempo, todos os pedidos de cliente com essas chaves irão falhar com HTTP 403 Proibido. No entanto, o conteúdo não é eliminado e não é bloqueadas permanentemente. 
+
+Ainda pode aceder ao serviço através do portal ou a camada de gerenciamento ([REST API](https://docs.microsoft.com/rest/api/searchmanagement/), [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell), ou do Azure Resource Manager). Funções de gerenciamento são operative por meio de um ID de subscrição não um serviço a chave de api e, portanto, ainda está disponível, mesmo que as chaves de api não são. 
+
+Depois de criar chaves novas através do portal ou gestão de camada, o acesso é restaurado para o conteúdo (índices, indexadores, origens de dados, mapas de sinónimos) assim que as novas chaves e fornecer essas chaves nos pedidos.
 
 ## <a name="secure-api-keys"></a>Proteger chaves de api
 Segurança de chave é garantida por meio de restringir o acesso com o portal ou interfaces do Resource Manager (interface de linha de comandos ou PowerShell). Como observado, os administradores da subscrição podem ver e voltar a gerar todas as chaves de api. Como precaução, reveja as atribuições de funções para compreender quem tem acesso a chaves de administração.

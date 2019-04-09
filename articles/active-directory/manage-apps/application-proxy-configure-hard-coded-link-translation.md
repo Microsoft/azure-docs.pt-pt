@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118600"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262555"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -81,6 +81,31 @@ Existem dois tipos comuns de ligações internas em aplicações no local:
 
 - **Ligações internas relativas** que aponte para um recurso compartilhado numa estrutura de arquivos local como `/claims/claims.html`. Esses links funcionam automaticamente nas aplicações que são publicadas através do Proxy de aplicações e continuam a trabalhar com ou sem a conversão de link. 
 - **Links de internos codificado** para outras aplicações no local, como `http://expenses` ou publicado arquivos como `http://expenses/logo.jpg`. A funcionalidade de conversão de link funciona nos links internos de embutidos em código e é alterado para que apontem para os URLs externos que os usuários remotos precisam passar pelo.
+
+A lista completa de etiquetas de código HTML que o Proxy de aplicações suporta a conversão de link para incluir:
+* a
+* Áudio
+* Base
+* Botão
+* div
+* Incorporar
+* formulário
+* quadro
+* HEAD
+* html
+* IFRAME
+* img
+* entrada
+* ligação
+* MenuItem
+* meta
+* objeto
+* Script
+* source
+* Roteiro
+* vídeo
+
+Além disso, dentro do CSS também traduzido do atributo de URL.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Como os aplicativos ligar entre si?
 

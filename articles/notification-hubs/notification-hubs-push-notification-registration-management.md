@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166774"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260464"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -45,12 +45,12 @@ Uma instalação é uma avançada propriedades relacionadas de registo que inclu
 Seguem-se algumas vantagens principais para utilizar as instalações:
 
 - Criar ou atualizar uma instalação totalmente é idempotente. Por isso, pode repetir sem que se preocupar registos duplicados.
-- O modelo de instalação torna mais fácil fazer pushes individuais - direcionamento de dispositivo específico. Uma etiqueta de sistema **"$InstallationId: [installationId]"** é adicionado automaticamente com cada registo de instalação com base. Portanto, pode chamar o envio para esta etiqueta para um dispositivo específico de destino sem ter de fazer qualquer codificação adicionais.
+- O modelo de instalação oferece suporte a um formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação define um ID de instalação do `joe93developer` para este dispositivo específico, um desenvolvedor pode visar este dispositivo ao enviar uma notificação para o `$InstallationId:{joe93developer}` marca. Isto permite-lhe um dispositivo específico de destino sem ter de fazer qualquer codificação adicionais.
 - Utilizar as instalações também lhe permite fazer atualizações parciais de registo. A atualização parcial de uma instalação for pedida com um método PATCH a utilizar o [padrão de JSON-Patch](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não precisa obter o registo completo e, em seguida, reenviar novamente todas as marcas anteriores.
 
 Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa das propriedades de instalação, consulte [criar ou substituir uma instalação com a REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [das propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Cada nome de modelo é mapeado para um corpo de modelo e um conjunto opcional de
 
 Para aplicativos de cliente da Windows Store, enviar notificações para os blocos secundários é igual a enviá-los para o primário. Isso também é suportado em instalações. Blocos secundários têm um ChannelUri diferente, o que o SDK na sua aplicação de cliente processa de forma transparente.
 
-O dicionário SecondaryTiles utiliza o mesmo TileId que é utilizado para criar o objeto de SecondaryTiles em seu aplicativo da Windows Store.
-Tal como acontece com o ChannelUri primário, ChannelUris de blocos secundários pode alterar a qualquer momento. Para manter as instalações no hub de notificações atualizado, o dispositivo deve atualizá-los com o atual ChannelUris dos mosaicos secundários.
+O dicionário SecondaryTiles utiliza o mesmo TileId que é utilizado para criar o objeto de SecondaryTiles em seu aplicativo da Windows Store. Tal como acontece com o ChannelUri primário, ChannelUris de blocos secundários pode alterar a qualquer momento. Para manter as instalações no hub de notificações atualizado, o dispositivo deve atualizá-los com o atual ChannelUris dos mosaicos secundários.
 
 ## <a name="registration-management-from-the-device"></a>Gestão de registo do dispositivo
 

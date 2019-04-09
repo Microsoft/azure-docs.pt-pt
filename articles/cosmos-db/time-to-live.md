@@ -1,22 +1,22 @@
 ---
 title: Expirar dados no Azure Cosmos DB com TTL
 description: Com o valor de TTL, o Microsoft Azure Cosmos DB fornece a capacidade de ter documentos automaticamente removidos do sistema após um período de tempo.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549192"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271276"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>TTL no Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Tempo de duração (TTL) no Azure Cosmos DB 
 
-Com "Time to Live" ou o valor de TTL, o Azure Cosmos DB oferece a capacidade de excluir itens automaticamente a partir de um contentor após um determinado período de tempo. Por predefinição, pode definir a hora em direto ao nível do contentor e substituir o valor numa base por item. Depois de definir o valor de TTL um contentor ou num nível de item, Azure Cosmos DB irá automaticamente remover estes itens após o período de tempo, desde a hora da que última foram modificados. Valor de TTL é configurado em segundos. Quando configura o valor de TTL, o sistema automaticamente irá eliminar os itens expirados com base no valor TTL, ao contrário de uma operação de eliminação explicitamente emitido pela aplicação de cliente.
+Com o **TTL** ou TTL, o Azure Cosmos DB fornece a capacidade de excluir itens automaticamente a partir de um contentor após um determinado período de tempo. Por predefinição, pode definir a hora em direto ao nível do contentor e substituir o valor numa base por item. Depois de definir o valor de TTL um contentor ou num nível de item, Azure Cosmos DB irá automaticamente remover estes itens após o período de tempo, desde a hora da que última foram modificados. Valor de TTL é configurado em segundos. Quando configura o valor de TTL, o sistema automaticamente irá eliminar os itens expirados com base no valor de TTL, sem precisar de uma operação de eliminação explicitamente emitido pela aplicação de cliente.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tempo de duração para contentores e itens
 
@@ -26,9 +26,9 @@ O tempo para o valor de TTL é definido em segundos, e ela é interpretada como 
 
    - Se estiver em falta (ou definida como nula), itens não são automaticamente expirados.
 
-   - Se o momento presente e o valor for definido como "-1", é igual a infinito – itens não expiram por predefinição.
+   - Se o momento presente e o valor for definido como "-1", é igual a infinity e itens não expirarem por predefinição.
 
-   - Se o momento presente e o valor está definido como um número ("n") – itens expirarem "n" segundos após a sua última hora de modificação.
+   - Se o momento presente e o valor está definido como um número *"n"* – itens expirará *"n"* segundos depois de sua última hora de modificação.
 
 2. **TTL de num item** (definido com o `ttl`):
 
@@ -38,7 +38,7 @@ O tempo para o valor de TTL é definido em segundos, e ela é interpretada como 
 
 ## <a name="time-to-live-configurations"></a>Tempo para configurações em direto
 
-* Se o valor de TTL é definido como "n" num contentor, em seguida, os itens nesse contentor irão expirar após n segundos.  Se não existem itens no mesmo contentor que tem seu próprio tempo para live, definido como -1 (que indica que isso não ocorra) ou se alguns itens tenham substituído o tempo de duração definição com um número diferente, estes itens expirarem com base no valor TTL configurado. 
+* Se o valor de TTL é definido como *"n"* num contentor, em seguida, os itens nesse contentor irão expirar após *n* segundos.  Se não existem itens no mesmo contentor que tem seu próprio tempo para live, definido como -1 (que indica que isso não ocorra) ou se alguns itens tenham substituído o tempo de duração definição com um número diferente, estes itens expirarem com base no seu próprio valor TTL configurado. 
 
 * Se o valor de TTL não está definido num contentor, em seguida, o tempo de duração num item neste contentor não tem qualquer efeito. 
 

@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895567"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261547"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -69,7 +69,7 @@ Todas as políticas são impostas em duas fases:
 
 - Na **segundo** fase, lhe for pedido para satisfazer os requisitos que ainda não a cumpriu. Se uma das políticas bloqueia o acesso, são bloqueados e não lhe for pedido para satisfazer outros Controles de política. Se nenhuma das políticas bloquear, lhe for pedido para atender a outros controlos de política na seguinte ordem:
 
-    ![Encomenda](./media/best-practices/06.png)
+    ![Ordenar](./media/best-practices/06.png)
     
     Externo fornecedores MFA e os termos de utilização vêm seguintes.
 
@@ -138,6 +138,7 @@ No seu ambiente, deve evitar as seguintes configurações:
 
 - **Exigir a associação a domínio** – este bloco de política acesso também tem o potencial para bloquear o acesso para todos os utilizadores na sua organização se ainda não tiver um dispositivo associado a um domínio.
 
+- **Exigir a política de proteção de aplicações** – este bloco de política acesso também tem o potencial para bloquear o acesso para todos os utilizadores na sua organização se não tiver uma política do Intune. Se for um administrador sem uma aplicação de cliente que tenha uma política de proteção de aplicações do Intune, esta política bloqueia-o partir voltando para portais como o Intune e do Azure.
 
 **Para todos os utilizadores, todas as aplicações na cloud, todas as plataformas de dispositivos:**
 

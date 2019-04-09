@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0c06283080a4ee51f863714e4c515672299b420d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415277"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275118"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de segurança de rede com o Azure Site Recovery
 

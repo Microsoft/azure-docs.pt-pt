@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cc1d706ac1749c4655f15948f06b2ff1f360dde3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188135"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264170"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>VFTX do Azure para documentos técnicos do Azure e outros recursos 
 
@@ -25,7 +25,7 @@ Este guia fornece orientações passo a passo para instalar o Agisoft PhotoScan 
 
 ## <a name="datasheet-avere-vfxt-for-azure"></a>Folha de dados: Avere vFXT for Azure
 
-**Link:** [Avere vFXT para folha de dados do Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
+**Link:** [Avere vFXT para folha de dados do Azure](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 Este relatório de duas páginas tem informações básicas e diagramas que explicam como utilizar Avere vFXT para o Azure em vários casos de utilização.
 

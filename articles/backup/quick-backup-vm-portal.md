@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535183"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275508"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 As cópias de segurança do Azure podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar cópias de segurança do Azure e de todos os recursos relacionados. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como fazer uma cópia de segurança de uma máquina virtual (VM) com o portal do Azure. 
@@ -79,7 +79,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
 
 3. Selecione **Eliminar Dados da Cópia de Segurança** no menu pendente.
 
-4. Na caixa de diálogo **Escrever o nome do item de Cópia de segurança**, introduza o nome da VM, como, por exemplo, *myVM*. Selecione **Parar Cópia de Segurança**
+4. Na caixa de diálogo **Escrever o nome do item de Cópia de segurança**, introduza o nome da VM, como, por exemplo, *myVM*. Selecione **parar cópia de segurança**.
 
     Depois de a cópia de segurança da VM ter sido parada e os pontos de recuperação removidos, pode eliminar o grupo de recursos. Se utilizou uma VM existente, pode querer deixar o grupo de recursos e a VM no local.
 
@@ -94,4 +94,4 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)(Fazer uma cópia de segurança de várias VMs do Azure)
+> [Fazer cópias de segurança de várias VMs do Azure](./tutorial-backup-vm-at-scale.md)

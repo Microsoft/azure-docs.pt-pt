@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544985"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265003"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Início rápido: Criar uma sala de bate-papo com as funções do Azure e o serviço SignalR com C\#
 
@@ -36,7 +36,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar a aplicação Funções do Azure
 
-1. Inicie o Visual Studio (ou outro editor de código) e abra a solução no *chat\src\csharp* pasta do repositório clonado.
+1. Inicie o Visual Studio (ou outro editor de código) e abra a solução no *bate-papo/src/csharp* pasta do repositório clonado.
 
 1. No browser em que abriu o portal do Azure, certifique-se de que a instância Serviço SignalR implementada anteriormente foi totalmente criada com êxito ao pesquisar o nome na caixa de pesquisa na parte superior do portal. Selecione a instância para abri-la.
 
@@ -76,4 +76,4 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 Neste início rápido, criou e executou uma aplicação sem servidor em tempo real no Visual Studio. Em seguida, saiba mais sobre como desenvolver e implementar as Funções do Azure com o Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Desenvolver as Funções do Azure com o Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Desenvolver as funções do Azure com o Visual Studio](../azure-functions/functions-develop-vs.md)

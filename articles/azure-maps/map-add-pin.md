@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056856"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269491"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicionar uma camada de símbolo para um mapa
 
@@ -76,13 +76,16 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Veja os artigos seguintes para obter mais amostras de código adicionar a seus mapas:
 
 > [!div class="nextstepaction"]
-> [Adicionar um pop-up](./map-add-popup.md)
+> [Adicionar um pop-up](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma forma](./map-add-shape.md)
+> [Utilizar expressões de estilo condicionada por dados](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar uma camada de bolha](./map-add-bubble-layer.md)
+> [Adicionar uma forma](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar os criadores de HTML](./map-add-bubble-layer.md)
+> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar os criadores de HTML](map-add-bubble-layer.md)

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620654"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273401"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço do Azure Search
 Máximo limita-se no armazenamento, cargas de trabalho e as quantidades de índices, documentos, e outros objetos dependem se [aprovisionar o Azure Search](search-create-service-portal.md) na **gratuito**, **básica**,  **Standard**, ou **otimizadas para armazenamento** escalões de preço.
@@ -114,7 +114,7 @@ Operações com muitos recursos, como a análise de imagem na indexação de Blo
 | Indexador de BLOBs: tamanho máximo de blob, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Indexador de BLOBs: número máximo de carateres de conteúdo extraído de um blob |32,000 |64,000 |4 milhões |4 milhões |4 milhões |N/A |4 milhões |4 milhões |
 
-<sup>1</sup> serviços gratuitos têm indexador tempo de execução máximo de 3 minutos para as origens de blob e 1 minuto para todas as outras origens de dados.
+<sup>1</sup> serviços gratuitos têm indexador tempo de execução máximo de 3 minutos para as origens de blob e 1 minuto para todas as outras origens de dados. Para IA indexação que chamadas para os serviços cognitivos, serviços gratuitos estão-limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito através do pipeline de melhoria.
 
 <sup>2</sup> criados após o final de 2017 têm um limite maior de 15 índices, indexadores e origens de dados, de serviços básicos. Os serviços que criou anteriormente têm 5.
 
