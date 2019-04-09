@@ -13,75 +13,70 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092706"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056984"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configurar a Cloud da Atlassian para aprovisionamento automático de utilizadores
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas na Cloud de Atlassian e Azure Active Directory (Azure AD) para configurar o Azure AD para aprovisionar e desaprovisionar utilizadores e/ou grupos para a Cloud da Atlassian automaticamente. 
+O objetivo deste tutorial é demonstrar as etapas a serem executadas na Cloud de Atlassian e Azure Active Directory (Azure AD) para configurar o Azure AD para aprovisionar e desaprovisionar utilizadores e/ou grupos para a Cloud da Atlassian automaticamente.
 
 > [!NOTE]
 > Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
-> 
+>
 > Este conector está atualmente em pré-visualização pública. Para obter mais informações sobre os Microsoft Azure termos de utilização gerais para funcionalidades de pré-visualização, veja [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes pré-requisitos:
 
-*   Um inquilino do Azure AD
-*   [Um inquilino de nuvem da Atlassian](https://www.atlassian.com/licensing/cloud)
-*   Uma conta de utilizador na Cloud da Atlassian com permissões de administrador.
+* Um inquilino do Azure AD
+* [Um inquilino de nuvem da Atlassian](https://www.atlassian.com/licensing/cloud)
+* Uma conta de utilizador na Cloud da Atlassian com permissões de administrador.
 
 > [!NOTE]
 > Conta com o Azure AD, integração de aprovisionamento a **Atlassian Cloud SCIM API**, que está disponível para as equipes de Atlassian Cloud.
 
-## <a name="adding-atlassian-cloud-from-the-gallery"></a>Adicionar Atlassian Cloud a partir da Galeria
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Adicionar Atlassian Cloud a partir da Galeria
+
 Antes de configurar a Cloud da Atlassian para automático de utilizadores de aprovisionamento com o Azure AD, terá de adicionar Atlassian Cloud a partir da Galeria de aplicações do Azure AD à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Atlassian Cloud a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone. 
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** > **todas as aplicações**.
+2. Aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 
-    ![As secção de aplicações empresariais][2]
-    
-3. Para adicionar Atlassian Cloud, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior do painel.
 
-4. Na caixa de pesquisa, escreva **Atlassian Cloud**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/app-search.png)
+4. Na caixa de pesquisa, introduza **Atlassian Cloud**, selecione **Atlassian Cloud** no painel de resultados e, em seguida, clique o **Add** botão para adicionar a aplicação.
 
-5. No painel de resultados, selecione **Atlassian Cloud**e, em seguida, clique nas **Add** botão para adicionar Atlassian Cloud à sua lista de aplicações SaaS.
-
-    ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/app-create.png)
-
-    ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/app-instance.png)
+    ![Atlassian Cloud na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-atlassian-cloud"></a>Atribuir utilizadores a nuvem de Atlassian
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento automático de utilizadores, apenas a utilizadores e/ou grupos que foram "atribuídos" a uma aplicação no Azure AD são sincronizados. 
+O Azure Active Directory utiliza um conceito chamado *atribuições* para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento automático de utilizadores, apenas a utilizadores e/ou grupos que foram atribuídos a uma aplicação no Azure AD são sincronizados.
 
 Antes de configurar e ativar o aprovisionamento de utilizador automático, deve decidir o que os utilizadores e/ou grupos no Azure AD precisam de acesso à nuvem da Atlassian. Depois de decidir, pode atribuir estes utilizadores e/ou grupos para Atlassian Cloud ao seguir as instruções aqui:
 
-*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-atlassian-cloud"></a>Dicas importantes para atribuir utilizadores a nuvem de Atlassian
 
-*   Recomenda-se que um único utilizador do Azure AD é atribuído à nuvem da Atlassian para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador do Azure AD é atribuído à nuvem da Atlassian para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Quando atribuir um utilizador a nuvem de Atlassian, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
+* Quando atribuir um utilizador a nuvem de Atlassian, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-atlassian-cloud"></a>Configurar o aprovisionamento automático de utilizadores para a Cloud de Atlassian 
 
@@ -92,14 +87,16 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores para a nuvem da Atlassian no Azure AD:
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory > aplicações empresariais > todos os aplicativos**.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Atlassian Cloud**.
 
-2. Selecione a nuvem de Atlassian da sua lista de aplicações SaaS.
- 
-    ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/application-instance-search.png)
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **Atlassian Cloud**.
+
+    ![A ligação de nuvem da Atlassian na lista de aplicações](common/all-applications.png)
 
 3. Selecione o **aprovisionamento** separador.
-    
+
     ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/provisioning-tab.png)
 
 4. Definir o **modo de aprovisionamento** ao **automática**.
@@ -108,20 +105,20 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **URL de inquilino** e **segredo de Token** da conta de sua nuvem da Atlassian. Exemplos destes valores são:
 
-   * Na **URL de inquilino** campo, preencha o ponto de extremidade de inquilino específico, receberá da Atlassian, conforme descrito no passo 6. Por exemplo: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * Na **URL de inquilino** campo, preencha o ponto de extremidade de inquilino específico, receberá da Atlassian, conforme descrito no passo 6. Por exemplo: `https://api.atlassian.com/scim/directory/{directoryId}`.
 
    * Na **segredo de Token** campo, preencha o token SECRETO, conforme descrito no passo 6.
 
 6. Navegue para [Gestor de organização da Atlassian](https://admin.atlassian.com) **> aprovisionamento de utilizadores** e clique em **criar um Token**. Copiar o **URL de base do diretório** e **Token de portador** para o **URL de inquilino** e **segredo de Token** campos, respetivamente.
 
     ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Atlassian aprovisionamento de Cloud](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
-    
+
     ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar à Cloud da Atlassian. Se a ligação falhar, certifique-se de que sua conta na Cloud da Atlassian tem permissões de administrador e tente novamente.
 
     ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/test-connection.png)
-    
+
 8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação - **enviar uma notificação por e-mail quando uma falha ocorre**.
 
     ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/notification.png)
@@ -158,7 +155,6 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
     ![Aprovisionamento de Cloud da Atlassian](./media/atlassian-cloud-provisioning-tutorial/save.png)
 
-
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD na Cloud da Atlassian do serviço de aprovisionamento de aprovisionamento.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
@@ -172,7 +168,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904003"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257302"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com o Azure Stack
 
@@ -30,7 +30,7 @@ Para a monitorização externos da infraestrutura do Azure Stack, terá de monit
 - Computadores físicos podem disponibilizar estado de funcionamento e informações de alerta por controladores de gestão da placa base (BMCs).
 - Dispositivos de rede físicos podem disponibilizar informações de alerta e de estado de funcionamento através do protocolo SNMP.
 
-Cada solução do Azure Stack é fornecido com um host de ciclo de vida do hardware. Este anfitrião é executado o software de monitorização do fornecedor de hardware de fabricante de equipamento Original (OEM) para os servidores físicos e os dispositivos de rede. Se assim o desejar, pode ignorar estas soluções de monitorização e integrar diretamente com soluções de monitorização existentes no seu datacenter.
+Cada solução do Azure Stack é fornecido com um host de ciclo de vida do hardware. Este anfitrião é executado o software de monitorização do fornecedor de hardware de fabricante de equipamento Original (OEM) para os servidores físicos e os dispositivos de rede. Verifique junto do seu fornecedor de OEM se suas soluções de monitorização podem integrar com soluções de monitorização existentes no seu datacenter.
 
 > [!IMPORTANT]
 > A solução de monitorização externa que utilizar tem de ser sem agente. Não é possível instalar agentes de terceiros dentro de componentes do Azure Stack.
@@ -40,7 +40,7 @@ O diagrama seguinte mostra o fluxo de tráfego entre um sistema integrado do Azu
 ![Diagrama que mostra o tráfego entre o Azure Stack, monitoramento e solução de emissão de permissões.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> Integração de monitorização externos diretamente com servidores físicos e dispositivos de rede não é permitida e ativamente bloqueada por listas de controlo de acesso (ACL). 
+> Integração de monitorização externos diretamente com servidores físicos não é permitida e ativamente bloqueada por listas de controlo de acesso (ACL).  É suportada a integração de monitorização externos diretamente com dispositivos de rede física, entre em contacto com seu fornecedor de OEM sobre como ativar esta funcionalidade.
 
 Este artigo explica como integrar o Azure Stack com soluções de monitorização externas, como o System Center Operations Manager e Nagios. Ele também inclui como trabalhar com alertas por meio de programação com o PowerShell ou por meio de chamadas de REST API.
 

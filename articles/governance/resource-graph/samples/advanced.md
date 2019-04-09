@@ -1,7 +1,6 @@
 ---
 title: Exemplos de consultas avançado
 description: Utilize o gráfico de recursos do Azure para executar algumas consultas avançadas, incluindo a capacidade VMSS, todas as etiquetas utilizadas, a listagem e máquinas de virtuais correspondentes com expressões regulares.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842622"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256826"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -23,9 +22,9 @@ O primeiro passo para compreender as consultas com Azure Resource Graph é obter
 Vamos examinar as seguintes consultas avançadas:
 
 > [!div class="checklist"]
-> - [Obter o tamanho e a capacidade do VMSS](#vmss-capacity)
-> - [Listar todos os nomes de etiquetas](#list-all-tags)
-> - [Máquinas virtuais correspondidas por regex](#vm-regex)
+> - [Obtenha capacidade VMSS e tamanho](#vmss-capacity)
+> - [Listar todos os nomes de etiqueta](#list-all-tags)
+> - [Máquinas virtuais correspondidas ao regex](#vm-regex)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -76,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_).
 O **coincide com regex \@**  permite definir o regex para fazer corresponder, que é `^Contoso(.*)[0-9]+$`. Essa definição de regex é explicada como:
 
-- `^` – A correspondência tem de começar no início da cadeia de caracteres.
-- `Contoso` - a cadeia sensível às maiúsculas e minúsculas.
-- `(.*)` -uma correspondência de subexpressões:
-  - `.` – Corresponde a qualquer caracter único (exceto uma nova linha).
-  - `*` – Corresponde ao elemento anterior zero ou mais vezes.
-- `[0-9]` – O grupo de caracteres corresponde aos números 0 a 9.
-- `+` – Corresponde ao elemento anterior uma ou mais vezes.
-- `$` – A correspondência do elemento anterior deve ocorrer no final da cadeia de caracteres.
+- `^` -Match tem de começar no início da cadeia de caracteres.
+- `Contoso` -A cadeia de maiúsculas e minúsculas.
+- `(.*)` -Uma correspondência de subexpressão:
+  - `.` -Corresponde a qualquer caractere único (exceto uma nova linha).
+  - `*` -Elemento anterior corresponde a zero ou mais vezes.
+- `[0-9]` -Correspondência de grupo caráter para números de 0 a 9.
+- `+` -Elemento anterior corresponde a uma ou mais vezes.
+- `$` -Correspondência do elemento anterior deve ocorrer no final da cadeia de caracteres.
 
 Depois da correspondência por nome, a consulta projeta o nome e ordena por nome em ordem crescente.
 

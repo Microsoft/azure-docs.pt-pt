@@ -27,8 +27,6 @@ items:
   items:
   - name: Compreender as definições de função
     href: role-definitions.md
-  - name: Compreender as atribuições de negação
-    href: deny-assignments.md
   - name: PIM para os recursos do Azure
     href: pim-azure-resource.md
   - name: Acesso condicional para a gestão do Azure
@@ -49,13 +47,16 @@ items:
       href: role-assignments-template.md
   - name: Negar o acesso
     items:
+    - name: Atribuições de negação
+      href: deny-assignments.md
     - name: Portal
       href: deny-assignments-portal.md
     - name: API REST
       href: deny-assignments-rest.md
   - name: Funções personalizadas
-    href: custom-roles.md
     items:
+    - name: Descrição geral
+      href: custom-roles.md
     - name: PowerShell
       href: custom-roles-powershell.md
     - name: CLI do Azure
@@ -96,9 +97,9 @@ items:
   items:
   - name: Desenvolva as suas competências com o Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 30bd7deb2a0845288999a09912e48700d3182b9b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408770"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007010"

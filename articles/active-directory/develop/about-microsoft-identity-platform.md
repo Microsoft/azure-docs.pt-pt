@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3fcbda160d84e41fd2244a4d58766ae3991e52
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197662"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258696"
 ---
 # <a name="about-microsoft-identity-platform"></a>Acerca da plataforma de identidade da Microsoft
 
@@ -38,7 +38,7 @@ As aplicações que utilizam a ADAL mais recente e a MSAL mais recente terão SS
 
 O diagrama seguinte mostra a experiência de identidade da Microsoft a um nível elevado, incluindo a experiência de registo de aplicações, SDKs, pontos finais e identidades suportadas.
 
-![A plataforma de identidade da Microsoft hoje](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
+![A plataforma de identidade da Microsoft hoje](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
 A plataforma de identidade da Microsoft tem dois pontos finais (v1.0 e v2.0) e dois conjuntos de bibliotecas de cliente para processar estes pontos finais. Ao desenvolver uma nova aplicação, considere as vantagens e o estado atual dos pontos finais e das bibliotecas de autenticação. Além disso, considere o seguinte:
 
@@ -62,5 +62,5 @@ A plataforma de identidade da Microsoft tem dois pontos finais (v1.0 e v2.0) e d
 
 Saiba mais sobre v1.0 e v2.0.
 
-* [Acerca do v1.0](v1-overview.md)
-* [Acerca do v2.0](v2-overview.md)
+* [Sobre v1.0](v1-overview.md)
+* [Sobre o v2.0](v2-overview.md)

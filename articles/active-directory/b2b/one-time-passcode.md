@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294830"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257336"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294830"
 | Código de acesso único e-mail é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-A funcionalidade de código de acesso único E-Mail autentica utilizadores convidados B2B, quando não pode ser autenticadas através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou o Federação de Google. Com a autenticação de código de acesso único, não é necessário para criar uma conta Microsoft. Quando o utilizador convidado redeems um convite ou acede a um recurso partilhado, eles poderão solicitar um código temporário, que é enviado para o respetivo endereço de e-mail. Em seguida, eles introduza este código para continuar a iniciar sessão.
+Este artigo descreve como ativar a autenticação de código de acesso único de E-Mail para utilizadores convidados B2B. A funcionalidade de código de acesso único E-Mail autentica utilizadores convidados B2B, quando não pode ser autenticadas através de outros meios, como o Azure AD, uma conta Microsoft (MSA) ou o Federação de Google. Com a autenticação de código de acesso único, não é necessário para criar uma conta Microsoft. Quando o utilizador convidado redeems um convite ou acede a um recurso partilhado, eles poderão solicitar um código temporário, que é enviado para o respetivo endereço de e-mail. Em seguida, eles introduza este código para continuar a iniciar sessão.
 
 Esta funcionalidade está atualmente disponível para pré-visualização (consulte [aceitar para a pré-visualização](#opting-in-to-the-preview) abaixo). Depois de pré-visualização, esta funcionalidade será ativada por predefinição para todos os inquilinos.
 

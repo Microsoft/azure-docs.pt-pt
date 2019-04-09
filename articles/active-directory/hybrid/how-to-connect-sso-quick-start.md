@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894770"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256894"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
@@ -93,7 +93,7 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 ![Portal do Azure: Painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` em seus locais do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada. Store a conta de computador numa unidade organizacional (UO) onde estão seguros de eliminações acidentais.
+> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` em seus locais do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada. Store a conta de computador numa unidade organizacional (UO) onde eles estejam protegidos contra eliminações acidentais e, em que apenas os administradores de domínio têm acesso.
 
 >[!NOTE]
 > Se estiver a utilizar as arquiteturas de Pass-the-Hash e atenuação de roubo de credenciais no seu ambiente no local, efetue as alterações necessárias para garantir que o `AZUREADSSOACC` conta de computador não acaba no contentor de quarentena. 

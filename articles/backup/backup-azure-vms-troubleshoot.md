@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: e5e84c22285d1cdec9678c8bf33dab1568d333cd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: b8d1152856935c239a59eb9133aaf48d26a5a8b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621588"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259954"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -27,13 +27,13 @@ Pode resolver erros encontrados ao utilizando o Azure Backup com as informaçõe
 | Cópia de segurança não é possível efetuar a operação, como o agente da VM não é reativo. |Este erro acontece se ocorrer um problema com o agente da VM ou o acesso de rede para a infraestrutura do Azure é bloqueado de alguma forma. Para VMs do Windows, verifique o estado do serviço de agente da VM nos serviços e se o agente é apresentado em programas no painel de controlo. <br><br>Tente remover o programa de painel de controle e reinstalar o agente, conforme descrito em [agente da VM](#vm-agent). Depois de reinstalar o agente, acione uma cópia de segurança ad hoc para o confirmar. |
 | A operação de extensão de serviços de recuperação falhou: <br>Certifique-se de que o agente de VM mais recente está presente na máquina virtual e o serviço de agente da VM está em execução. Repita a operação de cópia de segurança. Se a operação de cópia de segurança falhar, contacte o Support da Microsoft. |Este erro ocorre quando o agente da VM está desatualizado. Consulte a cópia de segurança de máquina virtual de resolução de problemas do Azure para atualizar o agente da VM. |
 | A máquina virtual não existe: <br>Certifique-se que a máquina virtual existe ou selecione uma máquina virtual diferente. |Este erro ocorre quando a VM principal é eliminada, mas a política de cópia de segurança ainda procura de uma VM para criar cópias de segurança. Para corrigir este erro, siga os passos seguintes: <ol><li> Voltar a criar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço cloud**,<br>**ou**<br></li><li>Pare a proteção da máquina virtual sem eliminar os dados de cópia de segurança. Para obter mais informações, consulte [parar a proteção de máquinas virtuais](https://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| O comando de execução falhou: <br>Outra operação está atualmente em curso neste item. Aguarde até que seja concluída a operação anterior. Em seguida, repita a operação. |Está a executar uma tarefa de cópia de segurança existente e uma nova tarefa não é possível iniciar até que seja concluída a tarefa atual. |
+| Falha ao executar o comando: <br>Outra operação está atualmente em curso neste item. Aguarde até que seja concluída a operação anterior. Em seguida, repita a operação. |Está a executar uma tarefa de cópia de segurança existente e uma nova tarefa não é possível iniciar até que seja concluída a tarefa atual. |
 | Copiar VHDs a partir do Cofre de serviços de recuperação excedido o limite: <br>Repita a operação dentro de alguns minutos. Se o problema persistir, contacte o Suporte da Microsoft. | Este erro ocorre se existir um erro transitório no lado do armazenamento, ou se o serviço de cópia de segurança não receber a conta de armazenamento suficiente IOPS para transferir dados para o cofre, dentro do período de tempo limite. Certifique-se seguir a [melhores práticas quando configurar as suas VMs](backup-azure-vms-introduction.md#best-practices). Mover a sua VM para outra conta de armazenamento que não é carregada e repita a tarefa de cópia de segurança.|
-| Cópia de segurança falhou com um erro interno: <br>Repita a operação dentro de alguns minutos. Se o problema persistir, contacte o Suporte da Microsoft. |Obter este erro por dois motivos: <ul><li> Existe um problema transitório ao aceder ao armazenamento de VM. Verifique os [site do Estado do Azure](https://azure.microsoft.com/status/) para ver se existem computação, armazenamento ou problemas de rede na região. Depois de resolvido o problema, repita a tarefa de cópia de segurança. <li> A VM original foi eliminada e não é possível efetuar o ponto de recuperação. Para manter os dados de cópia de segurança para uma VM eliminada, mas remova os erros de cópia de segurança, desproteger a VM e escolha a opção para reter os dados. Esta ação para a tarefa de cópia de segurança agendada e as mensagens de erro recorrentes. |
-| Cópia de segurança falha ao instalar a extensão de serviços de recuperação do Azure no item selecionado: <br>O agente da VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente da Máquina Virtual do Azure e reinicie a operação de registo. |<ol> <li>Verifique se o agente da VM está instalado corretamente. <li>Certifique-se de que o sinalizador sobre a configuração VM está definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente de VM. |
+| Criar cópias de segurança falhou com um erro interno: <br>Repita a operação dentro de alguns minutos. Se o problema persistir, contacte o Suporte da Microsoft. |Obter este erro por dois motivos: <ul><li> Existe um problema transitório ao aceder ao armazenamento de VM. Verifique os [site do Estado do Azure](https://azure.microsoft.com/status/) para ver se existem computação, armazenamento ou problemas de rede na região. Depois de resolvido o problema, repita a tarefa de cópia de segurança. <li> A VM original foi eliminada e não é possível efetuar o ponto de recuperação. Para manter os dados de cópia de segurança para uma VM eliminada, mas remova os erros de cópia de segurança, desproteger a VM e escolha a opção para reter os dados. Esta ação para a tarefa de cópia de segurança agendada e as mensagens de erro recorrentes. |
+| Criar cópias de segurança falha ao instalar a extensão de serviços de recuperação do Azure no item selecionado: <br>O agente da VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente da Máquina Virtual do Azure e reinicie a operação de registo. |<ol> <li>Verifique se o agente da VM está instalado corretamente. <li>Certifique-se de que o sinalizador sobre a configuração VM está definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente de VM. |
 | A instalação da extensão falhou com o erro **COM+ não conseguiu comunicar com o coordenador de transações distribuídas da Microsoft**. |Este erro normalmente, isto significa que o serviço COM+ não está em execução. Entre em contato com Support da Microsoft para obter ajuda com a corrigir este problema. |
 | A operação de instantâneo falhou com o erro de operação do serviço de cópia de sombra de volumes (VSS) **esta unidade está bloqueada pela criptografia de unidade de disco BitLocker. Tem de desbloquear esta unidade do painel de controlo.** |Desativa o BitLocker para todas as unidades na VM e verifique se o problema VSS foi resolvido. |
-| A VM não estiver num Estado que permita cópias de segurança. |<ul><li>Se a VM está num estado transitório entre **em execução** e **Encerrar**, aguarde que a alteração do Estado. Em seguida, acione a tarefa de cópia de segurança. <li> Se a VM é uma VM do Linux e utiliza o módulo de kernel de Security-Enhanced Linux, excluir o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se a extensão de cópia de segurança é instalada.  |
+| A VM não estiver num Estado que permita cópias de segurança. |<ul><li>Se a VM está num estado transitório entre **em execução** e **Encerrar**, aguarde que a alteração do Estado. Em seguida, acione a tarefa de cópia de segurança. <li> Se a VM é uma VM do Linux e utiliza o módulo de kernel de Security-Enhanced Linux, excluir o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se a extensão de cópia de segurança do Azure está instalada.  |
 | Não foi encontrada uma máquina virtual do Azure. |Este erro ocorre quando a VM principal é eliminada, mas a política de cópia de segurança ainda procura-se a VM eliminada. Corrigi este erro da seguinte forma: <ol><li>Voltar a criar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço cloud**, <br>**ou** <li> Desative a proteção para esta VM, para que as tarefas de cópia de segurança não serão criadas. </ol> |
 | O agente da VM não estiver presente na máquina virtual: <br>Instale quaisquer pré-requisitos e o agente da VM. Em seguida, reinicie a operação. |Leia mais sobre [instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent). |
 | A operação de instantâneo falhou porque foram de escritores VSS num Estado incorreto. |Reinicie os escritores VSS que estão num Estado incorreto. A partir da linha de comandos elevada, execute ```vssadmin list writers```. A saída contém todos os escritores VSS e o respetivo estado. Para cada escritor VSS com um Estado que não seja **[1] estável**para reiniciar o escritor VSS, execute os seguintes comandos numa linha de comandos elevada: <ol><li>```net stop serviceName``` <li> ```net start serviceName```</ol>|
@@ -124,8 +124,30 @@ Cópia de segurança VM depende de emissão de comandos de instantâneo para o a
 - **Se o compartilhamento de mais de quatro VMs o mesmo serviço cloud, distribuir as VMs por várias políticas de cópia de segurança**. Escalonar as horas cópia de segurança, por isso, não existem que cópias de segurança VM mais de quatro iniciar ao mesmo tempo. Tente separar as horas de início nas políticas por, pelo menos, uma hora.
 - **A VM é executada às elevada da CPU ou memória**. Se a máquina virtual for executada na memória elevada ou a utilização da CPU, com mais de 90 por cento, a tarefa de instantâneo é colocado em fila e atrasada. Eventualmente, atingir o tempo limite. Se este problema acontecer, experimente uma cópia de segurança a pedido.
 
+## <a name="troubleshoot-backup-of-encrypted-vms"></a>Resolver problemas de cópia de segurança de VMs encriptadas
+
+### <a name="azure-backup-doesnt-have-permissions-for-key-vault-access"></a>Cópia de segurança do Azure não tem permissões de acesso do Cofre de chaves
+- **Código de erro**: UserErrorKeyVaultPermissionsNotConfigured
+- **Mensagem de erro**: O serviço de cópia de segurança do Azure não tem permissões suficientes para o Key Vault para cópia de segurança das máquinas virtuais encriptadas.
+- **Resolução**: Atribuir permissões de cópia de segurança do Azure para o Cofre de chaves no [portal](backup-azure-vms-encryption.md#provide-permissions), ou com [PowerShell](backup-azure-vms-automation.md#enable-protection)
+
+### <a name="the-vm-cant-be-restored-because-the-associated-key-vault-doesnt-exist"></a>Não é possível restaurar a VM, porque não existe o Cofre de chaves associado
+- **Resolução**: Certifique-se de que [criou um Key Vault](../key-vault/quick-create-portal.md#create-a-vault).
+- **Resolução**: Siga [estas instruções](backup-azure-restore-key-secret.md) para restaurar uma chave e segredo, mesmo que não existam no Cofre de chaves.
+
+### <a name="the-vm-cant-be-restored-because-the-associated-key-doesnt-exist"></a>Não é possível restaurar a VM, porque a chave associada não existe
+- **Código de erro**: UserErrorKeyVaultKeyDoesNotExist
+- **Mensagem de erro**: Não é possível restaurar esta VM encriptada, uma vez que a chave associada esta VM não existe.
+- **Resolução**: Siga [estas instruções](backup-azure-restore-key-secret.md) para restaurar uma chave e segredo, mesmo que não existam no Cofre de chaves.
+
+### <a name="the-vm-cant-be-restored-because-azure-backup-doesnt-have-authorization"></a>Não é possível restaurar a VM, porque a cópia de segurança do Azure não tem autorização
+- **Código de erro**: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed
+- **Mensagem de erro**: O Serviço de Cópia de Segurança não tem autorização para aceder a recursos na sua subscrição.
+- **Resolução**: Restaure discos conforme recomendado. [Saiba mais](backup-azure-vms-encryption.md#restore-an-encrypted-vm). 
+
+
 ## <a name="networking"></a>Redes
-Como todas as extensões, extensões de cópia de segurança precisam de acesso à internet pública para trabalhar. Sem acesso à Internet pública pode se manifestar de várias formas:
+Como todas as extensões, a extensão de cópia de segurança do Azure precisa de acesso à internet pública para trabalhar. Sem acesso à Internet pública pode se manifestar de várias formas:
 
 * A instalação da extensão pode falhar.
 * Operações de cópia de segurança, como o instantâneo do disco podem falhar.

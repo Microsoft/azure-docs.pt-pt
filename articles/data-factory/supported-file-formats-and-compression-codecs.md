@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875143"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257914"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -43,9 +43,9 @@ Se quiser ler um arquivo de texto ou escrever num ficheiro de texto, defina o `t
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
 | nullValue |Um ou mais carateres utilizados para representar um valor nulo. |Um ou mais carateres. Os valores **predefinidos** são **"\N" e "NULL"** na leitura e **"\N"** na escrita. |Não |
 | encodingName |Especifique o nome de codificação. |Um nome de codificação válido. Veja [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exemplo: windows-1250 ou shift_jis. O valor **predefinido** é **UTF-8**. |Não |
-| firstRowAsHeader |Especifica se a primeira linha é considerada um cabeçalho. Num conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Num conjunto de dados de saída, o Data Factory escreve a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para utilizar `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) em cenários de exemplo. |Verdadeiro<br/><b>Falso (predefinição)</b> |Não |
+| firstRowAsHeader |Especifica se a primeira linha é considerada um cabeçalho. Num conjunto de dados de entrada, o Data Factory lê a primeira linha como cabeçalho. Num conjunto de dados de saída, o Data Factory escreve a primeira linha como cabeçalho. <br/><br/>Veja [Cenários para utilizar `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) em cenários de exemplo. |Verdadeiro<br/><b>FALSE (predefinição)</b> |Não |
 | skipLineCount |Indica o número de **nula** linhas a ignorar durante a leitura de dados de ficheiros de entrada. Se as propriedades skipLineCount e firstRowAsHeader forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada. <br/><br/>Veja [Cenários para utilizar `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) em cenários de exemplo. |Número inteiro |Não |
-| treatEmptyAsNull |Especifica se as cadeias nulas ou vazias são tratadas como valor nulo durante a leitura de dados a partir de um ficheiro de entrada. |**Verdadeiro (predefinição)**<br/>Falso |Não |
+| treatEmptyAsNull |Especifica se as cadeias nulas ou vazias são tratadas como valor nulo durante a leitura de dados a partir de um ficheiro de entrada. |**TRUE (predefinição)**<br/>Falso |Não |
 
 ### <a name="textformat-example"></a>Exemplo de TextFormat
 
@@ -96,15 +96,18 @@ Se quiser analisar os ficheiros JSON ou escrever os dados no formato JSON, defin
 | encodingName |Especifique o nome de codificação. Para obter a lista de nomes de codificação válidos, consulte: [Encodingname](https://msdn.microsoft.com/library/system.text.encoding.aspx) propriedade. Exemplo: windows-1250 ou shift_jis. O **predefinição** valor é: **UTF-8**. |Não |
 | nestingSeparator |Caráter utilizado para separar níveis de aninhamento. O valor predefinido é “.” (ponto). |Não |
 
+>[!NOTE]
+>Para o caso de aplicar transversalmente de dados na matriz em múltiplas linhas (caso 1 -> exemplo 2 na [exemplos de JsonFormat](#jsonformat-example)), apenas pode optar por expandir única matriz usando a propriedade `jsonNodeReference`. 
+
 ### <a name="json-file-patterns"></a>Padrões de ficheiro JSON
 
 Atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
 
-- **Tipo I: setOfObjects**
+- **Type I: setOfObjects**
 
     Cada ficheiro contém um único objeto ou múltiplos objetos delimitados por linha/concatenados. Quando esta opção está selecionada num conjunto de dados de saída, a atividade de cópia produz um único ficheiro JSON com cada objeto por linha (delimitados por linha).
 
-    * **Exemplo de JSON de objeto único**
+    * **exemplo de JSON de objeto único**
 
         ```json
         {
@@ -117,7 +120,7 @@ Atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
         }
         ```
 
-    * **Exemplo de JSON delimitado por linha**
+    * **exemplo de JSON delimitado por linha**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -125,7 +128,7 @@ Atividade de cópia pode analisar os seguintes padrões de ficheiros JSON:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **Exemplo de JSON concatenado**
+    * **exemplo de JSON concatenado**
 
         ```json
         {
@@ -227,8 +230,8 @@ e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante 
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, pode usar `array[x].property` para extrair o valor da propriedade específica do `xth` objeto ou pode usar `array[*].property` para encontrar o valor a partir de qualquer objeto que contenha essa propriedade.
+- `structure` secção define os nomes de coluna personalizado e o tipo de dados correspondente enquanto converte dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
+- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados de matriz, pode usar `array[x].property` para extrair o valor da propriedade específica do `xth` objeto ou pode usar `array[*].property` para encontrar o valor a partir de qualquer objeto que contenha essa propriedade.
 
 ```json
 "properties": {
@@ -302,9 +305,9 @@ e quiser copiá-lo para uma tabela SQL do Azure no seguinte formato, ao simplifi
 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
-- A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
+- `structure` secção define os nomes de coluna personalizado e o tipo de dados correspondente enquanto converte dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Para obter mais informações, consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](copy-activity-schema-and-type-mapping.md).
 - `jsonNodeReference` Indica a iteração e extrair dados de objetos com o mesmo padrão em **matriz** `orderlines`.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate`, e `city` são no objeto de raiz com JSON caminho começado por `$.`, enquanto `order_pd` e `order_price` são definidas com o caminho derivado do elemento de matriz sem `$.` .
+- `jsonPathDefinition` Especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Neste exemplo, `ordernumber`, `orderdate`, e `city` são no objeto de raiz com JSON caminho começado por `$.`, enquanto `order_pd` e `order_price` são definidas com o caminho derivado do elemento de matriz sem `$.` .
 
 ```json
 "properties": {
@@ -458,7 +461,7 @@ Exemplo: Definir variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O sin
 | ByteArray | Binário | N/A | N/A |
 | GUID | Binário | Utf8 | Utf8 |
 | char | Binário | Utf8 | Utf8 |
-| CharArray | Não suportado | N/A | N/A |
+| CharArray | Não suportado | N/A | N/D |
 
 ## <a name="orc-format"></a>Formato ORC
 
@@ -590,7 +593,7 @@ Veja os artigos seguintes para arquivos de dados de ficheiros suportados pelo Az
 - [Conector do Azure Data Lake Store](connector-azure-data-lake-store.md)
 - [Conector do Amazon S3](connector-amazon-simple-storage-service.md)
 - [Conector do sistema de ficheiros](connector-file-system.md)
-- [Conector FTP](connector-ftp.md)
+- [Conector de FTP](connector-ftp.md)
 - [Conector do SFTP](connector-sftp.md)
 - [Conector do HDFS](connector-hdfs.md)
 - [Conector HTTP](connector-http.md)

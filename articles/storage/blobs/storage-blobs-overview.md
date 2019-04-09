@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/19/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fd0bfac873d77e02c16fca78a85706afc18265f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 35a428c2ae706d7838778c7590e5378ab5df40f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241581"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258407"
 ---
 # <a name="what-is-azure-blob-storage"></a>O que é o armazenamento de Blobs do Azure? 
 
@@ -21,5 +21,5 @@ ms.locfileid: "55241581"
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Introdução ao armazenamento de Blobs do Azure](storage-blobs-introduction.md)
-- [Introdução à pré-visualização do Azure Data Lake Storage geração 2](../blobs/data-lake-storage-introduction.md)
+- [Introdução ao Armazenamento de blobs do Azure](storage-blobs-introduction.md)
+- [Introdução ao Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
