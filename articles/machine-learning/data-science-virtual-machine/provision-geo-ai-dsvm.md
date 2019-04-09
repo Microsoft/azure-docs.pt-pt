@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858150"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008843"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de Inteligência Artificial Georreplicação no Azure 
 
@@ -87,7 +87,7 @@ Caso contrário, pode inscrever-se para a nova conta do ArcGIS e licença ou obt
 
 ![O ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Depois de inscrição para um um paga ou de uma conta gratuita ArcGIS, pode autorizar ArcGIS Pro para a sua conta, seguindo as instruções no [introdução à documentação de profissionais de ArcGIS](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Após a inscrição de qualquer um pagos ou gratuitos ArcGIS conta de avaliação, pode autorizar ArcGIS Pro para a sua conta, seguindo as instruções em [introdução ao ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Depois de iniciar sessão com a sua conta do ArcGIS ambiente de trabalho do ArcGIS Pro, está pronto para começar a utilizar as ferramentas de ciência de dados que são instaladas e configuradas na VM para a sua análise Geoespacial e projetos de aprendizagem automática.
 

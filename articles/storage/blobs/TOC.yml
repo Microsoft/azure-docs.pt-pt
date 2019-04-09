@@ -128,6 +128,8 @@ items:
         href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Requer transferência segura
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Atributos de segurança comuns do Azure
+        href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Redundância de dados
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -639,9 +641,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 07631af7efdd8eafb6095145bed877e68e1f7cbe
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 8335f62d739f75a8ca7cf455f9e29660074adf1c
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849824"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005888"

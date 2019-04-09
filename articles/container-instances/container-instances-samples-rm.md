@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57728963"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006473"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager do Azure Container Instances
 
@@ -25,7 +25,7 @@ Para opções de implementação, consulte a [implementação](#deployment) sec�
 | | |
 |-|-|
 | **Aplicações** ||
-| [Wordpress][app-wp] | Cria um Web site WordPress e a respetiva base de dados MySQL numa instância de contentor. O conteúdo de site do WordPress e a base de dados MySQL persistem para um serviço ficheiros do Azure partilhar. |
+| [WordPress][app-wp] | Cria um Web site WordPress e a respetiva base de dados MySQL num grupo de contentor. O conteúdo de site do WordPress e a base de dados MySQL persistem para um serviço ficheiros do Azure partilhar. Também cria um gateway de aplicação para expor o acesso à rede pública para o WordPress. |
 | [Barra de navegação do MS SQL Server e do IIS][app-nav] | Implementa um único contentor do Windows com um Dynamics NAV com todas as funcionalidades autossuficiente / ambiente do Dynamics 365 Business Central. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implementa dois contentores de Linux que compartilham um volume de emptyDir. |

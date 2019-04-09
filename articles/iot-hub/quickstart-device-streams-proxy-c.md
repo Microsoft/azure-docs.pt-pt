@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 539357c9dcfaaffa551b4be08427a51d9e92475f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 78aa8653385a126cf40e851332d50eac4c293390
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484774"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006000"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Início rápido: SSH/RDP sobre fluxos de dispositivo do IoT Hub com C do proxy de aplicações (pré-visualização)
 
@@ -28,6 +28,7 @@ Atualmente, o IoT Hub do Microsoft Azure suporta fluxos de dispositivo como uma 
 Este documento descreve a configuração de túnel tráfego SSH (utilizar a porta 22) através de fluxos de dispositivo. A configuração para o tráfego RDP é semelhante e requer uma alteração de configuração simples. Uma vez que os fluxos de dispositivo são o aplicativo e independente de protocolo, o guia de introdução presente pode ser modificado (ao alterar as portas de comunicação) para acomodar outros tipos de tráfego de aplicativo.
 
 ## <a name="how-it-works"></a>Como funciona?
+
 A figura abaixo ilustra a configuração de como os programas de proxy local do dispositivo e do serviço irão ativar a conectividade de ponto a ponto entre o cliente SSH e processos de daemon SSH. Durante a pré-visualização pública, o SDK de C só suporta fluxos de dispositivo do lado do dispositivo. Como resultado, este início rápido abrange apenas as instruções para executar a aplicação de proxy do dispositivo local. Deve executar uma aplicação de proxy de serviço local que acompanha este artigo que está disponível no [ C# início rápido](./quickstart-device-streams-proxy-csharp.md) ou [guia de introdução do node. js](./quickstart-device-streams-proxy-nodejs.md) guias.
 
 ![Texto alternativo](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "configuração de Local proxy")
@@ -51,11 +52,16 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * A pré-visualização de fluxos de dispositivo é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
 
-  * **E.U.A. central**
-  * **E.U.A. central EUAP**
+  * **EUA Central**
+  * **E.U.A. Central EUAP**
 
 * Instale o [Visual Studio 2017](https://www.visualstudio.com/vs/) com a carga de trabalho [“Desenvolvimento do ambiente de trabalho em C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ativada.
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
+* Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -126,18 +132,17 @@ Neste início rápido, vai utilizar o [Azure IoT device SDK para C](iot-hub-devi
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Nesta secção, vai utilizar o Azure Cloud Shell com a [extensão de IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) para registar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
+1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
 
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
    **MyDevice**: Este é o nome fornecido para o dispositivo registado. Utilize MyDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
+2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 

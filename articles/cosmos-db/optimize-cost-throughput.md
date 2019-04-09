@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877831"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009772"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Seguem-se algumas diretrizes para decidir qual uma estratégia de débito aprovi
 
 1. Tem alguns contentores do Azure Cosmos doze e pretende partilhar a taxa de transferência entre alguns ou todos eles. 
 
-2. Está a migrar de uma base de dados de inquilino único, concebido para ser executado em VMs de IaaS alojado ou no local, por exemplo, NoSQL ou bases de dados relacionais para o Azure Cosmos DB. Anf se tiver muitas coleções/tabelas/gráficos e não quero fazer quaisquer alterações ao seu modelo de dados. Tenha em atenção de que poderá ter de comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB, se não estiver a atualizar o modelo de dados ao migrar de uma base de dados no local. Recomenda-se que sempre acessar novamente o modelo de dados para tirar o máximo em termos de desempenho e também para otimizar os custos. 
+2. Está a migrar de uma base de dados de inquilino único, concebido para ser executado em VMs de IaaS alojado ou no local, por exemplo, NoSQL ou bases de dados relacionais para o Azure Cosmos DB. E se tem muitas coleções/tabelas/gráficos e não quero fazer quaisquer alterações ao seu modelo de dados. Tenha em atenção de que poderá ter de comprometer alguns dos benefícios oferecidos pelo Azure Cosmos DB, se não estiver a atualizar o modelo de dados ao migrar de uma base de dados no local. Recomenda-se que sempre acessar novamente o modelo de dados para tirar o máximo em termos de desempenho e também para otimizar os custos. 
 
 3. Quer absorver picos não planeados de cargas de trabalho devido à taxa de transferência agrupada ao nível da base de dados sujeito a pico inesperado na carga de trabalho. 
 

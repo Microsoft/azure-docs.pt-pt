@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521097"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058769"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -133,6 +133,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Migração de base de dados do Azure
 * Azure Databricks
 * Azure Firewall
+* Serviço de Kubernetes do Azure (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
@@ -143,7 +144,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Espaços de desenvolvimento
 * Dynamics LCS
 * ExpressRoute
-* Serviço Kubernetes
 * Serviços de laboratório - laboratórios de sala de aula não podem ser movidos para um novo grupo de recursos ou subscrição. DevTest Labs podem ser movidos para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 * Aplicações Geridas
 * Microsoft Genomics

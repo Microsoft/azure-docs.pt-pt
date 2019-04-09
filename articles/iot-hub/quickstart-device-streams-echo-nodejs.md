@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 1e7efe28918cafb3fa9547c144be3360768d549c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079900"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006432"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com um aplicativo de dispositivo node. js através de fluxos de dispositivo do IoT Hub (pré-visualização)
 
@@ -37,13 +37,12 @@ O código demonstra o processo de inicialização de um fluxo de dispositivo, be
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 A pré-visualização de fluxos de dispositivo é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
 
-  - **E.U.A. central**
-  - **E.U.A. central EUAP**
+  - **EUA Central**
+  - **E.U.A. Central EUAP**
 
 Para executar a aplicação do lado do serviço neste guia de introdução tem de node. js v4.x.x ou posterior no seu computador de desenvolvimento.
 
@@ -53,6 +52,12 @@ Pode verificar qual a versão atual do Node.js no seu computador de desenvolvime
 
 ```
 node --version
+```
+
+Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
 ```
 
 Se ainda não o fez, transfira o projeto Node.js de exemplo do https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip e extraia o arquivo ZIP.
@@ -71,14 +76,13 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
+1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
 
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
    **MyDevice**: Este é o nome fornecido para o dispositivo registado. Utilize MyDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32d7aff33f89a8e1948c5715345ec40af91b0ce9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048508"
+ms.locfileid: "59056939"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Utilizar uma identidade de sistema atribuído de VM do Linux para acessar o armazenamento do Azure através de uma credencial SAS
 
@@ -29,7 +29,7 @@ ms.locfileid: "59048508"
 Este tutorial mostra como utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para obter uma credencial de Assinatura de Acesso Partilhado (SAS) de armazenamento. Especificamente, uma [credencial de SAS de Serviço](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
-> A chave SAS gerada neste tutorial irá não ser restrito ligadas à e/para a VM. Se exc
+> A chave SAS gerada neste tutorial irá não ser restrito ligadas à e/para a VM.  
 
 Um SAS de Serviço permite conceder acesso limitado aos objetos numa conta de armazenamento durante um período limitado e num serviço específico (no nosso caso, o serviço de blobs), sem expor uma chave de acesso da conta. Pode utilizar uma credencial de SAS como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Para este tutorial, vamos demonstrar como carregar e transferir um blob com a CLI de Armazenamento do Azure. Vai aprender a:
 

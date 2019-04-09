@@ -1,6 +1,6 @@
 ---
 title: Direcionar o tráfego do Azure para a base de dados do Azure SQL e SQL Data Warehouse | Documentos da Microsoft
-description: Este documento explica a base de dados do Azure SQL e SQL Data Warehouse conectividade arquitetura de dentro do Azure ou a partir de fora do Azure.
+description: Este documento explica a arquitetura de onnectivity Azcure SQL para ligações da base de dados a partir de dentro do Azure ou a partir de fora do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918608"
+ms.locfileid: "59006772"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
 Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectividade arquitetura, bem como a forma como os diferentes componentes de função para direcionar o tráfego à sua instância do SQL do Azure. Estes função de componentes de conectividade para direcionar o tráfego de rede para a base de dados do Azure SQL ou SQL Data Warehouse com os clientes ligar a partir de dentro do Azure e com os clientes ligar a partir de fora do Azure. Este artigo também fornece exemplos de script para alterar a forma como ocorre a conectividade e as considerações relacionadas com a alteração das definições de conectividade do padrão.
-
-> [!IMPORTANT]
-> **[Alteração futura] Para ligações de ponto final de serviço para servidores SQL do Azure, um `Default` comportamento de conectividade é alterado para `Redirect`.**
-> Os clientes são aconselhados a criar novos servidores e o conjunto já existentes com o tipo de ligação explicitamente definida para redirecionamento (preferível) ou Proxy, dependendo da sua arquitetura de conectividade.
->
-> Para impedir a conectividade através de um ponto de extremidade de serviço do usuário em ambientes existentes, como resultado desta alteração, podemos usar fazer de telemetria o seguinte:
->
-> - Para servidores que detectamos que foram acedidos através de pontos finais de serviço antes da alteração, vamos mudar o tipo de ligação para `Proxy`.
-> - Para todos os outros servidores, podemos mudar a ligação irá mudar para o tipo `Redirect`.
->
-> Os utilizadores do ponto final de serviço ainda poderão ser afetados nos seguintes cenários:
->
-> - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos
-> - Lógica de implementação automatizada cria um servidor de base de dados SQL, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy`
->
-> Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 11999. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
-> [!NOTE]
-> Este tópico aplica-se para os servidores de base de dados do Azure SQL que alojam bases de dados individuais e conjuntos elásticos, o SQL Data Warehouse bases de dados, base de dados do Azure para MySQL, base de dados do Azure para MariaDB e base de dados do Azure para PostgreSQL. Para simplificar, a base de dados SQL é utilizado quando nos Referimos a base de dados SQL, o SQL Data Warehouse, o banco de dados do Azure para MySQL, base de dados do Azure para MariaDB e base de dados do Azure para PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 

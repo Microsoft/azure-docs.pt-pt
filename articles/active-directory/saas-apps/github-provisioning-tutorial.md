@@ -13,28 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: baac3ca65558f2a67a3aecabd4b253f23ea94ad9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888020"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057528"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para o aprovisionamento automático de utilizadores
 
-
-O objetivo deste tutorial é mostrar a os passos que necessários para executar no GitHub e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para o GitHub. 
+O objetivo deste tutorial é mostrar a os passos que necessários para executar no GitHub e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para o GitHub.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
-*   Um inquilino do Azure Active directory
-*   Uma organização do GitHub criada no [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requer o [plano de faturação do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
-*   Uma conta de utilizador no GitHub com permissões de administrador para a organização
+* Um inquilino do Azure Active directory
+* Uma organização do GitHub criada no [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requer o [plano de faturação do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+* Uma conta de utilizador no GitHub com permissões de administrador para a organização
 
 > [!NOTE]
 > Conta com o Azure AD, integração de aprovisionamento a [API do GitHub SCIM](https://developer.github.com/v3/scim/), que está disponível para [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) os clientes que têm o [plano de faturação do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
@@ -49,21 +48,18 @@ Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir qua
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Dicas importantes para atribuir utilizadores a GitHub
 
-*   Recomenda-se que um único utilizador do Azure AD é atribuído ao GitHub para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador do Azure AD é atribuído ao GitHub para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um utilizador para o GitHub, tem de selecionar um a **utilizador** função, ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo atribuição. O **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores são ignorados.
+* Ao atribuir um utilizador para o GitHub, tem de selecionar um a **utilizador** função, ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo atribuição. O **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores são ignorados.
 
-
-## <a name="configuring-user-provisioning-to-github"></a>Configurar o aprovisionamento para o GitHub 
+## <a name="configuring-user-provisioning-to-github"></a>Configurar o aprovisionamento para o GitHub
 
 Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisionamento da conta de utilizador do GitHub e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no GitHub com base na atribuição de utilizadores e grupos no Azure AD.
 
 > [!TIP]
 > Também pode optar por ativada baseado em SAML início de sessão único para o GitHub, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
 
-
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configurar o aprovisionamento automático de utilizadores conta para o GitHub no Azure AD
-
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
 
@@ -87,7 +83,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 8. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação "Enviar uma notificação por e-mail quando ocorre uma falha."
 
-9. Clique em **Guardar**. 
+9. Clique em **Guardar**.
 
 10. Na secção de mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory para o GitHub**.
 
@@ -95,17 +91,16 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 12. Para ativar o Azure AD para o GitHub do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção
 
-13. Clique em **Guardar**. 
+13. Clique em **Guardar**.
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos ao GitHub na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento de aprovisionamento.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
-
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

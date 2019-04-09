@@ -4,14 +4,14 @@ description: Passos para implementar o cluster de vFXT Avere no Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409691"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056610"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
@@ -31,18 +31,17 @@ Antes de utilizar o modelo de criação, certifique-se de que ter abordou esses 
 1. [Nova subscrição](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Permissões de proprietário da subscrição](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota para o cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Funções de acesso personalizado](avere-vfxt-prereqs.md#create-access-roles) -tem de criar uma função de controlo de acesso baseado em funções para atribuir a nós do cluster. Tem a opção de também criar uma função de acesso personalizado para o controlador de cluster, mas a maioria dos utilizadores irá demorar a função de proprietário predefinida, que oferece os privilégios do controlador correspondente a um proprietário do grupo de recursos. Leia [funções incorporadas para recursos do Azure](../role-based-access-control/built-in-roles.md#owner) para obter mais detalhes.
 1. [Ponto final de serviço de armazenamento (se necessário)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - necessário para implementa com uma rede virtual existente e de armazenamento de BLOBs
 
 Para obter mais informações sobre passos de implementação de cluster e o planejamento, leia [planear o seu sistema de vFXT Avere](avere-vfxt-deploy-plan.md) e [descrição geral da implementação](avere-vfxt-deploy-overview.md).
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Criar o vFXT Avere para o Azure
 
-Aceder ao modelo de criação no portal do Azure ao pesquisar Avere e selecionar "Avere vFXT ARM implantação". 
+Aceda ao modelo de criação no portal do Azure ao pesquisar Avere e selecionar "Avere vFXT para o modelo ARM do Azure". 
 
-![Trilhas de janela do browser que mostra o portal do Azure com o pão "Novo > Marketplace > tudo". Em tudo, a página, o campo de pesquisa tem o termo "avere" e o segundo resultado, "Avere vFXT ARM implementação" é descrito em vermelho para destacá-la.](media/avere-vfxt-template-choose.png)
+![Trilhas de janela do browser que mostra o portal do Azure com o pão "Novo > Marketplace > tudo". Em tudo tem de página, o campo de pesquisa o termo "avere" e o segundo resultado, "Avere vFXT para o modelo ARM do Azure" é descrito em vermelho para destacá-la.](media/avere-vfxt-template-choose.png)
 
-Depois de ler os detalhes na página Avere vFXT implementação ARM, clique em **criar** para começar. 
+Depois de ler os detalhes sobre o vFXT Avere para a página do modelo de ARM do Azure, clique em **criar** para começar. 
 
 ![O Azure marketplace com a primeira página da mostrar de modelo de implementação](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ Preencha as seguintes informações:
 
 * **Palavra-passe** ou **chave pública SSH** -dependendo do tipo de autenticação que selecionou, tem de fornecer uma chave pública RSA ou uma palavra-passe nos campos seguintes. Esta credencial é utilizada com o nome de utilizador fornecido anteriormente.
 
-* **ID de função de criação do Avere cluster** -Utilize este campo para especificar a função de controlo de acesso para o controlador de cluster. O valor predefinido é a função incorporada [proprietário](../role-based-access-control/built-in-roles.md#owner). Privilégios de proprietário para o controlador de cluster estão limitados ao grupo de recursos do cluster. 
-
-  Tem de utilizar o identificador exclusivo global que corresponde à função. Para o valor predefinido (proprietário), o GUID é 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. Para localizar o GUID de uma função personalizada, utilize este comando: 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **Subscrição** -selecione a subscrição para o vFXT Avere. 
 
 * **Grupo de recursos** - selecione um grupo de recursos vazio existente para o cluster de vFXT Avere, ou clique em "Criar nova" e introduza um nome de grupo de recursos novo. 
@@ -97,10 +88,6 @@ A segunda página do modelo de implementação permite-lhe definir o tamanho do 
 * **Contagem de nós de cluster de vFXT Avere** -escolher o número de nós para utilizar no cluster. O mínimo é de três nós e o máximo é doze. 
 
 * **Palavra-passe de administração do cluster** -criar a palavra-passe para a administração de cluster. Esta palavra-passe será utilizado com o nome de utilizador ```admin``` para iniciar sessão no painel de controle de cluster para monitorizar o cluster e configurar as definições.
-
-* **Função de operações de cluster Avere** -especifique o nome da função de controlo de acesso para os nós do cluster. Esta é uma função personalizada que foi criada como um passo dos pré-requisitos. 
-
-  O exemplo descrito em [criar a função de acesso de nó de cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) guarda o ficheiro como ```avere-operator.json``` e o nome de função correspondente é ```avere-operator```.
 
 * **Nome do cluster Avere vFXT** -dê um nome exclusivo ao cluster. 
 
@@ -138,7 +125,7 @@ Página três um resumo da configuração e valida os parâmetros. Após a valid
 
 ![Terceira página do modelo de implementação - validação](media/avere-vfxt-deploy-3.png)
 
-Na página quatro, clique a **criar** botão para aceitar os termos e criar o vFXT Avere para cluster do Azure. 
+Na página quatro, introduza quaisquer informações de contactos necessárias e clique nas **criar** botão para aceitar os termos e criar o vFXT Avere para cluster do Azure. 
 
 ![Quarta página do modelo de implementação - termos e condições, crie um botão](media/avere-vfxt-deploy-4.png)
 

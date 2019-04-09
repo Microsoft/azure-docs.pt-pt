@@ -13,35 +13,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eb39843d9f1e1a430c3f35e8c60521418042921
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: b50bcada8cfc72c06804793850f1f28a288f5248
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211789"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057036"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para aprovisionamento automático de utilizadores
 
-
-O objetivo deste tutorial é mostrar-lhe os passos necessários para executar no Slack e do Azure AD para automaticamente as contas de utilizador aprovisionar e desaprovisionar do Azure AD para o Slack. 
+O objetivo deste tutorial é mostrar-lhe os passos necessários para executar no Slack e do Azure AD para automaticamente as contas de utilizador aprovisionar e desaprovisionar do Azure AD para o Slack.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
-*   Um inquilino do Azure Active Directory
-*   Um Slack inquilino com o [além de plano](https://aadsyncfabric.slack.com/pricing) ou melhor ativado 
-*   Uma conta de utilizador no Slack com permissões de administrador da equipa 
+* Um inquilino do Azure Active Directory
+* Um Slack inquilino com o [além de plano](https://aadsyncfabric.slack.com/pricing) ou melhor ativado
+* Uma conta de utilizador no Slack com permissões de administrador da equipa
 
 Nota: Conta com o Azure AD, integração de aprovisionamento a [Slack SCIM API](https://api.slack.com/scim), que está disponível para as equipes de Slack no mais planear ou melhor.
 
 ## <a name="assigning-users-to-slack"></a>Atribuir utilizadores a Slack
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, serão sincronizados apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD. 
+O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, serão sincronizados apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD.
 
 Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir quais os utilizadores e/ou grupos no Azure AD representam os utilizadores que necessitam de aceder à sua aplicação Slack. Depois de decidir, pode atribuir estes utilizadores à sua aplicação Slack ao seguir as instruções aqui:
 
@@ -49,10 +48,9 @@ Antes de configurar e ativar o serviço de aprovisionamento, terá de decidir qu
 
 ### <a name="important-tips-for-assigning-users-to-slack"></a>Dicas importantes para atribuir utilizadores a Slack
 
-*   Recomenda-se que um único utilizador do Azure AD é atribuído ao Slack para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador do Azure AD é atribuído ao Slack para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um utilizador para o Slack, tem de selecionar o **utilizador** ou função de "Grupo" na caixa de diálogo atribuição. A função de "Acesso predefinido" não funciona para o aprovisionamento.
-
+* Ao atribuir um utilizador para o Slack, tem de selecionar o **utilizador** ou função de "Grupo" na caixa de diálogo atribuição. A função de "Acesso predefinido" não funciona para o aprovisionamento.
 
 ## <a name="configuring-user-provisioning-to-slack"></a>Configurar o aprovisionamento para Slack 
 
@@ -60,9 +58,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 **Sugestão:** Também pode optar por ativada baseado em SAML início de sessão único para o Slack, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
 
-
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores conta para o Slack no Azure AD:
-
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
 
@@ -74,17 +70,17 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
    ![Slack aprovisionamento](./media/slack-provisioning-tutorial/Slack1.PNG)
 
-5. Sob o **credenciais de administrador** secção, clique em **autorizar**. Esta ação abre uma caixa de diálogo de autorização Slack numa nova janela do browser. 
+5. Sob o **credenciais de administrador** secção, clique em **autorizar**. Esta ação abre uma caixa de diálogo de autorização Slack numa nova janela do browser.
 
 6. Na nova janela, inicie sessão no Slack com a sua conta de administrador da equipa. na caixa de diálogo resultante autorização, selecione que pretende ativar o aprovisionamento de equipe do Slack e, em seguida, selecione **autorizar**. Depois de concluído, regresse ao portal do Azure para concluir a configuração de aprovisionamento.
 
-   ![Caixa de diálogo de autorização](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Caixa de diálogo de autorização](./media/slack-provisioning-tutorial/Slack3.PNG)
 
 7. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação Slack. Se a ligação falhar, certifique-se de que sua conta do Slack com permissões de administrador de equipe e tente novamente o passo de "Autorizar".
 
 8. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação abaixo.
 
-9. Clique em **Guardar**. 
+9. Clique em **Guardar**.
 
 10. Na secção de mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory para o Slack**.
 
@@ -92,11 +88,11 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 12. Para ativar o Azure AD para o Slack do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção
 
-13. Clique em **Guardar**. 
+13. Clique em **Guardar**.
 
 Isso iniciará a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Slack na secção utilizadores e grupos. Tenha em atenção que a sincronização inicial demora mais tempo a executar que sincroniza subsequentes, o que ocorrer aproximadamente a cada 10 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para aprovisionamento de relatórios de atividade, que descrevem a todas as ações executadas pelo serviço de aprovisionamento na sua aplicação Slack.
 
-## <a name="optional-configuring-group-object-provisioning-to-slack"></a>[Opcional] Configurar o aprovisionamento do objeto de grupo para Slack 
+## <a name="optional-configuring-group-object-provisioning-to-slack"></a>[Opcional] Configurar o aprovisionamento do objeto de grupo para Slack
 
 Opcionalmente, pode ativar o aprovisionamento de objetos de grupo do Azure AD para o Slack. Isto é diferente de "atribuição de grupos de utilizadores", em que o grupo real de objeto, além de seus membros serão replicados do Azure AD para o Slack. Por exemplo, se tiver um grupo com o nome "My Group" no Azure AD, será criado um grupo de idêntico com o nome "My Group" dentro do Slack.
 
@@ -116,14 +112,19 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 ## <a name="connector-limitations"></a>Limitações de conector
 
-  * Durante a configuração do Slack **displayName** atributo, lembre-se dos seguintes comportamentos: 
+* Durante a configuração do Slack **displayName** atributo, lembre-se dos seguintes comportamentos:
+
   * Os valores não são totalmente exclusivos (por exemplo, os 2 utilizadores podem ter o mesmo nome a apresentar)
+
   * Suporta carateres não ingleses, espaços, uso. 
+  
   * Permitido pontuação inclui pontos finais, carateres de sublinhado, hífenes, apóstrofos, parênteses Retos (por exemplo, **([{}])**) e os separadores (por exemplo, **, /;**).
+  
   * Apenas atualiza se estas duas definições estão configuradas na área de trabalho/organização do Slack - **perfil a sincronização está ativada** e **os utilizadores não é possível alterar o nome a apresentar**.
-  * Do Slack **nome de utilizador** atributo tem de ser em 21 carateres e ter um valor exclusivo. 
+  
+  * Do Slack **nome de utilizador** atributo tem de ser em 21 carateres e ter um valor exclusivo.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

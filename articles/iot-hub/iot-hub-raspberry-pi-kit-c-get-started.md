@@ -1,19 +1,19 @@
 ---
 title: Ligar o Raspberry Pi ao IoT Hub do Azure com C | Documentos da Microsoft
 description: Saiba como configurar e ligar o Raspberry Pi a IoT Hub do Azure para o Raspberry Pi enviar dados para a plataforma de cloud do Azure
-author: rangv
+author: wesmc7777
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.author: rangv
-ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: wesmc
+ms.openlocfilehash: 3b09d9d484c6f17ee591dee9b7202a62502462ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103218"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268427"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligar o Raspberry Pi a IoT Hub (C) do Azure
 
@@ -205,8 +205,14 @@ Deverá ver o resultado seguinte que mostra os dados de sensor e as mensagens qu
 
 ![Saída - dados de sensor enviados do Raspberry Pi ao seu hub IoT](./media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo hub
+
+Uma forma para monitorizar mensagens recebidas pelo hub IoT partir do seu dispositivo é usar as ferramentas de IoT do Azure para Visual Studio Code. Para obter mais informações, consulte [Utilize ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Para obter mais formas de processar os dados enviados pelo seu dispositivo, avance para a secção seguinte.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Executar uma aplicação de exemplo para recolher dados de sensor e enviá-lo ao seu hub IoT. Para ver as mensagens que seu Raspberry Pi enviado para o seu IoT hub ou enviar mensagens para o seu Raspberry Pi, consulte a [Utilize ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Executar uma aplicação de exemplo para recolher dados de sensor e enviá-lo ao seu hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

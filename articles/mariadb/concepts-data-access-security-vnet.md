@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958920"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006699"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para MariaDB
 
@@ -105,6 +105,8 @@ Tem a opção de usar [controlo de acesso baseado em funções (RBAC)] [ rbac-wh
 ## <a name="limitations"></a>Limitações
 
 Base de dados do Azure para MariaDB, a funcionalidade de regras de rede virtual tem as seguintes limitações:
+
+- Uma aplicação Web pode ser mapeada para um IP privado na VNet/subrede. Mesmo que os pontos finais de serviço são ativados da VNet/subrede determinado, ligações a partir da aplicação Web para o servidor terá uma origem de IP pública do Azure, não uma origem de VNet/subrede. Para ativar a conectividade de uma aplicação Web para um servidor que tem regras de firewall da VNet, tem de serviços do Azure permitem a aceder ao servidor no servidor.
 
 - Na firewall da base de dados do Azure para MariaDB, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas tem de estar alojadas na mesma região geográfica que aloja a base de dados do Azure para MariaDB.
 

@@ -4,16 +4,16 @@ description: Compreenda como obter e controlar grandes conjuntos de dados durant
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889040"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058396"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com conjuntos de dados de grandes recursos do Azure
 
@@ -63,7 +63,7 @@ Na [REST API](/rest/api/azureresourcegraph/resources/resources), o controle é *
 
 ## <a name="paging-results"></a>Resultados de paginação
 
-Quando é necessário interromper um conjunto em conjuntos menores de registos para o processamento de resultados ou porque o conjunto de resultados iria exceder o valor máximo permitido de _5000_ devolveu registos, utilize a paginação. O [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fornece valores para indicar de um conjunto foi quebrado de resultados: **resultTruncated** e **$skipToken** .
+Quando é necessário interromper um conjunto em conjuntos menores de registos para o processamento de resultados ou porque o conjunto de resultados iria exceder o valor máximo permitido de _1000_ devolveu registos, utilize a paginação. O [REST API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fornece valores para indicar de um conjunto foi quebrado de resultados: **resultTruncated** e **$skipToken** .
 **resultTruncated** é um valor booleano que informa o consumidor se existem registos adicionais não devolvido na resposta. Esta condição também pode ser identificado quando os **contagem** propriedade é menos do que o **totalRecords** propriedade. **totalRecords** define a quantidade de registos que correspondem à consulta.
 
 Quando **resultTruncated** é **true**, o **$skipToken** propriedade está definida na resposta. Este valor é utilizado com os mesmos valores de consulta e uma subscrição para obter o próximo conjunto de registos que correspondem a consulta.

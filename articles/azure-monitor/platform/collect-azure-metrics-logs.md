@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006261"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Recolher registos do serviço do Azure e as métricas para área de trabalho do Log Analytics no Azure Monitor
 
@@ -32,7 +32,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 
 | Serviço                 | Tipo de Recurso                           | Registos        | Métricas     | Solução |
 | --- | --- | --- | --- | --- |
-| Gateways de aplicação    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Análise do Gateway de aplicação do Azure](../../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Gateways de aplicação    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Análise do Gateway de Aplicação do Azure](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | O Application insights    |                                         | Conector   | Conector   | [Conector do Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (pré-visualização) |
 | Contas de Automatização     | Microsoft.Automation/AutomationAccounts | Diagnóstico |             | [Mais informações](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Contas de Batch          | Microsoft.Batch/batchAccounts           | Diagnóstico | Diagnóstico | |
@@ -42,20 +42,20 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 | Arquivo do Data Lake         | Microsoft.DataLakeStore/accounts        | Diagnóstico |             | |
 | Espaço de nomes do hub de eventos     | Microsoft.EventHub/namespaces           | Diagnóstico | Diagnóstico | |
 | Hubs IoT                | Microsoft.Devices/IotHubs               |             | Diagnóstico | |
-| Cofre de Chaves               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [Análise do Cofre de chaves](../../azure-monitor/insights/azure-key-vault.md) |
+| Cofre de Chaves               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [Análise do Cofre de chaves](../insights/azure-key-vault.md) |
 | Balanceador de Carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
 | Aplicações Lógicas              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnóstico | Diagnóstico | |
-| Grupos de Segurança de Rede | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Análise do grupo de segurança de rede do Azure](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Grupos de Segurança de Rede | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Análise do Grupo de Segurança de Rede do Azure](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
 | Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [Análise (pré-visualização) de serviços de recuperação do Azure](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Procurar serviços         | Microsoft.Search/searchServices         | Diagnóstico | Diagnóstico | |
 | Espaço de nomes do Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Análise do Service Bus (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Armazenamento     |             | [Análise do Service Fabric (pré-visualização)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnóstico | [Análise SQL do Azure (pré-visualização)](../../azure-monitor/insights/azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnóstico | [Análise SQL do Azure (Pré-visualização)](../insights/azure-sql.md) |
 | Armazenamento                 |                                         |             | Script      | [Análise de armazenamento do Azure (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extensão   | Extensão <br> Diagnóstico  | |
 | Conjuntos de dimensionamento de máquinas virtuais | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnóstico | |
 | Farms de servidores Web        | Microsoft.Web/serverfarms               |             | Diagnóstico | |
-| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnóstico | [Análise de aplicações Web do Azure (pré-visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| Web Sites               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Diagnóstico | [Análise das Aplicações Web do Azure (Pré-visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

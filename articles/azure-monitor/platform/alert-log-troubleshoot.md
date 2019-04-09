@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de alertas de registo no Azure Monitor
+title: Resolução de problemas de alertas de registo no Azure Monitor | Documentos da Microsoft
 description: Problemas comuns, erros e a resolução para o registo de alerta regras no Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429451"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005300"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra-lhe como resolver problemas comuns detetados quando a configuração de alertas de registo no Azure monitor. Ele também fornece soluções para perguntas freqüentes sobre a funcionalidade ou configuração de alertas de registo. 
+Este artigo mostra-lhe como resolver problemas comuns detetados quando a configuração de alertas de registo no Azure Monitor. Ele também fornece soluções para perguntas freqüentes sobre a funcionalidade ou configuração de alertas de registo. 
 
-O termo **alertas de registo** descreve os alertas que fire com base numa consulta personalizada na [do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](../platform/alerts-unified-log.md).
+O termo **alertas de registo** descreve os alertas que fire com base numa consulta de log num [área de trabalho do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Este artigo não considere casos em que o portal do Azure mostra e alerta acionado de regra e uma notificação realizadas por um grupo de ação associada (s). Para tais casos, consulte detalhes no artigo sobre [grupos de ação](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Eis algumas razões comuns um configurado [regra de alerta de registo no Azure M
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para os registos
 
-Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, veja [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md) (Tempo da ingestão de dados no Log Analytics).
+Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Porque o Azure Monitor processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados nos registos do Azure Monitor](../platform/data-ingestion-time.md).
 
 Para atenuar o atraso de ingestão de dados, o sistema deve aguardar e repete a consulta de alerta várias vezes se ele encontrar que os dados necessários não são ingeridos ainda. O sistema tem um tempo de espera aumentar exponencialmente definido. Os registo alerta apenas acionadores depois dos dados estão disponíveis para que eles atraso podem ser devido a ingestão de dados de registo lento. 
 
@@ -84,7 +84,7 @@ Próxima detalhada são algumas razões comuns, por que um configurado [regra de
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta acionada por dados parciais
 
-Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, veja [Data ingestion time in Log Analytics](../platform/data-ingestion-time.md) (Tempo da ingestão de dados no Log Analytics).
+Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados de registo no Azure Monitor](../platform/data-ingestion-time.md).
 
 Dependendo de como a regra de alerta é configurada, pode haver enganássemos firing se não existir nenhuma ou apenas dados parciais nos registos no momento da execução de alerta. Nesses casos, Aconselhamo-lo para alterar a configuração ou de consulta de alerta. 
 
@@ -100,4 +100,4 @@ O que é mostrado na **consulta a ser executado** caixa está o que é executado
 
 - Saiba mais sobre [alertas de registo nos alertas do Azure](../platform/alerts-unified-log.md)
 - Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md)
-- Saiba mais sobre [do Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Saiba mais sobre [consultas de registo](../log-query/log-query-overview.md)

@@ -1,15 +1,15 @@
 ---
 author: msmbaldwin
-ms.service: key-vault
+ms.service: storage
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8e33113ca9f0886a4cef1c8f9acb855b32c2973
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b242bda524c747b28453061c797afde02cf6f455
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735495"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007625"
 ---
 ## <a name="preventative"></a>Preventivas
 
@@ -34,7 +34,7 @@ ms.locfileid: "55735495"
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights etc) do Azure| Sim | Métricas do Azure Monitor disponíveis agora, registos de partida da pré-visualização |
+| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Métricas do Azure Monitor disponíveis agora, registos de partida da pré-visualização |
 
 ## <a name="iam-support"></a>Suporte IAM
 
@@ -55,4 +55,4 @@ ms.locfileid: "55735495"
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão da configuração, etc)| Sim | Suporte de controle de versão do fornecedor de recursos através de APIs do Azure Resource Manager |
+| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | Suporte de controle de versão do fornecedor de recursos através de APIs do Azure Resource Manager |

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3a32f9fb2755fc164c33a6759d0130ac7ddad5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445761"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009587"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades geridas para recursos do Azure num conjunto de dimensionamento através de chamadas à REST API
 
@@ -88,7 +88,7 @@ Para criar um conjunto de dimensionamento com a identidade gerida atribuídos do
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -160,7 +160,7 @@ Para criar um conjunto de dimensionamento com a identidade gerida atribuídos do
     }  
    ```  
 
-### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuído de sistema num conjunto de dimensionamento de máquina virtual existente
+### <a name="enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuído de sistema num conjunto de dimensionamento de máquina virtual existente
 
 Para ativar a identidade gerida atribuído de sistema num conjunto de dimensionamento de máquina virtual existente, terá de adquirir um token de acesso e, em seguida, utilize o CURL para chamar o ponto de extremidade REST do Resource Manager para atualizar o tipo de identidade.
 
@@ -183,7 +183,7 @@ Para ativar a identidade gerida atribuído de sistema num conjunto de dimensiona
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -216,7 +216,7 @@ Para ativar a identidade gerida atribuído de sistema num conjunto de dimensiona
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -250,7 +250,7 @@ Para ativar a identidade gerida atribuído de sistema num conjunto de dimensiona
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -294,7 +294,7 @@ Para desativar uma identidade atribuída de sistema num conjunto de dimensioname
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -351,7 +351,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -438,7 +438,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -533,7 +533,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -554,7 +554,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -586,7 +586,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -622,7 +622,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -661,7 +661,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-    **Cabeçalhos de pedido**
+    **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -700,7 +700,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -722,7 +722,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -754,7 +754,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos de pedido**
+   **Cabeçalhos do pedido**
 
    |Cabeçalho do pedido  |Descrição  |
    |---------|---------|
@@ -784,7 +784,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Cabeçalhos de pedido**
+**Cabeçalhos do pedido**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|
@@ -811,7 +811,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Cabeçalhos de pedido**
+**Cabeçalhos do pedido**
 
 |Cabeçalho do pedido  |Descrição  |
 |---------|---------|

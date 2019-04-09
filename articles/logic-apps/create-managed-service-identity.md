@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755695"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010554"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
 
@@ -38,7 +38,7 @@ Para aceder a recursos em outros inquilinos do Azure Active Directory (Azure AD)
 Para identidades geridas atribuído de sistema, não é necessário que criar manualmente essa identidade. Para configurar uma identidade gerida atribuído de sistema para a aplicação lógica, pode usar essas formas: 
 
 * [Portal do Azure](#azure-portal) 
-* [Modelos Azure Resource Manager](#template) 
+* [Modelos do Azure Resource Manager](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
 <a name="azure-portal"></a>
@@ -158,7 +158,7 @@ Depois de configurar a aplicação lógica com um atribuído de sistema de ident
    Na **URI** , introduza o URL de ponto final para esse serviço do Azure. 
    Então, se estiver a utilizar o Azure Resource Manager, introduza este valor na **URI** propriedade:
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. Na ação de HTTP, escolha **Mostrar opções avançadas**.
 

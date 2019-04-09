@@ -39,9 +39,13 @@ items:
     href: https://aka.ms/anomaly-detector-pricing
   - name: Disponibilidade regional
     href: https://aka.ms/anomaly-detector-region
-ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+  - name: Arquitetura de soluções de referência
+    href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-anomaly-detection
+ms.openlocfilehash: 84e9317e3eb20181dcf1003718eb33acddbd84fa
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473396"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006151"

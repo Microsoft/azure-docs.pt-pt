@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452135"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006763"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -59,7 +59,7 @@ A lista de regiões suportadas para o Monitor do ExpressRoute está disponível 
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
-Utilize os processos de basic para instalar agentes em [computadores Windows ligar ao Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) e [ligar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md).
+Utilize os processos de basic para instalar agentes em [computadores Windows ligar para o Azure Monitor](../platform/agent-windows.md) e [ligar o Operations Manager para o Azure Monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes 
 
@@ -101,7 +101,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
 
 ### <a name="configure-the-solution"></a>Configurar a solução 
 
-1. Adicionar a solução de Monitor de desempenho de rede à sua área de trabalho a partir da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../../azure-monitor/insights/solutions.md). 
+1. Adicionar a solução de Monitor de desempenho de rede à sua área de trabalho a partir da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito em [soluções de adicionar o Azure Monitor da Galeria de soluções](../../azure-monitor/insights/solutions.md). 
 2. Abra a área de trabalho do Log Analytics e selecione o **descrição geral** mosaico. 
 3. Selecione o **Monitor de desempenho de rede** mosaico com a mensagem *solução requer configuração adicional*.
 
@@ -151,7 +151,7 @@ Todos os nós que tenha um agente instalado neles são listados os **nós** sepa
 
 Configure as funcionalidades que quer:
 
-- [Monitor de desempenho](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitorização de Desempenho](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitor do ponto final de serviço](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitor do ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
@@ -168,7 +168,7 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
  
 
  
-A solução utiliza transações sintéticas para avaliar o estado de funcionamento da rede. Agentes de análise de registo instalados em vários pontos no eco de ICMP ou pacotes de TCP de exchange de rede entre si. Se os agentes utilizam pacotes TCP ou ICMP Echo depende de protocolo que selecionou para monitorização. O processo, agentes saiba a perda de pacote e o tempo de ida e volta, se houver. Periodicamente, cada agente também realiza uma rota de rastreamento para outros agentes para encontrar as várias rotas na rede que deve ser testada. Utilizando estes dados, os agentes podem deduzir a latência de rede e as figuras de perda de pacotes. Os testes são repetidos a cada cinco segundos. Os dados são agregados durante cerca de três minutos pelos agentes do antes de ser carregado para o serviço Log Analytics.
+A solução utiliza transações sintéticas para avaliar o estado de funcionamento da rede. Agentes de análise de registo instalados em vários pontos no eco de ICMP ou pacotes de TCP de exchange de rede entre si. Se os agentes utilizam pacotes TCP ou ICMP Echo depende de protocolo que selecionou para monitorização. O processo, agentes saiba a perda de pacote e o tempo de ida e volta, se houver. Periodicamente, cada agente também realiza uma rota de rastreamento para outros agentes para encontrar as várias rotas na rede que deve ser testada. Utilizando estes dados, os agentes podem deduzir a latência de rede e as figuras de perda de pacotes. Os testes são repetidos a cada cinco segundos. Os dados são agregados durante cerca de três minutos pelos agentes do antes de ser carregado para a área de trabalho do Log Analytics no Azure Monitor.
 
 
 
@@ -241,9 +241,9 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém dispositi
 ![Mapa de topologia](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-analytics-search"></a>Pesquisa do log Analytics 
+## <a name="log-queries-in-azure-monitor"></a>Consultas de registo no Azure Monitor
 
-Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](../../azure-monitor/log-query/log-query-overview.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [registar as consultas](../log-query/log-query-overview.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 
@@ -251,7 +251,7 @@ Monitor de desempenho de rede utiliza as capacidades de alertas do [do Azure Mon
 
 Isso significa que todas as notificações são geridas através do [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Se for um utilizador NPM, criação de um alerta através do Log Analytics: 
+Se for um utilizador NPM, criação de um alerta por meio de LAzure Monitor: 
 1. Verá um link que irá redirecioná-lo para o Portal do Azure. Clique nele para aceder ao portal.
 2. Clique no mosaico de solução de Monitor de desempenho de rede. 
 3. Navegue para o configurar.  

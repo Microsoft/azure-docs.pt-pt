@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aba09012bf2e9d2741f598280add8b599a6f6d1a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0a52b7a5234b292fa3f8c3e19fe7f62f989d639c
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55807097"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007236"
 ---
 ## <a name="preventative"></a>Preventivas
 
@@ -17,7 +17,7 @@ ms.locfileid: "55807097"
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim | Todos os objetos são encriptados. |
 | Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim | Toda a comunicação é por meio de chamadas de API encriptadas |
-| A manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Cliente controla todas as chaves no seu Cofre de chaves. Quando as chaves de módulo (HSM) cópia de segurança de hardware são specifiecd, um HSM de 2 de nível de FIPS protege a chave, o certificado ou o segredo. |
+| A manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Cliente controla todas as chaves no seu Cofre de chaves. Quando são especificadas chaves de módulo (HSM) cópia de segurança de hardware, um HSM de 2 de nível de FIPS protege a chave, o certificado ou o segredo. |
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A |  |
 | Chamadas de API encriptadas| Sim | Através de HTTPS. |
 
@@ -34,7 +34,7 @@ ms.locfileid: "55807097"
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights etc) do Azure| Sim | Utilizar o Log Analytics. |
+| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Utilizar o Log Analytics. |
 
 ## <a name="iam-support"></a>Suporte IAM
 

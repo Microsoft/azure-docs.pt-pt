@@ -8,14 +8,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757403"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056117"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definir e utilizar fluxos de trabalho de moderação
 
@@ -65,9 +65,9 @@ Agora que tenha definido um fluxo de trabalho personalizado, testá-la com conte
 
 ![Teste de fluxo de trabalho](images/image-workflow-execute.PNG)
 
-Salvar isso [imagem de exemplo](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) sua unidade local. Em seguida, selecione **Escolher ficheiro ou ficheiros** e carregar a imagem para o fluxo de trabalho.
+Salvar isso [imagem de exemplo](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) sua unidade local. Em seguida, selecione **Escolher ficheiro ou ficheiros** e carregar a imagem para o fluxo de trabalho.
 
-![uma mulher num se adequar de bathing](images/sample-racy.PNG)
+![Um executor com uma citação sobreposta a imagem](images/sample-text.jpg)
 
 ### <a name="track-progress"></a>Controlar o progresso
 

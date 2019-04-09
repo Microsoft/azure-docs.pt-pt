@@ -92,7 +92,7 @@ items:
       href: vmware-azure-about-disaster-recovery.md
     - name: Perguntas comuns
       href: vmware-azure-common-questions.md
-    - name: Matriz de suporte
+    - name: VMware/Físico para a matriz de suporte do Azure
       href: vmware-physical-azure-support-matrix.md
     - name: Requisitos de suporte para a implementação do servidor de configuração
       href: vmware-azure-configuration-server-requirements.md
@@ -112,7 +112,7 @@ items:
       href: hyper-v-azure-architecture.md
   - name: Sobre a recuperação após desastre do servidor físico para o Azure
     items:
-    - name: Matriz de suporte
+    - name: VMware/Físico para a matriz de suporte do Azure
       href: vmware-physical-azure-support-matrix.md
     - name: Arquitetura do servidor físico para o Azure
       href: physical-azure-architecture.md
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: d41716875c4fa91a9cb044746fd6610ea87b560f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f9105e36a6e2cb1f803d65912f1d8e45cd731b20
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847713"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006830"

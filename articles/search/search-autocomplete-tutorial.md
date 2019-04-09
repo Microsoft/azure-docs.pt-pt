@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498813"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009823"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicionar preenchimento automático ou sugestões para a sua aplicação do Azure Search
 
-Neste exemplo, Aprenda a usar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para criar uma caixa de pesquisa poderosa que oferece suporte a comportamentos de pesquisa-como--type.
+Neste artigo, saiba como utilizar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) para criar uma caixa de pesquisa poderosa que oferece suporte a comportamentos de pesquisa-como--type.
 
-+ *Sugestões* é uma lista de resultados sugeridos gerados à medida que escreve, onde cada sugestão é um único resultado do índice que corresponde ao que tiver digitado até agora. 
++ *Sugestões* resultados sugeridos gerados à medida que escreve, onde cada sugestão é um único resultado do índice que corresponde ao que tiver digitado até agora. 
 
-+ *Preenchimento automático*, [uma funcionalidade de pré-visualização](search-api-preview.md), "terminar" a palavra ou expressão que um usuário está digitando atualmente. Tal como acontece com sugestões, uma concluído palavra ou frase se baseia numa correspondência no índice. 
++ *Preenchimento automático*, [uma funcionalidade de pré-visualização](search-api-preview.md), "terminar" a palavra ou expressão que um usuário está digitando atualmente. Em vez de retornar resultados, ser concluída uma consulta, que pode ser executado para devolver resultados. Tal como acontece com sugestões, uma concluído palavra ou frase numa consulta se baseia numa correspondência no índice. O serviço não oferece consultas que devolvem zero resultados no índice.
 
 Pode transferir e executar o código de exemplo **DotNetHowToAutocomplete** para avaliar esses recursos. O código de exemplo destina-se um índice criados previamente preenchido com [dados de demonstração de NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). O índice de NYCJobs contém um [construção Sugestor](index-add-suggesters.md), que é um requisito para usar sugestões ou preenchimento automático. Pode usar o índice preparado alojado num serviço de proteção de segurança, ou [preencher seu próprio índice de](#configure-app) usando um carregador de dados na solução de exemplo NYCJobs. 
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-O código acima é executado no navegador no carregamento da página para configurar o preenchimento automático de interface do Usuário do jQuery para a caixa de entrada "example1a".  `minLength: 3` garante que as recomendações apenas serão apresentadas quando existe, pelo menos, três carateres na caixa de pesquisa.  O valor de origem é importante:
+O código acima é executado no navegador no carregamento da página para configurar o preenchimento automático de interface do Usuário do jQuery para a caixa de entrada "example1a".  `minLength: 3` garante que as recomendações só serão apresentadas quando existe, pelo menos, três carateres na caixa de pesquisa.  O valor de origem é importante:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#versão
+## <a name="c-example"></a>Exemplo do c#
 
 Agora que examinamos o código JavaScript para a página da web, vamos examinar a C# código do lado do servidor de controlador que, na verdade, recupera as correspondências sugeridas com o SDK de .NET de pesquisa do Azure.
 
@@ -229,9 +229,11 @@ A função de conclusão automática aceita a entrada do termo de pesquisa. O m�
 
 Outros exemplos na página siga o mesmo padrão para adicionar o detetor de ocorrências e facetas para suportar a colocação em cache do lado do cliente dos resultados de preenchimento automático. Reveja cada um deles para compreender como funcionam e como aproveitá-los na sua experiência de pesquisa.
 
-## <a name="javascript-version-with-rest"></a>Versão de JavaScript com REST
+## <a name="javascript-example"></a>Exemplo de JavaScript
 
-Para a implementação de JavaScript, abra **IndexJavaScript.cshtml**. Tenha em atenção que a função de conclusão automática de interface do Usuário do jQuery também é utilizado para a caixa de pesquisa, coletar entradas do termo de pesquisa e fazer chamadas assíncronas para o Azure Search para obter sugestões de correspondências ou concluída termos. 
+Uma implementação de Javascript de preenchimento automático e sugestões chama a API de REST, usando um URI como origem para especificar o índice e a operação. 
+
+Para rever a implementação de JavaScript, abra **IndexJavaScript.cshtml**. Tenha em atenção que a função de conclusão automática de interface do Usuário do jQuery também é utilizado para a caixa de pesquisa, coletar entradas do termo de pesquisa e fazer chamadas assíncronas para o Azure Search para obter sugestões de correspondências ou concluída termos. 
 
 Vamos analisar o código JavaScript do primeiro exemplo:
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802123"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009602"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar os utilizadores que utilizam o Azure Active Directory
 Adicionar novos utilizadores ou eliminar os utilizadores existentes da sua organização do Azure Active Directory (Azure AD).
@@ -47,7 +47,7 @@ Pode criar um novo utilizador com o portal do Azure Active Directory.
 
    - **Grupos.** Opcionalmente, pode adicionar o utilizador a um ou mais grupos existentes. Também pode adicionar o utilizador a grupos num momento posterior. Para obter mais informações sobre como adicionar utilizadores a grupos, consulte [como criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md).
 
-   - **Função de diretório.** Opcionalmente, pode adicionar o utilizador a um Azure AD a função de administrador. Pode atribuir o usuário seja um Administrador Global ou um ou mais das funções de administrador limitado no Azure AD. Para obter mais informações sobre a atribuição de funções, consulte [como atribuir funções a utilizadores](active-directory-users-assign-role-azure-portal.md).
+   - **Função de diretório.** Opcionalmente, pode adicionar o utilizador a uma função de administrador do Azure AD. Pode atribuir o usuário seja um Administrador Global ou um ou mais das funções de administrador limitado no Azure AD. Para obter mais informações sobre a atribuição de funções, consulte [como atribuir funções a utilizadores](active-directory-users-assign-role-azure-portal.md).
 
 4. Copie o gerado automaticamente palavra-passe fornecida no **palavra-passe** caixa. Terá de dar esta palavra-passe ao utilizador para o processo de início de sessão inicial.
 

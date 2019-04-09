@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513513"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007208"
 ---
 ## <a name="preventative"></a>Preventivas
 
@@ -34,14 +34,14 @@ ms.locfileid: "55513513"
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights etc) do Azure| Sim | O log Analytics é suportado através de registos de diagnóstico. Consulte a cópia de segurança do Monitor do Azure protegidos cargas de trabalho utilizar o Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
+| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | O log Analytics é suportado através de registos de diagnóstico. Consulte a cópia de segurança do Monitor do Azure protegidos cargas de trabalho utilizar o Log Analytics (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
 
 ## <a name="iam-support"></a>Suporte IAM
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Gestão de acesso - autenticação| Sim | A autenticação é através do Azure Active Directory. |
-| Gestão de acesso - autorização| Sim | Cliente criada e funções RBAC incorporadas são usadas. Consulte Use Role-Based o controlo de acesso para gerir pontos de recuperação de cópia de segurança do Azure (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault) para obter mais informações. |
+| Gestão de acesso - autorização| Sim | Cliente criada e funções RBAC incorporadas são usadas. Consulte Use Role-Based o controlo de acesso para gerir pontos de recuperação de cópia de segurança do Azure (/ / / cópia de segurança-rbac-rs-cofre do azure backup) para obter mais informações. |
 
 
 ## <a name="audit-trail"></a>Registo de Auditoria
@@ -55,4 +55,4 @@ ms.locfileid: "55513513"
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão da configuração, etc)| Sim|  |
+| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim|  |

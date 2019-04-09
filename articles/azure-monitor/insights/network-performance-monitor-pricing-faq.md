@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: d2d1ca3e41de36d423de24fdbade8c17507642b5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734305"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005925"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de desempenho de rede do Azure
 
 Temos atendendo a solicitações seus comentários e recentemente introduzidos um [os novos preços experiência](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para vários serviços de monitorização no Azure. Este artigo captura as alterações de preços relacionadas com o Azure [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) num formato de pergunta e resposta de fácil leitura.
 
 Monitor de desempenho de rede é composta por três componentes:
-* [Monitor de desempenho](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
+* [Monitorização de Desempenho](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
 * [Monitor do ponto final de serviço](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
 * [Monitor do ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
@@ -38,7 +38,7 @@ As secções seguintes explicam as alterações de preços para os componentes N
 
 A faturação para o NPM foi com base na utilização e consumo dos dois componentes:
 * **Nós**: Todas as transações sintéticas originam e os nós de terminar. Nós também são conhecidos como agentes ou agentes de gestão da Microsoft.
-* **Dados**: Os resultados dos vários testes de rede são armazenados no repositório do Log Analytics do Azure.
+* **Dados**: Os resultados dos vários testes de rede são armazenados na área de trabalho do Log Analytics.
 
 Sob o modelo antigo, a fatura foi calculada com base no número de nós e o volume de dados gerados. 
 
@@ -63,7 +63,7 @@ O custo de monitorização de uma ligação de sub-rede única durante todo o m�
 
 **Quais são os encargos de dados que gera o Monitor de desempenho?**
 
-O custo de ingestão (carregamento de dados para o Log Analytics, processamento e a indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics, na secção de ingestão de dados. O custo da retenção de dados (isto é, dados mantidos de acordo com a opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na secção de retenção de dados.
+O custo de ingestão (carregamento de dados para a área de trabalho do Log Analytics no Azure Monitor, processamento e a indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para o Log Analytics, na secção de ingestão de dados. O custo da retenção de dados (isto é, dados mantidos de acordo com a opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na secção de retenção de dados.
 
 
 ## <a name="expressroute-monitor"></a>Monitor do ExpressRoute

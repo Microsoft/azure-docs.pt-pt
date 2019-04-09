@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417977"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056746"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -30,23 +30,16 @@ Para criar uma nova subscrição do Azure no portal do Azure:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurar permissões de proprietário da subscrição
 
-Um utilizador com permissões de proprietário da subscrição deve criar o cluster vFXT. São necessárias permissões de proprietário de subscrição para estas ações, entre outras:
+Um utilizador com permissões de proprietário da subscrição deve criar o cluster vFXT. São necessárias permissões de proprietário de subscrição para aceitar os termos de software de serviço e efetuar outras ações. 
 
-* Aceitar os termos de software de vFXT Avere
-* Criar a função de acesso de nó de cluster 
+Existem alguns cenários de solução que permitem que um sem proprietário criar um vFTX Avere para cluster do Azure. Estes cenários envolvem a restrição de recursos e a atribuição de funções adicionais para o criador. Em ambos os casos, um proprietário da subscrição tem também [aceite os termos de software de vFXT Avere](#accept-software-terms) antes do tempo. 
 
-Existem duas soluções alternativas, se não pretender conceder acesso de proprietário para os utilizadores que criam o vFXT:
-
-* Um proprietário do grupo de recursos pode criar um cluster, se estas condições são cumpridas:
-
-  * Tem um proprietário da subscrição [aceite os termos de software de vFXT Avere](#accept-software-terms) e [criar a função de acesso de nó de cluster](#create-the-cluster-node-access-role). 
-  * Todos os recursos de vFXT Avere tem de ser implementados dentro do grupo de recursos, incluindo:
-    * Controlador de cluster
-    * Nós de cluster
-    * Armazenamento de blobs
-    * Elementos de rede
+| Cenário | Restrições | Funções de acesso necessárias para criar o cluster de vFXT Avere | 
+|----------|--------|-------|
+| Administrador do grupo de recursos | A rede virtual, o controlador de cluster e nós de cluster tem de ser criados dentro do grupo de recursos | [Administrador de acesso de utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) e [contribuinte](../role-based-access-control/built-in-roles.md#contributor) funções, ambos âmbito para o grupo de recursos de destino | 
+| Vnet externo | O controlador de cluster e nós de cluster são criados no grupo de recursos, mas é utilizada uma rede virtual existente no grupo de recursos diferente | (1) [administrador de acesso de utilizador](../role-based-access-control/built-in-roles.md#user-access-administrator) e [contribuinte](../role-based-access-control/built-in-roles.md#contributor) funções no âmbito de grupo de recursos vFXT; e (2) [contribuinte de Máquina Virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [acesso de utilizador Administrador](../role-based-access-control/built-in-roles.md#user-access-administrator), e [Avere contribuinte](../role-based-access-control/built-in-roles.md#avere-contributor) funções no âmbito do grupo de recursos da VNET. |
  
-* Um utilizador com privilégios de proprietário não pode criar clusters de vFXT ao utilizar o controlo de acesso baseado em funções (RBAC) antes do tempo para atribuir privilégios ao utilizador. Este método fornece permissões significativas a estes utilizadores. [Este artigo](avere-vfxt-non-owner.md) explica como criar uma função de acesso para autorizar não proprietários para criar clusters.
+Uma alternativa é criar uma função de controlo (RBAC) de acesso baseado em funções personalizados antes do tempo e atribuir privilégios ao usuário, conforme explicado [este artigo](avere-vfxt-non-owner.md). Este método fornece permissões significativas a estes utilizadores. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota para o cluster vFXT
 
@@ -83,75 +76,6 @@ Para aceitar o software de termos com antecedência:
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>Criar funções de acesso 
-
-[Controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) dá nós de cluster e o controlador de cluster vFXT autorização para efetuar tarefas necessárias.
-
-* O controlador de cluster necessita da permissão para criar e modificar as VMs para criar o cluster. 
-
-* VFXT individual, nós têm de fazer coisas como ler propriedades de recursos do Azure e gerir o armazenamento para controlar as definições de interface de rede dos outros nós como parte da operação de normal cluster.
-
-Antes de poder criar o cluster de vFXT Avere, tem de definir uma função personalizada para utilizar com os nós de cluster. 
-
-Para o controlador de cluster, pode aceitar a função predefinida do modelo. O padrão fornece o cluster de privilégios de proprietário de grupo de recursos de controlador. Se preferir para criar uma função personalizada para o controlador, veja [função de acesso de controlador personalizado](avere-vfxt-controller-role.md).
-
-> [!NOTE] 
-> Apenas o proprietário da subscrição, ou um utilizador com a função de proprietário ou administrador de acesso de utilizadores, pode criar funções. As funções podem ser criadas antes do tempo.  
-
-### <a name="create-the-cluster-node-access-role"></a>Criar a função de acesso de nó de cluster
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-Tem de criar a função de nó de cluster antes de poder criar o vFXT Avere para cluster do Azure.
-
-> [!TIP] 
-> Usuários internos da Microsoft devem utilizar a função existente com o nome "Operador de tempo de execução do Cluster de Avere" em vez de tentar criar um. 
-
-1. Copie esse arquivo. Adicione o seu ID de subscrição na linha AssignableScopes.
-
-   (A versão atual deste ficheiro é armazenada no repositório como github.com/Azure/Avere [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. Guarde o ficheiro como ``avere-operator.json`` ou um nome de ficheiro fácil de memorizar. 
-
-
-1. Abra uma shell de nuvem do Azure e inicie sessão com o seu ID de subscrição (descrito [anteriormente neste documento](#accept-software-terms)). Use este comando para criar a função:
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-O nome da função é utilizado ao criar o cluster. Neste exemplo, o nome é ``avere-operator``.
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Criar um ponto de extremidade do serviço de armazenamento na sua rede virtual (se necessário)
 

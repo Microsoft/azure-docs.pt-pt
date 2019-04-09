@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b7a46fab296fa8d585f1ae70dcf278e6686cca64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520603"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006566"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Início rápido: Controlar um dispositivo ligado a um IoT hub (Android)
 
@@ -35,13 +35,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
 * Android studio a partir de https://developer.android.com/studio/. Para obter mais informações sobre a instalação do Android Studio, consulte [instalação do android](https://developer.android.com/studio/install).
 
 * Android SDK 27 é utilizado pelo exemplo neste artigo.
 
-* Duas aplicações de exemplo são necessários por este início rápido: O [aplicação Android de exemplo de SDK de dispositivo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) e o [aplicação Android de exemplo de SDK do serviço](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ambos estes exemplos são parte do repositório azure-iot-exemplos-java no GitHub. Transfira ou clone a [azure-iot-exemplos-java](https://github.com/Azure-Samples/azure-iot-samples-java) repositório.
+* Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
 
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
+
+* Duas aplicações de exemplo são necessários por este início rápido: O [aplicação Android de exemplo de SDK de dispositivo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) e o [aplicação Android de exemplo de SDK do serviço](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ambos estes exemplos são parte do repositório azure-iot-exemplos-java no GitHub. Transfira ou clone a [azure-iot-exemplos-java](https://github.com/Azure-Samples/azure-iot-samples-java) repositório.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -55,14 +59,13 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo.
+1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
 
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
    **MyAndroidDevice**: Este valor é o nome fornecido para o dispositivo registado. Utilize MyAndroidDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também poderá usar esse nome ao longo deste artigo e atualizar o nome do dispositivo em amostras de aplicativos antes de executá-los.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```

@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ed50dc3d0588f817117f388c8aea83211fd199
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff314e0bbf548c96c4f652213cdea21f86ed1125
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189689"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006124"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação de multi-inquilino
 
 Aqui está uma lista de tópicos recomendados para saber mais sobre aplicações multi-inquilino:
 
 - Obter uma compreensão geral do [o que significa ser uma aplicação multi-inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Obter uma compreensão geral do [como configurar a aplicação de multi-inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+- Obter uma compreensão geral do [como configurar a aplicação de multi-inquilino](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
 - Obtenha uma visão geral passo a passo dos [como o framework de consentimento do Azure AD é utilizado para implementar o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), que é necessário para aplicações multi-inquilino
 - Para obter mais detalhes, saiba [como uma aplicação multi-inquilino está configurada e codificado ponto-a-ponto](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), incluindo como registar-se, utilize o ponto final "common", implemente "utilizador" e "admin" consentimento, como implementar mais avançadas de várias camadas cenários
 

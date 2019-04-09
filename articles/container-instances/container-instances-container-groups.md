@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202015"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005543"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
 
@@ -41,7 +41,9 @@ Este grupo de contentores de exemplo:
 
 ## <a name="deployment"></a>Implementação
 
-Eis duas formas comuns de implementar um grupo de vários contentor: utilizar um [modelo do Resource Manager] [ resource-manager template] ou uma [ficheiro YAML][yaml-file]. Utilizar um modelo do Resource Manager, quando precisa para implementar recursos adicionais de serviço do Azure (por exemplo, um [partilha de ficheiros do Azure][azure-files]) no momento implementa as instâncias de contentores. Devido à natureza de mais concisa do formato YAML, um ficheiro YAML é recomendado quando a implementação inclui apenas as instâncias de contentor.
+Eis duas formas comuns de implementar um grupo de vários contentor: utilizar um [modelo do Resource Manager] [ resource-manager template] ou uma [ficheiro YAML][yaml-file]. Um modelo do Resource Manager é recomendado quando precisa implantar recursos adicionais de serviço do Azure (por exemplo, um [partilha de ficheiros do Azure][azure-files]) ao implementar as instâncias de contentores. Devido à natureza de mais concisa do formato YAML, um ficheiro YAML é recomendado quando a implementação inclui apenas as instâncias de contentor.
+
+Para preservar a configuração de um grupo de contentor, pode exportar a configuração para um ficheiro YAML, utilizando o comando da CLI do Azure [exportação do contentor de az][az-container-export]. Exportação permite-lhe armazenar suas configurações de grupo do contentor no controle de versão para "configuração como código." Em alternativa, utilize o ficheiro exportado como um ponto de partida ao desenvolver uma configuração de novo no YAML.
 
 ## <a name="resource-allocation"></a>Alocação de recursos
 
@@ -110,3 +112,4 @@ Saiba como implementar um grupo de contentores de vários contentores com um mod
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

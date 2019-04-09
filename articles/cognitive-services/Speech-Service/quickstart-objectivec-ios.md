@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094927"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009276"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai aprender a criar uma aplicação iOS em Objective-C com o SDK de Voz dos Serviços Cognitivos para fazer a conversão de voz em texto de um ficheiro de áudio.
+Neste artigo, saiba como criar uma aplicação iOS no Objective-C com o SDK de voz dos serviços cognitivos para transcrição de voz em texto do microfone ou de um arquivo com áudio gravado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,16 +29,16 @@ Antes de começar, eis uma lista de pré-requisitos:
 
 * R [chave de subscrição](get-started.md) para o serviço de voz
 * Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
-* O destino definido como o iOS versão 11.4 ou posterior
+* O destino definido como a versão do iOS 9.3 ou posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Voz para iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.3.1`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.4.0`.
 
-O SDK de Voz dos Serviços Cognitivos para Mac e iOS é atualmente distribuído como uma Arquitetura Cocoa.
-Pode ser transferido a partir de https://aka.ms/csspeech/iosbinary. Transfira o ficheiro para o diretório raiz.
+O SDK de voz dos serviços cognitivos para iOS atualmente é distribuído como uma estrutura de Cocoa.
+Pode ser transferido a partir [aqui](https://aka.ms/csspeech/iosbinary). Transfira o ficheiro para o diretório raiz.
 
 ## <a name="create-an-xcode-project"></a>Criar um Projeto Xcode
 
@@ -52,16 +52,16 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
     1. Introduza um nome de organização adequado e o identificador da organização, se já tiver uma conta de programador da Apple. Para fins de teste, pode escolher qualquer nome, como `testorg`. Para assinar a aplicação, terá de um perfil de aprovisionamento correto. Consulte a [site do desenvolvedor Apple](https://developer.apple.com/) para obter detalhes.
     1. Certifique-se de que escolhe Objective-C como linguagem para o projeto.
     1. Desative todas as caixas de verificação para testes e dados principais.
-    ![Project Settings](media/sdk/qs-objectivec-project-settings.png) (Definições do Projeto)
+    ![Definições do projeto](media/sdk/qs-objectivec-project-settings.png)
 1. Selecionar o diretório do projeto
     1. Escolha o diretório raiz onde colocar o projeto. Esta ação cria um `helloworld` diretório no seu diretório de raiz que contém todos os ficheiros para o projeto Xcode.
     1. Desative a criação de um repositório Git para este projeto de exemplo.
     1. Ajuste os caminhos para o SDK em *Project Settings* (Definições do Projeto).
         1. Na **gerais** separador sob a **binários incorporados** cabeçalho, adicionar a biblioteca do SDK como uma estrutura: **Adicionar binários incorporados** > **adicionar outro...**  > Navegar para o diretório raiz e escolha o ficheiro `MicrosoftCognitiveServicesSpeech.framework`. Esta ação adiciona a biblioteca do SDK para o cabeçalho **ligado Framework e bibliotecas** automaticamente.
-        ![Added Framework](media/sdk/qs-objectivec-framework.png) (Arquitetura Adicionada)
+        ![Framework foi adicionado](media/sdk/qs-objectivec-framework.png)
         1. Vá para o separador **Build Settings** (Definições de Compilação) e ative a definição **All** (Tudo).
         1. Adicione o diretório `$(SRCROOT)/..` a *Framework Search Paths* (Caminhos de Pesquisa da Arquitetura) no cabeçalho **Search Paths** (Caminhos de Pesquisa).
-        ![Definição Framework Search Path](media/sdk/qs-objectivec-framework-search-paths.png) (Caminho de Pesquisa da Arquitetura)
+        ![Definição do caminho de pesquisa de estrutura](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>Configurar a IU
 
@@ -103,3 +103,4 @@ Substitua o gerado automaticamente XML com este código:
 
 > [!div class="nextstepaction"]
 > [Explore exemplos de Objective-C no GitHub](https://aka.ms/csspeech/samples)
+

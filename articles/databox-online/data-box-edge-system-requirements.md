@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905244"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006357"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda de caixa de dados do Azure
 
@@ -101,6 +101,37 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Considerações de dimensionamento de computação
+
+Utilize a sua experiência de desenvolvimento e teste a sua solução para garantir que existe capacidade suficiente no seu dispositivo do Edge de caixa de dados e obter o desempenho ideal do seu dispositivo.
+
+Deve considerar os fatores incluem:
+
+- **Especificações de contentor** -pensar sobre o seguinte.
+
+    - O número de contentores é na carga de trabalho? Poderia ter muita contentores leves versus alguns aqueles de muitos recursos.
+    - Quais são os recursos alocados a estes contentores versus o que são os recursos que estão sendo consumidos?
+    - Como muitas camadas deve partilhar os contentores?
+    - Existem contentores não utilizados? Um contentor de parada ainda ocupa de espaço em disco.
+    - Em que idioma são os contentores escritos?
+- **Tamanho dos dados processados** -a quantidade de dados serão seus contentores estar a processar? Estes dados consumirá espaço em disco ou os dados serão processados na memória?
+- **Desempenho esperado** -quais são as características de desempenho pretendido da sua solução? 
+
+Para compreender e otimizar o desempenho da sua solução, poderia usar:
+
+- As métricas de computação disponíveis no portal do Azure. Aceda ao seu recurso de borda de caixa de dados e, em seguida, aceda a **monitorização > métricas**. Examinar os **Edge de computação - utilização de memória** e **Edge de computação - percentagem de CPU** para compreender os recursos disponíveis e como são os recursos de introdução consumidos.
+- Os comandos de monitoramento disponíveis por meio da interface do PowerShell do dispositivo, tais como:
+
+    - `dkr` estatísticas para obter uma transmissão em direto de contentor (es) de estatísticas de utilização de recursos. O comando suporta da CPU, utilização da memória, limite de memória e métricas de e/s de rede.
+    - `dkr system df` Para obter informações sobre a quantidade de espaço em disco utilizado. 
+    - `dkr image [prune]` Para limpar as imagens não utilizadas e libertar espaço.
+    - `dkr ps --size` Para ver o número aproximado de um contentor em execução. 
+
+    Para obter mais informações sobre os comandos disponíveis, aceda a [monitorizar e resolver problemas de módulos de computação](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Por fim, certifique-se de que validar a sua solução no seu conjunto de dados e quantificar o desempenho do Edge de caixa de dados antes de implementar na produção.
+
 
 ## <a name="next-step"></a>Passo seguinte
 

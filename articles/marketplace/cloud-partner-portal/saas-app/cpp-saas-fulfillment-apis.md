@@ -12,18 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/26/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349523"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009450"
 ---
-# <a name="saas-fulfillment-apis"></a>APIs de preenchimento de SaaS
+# <a name="saas-fulfillment-apis"></a>SaaS Fulfillment APIs
 
-A API de preenchimento de SaaS que permite que fornecedores independentes de software (ISVs) para integrar as suas aplicações SaaS com o Azure Marketplace. Esta API permite que os aplicativos de ISV participar em todos os canais de comércio ativado: direto, liderada por parceiros (revendedor) e orientado por campo.  Esta API é um requisito para listagem que transactable SaaS oferece no Azure Marketplace.
+As APIs de preenchimento de SaaS de ativar fornecedores independentes de software (ISVs) para integrar as suas aplicações SaaS com o Azure Marketplace. Essas APIs permitem aplicações ISV participar em todos os canais de comércio ativado: direto, liderada por parceiros (revendedor) e orientado por campo.  Eles são um requisito para a listagem transactable ofertas de SaaS no Azure Marketplace.
+
+> [!WARNING]
+> A versão atual desta API é a versão 2, que deve ser utilizado para todos os SaaS novo oferece.  Versão 1 da API foi preterido e está a ser mantido para oferecer suporte a ofertas existentes.
+
 
 ## <a name="business-model-support"></a>Suporte de modelo de negócio
 
@@ -37,4 +41,4 @@ Esta API suporta as seguintes capacidades de modelo de negócios; pode:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Use essa interface para desenvolvimento: [Versão de API de preenchimento do SaaS 2](./cpp-saas-fulfillment-api-v2.md).
+Se ainda não o fez, registar a aplicação de SaaS no [portal do Azure](https://ms.portal.azure.com) conforme explicado na [registar uma aplicação do Azure AD](./cpp-saas-registration.md).  Em seguida, utilize a versão mais atual desta interface para desenvolvimento: [Versão de API de preenchimento do SaaS 2](./cpp-saas-fulfillment-api-v2.md).

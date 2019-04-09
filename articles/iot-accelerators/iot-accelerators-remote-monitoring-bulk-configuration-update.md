@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684427"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009672"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerir os seus dispositivos ligados em massa
 
@@ -89,7 +89,7 @@ O [Bancada de trabalho do Azure IoT](https://marketplace.visualstudio.com/items?
 
 1. Certifique-se de que o seu IoT DevKit não está ligado ao seu computador. Inicie o VS Code e, em seguida, ligue o DevKit para o seu computador.
 
-1. Prima **F1** para abrir a paleta de comandos, tipo e selecione **Bancada de trabalho de IoT: exemplos**. Em seguida, selecione **IoT DevKit** como o quadro.
+1. Prima **F1** para abrir a paleta de comandos, escreva e selecione **Bancada de trabalho de IoT: Exemplos**. Em seguida, selecione **IoT DevKit** como o quadro.
 
 1. Encontrar **Firmware OTA** e clique em **exemplo aberto**. Uma nova janela do VS Code é aberto e mostra os **firmware_ota** pasta do projeto:
 
@@ -103,7 +103,7 @@ A versão inicial do firmware do dispositivo for 1.0.0. O novo firmware deve ter
 
     ![Alterar versão do firmware](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra a paleta de comandos, em seguida, escreva e selecione **a Bancada de trabalho de IoT: dispositivo**. Em seguida, selecione **dispositivo compilar** para compilar o código:
+1. Abra a paleta de comandos, em seguida, escreva e selecione **Bancada de trabalho de IoT: Dispositivo**. Em seguida, selecione **dispositivo compilar** para compilar o código:
 
     ![Compilação do dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
@@ -111,7 +111,7 @@ A versão inicial do firmware do dispositivo for 1.0.0. O novo firmware deve ter
 
 ### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Gerar o valor CRC e calcular o tamanho de ficheiro do firmware
 
-1. Abra a paleta de comandos, em seguida, escreva e selecione **a Bancada de trabalho de IoT: dispositivo**. Em seguida, selecione **gerar CRC**:
+1. Abra a paleta de comandos, em seguida, escreva e selecione **Bancada de trabalho de IoT: Dispositivo**. Em seguida, selecione **gerar CRC**:
 
     ![Gerar CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
@@ -139,7 +139,7 @@ Utilize a sua conta de armazenamento do Azure para alojar o novo arquivo de firm
 
     ![Versão 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra a paleta de comandos, em seguida, escreva e selecione **a Bancada de trabalho de IoT: dispositivo**. Em seguida, selecione **carregamento de dispositivo**:
+1. Abra a paleta de comandos, em seguida, escreva e selecione **Bancada de trabalho de IoT: Dispositivo**. Em seguida, selecione **carregamento de dispositivo**:
 
     ![Carregamento de dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
@@ -147,11 +147,11 @@ Utilize a sua conta de armazenamento do Azure para alojar o novo arquivo de firm
 
 1. Quando o carregamento estiver concluído, o dispositivo de IoT DevKit é reiniciado. Quando o reinício estiver concluído, o ecrã de IoT DevKit mostra **versão FW: 1.0.0**, e que está a verificar novo firmware:
 
-    ![OTA-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Criar uma configuração de dispositivo
 
-Uma configuração de dispositivo Especifica o estado pretendido dos seus dispositivos. Normalmente, um desenvolvedor [cria a configuração](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) sobre o **configuração do dispositivo IoT** página no portal do Azure. Uma configuração de dispositivo é um documento JSON que especifica o estado pretendido dos seus dispositivos e um conjunto de métricas.
+Uma configuração de dispositivo Especifica o estado pretendido dos seus dispositivos. Normalmente, um desenvolvedor [cria a configuração](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) sobre o **configuração do dispositivo IoT** página no portal do Azure. Uma configuração de dispositivo é um documento JSON que especifica o estado pretendido dos seus dispositivos e um conjunto de métricas.
 
 Guardar a configuração seguinte como ficheiro chamado **firmware update.json** no seu computador local. Substitua a `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`, e `YOURPACKAGESIZE` marcadores de posição pelos valores que anotou anteriormente:
 
@@ -231,7 +231,7 @@ Nesta secção, pode criar e executar uma implementação que se aplica a config
     |Nome|Implementar atualização de firmware|
     |Tipo de pacote|Configuração do Dispositivo|
     |Tipo de configuração|Firmware|
-    |Pacote|firmware update.json|
+    |Pacote|firmware-update.json|
     |Grupo de dispositivos|Dispositivos de IoT DevKit|
     |Prioridade|10|
 
@@ -248,23 +248,23 @@ Nesta secção, pode criar e executar uma implementação que se aplica a config
 
 Após alguns minutos, o IoT DevKit obtém as novas informações de firmware e começa a baixá-lo para o dispositivo:
 
-![OTA-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 Consoante a velocidade da sua rede, a transferência pode demorar alguns minutos. Depois do firmware é transferido, o dispositivo verifica o tamanho do ficheiro e o valor CRC. Apresenta o ecrã o MXChip **transmitido** se a verificação for bem sucedida.
 
-![OTA-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 Se a verificação for bem sucedida, o dispositivo é reiniciado. Verá uma contagem regressiva partir **5** para **0** antes do reinício acontece.
 
-![OTA 4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 Após o reinício, o carregador de inicialização de IoT DevKit atualiza o firmware para a nova versão. A atualização poderá demorar vários segundos. Durante esta fase, o RGB LED no dispositivo está vermelha e a tela fique em branco.
 
-![OTA-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 Quando o reinício estiver concluído, o dispositivo de IoT DevKit agora está a executar a versão 1.0.1 do firmware.
 
-![OTA 6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 Sobre o **implementações** página, clique numa implementação para ver o estado dos seus dispositivos, como eles de atualização. Pode ver o estado de cada dispositivo no seu grupo de dispositivos e as métricas personalizadas que definiu.
 

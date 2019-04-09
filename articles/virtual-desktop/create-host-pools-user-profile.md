@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628989"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056100"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
 
-O serviço de pré-visualização de ambiente de Trabalho Virtual do Windows oferece FSLogix contentores de perfil, como a solução de perfil do usuário recomendada. Não é recomendado utilizar a solução de disco de perfil de utilizador (UDP), e vão ser preterida em versões futuras do ambiente de Trabalho Virtual do Windows.
+O serviço de pré-visualização de ambiente de Trabalho Virtual do Windows oferece FSLogix contentores de perfil, como a solução de perfil do usuário recomendada. Não é recomendada a utilizar a solução de disco de perfil de utilizador (UDP), que será preterido em futuras versões de área de Trabalho Virtual do Windows.
 
 Esta secção irá dizer como configurar uma partilha de contentor do perfil de FSLogix para um conjunto de anfitrião. Para obter documentação geral sobre FSLogix, consulte a [FSLogix site](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ Depois de criar a máquina virtual, associe-o ao domínio, efetuando os seguinte
 
 Seguem-se instruções gerais sobre como preparar uma máquina virtual para agir como uma partilha de ficheiros para perfis de utilizador:
 
-1. Junte-se as máquinas de virtuais de anfitrião de sessão para uma [grupo de segurança do Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Este grupo de segurança será utilizado para autenticar as máquinas de virtuais de hosts de sessão para a máquina de virtual de partilha de ficheiro que acabou de criar.
+1. Adicionar utilizadores do Windows Virtual Desktop Active Directory para um [grupo de segurança do Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Este grupo de segurança será utilizado para autenticar os utilizadores de área de Trabalho Virtual do Windows para a máquina de virtual de partilha de ficheiro que acabou de criar.
 2. [Ligar à máquina de virtual de partilha de ficheiros](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Na máquina de virtual de partilha de ficheiros, crie uma pasta no **unidade C** que será utilizada como a partilha do perfil.
 4. A nova pasta com o botão direito, selecione **propriedades**, selecione **partilha**, em seguida, selecione **de partilha avançadas...** .
 5. Selecione **partilhar esta pasta**, selecione **permissões...** , em seguida, selecione **adicionar...** .
-6. Procure o grupo de segurança ao qual adicionou as máquinas de virtuais de anfitrião de sessão, em seguida, certificar-se de que esse grupo tem **controlo total**.
+6. Procure o grupo de segurança ao qual adicionou os usuários de área de Trabalho Virtual do Windows, em seguida, certificar-se de que esse grupo tem **controlo total**.
 7. Depois de adicionar o grupo de segurança, clique com botão direito na pasta, selecione **propriedades**, selecione **partilha**, em seguida, copie o **caminho de rede** a utilizar para utilizar mais tarde.
 
 Para obter mais informações sobre as permissões, consulte a [FSLogix documentação](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,13 @@ Para configurar as máquinas virtuais com o software de FSLogix, efetue o seguin
 
 1. [Ligar à máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) com as credenciais que forneceu ao criar a máquina virtual.
 2. Inicie um browser e navegue para [esta ligação](https://go.microsoft.com/fwlink/?linkid=2084562) para transferir o agente de FSLogix. Como parte da pré-visualização pública da área de Trabalho Virtual do Windows, obterá uma chave de licença para ativar o software de FSLogix. A chave é o arquivo de LicenseKey.txt incluído no ficheiro. zip de agente de FSLogix.
-3. Instale o agente de FSLogix.
+3. Navegue para o \\ \\Win32\\versão ou \\ \\X64\\lançamento de ficheiro. zip e execute **FSLogixAppsSetup** para instalar o agente de FSLogix.
 4. Navegue para **Program Files** > **FSLogix** > **aplicações** para confirmar se o agente instalado.
-5. A partir do menu Iniciar, execute **RegEdit** como administrador. Navegue para **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfis**
-6. Crie os seguintes valores:
+5. A partir do menu Iniciar, execute **RegEdit** como administrador. Navegue para **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+6. Crie uma chave denominada **perfis**.
+7. Crie os seguintes valores para a chave de perfis:
 
 | Name                | Type               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
 | Ativado             | DWORD              | 1                                 |
-| VHDLocations        | Valor de múltiplas cadeias | "Caminho de rede para a partilha de ficheiros" |
-| VolumeType          | String             | VHDX                              |
-| SizeInMBs           | DWORD              | "número inteiro para o tamanho do perfil"     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Valor de múltiplas cadeias | "Caminho de rede para a partilha de ficheiros"     |

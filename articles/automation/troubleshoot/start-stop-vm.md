@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f503d890dcc8ba90a8a4d8bafc09d5fd8b2856e6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804858"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009789"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Iniciar/parar VMs durante a solução de horas de resolução de problemas
 
@@ -88,7 +88,7 @@ Reveja a seguir uma lista de possíveis soluções para o seu problema ou locais
 
 * Verifique se configurou corretamente uma agenda para a solução iniciar/parar VM. Para saber como configurar uma agenda, veja a [agendas](../automation-schedules.md) artigo.
 
-* Verifique os fluxos de trabalho para os runbooks procurar erros. No portal, aceda à sua conta de automatização e selecione **trabalhos** sob **automatização de processos**. Do **tarefas** aparência da página para as tarefas a partir de um dos runbooks do seguintes:
+* Verifique os [fluxos da tarefa](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) em busca de quaisquer erros. No portal, aceda à sua conta de automatização e selecione **trabalhos** sob **automatização de processos**. Do **tarefas** aparência da página para as tarefas a partir de um dos runbooks do seguintes:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -143,6 +143,8 @@ Reveja a seguir uma lista de possíveis soluções para o seu problema ou locais
 
 * Se a VM está a ter um problema ao iniciar ou a desalocar, esse comportamento pode ser causado por um problema na VM em si. Alguns exemplos ou problemas potenciais são, uma atualização está a ser aplicada ao tentar desligar, um serviço paradas e muito mais). Navegue para o recurso da VM e verifique o **registos de atividades** para ver se existem erros nos registos. Também pode tentar iniciar sessão na VM para ver se existem erros nos logs de eventos. Para saber mais sobre a VM de resolução de problemas, consulte [máquinas virtuais de resolução de problemas do Azure](../../virtual-machines/troubleshooting/index.md)
 
+* Verifique os [fluxos da tarefa](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) em busca de quaisquer erros. No portal, aceda à sua conta de automatização e selecione **trabalhos** sob **automatização de processos**.
+
 ## <a name="custom-runbook"></a>Cenário: Meu runbook personalizado não consegue iniciar ou parar as minhas VMs
 
 ### <a name="issue"></a>Problema
@@ -155,7 +157,7 @@ A causa da falha pode ser uma das muitas coisas. Aceda à sua conta de automatiz
 
 ### <a name="resolution"></a>Resolução
 
-É recomendado que utilize o [iniciar/parar VMs durante a solução de horas](../automation-solution-vm-management.md) para iniciar e parar VMs na automatização do Azure. Esta solução é criada pela Microsoft. Runbooks personalizados não são suportados pela Microsoft. Poderá encontrar uma solução para o runbook personalizado ao visitar a [resolução de problemas de runbook](runbooks.md) artigo. Este artigo fornece orientações gerais e resolução de problemas para runbooks de todos os tipos.
+É recomendado que utilize o [iniciar/parar VMs durante a solução de horas](../automation-solution-vm-management.md) para iniciar e parar VMs na automatização do Azure. Esta solução é criada pela Microsoft. Runbooks personalizados não são suportados pela Microsoft. Poderá encontrar uma solução para o runbook personalizado ao visitar a [resolução de problemas de runbook](runbooks.md) artigo. Este artigo fornece orientações gerais e resolução de problemas para runbooks de todos os tipos. Verifique os [fluxos da tarefa](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) em busca de quaisquer erros. No portal, aceda à sua conta de automatização e selecione **trabalhos** sob **automatização de processos**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Cenário: VMs não iniciar ou parar na sequência correta
 
@@ -209,7 +211,7 @@ Erros de muitas vezes podem ser causados por utilizar uma versão antiga e desat
 
 ### <a name="resolution"></a>Resolução
 
-Para resolver muitos erros, é recomendado para remover e atualizar a solução. Para saber como atualizar a solução, veja [atualizar o iniciar/parar VMs durante a solução de horas](../automation-solution-vm-management.md#update-the-solution).
+Para resolver muitos erros, é recomendado para remover e atualizar a solução. Para saber como atualizar a solução, veja [atualizar o iniciar/parar VMs durante a solução de horas](../automation-solution-vm-management.md#update-the-solution). Além disso, pode verificar o [fluxos da tarefa](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) em busca de quaisquer erros. No portal, aceda à sua conta de automatização e selecione **trabalhos** sob **automatização de processos**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

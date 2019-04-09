@@ -102,13 +102,14 @@ items:
     - name: Página de informações
       href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
   - name: Gestão do portal
+    href: ./cloud-partner-portal/portal-manage/cpp-portal-management.md
     items:
-    - name: Registo de conta no centro de programadores
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md
-    - name: Gerir o perfil do publicador
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md
+    - name: Pré-requisitos para gerir contas
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-prerequisites.md
+    - name: Gerir perfis de publicador
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-publisher-profile.md
     - name: Gerir utilizadores
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-users.md
   - name: Gestão de negócio
     items:
     - name: Orientação de SEO
@@ -367,7 +368,9 @@ items:
       - name: SaaS Fulfillment APIs
         href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
         items:
-        - name: SaaS API v1
+        - name: Registar a aplicação SaaS
+          href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
+        - name: SaaS API v1 (preterido)
           href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
         - name: SaaS API v2
           href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
@@ -466,9 +469,9 @@ items:
       href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Obter suporte
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-ms.openlocfilehash: 72166e2f797c5eaaeb2908475b18c0f8424e8804
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9b4b1dd0a98ef8717ddc522d69e38a6b15b56cb4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402801"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010863"

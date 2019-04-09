@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880165"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006553"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Service Bus
 Os exemplos de mensagens do Service Bus demonstram funcionalidades principais [mensagens do Service Bus](https://azure.microsoft.com/services/service-bus/). Atualmente, pode encontrar os exemplos nos seguintes locais:
@@ -27,7 +27,7 @@ Os exemplos de mensagens do Service Bus demonstram funcionalidades principais [m
 | Linguagem de programação | Localização do SDK ou exemplos |
 | -------------------- | ----------------------- |
 | .NET, Java e gestão | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Explorador do Service Bus
@@ -38,6 +38,6 @@ Além disso, o [Explorador do Service Bus](https://github.com/paolosalvatori/Ser
 
 Consulte os tópicos seguintes para visões gerais conceituais do Service Bus.
 
-* [Descrição geral das mensagens do Service Bus](service-bus-messaging-overview.md)
+* [Descrição geral de mensagens do Service Bus](service-bus-messaging-overview.md)
 * [Arquitetura do Service Bus](service-bus-architecture.md)
 

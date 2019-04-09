@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b37c4845526227799173b09f468701954fc7b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449339"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009874"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades geridas para recursos do Azure numa escala de máquina virtual do Azure através de um modelo
 
@@ -60,7 +60,7 @@ Independentemente da opção escolhida, sintaxe do modelo é o mesmo durante a i
 
 Nesta secção, irá ativar e desativar a identidade gerida atribuído ao sistema através de um modelo Azure Resource Manager.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Ativar atribuído de sistema de identidade gerido durante a criação a criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquina virtual existente
+### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-an-existing-virtual-machine-scale-set"></a>Ativar atribuído de sistema de identidade gerido durante a criação a criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquina virtual existente
 
 1. Se iniciar sessão para o Azure localmente ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
 2. Para ativar a identidade gerida atribuído de sistema, carregar o modelo para um editor, localize a `Microsoft.Compute/virtualMachinesScaleSets` recurso de interesse nos recursos secção e adicione o `identity` propriedade no mesmo nível, como o `"type": "Microsoft.Compute/virtualMachinesScaleSets"` propriedade. Utilize a seguinte sintaxe:

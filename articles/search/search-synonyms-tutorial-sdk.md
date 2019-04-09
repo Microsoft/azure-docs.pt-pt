@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202372"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008980"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemplo: Adicionar sinónimos para o Azure Search noC#
 
@@ -36,9 +36,9 @@ Pode criar vários mapas de sinónimos, publicá-los como um recurso amplo de se
 Os requisitos de tutorial incluem o seguinte:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* [Serviço do Azure Search](search-create-service-portal.md)
-* [Biblioteca Microsoft.Azure.Search.NET](https://aka.ms/search-sdk)
-* [Como utilizar o Azure Search a partir de uma Aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Serviço de pesquisa do Azure](search-create-service-portal.md)
+* [Biblioteca de .NET de Microsoft.Azure.Search](https://aka.ms/search-sdk)
+* [Como utilizar o Azure Search a partir de uma aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Descrição geral
 

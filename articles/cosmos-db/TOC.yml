@@ -463,6 +463,9 @@ items:
     - name: Aprovisionar o débito numa base de dados
       displayName: request units, RUs, RU, shared throughput, database level
       href: how-to-provision-database-throughput.md
+    - name: Encontrar cobranças de unidades de pedido
+      displayName: request units, RUs, RU, charge, consumption
+      href: find-request-unit-charge.md
   - name: Trabalhar com contentores e itens
     items:
     - name: Criar um contentor
@@ -662,9 +665,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: 2c9b87d1cdecb70a581086d04eba55e30d9ad78a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 8f70665eba9fa6b542b546f592b22ba516af06b4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917588"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047100"

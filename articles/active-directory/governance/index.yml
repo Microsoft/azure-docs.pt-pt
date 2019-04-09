@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4a47f393853d1e1dfb2b6c367fe62d1822e98806
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249456"
 documentType: LandingData
 title: Documentação de governação de identidades do Azure AD
 metadata:
-  document_id: 
+  document_id: null
   title: Documentação de governação de identidades do Azure Active Directory | Microsoft Docs
-  description: Saiba mais sobre a governação do ciclo de vida de identidade, aceder à governação do ciclo de vida e garantir a administração entre funcionários e parceiros.
+  description: 'Saiba mais sobre a governação do ciclo de vida de identidade, aceder à governação do ciclo de vida e garantir a administração entre funcionários e parceiros.'
   services: active-directory
   author: rolyon
   manager: mtillman
@@ -21,34 +15,34 @@ metadata:
   ms.date: 08/16/2018
   ms.author: rolyon
 abstract:
-  description: A governação de identidade do Azure Active Directory (Azure AD) dá às organizações a capacidade de governar o ciclo de vida de identidade, governar pelo ciclo de vida e garantir a administração entre funcionários e parceiros.
+  description: 'A governação de identidade do Azure Active Directory (Azure AD) dá às organizações a capacidade de governar o ciclo de vida de identidade, governar pelo ciclo de vida e garantir a administração entre funcionários e parceiros.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-identity-governance.png
       width: 200
-    title: Governar o acesso aos seus recursos (1:17:24)
-    href: https://www.youtube.com/embed/aY7A0Br8u5M
+    title: 'Governar o acesso aos seus recursos (1:17:24)'
+    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
     width: 200
 sections:
-- title: Governação de identidade
-  items:
-  - type: list
-    style: unordered
+  - title: Governação de identidade
     items:
-    - html: <a href="/azure/active-directory/governance/identity-governance-overview">O que é a governação de identidade?</a>
-- title: Revisões de acesso
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/identity-governance-overview">O que é a governação de identidade?</a>
+  - title: Revisões de acesso
     items:
-    - html: <a href="/azure/active-directory/governance/access-reviews-overview">O que é uma revisão de acesso?</a>
-    - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gerir o acesso de utilizador com as revisões de acesso</a>
-    - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gerir o acesso de convidado com as revisões de acesso</a>
-- title: Termos de utilização
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">O que é uma revisão de acesso?</a>
+          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gerir o acesso de utilizador com as revisões de acesso</a>
+          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gerir o acesso de convidado com as revisões de acesso</a>
+  - title: Termos de utilização
     items:
-    - html: <a href="/azure/active-directory/governance/active-directory-tou">O que posso fazer com os Termos de Utilização?</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">O que posso fazer com os Termos de utilização?</a>

@@ -56,6 +56,8 @@ items:
       href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Análise do Plano de Dados
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
+  - name: Conectividade entre redes
+    href: cross-network-connectivity.md
 - name: Guias de procedimentos
   items:
   - name: Criar e modificar um circuito
@@ -225,9 +227,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Configurar o Peering Público para o seu circuito
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: d856b744fb835d6193d7f48deda718bd85cc9a34
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 920e0a4f1497378b8f04d52e38392635aaa0a136
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408936"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044951"

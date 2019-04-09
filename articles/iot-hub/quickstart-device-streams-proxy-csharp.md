@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: ffd5f4baf3bbd2b7f0fe90272f896e438a30a35f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d36737e6007f247777689e2afa9f47b3ad5bf107
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079235"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006655"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Início rápido: SSH/RDP sobre dispositivos no IoT Hub transmite em fluxo através de C# aplicações de proxy (pré-visualização)
 
@@ -26,7 +26,6 @@ Atualmente, o IoT Hub do Microsoft Azure suporta fluxos de dispositivo como uma 
 [Fluxos de dispositivo do IoT Hub](./iot-hub-device-streams-overview.md) permitem que os aplicativos de serviço e dispositivo comunicar de forma segura e compatível com firewall. Este guia de início rápido envolve dois C# programas que permitem o tráfego de aplicativo de cliente/servidor (como RDP e SSH) para ser enviado por um fluxo de dispositivo estabelecido através do IoT Hub. Ver [aqui](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) para uma descrição geral da configuração.
 
 Descrevemos primeiro a configuração de SSH (utilizar a porta 22). Descrevemos, em seguida, como modificar a porta da configuração de RDP. Uma vez que os fluxos de dispositivo são o aplicativo e independente de protocolo, o mesmo exemplo pode ser modificado para acomodar outros tipos de tráfego de aplicativo. Isso normalmente envolve somente a alteração da porta de comunicação aquele usado pelo aplicativo pretendido.
-
 
 ## <a name="how-it-works"></a>Como funciona?
 
@@ -53,8 +52,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 A pré-visualização de fluxos de dispositivo é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
 
-  - **E.U.A. central**
-  - **E.U.A. central EUAP**
+  - **EUA Central**
+  - **E.U.A. Central EUAP**
 
 As duas aplicações de exemplo que executa neste guia de início rápido são escritas com C#. Precisa do SDK de .NET Core 2.1.0 ou posterior no seu computador de desenvolvimento.
 
@@ -66,8 +65,13 @@ Pode verificar qual a versão atual do C# no seu computador de desenvolvimento a
 dotnet --version
 ```
 
-Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip e extraia o arquivo ZIP.
+Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip e extraia o arquivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -77,14 +81,13 @@ Transfira o projeto C# de exemplo de https://github.com/Azure-Samples/azure-iot-
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
+1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
 
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
    **MyDevice**: Este é o nome fornecido para o dispositivo registado. Utilize MyDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 

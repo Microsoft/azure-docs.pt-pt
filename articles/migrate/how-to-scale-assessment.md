@@ -4,18 +4,21 @@ description: Descreve como avaliar um grande número de máquinas no local com o
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116678"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057477"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
-O Azure Migrate tem um limite de 1500 máquinas por projeto, este artigo descreve como avaliar um grande número de máquinas de virtuais no local (VMs) usando [do Azure Migrate](migrate-overview.md).   
+O Azure Migrate tem um limite de 1500 máquinas por projeto, este artigo descreve como avaliar um grande número de máquinas de virtuais no local (VMs) usando [do Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> Temos uma versão de pré-visualização disponível que permite que a deteção de até 10 000 VMs de VMware num único projeto com uma única aplicação, se estiver interessado em tentar, inscreva-se [aqui.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -155,7 +158,7 @@ Verifique que o ficheiro OVA é seguro antes de a implementar:
 
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-   Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Exemplo de utilização: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
 

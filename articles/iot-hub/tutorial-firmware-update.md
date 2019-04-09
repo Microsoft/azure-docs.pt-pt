@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116695"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008907"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>Iniciar a atualização de firmware
 
-Vai criar uma [configuração de gestão de dispositivos automática](iot-hub-auto-device-config.md#create-a-configuration) na aplicação de back-end para iniciar o processo de atualização de firmware em todos os dispositivos marcados com um **devicetype** de chiller. Nesta secção, saberá como:
+Vai criar uma [configuração de gestão de dispositivos automática](iot-hub-automatic-device-management.md#create-a-configuration) na aplicação de back-end para iniciar o processo de atualização de firmware em todos os dispositivos marcados com um **devicetype** de chiller. Nesta secção, saberá como:
 
 * Criar uma configuração a partir de uma aplicação de back-end.
 * Monitorizar a conclusão da tarefa.
@@ -115,10 +115,10 @@ A aplicação de back-end cria a seguinte configuração:
 
 A configuração inclui as seguintes secções:
 
-* `content` especifica as propriedades pretendidas de firmware enviadas para os dispositivos selecionados.
-* `metrics` especifica as consultas a executar que reportam o estado da atualização de firmware.
+* `content` Especifica as propriedades de firmware pretendida enviadas para os dispositivos selecionados.
+* `metrics` Especifica as consultas para executar esse relatório o estado da atualização de firmware.
 * `targetCondition` seleciona os dispositivos para receber a atualização de firmware.
-* `priorty` define a prioridade relativa desta configuração para outras configurações.
+* `priorty` Define a prioridade relativa desta configuração para outras configurações.
 
 A aplicação de back-end utiliza o código seguinte para criar a configuração para definir as propriedades pretendidas:
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a utilizar as ferramentas do portal do Azure IoT Hub e comandos da CLI do Azure para testar a conectividade do dispositivo.
 
 > [!div class="nextstepaction"]
-> [Utilize um dispositivo simulado para testar a conectividade com o seu hub IoT](tutorial-connectivity.md)
+> [Utilizar um dispositivo simulado para testar a conectividade com o seu hub IoT](tutorial-connectivity.md)

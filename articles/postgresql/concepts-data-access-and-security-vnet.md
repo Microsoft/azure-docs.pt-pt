@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 83d16071cbcac4199db9f3757121f9811db49727
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417487"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006330"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para PostgreSQL
 
@@ -106,6 +106,8 @@ Tem a opção de usar [controlo de acesso baseado em funções (RBAC)] [ rbac-wh
 ## <a name="limitations"></a>Limitações
 
 Base de dados do Azure para PostgreSQL, a funcionalidade de regras de rede virtual tem as seguintes limitações:
+
+- Uma aplicação Web pode ser mapeada para um IP privado na VNet/subrede. Mesmo que os pontos finais de serviço são ativados da VNet/subrede determinado, ligações a partir da aplicação Web para o servidor terá uma origem de IP pública do Azure, não uma origem de VNet/subrede. Para ativar a conectividade de uma aplicação Web para um servidor que tem regras de firewall da VNet, tem de serviços do Azure permitem a aceder ao servidor no servidor.
 
 - Na firewall da base de dados do Azure para PostgreSQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas tem de estar alojadas na mesma região geográfica que aloja a base de dados do Azure para PostgreSQL.
 

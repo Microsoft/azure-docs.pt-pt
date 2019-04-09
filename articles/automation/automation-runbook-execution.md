@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/18/2019
+ms.date: 04/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbb50ba703221c28576b4c3614c77bbac7eeabb9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519124"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057426"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -43,7 +43,7 @@ Runbooks na automatização do Azure podem ser executados em qualquer uma uma á
 |Monitorizar um ficheiro ou pasta com um runbook|Função de Trabalho de Runbook Híbrida|Utilize um [tarefa de observador](automation-watchers-tutorial.md) numa função de trabalho de Runbook híbrida|
 |Script com utilização intensiva de recursos|Função de Trabalho de Runbook Híbrida| Áreas de segurança do Azure têm [limitação de recursos](../azure-subscription-service-limits.md#automation-limits)|
 |Utilização de módulos com requisitos específicos| Função de Trabalho de Runbook Híbrida|Alguns exemplos incluem:</br> **WinSCP** -dependência do winscp.exe </br> **IISAdministration** -IIS tem de ser ativada|
-|Instalar o módulo que requer o instalador|Função de Trabalho de Runbook Híbrida|Módulos para a área de segurança tem de ser xcopyable|
+|Instalar o módulo que requer o instalador|Função de Trabalho de Runbook Híbrida|Módulos para a área de segurança tem de ser copiable|
 |Utilizar runbooks ou módulos que exigem diferente do 4.7.2 do .NET Framework|Função de Trabalho de Runbook Híbrida|Sandboxes de automatização tem 4.7.2 do .NET Framework e não é possível atualizá-lo|
 |Scripts que exigem elevação|Função de Trabalho de Runbook Híbrida|Áreas de segurança não permitem a elevação. Para resolver este problema, utilize uma função de trabalho de Runbook híbrida e pode desativar a UAC e o uso `Invoke-Command` quando executar o comando que precisa de elevação|
 |Scripts de que necessitam de acesso ao WMI|Função de Trabalho de Runbook Híbrida|Tarefas em execução em caixas de areia cloud [não tem acesso a WMI](#device-and-application-characteristics)|
@@ -246,9 +246,9 @@ Pode utilizar os passos seguintes para ver as tarefas de um runbook.
 3. Na página para o runbook selecionado, clique nas **tarefas** mosaico.
 4. Clique das tarefas na lista e na página de detalhes da tarefa do runbook pode ver os detalhes e o resultado.
 
-## <a name="retrieving-job-status-using-windows-powershell"></a>A obter o estado da tarefa com o Windows PowerShell
+## <a name="retrieving-job-status-using-powershell"></a>A obter o estado da tarefa com o PowerShell
 
-Pode utilizar o [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para obter as tarefas criadas para um runbook e os detalhes de uma tarefa específica. Se iniciar um runbook com o Windows PowerShell através de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), em seguida, ele retorna a tarefa resultante. Uso [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para uma tarefa de obter o resultado.
+Pode utilizar o [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para obter as tarefas criadas para um runbook e os detalhes de uma tarefa específica. Se iniciar um runbook com o PowerShell através de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), em seguida, ele retorna a tarefa resultante. Uso [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para uma tarefa de obter o resultado.
 
 Os seguintes comandos de exemplo recuperar a última tarefa de um runbook de exemplo e exibir o respetivo estado, os valores fornecidos para os parâmetros do runbook e o resultado da tarefa.
 
@@ -285,11 +285,30 @@ Outros detalhes, como a pessoa ou uma conta que iniciou o runbook podem ser obti
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    { 
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## <a name="fair-share"></a>Justa

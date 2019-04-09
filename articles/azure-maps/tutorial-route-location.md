@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c5465562c1af3dbd3fcaff2031149e510a43cfd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 87ad3b8984907b5f5b889c36c2406f07cbeb242b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540742"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056780"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -109,8 +109,8 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
 1. Após inicializar o mapa, adicione o seguinte código JavaScript.
 
     ```JavaScript
-    //Wait until the map resources have fully loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -121,8 +121,7 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
             strokeColor: '#2272B9',
             strokeWidth: 5,
             lineJoin: 'round',
-            lineCap: 'round',
-            filter: ['==', '$type', 'LineString']
+            lineCap: 'round'
         }), 'labels');
 
         //Add a layer for rendering point data.
@@ -135,14 +134,14 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
                 textField: ['get', 'title'],
                 offset: [0, 1.2]
             },
-            filter: ['==', '$type', 'Point']
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
         }));
     });
     ```
-
-    Um evento de carregamento é adicionado ao mapa, que será acionado quando os recursos do mapa forem totalmente carregados. No processador de eventos de carregamento do mapa, é criada uma origem de dados para armazenar a linha de rota, bem como os pontos de início e fim. Uma camada de linha é criada e anexada à origem de dados para definir como será renderizada a linha de rota. A linha de rota será renderizada num tom de azul com uma largura de 5 pixéis e associações de linha arredondado e limites. Um filtro é adicionado para garantir que esta camada compõe apenas dados LineString GeoJSON. Ao adicionar a camada ao mapa, é passado um segundo parâmetro com o valor `'labels'`, no qual especifica a composição desta camada abaixo das etiquetas do mapa. Isto garante que a linha do trajeto não cobre as etiquetas de viagem. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os pontos de início e de fim serão compostos, neste caso, foram adicionadas expressões para obter as informações de etiqueta de texto e imagem do ícone das propriedades em cada objeto de ponto.
-
-2. Para este tutorial, defina o ponto de início como campus da Microsoft e o ponto final como uma estação de gás em Seattle. No processador de eventos de carregamento do mapa, adicione o seguinte código.
+    
+    O Maps `ready` manipulador de eventos, uma origem de dados é criada para armazenar a linha de rota, bem como os pontos inicial e final. É criada uma camada de linhas e anexada à origem de dados para definir como será composta a linha de rotas. A linha de rotas terá uma bonita tonalidade de azul com uma largura de 5 pixéis e associações e extremidades de linha arredondada. Ao adicionar a camada ao mapa, é passado um segundo parâmetro com o valor `'labels'`, no qual especifica a composição desta camada abaixo das etiquetas do mapa. Isto garante que a linha do trajeto não cobre as etiquetas de viagem. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os pontos de início e de fim serão compostos, neste caso, foram adicionadas expressões para obter as informações de etiqueta de texto e imagem do ícone das propriedades em cada objeto de ponto. 
+    
+2. Para este tutorial, defina o ponto de início como Microsoft e o ponto de fim como uma bomba de gasolina em Seattle. O Maps `ready` manipulador de eventos, adicione o seguinte código.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -175,7 +174,7 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
 
 ## <a name="get-directions"></a>Obter direções
 
-Esta secção mostra como utilizar a API do Azure Maps route service para encontrar o caminho de um determinado ponto inicial para o ponto final. O serviço de trajetos fornece APIs para planear os trajetos *mais rápidos*, *mais curtos*, *mais ecológicos* ou *mais emocionantes* entre dois locais. Também permite aos utilizadores planear rotas no futuro através da extensa base de dados de tráfego histórico e da previsão das durações das rotas para qualquer dia e hora. Para obter mais informações, veja [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obter indicações de trajetos). Todas as funcionalidades seguintes devem ser adicionadas no **eventListener de carregamento do mapa** para garantir que são carregadas depois de o mapa estar totalmente carregado.
+Esta secção mostra como utilizar a API do Azure Maps route service para encontrar o caminho de um determinado ponto inicial para o ponto final. O serviço de trajetos fornece APIs para planear os trajetos *mais rápidos*, *mais curtos*, *mais ecológicos* ou *mais emocionantes* entre dois locais. Também permite aos utilizadores planear rotas no futuro através da extensa base de dados de tráfego histórico e da previsão das durações das rotas para qualquer dia e hora. Para obter mais informações, veja [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obter indicações de trajetos). Todas as funcionalidades seguintes devem ser adicionadas **dentro do eventListener pronto mapa** para garantir a carregar depois dos recursos do mapa estão prontos para ser acedido.
 
 1. Na função GetMap, adicione o seguinte código Javascript.
 
@@ -221,11 +220,11 @@ Neste tutorial, ficou a saber como:
 
 Pode aceder ao código de exemplo deste tutorial aqui:
 
-> [Localizar trajeto com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
+> [Encontrar caminho com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-[Veja este exemplo aqui ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+[Veja este exemplo registada aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 O tutorial seguinte demonstra como criar uma consulta de trajeto com restrições, como o meio de deslocação ou o tipo de carga, e apresentar vários trajetos no mesmo mapa.
 
 > [!div class="nextstepaction"]
-> [Localizar trajetos para diferentes meios de deslocação](./tutorial-prioritized-routes.md)
+> [Localizar rotas para diferentes meios de deslocação](./tutorial-prioritized-routes.md)

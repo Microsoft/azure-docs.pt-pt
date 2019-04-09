@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 1a55fa4f39f2ebc2cdcc421eb6d7fecc62277f90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851930"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010401"
 ---
-# <a name="common-alert-schema-definitions"></a>Definições de esquema de alertas comuns
+# <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 
 Este artigo descreve os [definições de alerta de esquema comuns](https://aka.ms/commonAlertSchemaDocs) Webhooks/lógica de aplicações/das funções do Azure. 
 
@@ -152,6 +152,9 @@ Qualquer instância de alerta descreve **o recurso que foi afetado** e **a causa
 ```
 
 ### <a name="log-alerts"></a>Alertas de registo
+
+> [!NOTE]
+> Se utilizar a opção de JSON personalizada para os alertas de registo existente, a personalização não é mantida no esquema comum.
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
 

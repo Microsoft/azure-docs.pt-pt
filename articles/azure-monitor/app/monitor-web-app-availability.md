@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124325"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005739"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -92,7 +92,7 @@ Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 
     ![Na edição Visual Studio Enterprise, crie um projeto a partir do modelo Desempenho da Web e Carregar Teste.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Não vê o modelo de Desempenho da Web e de Teste de Carga?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **ferramentas de Desempenho da Web e de Teste de Carga**.
+   * *Não vê o modelo de desempenho da Web e teste de carga?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **ferramentas de Desempenho da Web e de Teste de Carga**.
 
 2. Abra o ficheiro .webtest e comece a gravar.
 
@@ -167,7 +167,7 @@ Pode aplicar filtros no nome e na localização dos testes para analisar tendên
 
 ## <a name="edit"></a> Inspecionar e editar testes
 
-Na guia detalhes, num teste específico, selecione as reticências na extremidade direita para editar, temporariamente desativar, eliminar ou transferir teste web.
+Na guia detalhes, num teste específico, selecione as reticências na extremidade direita para editar, temporariamente desativar, eliminar ou transferir teste web. Poderá demorar até 20 minutos para alterações de configuração.
 
 Selecione **ver detalhes do teste** de um teste específico para ver o gráfico de dispersão e detalhes de localização de teste específico.
 
@@ -319,7 +319,7 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
     
     Nota: O URL não pode falhar em browsers que tenham uma validação simples de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *Não vejo qualquer telemetria de lado do servidor relacionada para diagnosticar falhas do teste?*
+* *Não vejo qualquer telemetria de lado do servidor relacionada para diagnosticar falhas de teste?*
     
     Se tiver o Application Insights configurado para a sua aplicação do lado do servidor, poderá dever-se ao facto de a [amostragem](../../azure-monitor/app/sampling.md) estar em curso. Selecione um resultado de disponibilidade diferente.
 
@@ -331,7 +331,7 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
 
     Suportamos TLS 1.1 e TLS 1.2. Atualmente não verificamos os erros de certificado HTTPS.  
 
-* *Existe alguma diferença entre “testes Web” e “testes de disponibilidade”?*
+* *Existe uma diferença entre “testes Web” e “testes de disponibilidade”?*
 
     Ambos os termos podem ser utilizados alternadamente. “Testes de disponibilidade” é um termo mais genérico que inclui os testes de ping de URL individuais, para além dos testes Web de vários passos.
     
@@ -342,7 +342,7 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
     * Configure a firewall para permitir pedidos recebidos a partir dos [endereços IP dos nossos agentes de teste Web](../../azure-monitor/app/ip-addresses.md).
     * Escreva o seu próprio código para testar periodicamente o seu servidor interno. Execute o código como um processo em segundo plano num servidor de teste atrás da firewall. O processo de teste pode enviar os resultados para o Application Insights através da API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) no pacote SDK core. Isto requer que o servidor de teste tenha acesso de envio para o ponto final de ingestão do Application Insights, mas é um risco de segurança muito inferior do que a alternativa de permitir pedidos recebidos. Os resultados não aparecem nos painéis de testes Web de disponibilidade, mas aparecem como resultados de disponibilidade no Analytics, no Search e no Explorador de Métricas.
 
-* *O carregamento de um teste Web de vários passos falha*
+* *O carregamento de um teste Web com vários passos falhou*
 
     Alguns motivos pelos quais que isto pode acontecer:
     * Existe um limite de tamanho de 300 K.
@@ -380,7 +380,7 @@ Utilize os nova experiência/perto-realtime os alertas do alerta se tiver de not
 
 [Resolução de problemas][qna]
 
-[IP addresses of web test agents (Endereços IP dos agentes de testes Web)](../../azure-monitor/app/ip-addresses.md)
+[Endereços IP dos agentes de testes Web](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

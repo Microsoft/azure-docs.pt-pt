@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: d7f44ace1625b9859eb8914f15526cf98fe883bc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 74b22f194e7af000dbd8b53ec95dbbff2c5c588a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878371"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010537"
 ---
 # <a name="mapping-data-flow-data-transformation-expressions"></a>Expressões de transformação de dados de fluxo de dados de mapeamento
 

@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 82ae0ef72bb4f546a1f946f3127aa5d74bec3c3b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957764"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058044"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço de gestão de API do Azure em várias regiões do Azure
 
 Gestão de API do Azure suporta implementação em várias regiões, que permite que os publicadores de APIS distribuir um único serviço de gestão de API do Azure em qualquer número de regiões do Azure pretendidos. Isto ajuda a reduzir a latência percebida pelo distribuídos geograficamente os consumidores de APIS e também melhora a disponibilidade do serviço, se uma região ficar offline de pedido.
 
-Um novo serviço de gestão de API do Azure contém apenas um inicialmente [unidade] [ unit] numa única região do Azure, a região primária. Regiões adicionais podem ser facilmente adicionados através do portal do Azure. É implementado um servidor de gateway de gestão de API para cada região e chamada de tráfego será encaminhado para o gateway mais próximo. Se uma região ficar offline, o tráfego é automaticamente redirecionado para o gateway mais próximo seguinte.
+Um novo serviço de gestão de API do Azure contém apenas um inicialmente [unidade] [ unit] numa única região do Azure, a região primária. Regiões adicionais podem ser facilmente adicionados através do portal do Azure. É implementado um servidor de gateway de gestão de API para cada região e chamada de tráfego será encaminhado para o gateway mais próximo em termos de latência. Se uma região ficar offline, o tráfego é automaticamente redirecionado para o gateway mais próximo seguinte.
 
 > [!NOTE]
 > Gestão de API do Azure replica apenas o componente de gateway de API em várias regiões. O componente de gestão de serviço está alojado apenas na região primária. Em caso de indisponibilidade na região primária, aplicar alterações de configuração a uma instância de serviço de gestão de API do Azure não é possível – incluindo as definições ou atualizações de políticas.
@@ -105,6 +105,20 @@ Para aproveitar totalmente a distribuição geográfica do seu sistema, deve ter
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> Também pode front seus serviços de back-end com [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), direcionar as chamadas à API para o Gestor de tráfego e deixá-lo a resolver automaticamente o encaminhamento.
+
+## <a name="custom-routing"> </a>Utilizar o encaminhamento personalizado para gateways regionais de gestão de API
+
+Gestão de API encaminha os pedidos para um regionais *gateway* com base nos [a menor latência](../traffic-manager/traffic-manager-routing-methods.md#performance). Embora não seja possível substituir esta definição na gestão de API, pode utilizar o seu Gestor de tráfego com regras de encaminhamento personalizadas.
+
+1. Criar o seu próprio [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/).
+1. Se estiver a utilizar um domínio personalizado, [utilizá-lo com o Gestor de tráfego](../traffic-manager/traffic-manager-point-internet-domain.md) em vez do serviço de gestão de API.
+1. [Configurar os pontos finais regionais de gestão de API no Gestor de tráfego](../traffic-manager/traffic-manager-manage-endpoints.md). Os pontos finais regionais seguem o padrão de URL de `https://<service-name>-<region>-01.regional.azure-api.net`, por exemplo `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Configurar os pontos finais regionais do Estado de gestão de API no Gestor de tráfego](../traffic-manager/traffic-manager-monitoring.md). Os pontos de extremidade do Estado regional seguem o padrão de URL de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, por exemplo `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Especifique [o método de encaminhamento](../traffic-manager/traffic-manager-routing-methods.md) do Gestor de tráfego.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
