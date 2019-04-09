@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259869"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -124,7 +124,7 @@ As seguintes declarações serão incluídas na v1.0 tokens se aplicável, mas n
 | `onprem_sid`| Cadeia de caracteres, em [formato do SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Em casos em que o utilizador tem uma autenticação no local, esta afirmação fornece seu SID. Pode usar `onprem_sid` para autorização em aplicativos herdados.|
 | `pwd_exp`| int, um carimbo de UNIX | Indica que a senha do usuário expira. |
 | `pwd_url`| String | Um URL onde os utilizadores possam ser enviados para repor a palavra-passe. |
-| `in_corp`|boolean | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída. |
+| `in_corp`|booleano | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída. |
 | `nickname`| String | Um nome adicional para o utilizador, separado do primeiro ou último nome.|
 | `family_name` | String | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. |
 | `given_name` | String | Fornece o primeiro ou o nome dado do utilizador, conforme definido no objeto user. |
@@ -148,7 +148,7 @@ As identidades da Microsoft podem autenticar numa variedade de formas, que podem
 
 ## <a name="validating-tokens"></a>Tokens de validação
 
-Para validar uma id_token ou um access_token, a sua aplicação deve validar a assinatura do token e as declarações. Para validar os tokens de acesso, a aplicação também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes têm de ser validadas em relação aos valores no documento de deteção do OpenID. Por exemplo, a versão independente de inquilino do documento está localizada em [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+Para validar uma id_token ou um access_token, a sua aplicação deve validar a assinatura do token e as declarações. Para validar os tokens de acesso, a aplicação também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes têm de ser validadas em relação aos valores no documento de deteção do OpenID. Por exemplo, a versão de inquilino independente do documento está localizada em [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
 
 O middleware do Azure AD possui capacidades incorporadas para validar os tokens de acesso, e pode navegar pelos nossos [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um no idioma da sua preferência. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [exemplo de validação do JWT manual](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
@@ -173,14 +173,14 @@ O `alg` afirmação indica o algoritmo que foi utilizado para assinar o token, e
 
 Em qualquer determinada altura, do Azure AD pode iniciar sessão uma id_token usando qualquer um de um determinado conjunto de pares de chaves públicas-privadas. Azure AD gira o conjunto possível de chaves numa base periódica, para que a sua aplicação deve ser escrita para lidar com essas alterações principais automaticamente. Uma frequência razoável para procurar atualizações para as chaves públicas usadas pelo Azure AD é a cada 24 horas.
 
-Pode adquirir os dados de chave assinatura necessários para validar a assinatura usando o documento de metadados OpenID Connect localizado em:
+Pode adquirir os dados de chave assinatura necessários para validar a assinatura, utilizando o [documento de metadados de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) localizado em:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Experimente isto [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) num navegador!
+> Experimente isto [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) num navegador!
 
 Este documento de metadados:
 
@@ -190,7 +190,9 @@ Este documento de metadados:
 > [!NOTE]
 > O ponto de extremidade v1.0 devolve ambos os `x5t` e `kid` afirmações, enquanto o ponto final v2.0 responde com apenas o `kid` de afirmação. Daqui em diante, recomendamos que utilize o `kid` validar o token de afirmação.
 
-Realizar validação de assinatura está fora do escopo deste documento: há muitas bibliotecas de código aberto disponíveis para ajudá-lo a fazê-lo se necessário.
+Realizar validação de assinatura está fora do escopo deste documento: há muitas bibliotecas de código aberto disponíveis para ajudá-lo a fazê-lo se necessário.  No entanto, a plataforma do Microsoft Identity tem uma extensão para as normas - chaves de autenticação personalizadas de assinatura de tokens.  
+
+Se a aplicação tem as chaves de assinatura personalizadas como resultado de utilizar o [mapeamento de afirmações](active-directory-claims-mapping.md) recurso, tem a acrescentar um `appid` consultar o parâmetro que contém o ID da aplicação para obter um `jwks_uri` apontando para a sua aplicação da chave de assinatura informações, o que devem ser usadas para validação. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém um `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorização de afirmações com base
 

@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056967"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278739"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: Configurar Bonusly para aprovisionamento automático de utilizadores
 

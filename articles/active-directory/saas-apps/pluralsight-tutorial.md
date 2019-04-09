@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Active Directory do Azure com a Pluralsight
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com a Pluralsight, execute 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o URL de resposta real. Contacte [equipa de suporte de cliente do Pluralsight](mailto:support@pluralsight.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. Aplicação de Pluralsight espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
     >[!NOTE]
     >Também pode adicionar os **"ID exclusivo"** atributo com o valor apropriado, como EmployeeID ou outra coisa que lhe seja conveniente para a sua organização. Observe também que esse não é o atributo necessário; No entanto, pode adicioná-lo para identificar o utilizador exclusivo.
@@ -127,13 +127,13 @@ Para configurar o Azure AD início de sessão único com a Pluralsight, execute 
     | --------------- | --------- |
     | Nome Próprio  | user.givenname  |
     | Apelido  | user.surname  |
-    | Email  | user.mail  |
+    | Enviar por e-mail  | user.mail  |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -210,7 +210,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Pluralsight. Pluralsight suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir na Pluralsight, uma nova é criada após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -218,9 +218,9 @@ Quando clica no mosaico da Pluralsight, no painel de acesso, deve ser automatica
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

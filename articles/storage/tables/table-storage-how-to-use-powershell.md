@@ -5,15 +5,15 @@ services: cosmos-db
 author: roygara
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/04/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: bb8f0fd98296d0cc4de1596480988b154a731d41
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: c5491683a74321e370044cd6eb270cc34bbbce6a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540232"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056413"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de tabelas do Azure com o Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,7 @@ Este artigo que mostra como abrange operações comuns de armazenamento de tabel
 
 Este artigo de procedimento mostra-lhe como criar uma nova conta de armazenamento do Azure num grupo de recursos novo para que pode facilmente removê-lo quando tiver terminado. Se usaria em vez disso, uma conta de armazenamento existente, pode fazer isso em vez disso.
 
-Os exemplos exigem módulos do PowerShell de Az `Az.Storage (1.1.3 or greater)` e `Az.Resources (1.2.0 or greater)`. Numa janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se não será apresentado nada ou precisar de atualizar, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+Os exemplos exigem módulos do PowerShell de Az `Az.Storage (1.1.0 or greater)` e `Az.Resources (1.2.0 or greater)`. Numa janela do PowerShell, execute `Get-Module -ListAvailable Az*` para localizar a versão. Se não será apresentado nada ou precisar de atualizar, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Ao utilizar esta funcionalidade do Azure a partir do PowerShell requer que tenha o `Az` módulo instalado. A versão atual do AzureRmStorageTable não é compatível com o módulo de AzureRM mais antigo.
@@ -158,7 +158,7 @@ Neste artigo de procedimentos, aprendeu sobre operações comuns do armazenament
 
 Para obter mais informações, veja os artigos seguintes
 
-* [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage#storage)
+* [Cmdlets do PowerShell de armazenamento](/powershell/module/az.storage#storage)
 
 * [Trabalhar com tabelas do Azure a partir do PowerShell - AzureRmStorageTable PS módulo v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

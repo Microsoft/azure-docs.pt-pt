@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341238"
 documentType: LandingData
 title: Gestão do Azure - Governação
 metadata:
   title: Gestão do Azure - Governação
-  description: Saiba mais sobre os conceitos e serviços do Azure disponíveis que lhe permitem gerir o seu ambiente com consistência, através de uma conceção e regras explícitas, e sobre como auditar em termos de conformidade.
-  services: governance
+  description: 'Saiba mais sobre os conceitos e serviços do Azure disponíveis que lhe permitem gerir o seu ambiente com consistência, através de uma conceção e regras explícitas, e sobre como auditar em termos de conformidade.'
   author: DCtheGeek
   manager: carmonm
   ms.service: governance
@@ -18,58 +11,58 @@ metadata:
   ms.date: 09/18/2018
   ms.author: dacoulte
 abstract:
-  description: A Governação do Azure é um conjunto de conceitos e serviços que foram concebidos para permitir a gestão dos seus vários recursos do Azure à escala. Estes serviços oferecem a capacidade de organizar e estruturar as suas subscrições de forma lógica, criar e implementar pacotes nativos de recursos reutilizáveis e do Azure, definir, auditar e remediar os seus recursos, entre muitas outras capacidades. Utilize esta página para saber mais sobre estes conceitos e serviços e como ativar e utilizar hoje mesmo cada um deles no seu ambiente.
+  description: 'A Governação do Azure é um conjunto de conceitos e serviços que foram concebidos para permitir a gestão dos seus vários recursos do Azure à escala. Estes serviços oferecem a capacidade de organizar e estruturar as suas subscrições de forma lógica, criar e implementar pacotes nativos de recursos reutilizáveis e do Azure, definir, auditar e remediar os seus recursos, entre muitas outras capacidades. Utilize esta página para saber mais sobre estes conceitos e serviços e como ativar e utilizar hoje mesmo cada um deles no seu ambiente.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 225
       src: ./media/video.png
       width: 250
-    title: Obtenha velocidade e controlo sobre os recursos com a Governação do Azure (1:47)
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    title: 'Obtenha velocidade e controlo sobre os recursos com a Governação do Azure (1:47)'
+    href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
     width: 250
 sections:
-- title: Componentes e Serviços
-- items:
-  - type: list
-    style: cards
-    className: cardsD
-    columns: 2
-    items:
-    - href: ./management-groups/overview
-      html: <p>Saiba mais sobre como agrupar e organizar as suas subscrições numa hierarquia lógica que suporta a implementação de outros serviços de Governação de forma estruturada.<br /></p>
-      image:
-        alt: Grupos de Gestão
-        src: ./media/management-groups-illustration.svg
-      title: Grupos de Gestão
-    - href: ./resource-graph/
-      html: <p>Utilize uma poderosa ferramenta de linha de comandos (suporta a CLI do Azure e o Azure PowerShell) para consultar rapidamente detalhes complexos sobre os seus recursos do Azure. Localize e exponha informações que antes exigiam scripts complexos e iterativos para detetar esses recursos à escala.</p>
-      image:
-        alt: Gráfico de Recursos
-        src: ./media/resource-graph-illustration.svg
-      title: Gráfico de Recursos
-    - href: ./policy/
-      html: <p>Defina e aplique normas a recursos no seu ambiente. Impeça a criação de recursos indesejados, melhore os novos recursos com elementos adicionais e audite e remedeie os recursos que já existam no seu ambiente.</p>
-      image:
-        alt: Política
-        src: ./media/policy-illustration.svg
-      title: Política
-    - href: ./blueprints/
-      html: <p>Crie um pacote nativo do Azure com <i>artefactos</i> (grupos de recursos, políticas, atribuições de função, modelos do Resource Manager e muito mais) que possa implementar de forma dinâmica nas subscrições para criar ambientes consistentes e repetíveis.</p>
-      image:
-        alt: Esquemas
-        src: ./media/blueprints-illustration.svg
-      title: Esquemas
-- title: Implementações
-- items:
-  - type: list
-    style: cards
-    className: cardsZ
-    columns: 3
-    items:
-    - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-      html: <p>No passado, as empresas assumiam a propriedade e a responsabilidade de todos os níveis da tecnologia, desde a infraestrutura ao software. Agora, a cloud oferece o potencial para transformar a forma como as empresas utilizam a tecnologia, ao aprovisionar e consumir recursos conforme necessário.</p>
-      title: Adoção do Enterprise Cloud
-    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-      html: <p>Permite aos administradores garantir que as cargas de trabalho cumprem os requisitos mínimos de governação de uma organização sem impedir que os grupos de empresas e de programadores atinjam rapidamente os seus próprios objetivos.<br /><br /></p>
-      title: Estrutura Empresarial
+  - title: Componentes e Serviços
+  - items:
+      - type: list
+        style: cards
+        className: cardsD
+        columns: 2
+        items:
+          - href: ./management-groups/overview
+            html: <p>Saiba mais sobre como agrupar e organizar as suas subscrições numa hierarquia lógica que suporta a implementação de outros serviços de Governação de forma estruturada.<br /></p>
+            image:
+              alt: Grupos de Gestão
+              src: ./media/management-groups-illustration.svg
+            title: Grupos de Gestão
+          - href: ./resource-graph/
+            html: <p>Utilize uma poderosa ferramenta de linha de comandos (suporta a CLI do Azure e o Azure PowerShell) para consultar rapidamente detalhes complexos sobre os seus recursos do Azure. Localize e exponha informações que antes exigiam scripts complexos e iterativos para detetar esses recursos à escala.</p>
+            image:
+              alt: Gráfico de Recursos
+              src: ./media/resource-graph-illustration.svg
+            title: Gráfico de Recursos
+          - href: ./policy/
+            html: '<p>Defina e aplique normas a recursos no seu ambiente. Impeça a criação de recursos indesejados, melhore os novos recursos com elementos adicionais e audite e remedeie os recursos que já existam no seu ambiente.</p>'
+            image:
+              alt: Política
+              src: ./media/policy-illustration.svg
+            title: Política
+          - href: ./blueprints/
+            html: '<p>Crie um pacote nativo do Azure com <i>artefactos</i> (grupos de recursos, políticas, atribuições de função, modelos do Resource Manager e muito mais) que possa implementar de forma dinâmica nas subscrições para criar ambientes consistentes e repetíveis.</p>'
+            image:
+              alt: Esquemas
+              src: ./media/blueprints-illustration.svg
+            title: Esquemas
+  - title: Implementações
+  - items:
+      - type: list
+        style: cards
+        className: cardsZ
+        columns: 3
+        items:
+          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+            html: '<p>No passado, as empresas assumiam a propriedade e a responsabilidade de todos os níveis da tecnologia, desde a infraestrutura ao software. Agora, a cloud oferece o potencial para transformar a forma como as empresas utilizam a tecnologia, ao aprovisionar e consumir recursos conforme necessário.</p>'
+            title: Adoção do Enterprise Cloud
+          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+            html: <p>Permite aos administradores garantir que as cargas de trabalho cumprem os requisitos mínimos de governação de uma organização sem impedir que os grupos de empresas e de programadores atinjam rapidamente os seus próprios objetivos.<br /><br /></p>
+            title: Estrutura Empresarial

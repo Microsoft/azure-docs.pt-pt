@@ -1,18 +1,18 @@
 ---
-title: Aumentar horizontalmente um cluster do Explorador de dados do Azure para acomodar a pedido de alteração
+title: Aumentar horizontalmente um cluster do Explorador de dados do Azure
 description: Este artigo descreve os passos para aumentar e reduzir horizontalmente um cluster do Explorador de dados do Azure com base no pedido de alteração.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044239"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261603"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerir o cluster aumentar horizontalmente para acomodar a pedido de alteração
 
@@ -22,21 +22,23 @@ Uma abordagem melhor é *dimensionamento* um cluster, adicionar e remover a capa
 
 Este artigo mostra como gerir o cluster Escalamento horizontal, também conhecido como o dimensionamento automático. Dimensionamento automático permite-lhe aumentar horizontalmente o número de instâncias automaticamente com base em regras predefinidas e as agendas. Especifica as definições de dimensionamento automático do seu cluster no portal do Azure, conforme descrito neste artigo.
 
-Aceda ao seu cluster. Sob **configurações**, selecione **aumentar horizontalmente**. Sob **configurar**, selecione **ativar o dimensionamento automático**.
+## <a name="steps-to-configure-autoscale"></a>Passos para configurar o dimensionamento automático
 
-![Ativar dimensionamento automático](media/manage-cluster-scaling/enable-autoscale.png)
+No portal do Azure, aceda ao seu recurso de cluster do Data Explorer. Sob o **configurações** cabeçalho, selecione **aumentar horizontalmente**. Sobre o **configurar** separador, selecione **ativar o dimensionamento automático**.
 
-O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes estão abaixo do elemento gráfico.
+   ![Ativar dimensionamento automático](media/manage-cluster-scaling/enable-autoscale.png)
 
-![Regra de dimensionamento](media/manage-cluster-scaling/scale-rule.png)
+O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes, siga o elemento gráfico.
 
-1. Na **nome da definição de dimensionamento automático** caixa, indique um nome, tal como *Escalamento horizontal: colocar em cache utilização*.
+1. Na **nome da definição de dimensionamento automático** caixa, indique um nome, tal como *Escalamento horizontal: colocar em cache utilização*. 
 
-1. Para **modo de dimensionamento**, selecione **dimensionam com base numa métrica**. Esse modo oferecerá dimensionamento dinâmico. Também pode selecionar **Dimensionar para uma contagem de instâncias específica**.
+   ![Regra de dimensionamento](media/manage-cluster-scaling/scale-rule.png)
 
-1. Selecione **+ adicionar uma regra**.
+2. Para **modo de dimensionamento**, selecione **dimensionam com base numa métrica**. Esse modo oferecerá dimensionamento dinâmico. Também pode selecionar **Dimensionar para uma contagem de instâncias específica**.
 
-1. Na **regra de dimensionamento** secção à direita, fornecer valores para cada definição.
+3. Selecione **+ adicionar uma regra**.
+
+4. Na **regra de dimensionamento** secção à direita, fornecer valores para cada definição.
 
     **Critérios**
 
@@ -59,9 +61,9 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes est�
     | **Repouso (minutos)** | Escolha um intervalo de tempo adequado a aguardar entre as operações de dimensionamento. Comece com o padrão de cinco minutos. |
     |  |  |
 
-1. Selecione **Adicionar**.
+5. Selecione **Adicionar**.
 
-1. Na **limites de instância** secção no lado esquerdo, fornecer valores para cada definição.
+6. Na **limites de instância** secção no lado esquerdo, fornecer valores para cada definição.
 
     | Definição | Valor e descrição |
     | --- | --- |
@@ -70,10 +72,14 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes est�
     | **Predefinição** | O número predefinido de instâncias. Esta definição é utilizada se existirem problemas com as métricas de recurso de leitura. |
     |  |  |
 
-1. Selecione **Guardar**.
+7. Selecione **Guardar**.
 
 Agora que configurou uma operação de escalamento horizontal para o seu cluster do Explorador de dados do Azure. Adicione outra regra de uma operação de dimensionamento. Esta configuração permite que o cluster dimensionar dinamicamente com base nas métricas que especificar.
 
 Também pode [gerir o aumento vertical de cluster](manage-cluster-scale-up.md) para o dimensionamento apropriado de um cluster.
 
 Se precisar de assistência com problemas de dimensionamento de clusters, [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+[Monitorizar o desempenho, a Estado de funcionamento e a utilização com métricas de Explorador de dados do Azure](using-metrics.md)

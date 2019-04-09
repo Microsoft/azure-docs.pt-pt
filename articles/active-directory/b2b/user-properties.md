@@ -1,27 +1,27 @@
 ---
-title: Propriedades de um utilizador de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
-description: Propriedades de utilizador de colaboração do Azure Active Directory B2B são configuráveis
+title: Propriedades de um B2B convidado utilizador - Azure Active Directory | Documentos da Microsoft
+description: Estados antes e após o resgate de convite e propriedades de utilizador do Active Directory B2B convidado do Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294659"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257608"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração do Azure Active Directory B2B
 
-Um utilizador de colaboração do Azure Active Directory (Azure AD) empresa-empresa (B2B) é um utilizador com UserType = convidado. Normalmente, este utilizador convidado é de uma organização parceira e tem os privilégios no diretório do convite, limitados por predefinição.
+Este artigo descreve as propriedades e os Estados do objeto de utilizador de convidados B2B no Azure Active Directory (Azure AD) antes e após o resgate de convite. Um utilizador de colaboração do Azure AD empresa-empresa (B2B) é um utilizador com UserType = convidado. Normalmente, este utilizador convidado é de uma organização parceira e tem os privilégios no diretório do convite, limitados por predefinição.
 
 Consoante as necessidades da organização de convite, um utilizador de colaboração B2B do Azure AD pode ter um dos seguintes Estados de conta:
 
@@ -68,7 +68,7 @@ Esta propriedade indica a relação do utilizador para os inquilinos do anfitri�
   > [!NOTE]
   > O UserType tem sem relação com a forma como o utilizador inicia sessão, a função de diretório do utilizador e assim por diante. Esta propriedade simplesmente indica a relação do utilizador para a organização de anfitrião e permite que a organização impor políticas que dependem desta propriedade.
 
-### <a name="source"></a>Origem
+### <a name="source"></a>Fonte
 Esta propriedade indica como o utilizador inicia sessão.
 
 - Utilizador convidado: Este utilizador foi convidado, mas ainda não tiver resgatado um convite.

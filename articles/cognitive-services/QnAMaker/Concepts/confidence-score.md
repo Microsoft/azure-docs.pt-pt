@@ -1,6 +1,6 @@
 ---
-title: Pontuação de confiança - serviços cognitivos da Microsoft | Documentos da Microsoft
-titleSuffix: Azure
+title: Pontuação de confiança - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: A pontuação de confiança indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado.
 services: cognitive-services
 author: tulasim88
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403741"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282581"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -66,7 +66,7 @@ Quando várias respostas tem uma pontuação de confiança semelhante, é prová
 
 
 ## <a name="confidence-score-differences"></a>Diferenças de pontuação de confiança
-A pontuação de confiança de uma resposta pode ser alteradas negligibly o teste e a versão publicada da base de dados de conhecimento, mesmo que o conteúdo é o mesmo. Isto acontece porque o conteúdo de teste e a base de dados de conhecimento publicada estão localizados em diferentes índices da Azure Search. Quando publica uma base de dados de conhecimento, move o conteúdo de perguntas e respostas da sua base de dados de conhecimento do índice de teste para um índice de produção no Azure search. Veja como o [publicar](../How-To/publish-knowledge-base.md) funciona a operação.
+A pontuação de confiança de uma resposta pode ser alteradas negligibly o teste e a versão publicada da base de dados de conhecimento, mesmo que o conteúdo é o mesmo. Isto acontece porque o conteúdo de teste e a base de dados de conhecimento publicada estão localizados em diferentes índices da Azure Search. Quando publica uma base de dados de conhecimento, move o conteúdo de perguntas e respostas da sua base de dados de conhecimento do índice de teste para um índice de produção no Azure search. Veja como o [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) funciona a operação.
 
 Se tiver uma base de dados de conhecimento em regiões diferentes, cada região usa seu próprio índice da Azure Search. Porque os índices diferentes são usados, as pontuações não será exatamente o mesmo. 
 

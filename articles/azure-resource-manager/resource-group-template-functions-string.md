@@ -4,22 +4,20 @@ description: Descreve as funções para utilizar num modelo do Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621418"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278790"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos Azure Resource Manager
 
@@ -29,29 +27,30 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de 
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [contains](#contains)
+* [contém](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [empty](#empty)
+* [Vazio](#empty)
 * [endsWith](#endswith)
-* [first](#first)
-* [guid](#guid)
+* [primeiro](#first)
+* [Formato](#format)
+* [GUID](#guid)
 * [indexOf](#indexof)
-* [last](#last)
+* [última](#last)
 * [lastIndexOf](#lastindexof)
 * [Comprimento](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [replace](#replace)
-* [skip](#skip)
+* [substituir](#replace)
+* [ignorar](#skip)
 * [dividir](#split)
 * [startsWith](#startswith)
 * [string](#string)
-* [substring](#substring)
-* [take](#take)
+* [subcadeia](#substring)
+* [tirar](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [trim](#trim)
+* [Cortar](#trim)
 * [uniqueString](#uniquestring)
 * [uri](#uri)
 * [uriComponent](#uricomponent)
@@ -714,9 +713,66 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayOutput | String | um |
 | stringOutput | String | O |
 
+## <a name="format"></a>Formato
+
+`format(formatString, arg1, arg2, ...)`
+
+Cria uma cadeia de caracteres formatada de valores de entrada.
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Necessário | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| formatString | Sim | string | A cadeia de formato compostos. |
+| arg1 | Sim | cadeia de caracteres, inteiros ou booleano | O valor a incluir na cadeia de caracteres formatada. |
+| argumentos adicionais | Não | cadeia de caracteres, inteiros ou booleano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
+
+### <a name="remarks"></a>Observações
+
+Utilize esta função para formatar uma cadeia de caracteres no seu modelo. Ele usa as mesmas opções de formatação que o [System.String.Format](/dotnet/api/system.string.format) método no .NET.
+
+### <a name="examples"></a>Exemplos
+
+O modelo de exemplo seguinte mostra como usar a função de formato.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+O resultado do exemplo anterior com os valores predefinidos é:
+
+| Nome | Tipo | Valor |
+| ---- | ---- | ----- |
+| formatTest | String | Olá, o utilizador. Número formatado: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Cria um valor no formato de um identificador exclusivo global com base nos valores fornecidos como parâmetros.
 
@@ -731,7 +787,7 @@ Cria um valor no formato de um identificador exclusivo global com base nos valor
 
 Esta função é útil quando precisa criar um valor no formato de um identificador exclusivo global. Fornecer valores de parâmetro que limitam o âmbito de exclusividade para o resultado. Pode especificar se o nome é exclusivo para baixo para a subscrição, grupo de recursos ou a implementação.
 
-O valor devolvido não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash nos parâmetros. O valor retornado é 36 carateres de comprimento. Não é exclusivo globalmente. Para criar um novo GUID que não se baseia nesse valor de hash dos parâmetros, utilize o [Novo_guid](#newguid) função.
+O valor devolvido não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash nos parâmetros. O valor retornado é 36 carateres de comprimento. Não é exclusivo globalmente. Para criar um novo GUID que não está com base nesse valor de hash dos parâmetros, utilize o [Novo_guid](#newguid) função.
 
 Os exemplos seguintes mostram como utilizar o guid para criar um valor exclusivo para níveis mais usados.
 
@@ -1800,7 +1856,7 @@ Recursos exclusivos no âmbito de implementação para um grupo de recursos
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazenamento com base no seu grupo de recursos. Dentro do grupo de recursos, o nome não é exclusivo se construídos da mesma forma.
+O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazenamento com base no seu grupo de recursos. Dentro do grupo de recursos, o nome não exclusivo, se construídos da mesma forma.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
-Se precisar de criar um novo nome exclusivo sempre que implementar um modelo e não a intenção de atualizar o recurso, pode utilizar o [utcNow](#utcnow) função com uniqueString. Poderia usar essa abordagem num ambiente de teste. Por exemplo, veja [utcNow](#utcnow).
+Se precisar de criar um novo nome exclusivo sempre que implementar um modelo e não pretende atualizar o recurso, pode utilizar o [utcNow](#utcnow) função com uniqueString. Poderia usar essa abordagem num ambiente de teste. Por exemplo, veja [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor de retorno
 
