@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4f558d8d1e5e4e743e6d44cca1a804b3e5898b30
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443427"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006812"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurar e gerir políticas de replicação para a recuperação de desastre do VMware para o Azure
 Este artigo descreve como configurar uma política de replicação quando estiver a replicar VMs de VMware para o Azure, utilizando [do Azure Site Recovery](site-recovery-overview.md).
@@ -45,7 +45,7 @@ Associe a política de replicação com o seu servidor de configuração no loca
 1. Selecione **gerenciar** > **infraestrutura do Site Recovery** > **políticas de replicação**.
 2. Selecione a política de replicação que pretende modificar.
 3. Clique em **editar as definições de**e atualize os campos de frequência do RPO/recuperação do limiar ponto retenção horas/Instantâneo consistente da aplicação, conforme necessário.
-4. Se pretender desativar a geração de pontos de consistência de aplicações, escolha "Desligado", valor na lista pendente de arquivado **frequência de instantâneos consistentes com a aplicação**.
+4. Se pretender desativar a geração de pontos de consistência de aplicações, escolha "Desligado", valor na lista pendente do campo **frequência de instantâneos consistentes com a aplicação**.
 5. Clique em **Guardar**. A política deve ser atualizada em 30 a 60 segundos.
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Desassociação ou eliminar uma política de replicação

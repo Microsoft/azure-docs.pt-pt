@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057426"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268505"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -51,6 +51,8 @@ Runbooks na automatização do Azure podem ser executados em qualquer uma uma á
 ## <a name="runbook-behavior"></a>Comportamento de Runbook
 
 Executar Runbooks com base na lógica que é definida dentro deles. Se um runbook for interrompido, reinicia o runbook no início. Esse comportamento requer runbooks sejam escritos numa forma em que eles oferecem suporte a ser reiniciado se ocorreram problemas transitórios.
+
+Tarefas do PowerShell iniciadas a partir de um Runbook foi executado no Azure sandbox não pode executar no modo de linguagem completa. Para saber mais sobre os modos de linguagem do PowerShell, veja [modos de linguagem do PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Para obter detalhes adicionais sobre como interagir com trabalhos da automatização do Azure, consulte [a obter o estado da tarefa com o PowerShell](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Criação de recursos
 
@@ -204,10 +206,10 @@ A tabela seguinte descreve os diferentes estados possíveis das tarefas. PowerSh
 | Em Fila |A tarefa está a aguardar a disponibilização de recursos num trabalho de Automatização para que possa ser iniciada. |
 | A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
 | A retomar |O sistema está a retomar a tarefa depois de ter sido suspenso. |
-| A executar |A tarefa está a ser executada. |
+| Em execução |A tarefa está a ser executada. |
 | Em execução, à espera de recursos |A tarefa foi descarregada porque atingiu o [justa](#fair-share) limite. Ele retoma em breve do último ponto de verificação. |
-| Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
-| A parar |O sistema está a parar a tarefa. |
+| Parado |A tarefa foi parada pelo utilizador antes de ser concluída. |
+| A interromper |O sistema está a parar a tarefa. |
 | Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começa desde o início do runbook. Se tiver um ponto de verificação, pode começar novamente e retomar a partir do último ponto de verificação. O runbook está suspenso apenas pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, que significa que a tarefa em execução num erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende num erro. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 | A suspender |O sistema está a tentar suspender a tarefa a pedido do utilizador. O runbook tem de atingir o ponto de verificação seguinte antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, ele é concluída antes de poder ser suspenso. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 

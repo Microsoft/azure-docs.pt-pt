@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550689"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010384"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selecione um dispositivo de entrada de áudio com o SDK de voz
 
-Versão 1.3.0 do SDK de voz apresenta um API para selecionar a entrada de áudio, que este artigo descreve como obter os IDs dos dispositivos de áudio ligados a um sistema.
+Versão 1.3.0 do SDK de voz apresenta um API para selecionar a entrada de áudio.
+Este artigo descreve como obter os IDs dos dispositivos de áudio ligados a um sistema.
 Estes, em seguida, podem ser utilizados no SDK de voz ao configurar o dispositivo de áudio através do `AudioConfig` objeto:
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> Esta funcionalidade ainda não está disponível a partir do JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Utilização de microfone não está disponível para o JavaScript em execução em node. js
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Dispositivo de áudio IDs no Windows para aplicativos de Desktop
 
@@ -367,6 +371,10 @@ Por exemplo, a instrução
 ```
 
 permite a utilização de um headset Bluetooth para um aplicativo habilitado para fala.
+
+## <a name="audio-device-ids-in-javascript"></a>Dispositivo de áudio IDs em JavaScript
+
+No JavaScript a [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) método pode ser utilizado para enumerar os dispositivos de mídia e encontrar um ID de dispositivo para passar para `fromMicrophone(...)`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

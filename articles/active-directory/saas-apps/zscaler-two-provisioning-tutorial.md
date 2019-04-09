@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 0a250fcd-6ca1-47c2-a780-7a6278186a69
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 797804be2588fb5c04c052c6f14c5b2b51146c32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7b0828dc4cb37afa9dda647c4407b4039ca4f73
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106513"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273571"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler duas para aprovisionamento automático de utilizadores
 
@@ -27,46 +28,42 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Zscaler 
 
 > [!NOTE]
 > Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../active-directory-saas-app-provisioning.md).
-> 
+>
+
 > Este conector está atualmente em pré-visualização pública. Para obter mais informações sobre os Microsoft Azure termos de utilização gerais para funcionalidades de pré-visualização, veja [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial parte do princípio de que já tem o seguinte:
 
-*   Um inquilino do Azure AD
-*   Um inquilino do Zscaler dois
-*   Uma conta de utilizador no Zscaler dois com permissões de administrador
+* Um inquilino do Azure AD
+* Um inquilino do Zscaler dois
+* Uma conta de utilizador no Zscaler dois com permissões de administrador
 
 > [!NOTE]
 > A integração de aprovisionamento do Azure AD depende da API do Zscaler dois SCIM, que está disponível para programadores do Zscaler duas para contas com o pacote da empresa.
 
 ## <a name="adding-zscaler-two-from-the-gallery"></a>Adicionando Zscaler dois da Galeria
+
 Antes de configurar Zscaler dois automático de utilizadores de aprovisionamento com o Azure AD, terá de adicionar Zscaler dois da Galeria de aplicações do Azure AD à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Zscaler dois a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** > **todas as aplicações**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![As secção de aplicações empresariais][2]
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar Zscaler dois, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicativo][3]
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Zscaler dois**.
+4. Na caixa de pesquisa, escreva **Zscaler dois**, selecione **Zscaler dois** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/app-search.png)
-
-5. No painel de resultados, selecione **Zscaler dois**e, em seguida, clique nas **Add** botão para adicionar Zscaler duas à sua lista de aplicações SaaS.
-
-    ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/app-search-results.png)
-
-    ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/app-creation.png)
+    ![Zscaler dois na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-two"></a>Atribuir utilizadores a dois do Zscaler
 
@@ -74,13 +71,13 @@ O Azure Active Directory utiliza um conceito chamado "atribuições" para determ
 
 Antes de configurar e ativar o aprovisionamento de utilizador automático, deve decidir o que os utilizadores e/ou grupos no Azure AD precisam de acesso a Zscaler dois. Depois de decidir, pode atribuir estes utilizadores e/ou grupos a Zscaler duas ao seguir as instruções aqui:
 
-*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-two"></a>Dicas importantes para atribuir utilizadores a dois do Zscaler
 
-*   Recomenda-se que um único utilizador do Azure AD está atribuído a Zscaler duas para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador do Azure AD está atribuído a Zscaler duas para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um utilizador para Zscaler dois, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
+* Ao atribuir um utilizador para Zscaler dois, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-two"></a>Configurar o aprovisionamento automático de utilizadores para dois de Zscaler
 
@@ -91,11 +88,13 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-two-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores para Zscaler dois no Azure AD:
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory > aplicações empresariais > todos os aplicativos**.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Zscaler dois**.
 
-2. Selecione Zscaler dois na sua lista de aplicações SaaS.
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/app-instance-search.png)
+2. Na lista de aplicações, selecione **Zscaler dois**.
+
+    ![A ligação Zscaler dois na lista de aplicações](common/all-applications.png)
 
 3. Selecione o **aprovisionamento** separador.
 
@@ -107,20 +106,20 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **URL de inquilino** e **segredo de Token** da sua conta Zscaler dois, tal como descrito no passo 6.
 
-6. Para obter o **URL de inquilino** e **segredo de Token**, navegue até **administração > definições de autenticação** na interface de utilizador do portal Zscaler dois e clique em  **SAML** sob **tipo de autenticação**. 
+6. Para obter o **URL de inquilino** e **segredo de Token**, navegue até **administração > definições de autenticação** na interface de utilizador do portal Zscaler dois e clique em  **SAML** sob **tipo de autenticação**.
 
     ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/secret-token-1.png)
-    
-    Clique em **configurar SAML** para abrir **configuração SAML** opções. 
+
+    Clique em **configurar SAML** para abrir **configuração SAML** opções.
 
     ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/secret-token-2.png)
-    
+
     Selecione **aprovisionamento Enable SCIM-Based** para obter **URL de Base** e **Token de portador**, em seguida, guarde as definições. Cópia a **URL de Base** ao **URL de inquilino** e **Token de portador** para **segredo de Token** no portal do Azure.
 
 7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar a Zscaler dois. Se a ligação falhar, certifique-se de que sua conta do Zscaler duas tem permissões de administrador e tente novamente.
 
     ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/test-connection.png)
-    
+
 8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **enviar uma notificação por e-mail quando uma falha ocorre**.
 
     ![Aprovisionamento do Zscaler dois](./media/zscaler-two-provisioning-tutorial/notification.png)
@@ -164,7 +163,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

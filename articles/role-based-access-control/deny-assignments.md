@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992100"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006733"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Compreender negar atribuições para recursos do Azure
 
@@ -59,9 +59,9 @@ Este artigo descreve como negar atribuições são definidas.
 Para suporte negar atribuições, o **System-Defined Principal** foi introduzido. Este principal de representa todos os utilizadores, grupos, os principais de serviço e identidades geridas num diretório do Azure AD. Se o ID de principal é um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo de principal é `SystemDefined`, o principal representa todas as entidades. `SystemDefined` pode ser combinado com `ExcludePrincipals` para negar a todos os principais, exceto alguns usuários. `SystemDefined` tem as seguintes restrições:
 
 - Pode ser utilizada apenas num `Principals` e não é possível utilizar `ExcludePrincipals`.
-- `Principals[i].Type` tem de ser definido como `SystemDefined`.
+- `Principals[i].Type` Tem de ser definido como `SystemDefined`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Lista de atribuições para recursos do Azure com a API REST de negação](deny-assignments-rest.md)
+* [Vista de negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md)
 * [Compreender as definições de funções para recursos do Azure](role-definitions.md)

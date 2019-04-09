@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307195"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006801"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar os alertas do Azure em eventos de gestão para alertas de registo de atividades
 
@@ -104,7 +104,7 @@ Para criar um alerta de registo de nova atividade, pode:
 * Siga [nosso guia sobre como criar um alerta no portal do Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Saiba como [criar um alerta com um modelo do Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
  
-Alertas nos eventos de gestão que tenha criado anteriormente não serão migradas automaticamente para os alertas de registo de atividade. Tem de utilizar o script anterior do PowerShell para listar os alertas nos eventos de gestão que tiver configurado o atualmente e recriá-los manualmente como alertas de registo de atividade. Isso deve ser feito antes de 1 de Outubro, após o qual alertas nos eventos de gestão já não estarão visíveis na sua subscrição do Azure. Outros tipos de alertas do Azure, incluindo alertas de métricas do Azure Monitor, os alertas das informações de aplicativo e alertas do Log Analytics não são afetados por esta alteração. Se tiver dúvidas, publique nos comentários abaixo.
+Alertas nos eventos de gestão que tenha criado anteriormente não serão migradas automaticamente para os alertas de registo de atividade. Tem de utilizar o script anterior do PowerShell para listar os alertas nos eventos de gestão que tiver configurado o atualmente e recriá-los manualmente como alertas de registo de atividade. Isso deve ser feito antes de 1 de Outubro, após o qual alertas nos eventos de gestão já não estarão visíveis na sua subscrição do Azure. Outros tipos de alertas do Azure, incluindo alertas de métricas do Azure Monitor, os alertas das informações de aplicativo e alertas de pesquisa de registos não são afetados por esta alteração. Se tiver dúvidas, publique nos comentários abaixo.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

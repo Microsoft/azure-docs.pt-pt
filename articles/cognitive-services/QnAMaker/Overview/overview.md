@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872463"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257234"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
 
@@ -66,13 +66,12 @@ A arquitetura do Criador de FAQ é composta pelos dois seguintes componentes:
 
 ## <a name="service-highlights"></a>Destaques do serviço
 
-- Uma total experiência **sem código** para [criar um bot de FAQ](https://aka.ms/qnamaker-docs-create-faqbot).
+- Um completo **sem código** experiência para [criar um bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) de uma base de dados de conhecimento.
 - **Não existe limitação de largura de banda para predições**. Paga pelo alojamento do serviço e não pelo número de transações. Veja a [página de preços](https://aka.ms/qnamaker-docs-pricing) para obter mais informações.
 - **Dimensione conforme necessário**. Escolha os SKUs apropriados dos componentes individuais que melhor correspondem ao seu cenário. Veja como [escolher a capacidade](https://aka.ms/qnamaker-docs-capacity) para o seu serviço Criador de FAQ.
-- **Total conformidade de dados**. Os componentes do serviço de predição são implementados na sua subscrição do Azure e dentro do respetivo limite de conformidade.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar o serviço Criador de FAQ](../how-to/set-up-qnamaker-service-azure.md)
+> [Criar um serviço QnA Maker](../how-to/set-up-qnamaker-service-azure.md)

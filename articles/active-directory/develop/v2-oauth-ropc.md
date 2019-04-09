@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 716f48a5db437ef1dc865aca66fbac1c1d51aec3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207437"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274195"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>O Azure Active Directory v 2.0 e a credencial de palavra-passe de proprietário de recursos do OAuth 2.0
 
@@ -51,7 +51,6 @@ POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
-&client_secret=wkubdywbc2894u
 &username=MyUsername@myTenant.com
 &password=SuperS3cret
 &grant_type=password
@@ -101,7 +100,7 @@ Se o utilizador ainda não forneceu o nome de utilizador correto ou a palavra-pa
 | `invalid_request` | O pedido foi construído incorretamente | O tipo de concessão não é suportado o `/common` ou `/consumers` contextos de autenticação.  Utilize `/organizations` em vez disso. |
 | `invalid_client` | A aplicação está configurada incorretamente | Isto pode acontecer se o `allowPublicClient` propriedade não estiver definida como verdadeiro para o [manifesto do aplicativo](reference-app-manifest.md). O `allowPublicClient` propriedade é necessária porque a concessão ROPC não tem um URI de redirecionamento. O Azure AD não consegue determinar se a aplicação é um aplicativo de cliente público ou um cliente confidencial, a menos que a propriedade está definida. Tenha em atenção que ROPC só é suportada para aplicações de cliente público. |
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * Experimentar o ROPC na utilizando o [exemplo de aplicação de consola](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
 * Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).

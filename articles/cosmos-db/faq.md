@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881046"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010622"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -95,8 +95,9 @@ As seguintes condições aplicam-se a subscrições do Azure do Cosmos DB:
 * Até três coleções por subscrição para contas do MongoDB.
 * Capacidade de 10 GB de armazenamento.
 * A replicação global está disponível na seguinte [regiões do Azure](https://azure.microsoft.com/regions/): Centro dos E.U.A., Europa do Norte e Sudeste asiático
-* Débito máximo de 5 mil RU/s.
-* Subscrições expirem após 24 horas e podem ser estendidas até um máximo de total de 48 horas.
+* Débito máximo de 5 mil RU/s quando aprovisionado no nível do contentor.
+* Débito de máximo de 20 mil RU/s quando aprovisionado no nível da base de dados.
+* As assinaturas expiram após 30 dias e podem ser estendidas até um máximo de total de 31 dias.
 * Pedidos de suporte do Azure não não possível criar contas de experimentar o Azure Cosmos DB No entanto, o suporte é fornecido para os subscritores com planos de suporte existentes.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurar o Azure Cosmos DB

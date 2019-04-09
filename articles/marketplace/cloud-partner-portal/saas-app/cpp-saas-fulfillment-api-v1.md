@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579466"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009739"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>Versão de APIs de preenchimento do SaaS 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>Versão de APIs de preenchimento do SaaS 1 (preterido)
 
-Este artigo explica como criar uma oferta SaaS com as APIs. As APIs são necessárias para permitir que as assinaturas para sua oferta de SaaS, se tiver de venda através do Azure selecionada.  
+Este artigo explica como criar uma oferta SaaS com as APIs. As APIs, compostas por métodos REST e pontos de extremidade, são necessárias para permitir que as assinaturas para sua oferta de SaaS tem vender seu através do Azure selecionado.  
 
 > [!WARNING]
-> Esta versão inicial da API de preenchimento do SaaS foi preterido; em alternativa, utilize [SaaS preenchimento API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-Este artigo está dividido em duas seções:
-
--   Autenticação serviço a serviço entre um serviço SaaS e o Azure Marketplace
--   Métodos da API e os pontos finais
+> Esta versão inicial da API de preenchimento do SaaS foi preterido; em alternativa, utilize [SaaS preenchimento API V2](./cpp-saas-fulfillment-api-v2.md).  Esta API está atualmente a ser mantida apenas para servir os publicadores existentes. 
 
 As seguintes APIs são fornecidas para o ajudar a integrar o serviço SaaS com o Azure:
 
@@ -41,112 +36,11 @@ As seguintes APIs são fornecidas para o ajudar a integrar o serviço SaaS com o
 -   Converter
 -   Anular a subscrição
 
-O diagrama seguinte mostra o fluxo de subscrição de um novo cliente e quando essas APIs são utilizadas:
 
-![SaaS oferecem o fluxo de API](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Serviço de autenticação de serviço entre o serviço SaaS e o Azure marketplace
-
-Azure não impõe quaisquer restrições a autenticação que o serviço SaaS expõe a seus usuários finais. No entanto, quando se trata o serviço de SaaS a comunicar com APIs do Azure Marketplace, a autenticação é feita no contexto de uma aplicação do Azure Active Directory (Azure AD).
-
-A seguinte secção descreve como criar uma aplicação do Azure AD.
-
-
-### <a name="register-an-azure-ad-application"></a>Registar uma aplicação do Azure AD
-
-Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de estar registada previamente no inquilino do Azure AD. Este processo de registro envolve a fornecer os detalhes do Azure AD sobre a sua aplicação, como a URL onde este se encontra, o URL para enviar respostas após um utilizador é autenticado, o URI que identifica a aplicação e assim por diante.
-
-Para registar uma nova aplicação com o portal do Azure, execute os seguintes passos:
-
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Se a sua conta permitir aceder a mais de uma, clique na sua conta no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-3. No painel de navegação do lado esquerdo, clique nas **do Azure Active Directory** do serviço, clique em **registos das aplicações**e clique em **novo registo de aplicação**.
-
-   ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1.png)
-
-4. Na página de criar, introduza o seu aplicativo\'informações de registo de s:
-   - **Nome**: Introduza um nome de aplicação com significado
-   - **Tipo de aplicação**: 
-     - Selecione **Nativa** para [aplicações cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que estejam instaladas localmente num dispositivo. Esta definição é utilizada para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
-     - Selecione **aplicação Web / API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-     A mesma aplicação também pode expor um cliente e um recurso/API.
-   - **Início de sessão no URL**: Para aplicações de aplicação/API da Web, indique o URL de base da sua aplicação. Por exemplo, **http:\//localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
-   - **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http:\//MyFirstAADApp**.
-
-     ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1-2.png)
-
-     Para obter exemplos específicos de aplicações web ou de aplicativos nativos, check-out de início rápido orientada instalações que estão disponíveis na secção começar a utilizar o [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. Quando terminar, clique em **Criar**. Azure AD atribui um ID de aplicação exclusivo para seu aplicativo e\'re direcionado para seu aplicativo\'página registo principal. Dependendo de se a sua aplicação é do tipo nativo ou Web, dispõe de várias opções para lhe adicionar mais capacidades.
-
->[!Note]
->Por predefinição, a aplicação recentemente registada é configurada para permitir que apenas os utilizadores a partir do mesmo inquilino para iniciar sessão na sua aplicação.
-
-<a name="api-methods-and-endpoints"></a>Métodos da API e os pontos finais
--------------------------
+## <a name="api-methods-and-endpoints"></a>Métodos da API e os pontos finais
 
 As secções seguintes descrevem os métodos de API e os pontos finais disponíveis para ativar as subscrições para uma oferta SaaS.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obter um token com base na aplicação do Azure AD
-
-Método HTTP
-
-`GET`
-
-*Request URL* (URL do pedido)
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*Parâmetro URI*
-
-|  **Parameter name** (Nome do parâmetro)  | **Necessário**  | **Descrição**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | Verdadeiro          | ID do inquilino da aplicação registada do AAD   |
-|  |  |  |
-
-
-*Cabeçalho do pedido*
-
-|  **Nome do cabeçalho**  | **Necessário** |  **Descrição**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | Verdadeiro         | Tipo de conteúdo associado à solicitação. O valor predefinido é `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Corpo do pedido*
-
-| **Nome da propriedade**   | **Necessário** |  **Descrição**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | Verdadeiro         | Tipo de concessão. O valor predefinido é `client_credentials`.                    |
-|  Client_id          | Verdadeiro         |  Identificador de cliente/aplicação associado à aplicação do Azure AD.                  |
-|  client_secret      | Verdadeiro         |  Palavra-passe associado à aplicação do Azure AD.                               |
-|  Recurso           | Verdadeiro         |  Recurso de destino para a qual o token é solicitado. O valor predefinido é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Resposta*
-
-|  **Nome**  | **Tipo**       |  **Descrição**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Pedido efetuado com êxito   |
-|  |  |  |
-
-*TokenResponse*
-
-Token de resposta de exemplo:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Ponto final de API do Marketplace e a versão de API
 
@@ -161,19 +55,19 @@ Ação de publicação em resolver o ponto final permite aos utilizadores resolv
 
 Quando um utilizador é redirecionado para o site de um ISV, o URL contém um token nos parâmetros de consulta. O ISV deve utilizar este token e fazer um pedido para resolvê-lo. A resposta contém o exclusivo ID de subscrição de SAAS, nome, ID de oferta e plano para o recurso. Este token é válido apenas uma hora.
 
-*Pedido*
+*Pedir*
 
 **POST**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
-|  **Nome do parâmetro** |     **Descrição**                                      |
+|  **Nome do Parâmetro** |     **Descrição**                                      |
 |  ------------------ |     ---------------------------------------------------- |
 |  versão de API        |  A versão da operação para utilizar para este pedido.   |
 |  |  |
 
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -185,7 +79,7 @@ Quando um utilizador é redirecionado para o site de um ISV, o URL contém um to
 |  |  |  |
   
 
-*Corpo da resposta*
+*Corpo da Resposta*
 
 ``` json
 {
@@ -196,7 +90,7 @@ Quando um utilizador é redirecionado para o site de um ISV, o URL contém um to
 }
 ```
 
-| **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                       |
+| **Nome do parâmetro** | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
 | ID                 | String        | ID da subscrição SaaS.          |
 | subscriptionName| String| Nome da subscrição SaaS definida pelo utilizador no Azure ao subscrever o serviço SaaS.|
@@ -207,7 +101,7 @@ Quando um utilizador é redirecionado para o site de um ISV, o URL contém um to
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                                         |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token está a ser resolvido com êxito.                                                            |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou um api-version inválido especificado. Falha ao resolver o token, porque o token de qualquer um dos está incorretamente formulados ou expirados (o token só é válido durante uma hora depois de gerada). |
@@ -217,13 +111,13 @@ Quando um utilizador é redirecionado para o site de um ISV, o URL contém um to
 |  |  |  |
 
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sim          | ID recebida do cliente do pedido.                                                                   |
 | x-ms-correlationid | Sim          | ID de correlação se transmitido pelo cliente, caso contrário, este valor é o ID de correlação de servidor.                   |
-| x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Isto é utilizado para qualquer reconciliations. |
+| x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Este ID é utilizado para qualquer reconciliations. |
 | Retry-After        | Não           | Este valor é definido apenas para uma resposta 429.                                                                   |
 |  |  |  |
 
@@ -236,13 +130,13 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Id exclusivo da subscrição de saas, que é obtida depois de resolver o token através da API de resolver.                              |
+| subscriptionId      | Subscrição de ID de SaaS exclusiva que é obtida depois de resolver o token através da API de resolver.                              |
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 |  **Chave do cabeçalho**        | **Necessário** |  **Descrição**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
@@ -269,7 +163,7 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Ativação de assinatura de SaaS recebida para um determinado plano.                   |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou o corpo do JSON é um formato incorreto. |
@@ -282,7 +176,7 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 
 Para uma resposta 202, dar seguimento estado da operação de pedido no cabeçalho "Location de operação". A autenticação é o mesmo que outras APIs do Marketplace.
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -301,13 +195,13 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Subscrição de ID de SaaS.                              |
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**          | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
@@ -333,7 +227,7 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Ativação de assinatura de SaaS recebida para um determinado plano.                   |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou o corpo do JSON é um formato incorreto. |
@@ -344,7 +238,7 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 | 503                  | `ServiceUnavailable` | Serviço para baixo temporariamente, tente novamente mais tarde.                          |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -359,19 +253,19 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 
 A ação de eliminação no ponto de extremidade subscribe permite que um utilizador eliminar uma subscrição com uma ID especificada.
 
-*Pedido*
+*Pedir*
 
 **DELETE**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Subscrição de ID de SaaS.                              |
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
@@ -382,7 +276,7 @@ A ação de eliminação no ponto de extremidade subscribe permite que um utiliz
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                           |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Ativação de assinatura de SaaS recebida para um determinado plano.                   |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou o corpo do JSON é um formato incorreto. |
@@ -394,7 +288,7 @@ A ação de eliminação no ponto de extremidade subscribe permite que um utiliz
 
 Para uma resposta 202, dar seguimento estado da operação de pedido no cabeçalho "Location de operação". A autenticação é o mesmo que outras APIs do Marketplace.
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -409,19 +303,19 @@ Para uma resposta 202, dar seguimento estado da operação de pedido no cabeçal
 
 Este ponto final permite ao utilizador controlar o estado de uma operação de async acionadas (subscrever/anular a subscrição/alterar plano).
 
-*Pedido*
+*Pedir*
 
 **GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
-| **Nome do parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | ID exclusivo para a operação acionada.                |
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -430,7 +324,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 | Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
 |  |  |  | 
 
-*Corpo da resposta*
+*Corpo da Resposta*
 
 ```json
 {
@@ -442,7 +336,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 }
 ```
 
-| **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                                                                                                                                               |
+| **Nome do parâmetro** | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
 | ID                 | String        | ID da operação.                                                                      |
 | status             | Enum          | Estado da operação, um dos seguintes: `In Progress`, `Succeeded`, ou `Failed`.          |
@@ -453,7 +347,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Resolvido o pedido get com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou um api-version inválido foi especificado. |
@@ -463,7 +357,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 | 503                  | `ServiceUnavailable` | Serviço para baixo temporariamente, tente novamente mais tarde.                             |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -477,19 +371,19 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 
 Assine a ação de Get no ponto final permite que um utilizador a obter uma subscrição com um identificador de recurso específico.
 
-*Pedido*
+*Pedir*
 
 **GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nome do parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Subscrição de ID de SaaS.                              |
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
@@ -498,7 +392,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 | Autorização      | Sim          | O JSON web token (JWT) token de portador.                                                                    |
 |  |  |  |
 
-*Corpo da resposta*
+*Corpo da Resposta*
 
 ```json
 {
@@ -512,7 +406,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 }
 ```
 
-| **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
+| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID                     | String        | Recursos de subscrição de ID de SaaS no Azure.    |
 | offerId                | String        | ID de oferta que o utilizador inscrito.         |
@@ -525,7 +419,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Resolvido o pedido get com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou um api-version inválido foi especificado. |
@@ -535,7 +429,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 | 503                  | `ServiceUnavailable` | Serviço para baixo temporariamente, tente novamente mais tarde.                             |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -550,18 +444,18 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 
 A ação de Get no ponto final de subscrições permite que um usuário recuperar todas as subscrições para todas as ofertas do ISV.
 
-*Pedido*
+*Pedir*
 
 **GET**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
-| **Nome do parâmetro**  | **Descrição**                                       |
+| **Nome do Parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
 | versão de API         | A versão da operação para utilizar para este pedido. |
 |  |  |
 
-*Headers* (Cabeçalhos)
+*Cabeçalhos*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
@@ -570,7 +464,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 | Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
 |  |  |  |
 
-*Corpo da resposta*
+*Corpo da Resposta*
 
 ```json
 {
@@ -584,7 +478,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 }
 ```
 
-| **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
+| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID                     | String        | Recursos de subscrição de ID de SaaS no Azure.    |
 | offerId                | String        | ID de oferta que o utilizador inscrito.         |
@@ -597,7 +491,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 
 *Códigos de resposta*
 
-| **Código de estado de HTTP** | **Código de erro**     | **Descrição**                                                              |
+| **Código de estado de HTTP** | **Código de Erro**     | **Descrição**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | Resolvido o pedido get com êxito e o corpo contém a resposta.    |
 | 400                  | `BadRequest`         | É necessário um cabeçalhos estão em falta ou um api-version inválido foi especificado. |
@@ -607,7 +501,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 | 503                  | `ServiceUnavailable` | Serviço está temporariamente indisponível. Tente novamente mais tarde.                             |
 |  |  |  |
 
-*Cabeçalhos de resposta*
+*Cabeçalhos de Resposta*
 
 | **Chave do cabeçalho**     | **Necessário** | **Descrição**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -634,7 +528,7 @@ Um webhook de SaaS é utilizado para a notificação de alterações de forma pr
   }
 ```
 
-| **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
+| **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
 | ID  | String       | ID exclusivo para a operação acionada.                |
 | activityId   | String        | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Isto é utilizado para qualquer reconciliations.               |

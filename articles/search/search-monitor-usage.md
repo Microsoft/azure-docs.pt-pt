@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652302"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010418"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorizar a atividade de consulta e consumo de recursos no Azure Search
 
@@ -60,9 +60,9 @@ A tabela seguinte compara as opções para armazenar os registos e a adição de
 
 | Recurso | Utilizado para |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo, correlacionadas com eventos de utilizador na sua aplicação. Esta é a única solução que considera ações do usuário ou sinais, eventos de mapeamento a partir da Pesquisa iniciada pelo usuário, em oposição ao filtrar pedidos submetidos por código do aplicativo. Para utilizar esta abordagem, copiar-colar o código de instrumentação nos seus arquivos de origem a informações de pedido de rota para o Application Insights. Para obter mais informações, consulte [a análise de tráfego de pesquisa](search-traffic-analytics.md). |
-| [Registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados numa área de trabalho do Log Analytics. Pode executar consultas em relação a uma área de trabalho para devolver informações detalhadas do log. Para obter mais informações, consulte [começar com os registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registados para um contentor de BLOBs e armazenados em ficheiros JSON. Utilize um editor de JSON para ver o conteúdo do ficheiro.|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados e métricas de consulta, com base em esquemas abaixo, correlacionadas com eventos de utilizador na sua aplicação. Esta é a única solução que considera ações do usuário ou sinais, eventos de mapeamento a partir da Pesquisa iniciada pelo usuário, em oposição ao filtrar pedidos submetidos por código do aplicativo. Para utilizar esta abordagem, copiar-colar o código de instrumentação nos seus arquivos de origem a informações de pedido de rota para o Application Insights. Para obter mais informações, consulte [a análise de tráfego de pesquisa](search-traffic-analytics.md). |
+| [Registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados e métricas de consulta, com base em esquemas abaixo. Os eventos são registados numa área de trabalho do Log Analytics. Pode executar consultas em relação a uma área de trabalho para devolver informações detalhadas do log. Para obter mais informações, consulte [começar com os registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base em esquemas abaixo. Os eventos são registados para um contentor de BLOBs e armazenados em ficheiros JSON. Utilize um editor de JSON para ver o conteúdo do ficheiro.|
 | [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados e métricas de consulta, com base em esquemas documentados neste artigo. Escolha esta opção como um serviço de recolha de dados alternativo para os registos de muito grandes. |
 
 Registos do Azure Monitor e o armazenamento de BLOBs estão disponíveis como serviço gratuito, partilhado para que pode experimentar, sem encargos durante o tempo de vida da sua subscrição do Azure. O Application Insights é gratuito para inscrever-se e utilizar, desde que o tamanho de dados de aplicação está em determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes).
@@ -96,7 +96,7 @@ Depois de guardar o perfil, o registo está ativado. Contentores são criados ap
 * insights-logs-operationlogs: para os registos de tráfego de pesquisa
 * as métricas-insights-pt1m: para métricas
 
-Ele leva uma hora antes dos contentores aparecerá no armazenamento de Blobs. Há um blob, por hora, por contentor. 
+**Ele leva uma hora antes dos contentores aparecerá no armazenamento de Blobs. Há um blob, por hora, por contentor.**
 
 Pode usar [Visual Studio Code](#download-and-open-in-visual-studio-code) ou outro editor de JSON para ver os ficheiros. 
 
@@ -123,7 +123,7 @@ Os BLOBs que contém os seus registos de tráfego do serviço de pesquisa são e
 
 **Esquema de propriedades**
 
-| Nome | Tipo | Exemplo | Notas |
+| Name | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
 | Descrição |cadeia |"Obter /indexes('content')/docs" |Ponto final da operação |
 | Consulta |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Os parâmetros de consulta |

@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008991"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, vai aprender a criar um site com o enlace de JavaScript do SDK de Voz dos Serviços Cognitivos para fazer a conversão de voz em texto.
-A aplicação baseia-se o SDK de voz de serviços cognitivos da Microsoft ([transfira a versão 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
+O aplicativo se baseia o SDK de voz para JavaScript ([Download versão 1.4.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma chave de subscrição para o serviço de Voz. Ver [experimentar gratuitamente os serviços de voz](get-started.md).
 * Um PC ou Mac, com um microfone a funcionar.
 * Um editor de texto.
-* Uma versão atual do Chrome ou do Microsoft Edge.
+* Uma versão atual do Chrome, o Microsoft Edge ou o Safari.
 * Opcionalmente, um servidor Web que suporte o alojamento de scripts PHP.
 
 ## <a name="create-a-new-website-folder"></a>Criar uma nova pasta de sites
@@ -52,7 +52,7 @@ Crie um novo ficheiro na pasta, com o nome `index.html`, e abra este ficheiro co
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -98,6 +98,10 @@ Dessa forma, a chave de subscrição nunca vai sair do servidor, o que permite a
 ## <a name="build-and-run-the-sample-locally"></a>Criar e executar o exemplo localmente
 
 Para iniciar a aplicação, faça duplo clique no ficheiro index.html ou abra-o com o seu browser favorito. Será apresentada uma GUI simples que lhe permite introduzir a chave de subscrição e a [região](regions.md), e acionar um reconhecimento com o microfone.
+
+> [!NOTE]
+> Este método não funciona no Safari browser.
+> No Safari, a página da web de exemplo tem de ser alojada num servidor web; Safari não permite que os Web sites carregados a partir de um ficheiro local para utilizar o microfone.
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>Criar e executar o exemplo através de um servidor Web
 

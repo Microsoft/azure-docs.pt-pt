@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540861"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270808"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
 
@@ -132,14 +132,14 @@ Para criar a interface do usuário, adicione código ao *Index*:
 1. Adicione referências ao controle da web do Azure Maps JavaScript e arquivos CSS:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Adicione uma referência para o módulo de serviços de mapas do Azure. O módulo é uma biblioteca de JavaScript que encapsula os serviços do Azure Maps REST e os torna fáceis de usar em JavaScript. O módulo é útil para capacitar a funcionalidade de pesquisa.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Adicionar referências aos *Index* e *index.css*:
@@ -454,7 +454,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     window.onload = initialize;
     ```
 
-1. O mapa `load` serviço de escuta de eventos, adicione um controle de zoom e um marcador HTML para exibir o Centro de uma área de pesquisa.
+1. O mapa `ready` serviço de escuta de eventos, adicione um controle de zoom e um marcador HTML para exibir o Centro de uma área de pesquisa.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     map.markers.add(centerMarker);
     ```
 
-1. O mapa `load` serviço de escuta de eventos, adicionar uma origem de dados. Em seguida, fazer uma chamada para carregar e analisar o conjunto de dados. Ative o clustering na origem de dados. Clustering nos dados em grupos de origem a sobreposição de pontos em conjunto num cluster. Os clusters separados para os pontos individuais que o utilizador amplia. Isso torna um experiência de usuário mais fluido e melhora o desempenho.
+1. O mapa `ready` serviço de escuta de eventos, adicionar uma origem de dados. Em seguida, fazer uma chamada para carregar e analisar o conjunto de dados. Ative o clustering na origem de dados. Clustering nos dados em grupos de origem a sobreposição de pontos em conjunto num cluster. Os clusters separados para os pontos individuais que o utilizador amplia. Isso torna um experiência de usuário mais fluido e melhora o desempenho.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     loadStoreData();
     ```
 
-1. Depois que carregar o conjunto de dados do mapa `load` serviço de escuta de eventos, definir um conjunto de camadas para processar os dados. Uma camada de bolha é utilizada para processar os pontos de dados em cluster. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolhas. Uma segunda camada de símbolo compõe um ícone personalizado para locais individuais no mapa.
+1. Depois que carregar o conjunto de dados do mapa `ready` serviço de escuta de eventos, definir um conjunto de camadas para processar os dados. Uma camada de bolha é utilizada para processar os pontos de dados em cluster. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolhas. Uma segunda camada de símbolo compõe um ícone personalizado para locais individuais no mapa.
 
    Adicione `mouseover` e `mouseout` eventos para as camadas de bolhas e ícone para alterar o cursor do rato quando o utilizador passa através de um cluster ou o ícone no mapa. Adicionar um `click` eventos para a camada de bolhas do cluster. Isso `click` evento amplia o mapa em dois níveis e centros de mapa através de um cluster, quando o usuário seleciona qualquer cluster. Adicionar um `click` eventos para a camada de ícone. Isso `click` eventos exibe uma janela de pop-up que mostra os detalhes de um café, quando um usuário selecionar um ícone de localização individuais. Adicione um evento para o mapa para monitorizar quando o mapa de conclusão da mudança. Quando este evento é disparado, atualize os itens no painel de lista.  
 
@@ -959,14 +959,17 @@ Pode aceder ao código de exemplo deste tutorial aqui:
 
 > [Criar um localizador de arquivo com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-[Veja o exemplo aqui ao vivo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+[Veja o exemplo registada aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Para saber mais sobre a cobertura e as capacidades do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Zoom levels and tile grid ](zoom-levels-and-tile-grid.md) (Níveis de zoom e grelha de mosaico)
+> [Níveis de zoom e grelha de mosaico](zoom-levels-and-tile-grid.md)
 
 Para ver mais exemplos de código e uma experiência interativa de programação:
 
 > [!div class="nextstepaction"]
-> [How to use the map control](how-to-use-map-control.md) (Como utilizar o controlo de mapa)
+> [Como usar o controle de mapa](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Utilizar expressões de estilo condicionada por dados](data-driven-style-expressions-web-sdk.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339317"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268425"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Uma coisa que é importante observar é a execução transacional de acionadores no Azure Cosmos DB. Este pós-acionador é executado como parte da mesma transação que é utilizada pelo Azure Cosmos DB create item. Por conseguinte, se ocorrer uma exceção durante a execução do pós-acionador de, por exemplo, se for não é possível atualizar o item de metadados, a transação inteira falhará e ela é revertida. Portanto, o item do Azure Cosmos DB é criado e uma exceção será retornada.
+Uma coisa que é importante observar é a execução transacional de acionadores no Azure Cosmos DB. O pós-acionador de é executado como parte da mesma transação para o próprio item subjacente. Uma exceção durante a execução do pós-acionador de falha a transação inteira. Nada consolidadas será revertido e devolveu uma exceção.
 
 Para obter exemplos de como registar e chamar um acionador de pré-lançamento, consulte [pré-acionadores](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) e [pós-acionadores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) artigos. 
 

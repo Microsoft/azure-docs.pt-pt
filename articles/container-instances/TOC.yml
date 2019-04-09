@@ -16,12 +16,20 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: 1 - Criar imagem de contentor
-    href: container-instances-tutorial-prepare-app.md
-  - name: 2 - Criar registo de contentor
-    href: container-instances-tutorial-prepare-acr.md
-  - name: 3 - Implementar a aplicação
-    href: container-instances-tutorial-deploy-app.md
+  - name: Criar e implementar a imagem de contentor
+    items:
+    - name: 1 - Criar imagem de contentor
+      href: container-instances-tutorial-prepare-app.md
+    - name: 2 - Criar registo de contentor
+      href: container-instances-tutorial-prepare-acr.md
+    - name: 3 - Implementar a aplicação
+      href: container-instances-tutorial-deploy-app.md
+  - name: Implementar um grupo com vários contentores
+    items:
+    - name: Implementar um grupo de contentores - YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Implementar um grupo de contentores - Resource Manager
+      href: container-instances-multi-container-group.md
 - name: Amostras
   items:
   - name: Exemplos de código
@@ -42,10 +50,6 @@ items:
   items:
   - name: Implementação
     items:
-    - name: Grupos com vários contentores - YAML
-      href: container-instances-multi-container-yaml.md
-    - name: Grupos com vários contentores - Gestor de Recursos
-      href: container-instances-multi-container-group.md
     - name: Implementar numa rede virtual (pré-visualização)
       href: container-instances-vnet.md
     - name: Implementar do Azure Container Registry
@@ -126,9 +130,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 94d16ad208cbe5c5cffbcab9e09cf62a05a399ce
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 4a2f2f48232bc78aa636934b0ac3a38bec2c1a23
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851215"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006048"

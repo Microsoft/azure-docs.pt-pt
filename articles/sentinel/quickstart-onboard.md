@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399684"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006584"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Pré-visualização de acumular Sentinel do Azure
 
@@ -36,21 +36,19 @@ Depois de ligar as origens de dados, escolha a partir de uma galeria de criado c
 
 ## <a name="global-prerequisites"></a>Pré-requisitos globais
 
-- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Subscrição do Azure Active Directory, se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 - Inicie a sessão de área de trabalho de análise. Saiba como [criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
 
-- Permissões de Contribuidor para o seu inquilino para ativar o Azure sentinela
-
-- Inquilino global ou permissões de administrador de segurança
- 
+    - Permissões de Contribuidor ao grupo de recursos associada ao Azure sentinela
+    - Permissões de Contribuidor para o grupo de recursos para ativar o Azure sentinela 
 
 ## Ativar Sentinel do Azure <a name="enable"></a>
 
 1. Ir para o portal do Azure.
 2. Certifique-se de que a subscrição na qual o Azure sentinela é criado, está selecionado. 
 3. Procure Sentinel do Azure. 
-   ![search](./media/quickstart-onboard/search-product.png)
+   ![procurar](./media/quickstart-onboard/search-product.png)
 
 1. Clique em **+ adicionar**.
 1. Selecione a área de trabalho que pretende utilizar ou criar um novo. É possível executar o Azure sentinela em mais do que uma área de trabalho, mas os dados são isolados para um único espaço de trabalho.

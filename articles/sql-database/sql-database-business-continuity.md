@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: MT
+ms.date: 04/04/2019
+ms.openlocfilehash: dfa5d4cb2d782f1466329300157a64fd17765460
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960886"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057171"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -53,13 +53,17 @@ Em seguida, pode aprender sobre os mecanismos adicionais que pode utilizar para 
 
 Cada uma possui características diferentes para o tempo de recuperação estimado (ERT) e a potencial perda de dados de transações recentes. Assim que compreender estas opções, pode escolher entre elas - e, na maioria dos cenários, utilizá-las em conjunto para cenários diferentes. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após o evento problemático. O tempo necessário para a aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de Atualizações recentes de dados (intervalo de tempo) da aplicação pode tolerar perder ao recuperar após o evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
 
-A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os três cenários mais comuns.
+A tabela seguinte compara o ERT e o RPO para cada camada de serviço para os cenários mais comuns.
 
 | Capacidade | Básica | Standard | Premium | Fins Gerais | Crítico para a Empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança |Qualquer ponto de restauro dentro de sete dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro num período de 35 dias |Qualquer ponto de restauro no período configurado (até 35 dias)|Qualquer ponto de restauro no período configurado (até 35 dias)|
 | Georrestauro a partir de cópias de segurança georreplicado |ERT < 12 h<br> RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h|ERT < 12 h<br>RPO < 1 h|
 | Grupos de ativação pós-falha automática |RTO = 1 h<br>RPO < 5s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
+| Ativação pós-falha da base de dados manual |ERT = 30 s<br>RPO < 5s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s |ERT = 30 s<br>RPO < 5 s|ERT = 30 s<br>RPO < 5 s|
+
+> [!NOTE]
+> *Ativação pós-falha da base de dados manual* refere-se a ativação pós-falha de uma base de dados para seu georreplicado secundário utilizando o [modo não planeado](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
 
@@ -84,7 +88,7 @@ Embora seja raro, um centro de dados do Azure pode ficar indisponível. Quando o
 
 - Uma opção é aguardar que a base de dados volte a ficar online quando a indisponibilidade do centro de dados terminar. Isto funciona para as aplicações que podem dar-se ao luxo de ter a base de dados offline. Por exemplo, um projeto de desenvolvimento ou uma versão de avaliação gratuita nos quais não tem de trabalhar constantemente. Quando um centro de dados fica indisponível, não sabe quanto pode durar a indisponibilidade, pelo que esta opção só funciona se não precisar de sua base de dados durante algum tempo.
 - Outra opção consiste em restaurar uma base de dados em qualquer servidor em qualquer região do Azure, utilizando [cópias de segurança da base de dados georredundante](sql-database-recovery-using-backups.md#geo-restore) (georrestauro). O restauro geográfico utiliza uma cópia de segurança georredundante como origem e pode ser usado para recuperar uma base de dados, mesmo que a base de dados ou o Centro de dados não está acessível devido a uma falha.
-- Por fim, pode recuperar rapidamente a partir de uma falha se tiver configurado qualquer uma das réplicas geo usando [georreplicação ativa](sql-database-active-geo-replication.md) ou uma [grupo de ativação pós-falha automática](sql-database-auto-failover-group.md) para a sua base de dados ou bases de dados. Dependendo de sua escolha dessas tecnologias, pode usar a ativação pós-falha manual ou automática. Embora a ativação pós-falha em si demora apenas alguns segundos, o serviço irá demorar, pelo menos, 1 hora para ativá-lo. Isso é necessário para se certificar de que a ativação pós-falha é justificada pela escala da falha. Além disso, a ativação pós-falha pode resultar em perda de dados pequeno devido à natureza da replicação assíncrona. Consulte a tabela apresentada anteriormente neste artigo para obter detalhes da ativação pós-falha automática RTO e RPO.
+- Por fim, pode recuperar rapidamente a partir de uma falha se tiver configurado a geo-secundária usando [georreplicação ativa](sql-database-active-geo-replication.md) ou uma [grupo de ativação pós-falha automática](sql-database-auto-failover-group.md) para a sua base de dados ou bases de dados. Dependendo de sua escolha dessas tecnologias, pode usar a ativação pós-falha manual ou automática. Embora a ativação pós-falha em si demora apenas alguns segundos, o serviço irá demorar, pelo menos, 1 hora para ativá-lo. Isso é necessário para se certificar de que a ativação pós-falha é justificada pela escala da falha. Além disso, a ativação pós-falha pode resultar em perda de dados pequeno devido à natureza da replicação assíncrona. Consulte a tabela apresentada anteriormente neste artigo para obter detalhes da ativação pós-falha automática RTO e RPO.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -116,7 +120,7 @@ Se não preparar corretamente, colocar as aplicações online após uma ativaç�
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Ativação pós-falha para um georreplicada secundária da base de dados
 
-Se estiver a utilizar grupos de ativação pós-falha automática e de georreplicação ativa como mecanismo de recuperação, pode configurar uma política de ativação pós-falha automática ou utilizar [ativação pós-falha manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Uma vez iniciada, a ativação pós-falha faz com que o secundário para a primária e está preparado para registar novas transações e responder a consultas - com perda mínima de dados para os dados ainda não replicadas. Para informações sobre como estruturar o processo de ativação pós-falha, consulte [estruturar uma aplicação para recuperação de desastres em nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se estiver a utilizar replicação geográfica activa ou grupos de ativação pós-falha automática como mecanismo de recuperação, pode configurar uma política de ativação pós-falha automática ou utilizar [a ativação pós-falha manual](sql-database-active-geo-replication-portal.md#initiate-a-failover). Uma vez iniciada, a ativação pós-falha faz com que o secundário para a primária e está preparado para registar novas transações e responder a consultas - com perda mínima de dados para os dados ainda não replicadas. Para informações sobre como estruturar o processo de ativação pós-falha, consulte [estruturar uma aplicação para recuperação de desastres em nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando o Centro de dados online novamente as cores primárias antigas restabelecer a ligação para a nova principal automaticamente e tornar-se do bancos de dados secundários. Se precisar de alteração da localização a cópia principal para a região original, pode iniciar manualmente uma ativação pós-falha planeada (reativação pós-falha).

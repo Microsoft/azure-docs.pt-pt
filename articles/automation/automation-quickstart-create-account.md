@@ -4,17 +4,17 @@ description: Saiba como criar uma conta de Automatização do Azure e executar u
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592456"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009517"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -61,14 +61,10 @@ Execute um dos runbooks do tutorial.
 
 1. Depois do **Estado da tarefa** passar a **Em execução**, clique em **Resultado** ou **Todos os Registos** para ver o resultado da tarefa de runbook. Para este runbook do tutorial, o resultado é uma lista dos seus recursos Azure.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, elimine o grupo de recursos, a conta de Automatização e todos os recursos relacionados. Para fazê-lo, selecione o grupo de recursos para a conta de Automatização e clique em **Eliminar**.
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de introdução, implementou uma conta de Automatização, iniciou uma tarefa de runbook e visualizou os resultados das tarefas. Para saber mais sobre a Automatização do Azure, avance para o início rápido para criar o seu primeiro runbook.
 
 > [!div class="nextstepaction"]
-> [Guia de Introdução à Automatização - Criar Runbook](./automation-quickstart-create-runbook.md)
+> [Início rápido de automatização - criar Runbook](./automation-quickstart-create-runbook.md)
 

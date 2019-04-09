@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c68bf4cf8bcc50069f3741ac0f1746363c1f82ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861813"
 documentType: LandingData
 title: Documentação dos Serviços de Voz
 metadata:
-  title: Documentação dos Serviços de Voz - Tutoriais, inícios rápidos, referência da API
+  title: 'Documentação dos Serviços de Voz - Tutoriais, inícios rápidos, referência da API'
   titleSuffix: Azure Cognitive Services
-  description: Os Serviços de Voz permitem aos programadores adicionar com facilidade poderosas funcionalidades compatíveis com voz às aplicações. Os exemplos incluem o controlo e diálogo por comando de voz, conversa de discurso natural, transcrição e ditado de voz e tradução de voz.
+  description: 'Os Serviços de Voz permitem aos programadores adicionar com facilidade poderosas funcionalidades compatíveis com voz às aplicações. Os exemplos incluem o controlo e diálogo por comando de voz, conversa de discurso natural, transcrição e ditado de voz e tradução de voz.'
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -24,235 +18,232 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: Saiba como utilizar os Serviços de Voz e o SDK de Voz para adicionar funcionalidades compatíveis com voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar funcionalidades de <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS) às suas aplicações. Os Serviço de Voz também têm APIs REST que funcionam com qualquer linguagem de programação que possa fazer pedidos HTTP.
+  description: 'Saiba como utilizar os Serviços de Voz e o SDK de Voz para adicionar funcionalidades compatíveis com voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar funcionalidades de <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS) às suas aplicações. Os Serviço de Voz também têm APIs REST que funcionam com qualquer linguagem de programação que possa fazer pedidos HTTP.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/speech-service/overview
+            html: <p>Saiba mais sobre os Serviços de Voz do Azure.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é o Serviço de Voz?
+          - href: /azure/cognitive-services/speech-service/get-started
+            html: <p>Inscreva-se gratuitamente.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Inscrever-se nos Serviços de Voz
+          - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+            html: <p>Saiba mais sobre a referência de hardware preparada para a voz.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: SDK de Dispositivos de Voz
+  - title: Inícios rápidos de cinco minutos
     items:
-    - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Saiba mais sobre os Serviços de Voz do Azure.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: O que é o Serviço de Voz?
-    - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Inscreva-se gratuitamente.</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Inscrever-se nos Serviços de Voz
-    - href: /azure/cognitive-services/speech-service/speech-devices-sdk
-      html: <p>Saiba mais sobre a referência de hardware preparada para a voz.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: SDK de Dispositivos de Voz
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Saiba como transferir, instalar e utilizar o SDK ao selecionar uma ligação com seta <img src="media/index/link.jpg" height="15" width="15"></img>.
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/uwp.jpg
-    - image:
-        src: media/index/logo_csharp.svg
-    - image:
-        src: media/index/logo_cplusplus.svg
-    - image:
-        src: media/index/logo_netcore.svg
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_unity.svg
-    - image:
-        src: media/index/logo_java.jpg
-    - image:
-        src: media/index/logo_python.svg
-    - image:
-        src: media/index/logo_objc.jpg
-    - image:
-        src: media/index/logo_nodejs.svg
-    - image:
-        src: media/index/logo_js.svg
-    - image:
-        src: media/index/logo_rest.svg
-    rows:
-    - title: Windows 10 (x64)
-      values:
-      - href: quickstart-csharp-uwp
-      - href: quickstart-csharp-windows
-      - href: quickstart-cpp-windows
-      - href: quickstart-csharp-dotnetcore-windows
-      - href: quickstart-csharp-unity
-      - href: quickstart-java-jre
-      - href: quickstart-python
-      - href: 
-      - href: quickstart-js-node
-      - href: 
-    - title: Windows 10 (x86)
-      values:
-      - href: quickstart-csharp-uwp
-      - href: quickstart-csharp-windows
-      - href: quickstart-cpp-windows
-      - href: quickstart-csharp-dotnetcore-windows
-      - href: quickstart-csharp-unity
-      - href: 
-      - href: quickstart-python
-      - href: 
-      - href: quickstart-js-node
-      - href: 
-    - title: Linux (x64)
-      values:
-      - href: 
-      - href: 
-      - href: quickstart-cpp-linux
-      - href: quickstart-csharp-dotnetcore-windows
-      - href: 
-      - href: quickstart-java-jre
-      - href: quickstart-python
-      - href: 
-      - href: quickstart-js-node
-      - href: 
-    - title: Linux (x86)
-      values:
-      - href: 
-      - href: 
-      - href: quickstart-cpp-linux
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: quickstart-js-node
-      - href: 
-    - title: Android (ARM32/64)
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: quickstart-csharp-unity
-      - href: quickstart-java-android
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: Android (x86/x64)
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: quickstart-csharp-unity
-      - href: quickstart-java-android
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: iOS (ARM64)
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: quickstart-objectivec-ios
-      - href: 
-      - href: 
-    - title: macOS (x64)
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: quickstart-python
-      - href: 
-      - href: quickstart-js-node
-      - href: 
-    - title: SDK de Dispositivos (ARM32)
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: speech-devices-sdk
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-    - title: Browser
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: quickstart-js-browser
-    - title: REST
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: rest-apis
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como programar aplicações com o Serviço de Voz:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Saiba como transferir, instalar e utilizar o SDK ao selecionar uma ligação com seta <img src="media/index/link.jpg" height="15" width="15"></img>.'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/uwp.jpg
+          - image:
+              src: media/index/logo_csharp.svg
+          - image:
+              src: media/index/logo_cplusplus.svg
+          - image:
+              src: media/index/logo_netcore.svg
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_unity.svg'
+          - image:
+              src: media/index/logo_java.jpg
+          - image:
+              src: media/index/logo_python.svg
+          - image:
+              src: media/index/logo_objc.jpg
+          - image:
+              src: media/index/logo_nodejs.svg
+          - image:
+              src: media/index/logo_js.svg
+          - image:
+              src: media/index/logo_rest.svg
+        rows:
+          - title: Windows 10 (x64)
+            values:
+              - href: quickstart-csharp-uwp
+              - href: quickstart-csharp-windows
+              - href: quickstart-cpp-windows
+              - href: quickstart-csharp-dotnetcore-windows
+              - href: quickstart-csharp-unity
+              - href: quickstart-java-jre
+              - href: quickstart-python
+              - href: null
+              - href: quickstart-js-node
+              - href: null
+          - title: Windows 10 (x86)
+            values:
+              - href: quickstart-csharp-uwp
+              - href: quickstart-csharp-windows
+              - href: quickstart-cpp-windows
+              - href: quickstart-csharp-dotnetcore-windows
+              - href: quickstart-csharp-unity
+              - href: null
+              - href: quickstart-python
+              - href: null
+              - href: quickstart-js-node
+              - href: null
+          - title: Linux (x64)
+            values:
+              - href: null
+              - href: null
+              - href: quickstart-cpp-linux
+              - href: quickstart-csharp-dotnetcore-windows
+              - href: null
+              - href: quickstart-java-jre
+              - href: quickstart-python
+              - href: null
+              - href: quickstart-js-node
+              - href: null
+          - title: Linux (x86)
+            values:
+              - href: null
+              - href: null
+              - href: quickstart-cpp-linux
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-js-node
+              - href: null
+          - title: Android (ARM32/64)
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-csharp-unity
+              - href: quickstart-java-android
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Android (x86/x64)
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-csharp-unity
+              - href: quickstart-java-android
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: iOS (ARM64)
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-objectivec-ios
+              - href: null
+              - href: null
+          - title: macOS (x64)
+            values:
+              - href: null
+              - href: null
+              - href: quickstart-cpp-macos
+              - href: quickstart-csharp-dotnetcore-windows
+              - href: null
+              - href: quickstart-java-jre
+              - href: quickstart-python
+              - href: quickstart-objective-c-macos
+              - href: quickstart-js-node
+              - href: null
+          - title: SDK de Dispositivos (ARM32)
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: speech-devices-sdk
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Browser
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-js-browser
+          - title: REST
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: rest-apis
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="speech-to-text-sample.md">Conversão de voz em texto (SR)</a><br/>
-    - html: <a href="intent.md">Reconhecimento de Intenção</a><br/>
-    - html: <a href="translation.md">Tradução</a>
-- title: Amostras
-  items:
-  - type: paragraph
-    text: 'Encontre exemplos do Serviço de Voz no GitHub:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Saiba como programar aplicações com o Serviço de Voz:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="speech-to-text-sample.md">Conversão de voz em texto (SR)</a><br/>
+          - html: <a href="intent.md">Reconhecimento de Intenção</a><br/>
+          - html: <a href="translation.md">Tradução</a>
+          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Conversão de texto em voz</a><br/>
+  - title: Amostras
     items:
-    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemplos do SDK de Serviço</a><br/>
-    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Exemplos do SDK de Dispositivo</a><br/>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Encontre exemplos do Serviço de Voz no GitHub:'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemplos do SDK de Serviço</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Exemplos do SDK de Dispositivo</a><br/>'
+  - title: Referência
     items:
-    - title: Referência do SDK
-      html: >
-        <p><a href="https://aka.ms/csspeech/csharpref">API C# (UWP, .NET e Unity)</a></p>
-
-        <p><a href="https://aka.ms/csspeech/cppref">API do C++</a></p>
-
-        <p><a href="https://aka.ms/csspeech/javaref">API de Java</a></p>
-
-        <p><a href="https://aka.ms/csspeech/pythonref">API Python</a></p>
-
-        <p><a href="https://aka.ms/csspeech/objectivecref">API Objective-C</a></p>
-
-        <p><a href="https://aka.ms/csspeech/javascriptref">API de JavaScript</a></p>
-    - title: API REST
-      html: >
-        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API REST</a></p>
-    - title: PowerShell
-      html: >
-        <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Referência do SDK
+            html: |
+              <p><a href="https://aka.ms/csspeech/csharpref">API C# (UWP, .NET e Unity)</a></p>
+              <p><a href="https://aka.ms/csspeech/cppref">API C++</a></p>
+              <p><a href="https://aka.ms/csspeech/javaref">API de Java</a></p>
+              <p><a href="https://aka.ms/csspeech/pythonref">API Python</a></p>
+              <p><a href="https://aka.ms/csspeech/objectivecref">API Objective-C</a></p>
+              <p><a href="https://aka.ms/csspeech/javascriptref">API de JavaScript</a></p>
+          - title: API REST
+            html: |
+              <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API REST</a></p>
+          - title: PowerShell
+            html: |
+              <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+          - title: CLI
+            html: |
+              <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>

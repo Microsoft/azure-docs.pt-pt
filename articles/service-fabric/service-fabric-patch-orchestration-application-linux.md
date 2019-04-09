@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668199"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057647"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Linux no seu cluster do Service Fabric
 
@@ -121,13 +121,13 @@ Para Ubuntu [autônoma – as atualizações](https://help.ubuntu.com/community/
 
 Aplicativo, juntamente com os scripts de instalação pode ser transferido a partir [link de arquivo](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Aplicação em formato de sfpkg pode ser transferida a partir [sfpkg ligação](https://aka.ms/POA/POA_v2.0.2.sfpkg). Isso é útil para [do Azure Resource Manager com base em implantação de aplicativos](service-fabric-application-arm-resource.md).
+Aplicação em formato de sfpkg pode ser transferida a partir [sfpkg ligação](https://aka.ms/POA/POA_v2.0.3.sfpkg). Isso é útil para [do Azure Resource Manager com base em implantação de aplicativos](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar a aplicação
 
 O comportamento da aplicação de orquestração do patch pode ser configurado para atender às suas necessidades. Substitua os valores predefinidos ao transmitir o parâmetro de aplicação durante a criação de aplicação ou atualização. Podem ser fornecidos parâmetros de aplicação, especificando `ApplicationParameter` para o `Start-ServiceFabricApplicationUpgrade` ou `New-ServiceFabricApplication` cmdlets.
 
-|**Parâmetro**        |**Tipo**                          | **Detalhes**|
+|**Parâmetro**        |**Type**                          | **Detalhes**|
 |:-|-|-|
 |MaxResultsToCache    |Longo                              | Número máximo de resultados de atualização, que devem ser colocados em cache. <br>Valor predefinido é 3000 assumindo a: <br> -Número de nós é 20. <br> -Número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ser 10. <br> -Devem ser armazenados resultados para os últimos três meses. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. As atualizações são instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. As atualizações são instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para atualização.)
@@ -173,7 +173,8 @@ Para sua comodidade, o powershell (Undeploy.ps1) e scripts de bash (Undeploy.sh)
 
 ## <a name="view-the-update-results"></a>Ver os resultados de atualização
 
-A aplicação de orquestração do patch expõe as APIs REST para exibir os resultados históricos para o usuário. Segue-se um resultado de exemplo: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+A aplicação de orquestração do patch expõe as APIs REST para exibir os resultados históricos para o usuário. Segue-se um resultado de exemplo:
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -373,5 +374,10 @@ A aplicação de orquestração do patch recolhe telemetria para controlar a uti
 ### <a name="version-201"></a>Versão 2.0.1
 - Recompilado a aplicação com o SDK mais recente do Service Fabric
 
-### <a name="version-202-latest"></a>Versão 2.0.2 (mais recente)
+### <a name="version-202"></a>Versão 2.0.2 
 - Foi corrigido um problema com aviso do Estado de funcionamento introdução deixado para trás durante o reinício.
+
+### <a name="version-203-latest"></a>Versão 2.0.3 (mais recente)
+- Correção do problema em que a utilização da CPU do serviço de daemon de agente de nó atingido até 99% em Standard_D1_v2 VMs.
+- Correção do problema que afetado a aplicação de patches cyle de vida num nó, caso haja nós com o nome que é o subconjunto do nome do nó atual. Para esses nós, sua possível, aplicação de patches está em falta ou o reinício está pendente.
+- Foi corrigido um erro devido a que o daemon de agente de nó mantém falhar quando danificadas definições são transmitidas para o serviço.

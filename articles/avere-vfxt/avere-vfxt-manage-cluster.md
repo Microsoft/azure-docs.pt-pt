@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745559"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058055"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerir o cluster do Avere vFXT
 
@@ -98,7 +98,7 @@ Fornece os seguintes valores:
 * Nome do grupo de recursos para o cluster e também para recursos de rede e armazenamento, se não forem o mesmo que o cluster
 * Localização do cluster
 * Rede de cluster e a sub-rede 
-* Função de acesso de nó de cluster 
+* Função de acesso de nó de cluster (utilizar a função incorporada [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator))
 * Endereço IP de gestão do cluster e a palavra-passe administrativa 
 * Número de nós a adicionar (1, 2 ou 3)
 * Instância cache e o tipo de tamanho valores de nó 
@@ -113,7 +113,7 @@ Se não estiver usando o protótipo, deve construir um comando como o seguinte, 
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ Pode destruir instâncias de nó permanentemente ao eliminá-los no portal do Az
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Eliminar recursos de cluster adicional no portal do Azure
 
-Se tiver criado especificamente para o cluster de vFXT obter recursos adicionais, convém removê-los como parte da subdividir o cluster. Não deve destruir elementos que contêm dados que necessários, ou todos os itens que são partilhados com outros projetos.
+Se tiver criado especificamente para o cluster de vFXT obter recursos adicionais, convém removê-los como parte da subdividir o cluster. Não destrua elementos que contêm dados que necessários, ou todos os itens que são partilhados com outros projetos.
 
 Para além de eliminar os nós do cluster, considere remover estes componentes: 
 

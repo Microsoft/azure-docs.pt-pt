@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430221"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006616"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para MySQL
 
@@ -107,6 +107,8 @@ Tem a opção de usar [controlo de acesso baseado em funções (RBAC)] [ rbac-wh
 ## <a name="limitations"></a>Limitações
 
 Base de dados do Azure para MySQL, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- Uma aplicação Web pode ser mapeada para um IP privado na VNet/subrede. Mesmo que os pontos finais de serviço são ativados da VNet/subrede determinado, ligações a partir da aplicação Web para o servidor terá uma origem de IP pública do Azure, não uma origem de VNet/subrede. Para ativar a conectividade de uma aplicação Web para um servidor que tem regras de firewall da VNet, tem de serviços do Azure permitem a aceder ao servidor no servidor.
 
 - Na firewall da base de dados do Azure para MySQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas tem de estar alojadas na mesma região geográfica que aloja a base de dados do Azure para MySQL.
 

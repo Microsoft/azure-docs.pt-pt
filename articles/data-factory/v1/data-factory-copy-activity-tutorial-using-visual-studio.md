@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 71e1f7d85d823add804e8ef5dcb6126cffc21902
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487622"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009905"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com atividade de cópia com o Visual Studio
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "58487622"
 > * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Modelo Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
@@ -347,7 +347,7 @@ Tenha em atenção os seguintes pontos:
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
 
 > [!IMPORTANT]
-> Para criar instâncias do Data Factory, tem de ser administrador/coadministrador da subscrição do Azure
+> Para criar instâncias do Data Factory, tem de ser um administrador/coadministrador da subscrição do Azure
 
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
 Navegue para a home page da sua fábrica de dados:

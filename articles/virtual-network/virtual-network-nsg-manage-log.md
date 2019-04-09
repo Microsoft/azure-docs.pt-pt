@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 0b859b6c3fa37e8dbac82436d1e2f2444c9d2dcf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f718e57e257a79a18ad4d0b6b47c10f855b6db60
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312159"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006994"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnósticos para um grupo de segurança de rede
 
@@ -198,7 +198,7 @@ O registo do contador de regra contém informações sobre cada regra aplicada a
 ## <a name="view-and-analyze-logs"></a>Ver e analisar registos
 
 Para saber como ver dados de registo de diagnóstico, veja [descrição geral de registos de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se tiver de enviar dados de diagnóstico para:
-- **Registos de Monitor do Azure**: Pode utilizar o [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Registos de Monitor do Azure**: Pode utilizar o [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) solução de informações melhoradas. A solução fornece visualizações para as regras do NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede numa máquina virtual.
 - **Conta de armazenamento do Azure**: Dados são escritos num ficheiro PT1H.json. Pode encontrar o:
   - Registo de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

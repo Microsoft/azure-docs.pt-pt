@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448991"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274013"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
@@ -24,8 +24,6 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um pacote de dados a partir de um ficheiro CSV
 > * Executar consultas no pacote de dados
-
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +36,11 @@ As aplicações podem criar pacotes de dados diretamente a partir de ficheiros o
 ![Instantâneo de dados para a consulta SQL interativa de Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para a consulta SQL interativa de Spark")
 
 
-1. Abra o bloco de notas Jupyter Notebook que criou na secção de pré-requisitos.
+1. Abra o bloco de notas do Jupyter que criou na secção pré-requisitos e crie um novo bloco de notas com PySpark.
+
+    > [!NOTE]  
+    > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
+
 2. Cole o seguinte código numa célula vazia do bloco de notas e, em seguida, prima **SHIFT + ENTER** para o executar. O código importa os tipos necessários para este cenário:
 
     ```python
@@ -58,10 +60,6 @@ As aplicações podem criar pacotes de dados diretamente a partir de ficheiros o
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
-
-
 ## <a name="run-queries-on-the-dataframe"></a>Executar consultas no pacote de dados
 
 Após a criação da tabela, pode executar uma consulta interativa nos dados.
@@ -77,13 +75,13 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
      ![Saída da tabela do resultado da consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-3. Também pode ver os resultados noutras visualizações. Para ver um gráfico de área do mesmo resultado, selecione **Area (Área)** e, em seguida, defina outros valores, conforme mostrado.
+2. Também pode ver os resultados noutras visualizações. Para ver um gráfico de área do mesmo resultado, selecione **Area (Área)** e, em seguida, defina outros valores, conforme mostrado.
 
     ![Gráfico de área do resultado da consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 
-10. No menu **File (Ficheiro)** do bloco de notas, selecione **Save and Checkpoint (Guardar e Ponto de Verificação)**. 
+3. A partir da barra de menus de bloco de notas, navegue para **arquivo** > **Save e ponto de verificação**.
 
-11. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Se não estiver, encerrar o bloco de notas para libertar os recursos de cluster: do **arquivo** menu no bloco de notas, selecione **fechar e parar**.
+4. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Se não estiver, encerrar o bloco de notas para libertar os recursos de cluster: a partir da barra de menus de bloco de notas, navegue para **arquivo** >  **fechar e parar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -98,11 +96,10 @@ Também pode selecionar o nome do grupo de recursos para abrir a página do grup
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
-
-* Crie um dataframe do Apache Spark.
-* Execute a consulta SQL de Spark no pacote de dados.
+> [!div class="checklist"]
+> * Crie um dataframe do Apache Spark.
+> * Execute a consulta SQL de Spark no pacote de dados.
 
 Avance para o artigo seguinte para ver como os dados que registou no Apache Spark podem ser extraídos para uma ferramenta de análise de BI como o Power BI. 
 > [!div class="nextstepaction"]
 > [Analisar dados com ferramentas do BI](apache-spark-use-bi-tools.md)
-
