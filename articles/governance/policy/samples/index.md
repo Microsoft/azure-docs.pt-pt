@@ -1,19 +1,18 @@
 ---
 title: Índice de exemplos de política
 description: Índice de exemplos do Azure Policy. As categorias incluem a atribuição de nomes, etiquetas, Key Vault, rede, armazenamento e muito mais.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/19/2019
 ms.author: dacoulte
-ms.openlocfilehash: 14b61ffe96c6a75f6addf40ee411cd42b2532c55
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 5a39614d544157695b8b2f02ab5f1fe4427d5ca5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189738"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275685"
 ---
 # <a name="azure-policy-samples"></a>Exemplos do Azure Policy
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 04/03/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cce1883295277f6c6c36d686d90370238265dbf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3df092377a29492facd972745933cd5f4a1ae3bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775854"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275526"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Compreender a hierarquia de armazenamento do Azure NetApp Files
 
@@ -36,18 +36,15 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
 
 - Um conjunto de capacidade é medido pela sua capacidade aprovisionada.  
 - A capacidade é aprovisionada pelos SKUs fixos que comprou (por exemplo, uma capacidade de 4 TiB).
-- O tamanho mínimo para um conjunto único de capacidade é 4 TiB e o tamanho máximo é 500 TiB. 
 - Um conjunto de capacidade apenas pode ter um nível de serviço.  
-  Atualmente, apenas está disponível o nível de serviço Premium.
 - Cada conjunto de capacidade pode pertencer a apenas uma conta de NetApp. No entanto, pode ter múltiplos conjuntos de capacidade numa conta do NetApp.  
 - Um conjunto de capacidade não pode ser movido entre contas NetApp.   
   Por exemplo, no [Diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover o Conjunto de Capacidade 1 da conta NetApp E.U.A. Leste para a conta NetApp E.U.A. Oeste 2.  
 
 ## <a name="volumes"></a>Volumes
 
-- Um volume é medido ao consumo de capacidade de lógica e escalonável. O tamanho mínimo de um único volume é 100 GiB e o tamanho máximo é 92 TiB.
+- Um volume é medido ao consumo de capacidade de lógica e escalonável. 
 - O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
--   Pode ter um máximo de 100 volumes por subscrição do Azure por região. 
 - Cada volume pertence a apenas um conjunto, mas um conjunto pode conter vários volumes. 
 - Na mesma conta NetApp, é possível mover um volume entre vários conjuntos.    
   Por exemplo, no [Diagrama Conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, é possível mover os volumes do Conjunto de Capacidade 1 para o Conjunto de Capacidade 2.
@@ -59,5 +56,5 @@ O exemplo seguinte mostra as relações da subscrição do Azure, contas NetApp,
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
-- [Registre-se para os ficheiros do Azure NetApp](azure-netapp-files-register.md)
+- [Limites de recurso para os Azure NetApp Files](azure-netapp-files-resource-limits.md)
+- [Registar nos Azure NetApp Files](azure-netapp-files-register.md)

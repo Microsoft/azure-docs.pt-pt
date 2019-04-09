@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360917"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integração do Active Directory do Azure com TargetProcess
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD início de sessão único com TargetProcess, execute 
 
 1. Para automatizar a configuração de dentro **TargetProcess**, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** clicando **instalar a extensão**.
 
-    ![image](./media/target-process-tutorial/install_extension.png)
+    ![imagem](./media/target-process-tutorial/install_extension.png)
 
 2. Depois de adicionar a extensão para o navegador, clique em **configurar TargetProcess** irá direcioná-lo para o aplicativo TargetProcess. A partir daí, forneça as credenciais de administrador a iniciar sessão em TargetProcess. A extensão de navegador automaticamente irá configurar o aplicativo para e automatizar passos 3 a 7.
 
@@ -141,7 +141,7 @@ Para configurar o Azure AD início de sessão único com TargetProcess, execute 
 
 4. No menu na parte superior, clique em **configuração**.
 
-    ![Configurar](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Configuração](./media/target-process-tutorial/tutorial_target_process_05.png)
 
 5. Clique em **definições** separador.
 
@@ -223,7 +223,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na TargetProcess. 
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de TargetProcess](mailto:support@targetprocess.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -231,8 +231,8 @@ Quando clica no mosaico TargetProcess no painel de acesso, deve ser automaticame
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

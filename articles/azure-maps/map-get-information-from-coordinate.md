@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571427"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256061"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações a partir de uma coordenada
 
@@ -29,11 +29,11 @@ Existem duas formas de fazer uma pesquisa inversa de endereço. Uma delas é a c
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação para utilizar a chave de subscrição. Pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um **SubscriptionKeyCredentialPolicy** para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. Em seguida, o **atlas.service.MapsURL.newPipeline()** aceita a **SubscriptionKeyCredential** política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O **searchURL** representa um URL para o Azure Maps [pesquisa](https://docs.microsoft.com/rest/api/maps/search) operações.
+O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. Em seguida, o `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `searchURL` representa um URL para o Azure Maps [pesquisa](https://docs.microsoft.com/rest/api/maps/search) operações.
 
 O terceiro bloco de código atualiza o estilo de cursor do mouse num ponteiro e cria um [pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objeto. Pode ver [adicionar um pop-up no mapa](./map-add-popup.md) para obter instruções.
 
-O quarto bloco de código adiciona um clique do mouse [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Quando acionado, ele cria uma consulta de pesquisa com as coordenadas do ponto clicado. Em seguida, utiliza o módulo de serviço [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) método para consultar o [obter endereços inverter a API de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para o endereço das coordenadas. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, utilizar o **geojson.getFeatures()** método.
+O quarto bloco de código adiciona um clique do mouse [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Quando acionado, ele cria uma consulta de pesquisa com as coordenadas do ponto clicado. Em seguida, utiliza o módulo de serviço [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) método para consultar o [obter endereços inverter a API de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para o endereço das coordenadas. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, usando o `geojson.getFeatures()` método.
 
 O quinto bloco de código define o conteúdo de pop-up HTML para exibir o endereço de resposta para a posição de coordenadas clicado.
 
@@ -67,7 +67,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Veja os artigos seguintes para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Mostrar as direções da para B](./map-route.md)
+> [Mostrar as direções de A para B](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Mostrar trânsito](./map-show-traffic.md)

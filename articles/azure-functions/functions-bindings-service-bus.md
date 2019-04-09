@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 9955068fbc0d6493add83c6c92390413b3975106
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1f4bf24ef5f96fea7602b38d857f12d950fb0b24
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437176"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057732"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -46,7 +46,7 @@ Utilize o acionador do Service Bus para responder às mensagens a partir de uma 
 Veja o exemplo de idioma específico:
 
 * [C#](#trigger---c-example)
-* [Script do c# (.csx)](#trigger---c-script-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
@@ -279,12 +279,12 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|----------------------|
 |**tipo** | n/d | Tem de ser definido para "serviceBusTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a mensagem de fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**nome** | n/d | O nome da variável que representa a mensagem de fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila para monitorizar.  Defina apenas se a monitorização de uma fila, não para um tópico.
-|**topicName**|**topicName**|Nome do tópico para monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
-|**subscriptionName**|**subscriptionName**|Nome da subscrição a monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
-|**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico. |
-|**accessRights**|**Acesso**|Direitos de acesso da cadeia de ligação. Valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se usar uma cadeia de ligação que não tenha as **gerir** conjunto de permissões, `accessRights` de "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão das funções do Azure 2.x, esta propriedade não está disponível porque a versão mais recente do SDK do armazenamento não suporta operações de gerir.|
+|**topicName**|**TopicName**|Nome do tópico para monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
+|**subscriptionName**|**Nome da Subscrição**|Nome da subscrição a monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
+|**ligação**|**Ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico. |
+|**accessRights**|**Access**|Direitos de acesso da cadeia de ligação. Valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se usar uma cadeia de ligação que não tenha as **gerir** conjunto de permissões, `accessRights` de "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão das funções do Azure 2.x, esta propriedade não está disponível porque a versão mais recente do SDK do armazenamento não suporta operações de gerir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -328,7 +328,6 @@ O acionador do Service Bus fornece vários [propriedades de metadados](./functio
 |`To`|`string`|Enviar para endereço.|
 |`Label`|`string`|A etiqueta específica da aplicação.|
 |`CorrelationId`|`string`|O ID de correlação.|
-|`UserProperties`|`IDictionary<String,Object>`|As propriedades de mensagem específica da aplicação.|
 
 > [!NOTE]
 > Atualmente, acionador só funciona com filas e subscrições que não as utilizam. Volte a controlar [este item de funcionalidade](https://github.com/Azure/azure-functions-host/issues/563) para todas as atualizações mais sobre esta funcionalidade. 
@@ -364,7 +363,7 @@ Utilize o enlace de saída de Azure Service Bus para enviar mensagens de fila ou
 Veja o exemplo de idioma específico:
 
 * [C#](#output---c-example)
-* [Script do c# (.csx)](#output---c-script-example)
+* [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
@@ -596,11 +595,11 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|----------------------|
 |**tipo** | n/d | Tem de ser definido para "serviceBus". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "Sair". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**nome** | n/d | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina apenas se o envio de mensagens de fila, não para um tópico.
-|**topicName**|**topicName**|Nome do tópico para monitorizar. Defina apenas se o envio de mensagens de tópico, não para uma fila.|
-|**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico.|
-|**accessRights**|**Acesso**|Direitos de acesso da cadeia de ligação. Valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se usar uma cadeia de ligação que não tenha as **gerir** conjunto de permissões, `accessRights` de "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão das funções do Azure 2.x, esta propriedade não está disponível porque a versão mais recente do SDK do armazenamento não suporta operações de gerir.|
+|**topicName**|**TopicName**|Nome do tópico para monitorizar. Defina apenas se o envio de mensagens de tópico, não para uma fila.|
+|**ligação**|**Ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico.|
+|**accessRights**|**Access**|Direitos de acesso da cadeia de ligação. Valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se usar uma cadeia de ligação que não tenha as **gerir** conjunto de permissões, `accessRights` de "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão das funções do Azure 2.x, esta propriedade não está disponível porque a versão mais recente do SDK do armazenamento não suporta operações de gerir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

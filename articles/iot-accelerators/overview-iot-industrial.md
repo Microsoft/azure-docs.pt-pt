@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 1dee51354ba9210e52459dcf7a96695bc3736648
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759285"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256384"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IoT industrial (IIoT)
 
@@ -28,7 +28,7 @@ Reduzir o processo demorado de aceder a máquinas do chão de fábrica com gest�
 ![Descrição geral de IoT industrial](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Para obter mais informações sobre os serviços do Azure Industrial IoT, consulte o GitHub [repositório ](https://github.com/Azure/azure-iiot-services).
+> Para obter mais informações sobre os serviços do Azure Industrial IoT, consulte o GitHub [repositório](https://github.com/Azure/azure-iiot-services).
 Se não estiver familiarizado com como funcionam os módulos do Azure IoT Edge, começar com os seguintes artigos:
 - [Acerca do Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Módulos do IoT Edge do Azure](../iot-edge/iot-edge-modules.md)
@@ -50,4 +50,4 @@ Gestão de certificados de IoT OPC UA ou OPC cofre do Azure é uma implementaç�
 Agora que teve uma introdução ao industrial IoT e os respetivos componentes, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [O que é duplo de OPC](overview-opc-twin.md)
+> [O que é o Duplo OPC](overview-opc-twin.md)

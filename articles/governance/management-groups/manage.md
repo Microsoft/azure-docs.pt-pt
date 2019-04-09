@@ -3,15 +3,15 @@ title: Como alterar, eliminar ou gerir os seus grupos de gestão - governação 
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia de grupo de gestão.
 author: rthorn17
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881057"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272483"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -34,6 +34,8 @@ Pode alterar o nome do grupo de gestão, utilizando o portal, o PowerShell ou a 
 1. Selecione **todos os serviços** > **grupos de gestão**.
 
 1. Selecione o grupo de gestão que pretende mudar o nome.
+
+1. Selecione **detalhes**.
 
 1. Selecione o **mudança de nome de grupo** opção na parte superior da página.
 
@@ -80,6 +82,8 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 1. Selecione **todos os serviços** > **grupos de gestão**.
 
 1. Selecione o grupo de gestão que pretende eliminar.
+
+1. Selecione **detalhes**.
 
 1. Selecione **eliminar**
 
@@ -303,7 +307,8 @@ Ao mover um grupo de gestão principal, a hierarquia de grupo seja também movid
 Utilize o comando de atualização AzManagementGroup no PowerShell para mover um grupo de gestão num grupo diferente.
 
 ```azurepowershell-interactive
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
+$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
 ```  
 
 ### <a name="move-management-groups-in-azure-cli"></a>Mover grupos de gestão na CLI do Azure
@@ -311,7 +316,7 @@ Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Ma
 Utilize o comando de atualização para mover um grupo de gestão com a CLI do Azure.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
+az account management-group update --name 'Contoso' --parent ContosoIT
 ```
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar os grupos de gestão que utilizam registos de atividades

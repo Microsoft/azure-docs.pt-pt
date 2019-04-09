@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/05/2019
-ms.openlocfilehash: a62c4dced78ef75588ef0fcc90e56bd6969c15a9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 218af82d2385632e7e7a0e77060c5deb758d1e83
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048814"
+ms.locfileid: "59057058"
 ---
 # <a name="azure-stack-1903-update"></a>Atualização de 1903 de pilha do Azure
 
@@ -156,6 +156,9 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    - Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 - Uma VM do Ubuntu 18.04 criado com autorização de SSH ativada não permitirá que use as chaves SSH para iniciar sessão. Como solução, utilize o acesso VM para a extensão do Linux para implementar as chaves SSH após o aprovisionamento ou utilizar a autenticação baseada em palavra-passe.
+
+- O Azure Stack agora oferece suporte a agentes do Windows Azure Linux superiores versão 2.2.20. Esse suporte foi uma parte da correção 1901 e 1902 e permite que os clientes manter as imagens do linux consistentes entre o Azure e o Azure Stack.
+
 
 - Se não tiver um anfitrião de ciclo de vida do Hardware (HLH): antes de compilação 1902, era necessário definir diretiva de grupo **computador configuração Windows Settings\Local \ opções** para **Enviar LM e NTLM – utilizar a segurança de sessão de NTLMv2 se negociado**. Desde compilação 1902, tem de deixar-o como **não definido** ou defina-o como **apenas a resposta de enviar NTLMv2** (que é o valor predefinido). Caso contrário, não será possível estabelecer uma sessão remota do PowerShell e verá uma **o acesso é negado** erro:
 

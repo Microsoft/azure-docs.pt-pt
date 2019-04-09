@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/04/2019
+ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903798"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010486"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviços de Hiperescala (pré-visualização) para até 100 TB
 
@@ -33,8 +33,6 @@ A camada de serviços de Hiperescala na base de dados do Azure SQL é a camada d
 > Camada de serviços de Hiperescala está atualmente em pré-visualização pública e disponível em regiões do Azure limitados. Para obter a lista completa de região, veja [regiões disponíveis da camada de serviços de Hiperescala](#available-regions). Não recomendamos a execução de qualquer carga de trabalho de produção nos bancos de dados de Hiperescala ainda. Não é possível atualizar uma base de dados de Hiperescala para outros escalões de serviço. Para fins de teste, recomendamos que faça uma cópia da base de dados atual e atualizar a cópia para a camada de serviços de Hiperescala.
 > [!NOTE]
 > Para obter detalhes sobre os escalões de serviço para fins gerais e crítico para a empresa no modelo de compra baseado em vCore, consulte [fins gerais](sql-database-service-tier-general-purpose.md) e [críticas para a empresa](sql-database-service-tier-business-critical.md) escalões de serviço. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-purchase-models.md).
-> [!IMPORTANT]
-> Camada de serviços de Hiperescala está atualmente em pré-visualização pública. Não recomendamos a execução de qualquer carga de trabalho de produção nos bancos de dados de Hiperescala ainda. Não é possível atualizar uma base de dados de Hiperescala para outros escalões de serviço. Para fins de teste, recomendamos que faça uma cópia da base de dados atual e atualizar a cópia para a camada de serviços de Hiperescala.
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Quais são os recursos de Hiperescala
 

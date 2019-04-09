@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540130"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256095"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapas do Azure Maps
 
@@ -30,8 +30,8 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
     a. Utilizar a versão CDN globalmente alojada do Azure Maps Web SDK ao adicionar os pontos finais de URL para as referências de folha de estilo e script no `<head>` elemento do arquivo:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
     b. Em alternativa, carregar o código de origem do SDK de Web de mapas do Azure localmente, utilizando o [controlo de mapas do azure](https://www.npmjs.com/package/azure-maps-control) NPM empacotar e hospedá-lo com a sua aplicação. Este pacote também inclui definições de TypeScript.
@@ -102,7 +102,7 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
     </script>
     ```
 
-    Ver [autenticação com o Azure Maps](azure-maps-authentication.md) para obter mais detalhes.
+    Para obter mais informações, consulte [autenticação com o Azure Maps](azure-maps-authentication.md) para obter mais detalhes.
 
 6. Opcionalmente, poderá considerar adicionar os seguintes elementos de marca meta para o cabeçalho da página úteis:
 
@@ -114,7 +114,7 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-7. Juntando as peças seu arquivo HTML deve ter um aspeto semelhante ao seguinte:
+7. Juntando as peças seu arquivo HTML deve ter um aspeto semelhante ao seguinte código:
 
     ```HTML
     <!DOCTYPE html>
@@ -131,8 +131,8 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <style>
             html, body {
@@ -164,7 +164,7 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
     </html>
     ```
 
-8. Abra o ficheiro no seu navegador da web e ver o mapa processado. Ele deve ter um aspeto semelhante ao seguinte:
+8. Abra o ficheiro no seu navegador da web e ver o mapa processado. Ele deve ter um aspeto semelhante ao seguinte código:
 
     <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
@@ -180,4 +180,4 @@ Saiba como criar e interagir com um mapa:
 Saiba como um mapa de estilo:
 
 > [!div class="nextstepaction"]
-> [Escolha um estilo de mapa](choose-map-style.md)
+> [Escolher um estilo de mapa](choose-map-style.md)

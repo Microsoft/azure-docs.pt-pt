@@ -4,17 +4,17 @@ description: Gráfico de recursos do Azure de uso para executar alguns starter c
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: bfeb1678a5271cf1e498cee0a12be12c2cbc2902
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338721"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058463"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 
@@ -23,16 +23,16 @@ O primeiro passo para compreender as consultas com Azure Resource Graph é obter
 Vamos examinar as seguintes consultas de introdução:
 
 > [!div class="checklist"]
-> - [Contar recursos do Azure](#count-resources)
-> - [Listar recursos ordenados por nome](#list-resources)
-> - [Mostrar todas as máquinas virtuais ordenadas por nome em ordem descendente](#show-vms)
-> - [Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO](#show-sorted)
-> - [Contar máquinas virtuais por tipo de SO](#count-os)
-> - [Mostrar recursos que contêm armazenamento](#show-storage)
-> - [Listar todos os endereços IP públicos](#list-publicip)
-> - [Contar recursos que tenham endereços IP configurados por subscrição](#count-resources-by-ip)
-> - [Listar recursos com um valor de etiqueta específico](#list-tag)
-> - [Listar todas as contas de armazenamento com um valor de etiqueta específico](#list-specific-tag)
+> - [Recursos do Azure de contagem](#count-resources)
+> - [Recursos de lista classificados por nome](#list-resources)
+> - [Mostrar todas as máquinas virtuais, ordenadas por nome por ordem descendente](#show-vms)
+> - [Mostrar os primeiros cinco máquinas virtuais por nome e o respetivo tipo de SO](#show-sorted)
+> - [Contagem de máquinas virtuais ao tipo de SO](#count-os)
+> - [Mostrar recursos que contêm o armazenamento](#show-storage)
+> - [Lista de endereços IP públicos de todos os](#list-publicip)
+> - [Contagem de recursos que tenham endereços IP configurados por subscrição](#count-resources-by-ip)
+> - [Lista de recursos com um valor de etiqueta específica](#list-tag)
+> - [Listar todas as contas de armazenamento com o valor de etiqueta específica](#list-specific-tag)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -95,7 +95,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO
 
-Esta consulta vai utilizar `limit` para obter apenas cinco registos correspondentes, ordenados por nome. O tipo do recurso do Azure é `Microsoft.Compute/virtualMachines`. `project` informa o Azure Resource Graph quais as propriedades a incluir.
+Esta consulta vai utilizar `limit` para obter apenas cinco registos correspondentes, ordenados por nome. O tipo do recurso do Azure é `Microsoft.Compute/virtualMachines`. `project` informa ao gráfico de recursos do Azure que propriedades para incluir.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,20 +167,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>Listar todos os endereços IP públicos
 
 À semelhança da consulta anterior, encontra tudo o que era de um tipo com a palavra **publicIPAddresses**.
-Esta consulta expande esse padrão para excluir resultados em que **properties.ipAddress** é nulo, para devolver apenas **properties.ipAddress** e para `limit` os resultados aos 100 principais. Poderá ter de evitar as aspas consoante a shell escolhida.
+Esta consulta expande esse padrão para incluir apenas os resultados em que **properties.ipAddress**
+`isnotempty`, para devolver apenas os **properties.ipAddress**e, a `limit` os resultados por parte superior
+100. Poderá ter de evitar as aspas consoante a shell escolhida.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip">Contar recursos que tenham endereços IP configurados por subscrição</a>
@@ -188,16 +190,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 Com a consulta do exemplo anterior e ao adicionar `summarize` e `count()`, podemos obter uma lista por subscrição dos recursos com endereços IP configurados.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>Listar recursos com um valor de etiqueta específico
@@ -250,7 +252,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 ```
 
 > [!NOTE]
-> Este exemplo utiliza `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência sensível a maiúsculas e minúsculas.
+> Este exemplo utiliza `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência de maiúsculas de minúsculas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

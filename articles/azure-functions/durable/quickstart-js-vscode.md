@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 266859c1d2076354dbd4f8f09adf0bea084b90f9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049685"
+ms.locfileid: "59056304"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
@@ -110,7 +110,9 @@ Agora adicionámos todos os componentes necessários para começar uma orquestra
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Deve instalar estas ferramentas ao iniciar uma função do Visual Studio Code pela primeira vez.  
 
-1. Num computador Windows, inicie o emulador de armazenamento do Azure e certifique-se de que o **AzureWebJobsStorage** propriedade Settings é definida como `UseDevelopmentStorage=true`. Num computador Mac ou Linux, tem de definir o **AzureWebJobsStorage** propriedade para a cadeia de ligação de uma conta de armazenamento do Azure existente. Criar uma conta de armazenamento neste artigo.
+1. Num computador Windows, inicie o emulador de armazenamento do Azure e certifique-se de que o **AzureWebJobsStorage** propriedade Settings é definida como `UseDevelopmentStorage=true`. 
+
+    Para 5.8 do emulador de armazenamento Certifique-se de que o **AzureWebJobsSecretStorageType** propriedade Settings é definida como `files`. Num computador Mac ou Linux, tem de definir o **AzureWebJobsStorage** propriedade para a cadeia de ligação de uma conta de armazenamento do Azure existente. Criar uma conta de armazenamento neste artigo.
 
 2. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se esta for a primeira vez com as funções durável, a extensão de funções durável é instalada e a compilação poderá demorar alguns segundos.
 

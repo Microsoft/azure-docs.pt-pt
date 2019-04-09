@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670840"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273146"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL?
 
@@ -156,7 +156,7 @@ Também adicionámos o conjunto de funcionalidades de [processamento de consulta
 A Base de Dados SQL proporciona um conjunto de [funcionalidades de segurança e conformidade incorporadas](sql-database-security-overview.md), para ajudar a sua aplicação a cumprir diversos requisitos de segurança e conformidade.
 
 > [!IMPORTANT]
-> Base de dados SQL do Azure (todas as opções de implantação), foi certificada por uma série de normas de conformidade. Para obter mais informações, veja o [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde pode encontrar a lista mais recente de [certificações de conformidade da Base de Dados SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+> Base de dados SQL do Azure (todas as opções de implantação), foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada Contra Ameaças
 
@@ -186,7 +186,7 @@ A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores d
 
 ### <a name="compliance-certification"></a>Certificação de conformidade
 
-A Base de Dados SQL participa em auditorias regulares e foi certificada por várias normas de conformidade. Para obter mais informações, veja o [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde pode encontrar a lista mais recente de [certificações de conformidade da Base de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
+A Base de Dados SQL participa em auditorias regulares e foi certificada por várias normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
 
 ## <a name="easy-to-use-tools"></a>Ferramentas fáceis de utilizar
 
@@ -257,8 +257,8 @@ Os clientes da base de dados SQL terão os seguintes direitos associados com o b
 
   - [Criar uma base de dados SQL no portal do Azure](sql-database-single-database-get-started.md)  
   - [Criar uma base de dados SQL com a CLI do Azure](sql-database-get-started-cli.md)
-  - [Criar uma base de dados SQL utilizando o PowerShell](sql-database-get-started-powershell.md)
+  - [Criar uma base de dados SQL com o PowerShell](sql-database-get-started-powershell.md)
 
 - Para um conjunto de amostras de CLI do Azure e PowerShell, veja:
-  - [Exemplos da CLI do Azure para a Base de Dados SQL (Azure CLI samples for SQL Database)](sql-database-cli-samples.md)
-  - [Exemplos do Azure PowerShell para a Base de Dados SQL (Azure PowerShell samples for SQL Database)](sql-database-powershell-samples.md)
+  - [Exemplos da CLI do Azure para a base de dados SQL](sql-database-cli-samples.md)
+  - [Exemplos do Azure PowerShell para a base de dados SQL](sql-database-powershell-samples.md)

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 8a7694f3a94f9bda7dc905fabbd7adf0e4b7d0f5
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: c4e87e365e11084a7088522f64abef238d04b715
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047182"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271489"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
@@ -181,7 +181,7 @@ Pode executar uma ativação pós-falha planeada ou não planeada de VMs de Hype
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Como posso acessar as VMs do Azure após a ativação pós-falha?
-Após a ativação pós-falha, pode acessar as VMs do Azure através de uma ligação de Internet segura, através de uma VPN de site a site ou através do Azure ExpressRoute. Terá de preparar uma série de coisas para se ligar. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Após a ativação pós-falha, pode acessar as VMs do Azure através de uma ligação de Internet segura, através de uma VPN de site a site ou através do Azure ExpressRoute. Terá de preparar uma série de coisas para se ligar. [Saber mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>É efetuada a ativação pós-falha dados resilientes?
 O Azure foi concebido para ser resiliente. Recuperação de site foi desenvolvida para ativação pós-falha para um datacenter secundário do Azure, de acordo com o SLA do Azure. Quando ocorre a ativação pós-falha, devemos verificar se os metadados e cofres permanecem na mesma região geográfica que escolheu para o cofre.

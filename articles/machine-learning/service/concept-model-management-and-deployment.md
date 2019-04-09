@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403696"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275447"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
@@ -33,7 +33,7 @@ O fluxo de trabalho de implantação inclui os seguintes passos:
 
 Cada passo pode ser efetuado de forma independente ou como parte de um comando de implementação única. Além disso, pode integrar a implantação num **fluxo de trabalho de CI/CD** conforme ilustrado neste gráfico.
 
-[!["O azure Machine Learning integração contínua/contínua (CI/CD) ciclo de implantação"](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Ciclo de implementação (CI/CD) de integração contínua/contínua do Azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Passo 1: Registar o modelo
 
@@ -63,7 +63,9 @@ A imagem também pode incluir os componentes do SDK para o registo e monitoriza�
 O Azure Machine Learning suporta as estruturas mais populares, mas em geral pode trabalhar qualquer arquitetura que pode ser o pip instalados.
 
 Em sua área de trabalho foi criada, por isso, foram outros vários outros recursos do Azure utilizados por essa área de trabalho.
-Todos os objetos usados para criar a imagem são armazenados na conta de armazenamento do Azure na sua área de trabalho. Pode fornecer as marcas de metadados adicionais ao criar a imagem. As marcas de metadados também são armazenadas pelo registo de imagem e podem ser consultadas para localizar a sua imagem.
+Todos os objetos usados para criar a imagem predefinida são armazenados na conta de armazenamento do Azure na sua área de trabalho. Pode fornecer as marcas de metadados adicionais ao criar a imagem. As marcas de metadados também são armazenadas pelo registo de imagem e podem ser consultadas para localizar a sua imagem.
+
+Também pode utilizar imagens personalizadas, que podem ser carregadas para o Azure Container Registry e utilizadas pelo serviço do Azure Machine Learning.
 
 Para obter mais informações, consulte a configurar e registar a secção de imagem do [implementar modelos](how-to-deploy-and-where.md#configureimage).
 
@@ -73,7 +75,7 @@ Pode implantar imagens registadas para a cloud ou para dispositivos periféricos
 
 Implementações de serviços da Web também podem ser pesquisadas. Por exemplo, pode procurar todas as implementações de um modelo específico ou a imagem.
 
-[![Destinos de inferência](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Idestinos de nferencing](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 Pode implantar suas imagens para os seguintes destinos de implementação na cloud:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339402"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005163"
 ---
 # <a name="enable-custom-pronunciation"></a>Ativar pronúncia personalizada
 
@@ -63,7 +63,7 @@ Pronúncia personalizada é atualmente suportada para inglês (en-US) e alemão 
 Um formulário de apresentação pode ser apenas uma palavra personalizada, um acrônimo ou palavras compostas que combinam palavras existentes.
 
 >[!NOTE]
->Não é recomendado utilizar esta funcionalidade para reformulate palavras comuns ou para modificar o formato falado. É melhor executar o Decodificador para ver se algumas palavras pouco habitual (por exemplo, abreviaturas, palavras técnicas ou palavras estrangeiras) estão incorretamente decodificadas. Se forem, adicioná-los para o ficheiro de pronúncia personalizado. No modelo de idioma, deve sempre e apenas usar o formulário de apresentação de uma palavra.
+>Não é recomendado utilizar esta funcionalidade para reformulate palavras comuns ou para modificar o formato falado. É melhor verificação se algumas palavras pouco habitual (por exemplo, abreviaturas, palavras técnicas ou palavras estrangeiras) estão incorretamente transribed antes desta funcionalidade é utilizada. Se forem, adicioná-los para o ficheiro de pronúncia personalizado. No modelo de idioma, deve sempre e apenas usar o formulário de apresentação de uma palavra.
 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do ficheiro
 O tamanho do ficheiro. txt que contenha as entradas de pronúncia está limitado a 1 MB (1KB para chaves de escalão gratuito). Normalmente, não precisa de carregar grandes quantidades de dados por meio deste ficheiro. A maioria dos arquivos de pronúncia personalizados são probabilidade de serem apenas alguns quilobytes (KBs) de tamanho. A codificação do ficheiro. txt para todas as localidades deve ser o UTF-8 BOM. Para a Localidade do inglês, ANSI também é aceitável.

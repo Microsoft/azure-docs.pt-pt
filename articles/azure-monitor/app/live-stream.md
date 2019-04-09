@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814950"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009970"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
@@ -34,9 +34,9 @@ Com o Stream de métricas em direto, pode:
 * Monitorize qualquer Windows desempenho contador live.
 * Identifique facilmente um servidor que está a ter problemas e filtrar que todos o KPI/live feed para apenas esse servidor.
 
-[![Vídeo de Stream de métricas em tempo real](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Lvídeo de métricas Stream á](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Métricas dinâmicas são atualmente suportadas para aplicações ASP.NET, ASP.NET Core, as funções do Azure e Java.
+Métricas dinâmicas são atualmente suportadas para aplicações ASP.NET, ASP.NET Core, as funções do Azure, Java e node. js.
 
 ## <a name="get-started"></a>Introdução
 

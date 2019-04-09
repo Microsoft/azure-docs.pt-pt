@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990990"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056729"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
@@ -130,6 +130,17 @@ Ao criar o cluster, pode escolher se deve ou não criar um endereço IP público
 
 * Se criar uma nova vnet ou de uma nova sub-rede, o controlador de cluster será atribuído um endereço IP público.
 * Se selecionar uma vnet existente e uma sub-rede, o controlador de cluster terão apenas endereços IP privados. 
+
+## <a name="vm-access-roles"></a>Funções de acesso VM 
+
+O Azure utiliza [controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para autorizar as VMs para executar determinadas tarefas do cluster. Por exemplo, o controlador de cluster necessita de autorização para criar e configurar as VMs de nó de cluster. Os nós do cluster tem de ser capaz de atribuir ou reatribuem endereços IP para outros nós do cluster.
+
+Duas funções do Azure incorporadas são utilizadas para as máquinas de virtuais de vFXT Avere: 
+
+* O controlador de cluster utiliza a função incorporada [contribuinte Avere](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Nós de cluster utilizar a função incorporada [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Se precisar de personalizar funções de acesso para os componentes de vFXT Avere, tem de definir a sua própria função e, em seguida, atribuí-lo para as VMs no momento que são criados. Não é possível utilizar o modelo de implementação no Azure Marketplace. Consulte o suporte ao cliente da Microsoft ao abrir um pedido de suporte no portal do Azure, conforme descrito em [obter ajuda com o seu sistema](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Passo seguinte: Compreender o processo de implantação
 

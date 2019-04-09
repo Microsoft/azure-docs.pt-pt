@@ -39,10 +39,13 @@ items:
       - name: C++ (Linux)
         displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-linux.md
+      - name: C++ (macOS)
+        displayName: recognize speech, speech recognition, speech-to-text, stt
+        href: quickstart-cpp-macos.md
       - name: Java (Android)
         displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-java-android.md
-      - name: Java (Windows, Linux)
+      - name: Java (Windows, macOS, Linux)
         displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
         href: quickstart-java-jre.md
       - name: JavaScript (Browser)
@@ -53,6 +56,9 @@ items:
       - name: Objective-C (iOS)
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
         href: quickstart-objectivec-ios.md
+      - name: Objective-C (macOS)
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
+        href: quickstart-objective-c-macos.md
       - name: Python
         displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-python.md
@@ -69,6 +75,17 @@ items:
         href: quickstart-translate-speech-cpp-windows.md
       - name: Java (Windows, Linux)
         href: quickstart-translate-speech-java-jre.md
+    - name: Conversão de texto em voz
+      items:
+      - name: C# (.NET Framework Windows)
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+        href: quickstart-text-to-speech-dotnet-windows.md
+      - name: C++ (Windows)
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+        href: quickstart-text-to-speech-cpp-windows.md
+      - name: C++ (Linux)
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+        href: quickstart-text-to-speech-cpp-linux.md
   - name: APIs REST
     items:
     - name: Listar vozes suportadas por região
@@ -102,9 +119,15 @@ items:
     href: batch-transcription.md
   - name: Consumir fluxos de entrada de áudio (SDK)
     href: how-to-use-audio-input-streams.md
+  - name: Consumir fluxos de entrada de áudio comprimido (SDK)
+    displayName: mp3, opus, ogg, flac
+    href: how-to-use-compressed-audio-input-streams.md
   - name: Selecionar um dispositivo de entrada de áudio (SDK)
     displayName: audio, microphone, input, device
     href: how-to-select-audio-input-devices.md
+  - name: Ativar registo (SDK)
+    displayName: debug, log, logging
+    href: how-to-use-logging.md
   - name: Personalização
     items:
     - name: Conversão de voz em texto
@@ -161,7 +184,7 @@ items:
       href: https://aka.ms/csspeech/csharpref
     - name: Java/Android
       href: https://aka.ms/csspeech/javaref
-    - name: Javascript/Node.js
+    - name: JavaScript/Node.js
       href: https://aka.ms/csspeech/javascriptref
     - name: Objective-C
       href: https://aka.ms/csspeech/objectivecref
@@ -234,9 +257,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacidade e cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 8849764c9368f93443c99742d0e0de089c444539
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 51897312688183e8b60619210b5be5789c026b81
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886782"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010795"

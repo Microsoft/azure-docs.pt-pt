@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793663"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056682"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -67,6 +67,23 @@ Quando configurar o pré e post scripts, pode passar parâmetros, assim como age
 Se precisar de outro tipo de objeto, pode convertê-lo a outro tipo com a sua própria lógica no runbook.
 
 Além dos parâmetros do runbook padrão, é fornecido um parâmetro adicional. Este parâmetro é **SoftwareUpdateConfigurationRunContext**. Este parâmetro é uma cadeia de caracteres do JSON e, se definir o parâmetro no script anterior ou post, é automaticamente passado pela implementação de atualizações. O parâmetro contém informações sobre a implementação da atualização, que é um subconjunto de informações retornado pelos [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) a tabela seguinte mostra as propriedades que são fornecidas na variável:
+
+## <a name="stopping-a-deployment"></a>A parar uma implementação
+
+Se pretender parar uma implementação com base num script de pré tem [lançar](automation-runbook-execution.md#throw) uma exceção. Se não lance uma exceção, a implementação e o script de mensagem ainda serão executado. O [runbook de exemplo](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) na Galeria mostra como pode fazer isso. Segue-se um trecho de código a partir desse runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>Abortar a implantação de patches
+
+Se o script de pré devolver um erro, poderá abortar a sua implementação. Para fazer isso, deve [lançar](/powershell/module/microsoft.powershell.core/about/about_throw) um erro no seu script de qualquer lógica que teria constituem uma falha.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>Problemas conhecidos
 
 * Não é possível passar objetos ou matrizes para parâmetros ao utilizar scripts de pré e post. O runbook irá falhar.
@@ -240,5 +268,5 @@ if ($summary.Type -eq "Error")
 Avance para o tutorial para saber como gerir atualizações para as suas máquinas virtuais do Windows.
 
 > [!div class="nextstepaction"]
-> [Gerir atualizações e correções para as VMs do Windows Azure](automation-tutorial-update-management.md)
+> [Gerir atualizações e correções para as VMs Windows do Azure](automation-tutorial-update-management.md)
 

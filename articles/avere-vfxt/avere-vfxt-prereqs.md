@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056746"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275883"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 

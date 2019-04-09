@@ -5,21 +5,21 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 03/29/2019
+ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894018"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270528"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
 O Registo de Contentores do Azure é um serviço de [registo do Docker](https://docs.docker.com/registry/) gerido e baseado no Docker Registry 2.0. Crie e mantenha registos de contentores do Azure para armazenar e gerir as suas imagens privadas do [contentor do Docker](https://www.docker.com/what-docker).
 
-Utilize os registos de contentores no Azure com os seus pipelines atuais de programação e implementação de contentores. Utilize o Azure Container Registry Build (ACR Build) para compilar imagens de contentor no Azure. Compile a pedido ou automatize totalmente as compilações com acionadores de consolidação do código de origem e de compilação de atualização da imagem de base.
+Utilizar registos de contentores no Azure com os seus atuais de desenvolvimento e pipelines de implantação ou utilizar [ACR tarefas](#azure-container-registry-tasks) para criar imagens de contentor no Azure. Compile a pedido ou automatize totalmente as compilações com acionadores de consolidação do código de origem e de compilação de atualização da imagem de base.
 
 Para obter informações sobre o Docker e os contentores, veja [Docker overview](https://docs.docker.com/engine/docker-overview/) (Descrição geral do Docker).
 
@@ -32,15 +32,17 @@ Extrair imagens de um registo de contentores do Azure para vários destinos de i
 
 Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, podem segmentar um registo de contentor a partir de uma ferramenta de integração e implementação contínua, como o [Serviços de DevOps do Azure](https://docs.microsoft.com/azure/devops/) ou o [Jenkins](https://jenkins.io/).
 
-Configure tarefas de ACR para reconstruir automaticamente as imagens do aplicativo quando suas imagens bases são atualizadas. Utilize as Tarefas do ACR para automatizar as compilações de imagens quando a sua equipa consolidar código para um repositório Git.
+Configurar tarefas de ACR para reconstruir automaticamente as imagens do aplicativo quando suas imagens bases são atualizadas ou automatizar compilações de imagem quando a sua equipa consolida código para um repositório de Git. Crie tarefas de vários passos para automatizar a criação, teste e aplicação de patches de várias imagens de contentor em paralelo na cloud.
+
+O Azure disponibiliza ferramentas que inclui a Interface de linha de comandos do Azure, o portal do Azure e o suporte de API para gerir os registos de contentores do Azure. Opcionalmente, instale o [extensão Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e o [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensão para trabalhar com os registos de contentores do Azure. Extrair e enviar imagens para um Azure container registry ou executar tarefas de ACR, tudo no Visual Studio Code.
 
 ## <a name="key-concepts"></a>Conceitos-chave
 
-* **Registo** - crie um ou mais registos de contentores na sua subscrição do Azure. Os registos estão disponíveis em três SKUs: [Básico, Standard e Premium](container-registry-skus.md), cada dos quais suporta a integração de webhook, autenticação de registo no Azure Active Directory e a funcionalidade de eliminação. Tire partido do armazenamento local e perto da rede das imagens do seu contentor ao criar um registo na mesma localização do Azure das suas implementações. Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) de registos Premium para replicação avançada e cenários de distribuição de imagens de contentor. Os nomes de registo completamente qualificados têm o formato `myregistry.azurecr.io`.
+* **Registo** - crie um ou mais registos de contentores na sua subscrição do Azure. Os registos estão disponíveis em três SKUs: [Básico, Standard e Premium](container-registry-skus.md), cada um deles suporta a integração de webhook, autenticação de registo no Azure Active Directory e a funcionalidade de eliminação. Tire partido do armazenamento local e perto da rede das imagens do seu contentor ao criar um registo na mesma localização do Azure das suas implementações. Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) de registos Premium para replicação avançada e cenários de distribuição de imagens de contentor. Os nomes de registo completamente qualificados têm o formato `myregistry.azurecr.io`.
 
-  [Controlar o acesso](container-registry-authentication.md) para um registo de contentor com uma identidade do Azure, um Azure Active Directory com cópia de segurança [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md), ou uma conta de administrador fornecida. Iniciar sessão no registo utilizando a Interface de linha de comandos do Azure ou o padrão `docker login` comando.
+  [Controlar o acesso](container-registry-authentication.md) para um registo de contentor com uma identidade do Azure, um Azure Active Directory com cópia de segurança [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md), ou uma conta de administrador fornecida. Iniciar sessão no registo com a CLI do Azure ou o padrão `docker login` comando.
 
-* **Repositório** -um registo contém um ou mais repositórios, que armazenam grupos de imagens de contentor. O Registo de Contentores do Azure suporta espaços de nomes de repositórios com múltiplos níveis. Com espaços de nomes de vários níveis, pode agrupar coleções de imagens relacionadas com uma aplicação específica ou uma coleção de aplicações para equipas de programação ou operacionais específicas. Por exemplo:
+* **Repositório** -um registo contém um ou mais repositórios, que são grupos de virtual de imagens de contentor com o mesmo nome mas etiquetas diferentes ou resumos. O Registo de Contentores do Azure suporta espaços de nomes de repositórios com múltiplos níveis. Com espaços de nomes de vários níveis, pode agrupar coleções de imagens relacionadas com uma aplicação específica ou uma coleção de aplicações para equipas de programação ou operacionais específicas. Por exemplo:
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` representa uma imagem em toda a empresa
   * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem utilizada para criar aplicações de .NET, partilhadas em todo o departamento de garantias
