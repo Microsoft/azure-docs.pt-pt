@@ -1,7 +1,6 @@
 ---
 title: Compreender a ordem de sequência de implementação
 description: Saiba mais sobre o ciclo de vida que atravessa uma definição de esquema e os detalhes sobre cada estágio.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434811"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266193"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreender a sequência de implementação no Azure esquemas
 
@@ -26,7 +25,7 @@ O Azure utiliza esquemas uma **ordem de sequenciamento** para determinar a ordem
 
 Existem variáveis nos exemplos JSON que é necessário substituir com seus próprios valores:
 
-- `{YourMG}` - substituir pelo nome do seu grupo de gestão
+- `{YourMG}` -Substituir pelo nome do seu grupo de gestão
 
 ## <a name="default-sequencing-order"></a>Ordem de sequenciamento do padrão
 

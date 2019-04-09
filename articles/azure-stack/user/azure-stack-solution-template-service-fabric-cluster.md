@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482269"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264994"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementar um cluster do Service Fabric no Azure Stack
 
@@ -46,7 +46,7 @@ O seguinte é necessário para implementar o cluster do Service Fabric:
 
 1. **Os itens seguintes tem de estar disponíveis no mercado de pilha do Azure:**
     - **Windows Server 2016** – o modelo utiliza a imagem do Windows Server 2016 para criar o cluster.  
-    - **Extensão de Script de cliente** -extensão da Máquina Virtual da Microsoft.  
+    - **Extensão de Script personalizado** -extensão da Máquina Virtual da Microsoft.  
     - **Fase de configuração pretendido do PowerShell** -extensão da Máquina Virtual da Microsoft.
 
 

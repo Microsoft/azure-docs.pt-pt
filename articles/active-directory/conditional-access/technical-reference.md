@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051127"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273044"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -232,6 +232,23 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 - As aplicações aprovadas do cliente suportam a funcionalidade de gestão de aplicações móveis do Intune.
 - O **requer aplicação aprovada do cliente** requisito:
    - Só suporta o iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Requisito de política de proteção de aplicações 
+
+Na sua política de acesso condicional, pode exigir que uma política de proteção de aplicações estar presente na aplicação de cliente antes do acesso está disponível para as aplicações na cloud selecionada. 
+
+![Controlar o acesso com a política de proteção de aplicações](./media/technical-reference/22.png)
+
+Esta definição aplica-se para as seguintes aplicações de cliente:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Observações**
+
+- As aplicações para a política de proteção de aplicações suportam a funcionalidade de gestão de aplicações móveis do Intune com a proteção de política.
+- O **exigem a política de proteção de aplicações** requisitos:
+    - Só suporta o iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

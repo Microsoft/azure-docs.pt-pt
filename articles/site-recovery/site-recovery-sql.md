@@ -6,16 +6,16 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2d141a330b6b6c5fc102dd70ae1d6b3b01283d19
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444876"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270987"
 ---
-# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação após desastre para SQL Server 
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação após desastre para SQL Server
 
 Este artigo descreve como proteger o SQL Server back-end de um aplicativo usando uma combinação de continuidade de negócio do SQL Server e tecnologias de (BCDR) de recuperação após desastre, e [do Azure Site Recovery](site-recovery-overview.md).
 
@@ -30,7 +30,7 @@ Muitas cargas de trabalho utilizam o SQL Server como uma base e pode ser integra
 * **SQL Server Clustering de ativação pós-falha instâncias (sempre em FCI)**: Dois ou mais nós executar o SQL Server instanciados com discos partilhados estão configurados num cluster de ativação pós-falha do Windows. Se um nó estiver desativado, o cluster pode failover do SQL Server para outra instância. Esta configuração é normalmente utilizada para implementar elevada disponibilidade num site primário. Esta implementação não protege contra falha ou indisponibilidade na camada de armazenamento partilhado. Um disco partilhado pode ser implementado através de iSCSI, canal de Fibra ou vhdx partilhado.
 * **SQL grupos de disponibilidade Always On**: Dois ou mais nós são configuradas no partilhado nada de cluster, com bancos de dados do SQL Server configurados num grupo de disponibilidade, com a replicação síncrona e failover automático.
 
- Este artigo utiliza as seguintes nativas SQL após desastre tecnologias de recuperação para recuperar bases de dados para um site remoto:
+  Este artigo utiliza as seguintes nativas SQL após desastre tecnologias de recuperação para recuperar bases de dados para um site remoto:
 
 * SQL grupos de Disponibilidade AlwaysOn, para fornecer para recuperação após desastre para SQL Server 2012 ou 2014 Enterprise Edition.
 * SQL espelhamento do banco de dados no modo de alta segurança, para o SQL Server Standard edition (qualquer versão) ou para o SQL Server 2008 R2.
@@ -45,7 +45,7 @@ Recuperação de sites pode proteger o SQL Server conforme resumido na tabela.
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
-**Azure**|ND| Sim
+**Azure** |N/D| Sim
 
 ### <a name="supported-sql-server-versions"></a>Versões suportadas do SQL Server
 Estas versões do SQL Server são suportados para os cenários suportados:
@@ -72,15 +72,15 @@ A tabela seguinte resume as nossas recomendações para a integração de tecnol
 
 | **Versão** | **Edição** | **Implementação** | **Local para a no local** | **No local para o Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2012, 2014 ou 2016 |Enterprise |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
-|| Enterprise |Always On grupos de disponibilidade para elevada disponibilidade |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On | |
-|| Standard |Instância de cluster de ativação pós-falha (FCI) |Replicação do site Recovery com espelhamento local |Replicação do site Recovery com espelhamento local | |
-|| Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery | |
+| SQL Server 2012, 2014 ou 2016 |Empresa |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
+|| Empresa |Always On grupos de disponibilidade para elevada disponibilidade |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
+|| Standard |Instância de cluster de ativação pós-falha (FCI) |Replicação do site Recovery com espelhamento local |Replicação do site Recovery com espelhamento local |
+|| Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery |
 | SQL Server 2008 R2 ou 2008 |Enterprise ou Standard |Instância de cluster de ativação pós-falha (FCI) |Replicação do site Recovery com espelhamento local |Replicação do site Recovery com espelhamento local |
-|| Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery | |
+|| Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery |
 | SQL Server (qualquer versão) |Enterprise ou Standard |Instância de cluster de ativação pós-falha - aplicação de DTC |Replicação do site Recovery |Não suportado |
 
-## <a name="deployment-prerequisites"></a>Pré-requisitos da implementação
+## <a name="deployment-prerequisites"></a>Pré-requisitos de implementação
 
 * Uma implementação no local do SQL Server, executar uma versão suportada do SQL Server. Normalmente, também precisa do Active Directory para o SQL server.
 * Os requisitos para o cenário de que pretende implementar. Saiba mais sobre os requisitos de suporte para [replicação para o Azure](site-recovery-support-matrix-to-azure.md) e [no local](site-recovery-support-matrix.md), e [pré-requisitos de implementação](site-recovery-prereq.md).
@@ -101,7 +101,7 @@ Eis o que precisa fazer:
 
 1. Importar scripts para a sua conta de automatização do Azure. Contém os scripts para ativação pós-falha o grupo de disponibilidade SQL num [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) e uma [máquinas virtuais clássicas](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Deploy para o Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Adicione o ASR-SQL-FailoverAG como uma ação de pré-instalação do primeiro grupo de plano de recuperação.

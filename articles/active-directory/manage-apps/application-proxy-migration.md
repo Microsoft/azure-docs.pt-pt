@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e831bbcb956401149d8c33fce4d00a3be5a11d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170878"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279317"
 ---
 # <a name="compare-remote-access-solutions"></a>Compare as soluções de acesso remoto
 
@@ -50,7 +50,7 @@ Utilize esta tabela para compreender como Threat Management Gateway (TMG), o Uni
 | Não existem componentes na zona desmilitarizada (DMZ) | - | - | - | Sim |
 | Não existem ligações de entrada | - | - | - | Sim |
 
-Na maioria dos cenários, recomendamos a aplicação do Azure AD como a solução modernos. Proxy de aplicações Web é apenas preferenciais em cenários que exigem um servidor proxy para o AD FS e não é possível utilizar domínios personalizados no Azure Active Directory. 
+Na maioria dos cenários, é recomendável o Proxy de aplicações do Azure AD como a solução modernos. Proxy de aplicações Web é apenas preferenciais em cenários que exigem um servidor proxy para o AD FS e não é possível utilizar domínios personalizados no Azure Active Directory. 
 
 Proxy de aplicações do Azure AD oferece as vantagens exclusivas quando em comparação aos produtos semelhantes, incluindo:
 

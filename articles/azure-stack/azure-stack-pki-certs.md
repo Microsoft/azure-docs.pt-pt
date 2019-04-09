@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660124"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276444"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infra-estrutura de chave pública do Azure Stack
 
@@ -38,7 +38,7 @@ O Azure Stack tem uma rede de infraestrutura públicas com acessíveis extername
 A lista seguinte descreve os requisitos de certificados que são necessários para implementar o Azure Stack: 
 - Certificados tem de ser emitidos a partir de uma autoridade de certificação interna ou uma autoridade de certificação pública. Se for utilizada uma autoridade de certificação pública, têm de ser incluído na imagem do sistema operacional base, como parte do programa autoridade de raiz fidedigna Microsoft. Pode encontrar a lista completa aqui: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - A infraestrutura do Azure Stack tem de ter acesso à rede para a localização de lista de revogação de certificados (CRL) da autoridade de certificação publicada no certificado. Esta CRL tem de ser um ponto final http
-- Quando efetuar a rotação de certificados, os certificados devem estar que seja emitido a mesma autoridade de certificação interna utilizado para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
+- Quando efetuar a rotação de certificados na pré-1903 baseia-se, certificados tem de ser que um emitidos pela mesma autoridade de certificado interno utilizada para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima. Para certificados de 1903 & posteriores podem ser emitidos por qualquer enterprise ou de uma autoridade de certificação pública.
 - A utilização de certificados autoassinados não são suportados
 - Para a implementação e a rotação, pode usam um único certificado que abrange todos os espaços de nomes em campos de nome do requerente e o nome alternativo do requerente (SAN) do certificado ou pode utilizar o indivíduo certificados, para cada espaço de nomes abaixo disso, o Azure Stack exigem a serviços que pretende utilizar. Ambas as abordagens requerem a utilização de carateres universais para pontos finais, onde são necessários, tal como **KeyVault** e **KeyVaultInternal**. 
 - Encriptação de PFX do certificado deve ser 3DES. 

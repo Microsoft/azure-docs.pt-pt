@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407541"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265394"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
@@ -28,11 +28,13 @@ Em ambos os modos, Gestor de recursos tenta criar todos os recursos especificado
 
 No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Recursos que são especificados no modelo, mas não implementados porque um [condição](resource-group-authoring-templates.md#condition) for avaliada como falsa, não são eliminados.
 
-Há alguma diferença no como tipos de recurso lidar com as eliminações de modo completa. Recursos de principal são automaticamente eliminados quando não num modelo que é implementada no modo de conclusão. Alguns recursos filho não são automaticamente eliminados quando não estiver no modelo. No entanto, esses recursos subordinados são eliminados se o recurso principal é eliminado. 
+Existem algumas diferenças em como tipos de recurso lidar com as eliminações de modo completa. Recursos de principal são automaticamente eliminados quando não num modelo que é implementada no modo de conclusão. Alguns recursos filho não são automaticamente eliminados quando não estiver no modelo. No entanto, esses recursos subordinados são eliminados se o recurso principal é eliminado. 
 
-Por exemplo, se o seu grupo de recursos contém uma zona DNS (tipo de recurso Microsoft.Network/dnsZones) e um registo CNAME (tipo de recurso Microsoft.Network/dnsZones/CNAME), a zona DNS é o recurso principal para o registo CNAME. Se implementar com o modo de conclusão e não incluem a zona DNS no seu modelo, a zona DNS e o registo CNAME são ambos eliminados. Se incluir a zona DNS no seu modelo, mas não incluem o registo CNAME, não é eliminado o CNAME. 
+Por exemplo, se o seu grupo de recursos contém uma zona DNS (tipo de recurso Microsoft.Network/dnsZones) e um registo CNAME (tipo de recurso Microsoft.Network/dnsZones/CNAME), a zona DNS é o recurso principal para o registo CNAME. Se implementar com o modo de conclusão e não incluem a zona DNS no seu modelo, a zona DNS e o registo CNAME são ambos eliminados. Se inclua a zona DNS no seu modelo, mas não incluem o registo CNAME, não é eliminado o CNAME. 
 
 Para obter uma lista de como tipos de recurso lidar com a eliminação, veja [recursos de eliminação do Azure para implementações no modo completa](complete-mode-deletion.md).
+
+Se o grupo de recursos for [bloqueado](resource-group-lock-resources.md), modo completado não elimina os recursos.
 
 > [!NOTE]
 > Apenas os modelos de nível de raiz suportam o modo de implantação completa. Para [ligada ou para aninhados modelos](resource-group-linked-templates.md), tem de utilizar o modo de incremental. 

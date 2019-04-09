@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108203"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269576"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Utilizar o Cloud Explorer para Visual Studio para gestão de dispositivos do IoT Hub do Azure
 
-![Diagrama de ponto a ponto](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama de ponto a ponto](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) é uma extensão do Visual Studio útil que permite-lhe ver os recursos do Azure, Inspecione as respetivas propriedades e executar ações de chave do desenvolvedor do Visual Studio. Trata-se com as opções de gestão que pode utilizar para efetuar várias tarefas.
 
@@ -35,7 +35,7 @@ Os dispositivos duplos são documentos JSON que armazenam informações de estad
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
-Aprenda a utilizar o Cloud Explorer para Visual Studio com diversas opções de gestão no computador de desenvolvimento.
+Saiba como utilizar o Cloud Explorer para Visual Studio com várias opções de gestão no computador de desenvolvimento.
 
 ## <a name="what-you-do"></a>O que fazer
 
@@ -43,8 +43,8 @@ Execute o Cloud Explorer para Visual Studio com várias opções de gestão.
 
 ## <a name="what-you-need"></a>Do que precisa
 
-- Uma subscrição ativa do Azure.
-- Um IoT Hub do Azure com a sua subscrição.
+- Uma subscrição do Azure Active Directory
+- Um IoT Hub do Azure com a sua subscrição
 - Microsoft Visual Studio 2017 Update 8 ou posterior
 - Componente do cloud Explorer de instalação do Visual Studio (que é selecionado por predefinição com carga de trabalho do Azure)
 

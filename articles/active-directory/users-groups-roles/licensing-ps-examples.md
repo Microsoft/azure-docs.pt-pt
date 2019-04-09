@@ -14,19 +14,19 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da6f85f194d9aebab22584f8cba8b227ed38a72
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70e4e56742f45e0f6bfd80455e4d7545523a478b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223313"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265785"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure AD
 
 Todas as funcionalidades para licenciamento baseado em grupo estão disponível através da [portal do Azure](https://portal.azure.com), e atualmente o suporte do PowerShell e do Microsoft Graph é limitado. No entanto, existem algumas tarefas úteis que podem ser realizadas com a atual [cmdlets do PowerShell do MSOnline](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) e Microsoft Graph. Este documento fornece exemplos do que é possível.
 
 > [!NOTE]
-> Antes de começar a executar os cmdlets, certificar-se de que se liga a sua organização em primeiro lugar, ao executar o `Connect-MsolService`  cmdlet.
+> Antes de começar a executar os cmdlets, certifique-se de que se liga a sua organização em primeiro lugar, executando o `Connect-MsolService` cmdlet.
 
 > [!WARNING]
 > Esse código é fornecido como um exemplo para fins de demonstração. Se pretende usá-lo no seu ambiente, considere a testá-lo pela primeira vez em pequena escala, ou num inquilino de teste separada. Poderá ter de ajustar o código para satisfazer as necessidades específicas do seu ambiente.
@@ -115,7 +115,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $licenseAssignedCount = 0;
     $licenseErrorCount = 0;
 
-    Get-MsolGroupMember -All -GroupObjectId $groupId
+    Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full info about each user in the group
     Get-MsolUser -ObjectId {$_.ObjectId} |     Foreach {
         $user = $_;
@@ -623,10 +623,10 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 
 Para saber mais sobre o conjunto para gestão de licenças por meio dos grupos de recursos, veja os artigos seguintes:
 
-* [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [O que é o licenciamento baseado em grupos no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar utilizadores licenciados individuais para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
 * [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
+* [O Azure Active Directory cenários adicionais de licenciamento baseado no grupo](licensing-group-advanced.md)
 * [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095658"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281054"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
@@ -74,7 +74,7 @@ Não. Um tipo de gateway de Vnet do Azure não pode ser alterado de baseado em 
 1. Elimine o gateway:
 1. [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [O Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Criar um novo gateway do tipo pretendido e concluir a configuração VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Preciso de um "GatewaySubnet"?
@@ -242,3 +242,5 @@ Pode ver informações adicionais sobre a rede virtual nas [FAQ da Rede Virtual]
 
 * Para obter mais informações sobre o Gateway de VPN, veja [About VPN Gateway (Acerca do Gateway de VPN)](vpn-gateway-about-vpngateways.md).
 * Para obter mais informações sobre as definições de configuração do Gateway de VPN, veja [About VPN Gateway configuration settings (Acerca das definições de configuração do gateway de VPN)](vpn-gateway-about-vpn-gateway-settings.md).
+
+**"OpenVPN" é uma marca registada da OpenVPN Inc.**

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918047"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267911"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Suporte de idioma e região para a API de texto do tradutor
 
@@ -33,11 +33,14 @@ A API de texto do Translator suporta os seguintes idiomas para a tradução de t
 * Predefinição neural: Neural é o sistema de tradução do padrão. Utilize o parâmetro `category=smt` para aceder ao sistema de estatístico para utilização com o Microsoft Translator Hub.
 * Neural apenas: Apenas tradução neural está disponível.
 
-**API do Microsoft Translator v3** a API do Microsoft Translator V3 é neural por predefinição e sistemas estatísticos só estão disponíveis quando nenhum sistema neural existe. Tradutor personalizado só pode ser utilizado com linguagens neurais. [Ver os idiomas atualmente disponíveis no personalizado Translator](#customization).
+**API do Microsoft Translator v3** a API do Microsoft Translator V3 é neural por predefinição e sistemas estatísticos só estão disponíveis quando nenhum sistema neural existe. 
+
+> [!NOTE]
+> Atualmente, um subconjunto dos idiomas neurais estão disponíveis no Translator personalizado e gradualmente que estamos adicionando outras opções. [Ver os idiomas atualmente disponíveis no personalizado Translator](#customization).
 
 |Idioma|  Código do idioma|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
-|Afrikaans| `af`    |Apenas estatística|  Neural|
+|Africânder| `af`    |Apenas estatística|  Neural|
 |Árabe|    `ar`    |Disponível Neural|  Neural|
 |Bangla|    `bn`    |Disponível Neural|  Neural|
 |Bósnio (Latim)|   `bs`    |Disponível Neural|  Neural|
@@ -50,7 +53,7 @@ A API de texto do Translator suporta os seguintes idiomas para a tradução de t
 |Checo| `cs`    |Disponível Neural|  Neural|
 |Dinamarquês|    `da`    |Disponível Neural   |Neural|
 |Neerlandês| `nl`    |Disponível Neural|  Neural|
-|Português|   `en`    |Disponível Neural|  Neural|
+|Inglês|   `en`    |Disponível Neural|  Neural|
 |Estónio|  `et`    |Disponível Neural|  Neural|
 |Fijian|    `fj`    |Apenas estatística|  Estatísticas|
 |Filipino|  `fil`   |Apenas estatística|  Estatísticas|
@@ -60,14 +63,14 @@ A API de texto do Translator suporta os seguintes idiomas para a tradução de t
 |Grego| `el`    |Disponível Neural|  Neural|
 |Haitian Creole|    `ht`    |Apenas estatística   |Estatísticas|
 |Hebraico |`he`   |Disponível Neural   |Neural|
-|Hindi| `hi`    |Predefinição neural|    Neural|
+|Hindu| `hi`    |Predefinição neural|    Neural|
 |Hmong Daw| `mww`   |Apenas estatística|  Estatísticas|
 |Húngaro| `hu`    |Disponível Neural|  Neural|
 |Islandês| `is`    |Apenas Neural|   Neural|
 |Indonésio|    `id`    |Apenas estatística|  Estatísticas|
 |Italiano|   `it`    |Disponível Neural|  Neural|
 |Japonês|  `ja`    |Disponível Neural|  Neural|
-|Suaíli| `sw`    |Apenas estatística|  Estatísticas|
+|Kiswahili| `sw`    |Apenas estatística|  Estatísticas|
 |Klingon|   `tlh`   |Apenas estatística|  Estatísticas|
 |Klingon (plqaD)|   `tlh-Qaak`  |Apenas estatística|  Estatísticas|
 |Coreano |`ko`   |Disponível Neural|  Neural|
@@ -92,7 +95,7 @@ A API de texto do Translator suporta os seguintes idiomas para a tradução de t
 |Sueco|   `sv`    |Disponível Neural   |Neural|
 |Tahitian|  `ty`    |Apenas estatística|  Estatísticas|
 |Tamil| `ta`    |Apenas estatística|  Estatísticas|
-|Télego|    `te`    |Apenas Neural|   Neural|
+|Telugu|    `te`    |Apenas Neural|   Neural|
 |Tailandês|  `th`    |Disponível Neural|  Neural|
 |Tongan|    `to`    |Apenas estatística|  Estatísticas|
 |Turco|   `tr`    |Disponível Neural   |Neural|
@@ -114,11 +117,11 @@ O método Transliterate suporta os seguintes idiomas. Na "para/de", "<> –" ind
 | Chinês (Simplificado) | `zh-Hans` | Chinês Simplificado `Hans`| <--> | Chinês Tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês Tradicional `Hant`| <--> | Latim `Latn` |
 | Chinês (Tradicional) | `zh-Hant` | Chinês Tradicional `Hant`| <--> | Chinês Simplificado `Hans` |
-| Guzarate | `gu`  | Guzarate `Gujr` | --> | Latim `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
-| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
+| Hindu | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
-| Canarim | `kn` | Canarim `Knda` | --> | Latim `Latn` |
+| Kannada | `kn` | Kannada `Knda` | --> | Latim `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latim `Latn` |
 | Marata | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latim `Latn` |
@@ -126,7 +129,7 @@ O método Transliterate suporta os seguintes idiomas. Na "para/de", "<> –" ind
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latim `Latn` |
-| Télego | `te` | Télego `Telu` | --> | Latim `Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | <--> | Latim `Latn` |
 
 ## <a name="dictionary"></a>Dicionário
@@ -192,10 +195,10 @@ Os seguintes idiomas são compatíveis com o método de deteção. Detetar Maio 
 
 | Idioma    |
 |:----------- |
-| Afrikaans |
+| Africânder |
 | Albanês |
 | Árabe |
-| Basco (Basco) |
+| Basco |
 | Bielorrusso |
 | Búlgaro |
 | Catalão |
@@ -206,7 +209,7 @@ Os seguintes idiomas são compatíveis com o método de deteção. Detetar Maio 
 | Checo |
 | Dinamarquês |
 | Neerlandês |
-| Português |
+| Inglês |
 | Esperanto |
 | Estónio |
 | Finlandês |
@@ -249,7 +252,7 @@ Os seguintes idiomas são compatíveis com o método de deteção. Detetar Maio 
 | kiswahili |
 | Sueco |
 | Tagalog |
-| Télego |
+| Telugu |
 | Tailandês |
 | Turco |
 | Ucraniano |

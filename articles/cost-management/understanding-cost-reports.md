@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109819"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265836"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn Noções básicas sobre relatórios de gestão de custos
 
@@ -29,7 +29,7 @@ Aqui está uma olhada num exemplo do relatório de custo ao longo do tempo. A ma
 
 Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes informações:
 
-1. **Intervalo de datas**
+1. **Intervalo de Datas**
 
     Utilize a lista de intervalo de datas para definir um intervalo de tempo de relatório através de uma configuração predefinida ou personalizada.
 2. **Filtro guardado**
@@ -87,7 +87,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Custo de utilização
      - **Cliente**
        - Selecione um cliente específico, vários clientes, ou todos os clientes.
-     - **Nome da conta**
+     - **Nome da Conta**
        - O nome de conta ou a subscrição. No Azure, é o nome da subscrição do Azure.
      - **Conta não**
        - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da subscrição do Azure.
@@ -99,7 +99,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - O fornecedor de cloud em que estão associadas ativos e as despesas.
      - **Região**
        - Região onde está alojado o recurso.
-     - **Zona de disponibilidade**
+     - **Zona de Disponibilidade**
        - Localizações do AWS isolados numa região.
      - **Tipo de Recurso**
        - O tipo de recurso em uso.
@@ -118,7 +118,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Selecione o tipo de custo negativos ou positivos ou ambos.
      - **Inquilinos**
        - Se uma máquina está em execução como uma máquina dedicada.
-     - **Tipo de utilização**
+     - **Tipo de Utilização**
        - Tipo de utilização pode ser as tarifas únicas ou taxas recorrentes.
 
 5. **Filtros**
@@ -154,7 +154,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Utilize regras de alocação para aplicar ou desativar o recálculo de custo de alocação de custos. Pode ativar ou desativar o recálculo de alocação de custo para dados de faturação. O recálculo aplica-se para as categorias selecionadas no relatório. Permite-lhe avaliar o impacto de recálculo de alocação de custos em relação a dados não processados de faturas.
 
-10. **Não categorizado**
+10. **Não Categorizado**
 
     Utilize não categorizado para incluir ou excluir os custos sem categoria no relatório.
 
@@ -191,7 +191,7 @@ Ao visualizar qualquer relatório, clique em **ações** e, em seguida, selecion
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Guardar um relatório para o fornecedor de armazenamento na nuvem
 
-Para guardar um relatório para o seu fornecedor de serviços cloud, tem de ter já configurado uma conta de armazenamento. Ao visualizar qualquer relatório, clique em **ações** e, em seguida, selecione **agendar relatório**. Nomeie o relatório e, em seguida, adicione um sua própria URL ou utilize o URL criado automaticamente. Selecione **guardar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicionar um novo. Introduza um prefixo que é anexado ao nome do ficheiro de relatório. Selecione um formato de ficheiro CSV ou JSON e, em seguida, guarde o relatório.
+Para guardar um relatório para o seu fornecedor de serviços cloud, tem de ter já configurado uma conta de armazenamento. Ao visualizar qualquer relatório, clique em **ações** e, em seguida, selecione **agendar relatório**. Nomeie o relatório e, em seguida, adicione um sua própria URL ou utilize o URL criado automaticamente. Selecione **guardar no armazenamento** e, em seguida, selecione a conta de armazenamento ou adicionar um novo. Introduza um prefixo que é anexado ao nome do ficheiro de relatório. Selecione um formato de ficheiro JSON ou CSV e, em seguida, guarde o relatório.
 
 ### <a name="schedule-a-report"></a>Agendar um relatório
 

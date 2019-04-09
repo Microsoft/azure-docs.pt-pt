@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 17f7e7acc70047119b882a5bb6e60bfdf06f79c0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775463"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271523"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
 
@@ -81,11 +81,11 @@ Ao trabalhar com o Cosmos DB, pode utilizar o [azure-cosmos DB-table](https://py
 O Azure fornece uma série de outros tipos de base de dados que pode utilizar. Os artigos abaixo fornecem orientações para aceder a essas bases de dados a partir de Python:
 
 - [Base de dados do Azure para PostgreSQL: Utilizar Python para ligar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Quickstart: Utilizar a Cache de Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Base de dados do Azure para MySQL: Utilizar Python para ligar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Início rápido: Utilizar a Cache de Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Base de Dados do Azure para MySQL: Utilizar Python para ligar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Assistente para copiar para a fábrica de dados do Azure](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [How to: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [Como: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)

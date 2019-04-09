@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c5e9ccfa3c179aea190028ba5f97086186b70a02
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Active Directory do Azure com PerformanceCentre
 
@@ -211,11 +211,11 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Perfor
 
 2. No menu à esquerda, clique em **Interrelate**e, em seguida, clique em **participante criar**.
    
-    ![Criar Utilizador][400]
+    ![Criar utilizador][400]
 
 3. Sobre o **Interrelate - criar participante** caixa de diálogo, execute os seguintes passos:
    
-    ![Criar Utilizador][401]
+    ![Criar utilizador][401]
     
     a. Escreva os atributos necessários para Eduarda Almeida em caixas de texto relacionadas.
     
@@ -226,7 +226,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Perfor
     
     c. Clique em **Guardar**. 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -234,9 +234,9 @@ Quando clica no mosaico PerformanceCentre no painel de acesso, deve ser automati
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

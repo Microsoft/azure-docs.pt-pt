@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95fc65dd849c564ac88993161ffa4b27017488b4
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 6648aec8741a748dd4150406831035a68b97af7c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793599"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268471"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -58,7 +58,7 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 
 * Certifique-se de que [cumpre os requisitos](how-to-connect-health-agent-install.md#requirements) para o Azure AD Connect Health.
 * Introdução ao Azure AD Connect Health para AD FS
-    * [Transferir o Agente do Azure AD Connect Health para o AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Transferir o Azure AD ligar o agente de estado de funcionamento para o AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Veja a instruções de instalação](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Introdução ao Azure AD Connect Health para sincronização
     * [Transferir e instalar a versão mais recente do Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). O Agente de Estado de Funcionamento para sincronização será instalado como parte da instalação do Azure AD Connect (versão 1.0.9125.0 ou superior).
@@ -127,7 +127,7 @@ Para que a funcionalidade de Análise de Utilização possa recolher e analisar 
 1. Clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e, em seguida, clique em **Política de Segurança Local**.
 2. Navegue até à pasta **Security Settings\Local Policies\User Rights Assignment** e, em seguida, faça duplo clique em **Gerar auditorias de segurança**.
 3. No separador **Definição de Segurança Local**, certifique-se de que a conta de serviço do AD FS 2.0 está listada. Se não estiver presente, clique em **Adicionar Utilizador ou Grupo**, adicione-a à lista e, em seguida, clique em **OK**.
-4. Para ativar a auditoria, abra uma Linha de Comandos com privilégios elevados e execute o comando seguinte: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
+4. Para ativar a auditoria, abra uma linha de comandos com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Feche a **Política de Segurança Local**.
 <br />   -- **Os seguintes passos apenas são necessários para servidores do AD FS primários.** -- <br />
 6. Abra a snap-in da **Gestão do AD FS**. Para abrir o snap-in Gestão do AD FS, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e, em seguida, clique em **Gestão do AD FS 2.0**.
@@ -141,7 +141,7 @@ Para que a funcionalidade de Análise de Utilização possa recolher e analisar 
 1. Abra a **Política de Segurança Local** abrindo o **Gestor de Servidores** no ecrã Iniciar ou o Gestor de Servidores na barra de tarefas no ambiente de trabalho e clique em **Ferramentas/Política de Segurança Local**.
 2. Navegue até à pasta **Security Settings\Local Policies\User Rights Assignment** e, em seguida, faça duplo clique em **Gerar auditorias de segurança**.
 3. No separador **Definição de Segurança Local**, certifique-se de que a conta de serviço do AD FS está listada. Se não estiver presente, clique em **Adicionar Utilizador ou Grupo**, adicione-a à lista e, em seguida, clique em **OK**.
-4. Para ativar a auditoria, abra uma linha de comandos com privilégios elevados e execute o comando seguinte: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```.
+4. Para ativar a auditoria, abra uma linha de comandos com privilégios elevados e execute o comando seguinte: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```
 5. Feche a **Política de Segurança Local**.
 <br />   -- **Os seguintes passos apenas são necessários para servidores do AD FS primários.** -- <br />
 6. Abra a o snap-in **Gestão do AD FS** (no Gestor de Servidor, clique em Ferramentas e selecione Gestão do AD FS).
@@ -154,7 +154,7 @@ Para que a funcionalidade de Análise de Utilização possa recolher e analisar 
 1. Abra a **Política de Segurança Local** abrindo o **Gestor de Servidores** no ecrã Iniciar ou o Gestor de Servidores na barra de tarefas no ambiente de trabalho e clique em **Ferramentas/Política de Segurança Local**.
 2. Navegue até à pasta **Security Settings\Local Policies\User Rights Assignment** e, em seguida, faça duplo clique em **Gerar auditorias de segurança**.
 3. No separador **Definição de Segurança Local**, certifique-se de que a conta de serviço do AD FS está listada. Se não estiver presente, clique em **Adicionar Utilizador ou Grupo**, adicione a conta de serviço do AD FS à lista e, em seguida, clique em **OK**.
-4. Para ativar a auditoria, abra uma linha de comandos com privilégios elevados e execute o comando seguinte: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable.</code>
+4. Para ativar a auditoria, abra uma linha de comandos com privilégios elevados e execute o comando seguinte: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Feche a **Política de Segurança Local**.
 <br />   -- **Os seguintes passos apenas são necessários para servidores do AD FS primários.** -- <br />
 6. Abra a o snap-in **Gestão do AD FS** (no Gestor de Servidor, clique em Ferramentas e selecione Gestão do AD FS).
@@ -378,9 +378,9 @@ O parâmetro de função toma atualmente os seguintes valores:
 ## <a name="related-links"></a>Ligações relacionadas
 
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Azure AD Connect Health Operations (Operações do Azure AD Connect Health)](how-to-connect-health-operations.md)
-* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
+* [Operações do Azure AD Connect Health](how-to-connect-health-operations.md)
+* [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)
-* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
+* [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
 * [FAQ do Azure AD Connect Health](reference-connect-health-faq.md)
 * [Histórico das Versões do Azure AD Connect Health](reference-connect-health-version-history.md)

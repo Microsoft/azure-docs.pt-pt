@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484292"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266210"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ Quando clona configuração a partir de outro bloco de implementação, a config
 * Definições de monitorização e diagnósticos
 * Certificados públicos
 * Conteúdo de WebJobs
-* Ligações híbridas
+* Ligações híbridas *
+* Integração VNet *
+* Pontos finais de serviço *
+* A CDN do Azure *
+
+Recursos marcados com um * estão planeados devem se transformar em papeizinhos para a ranhura. 
 
 **As definições que não são trocadas**:
 
@@ -93,10 +98,15 @@ Quando clona configuração a partir de outro bloco de implementação, a config
 * Certificados privados e enlaces de SSL
 * Definições de dimensionamento
 * Agendadores de WebJobs
+* Restrições de IP
+* Always On
+* Definições de protocolo (HTTP**S**, versão do TLS, certificados de cliente)
+* Definições de registo de diagnóstico
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-Para configurar uma cadeia de ligação ou definição de aplicação de adotar um bloco específico (não trocado), navegue para o **as configurações do aplicativo** página para que a ranhura, em seguida, selecione a **definição de ranhura** caixa para o elementos de configuração que devem inserir para a ranhura. Marcando um elemento de configuração como ranhura específico informa ao serviço de aplicações que não está-swap.
+Para configurar uma cadeia de ligação ou definição de aplicação de adotar um bloco específico (não trocado), navegue para o **as configurações do aplicativo** página para que a ranhura, em seguida, selecione a **definição de ranhura** caixa para o elementos de configuração que devem inserir para a ranhura. Marcando um elemento de configuração como ranhura específico informa ao serviço de aplicações que não está-swap. 
 
 ![Definição de bloco](./media/web-sites-staged-publishing/SlotSetting.png)
 

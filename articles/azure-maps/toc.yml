@@ -7,20 +7,24 @@ items:
     href: about-azure-maps.md
 - name: Inícios rápidos
   items:
-  - name: Criar uma aplicação de mapa
+  - name: Criar uma aplicação Web
     href: quick-demo-map-app.md
 - name: Tutoriais
   items:
-  - name: 1 - Procurar ponto de interesse
-    href: tutorial-search-location.md
-  - name: 2 - Encaminhar para um destino
-    href: tutorial-route-location.md
-  - name: 3 - Vários encaminhamentos pelo modo de viagem
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Criar um localizador de arquivo
-    href: tutorial-create-store-locator.md
-  - name: 5 - Configurar um perímetro geográfico
-    href: tutorial-geofence.md
+  - name: Tutoriais do SDK Web
+    items:
+    - name: Procurar um ponto de interesse
+      href: tutorial-search-location.md
+    - name: Rota para um destino
+      href: tutorial-route-location.md
+    - name: Várias rotas por modo de viagem
+      href: tutorial-prioritized-routes.md
+    - name: Criar um localizador de loja
+      href: tutorial-create-store-locator.md
+  - name: Tutoriais da API REST
+    items:
+    - name: Configurar um perímetro geográfico
+      href: tutorial-geofence.md
 - name: Conceitos
   items:
   - name: Autenticação com o Azure Maps
@@ -63,6 +67,8 @@ items:
     items:
     - name: Pesquisar por um endereço
       href: how-to-search-for-address.md
+    - name: Melhores práticas de pesquisa
+      href: how-to-use-best-practices-for-search.md
     - name: Processar dados personalizados num mapa estático
       href: how-to-render-custom-data.md
   - name: Desenvolver com o SDK Web
@@ -89,6 +95,8 @@ items:
         href: map-add-heat-map-layer.md
       - name: Dados de ponto do cluster
         href: clustering-point-data-web-sdk.md
+      - name: Utilizar expressões de estilo com base em dados
+        href: data-driven-style-expressions-web-sdk.md
       - name: Sobrepor uma imagem
         href: map-add-image-layer.md
       - name: Adicionar camadas de mosaico
@@ -207,9 +215,9 @@ items:
       href: /azure/iot-edge
     - name: SDKs do Dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: fa4c3a4f8158123e6773640c1612daa0c7390424
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.openlocfilehash: 94e02b599bffd24e9c9aa65560e4a74bd05ecea6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058939"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263603"

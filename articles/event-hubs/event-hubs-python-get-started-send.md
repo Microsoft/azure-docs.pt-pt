@@ -1,6 +1,6 @@
 ---
 title: Enviar eventos com Python - Event Hubs do Azure | Documentos da Microsoft
-description: Este artigo fornece um passo a passo para criar uma aplicação node. js para enviar eventos para Hubs de eventos do Azure.
+description: Este artigo fornece um passo a passo para criar uma aplicação de Python para enviar eventos para Hubs de eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2168fc89134615ffb4e0e718cc0cc27b8c1a7839
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102984"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262776"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Enviar eventos para Hubs de eventos com Python
 
@@ -36,7 +36,7 @@ Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
 O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md).
 
-Obter o valor da chave de acesso para o hub de eventos ao seguir as instruções do artigo: [obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a chave de acesso no código escrito mais tarde neste tutorial. O nome da chave predefinida é: **RootManageSharedAccessKey**.
+Obter o valor da chave de acesso para o hub de eventos ao seguir as instruções do artigo: [Obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a chave de acesso no código escrito mais tarde neste tutorial. O nome da chave predefinida é: **RootManageSharedAccessKey**.
 
 Agora, continue com os seguintes passos neste tutorial.
 

@@ -1,18 +1,20 @@
 items:
 - name: Documentação do Catálogo de Dados
-  href: index.md
+  href: index.yml
 - name: Descrição geral
   items:
   - name: O que é o Catálogo de Dados?
-    href: data-catalog-what-is-data-catalog.md
+    href: overview.md
+- name: Início Rápido
+  items:
+  - name: Criar um Catálogo de Dados do Azure
+    href: data-catalog-get-started.md
+- name: Conceitos
+  items:
   - name: Cenários comuns
     href: data-catalog-common-scenarios.md
   - name: Origens de dados suportadas
     href: data-catalog-dsr.md
-- name: Introdução
-  items:
-  - name: Introdução ao Catálogo de Dados do Azure
-    href: data-catalog-get-started.md
   - name: Adotar o Catálogo de Dados do Azure
     href: data-catalog-adopting-data-catalog.md
   - name: Pré-requisitos
@@ -69,17 +71,15 @@ items:
     href: https://azure.microsoft.com/pricing/details/data-catalog/
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Notas de versão
-    href: ../active-directory/fundamentals/whats-new.md
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-catalog
   - name: Terminologia
     href: data-catalog-terminology.md
-ms.openlocfilehash: 47fef3cf68ca9ab34c0dd349106ed4ca8c8ad4f1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 17965d0b9394cfea83fdb463db6ee2b0fde15d87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340647"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277634"

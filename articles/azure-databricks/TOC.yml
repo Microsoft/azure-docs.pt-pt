@@ -11,9 +11,13 @@ items:
     href: quickstart-create-databricks-workspace-portal.md
   - name: Criar área de trabalho do Databricks - modelo do Resource Manager
     href: quickstart-create-databricks-workspace-resource-manager-template.md
+  - name: Criar uma área de trabalho do Databricks - Rede virtual
+    href: quickstart-create-databricks-workspace-vnet-injection.md
   expanded: true
 - name: Tutoriais
   items:
+  - name: Consultar o SQL Server em execução num contentor do Docker
+    href: vnet-injection-sql-server.md
   - name: Realizar operações de ETL
     href: databricks-extract-load-sql-data-warehouse.md
   - name: Transmitir dados com os Hubs de Eventos
@@ -73,9 +77,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 58c18654cd981f8ec9cb6edfdd0024f2fef32268
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1f0b7bcc369a3f857fe974f8b8ec68b801516589
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223347"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256401"

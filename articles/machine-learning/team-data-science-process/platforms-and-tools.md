@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471016"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281272"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -44,7 +44,7 @@ A máquina de virtual de ciência de dados oferecidos no Windows e Linux pela Mi
 - Ambiente de trabalho do Power BI para Windows
 - SQL Server 2016 Developer Edition no Windows / Postgres no Linux
 
-Ele também inclui **ferramentas de ML e AI** como CNTK (um toolkit de aprendizagem profunda de fonte aberto da Microsoft), xgboost, mxnet e Vowpal Wabbit.
+Ele também inclui **ferramentas de ML e AI** como xgboost, mxnet e Vowpal Wabbit.
 
 Atualmente está disponível no DSVM **Windows** e **Linux CentOS** sistemas operativos. Escolha o tamanho da sua DSVM (número de núcleos de CPU) e a quantidade de memória com base nas necessidades dos projetos de ciência de dados que pretende executar no mesmo. 
 

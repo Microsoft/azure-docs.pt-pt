@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358716"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267128"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia de fábrica de dados do Azure faz o mapeamento de esquema e o mapeamento de tipo de dados de origem de dados para dados de sink quando executar a cópia de dados.
@@ -147,7 +147,7 @@ Mapeamento de esquema aplica-se ao copiar dados entre hierárquicas em forma de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de conversor de atividade de cópia tem de ser definida: **TabularTranslator** | Sim |
-| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento do lado de tabela para lado hierárquica.<br/>- **Chave:** o nome da coluna de dados em tabela, como definido na estrutura do conjunto de dados.<br/>- **Valor:** a expressão de caminho JSON para cada campo extrair e mapear. Para os campos no objeto raiz, comece com a raiz $; para os campos dentro da matriz escolhida pela propriedade `collectionReference`, comece a partir do elemento de matriz.  | Sim |
+| schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado de origem para o sink do lado do**.<br/>- **Chave:** origem representa. Para **origem tabular**, especifique o nome da coluna, conforme definido na estrutura do conjunto de dados; para **origem hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear.<br/>- **Valor:** representa sink. Para **tabular sink**, especifique o nome da coluna, conforme definido na estrutura do conjunto de dados; para **sink hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear. <br/> No caso de dados hierárquicos, para os campos no objeto raiz, o caminho JSON começa com a raiz $; para os campos dentro da matriz escolhida pela `collectionReference` propriedade, caminho JSON começa a partir do elemento de matriz.  | Sim |
 | collectionReference | Se pretender iterar e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e convertem-se por linha por objeto, especifique o caminho JSON dessa matriz entre-aplicar. Esta propriedade só é suportada quando dados hierárquicos são a origem. | Não |
 
 **Exemplo: copie do MongoDB para o SQL:**
@@ -233,14 +233,14 @@ Data Factory suporta os seguintes tipos de dados intermediárias: Pode especific
 * Datetime
 * Datetimeoffset
 * Decimal
-* Valor de duplo
-* GUID
+* Double
+* Guid
 * Int16
 * Int32
 * Int64
-* Único
-* Cadeia
-* Timespan
+* Single
+* String
+* Período de tempo
 
 ### <a name="explicit-data-type-conversion"></a>Conversão de tipo de dados explícito
 
@@ -255,8 +255,8 @@ No abaixo cenários, "estrutura" no conjunto de dados é necessária:
 
 * Aplicando [conversão de tipos de dados explícito](#explicit-data-type-conversion) para origens de ficheiros durante a cópia (conjunto de dados de entrada)
 * Aplicando [mapeamento de colunas explícita](#explicit-column-mapping) durante a cópia (ambos de entrada e saída do conjunto de dados)
-* A copiar de origem / CRM do Dynamics 365 (conjunto de dados de entrada)
-* Copiar para o Cosmos DB como objeto aninhado, quando a origem não é ficheiros JSON (conjunto de dados de saída)
+* Copiar da origem do Dynamics 365/CRM (conjunto de dados de entrada)
+* Copiar para o Cosmos DB como objeto aninhado quando a origem não for ficheiros JSON (conjunto de dados de saída)
 
 Na abaixo cenários, é aconselhável "estrutura" no conjunto de dados:
 

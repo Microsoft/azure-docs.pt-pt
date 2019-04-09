@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621276"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270959"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
-No Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem **gratuito**, **básica**, **padrão**, ou **otimizadas para armazenamento**.  **Standard** e **otimizadas para armazenamento** estão disponíveis em várias configurações e capacidades. Começar a maioria dos clientes com o **gratuito** camada para avaliação e, em seguida, passar gradualmente para um dos escalões pagos, superiores para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva.
+No Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem **gratuito**, **básica**, **padrão**, ou **otimizadas para armazenamento**.  **Standard** e **otimizadas para armazenamento** estão disponíveis em várias configurações e capacidades. 
+
+Começar a maioria dos clientes com o **gratuito** camada para avaliação e, em seguida, passar gradualmente para um dos escalões pagos, superiores para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais sobre o **gratuito** escalão, inclusive os de muitos recursos de pesquisa cognitiva.
 
 > [!NOTE]
 > Os escalões de serviço com otimização de armazenamento estão atualmente disponíveis como pré-visualização a um preço com desconto para fins de teste e experimentação com o objetivo de recolha de comentários. Os preços finais serão anunciado mais tarde quando estas camadas estão disponíveis em geral. Aconselhamos contra a utilização destes escalões para aplicações de produção.
@@ -29,7 +31,7 @@ Camadas de refletem as características de hardware que aloja o serviço (em vez
 + Número de índices que pode criar
 + Tamanho e a velocidade de partições (armazenamento físico)
 
-Embora todas as camadas, incluindo o **gratuito** camada, oferta geralmente paridade de funcionalidades, cargas de trabalho maiores podem ditar os requisitos para escalões superiores. Por exemplo, [pesquisa cognitiva](cognitive-search-concept-intro.md) indexação tem habilidades de longa execução desse tempo limite num serviço gratuito, a menos que o conjunto de dados é pequeno.
+Embora todas as camadas, incluindo o **gratuito** camada, oferta geralmente paridade de funcionalidades, cargas de trabalho maiores podem ditar os requisitos para escalões superiores. Por exemplo, [indexação IA com serviços cognitivos](cognitive-search-concept-intro.md) tem habilidades de longa execução desse tempo limite num serviço gratuito, a menos que o conjunto de dados é pequeno.
 
 > [!NOTE] 
 > A exceção a paridade de funcionalidades são [indexadores](search-indexer-overview.md), que não estão disponível em S3HD.
@@ -44,7 +46,7 @@ A tabela seguinte lista as camadas disponíveis. Outras fontes de informações 
 |Escalão | Capacidade |
 |-----|-------------|
 |Gratuito | Partilhado com outros subscritores. Não escaláveis, limitada até 3 índices e 50 MB de armazenamento. |
-|Básica | Recursos de computação dedicados para cargas de trabalho de produção em escala mais pequena. Uma partição de 2 GB e até três réplicas. |
+|Básico | Recursos de computação dedicados para cargas de trabalho de produção em escala mais pequena. Uma partição de 2 GB e até três réplicas. |
 |1 Standard (S1) | De S1 em segurança de máquinas dedicadas com mais capacidade de armazenamento e processamento em todos os níveis. Tamanho da partição é 25 GB/partição (máximo de 300 GB por serviço) para S1. |
 |Standard 2 (S2) | É semelhante para S1, mas com 100 GB/partições (máximo 1,2 TB por serviço) |
 |3 padrão (S3) | 200 GB/partição (máximo 2,4 TB por serviço) |
@@ -53,7 +55,7 @@ A tabela seguinte lista as camadas disponíveis. Outras fontes de informações 
 |Armazenamento otimizado 2 (L2) | 2 TB/partição (máx. 24 TB por serviço) |
 
 > [!NOTE] 
-> Os escalões de armazenamento otimizado oferecem maior capacidade de armazenamento por um preço reduzido por TB de escalões Standard.  O compromisso principal é a mais alta latência da consulta, que deve validar para os seus requisitos de aplicação específica.  Para saber mais sobre as considerações de desempenho deste escalão, consulte [considerações sobre desempenho e otimização](search-performance-optimization.md).
+> Os escalões de armazenamento otimizado oferecem maior capacidade de armazenamento por um preço reduzido por TB de escalões Standard. O compromisso principal é a mais alta latência da consulta, que deve validar para os seus requisitos de aplicação específica.  Para saber mais sobre as considerações de desempenho deste escalão, consulte [considerações sobre desempenho e otimização](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Como funciona a faturação
@@ -70,17 +72,27 @@ Captura de ecrã seguinte, por preço da unidade é indicado para gratuito, Basi
 
 Réplicas adicionais e as partições são um suplemento para o custo inicial. Um serviço de pesquisa requer uma partição e réplica, portanto, a configuração mínima é um de cada. Além do mínimo, adicionar réplicas e partições de forma independente. Por exemplo, poderia adicionar apenas réplicas ou apenas as partições. 
 
-Partições e réplicas adicionais são cobradas com base numa [fórmula](#search-units). Os custos não estão lineares (Dobra a capacidade mais do que duplica o custo). Para obter um exemplo de como a fórmula funciona, consulte ["Como alocar réplicas e partições"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Partições e réplicas adicionais são cobradas com base numa [fórmula](#search-units). Os custos não estão lineares (Dobra a capacidade mais do que duplica o custo). Para obter um exemplo de como a fórmula funciona, consulte ["Como alocar réplicas e partições"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Custos de saída de dados durante a indexação
 
-Quando extrair dados de uma origem de dados de base de dados do Azure SQL ou Cosmos DB, verá encargos para a transação na fatura para esses recursos. Esses custos não são medidores do Azure Search, mas que são mencionados aqui porque se estiver a utilizar indexadores para extrair dados de base de dados do Azure SQL ou do Azure Cosmos DB, verá esse custo na sua fatura.
+Usar [indexadores do Azure Search](search-indexer-overview.md) pode resultar em impacto dependendo de onde estão localizados os serviços de faturação. Pode eliminar os custos de saída de dados, se criar o serviço de pesquisa do Azure na mesma região que seus dados.
+
++ Não existem custos de quaisquer dados de entrada para qualquer serviço no Azure.
+
++ Não existem custos de quaisquer dados de saída do Azure Search.
+
++ Não existem custos de dados ou ficheiros de saída da BD do SQL, Cosmos, armazenamento de BLOBs (entrada para o Azure Search), desde que todos os serviços estão na mesma região.
+
++ São cobradas tarifas para os ficheiros de dados de saída ou se o armazenamento e o Azure Search estão em diferentes regiões.
+
+Quando o encaminhamento de dados entre regiões do Azure, verá a custos de largura de banda na fatura para esses recursos. Esses custos não fazem parte da sua fatura do Azure Search, mas que são mencionados aqui porque se estiver a utilizar indexadores para extrair dados ou ficheiros durante a transmissão, verá esse custo na sua fatura global.
+
+Se não estiver a utilizar indexadores, não existem não existem custos de largura de banda. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexação enriquecida com os serviços cognitivos
 
-Para [pesquisa cognitiva](cognitive-search-concept-intro.md) apenas, extração de imagem durante a decodificação de documento é cobrada com base no número de imagens extraídos dos seus documentos. Extração de texto é atualmente gratuita. Outra possível com base na [incorporadas capacidades cognitivas](cognitive-search-predefined-skills.md) são faturadas relativamente a um recurso dos serviços cognitivos. Possível é faturadas à mesma tarifa como se tivesse executado a tarefa com os serviços cognitivos diretamente.
-
-Se não estiver a utilizar [pesquisa cognitiva](cognitive-search-concept-intro.md) ou [indexadores do Azure Search](search-indexer-overview.md), os custos da sua únicos estão relacionadas com as réplicas e partições de utilização ativa, para cargas de trabalho regulares de indexação e consulta.
+Para [indexação IA com serviços cognitivos](cognitive-search-concept-intro.md) apenas, extração de imagem durante a decodificação de documento é cobrada com base no número de imagens extraídos dos seus documentos. Extração de texto é atualmente gratuita. Outros possível, como o processamento de linguagem natural, é baseiam [incorporadas capacidades cognitivas](cognitive-search-predefined-skills.md) são faturadas relativamente a um recurso dos serviços cognitivos. Possível é faturadas à mesma tarifa como se tivesse executado a tarefa com os serviços cognitivos diretamente.
 
 <a name="search-units"></a>
 

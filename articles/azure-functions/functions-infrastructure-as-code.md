@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 05/25/2017
+ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 9fc55e2b3ebb1e932a991e0da2c78a980abbc953
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792502"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270908"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de função nas funções do Azure
 
@@ -30,20 +30,26 @@ Para modelos de exemplo, consulte:
 - [Aplicação de funções no plano de consumo]
 - [Aplicação de funções num plano do serviço de aplicações do Azure]
 
+> [!NOTE]
+> O plano Premium para o alojamento das funções do Azure está atualmente em pré-visualização. Para obter mais informações, consulte [plano Premium de funções do Azure](functions-premium-plan.md).
+
 ## <a name="required-resources"></a>Recursos necessários
 
-Uma aplicação de funções requer estes recursos:
+Uma implementação de funções do Azure inclui, normalmente, estes recursos:
 
-* Uma [armazenamento do Azure](../storage/index.yml) conta
-* Um plano de alojamento (plano de consumo ou plano de serviço de aplicações)
-* Uma aplicação de funções 
+| Recurso                                                                           | Requisito | Referência de sintaxe e as propriedades                                                         |   |
+|------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
+| Uma aplicação de funções                                                                     | Necessário    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
+| Uma [armazenamento do Azure](../storage/index.yml) conta                                   | Necessário    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| Uma [Application Insights](../azure-monitor/app/app-insights-overview.md) componente | Opcional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| A [plano de alojamento](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-Para a sintaxe JSON e propriedades para estes recursos, consulte:
+<sup>1</sup>um plano de alojamento só é necessário quando optar por executar a aplicação de funções num [plano Premium](./functions-premium-plan.md) (em pré-visualização) ou numa [plano do App Service](../app-service/overview-hosting-plans.md).
 
-* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
-* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+> [!TIP]
+> Embora não seja necessário, é vivamente recomendado que configurar o Application Insights para a sua aplicação.
 
+<a name="storage"></a>
 ### <a name="storage-account"></a>Conta de armazenamento
 
 Uma conta de armazenamento do Azure é necessária para uma aplicação de funções. Precisa de uma conta de fins gerais que suporta blobs, tabelas, filas e ficheiros. Para obter mais informações, consulte [requisitos de conta de armazenamento das funções do Azure](functions-create-function-app-portal.md#storage-account-requirements).
@@ -52,8 +58,9 @@ Uma conta de armazenamento do Azure é necessária para uma aplicação de funç
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2018-07-01",
     "location": "[resourceGroup().location]",
+    "kind": "StorageV2",
     "properties": {
         "accountType": "[parameters('storageAccountType')]"
     }
@@ -76,15 +83,51 @@ Estas propriedades especificadas a `appSettings` coleção no `siteConfig` objet
         "name": "AzureWebJobsDashboard",
         "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
     }
-```    
+]
+```
+
+### <a name="application-insights"></a>Application Insights
+
+Para monitorizar as suas aplicações de funções, recomenda-se o Application Insights. O recurso do Application Insights está definido com o tipo **Microsoft.Insights/components** e o tipo **web**:
+
+```json
+        {
+            "apiVersion": "2015-05-01",
+            "name": "[variables('appInsightsName')]",
+            "type": "Microsoft.Insights/components",
+            "kind": "web",
+            "location": "[resourceGroup().location]",
+            "tags": {
+                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('functionAppName'))]": "Resource"
+            },
+            "properties": {
+                "Application_Type": "web",
+                "ApplicationId": "[variables('functionAppName')]"
+            }
+        },
+```
+
+Além disso, a chave de instrumentação tem de ser fornecido para a aplicação de função com o `APPINSIGHTS_INSTRUMENTATIONKEY` definição da aplicação. Esta propriedade é especificada na `appSettings` coleção no `siteConfig` objeto:
+
+```json
+"appSettings": [
+    {
+        "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+        "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+    }
+]
+```
 
 ### <a name="hosting-plan"></a>Plano de alojamento
 
-A definição do plano de alojamento varia consoante utilize ou um plano de consumo ou serviço de aplicações. Ver [implementar uma aplicação de funções no plano de consumo](#consumption) e [implementar uma aplicação de funções no plano de serviço de aplicações](#app-service-plan).
+A definição do plano de alojamento varia e pode ser um dos seguintes procedimentos:
+* [Plano de consumo](#consumption) (predefinição)
+* [O plano premium](#premium) (em pré-visualização)
+* [Plano do Serviço de Aplicações](#app-service-plan)
 
-### <a name="function-app"></a>Function app
+### <a name="function-app"></a>Function App
 
-O recurso de aplicação de função é definido usando um recurso do tipo **Microsoft.Web/Site** e o tipo **functionapp**:
+O recurso de aplicação de função é definido usando um recurso do tipo **Microsoft.Web/sites** e o tipo **functionapp**:
 
 ```json
 {
@@ -92,24 +135,65 @@ O recurso de aplicação de função é definido usando um recurso do tipo **Mic
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+```
+
+> [!IMPORTANT]
+> Se está explicitamente definindo um plano de alojamento, seria necessário um item adicional na matriz dependsOn: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+
+Uma aplicação de funções tem de incluir essas configurações de aplicativo:
+
+| Nome da definição                 | Descrição                                                                               | Valores de exemplo                        |
+|------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
+| AzureWebJobsStorage          | Uma cadeia de ligação a um armazenamento de conta de que o runtime das funções de colocação em fila interna | Consulte [conta de armazenamento](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | A versão do runtime das funções do Azure                                                | `~2`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | A pilha de linguagem a ser utilizado para funções nesta aplicação                                   | `dotnet`, `node`, `java`, ou `python` |
+| WEBSITE_NODE_DEFAULT_VERSION | Apenas necessário se utilizar o `node` pilha de linguagem, especifica a versão a utilizar              | `10.14.1`                             |
+
+Estas propriedades especificadas a `appSettings` coleção no `siteConfig` propriedade:
+
+```json
+"properties": {
+    "siteConfig": {
+        "appSettings": [
+            {
+                "name": "AzureWebJobsStorage",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+            },
+            {
+                "name": "FUNCTIONS_WORKER_RUNTIME",
+                "value": "node"
+            },
+            {
+                "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                "value": "10.14.1"
+            },
+            {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+            }
+        ]
+    }
+}
 ```
 
 <a name="consumption"></a>
 
-## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Implementar uma aplicação de funções no plano de consumo
+## <a name="deploy-on-consumption-plan"></a>Implementar no plano de consumo
 
-Pode executar uma aplicação de funções em dois modos diferentes: o plano de consumo e o plano de serviço de aplicações. O plano de consumo aloca automaticamente a potência de computação quando seu código está em execução, aumenta horizontalmente conforme necessário para processar a carga e, em seguida, aumenta diminui quando o código não está em execução. Então, não precisa de pagar as VMs Inativas, e não tiver a capacidade de reserva com antecedência. Para saber mais sobre os planos de alojamento, veja [planos de consumo de funções do Azure e o serviço de aplicações](functions-scale.md).
+O plano de consumo aloca automaticamente a potência de computação quando seu código está em execução, aumenta horizontalmente conforme necessário para processar a carga e, em seguida, aumenta diminui quando o código não está em execução. Não é necessário pagar as VMs Inativas e não tiver a capacidade de reserva com antecedência. Para obter mais informações, consulte [as funções do Azure dimensionamento e alojamento](functions-scale.md#consumption-plan).
 
 Para um modelo do Azure Resource Manager de exemplo, consulte [aplicação de funções no plano de consumo].
 
 ### <a name="create-a-consumption-plan"></a>Criar um plano de consumo
 
-Plano de consumo é um tipo especial de recurso de "farm de servidores". Especificou utilizando o `Dynamic` o valor para o `computeMode` e `sku` propriedades:
+Plano de consumo não precisa ser definido. Um será automaticamente criado ou selecionado numa base por região, quando criar o recurso de aplicação de função em si.
+
+O plano de consumo é um tipo especial de recurso de "farm de servidores". Para Windows, pode especificá-lo utilizando o `Dynamic` o valor para o `computeMode` e `sku` propriedades:
 
 ```json
 {
@@ -125,29 +209,30 @@ Plano de consumo é um tipo especial de recurso de "farm de servidores". Especif
 }
 ```
 
+> [!NOTE]
+> O plano de consumo não é possível definir explicitamente para Linux. Esta será criada automaticamente.
+
+Se definir explicitamente o seu plano de consumo, terá de definir o `serverFarmId` propriedade na aplicação, de modo que ele aponta para o ID de recurso do plano. Deve garantir que a aplicação de função tem um `dependsOn` definição para o plano também.
+
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
-Além disso, o plano de consumo requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Estas propriedades de configurar o caminho de ficheiro e da conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas.
+#### <a name="windows"></a>Windows
+
+No Windows, o plano de consumo requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Estas propriedades de configurar o caminho de ficheiro e da conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas.
 
 ```json
 {
-    "apiVersion": "2015-08-01",
+    "apiVersion": "2016-03-01",
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     ],
     "properties": {
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
             "appSettings": [
-                {
-                    "name": "AzureWebJobsDashboard",
-                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
-                },
                 {
                     "name": "AzureWebJobsStorage",
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
@@ -161,24 +246,149 @@ Além disso, o plano de consumo requer duas definições adicionais na configura
                     "value": "[toLower(variables('functionAppName'))]"
                 },
                 {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
-                    "value": "~1"
+                    "value": "~2"
                 }
             ]
         }
     }
 }
-```                    
+```
+
+#### <a name="linux"></a>Linux
+
+No Linux, a aplicação de funções tem de ter sua `kind` definido como `functionapp,linux`, e tem de ter o `reserved` definida como `true`:
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp,linux",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountName'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        },
+        "reserved": true
+    }
+}
+```
+
+
+
+<a name="premium"></a>
+
+## <a name="deploy-on-premium-plan"></a>Implementar o plano Premium
+
+O plano Premium oferece o mesmo dimensionamento como o plano de consumo, mas inclui recursos dedicados e capacidades adicionais. Para obter mais informações, consulte [plano do Azure funções Premium (pré-visualização)](./functions-premium-plan.md).
+
+### <a name="create-a-premium-plan"></a>Criar um plano Premium
+
+Um plano Premium é um tipo especial de recurso de "farm de servidores". Pode especificá-lo através de um `EP1`, `EP2`, ou `EP3` para o `sku` valor da propriedade.
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "sku": "EP1"
+    }
+}
+```
+
+### <a name="create-a-function-app"></a>Criar uma aplicação de função
+
+Uma aplicação de funções num plano Premium tem de ter o `serverFarmId` propriedade definida para o ID de recurso do plano que criou anteriormente. Além disso, um plano Premium requer duas definições adicionais na configuração do site: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE`. Estas propriedades de configurar o caminho de ficheiro e da conta de armazenamento onde o código de aplicação de função e a configuração são armazenadas.
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",            
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "WEBSITE_CONTENTSHARE",
+                    "value": "[toLower(variables('functionAppName'))]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        }
+    }
+}
+```
+
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Implementar uma aplicação de funções no plano de serviço de aplicações
+## <a name="deploy-on-app-service-plan"></a>Implementar o plano do serviço de aplicações
 
-No plano do serviço de aplicações, a aplicação function app é executada em VMs dedicadas no básico, Standard e Premium SKUs, semelhante aos aplicativos web. Para obter detalhes sobre como funciona o plano do serviço de aplicações, consulte a [descrição geral aprofundada dos planos do App Service do Azure](../app-service/overview-hosting-plans.md). 
+No plano do serviço de aplicações, a aplicação function app é executada em VMs dedicadas no básico, Standard e Premium SKUs, semelhante aos aplicativos web. Para obter detalhes sobre como funciona o plano do serviço de aplicações, consulte a [descrição geral aprofundada dos planos do App Service do Azure](../app-service/overview-hosting-plans.md).
 
 Para um modelo do Azure Resource Manager de exemplo, consulte [aplicação de funções num plano do serviço de aplicações do Azure].
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
+
+Um plano do serviço de aplicações é definido por um recurso de "farm de servidores".
 
 ```json
 {
@@ -196,9 +406,169 @@ Para um modelo do Azure Resource Manager de exemplo, consulte [aplicação de fu
 }
 ```
 
+Para executar a aplicação no Linux, também tem de definir o `kind` para `Linux`:
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2015-04-01",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "Linux",
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "sku": "[parameters('sku')]",
+        "workerSize": "[parameters('workerSize')]",
+        "hostingEnvironment": "",
+        "numberOfWorkers": 1
+    }
+}
+```
+
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função 
 
-Depois de selecionar uma opção de dimensionamento, crie uma aplicação de funções. A aplicação é o contentor que retém todas as suas funções.
+Uma aplicação de funções num plano do serviço de aplicações tem de ter o `serverFarmId` propriedade definida para o ID de recurso do plano que criou anteriormente.
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ]
+        }
+    }
+}
+```
+
+Aplicações do Linux também devem incluir uma `linuxFxVersion` propriedade em `siteConfig`. Se estiver a implementar apenas código, o valor para que isso é determinado pela sua pilha de tempo de execução desejado:
+
+| Pilha            | Valor de exemplo                                         |
+|------------------|-------------------------------------------------------|
+| Python (Pré-visualização) | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
+| JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
+| .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                }
+            ],
+            "linuxFxVersion": "DOCKER|microsoft/azure-functions-node8:2.0"
+        }
+    }
+}
+```
+
+Se estiver [implantação de uma imagem de contentor personalizado](./functions-create-function-linux-custom-image.md), tem de especificar com `linuxFxVersion` e incluir a configuração permite que sua imagem ser solicitada, como em [aplicação Web para contentores](/azure/app-service/containers). Além disso, defina `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para `false`, uma vez que o conteúdo da sua aplicação é fornecido no próprio contêiner:
+
+```json
+{
+    "apiVersion": "2016-03-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('functionAppName')]",
+    "location": "[resourceGroup().location]",
+    "kind": "functionapp",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "siteConfig": {
+            "appSettings": [
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+                },
+                {
+                    "name": "FUNCTIONS_WORKER_RUNTIME",
+                    "value": "node"
+                },
+                {
+                    "name": "WEBSITE_NODE_DEFAULT_VERSION",
+                    "value": "10.14.1"
+                },
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~2"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_URL",
+                    "value": "[parameters('dockerRegistryUrl')]"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                    "value": "[parameters('dockerRegistryUsername')]"
+                },
+                {
+                    "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                    "value": "[parameters('dockerRegistryPassword')]"
+                },
+                {
+                    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                    "value": "false"
+                }
+            ],
+            "linuxFxVersion": "DOCKER|myacr.azurecr.io/myimage:mytag"
+        }
+    }
+}
+```
+
+## <a name="customizing-a-deployment"></a>Personalizar uma implantação
 
 Uma aplicação de funções tem muitos recursos filho que podem ser utilizados na sua implementação, incluindo as definições da aplicação e opções de controle de origem. Também pode optar por remover o **sourcecontrols** recurso subordinado e utilize outro [opção de implementação](functions-continuous-deployment.md) em vez disso.
 
@@ -221,8 +591,14 @@ Uma aplicação de funções tem muitos recursos filho que podem ser utilizados 
      "siteConfig": {
         "alwaysOn": true,
         "appSettings": [
-            { "name": "FUNCTIONS_EXTENSION_VERSION", "value": "~1" },
-            { "name": "Project", "value": "src" }
+            {
+                "name": "FUNCTIONS_EXTENSION_VERSION",
+                "value": "~2"
+            },
+            {
+                "name": "Project",
+                "value": "src"
+            }
         ]
      }
   },
@@ -238,7 +614,10 @@ Uma aplicação de funções tem muitos recursos filho que podem ser utilizados 
         ],
         "properties": {
           "AzureWebJobsStorage": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]",
-          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+          "AzureWebJobsDashboard": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]",
+          "FUNCTIONS_EXTENSION_VERSION": "~2",
+          "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+          "Project": "src"
         }
      },
      {

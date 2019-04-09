@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486143"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277600"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -99,7 +99,7 @@ O **pré-condição** elementos contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Value | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
+| Valor | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
 | Ação | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
 
 #### <a name="preconditions-examples"></a>Exemplos de pré-condições
@@ -177,7 +177,7 @@ O **ClaimsProviderSelection** elemento contém os seguintes atributos:
 
 ### <a name="claimsproviderselection-example"></a>Exemplo de ClaimsProviderSelection
 
-O seguinte passo de orquestração, o utilizador pode optar por iniciar sessão com Facebook, LinkIn, Twitter, Google ou uma conta local. Se o usuário seleciona um dos fornecedores de identidade de redes sociais, o segundo passo de orquestração é executado com o exchange de afirmação selecionado especificado no `TargetClaimsExchangeId` atributo. O segundo passo de orquestração redirecionará o usuário para o fornecedor de identidade de redes sociais para concluir o processo de início de sessão. Se o utilizador optar por iniciar sessão com a conta local, o Azure AD B2C mantém-se no passo de orquestração mesmo (a mesma página de inscrição ou início de sessão da página) e ignora o segundo passo de orquestração.
+O seguinte passo de orquestração, o utilizador pode optar por iniciar sessão com Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o usuário seleciona um dos fornecedores de identidade de redes sociais, o segundo passo de orquestração é executado com o exchange de afirmação selecionado especificado no `TargetClaimsExchangeId` atributo. O segundo passo de orquestração redirecionará o usuário para o fornecedor de identidade de redes sociais para concluir o processo de início de sessão. Se o utilizador optar por iniciar sessão com a conta local, o Azure AD B2C mantém-se no passo de orquestração mesmo (a mesma página de inscrição ou início de sessão da página) e ignora o segundo passo de orquestração.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

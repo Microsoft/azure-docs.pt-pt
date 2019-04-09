@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088660"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265644"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilize o serviço importar/exportar do Azure para importar dados para ficheiros do Azure
 
@@ -30,7 +30,7 @@ Antes de criar uma tarefa de importação para transferir dados para ficheiros d
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows em execução uma [versão do SO suportado](storage-import-export-requirements.md#supported-operating-systems).
 - [Baixe o versão 2 do WAImportExport](https://aka.ms/waiev2) no sistema Windows. Deszipe o para a pasta predefinida `waimportexport`. Por exemplo, `C:\WaImportExport`.
-- Ter uma conta de FedEx/DHL. 
+- Ter uma conta de FedEx/DHL. Se pretender utilizar uma operadora que não seja FedEx/DHL, contacte a equipa de operações de caixa de dados do Azure em `adbops@microsoft.com`.  
     - A conta tem de ser válida, deve ter o saldo e tem de ter capacidades de envio de devolução.
     - Gere um número de controlo para a tarefa de exportação.
     - Cada tarefa deve ter um número de controlo separado. Várias tarefas com o mesmo número de controlo não são suportadas.
@@ -145,7 +145,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
 4. Na **devolver informações sobre o envio**:
 
-    - Selecione a deteção de carrier da lista pendente.
+    - Selecione a deteção de carrier da lista pendente. Se pretender utilizar uma operadora que não seja FedEx/DHL, escolha uma opção existente na lista pendente. Equipe de operações de caixa de dados do contacto do Azure em `adbops@microsoft.com` com as informações sobre a operadora que pretende utilizar.
     - Introduza um número de conta de operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades-se ao assim que a tarefa de importação estiver concluída. 
     - Forneça um nome de contato completo e válido, telefone, e-mail, rua, cidade, zip, estado/província e país/região.
 

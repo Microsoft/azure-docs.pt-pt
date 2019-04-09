@@ -86,12 +86,6 @@ items:
       href: platform/data-ingestion-time.md
     - name: Métricas personalizadas para o arquivo de métricas
       href: platform/metrics-custom-overview.md
-  - name: Analisar dados de registo
-    items:
-    - name: Registar consultas
-      href: log-query/log-query-overview.md
-    - name: Portais de consulta do registo
-      href: log-query/portals.md
   - name: Segurança de dados
     items:
     - name: Dados de registo
@@ -327,6 +321,8 @@ items:
           items:
           - name: Gerador de perfis para os serviços de Aplicação do Linux (pré-visualização)
             href: app/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core sem o Visual Studio
+          href: app/asp-net-core-no-visualstudio.md
         - name: Consola
           href: app/console.md
         - name: Dashboard de aplicações
@@ -611,6 +607,8 @@ items:
           href: insights/vminsights-maps.md
         - name: Monitorizar desempenho
           href: insights/vminsights-performance.md
+        - name: Utilizar livros
+          href: insights/vminsights-workbooks.md
         - name: Consultar dados com o Log Analytics
           href: insights/vminsights-log-search.md
         - name: Desativar a monitorização
@@ -680,18 +678,20 @@ items:
       href: platform/grafana-plugin.md
   - name: Analisar dados
     items:
-    - name: Introdução ao Explorador de Métricas
-      href: platform/metrics-getting-started.md
-    - name: Funcionalidades avançadas do Explorador de Métricas
-      href: platform/metrics-charts.md
-    - name: Exemplos de gráficos de métricas
-      href: platform/metric-chart-samples.md
-    - name: Ver eventos no registo de atividades
-      href: ../azure-resource-manager/resource-group-audit.md
-    - name: Ver notificações do serviço
-      href: platform/service-notifications.md
-    - name: Consultar dados de registo
+    - name: Métricas
       items:
+      - name: Introdução ao Explorador de Métricas
+        href: platform/metrics-getting-started.md
+      - name: Funcionalidades avançadas do Explorador de Métricas
+        href: platform/metrics-charts.md
+      - name: Exemplos de gráficos de métricas
+        href: platform/metric-chart-samples.md
+    - name: Registos
+      items:
+      - name: Registar consultas
+        href: log-query/log-query-overview.md
+      - name: Portais de consulta do registo
+        href: log-query/portals.md
       - name: Documentação de linguagem de consulta
         href: log-query/query-language.md
       - name: Diferenças de idioma
@@ -766,6 +766,10 @@ items:
         href: platform/flow-tutorial.md
       - name: API de Pesquisas de Registos
         href: https://dev.loganalytics.io/
+    - name: Ver eventos no registo de atividades
+      href: ../azure-resource-manager/resource-group-audit.md
+    - name: Ver notificações do serviço
+      href: platform/service-notifications.md
   - name: Responder a incidentes
     items:
     - name: Alertas
@@ -1067,9 +1071,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886646"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261161"

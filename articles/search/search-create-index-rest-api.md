@@ -1,7 +1,7 @@
 ---
-title: Criar, carregar e consultar um índice com o PowerShell e a API REST - Azure Search
-description: Criar, carregar e consultar um índice com o PowerShell, Invoke-RestMethod e a API de REST do Azure Search.
-ms.date: 03/15/2019
+title: 'Início rápido: Criar, carregar e consultar um índice com o PowerShell e a API REST - Azure Search'
+description: Criar, carregar e consultar um índice através do PowerShell Invoke RestMethod e a API de REST do Azure Search.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372119"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268029"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Início rápido: Criar um índice da Azure Search com o PowerShell e a API REST
 > [!div class="op_single_selector"]
@@ -29,19 +29,23 @@ Este artigo o orienta pelo processo de criação, para carregar e consultar um A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. Outros pré-requisitos incluem os seguintes itens.
+Os seguintes serviços e ferramentas são utilizadas neste início rápido. 
+
+[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. 
 
 [PowerShell 5.1 ou posterior](https://github.com/PowerShell/PowerShell), utilizando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para obter os passos seqüenciais e interativos.
 
-Obter o ponto final do URL e o administrador a chave de api do seu serviço de pesquisa. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
+## <a name="get-a-key-and-url"></a>Obter uma chave e o URL
 
-1. No portal do Azure, no seu serviço de pesquisa **descrição geral** página, obter o URL. Um ponto de extremidade de exemplo poderá ser semelhante a https:\//my-service-name.search.windows.net.
+As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
+
+1. [Inicie sessão no portal do Azure](https://portal.azure.com/)e no seu serviço de pesquisa **descrição geral** página, obter o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
 2. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
 
-   ![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
 
-   Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
+Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="connect-to-azure-search"></a>Ligar ao Azure Search
 

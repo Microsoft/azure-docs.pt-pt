@@ -1,6 +1,6 @@
 ---
-title: Fluxo de código de autorização de OAuth do Azure AD v2.0 | Documentos da Microsoft
-description: Criando aplicativos web com implementação do Azure AD do protocolo de autenticação OAuth 2.0.
+title: Plataforma de identidade da Microsoft e o fluxo de código de autorização do OAuth | Azure
+description: Criando aplicativos web usando a implementação da plataforma de identidade Microsoft do protocolo de autenticação OAuth 2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,20 +12,20 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2019
+ms.topic: conceptual
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880270"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263524"
 ---
-# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
+# <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e de fluxo de código de autorização de OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -34,7 +34,7 @@ A concessão de código de autorização de OAuth 2.0 pode ser utilizada nas apl
 > [!NOTE]
 > Nem todos os cenários do Azure Active Directory e funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
 
-O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Ele é usado para realizar a autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [instalado nativamente aplicações](v2-app-types.md#mobile-and-native-apps). O fluxo permite que aplicações em segurança adquirir access_tokens que pode ser utilizado para aceder aos recursos protegidos pelo ponto final v2.0. 
+O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Ele é usado para realizar a autenticação e autorização na maioria dos tipos de aplicações, incluindo [aplicações web](v2-app-types.md#web-apps) e [instalado nativamente aplicações](v2-app-types.md#mobile-and-native-apps). O fluxo permite que aplicações em segurança adquirir access_tokens que pode ser utilizado para aceder aos recursos protegidos pelo ponto final v2.0.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 

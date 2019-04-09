@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338162"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278399"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registar uma aplicação no Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Se ainda não tiver criado o seu [inquilino do Azure AD B2C](tutorial-create-ten
 
 ## <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
-Se estiver aplicativo troca um código de um token, terá de criar um segredo de aplicação.
+Se seu aplicativo troca um código de um token, terá de criar um segredo de aplicação.
 
 1. Selecione **chaves** e, em seguida, clique em **gerar chave**.
 2. Selecione **guardar** para ver a chave. Anote o valor da **Chave da aplicação**. Utilize o valor como o segredo de aplicação no código da aplicação.

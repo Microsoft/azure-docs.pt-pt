@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268726"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
 As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -45,6 +45,7 @@ Para alcançar a continuidade do negócio abrangente no Azure, crie a sua arquit
 - França Central
 - Europa do Norte
 - Sudeste Asiático 
+- Sul do Reino Unido&#42;
 - Europa Ocidental
 - EUA Oeste 2
 
@@ -57,8 +58,8 @@ Os serviços do Azure que suportam as zonas de disponibilidade são:
 - Máquinas Virtuais do Windows
 - Conjuntos de Dimensionamento de Máquinas Virtuais
 - Managed Disks
-- Load balancer
-- Endereço IP público
+- Balanceador de carga Standard&#42;
+- Endereço IP público Standard&#42;
 - Armazenamento com redundância entre zonas
 
 - SQL Database
@@ -67,6 +68,8 @@ Os serviços do Azure que suportam as zonas de disponibilidade são:
 - Gateway de VPN
 - ExpressRoute
 - Gateway de aplicação (pré-visualização)
+
+&#42;Recursos criados no sul do Reino Unido, antes de 25 de Março de 2019 em breve será convertido para ser com redundância de zona. Recursos criados após a 25 de Março de 2019 será com redundância de zona imediatamente.
 
 ## <a name="services-resiliency"></a>Resiliência de serviços
 Todos os serviços de gestão do Azure têm uma arquitetura para ser resiliente de falhas de nível de região. O espectro de falhas, uma ou mais falhas de zona de disponibilidade numa região tem um raio de falha mais pequeno em comparação com uma falha de região inteira. Azure pode recuperar de uma falha de nível de zona dos serviços de gestão dentro da região ou em outra região do Azure. O Azure efetua a zona de uma manutenção crítica por vez numa região, para evitar quaisquer falhas que afetam o recursos de cliente implementados em zonas de disponibilidade numa região.
@@ -81,8 +84,9 @@ Não existe nenhum custo adicional para máquinas virtuais implementadas numa zo
 - [Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Balancear carga de VMs por zonas com um balanceador de carga Standard com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Balancear carga de VMs dentro de uma zona com um balanceador de carga Standard com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Armazenamento com redundância entre zonas](../storage/common/storage-redundancy-zrs.md)
-- [Base de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Armazenamento com redundância entre zonas
+](../storage/common/storage-redundancy-zrs.md)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Recuperação após desastre geográfica dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação após desastre geográfica do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895837"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267060"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Preparar a sua versão do Active Directory da aplicação LUIS 
 
@@ -43,6 +43,10 @@ Para iniciar o processo interativo no [portal de LUIS](https://www.luis.ai), pri
 
 >[!NOTE]
 >Se tiver uma ou mais objetivos na sua aplicação que não contêm as expressões de exemplo, não é possível preparar a sua aplicação. Adicione expressões para todos os seus objetivos. Para obter mais informações, consulte [adicionar expressões de exemplo](luis-how-to-add-example-utterances.md).
+
+## <a name="training-date-and-time"></a>Treinamento de data e hora
+
+Treinamento de data e hora é GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 

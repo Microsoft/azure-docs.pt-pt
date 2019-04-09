@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667487"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268522"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric Reliable Services
 
@@ -369,7 +369,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### <a name="default-key-mapping"></a>Chave predefinida de mapeamento
-Por predefinição, o fornecedor do Service Fabric configuraiton inclui nome do pacote, o nome de secção e o nome da propriedade para formar a configuração do asp.net core com os seguintes função da chave:
+Por predefinição, o fornecedor de configuração do Service Fabric inclui o nome do pacote, o nome de secção e o nome da propriedade para formar a configuração do asp.net core com os seguintes função da chave:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
@@ -472,7 +472,7 @@ Quando exposto à Internet, um serviço sem estado deve utilizar um ponto final 
 |  |  | **Notas** |
 | --- | --- | --- |
 | Servidor Web | Kestrel | Kestrel é o servidor web preferencial, dado que é suportada em Windows e Linux. |
-| Configuração da porta | estático | Uma porta estática bem conhecida deve ser configurada no `Endpoints` configuração do servicemanifest. XML, por exemplo 80 para HTTP ou 443 para HTTPS. |
+| Configuração da porta | Estático | Uma porta estática bem conhecida deve ser configurada no `Endpoints` configuração do servicemanifest. XML, por exemplo 80 para HTTP ou 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | Nenhuma | O `ServiceFabricIntegrationOptions.None` opção deve ser utilizada quando configurar o middleware de integração do Service Fabric, para que o serviço não tenta validar pedidos recebidos para um identificador exclusivo. Utilizadores externos do seu aplicativo não saberá que as informações de identificação exclusivas usadas pelo middleware. |
 | Contagem de Instâncias | -1 | Em casos de utilização típicos, a definição da contagem de instância deve ser definida como "-1" para que uma instância está disponível em todos os nós que recebem o tráfego de um balanceador de carga. |
 

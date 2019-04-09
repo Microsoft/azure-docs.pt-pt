@@ -17,12 +17,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fb463b1ac8664838404a7dfcd0380da8f3358d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889499"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260940"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sincronização) com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health para Sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Active Directory com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health com AD DS](how-to-connect-health-adds.md).
@@ -55,7 +55,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 |  Servidor |Agrupa o total de pedidos com base no servidor que os processou. Este agrupamento é útil para entender a distribuição de carga do tráfego total.
 | Associação à área de trabalho |Agrupa o total de pedidos consoante sejam provenientes de dispositivos que estão associados à área de trabalho (conhecidos). Este agrupamento é útil para entender se os recursos são acedidos através de dispositivos que são desconhecidos da infraestrutura de identidade. |
 |  Método de Autenticação | Agrupa o total de pedidos com base no método de autenticação utilizado para a autenticação. Este agrupamento é útil para entender o método de autenticação comum que é utilizado para autenticação. Seguem-se os métodos de autenticação possíveis <ol> <li>Autenticação Integrada do Windows (Windows)</li> <li>Autenticação Baseada em Formulários (Formulários)</li> <li>SSO (Início de Sessão Único)</li> <li>Autenticação de Certificados X509 (Certificado)</li> <br>Se os servidores de federação receberem o pedido com um Cookie de SSO, esse pedido é contabilizado como SSO (Início de Sessão Único). Nestes casos, se o cookie for válido, o utilizador não é solicitado a fornecer credenciais e obtém acesso totalmente integrado à aplicação. Este comportamento é comum se tiver várias entidades confiadoras protegidas pelos servidores de federação. |
-| Localização na Rede | Agrupa o total de pedidos com base na localização na rede do utilizador. Pode ser intranet ou extranet. Este agrupamento é útil para saber que percentagem do tráfego provêm da intranet versus a extranet. |
+| Localização de rede | Agrupa o total de pedidos com base na localização na rede do utilizador. Pode ser intranet ou extranet. Este agrupamento é útil para saber que percentagem do tráfego provêm da intranet versus a extranet. |
 
 
 **Métrica: Total de pedidos falhados** -o número total de pedidos falhados processados pelo serviço de Federação. (Esta métrica só está disponível no AD FS para o Windows Server 2012 R2)
@@ -64,7 +64,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 | --- | --- |
 | Tipo de Erro | Mostra o número de erros com base em tipos de erros predefinidos. Este agrupamento é útil para entender os tipos comuns de erros. <ul><li>Nome de utilizador incorreta ou palavra-passe: Erros devido a nome de utilizador incorreta ou a palavra-passe.</li> <li>"Bloqueio de extranet": Falhas devido a pedidos recebida de um utilizador que foi bloqueado da extranet </li><li> "Palavra-passe expirada": Falhas devido a utilizadores iniciar sessão com uma palavra-passe expirada.</li><li>"Conta desativada": Falhas devido a utilizadores iniciar sessão com uma conta desabilitada.</li><li>"Autenticação do dispositivo": Falhas devido a utilizadores que não se autenticam utilizando a autenticação do dispositivo.</li><li>"Autenticação de certificados de utilizador": Falhas devido a utilizadores que não se autenticam devido a um certificado inválido.</li><li>"MFA": Falhas devido utilizadores que não se autenticam utilizando o multi-factor Authentication.</li><li>"Outras credenciais": "Autorização de emissão": Falhas devido a falhas de autorização.</li><li>"Delegação de emissão": Falhas devido a erros de delegação de emissão.</li><li>"Aceitação de token": Falhas devido ao ADFS rejeitar o token de um fornecedor de identidade de terceiros.</li><li>"Protocol": Falha devido a erros de protocolo.</li><li>"Desconhecido": Captura todas as. Todas as outras falhas que não se encaixem nas categorias definidas.</li> |
 | Servidor | Agrupa os erros com base no servidor. Este agrupamento é útil para entender a distribuição de erros pelos servidores. Uma distribuição desigual pode indicar um servidor num estado defeituoso. |
-| Localização na Rede | Agrupa os erros com base na localização na rede dos pedidos (intranet vs. extranet). Este agrupamento é útil para entender o tipo de pedidos que estão a falhar. |
+| Localização de rede | Agrupa os erros com base na localização na rede dos pedidos (intranet vs. extranet). Este agrupamento é útil para entender o tipo de pedidos que estão a falhar. |
 |  Aplicação | Agrupa as falhas com base na aplicação de destino (entidade confiadora). Este agrupamento é útil para compreender que aplicação de destino está a ter o maior número de erros. |
 
 **Métrica: O número de utilizadores** – média número de utilizadores exclusivos em autenticação ativa com o AD FS
@@ -120,5 +120,5 @@ O relatório disponibiliza as seguintes informações:
 ## <a name="related-links"></a>Ligações relacionadas
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Relatório de IP arriscado ](how-to-connect-health-adfs-risky-ip.md)
+* [Relatório de IP arriscado](how-to-connect-health-adfs-risky-ip.md)
 

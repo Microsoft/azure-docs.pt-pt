@@ -4,234 +4,206 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/06/2017
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dcd39d58089b202d9e9d61cfc5d25e12ff7a6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217773"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Active Directory do Azure com Vodeclic
 
 Neste tutorial, saiba como integrar Vodeclic com o Azure Active Directory (Azure AD).
-
 Integrar Vodeclic no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Vodeclic.
-- Pode permitir que os utilizadores automaticamente é feita para Vodeclic (início de sessão único, ou SSO) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central, o portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Vodeclic.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Vodeclic (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Vodeclic, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Uma subscrição Vodeclic SSO ativado
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, siga as seguintes recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, [obtenha uma avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
+* Vodeclic logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Vodeclic da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-## <a name="add-vodeclic-from-the-gallery"></a>Adicionar Vodeclic a partir da Galeria
+* Suporta Vodeclic **SP** e **IDP** iniciada SSO
+
+## <a name="adding-vodeclic-from-the-gallery"></a>Adicionando Vodeclic da Galeria
+
 Para configurar a integração do Vodeclic com o Azure AD, terá de adicionar Vodeclic a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Vodeclic a partir da galeria, siga os passos seguintes:**
+**Para adicionar Vodeclic a partir da galeria, execute os seguintes passos:**
 
-1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Aceda a **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Vodeclic**. Selecione **Vodeclic** no painel de resultados e, em seguida, selecione a **Add** botão para adicionar a aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Vodeclic na lista de resultados](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **Vodeclic**, selecione **Vodeclic** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+
+     ![Vodeclic na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Vodeclic com base num utilizador de teste chamado "Eduarda Almeida."
+Nesta secção, configure e teste do Azure AD início de sessão único com Vodeclic com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Vodeclic deve ser estabelecido.
 
-Para o início de sessão único funcione, o Azure AD precisa saber que o utilizador de contraparte no Vodeclic for para um utilizador no Azure AD. Em outras palavras, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado no Vodeclic.
+Para configurar e testar o Azure AD início de sessão único com Vodeclic, tem de concluir os seguintes blocos de construção:
 
-Na Vodeclic, atribua o valor **nome de utilizador** o mesmo valor como **nome de utilizador** no Azure AD. Agora que estabeleceu a ligação entre os dois usuários.
-
-Para configurar e testar o Azure AD início de sessão único com Vodeclic, conclua os seguintes blocos de construção:
-
-1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
-1. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. [Criar um utilizador de teste Vodeclic](#create-a-vodeclic-test-user) ter um equivalente da Eduarda Almeida na Vodeclic que está ligado a representação do Azure AD do utilizador.
-1. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar Vodeclic Single Sign-On](#configure-vodeclic-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Vodeclic](#create-vodeclic-test-user)**  - para ter um equivalente da Eduarda Almeida na Vodeclic que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Vodeclic.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Vodeclic, siga os passos seguintes:**
+Para configurar o Azure AD início de sessão único com Vodeclic, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Vodeclic** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Vodeclic** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Na **início de sessão único** caixa de diálogo em **modo de início de sessão único**, selecione **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Se quiser configurar a aplicação no **IDP** iniciadas pelo modo, na **Vodeclic domínio e URLs** secção, siga os passos seguintes:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Informações de início de sessão de único Vodeclic domínio e URLs](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **identificador** caixa, escreva um URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **URL de resposta** caixa, escreva um URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
 
-1. Se quiser configurar a aplicação no **SP** modo iniciado, selecione a **Mostrar definições de URL avançadas** caixa de verificação e executar os seguintes passos:
+    ![Vodeclic domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
-    ![Informações de início de sessão de único Vodeclic domínio e URLs](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
 
-    Na **URL de início de sessão** caixa, escreva um URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
-     
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e início de sessão no URL. Contacte os [equipa de suporte de cliente Vodeclic](mailto:hotline@vodeclic.com) obter esses valores.
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-1. Na **certificado de assinatura SAML** secção, selecione **XML de metadados**. Em seguida, guarde o ficheiro de metadados no seu computador.
+5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![O link de download de certificado](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
+    ![Vodeclic domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
-1. Selecione **Guardar**.
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<companyname>.lms.vodeclic.net/auth/saml`
 
-    ![Configurar o botão único início de sessão em Guardar](./media/vodeclic-tutorial/tutorial_general_400.png)
-    
-1. Para configurar o início de sessão único no **Vodeclic** lado, envie o transferido **XML de metadados** para o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente Vodeclic](mailto:hotline@vodeclic.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com) enquanto estiver a configurar a aplicação. Depois de adicionar esta aplicação a partir da **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e acessar o embedded documentação através da **configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded em [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+    ![O link de download de certificado](common/metadataxml.png)
+
+7. Sobre o **configurar Vodeclic** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Identificador do Azure AD
+
+    c. URL de fim de sessão
+
+### <a name="configure-vodeclic-single-sign-on"></a>Configurar Vodeclic Single Sign-On
+
+Para configurar o início de sessão único num **Vodeclic** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [Vodeclic a equipa de suporte](mailto:hotline@vodeclic.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, siga os passos seguintes:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, selecione o **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/vodeclic-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**. Em seguida, selecione **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/vodeclic-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **utilizador** caixa de diálogo, selecione **Add** na parte superior do **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/vodeclic-tutorial/create_aaduser_03.png)
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-1. Na **utilizador** diálogo caixa, siga os passos seguintes:
-
-    ![A caixa de diálogo de utilizador](./media/vodeclic-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
-
-    d. Selecione **Criar**.
- 
-### <a name="create-a-vodeclic-test-user"></a>Criar um utilizador de teste Vodeclic
-
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vodeclic. Trabalhar com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com) para adicionar os utilizadores na plataforma Vodeclic. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
-
-> [!NOTE]
-> De acordo com requisitos de aplicações, poderá ter de obter a lista de permissões de máquina. Para que isso aconteça, precisa compartilhar seu endereço IP público com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Vodeclic.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Vodeclic**.
 
-**Para atribuir a Eduarda Almeida a Vodeclic, siga os passos seguintes:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, vá para o modo de exibição do diretório. Em seguida, aceda a **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+2. Na lista de aplicações, selecione **Vodeclic**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de Vodeclic na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **Vodeclic**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de Vodeclic na lista de aplicações](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, selecione **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Selecione o **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** no **utilizadores** lista.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione a **selecione** botão.
+### <a name="create-vodeclic-test-user"></a>Criar utilizador de teste Vodeclic
 
-1. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
-    
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vodeclic. Trabalhar com [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com) para adicionar os utilizadores na plataforma Vodeclic. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
+> [!NOTE]
+> De acordo com requisitos de aplicações, poderá ter de obter a lista de permissões de máquina. Para que isso aconteça, precisa compartilhar seu endereço IP público com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com).
 
-Ao selecionar o mosaico Vodeclic no painel de acesso, obter automaticamente conectado à sua aplicação Vodeclic.
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-## <a name="additional-resources"></a>Recursos adicionais
+Quando clica no mosaico Vodeclic no painel de acesso, deve ser automaticamente sessão iniciada no Vodeclic para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+## <a name="additional-resources"></a>Recursos Adicionais
 
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/vodeclic-tutorial/tutorial_general_01.png
-[2]: ./media/vodeclic-tutorial/tutorial_general_02.png
-[3]: ./media/vodeclic-tutorial/tutorial_general_03.png
-[4]: ./media/vodeclic-tutorial/tutorial_general_04.png
-
-[100]: ./media/vodeclic-tutorial/tutorial_general_100.png
-
-[200]: ./media/vodeclic-tutorial/tutorial_general_200.png
-[201]: ./media/vodeclic-tutorial/tutorial_general_201.png
-[202]: ./media/vodeclic-tutorial/tutorial_general_202.png
-[203]: ./media/vodeclic-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

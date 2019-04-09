@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885732"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264034"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -22,7 +22,7 @@ O Azure Search é um recurso de autónomo utilizado para serem incorporados numa
 
 Neste artigo, saiba como criar um recurso do Azure Search no [portal do Azure](https://portal.azure.com/).
 
-[![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda com a introdução, consulte [gerir o Azure Search com o PowerShell](search-manage-powershell.md).
 
@@ -54,11 +54,11 @@ Requisitos do nome do serviço:
 * Evite hífenes ("-") nos primeiro 2 carateres ou como último caráter único
 * Sem hífenes consecutivos ("-") em qualquer parte
 
-## <a name="select-a-subscription"></a>Selecionar uma subscrição
+## <a name="select-a-subscription"></a>Selecione uma subscrição
 
 Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. O Azure Search pode deteção automática de tabelas do Azure e BLOBs de armazenamento, base de dados SQL e do Azure Cosmos DB para indexação através de [ *indexadores*](search-indexer-overview.md), mas apenas para serviços na mesma subscrição.
 
-## <a name="select-a-resource-group"></a>Selecionar um grupo de recursos
+## <a name="select-a-resource-group"></a>Selecione um grupo de recursos
 
 Um grupo de recursos é uma coleção de serviços e recursos do Azure utilizados em conjunto. Por exemplo, se estiver a utilizar o Azure Search para indexar uma base de dados SQL, ambos os serviços devem fazer parte do mesmo grupo de recursos.
 
@@ -71,7 +71,7 @@ Se não é a combinação de recursos num único grupo, ou se os grupos de recur
 
 Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. [Os preços podem ser diferentes](https://azure.microsoft.com/pricing/details/search/) por geografia.
 
-Se estiver a planear utilizar a pesquisa cognitiva, escolha uma [região com disponibilidade de funcionalidades](cognitive-search-quickstart-blob.md#supported-regions).
+Se estiver indexando um conteúdo localizado no Azure service (o armazenamento do Azure, Azure Cosmos DB, base de dados do Azure SQL), crie o seu serviço de pesquisa do Azure na mesma região que seus dados para evitar custos de largura de banda. Não existem custos para dados de saída quando os serviços estão na mesma região.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um escalão de preço (SKU)
 

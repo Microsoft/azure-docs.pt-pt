@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046791"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282989"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -31,8 +31,8 @@ As seguintes informações são apresentadas suportado atualmente [o Microsoft A
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Contrato Enterprise (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Contrato de Cliente Microsoft** | [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Contrato de Cliente Microsoft** | [Plano do Microsoft Azure para Programador/Teste](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Contrato de Cliente Microsoft** | [Plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
+| **Contrato de Cliente Microsoft** | [Plano do Microsoft Azure para Programador/Teste](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
 | **Microsoft Developer Network (MSDN)** | [Plataformas da MSDN](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **"Pay As You Go"** | ["Pay As You Go"](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **"Pay As You Go"** | [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ As tabelas seguintes mostram os dados que incluiu ou não está no Cost Manageme
 | **Incluída** | **Não incluídos** |
 | --- | --- |
 | Utilização do serviço do Azure<sup>1</sup> | Reserva de compras – para obter mais informações, consulte [APIs para a automatização do Azure reserva](../billing/billing-reservation-apis.md). |
-| Utilização da oferta do Marketplace | As compras no Marketplace – para obter mais informações, consulte [encargos de serviços de terceiros](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Utilização da oferta do Marketplace<sup>2</sup> | As compras no Marketplace – para obter mais informações, consulte [encargos de serviços de terceiros](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Suporte de custos - para obter mais informações, consulte [termos explicados de nota fiscal](../billing/billing-understand-your-invoice.md). |
 |   | Impostos - para obter mais informações, consulte [termos explicados de nota fiscal](../billing/billing-understand-your-invoice.md). |
 |   | Créditos - para obter mais informações, consulte [termos explicados de nota fiscal](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> utilização do serviço do azure é baseada em reserva e negociado os preços.
+<sup>2</sup> utilização da oferta do marketplace não está disponível para pay as you go, MSDN, e o Visual Studio oferece neste momento.
 
 **Metadados**
 
 | **Incluída** | **Não incluídos** |
 | --- | --- |
-| Os sinalizadores de recurso<sup>2</sup> | sinalizadores de grupo de recursos |
+| Os sinalizadores de recurso<sup>3</sup> | sinalizadores de grupo de recursos |
 
-<sup>2</sup> etiquetas de recursos são aplicadas conforme a utilização é emitida a partir de cada serviço e não estão disponíveis de forma retroativa a histórico de utilização.
+<sup>3</sup> etiquetas de recursos são aplicadas conforme a utilização é emitida a partir de cada serviço e não estão disponíveis de forma retroativa a histórico de utilização.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Agenda de atualização de dados de utilização mais votados
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: c2c02283518bab0723b7bc815f034c4324c944e1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232896"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276863"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Oracle Linux para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ Este artigo pressupõe que já tem instalado um sistema operativo do Oracle Linu
 * NUMA não é suportada para tamanhos de VM maior devido a um erro em versões de kernel de Linux abaixo 2.6.37. Este problema afeta principalmente as distribuições que utilizem o montante kernel do Red Hat 2.6.32. Instalação manual do agente Linux do Azure (waagent) será automaticamente desativar o na configuração do GRUB para o kernel do Linux. Podem encontrar mais informações sobre este assunto nos passos abaixo.
 * Não configure uma partição de troca no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de troca no disco de recursos temporário.  Podem encontrar mais informações sobre este assunto nos passos abaixo.
 * Todos os VHDs no Azure tem de ter um tamanho virtual alinhado para 1MB. Ao converter a partir de um disco não processado para o VHD tem de se certificar de que o tamanho de disco bruto é um múltiplo de 1MB antes da conversão. Ver [observações de instalação de Linux](create-upload-generic.md#general-linux-installation-notes) para obter mais informações.
-* Certifique-se de que o `Addons` repositório está ativado. Edite o ficheiro `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) e altere a linha `enabled=0` para `enabled=1` sob **[ol6_addons]** ou **[ol7_addons]** neste ficheiro.
+* Certifique-se de que o `Addons` repositório está ativado. Edite o ficheiro `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) e altere a linha `enabled=0` para `enabled=1` sob **[ol6_addons]** ou **[ol7_addons]** neste ficheiro.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 +
 Tem de concluir os passos de configuração específicos no sistema operativo da máquina virtual executar no Azure.
@@ -48,7 +48,7 @@ Tem de concluir os passos de configuração específicos no sistema operativo da
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **Nota:** se o pacote já não estiver instalado, este comando irá falhar com uma mensagem de erro. Isto era esperado.
+    **Nota:** Se o pacote já não estiver instalado, este comando irá falhar com uma mensagem de erro. Isto era esperado.
 4. Crie um ficheiro denominado **rede** no `/etc/sysconfig/` diretório que contém o seguinte texto:
    
         NETWORKING=yes
@@ -108,7 +108,7 @@ Tem de concluir os passos de configuração específicos no sistema operativo da
 14. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD do Linux está agora pronto para ser carregado para o Azure.
 
 - - -
-## <a name="oracle-linux-70"></a>Oracle Linux 7.0 +
+## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
 **Alterações no Oracle Linux 7**
 
 Preparar uma máquina virtual do Oracle Linux 7 para o Azure é muito semelhante ao Oracle Linux 6, no entanto, existem várias diferenças importantes que vale a pena observar:

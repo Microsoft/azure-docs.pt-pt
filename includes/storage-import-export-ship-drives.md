@@ -5,17 +5,17 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: include
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: f907e8c0d10c2972bde852192883e7268f78baaa
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d28244d75da540948093c775ffc525a80e362526
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387799"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59286852"
 ---
-FedEx, UPS ou DHL pode ser utilizado para enviar o pacote de Datacenter do Azure. 
+FedEx, UPS ou DHL pode ser utilizado para enviar o pacote de Datacenter do Azure. Se pretender utilizar uma operadora que não seja FedEx/DHL, contacte a equipa de operações de caixa de dados do Azure em `adbops@microsoft.com`
 
 - Fornecer uma operadora de FedEx, UPS ou DHL válida número-se de que a Microsoft irá utilizar para enviar novamente as unidades da conta. 
     

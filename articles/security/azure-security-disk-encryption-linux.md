@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057681"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276954"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs Linux IaaS 
 
@@ -226,8 +226,7 @@ Utilize o [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-
 Para encriptar ou desencriptar o dimensionamento de máquinas virtuais do Linux conjuntos, utilize os modelos Azure Resource Manager e as instruções abaixo:
 
 - [Ativar a encriptação num conjunto de dimensionamento de máquinas virtuais do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Implementar um conjunto de dimensionamento de VMs do Linux com uma jumpbox e ativar a encriptação no conjunto de dimensionamento de VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Desative a encriptação num conjunto de dimensionamento de VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Desative a encriptação num conjunto de dimensionamento de máquinas virtuais do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Clique em **Implementar no Azure**.
      2. Preencha os campos obrigatórios em seguida, os Concordo com os termos e condições.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca9c4c959d21f26369600129f3897b7624dd84f2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371179"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267706"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage desempenho metas de escalabilidade e para contas de armazenamento
 
@@ -23,7 +23,7 @@ Certifique-se de que seu serviço para determinar se o seu desempenho cumpre os 
 
 Quando seu aplicativo atinge o limite do que pode manipular uma partição para a sua carga de trabalho, o armazenamento do Azure começa a retornar o código de erro 503 (servidor ocupado) ou o código de erro 500 respostas de (tempo limite da operação). Se estão a ocorrer 503 erros, considere modificar a sua aplicação para utilizar uma política de término exponencial para repetições. O término exponencial permite que a carga na partição para diminuir e para facilitar a picos de tráfego para essa partição.
 
-## <a name="standard-performance-storage-account-scale-limits"></a>Limites de dimensionamento da conta de armazenamento de desempenho Standard
+## <a name="storage-account-scale-limits"></a>Limites de dimensionamento de conta de armazenamento
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -45,6 +45,36 @@ Para obter mais informações sobre os alvos de dimensionamento e desempenho par
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+### <a name="premium-files-scale-targets"></a>Ficheiros Premium Dimensionar destinos
+
+Existem três categorias de limitações a considerar para os ficheiros de premium: ficheiros, partilhas e contas de armazenamento.
+
+Por exemplo: Uma única partilha pode atingir 100 000 IOPS e um único ficheiro pode ser dimensionado até 5000 IOPS. Então, por exemplo, se tiver três arquivos no compartilhamento de um, o IOPs máximo que pode obter a partir de que a partilha é 15 000.
+
+#### <a name="premium-file-share-limits"></a>Limites de partilha de ficheiros de Premium
+
+> [!IMPORTANT]
+> Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para as contas de armazenamento só está alcançável se existir apenas uma partilha por conta de armazenamento.
+
+|Área  |Destino  |
+|---------|---------|
+|Tamanho Mín                        |100 GiB      |
+|Tamanho máximo                        |100 TiB      |
+|Tamanho mínimo aumentar/diminuir    |1 GiB      |
+|Linha de base de IOPS    |1 IOPS por GiB até 100.000|
+|IOPS de segurança    |3 x IOPS por GiB até 100.000|
+|Largura de banda mínima                     |100        |
+|Largura de banda |0,1 MB/s por GiB até 5 GiB/s     |
+|Número máximo de instantâneos        |200       |
+
+#### <a name="premium-file-limits"></a>Limites do ficheiro Premium
+
+|Área  |Destino  |
+|---------|---------|
+|Tamanho                  |1 TiB         |
+|IOPS máx por arquivo     |5,000         |
+|Identificadores em simultâneo    |2.000         |
+
 ### <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
 
 O Azure File Sync foi desenvolvido com o objetivo de utilização ilimitada, mas a utilização ilimitada nem sempre é possível. A tabela seguinte indica os limites de testes da Microsoft e também indica os destinos são limites fixos:
@@ -61,7 +91,7 @@ O Azure File Sync foi desenvolvido com o objetivo de utilização ilimitada, mas
 
 ## <a name="see-also"></a>Consultar Também
 
-- [Os detalhes dos preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
+- [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 - [Subscrição do Azure e limites do serviço, Quotas e restrições](../../azure-subscription-service-limits.md)
 - [Replicação de armazenamento do Azure](../storage-redundancy.md)
 - [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../storage-performance-checklist.md)

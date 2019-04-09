@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439333"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283040"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código nas funções do Azure
 
@@ -252,6 +252,8 @@ Os membros implementados nessa classe são:
 - **Http_trigger_should_return_string_from_member_data**: Este teste usa atributos de xUnit para fornecer dados de exemplo para a função HTTP.
 
 - **Timer_should_log_message**: Este teste cria uma instância de `ListLogger` e o transmite para funções de um temporizador. Assim que a função é executada, o registo é verificado para garantir que a mensagem esperada está presente.
+
+Se desejar acessar as configurações de aplicativo em seus testes, pode usar [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Executar testes
 

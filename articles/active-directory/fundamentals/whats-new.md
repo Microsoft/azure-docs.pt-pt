@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046704"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271820"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -39,7 +39,39 @@ Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente. Se 
 
 ---
 
+## <a name="april-2019"></a>Abril de 2019
+
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Maior segurança através da política de acesso condicional com base em proteção de aplicações no Azure AD (pré-visualização pública)
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Acesso Condicional  
+**Capacidade de produto:** Segurança e Proteção de Identidade
+
+Acesso condicional com base na proteção aplicação agora está disponível através da **necessitam de proteção de aplicações** política. Esta nova política ajuda a aumentar a segurança da sua organização ao ajudar a impedir que:
+
+- Utilizadores obtenham acesso a aplicações sem uma licença do Microsoft Intune.
+
+- Usuários não é possível obter uma política de proteção de aplicações do Microsoft Intune.
+
+- Utilizadores obtenham acesso a aplicações sem uma política de proteção de aplicações do Microsoft Intune configurada.
+
+Para obter mais informações, consulte [como requerer a política de proteção de acesso à aplicação de cloud com o acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+
+---
+
 ## <a name="march-2019"></a>Março de 2019
+
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Novo suporte para acesso do Azure AD único início de sessão e condicional no Microsoft Edge (pré-visualização pública)
+
+**Tipo:** Nova funcionalidade  
+**Categoria de serviço:** Acesso Condicional  
+**Capacidade de produto:** Segurança e Proteção de Identidade
+
+Melhorámos o nosso suporte do Azure AD para o Microsoft Edge, inclusive fornecendo o novo suporte para acesso de início de sessão e condicional único no Azure AD. Se tiver utilizado anteriormente o Microsoft Intune Managed Browser, pode agora utilizar a Microsoft Edge em vez disso.
+
+Para obter mais informações sobre como configurar e gerir os seus dispositivos e aplicações através do acesso condicional, consulte [exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices) e [necessitam de aplicações de cliente para a cloud aprovadas acesso de aplicação com acesso condicional](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access). Para obter mais informações sobre como gerir o acesso com o Microsoft Edge com políticas do Microsoft Intune, consulte [acesso à Internet de gerir através de um browser do Microsoft Intune protegido por política](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser).
+
+---
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Arquitetura de experiências de identidade e de política personalizada do suporte no Azure Active Directory B2C está agora disponível (GA)
 
@@ -502,7 +534,7 @@ Para obter mais informações sobre como utilizar a aplicação Microsoft Authen
 
 ---
 
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de Administrador de Dispositivos na Cloud do Azure AD (Pré-visualização pública)
+### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de Administrador de Dispositivos de Cloud do Azure AD (Pré-visualização pública)
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Gestão e Registo de Dispositivos  

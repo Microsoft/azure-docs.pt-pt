@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010673"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281221"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 
@@ -121,7 +121,6 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Proprietário da Conta de Spatial Anchors](#spatial-anchors-account-owner) | Permite-lhe gerir âncoras espaciais na sua conta, incluindo a eliminação das mesmas |
 | [Leitor de Conta de Spatial Anchors](#spatial-anchors-account-reader) | Permite-lhe localizar e ler as propriedades de âncoras espaciais na sua conta |
 | [Contribuinte de Base de Dados SQL](#sql-db-contributor) | Permite-lhe gerir bases de dados SQL, mas não aceder-lhes. Além disso, não é possível gerir as respetivas políticas relacionadas com segurança ou os respetivos servidores SQL principais. |
-| [Contribuinte de instância gerida de SQL](#sql-managed-instance-contributor) | Permite-lhe gerir instâncias de geridas de SQL, mas não é possível conceder acesso a outras pessoas. |
 | [Gestor de Segurança SQL](#sql-security-manager) | Permite gerir as políticas de servidores e bases de dados SQL relacionadas com a segurança, mas não aceder às mesmas. |
 | [Contribuinte do SQL Server](#sql-server-contributor) | Permite gerir servidores e bases de dados SQL, mas não aceder aos mesmos nem às respetivas políticas relacionadas com a segurança. |
 | [Contribuinte de Conta de Armazenamento](#storage-account-contributor) | Permite-lhe gerir contas de armazenamento, mas não aceder às mesmas. |
@@ -2229,31 +2228,6 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *nenhum* |  |
-> | **NotDataActions** |  |
-> | *nenhum* |  |
-
-## <a name="sql-managed-instance-contributor"></a>Contribuinte de instância gerida de SQL
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descrição** | Permite-lhe gerir instâncias de geridas de SQL, mas não é possível conceder acesso a outras pessoas. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Ações** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
-> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
-> | Microsoft.Network/networkSecurityGroups/write | Cria um grupo de segurança de rede ou atualiza um grupo de segurança de rede existente |
-> | Microsoft.Network/routeTables/write | Cria uma tabela de rotas ou atualiza uma tabela de rota existente |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
-> | Microsoft.Network/virtualNetworks/subnets/write | Cria uma sub-rede de rede virtual ou atualiza uma sub-rede de rede virtual existente |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Junta-se a uma rede virtual. Não. o alerta. |
-> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
-> | **NotActions** |  |
-> | *nenhum* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |

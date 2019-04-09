@@ -1,25 +1,25 @@
 ---
 title: Tipos de índice no Azure Cosmos DB
 description: Visão geral dos tipos de índice no Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.author: mjbrown
-ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: 5e7ee7c0bdfd0cff6be182e6d087cc264910e440
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990559"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271565"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice no Azure Cosmos DB
 
-Existem várias opções de onde configura a política de indexação para um caminho. Pode especificar uma ou mais definições de indexação para cada caminho:
+Existem várias opções quando configura a política de indexação para um caminho. Pode especificar uma ou mais definições de indexação para cada caminho:
 
 - **Tipo de dados:** Cadeia de caracteres, número, ponto, polígono ou LineString (pode conter apenas uma entrada por tipo de dados por caminho).
 
-- **Tipo de índice:** Intervalo (igualdade, intervalo ou ORDER BY consultas) ou Geográ (consultas espaciais).
+- **Tipo de índice:** Intervalo (para igualdade, intervalo ou ORDER BY consultas) ou Geográ (para consultas espaciais).
 
 - **Precisão:** Para um índice do intervalo, o valor de precisão máxima é -1, que também é a predefinição.
 
@@ -27,7 +27,7 @@ Existem várias opções de onde configura a política de indexação para um ca
 
 O Azure Cosmos DB suporta o índice do intervalo para cada caminho que pode ser configurado para tipos de dados de cadeia de caracteres ou um número, ou ambos.
 
-- **Índice do intervalo** suporta consultas de igualdade eficiente, consultas de JUNÇÃO, consultas de intervalo (usando >, <>, =, < =,! =) e consultas de ORDER BY. ORDER By consultas por predefinição também exigem a precisão de índice máximo (-1). O tipo de dados pode ser a cadeia de caracteres ou número.
+- **Índice do intervalo** suporta consultas de igualdade eficiente, consultas de JUNÇÃO, consultas de intervalo (usando >, <>, =, < =,! =) e consultas de ORDER BY. ORDER BY consultas, por predefinição, também exigem a precisão de índice máximo (-1). O tipo de dados pode ser a cadeia de caracteres ou número.
 
 - **Índice espacial** suporta eficiente espaciais (dentro e a distância) consultas. O tipo de dados pode ser LineString, Polygon ou ponto. O Azure Cosmos DB também suporta o tipo de índice espacial para cada caminho que pode ser especificado para os tipos de dados LineString, Polygon ou ponto. O valor no caminho especificado tem de ser um fragmento de GeoJSON válido, como {"type": "Point", "coordenadas": [0,0, 10.0]}. Azure Cosmos DB suporta a indexação automática de LineString, Polygon e ponto de tipos de dados.
 
@@ -42,16 +42,16 @@ Seguem-se exemplos de consultas de intervalo e os índices espaciais podem ser u
 
 - Se existe um índice do intervalo de qualquer precisão para sinalizar que uma análise poderá ser necessária para servir a consulta, nesse caso, por predefinição, é devolvido um erro para consultas com operadores de intervalo como > =.
 
-- Consultas de intervalo podem ser executadas sem um índice do intervalo, utilizando o cabeçalho "x-ms-documentdb-enable-análise" na REST API ou a opção de pedido "EnableScanInQuery" com o SDK de .NET. Se existirem quaisquer outros filtros na consulta que o Azure Cosmos DB pode usar o índice para filtrar contra, nenhum erro é retornado.
+- Consultas de intervalo podem ser executadas sem um índice do intervalo, utilizando o **x-ms-documentdb-enable-análise** cabeçalho na REST API ou o **EnableScanInQuery** pedido de opção com o SDK de .NET. Se existirem quaisquer outros filtros na consulta que o Azure Cosmos DB pode usar o índice para filtrar contra, nenhum erro é retornado.
 
-- Por predefinição, é devolvido um erro para consultas espaciais se não existir um índice geográfico ou outros filtros que podem ser fornecidos de índice. Estas consultas podem ser executadas como uma análise com x-ms-documentdb-enable-análise ou EnableScanInQuery.
+- Por predefinição, é devolvido um erro para consultas espaciais se não existir um índice geográfico ou outros filtros que podem ser fornecidos de índice. Estas consultas podem ser executadas como uma análise utilizando **x-ms-documentdb-enable-análise** ou **EnableScanInQuery**.
 
 ## <a name="index-precision"></a>Precisão de índice
 
 > [!NOTE]
-> Um novo esquema de índice que já não necessita de uma precisão de índice personalizado que não seja o value(-1) precisão máxima de suporte de contentores do Azure Cosmos. Com esse método, os caminhos são sempre indexados com a precisão máxima. Se especificar um valor de precisão na política de indexação, os pedidos CRUD num contentores silenciosamente irão ignorar o valor de precisão e a resposta do contêiner contém apenas o value(-1) precisão máxima.  Por predefinição, todos os novos contentores de Cosmos utilizam o novo esquema de índice.
+> Os contentores de Cosmos do Azure suportam um novo esquema de índice que já não necessita de uma precisão de índice personalizado além do valor de precisão máxima (-1). Com esse método, os caminhos são sempre indexados com a precisão máxima. Se especificar um valor de precisão na política de indexação, os pedidos CRUD num contentores silenciosamente irão ignorar o valor de precisão e a resposta do contêiner contém apenas o valor de precisão máxima (-1).  Por predefinição, todos os novos contentores de Cosmos utilizam o novo esquema de índice.
 
-- Pode usar a precisão de índice para tornar uma compensação entre o armazenamento de índice sobrecarga e o desempenho da consulta. Para números, recomendamos que utilize a configuração de precisão de padrão de -1 (máximo). Como os números são 8 bytes em JSON, isto é equivalente a uma configuração de 8 bytes. Escolher um valor inferior para precisão, por exemplo, 1 a 7, significa que mapeia os valores dentro de alguns intervalos para o mesmo índice de entrada. Por conseguinte, é possível reduzir o espaço de armazenamento de índice, mas a execução de consultas poderá ter de processar mais itens. Por conseqüência, ele consome mais débito/RUs.
+- Pode usar a precisão de índice para fazer uma troca entre a sobrecarga de armazenamento de índice e o desempenho de consulta. Para números, recomendamos que utilize a configuração de precisão de padrão de -1 (o máximo). Como os números são 8 bytes em JSON, isto é equivalente a uma configuração de 8 bytes. Escolher um valor inferior para precisão, por exemplo, 1 a 7, significa que mapeia os valores dentro de alguns intervalos para o mesmo índice de entrada. Por conseguinte, é possível reduzir o espaço de armazenamento de índice, mas a execução de consultas poderá ter de processar mais itens. Por conseqüência, ele consome mais débito/RUs.
 
 - Precisão de índice tem mais prático do aplicativo com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ser qualquer comprimento arbitrário, a escolha de precisão o índice poderá afetar o desempenho das consultas de intervalo de cadeia de caracteres. Também poderá afetar a quantidade de espaço de armazenamento de índice que é necessário. Índices de intervalo de cadeia de caracteres podem ser configurados com uma precisão de índice entre 1 e 100 ou -1 (máximo). Se quiser executar consultas de ORDER BY em Propriedades de cadeia de caracteres, tem de especificar uma precisão de -1 para os caminhos correspondentes.
 

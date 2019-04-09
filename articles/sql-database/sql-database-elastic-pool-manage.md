@@ -1,10 +1,10 @@
 ---
-title: Criar e gerir conjuntos elásticos - base de dados SQL do Azure | Documentos da Microsoft
+title: Gerir conjuntos elásticos - base de dados SQL do Azure | Documentos da Microsoft
 description: Criar e gerir conjuntos elásticos SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
@@ -12,14 +12,14 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892403"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267587"
 ---
-# <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir conjuntos elásticos na base de dados do Azure SQL
 
 Com um conjunto elástico, determine a quantidade de recursos que o conjunto elástico necessita para processar a carga de trabalho de seus bancos de dados e a quantidade de recursos para cada base de dados em pool.
 
@@ -89,7 +89,7 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 > Não é possível criar, atualizar ou eliminar um conjunto elástico de SQL Database do Azure com o Transact-SQL. Pode adicionar ou remover bases de dados de um conjunto elástico, e pode usar DMVs para devolver informações sobre conjuntos elásticos existentes.
 >
 
-| Comando | Descrição |
+| Command | Descrição |
 | --- | --- |
 |[Criar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Alterar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para, de ou entre conjuntos elásticos.|
@@ -101,7 +101,7 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 
 Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas, utilize estes pedidos de REST API.
 
-| Comando | Descrição |
+| Command | Descrição |
 | --- | --- |
 |[Conjuntos elásticos - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Cria um novo conjunto elástico ou atualiza um conjunto elástico existente.|
 |[Conjuntos elásticos - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina o conjunto elástico.|

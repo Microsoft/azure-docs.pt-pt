@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372718"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287107"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Armazenamento de BLOBs de blocos de desempenho Premium
 
-Uma conta de armazenamento de BLOBs de bloco de desempenho de premium é otimizada para aplicações que utilizam o menor, intervalo de kilobytes, objetos. É ideal para aplicativos que exigem velocidades de transação muito alto ou armazenamento de baixa latência consistente. Armazenamento de BLOBs de blocos de desempenho Premium foi concebido para escalar com as suas aplicações. Se planeia implementar aplicações que necessitam de centenas de milhares de pedidos por segundo ou petabytes de capacidade de armazenamento, contacte-ao submeter um pedido de suporte no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Uma conta de armazenamento de BLOBs de bloco de desempenho de premium é otimizada para aplicações que utilizam o menor, intervalo de kilobytes, objetos. É ideal para aplicativos que exigem as taxas de altas transações ou armazenamento de baixa latência consistente. Armazenamento de BLOBs de blocos de desempenho Premium foi concebido para escalar com as suas aplicações. Se planeia implementar aplicações que necessitam de centenas de milhares de pedidos por segundo ou petabytes de capacidade de armazenamento, contacte-ao submeter um pedido de suporte no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-filestorage-preview"></a>Desempenho Premium FileStorage (pré-visualização)
+
+Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **FileStorage (pré-visualização)**. Este tipo de conta foi concebido para cargas de trabalho com elevada IOPS, débito elevado com baixa latência consistente. Armazenamento de ficheiros de Premium dimensiona-se com o tamanho da partilha aprovisionado.
+
+|Área  |Destino  |
+|---------|---------|
+|Tamanho máximo     |5 TiB (pré-visualização pública), 100 TiB (pré-visualização pública limitada)     |
+|Partilhas   |Ilimitado  |
+|IOPS     |100 000 (pré-visualização pública limitada)    |
+|Largura de Banda|5 GB/s     |
+
+ Para o ficheiro de premium, partilhar alvos de dimensionamento, consulte a [ficheiros Premium Dimensionar destinos](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) secção.
 
 ### <a name="premium-performance-page-blob-storage"></a>Armazenamento de BLOBs de página de desempenho Premium
 
-Desempenho de Premium, contas de armazenamento para fins gerais v1 ou v2 têm os seguintes destinos de escalabilidade:
+Desempenho Premium, para fins gerais v1 ou v2 contas de armazenamento têm os seguintes destinos de escalabilidade:
 
 | Capacidade de conta total                            | Largura de banda total de uma conta de armazenamento localmente redundante                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

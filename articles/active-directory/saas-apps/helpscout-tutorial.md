@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3253c26f99c470a256b937844138d8875219cbd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878045"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Active Directory do Azure com ajudar Scout
 
@@ -157,7 +157,7 @@ Para configurar o Azure AD início de sessão único com Scout ajudar a, execute
 
     ![Configurar o início de sessão único](./media/helpscout-tutorial/settings4.png)
 
-    a. Na **URL de início de sessão único** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    a. Na **URL de início de sessão único** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
     b. Clique em **carregar certificado** para carregar o **Certificate(Base64)** transferido a partir do portal do Azure.
 
@@ -232,6 +232,6 @@ Quando clica no mosaico do Scout ajudar no painel de acesso, deve ser automatica
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

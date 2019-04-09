@@ -4,216 +4,197 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/26/2018
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d0e8f8526d866c308be8684546397f282dcce51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c034e12c372e0514fa6cbb1f35af48cbdb4bf865
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194109"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integração do Active Directory do Azure com vxMaintain
 
 Neste tutorial, saiba como integrar vxMaintain com o Azure Active Directory (Azure AD).
+Integrar vxMaintain no Azure AD fornece as seguintes vantagens:
 
-Esta integração proporciona várias vantagens importantes. Pode:
+* Pode controlar no Azure AD que tenha acesso ao vxMaintain.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para vxMaintain (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-- Controlar no Azure AD que tenha acesso ao vxMaintain.
-- Permita que os utilizadores iniciem sessão automaticamente nas vxMaintain com o início de sessão único (SSO) através das respetivas contas do Azure AD.
-- Gira as suas contas num local central: portal do Azure.
-
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com vxMaintain, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um vxMaintain subscrição SSO ativado
-
-> [!NOTE]
-> Quando testa os passos neste tutorial, é recomendável que não use um ambiente de produção.
-
-Para testar os passos neste tutorial, siga as seguintes recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
+* vxMaintain logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. 
 
-O cenário que descreve este tutorial consiste em dois blocos de construção principais:
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* Adicionando vxMaintain da Galeria
-* Configuração e teste do Azure AD início de sessão único
+* suporta vxMaintain **IDP** iniciada SSO
 
-## <a name="add-vxmaintain-from-the-gallery"></a>Adicionar vxMaintain a partir da Galeria
+## <a name="adding-vxmaintain-from-the-gallery"></a>Adicionando vxMaintain da Galeria
+
 Para configurar a integração do vxMaintain com o Azure AD, terá de adicionar vxMaintain a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-Para adicionar vxMaintain a partir da galeria, faça o seguinte:
+**Para adicionar vxMaintain a partir da galeria, execute os seguintes passos:**
 
-1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** botão. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Selecione **aplicações empresariais** > **todas as aplicações**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de "Aplicações empresariais"][2]
-    
-1. Adicionar uma aplicação, o **todos os aplicativos** caixa de diálogo, selecione **novo aplicativo**.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O "novo aplicativo" botão][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **vxMaintain**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![A "Único início de sessão em modo de" na lista pendente](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
+4. Na caixa de pesquisa, escreva **vxMaintain**, selecione **vxMaintain** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. Na lista de resultados, selecione **vxMaintain**e, em seguida, selecione **Add**.
+     ![vxMaintain na lista de resultados](common/search-new-app.png)
 
-    ![A ligação de vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
-Nesta secção, configurar e testar o SSO do Azure AD utilizando o vxMaintain, com base num utilizador de teste chamado "Eduarda Almeida."
+Nesta secção, configure e teste do Azure AD início de sessão único com vxMaintain com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no vxMaintain deve ser estabelecido.
 
-Para SSO para funcionar, o Azure AD precisa saber a contrapartida vxMaintain ao utilizador do Azure AD. Ou seja, tem de estabelecer uma relação de ligação entre o utilizador do Azure AD e o utilizador vxMaintain correspondente.
+Para configurar e testar o Azure AD início de sessão único com vxMaintain, tem de concluir os seguintes blocos de construção:
 
-Para estabelecer a relação de ligação, atribua o vxMaintain **nome de utilizador** valor como o Azure AD **Username** valor.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar vxMaintain início de sessão único](#configure-vxmaintain-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste vxMaintain](#create-vxmaintain-test-user)**  - para ter um equivalente da Eduarda Almeida na vxMaintain que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-Para configurar e testar o SSO do Azure AD utilizando vxMaintain, conclua os seguintes blocos de construção.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-Nesta secção, pode tanto ativar o SSO do Azure AD no portal do Azure e configurar o SSO em seu aplicativo vxMaintain efetuando o seguinte procedimento:
+Para configurar o Azure AD início de sessão único com vxMaintain, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **vxMaintain** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **vxMaintain** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![O comando "Início de sessão único"][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Para ativar o SSO, na **modo de início de sessão único** na lista pendente, selecione **baseado em SAML logon**.
- 
-    ![O comando "baseado em SAML Sign-on"](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sob **vxMaintain domínio e URLs**, efetue o seguinte procedimento:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![A secção de domínio e URLs de vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **identificador** , escreva um URL com a seguinte sintaxe: `https://<company name>.verisae.com`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **URL de resposta** , escreva um URL com a seguinte sintaxe: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+4. Sobre o **definir a segurança de início de sessão único com o SAML** página, execute os seguintes passos:
 
-    > [!NOTE] 
-    > Os valores anteriores não são reais. Atualizá-las com o identificador real e URL de resposta. Para obter os valores, entre em contato com o [equipa de suporte de vxMaintain](https://www.hubspot.com/company/contact).
- 
-1. Sob **certificado de assinatura SAML**, selecione **XML de metadados**e, em seguida, guarde o ficheiro de metadados para o seu computador.
+    ![vxMaintain domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
-    ![A secção "Certificado de assinatura de SAML"](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.verisae.com`
 
-1. Selecione **Guardar**.
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
-    ![O botão salvar](./media/vxmaintain-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de cliente vxMaintain](https://www.hubspot.com/company/contact) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-1. Para configurar **vxMaintain** SSO, enviar o transferido **XML de metadados** ficheiro para o [equipa de suporte de vxMaintain](https://www.hubspot.com/company/contact).
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-> [!TIP]
-> Como configurar a aplicação, pode ler uma versão concisa das instruções anteriores no [portal do Azure](https://portal.azure.com). Depois de adicionar a aplicação a partir da **do Active Directory** > **aplicações empresariais** secção, selecione o **Single Sign-On** separador e, em seguida, acessar o embedded documentação a partir da **configuração** secção. 
->
->Para saber mais sobre a funcionalidade de documentação do embedded, veja [gerir o início de sessão único para aplicações empresariais de](https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+    ![O link de download de certificado](common/metadataxml.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-Nesta secção, vai criar o utilizador de teste Eduarda Almeida no portal do Azure, fazendo o seguinte:
+6. Sobre o **configurar vxMaintain** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-![O utilizador de teste do Azure AD][100]
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-1. Na **portal do Azure**, no painel esquerdo, selecione a **Azure Active Directory** botão.
+    a. URL de início de sessão
 
-    ![O botão "Azure Active Directory"](./media/vxmaintain-tutorial/create_aaduser_01.png) 
+    b. Identificador do Azure AD
 
-1. Para apresentar uma lista de utilizadores, aceda a **utilizadores e grupos** > **todos os utilizadores**.
-    
-    ![A ligação de "Todos os utilizadores"](./media/vxmaintain-tutorial/create_aaduser_02.png)  
-    O **todos os utilizadores** é aberta a caixa de diálogo. 
+    c. URL de fim de sessão
 
-1. Para abrir o **usuário** caixa de diálogo, selecione **Add**.
- 
-    ![Botão Adicionar](./media/vxmaintain-tutorial/create_aaduser_03.png) 
+### <a name="configure-vxmaintain-single-sign-on"></a>Configurar vxMaintain início de sessão único
 
-1. Na **utilizador** diálogo caixa, faça o seguinte:
- 
-    ![A caixa de diálogo de utilizador](./media/vxmaintain-tutorial/create_aaduser_04.png) 
+Para configurar o início de sessão único num **vxMaintain** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [vxMaintain a equipa de suporte](https://www.hubspot.com/company/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
-    a. Na **Name** , escreva **BrittaSimon**.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador de teste Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que foi gerado no **palavra-passe** caixa.
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-    d. Selecione **Criar**.
- 
-### <a name="create-a-vxmaintain-test-user"></a>Criar um utilizador de teste vxMaintain
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-Nesta secção, vai criar o utilizador de teste Eduarda Almeida na vxMaintain. Para adicionar os utilizadores na plataforma vxMaintain, trabalhar com o [equipa de suporte de vxMaintain](https://www.hubspot.com/company/contact). Antes de utilizar SSO, criar e ativar os utilizadores.
+2. Selecione **novo utilizador** na parte superior do ecrã.
+
+    ![Novo utilizador botão](common/new-user.png)
+
+3. Nas propriedades do utilizador, execute os seguintes passos.
+
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
+
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar o utilizador de teste Eduarda Almeida para utilizar o SSO do Azure ao conceder acesso a vxMaintain. Para tal, faça o seguinte:
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a vxMaintain.
 
-![Utilizador de teste na lista nome a apresentar][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **vxMaintain**.
 
-1. No portal do Azure **aplicativos** vista, aceda à **diretório** vista > **aplicações empresariais** > **todas as aplicações**.
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![A ligação de "Todas as aplicações"][201] 
+2. Na lista de aplicações, selecione **vxMaintain**.
 
-1. Na **aplicativos** lista, selecione **vxMaintain**.
+    ![A ligação de vxMaintain na lista de aplicações](common/all-applications.png)
 
-    ![A ligação de vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-1. No painel esquerdo, selecione **utilizadores e grupos**.
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-    ![A ligação "Utilizadores e grupos"][202] 
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-1. Selecione **Add** e, em seguida, no **adicionar atribuição** painel, selecione **utilizadores e grupos**.
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-    ![A ligação "Utilizadores e grupos"][203]
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-1. Na **utilizadores e grupos** caixa de diálogo a **utilizadores** lista, selecione **Eduarda Almeida**e, em seguida, selecione o **selecione** botão.
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
-    
-### <a name="test-your-azure-ad-single-sign-on"></a>Testar sua do Azure AD início de sessão único
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-Nesta secção, vai testar a configuração de SSO do Azure AD utilizando o painel de acesso.
+### <a name="create-vxmaintain-test-user"></a>Criar utilizador de teste vxMaintain
 
-Selecionar o **vxMaintain** mosaico no painel de acesso deve iniciar a sua sessão no seu aplicativo vxMaintain automaticamente.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no vxMaintain. Trabalhar com [equipa de suporte de vxMaintain](https://www.hubspot.com/company/contact) para adicionar os utilizadores na plataforma vxMaintain. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-## <a name="next-steps"></a>Passos Seguintes
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+Quando clica no mosaico vxMaintain no painel de acesso, deve ser automaticamente sessão iniciada no vxMaintain para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-<!--Image references-->
+## <a name="additional-resources"></a>Recursos Adicionais
 
-[1]: ./media/vxmaintain-tutorial/tutorial_general_01.png
-[2]: ./media/vxmaintain-tutorial/tutorial_general_02.png
-[3]: ./media/vxmaintain-tutorial/tutorial_general_03.png
-[4]: ./media/vxmaintain-tutorial/tutorial_general_04.png
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[100]: ./media/vxmaintain-tutorial/tutorial_general_100.png
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[200]: ./media/vxmaintain-tutorial/tutorial_general_200.png
-[201]: ./media/vxmaintain-tutorial/tutorial_general_201.png
-[202]: ./media/vxmaintain-tutorial/tutorial_general_202.png
-[203]: ./media/vxmaintain-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

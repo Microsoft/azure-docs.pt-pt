@@ -4,157 +4,156 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2017
+ms.topic: tutorial
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8328fc5582fa9ebe38a23e5916ac0c3127575529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bed1c201831b1edf4f5c267d2093ada4ba91d7df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166102"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263320"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Active Directory do Azure com Velpic SAML
 
 Neste tutorial, saiba como integrar Velpic SAML com o Azure Active Directory (Azure AD).
-
 Integrar Velpic SAML com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Velpic SAML
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Velpic SAML (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – o portal de gestão do Azure
+* Pode controlar no Azure AD que tenha acesso ao Velpic SAML.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Velpic SAML (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Velpic SAML, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Velpic SAML início de sessão único na subscrição ativado
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não deve utilizar o seu ambiente de produção, a menos que isso é necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
+* Velpic SAML logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Velpic SAML da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta Velpic SAML **SP** iniciada SSO
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Adicionando Velpic SAML da Galeria
+
 Para configurar a integração de Velpic SAML para o Azure AD, terá de adicionar Velpic SAML a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Velpic SAML a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[do Portal de gestão do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Velpic SAML**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/velpicsaml-tutorial/tutorial_velpicsaml_search.png)
+4. Na caixa de pesquisa, escreva **Velpic SAML**, selecione **Velpic SAML** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **Velpic SAML**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+    ![SAML Velpic na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com Velpic SAML com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Velpic SAML a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Velpic SAML deve ser estabelecido.
-
-Esta relação de ligação é estabelecida atribuindo o valor do **nome de utilizador** no Azure AD como o valor do **Username** na Velpic SAML.
+Nesta secção, configure e teste do Azure AD início de sessão único com Velpic SAML com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Velpic SAML deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com Velpic SAML, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de Velpic SAML](#creating-a-velpic-saml-test-user)**  - para ter um equivalente da Eduarda Almeida na Velpic SAML, que está ligado à representação de ela do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar Velpic SAML início de sessão único](#configure-velpic-saml-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de Velpic SAML](#create-velpic-saml-test-user)**  - para ter um equivalente da Eduarda Almeida na Velpic SAML, que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal de gestão do Azure e configurar início de sessão único em seu aplicativo Velpic SAML.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Velpic SAML, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com Velpic SAML, execute os seguintes passos:
 
-1. No portal de gestão do Azure, sobre o **Velpic SAML** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Velpic SAML** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, como **modo** selecione **baseado em SAML início de sessão** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Introduza os detalhes no **Velpic SAML domínio e URLs** secção -
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/velpicsaml-tutorial/tutorial_velpicsaml_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, digite o valor como: `https://<sub-domain>.velpicsaml.net`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **identificador** caixa de texto, colar a **"URL de início de sessão único"** valor `https://auth.velpic.com/saml/v2/<entity-id>/login`
-    
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+
+    ![Velpic SAML domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<sub-domain>.velpicsaml.net`
+
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://auth.velpic.com/saml/v2/<entity-id>/login`
+
     > [!NOTE]
     > Tenha em atenção que o URL de início de sessão será fornecido pela equipe do Velpic SAML e o valor do identificador estará disponível quando configurar o plug-in do SSO no lado de Velpic SAML. Precisa copiar esse valor de página de aplicativo Velpic SAML e cole-o aqui.
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML em seu computador.
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-    ![Configurar o início de sessão único](./media/velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
+    ![O link de download de certificado](common/metadataxml.png)
 
-1. Clique em **guardar** botão.
+6. Sobre o **configurar Velpic SAML** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-    ![Configurar o início de sessão único](./media/velpicsaml-tutorial/tutorial_general_400.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-1. Na secção de configuração de SAML Velpic, clique em configurar o Velpic SAML para abrir a janela de início de sessão de configurar. Copie o ID de entidade de SAML da seção de referência rápida.
+    a. URL de início de sessão
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Velpic SAML como um administrador.
+    b. Identificador do Azure AD
 
-1. Clique em **gerir** separador e aceda à **integração** secção onde tem de clicar em **plug-ins** botão para criar o novo plug-in para início de sessão.
+    c. URL de fim de sessão
+
+### <a name="configure-velpic-saml-single-sign-on"></a>Configurar Velpic SAML início de sessão único
+
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Velpic SAML como administrador.
+
+2. Clique em **gerir** separador e aceda à **integração** secção onde tem de clicar em **plug-ins** botão para criar o novo plug-in para início de sessão.
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_1.png)
 
-1. Clique nas **"Adicionar plug-in"** botão.
+3. Clique nas **"Adicionar plug-in"** botão.
     
     ![Plug-in](./media/velpicsaml-tutorial/velpic_2.png)
 
-1. Clique nas **SAML** mosaico na página Adicionar plug-in.
+4. Clique nas **SAML** mosaico na página Adicionar plug-in.
     
     ![Plug-in](./media/velpicsaml-tutorial/velpic_3.png)
 
-1. Introduza o nome do novo plug-in do SAML e clique nas **'Add'** botão.
+5. Introduza o nome do novo plug-in do SAML e clique nas **'Add'** botão.
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_4.png)
 
-1. Introduza os detalhes da seguinte forma:
+6. Introduza os detalhes da seguinte forma:
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_5.png)
 
     a. Na **nome** caixa de texto, escreva o nome do plug-in SAML.
 
-    b. No **URL de emissor** caixa de texto, colar a **ID de entidade de SAML** copiou do **configurar início de sessão** janela do portal do Azure.
+    b. No **URL de emissor** caixa de texto, colar a **identificador do Azure AD** copiou do **configurar início de sessão** janela do portal do Azure.
 
     c. Na **fornecedor de configuração de metadados** carregar o ficheiro de metadados XML que transferiu a partir do portal do Azure.
 
@@ -164,38 +163,57 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal de ge
     
     f. Clique em **Guardar**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure Management chamado Eduarda Almeida.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-![Criar utilizador do Azure AD][100]
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-1. Na **portal de gestão do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/velpicsaml-tutorial/create_aaduser_01.png) 
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-1. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/velpicsaml-tutorial/create_aaduser_02.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Na parte superior da caixa de diálogo, clique em **Add** para abrir o **utilizador** caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/velpicsaml-tutorial/create_aaduser_03.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/velpicsaml-tutorial/create_aaduser_04.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-velpic-saml-test-user"></a>Criar um utilizador de teste Velpic SAML
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para Velpic SAML.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Velpic SAML**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **Velpic SAML**.
+
+    ![A ligação de Velpic SAML na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-velpic-saml-test-user"></a>Criar utilizador de teste Velpic SAML
 
 Neste passo, normalmente, não é necessário que o aplicativo oferece suporte apenas no tempo de aprovisionamento de utilizador. Se o aprovisionamento automático de utilizadores não estiver ativado, em seguida, a criação manual de utilizador pode ser feita conforme descrito abaixo.
 
@@ -205,53 +223,23 @@ Inicie sessão no site da sua empresa Velpic SAML como administrador e execute o
 
     ![Adicionar utilizador](./media/velpicsaml-tutorial/velpic_7.png)
 
-1. Sobre o **"Criar o novo usuário"** caixa de diálogo página, execute os seguintes passos.
+2. Sobre o **"Criar o novo usuário"** caixa de diálogo página, execute os seguintes passos.
 
-    ![Utilizador](./media/velpicsaml-tutorial/velpic_8.png)
+    ![utilizador](./media/velpicsaml-tutorial/velpic_8.png)
     
-    a. Na **nome próprio** caixa de texto, nome do tipo o primeiro da Eduarda Almeida.
+    a. Na **nome próprio** caixa de texto, nome do tipo o primeiro da Eduarda.
 
-    b. Na **Apelido** caixa de texto, digite o apelido da Eduarda Almeida.
+    b. Na **Apelido** caixa de texto, digite o apelido de Simon.
 
     c. Na **nome de utilizador** caixa de texto, escreva o nome de utilizador da Eduarda Almeida.
 
-    d. Na **E-Mail** caixa de texto, escreva o endereço de e-mail da conta da Eduarda Almeida.
+    d. Na **E-Mail** caixa de texto, escreva o endereço de e-mail do Brittasimon@contoso.com conta.
 
     e. REST das informações é opcional, pode preenchê-lo se for necessário.
     
-    f. Clique em **GUARDAR**.  
+    f. Clique em **GUARDAR**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para Velpic SAML.
-
-![Atribuir utilizador][200] 
-
-**Para atribuir a Eduarda Almeida a Velpic SAML, execute os seguintes passos:**
-
-1. No portal de gestão do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **Velpic SAML**.
-
-    ![Configurar o início de sessão único](./media/velpicsaml-tutorial/tutorial_velpicsaml_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -261,25 +249,11 @@ Nesta secção, vai testar a configuração do Azure AD única início de sessã
 
 1. Clique nas **"Iniciar sessão no Azure AD"** botão para iniciar sessão no Velpic com a sua conta do Azure AD.
 
+## <a name="additional-resources"></a>Recursos Adicionais
 
-## <a name="additional-resources"></a>Recursos adicionais
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-
-<!--Image references-->
-
-[1]: ./media/velpicsaml-tutorial/tutorial_general_01.png
-[2]: ./media/velpicsaml-tutorial/tutorial_general_02.png
-[3]: ./media/velpicsaml-tutorial/tutorial_general_03.png
-[4]: ./media/velpicsaml-tutorial/tutorial_general_04.png
-
-[100]: ./media/velpicsaml-tutorial/tutorial_general_100.png
-
-[200]: ./media/velpicsaml-tutorial/tutorial_general_200.png
-[201]: ./media/velpicsaml-tutorial/tutorial_general_201.png
-[202]: ./media/velpicsaml-tutorial/tutorial_general_202.png
-[203]: ./media/velpicsaml-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875242"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266322"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -65,7 +65,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 - [Autenticação do SQL](#sql-authentication)
 - [Autenticação do Azure AD application token: Principal de serviço](#service-principal-authentication)
-- [Autenticação do Azure AD application token: identidades geridas para recursos do Azure](#managed-identity)
+- [Autenticação do Azure AD application token: Identidades geridas para os recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
@@ -373,7 +373,7 @@ Para copiar dados para a base de dados do Azure SQL, defina o **tipo** proprieda
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlSink**. | Sim |
-| writeBatchSize | Insere dados na tabela SQL quando atinge o tamanho do buffer **writeBatchSize**.<br/> O valor permitido é **número inteiro** (número de linhas). | Não. A predefinição é 10000. |
+| writeBatchSize | Número de linhas para inserções na tabela de SQL **por lote**.<br/> O valor permitido é **número inteiro** (número de linhas). | Não. A predefinição é 10000. |
 | writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite.<br/> O valor permitido é **timespan**. Exemplo: "00: 30:00" (30 minutos). | Não |
 | preCopyScript | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados na base de dados do Azure SQL. Só é invocado uma vez por cópia executar. Use essa propriedade para limpar os dados pré-carregado. | Não |
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem para uma tabela de destino. Um exemplo é fazer upserts ou transformar ao utilizar a sua própria lógica de negócios. <br/><br/>Este procedimento armazenado está **invocado por lote**. Para operações que apenas executam uma vez e não têm nada a ver com a origem de dados, utilize o `preCopyScript` propriedade. Operações de exemplo são delete e truncam. | Não |
@@ -535,7 +535,7 @@ Pode usar um procedimento armazenado quando os mecanismos de cópia interna não
 
 O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na base de dados do Azure SQL. Partem do princípio de que dados de entrada e o sink **Marketing** cada tabela têm três colunas: **ProfileID**, **estado**, e **categoria**. Fazer o upsert com base na **ProfileID** coluna e aplicá-la apenas para uma categoria específica.
 
-#### <a name="output-dataset"></a>Conjunto de dados de saída
+**Conjunto de dados de saída:** "tableName" deve ser o mesmo nome de parâmetro de tipo de tabela no seu procedimento armazenado (veja abaixo o script do procedimento armazenado).
 
 ```json
 {
@@ -554,7 +554,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
 }
 ```
 
-Definir o **SqlSink** secção na atividade de cópia:
+Definir o **sink do SQL** secção na atividade de cópia da seguinte forma.
 
 ```json
 "sink": {
@@ -627,7 +627,7 @@ Quando copia dados de ou para a base de dados do Azure SQL, os seguintes mapeame
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimal |
-| sql_variant |Object |
+| sql_variant |Objeto |
 | texto |Cadeia de caracteres, Char [] |
 | hora |Período de tempo |
 | carimbo de data/hora |Byte[] |

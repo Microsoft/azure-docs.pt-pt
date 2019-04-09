@@ -3,7 +3,7 @@ title: Copiar dados do SQL Server para o Armazenamento de Blobs com o Azure Data
 description: Saiba como copiar dados de um arquivo de dados no local para a cloud do Azure mediante a utilização de um integration runtime autoalojado no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: abnarain
+ms.openlocfilehash: adec7b90d5c38ed85f4b6f9ada8a530eff3846b9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451642"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272517"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
@@ -66,7 +66,7 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
 
 1. Na vista de árvore, clique com o botão direito do rato na base de dados que criou e selecione **Nova Consulta**.
 
-### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
+### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
 Neste tutorial, vai utilizar uma Conta de Armazenamento do Azure de fins gerais (mais concretamente, o Armazenamento de Blobs do Azure) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). O pipeline da fábrica de dados que vai criar neste tutorial copia dados da base de dados do SQL Server no local (origem) para este armazenamento de Blobs do Azure (sink). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obter o nome e a chave da conta de armazenamento
@@ -99,7 +99,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na janela **Novo Contentor**, na caixa **Nome**, introduza **adftutorial** e selecione **OK**. 
 
-    ![Introduzir o nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Introduzir nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. Na lista de contentores, clique em **adftutorial**.  
 
@@ -365,7 +365,7 @@ Neste passo, vai ligar a instância do SQL Server no local à fábrica de dados.
     > [!IMPORTANT]
     > Selecione a secção que tem como base a autenticação que utiliza para se ligar ao SQL Server.
 
-    **Ligar com a Autenticação SQL (sa):**
+    **Utilizar a autenticação do SQL (sa):**
 
     ```json
     {

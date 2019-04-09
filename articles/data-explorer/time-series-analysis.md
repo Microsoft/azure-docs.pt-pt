@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: 496c033e3df096cdada2b3facba3e73092ffd755
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051500"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273079"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série de tempo no Explorador de dados do Azure
 
@@ -136,7 +136,7 @@ demo_series3
 ```kusto
 demo_series3
 | project (periods, scores) = series_periods_detect(num, 0., 14d/2h, 2) //to detect the periods in the time series
-| mvexpand periods, scores
+| mv-expand periods, scores
 | extend days=2h*todouble(periods)/1d
 ```
 

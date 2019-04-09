@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773584"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264425"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerir conjuntos elásticos
 
@@ -76,6 +76,8 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
+Definir o número de bases de dados em simultâneo uma tarefa é executada definindo a `sp_add_jobstep` procedimento armazenado `@max_parallelism` parâmetro em T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` no PowerShell.
+
 ## <a name="best-practices-for-creating-jobs"></a>Melhores práticas para criar tarefas
 
 ### <a name="idempotent-scripts"></a>Scripts Idempotent
@@ -94,7 +96,7 @@ Da mesma forma, um script tem de poder ser executado com êxito ao testar logica
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md)
-- [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Criar e gerir conjuntos elásticos com o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerir conjuntos elásticos com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

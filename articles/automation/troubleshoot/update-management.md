@@ -4,16 +4,16 @@ description: Saiba como resolver problemas de gerenciamento de atualizações
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/05/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804467"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274591"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
@@ -45,7 +45,7 @@ Este erro pode dever-se pelos seguintes motivos:
 1. Visitar [planeamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais são os endereços e portas têm de ser permitidos para gerenciamento de atualizações trabalhar.
 2. Se utilizar uma imagem clonada:
    1. Na área de trabalho do Log Analytics, remover a VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates` se é apresentado. Pesquisas guardadas podem ser encontradas na **gerais** na sua área de trabalho.
-   2. Execute `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   2. Executar `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Execute `Restart-Service HealthService` para reiniciar o `HealthService`. Esta ação irá recriar a chave e gerar um UUID novo.
    4. Caso não funcione, a imagem do sysprep primeiro e instalar o agente MMA após o fato.
 
@@ -181,6 +181,8 @@ Faça duplo clique na exceção apresentada a vermelho para ver a mensagem de ex
 |`0x8024402C`     | Se estiver a utilizar um servidor WSUS, certifique-se os valores de registo `WUServer` e `WUStatusServer` sob a chave de registo `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` o servidor WSUS correto.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Certifique-se de que o serviço de atualização do Windows (wuauserv) está em execução e não está desabilitado.        |
 |Qualquer outra exceção genérica     | Fazer uma pesquisa na internet para encontrar possíveis soluções e trabalhar com seu suporte de TI local.         |
+
+Rever o `windowsupdate.log` pode ajudá-lo a tentar determinar a causa possível também. Para obter mais informações sobre como ler o registo, consulte [como ler o ficheiro de windowsupdate. log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Além disso, pode transferir e executar o [resolução de problemas de atualização do Windows](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) para verificar se existem quaisquer problemas com o Windows Update no computador.
 

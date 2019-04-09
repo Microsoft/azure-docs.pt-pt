@@ -1,7 +1,6 @@
 ---
 title: Identificar recursos em não conformidade
 description: Nesta explicação de procedimento orienta-o através de remediação de recursos que são incompatíveis para políticas no Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802563"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283448"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 

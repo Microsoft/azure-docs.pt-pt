@@ -5,15 +5,15 @@ services: site-recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 11/27/2018
+ms.topic: conceptual
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: cba9a334ae014351b1156f34325e9f134b1592a9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1f20818f0b899eede9fff05d71e98c8bffb94b0a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439202"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280133"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após a ativação pós-falha
 

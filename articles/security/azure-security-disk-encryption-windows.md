@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010350"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277124"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs de IaaS do Windows
 
@@ -223,8 +223,7 @@ Utilize o [ativar a encriptação do az vmss](/cli/azure/vmss/encryption#az-vmss
 Para encriptar ou desencriptar o dimensionamento de máquinas virtuais do Windows define, utilize os modelos Azure Resource Manager e as instruções abaixo:
 
 - [Ativar a encriptação num conjunto de dimensionamento de máquinas virtuais do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Implementar um conjunto de dimensionamento de VMs do Windows com uma jumpbox e ativar a encriptação no conjunto de dimensionamento de VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Desative a encriptação num conjunto de dimensionamento de VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Desative a encriptação num conjunto de dimensionamento de máquinas virtuais do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Clique em **Implementar no Azure**.
      2. Preencha os campos obrigatórios em seguida, os Concordo com os termos e condições.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a782831f0f017423faef7610f984b2ea87e445
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6faf023d36ea40e3694161ee0cfc8aac7c5652fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898470"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutorial: Integração do Active Directory do Azure com HackerOne
 
@@ -145,9 +145,9 @@ Para configurar o Azure AD início de sessão único com HackerOne, execute os s
 
     a. Na **domínio de E-Mail** caixa de texto, escreva um domínio registado.
 
-    b. Na  **início de sessão único na URL** caixas de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
+    b. Na **início de sessão único na URL** caixas de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
-    c. Abra sua transferido **ficheiro de certificado** partir do portal do Azure no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X509**  caixa de texto.
+    c. Abra sua transferido **ficheiro de certificado** partir do portal do Azure no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X509** caixa de texto.
 
     d. Clique em **Guardar**.
 
@@ -224,6 +224,6 @@ Quando clica no mosaico HackerOne no painel de acesso, deve ser automaticamente 
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

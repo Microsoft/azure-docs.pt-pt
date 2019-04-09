@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535653"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264204"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início rápido: Criar uma sala de bate-papo com as funções do Azure e o serviço SignalR usando JavaScript
 
@@ -50,7 +50,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 
     ![Criar o Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. No seu editor de código, abra a pasta *chat/src/javascript* no repositório clonado.
+1. No seu editor de código, abra a *bate-papo/src/javascript* pasta no repositório clonado.
 
 1. Mude o nome de *local.settings.sample.json* para *local.settings.json*.
 
@@ -61,7 +61,7 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
     - **negociar** - Utiliza o enlace de entrada *SignalRConnectionInfo* para gerar e devolver informações de ligação válidas.
     - **mensagens** - Recebe uma mensagem de chat no corpo do pedido e utiliza o enlace de saída *SignalR* para difundir a mensagem a todas as aplicações cliente ligadas.
 
-1. No terminal, certifique-se de que está na pasta *chat/src/javascript*. Utilize o Azure Functions Core Tools para instalar as extensões necessárias para executar a aplicação.
+1. No terminal, certifique-se de que se encontra o *bate-papo/src/javascript* pasta. Utilize o Azure Functions Core Tools para instalar as extensões necessárias para executar a aplicação.
 
     ```bash
     func extensions install
@@ -84,4 +84,4 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 Neste início rápido, criou e executou uma aplicação sem servidor em tempo real no VS Code. Em seguida, saiba mais sobre como implementar as Funções do Azure a partir do VS Code.
 
 > [!div class="nextstepaction"]
-> [Implementar as Funções do Azure com o VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Implementar as funções do Azure com o VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

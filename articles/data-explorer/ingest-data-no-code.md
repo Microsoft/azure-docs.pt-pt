@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 03/14/2019
-ms.openlocfilehash: 7006c6dcfb149247a066b850f59da626b2826e31
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051908"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262912"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
@@ -209,12 +209,12 @@ Para mapear dados de registos de atividade para a tabela, utilize a seguinte con
 
 #### <a name="activity-log-data-update-policy"></a>Política de atualização de dados de registo de atividade
 
-1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos de registo de atividade para que cada valor na coleção recebe uma linha separada. Utilize o [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) operador:
+1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos de registo de atividade para que cada valor na coleção recebe uma linha separada. Utilize o [ `mv-expand` ](/azure/kusto/query/mvexpandoperator) operador:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -238,11 +238,11 @@ Para mapear dados de registos de atividade para a tabela, utilize a seguinte con
 
 #### <a name="diagnostic-log-data-update-policy"></a>Política de atualização de dados de registo de diagnóstico
 
-1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos de registo de diagnóstico para que cada valor na coleção recebe uma linha separada. Utilize o [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) operador:
+1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos de registo de diagnóstico para que cada valor na coleção recebe uma linha separada. Utilize o [ `mv-expand` ](/azure/kusto/query/mvexpandoperator) operador:
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -367,7 +367,7 @@ Agora precisa de criar as ligações de dados para os seus registos de diagnóst
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Nome da ligação de dados** | *DiagnosticsLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | **Espaço de nomes do hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | **Espaço de nomes do hub de Eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | **Hub de eventos** | *diagnosticlogsdata* | O hub de eventos que criou. |
     | **Grupo de consumidores** | *adxpipeline* | O grupo de consumidores definido no hub de eventos que criou. |
     | | |
@@ -396,7 +396,7 @@ Repita os passos no criar a ligação de dados para a secção de registos de di
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | **Nome da ligação de dados** | *ActivityLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | **Espaço de nomes do hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | **Espaço de nomes do hub de Eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | **Hub de eventos** | *insights-operational-logs* | O hub de eventos que criou. |
     | **Grupo de consumidores** | *$Predefinição* | Grupo de consumidores predefinido. Se for necessário, pode criar um grupo de consumidores diferentes. |
     | | |

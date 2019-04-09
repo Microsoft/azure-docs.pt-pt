@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893593"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266943"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
 As funções do Azure é executado em dois planos de diferentes: Plano de consumo e plano Premium (pré-visualização pública). O plano de consumo automaticamente adiciona o poder de computação quando o código é executado. A aplicação é aumentada horizontalmente, quando necessário para processar a carga e reduzida verticalmente quando o código deixa de ser executada. Não é preciso pagar para as VMs inativas ou com antecedência a capacidade de reserva.  O plano Premium também automaticamente vai dimensionar e adicione o poder de computação adicional quando o código é executado.  O plano Premium vem com recursos adicionais, como instâncias de computação premium, a capacidade de manter instâncias quente indefinidamente e conectividade VNet.  Se tiver um plano de serviço de aplicações existentes, também pode executar as suas aplicações de função, de dentro dos mesmos.
 
 > [!NOTE]  
-> Ambos [plano Premium](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) e [plano de consumo para Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) estão atualmente em pré-visualização.
+> Ambos [plano Premium](https://aka.ms/functions-premiumplan) e [plano de consumo para Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) estão atualmente em pré-visualização.
 
 Se não estiver familiarizado com as funções do Azure, veja a [descrição geral das funções do Azure](functions-overview.md).
 
@@ -75,7 +75,7 @@ Considere o plano premium de funções do Azure nos seguintes casos:
 
 Ao executar as funções JavaScript num plano Premium, deve escolher uma instância que tem menos de vCPUs. Para obter mais informações, consulte a [escolha planos Premium de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>Plano do App Service
+## <a name="app-service-plan"></a>Plano do Serviço de Aplicações
 
 As suas aplicações de função também podem executar nas VMs dedicadas mesmo como outras aplicações de serviço de aplicações (básico, Standard, Premium e os SKUs isolados). Planos de serviço de aplicações suportam o Linux.
 

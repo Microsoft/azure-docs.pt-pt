@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121626"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267151"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
 Quando cria um serviço em nuvem, o Azure atribui-lo a um subdomínio de **cloudapp.net**. Por exemplo, se o seu serviço Cloud com o nome "contoso", os utilizadores serão capazes de aceder à sua aplicação numa URL como http://contoso.cloudapp.net. O Azure também atribui um endereço IP virtual.
@@ -64,11 +64,11 @@ Para criar um registo CNAME, tem de adicionar uma nova entrada na tabela de DNS 
 
 1. Utilize um dos seguintes métodos para encontrar os **. cloudapp.net** nome de domínio atribuído ao seu serviço cloud.
 
-   * Início de sessão para o [portal do Azure], selecione o seu serviço cloud, examinar a **Essentials** secção e, em seguida, localize o **URL do Site** entrada.
+   * Início de sessão para o [portal do Azure], selecione o seu serviço cloud, examinar a **descrição geral** secção e, em seguida, localize o **URL do Site** entrada.
 
        ![secção de leitura rápida, que mostra o URL do site][csurl]
 
-       **OR**
+       **OU**
    * Instalar e configurar [do Azure Powershell](/powershell/azure/overview)e, em seguida, utilize o seguinte comando:
 
        ```powershell
@@ -97,11 +97,11 @@ Para criar um registo, tem primeiro de localizar o endereço IP virtual do seu s
 
 1. Utilize um dos seguintes métodos para obter o endereço IP do seu serviço cloud.
 
-   * Início de sessão para o [portal do Azure], selecione o seu serviço cloud, examinar a **Essentials** secção e, em seguida, localize o **endereços IP públicos** entrada.
+   * Início de sessão para o [portal do Azure], selecione o seu serviço cloud, examinar a **descrição geral** secção e, em seguida, localize o **endereços IP públicos** entrada.
 
        ![secção de leitura rápida, que mostra o VIP][vip]
 
-       **OR**
+       **OU**
    * Instalar e configurar [do Azure Powershell](/powershell/azure/overview)e, em seguida, utilize o seguinte comando:
 
        ```powershell
@@ -130,7 +130,7 @@ Este exemplo demonstra a criação de um registo para o domínio de raiz. Se qui
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
+* [Como gerir serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Como Mapear Conteúdo da CDN para um Domínio Personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuração geral do seu serviço cloud](cloud-services-how-to-configure-portal.md).
 * Saiba como [implementar um serviço cloud](cloud-services-how-to-create-deploy-portal.md).

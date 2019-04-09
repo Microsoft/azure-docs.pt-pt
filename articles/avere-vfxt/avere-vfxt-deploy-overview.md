@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991806"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268386"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para o Azure - descrição geral da implementação
 
@@ -32,14 +32,6 @@ Aqui está uma visão geral de todos os passos.
 1. Configurar os pré-requisitos 
 
    Antes de criar uma VM, tem de criar uma nova subscrição para o projeto de vFXT Avere, configurar a propriedade da subscrição, verifique as quotas e pedir um aumento, se necessário e aceitar os termos de utilização de software de vFXT Avere. Leia [preparar para criar o vFXT Avere](avere-vfxt-prereqs.md) para obter instruções detalhadas.
-
-1. Criar uma função de acesso para os nós de cluster
-
-   O Azure utiliza [controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para autorizar o nó de cluster de VMs para executar determinadas tarefas. Por exemplo, os nós do cluster tem de ser capaz de atribuir ou reatribuem endereços IP para outros nós do cluster. Antes de criar o cluster, tem de definir uma função que lhes concede as permissões adequadas.
-
-   Leia [criar a função de acesso de nó de cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) para obter instruções.
-
-   O controlador de cluster também utiliza uma função de acesso, mas pode aceitar a função predefinida, o proprietário, em vez de criar seu próprio. Se quiser criar uma função personalizada para o controlador de cluster, leia [função de acesso de controlador personalizado](avere-vfxt-controller-role.md). 
 
 1. Criar o cluster de vFXT Avere 
 

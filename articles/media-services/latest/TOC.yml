@@ -57,6 +57,8 @@ items:
       href: media-encoder-standard-formats.md
     - name: Degraus de bitrate adaptativo auto-generativo
       href: autogen-bitrate-ladder.md
+    - name: Codificação com reconhecimento de conteúdo
+      href: cae-experimental.md
   - name: Análise de multimédia
     items:
     - name: Descrição geral
@@ -265,9 +267,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 4f40fc3241dd0df881c7777d3e47a8976a364dc5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 10c1bf3de5de12521c865ddd7e661f5e7243bdd9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755430"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259308"

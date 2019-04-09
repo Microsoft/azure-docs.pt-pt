@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013032"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273588"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Crie e gira orçamentos do Azure
 
@@ -63,7 +63,9 @@ Clique em **Adicionar**.
 
 ![Apresentado no portal do Azure de orçamentos de gestão de custos](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Na **orçamento criar** janela, introduza um nome de orçamento e a quantidade de orçamento. Em seguida, escolha um mensais, trimestrais, ou o período de duração anual. Em seguida, selecione uma data de fim. Orçamentos requerem o limiar, pelo menos, um custo (% do orçamento) e um endereço de e-mail correspondentes. Opcionalmente, pode incluir até cinco limiares e cinco endereços de e-mail num orçamento único. Quando é cumprido um limiar de orçamento, notificações por e-mail são normalmente recebidas em menos de oito horas. Para obter mais informações sobre notificações, consulte [alertas de custos de utilização](cost-mgt-alerts-monitor-usage-spending.md).
+Na **orçamento criar** janela, introduza um nome de orçamento e a quantidade de orçamento. Em seguida, selecione qualquer um dos mensais, trimestrais, ou período de duração anual<sup>1</sup>. Em seguida, selecione uma data de fim. Orçamentos requerem o limiar, pelo menos, um custo (% do orçamento) e um endereço de e-mail correspondentes. Opcionalmente, pode incluir até cinco limiares e cinco endereços de e-mail num orçamento único. Quando é cumprido um limiar de orçamento, notificações por e-mail são normalmente recebidas em menos de oito horas. Para obter mais informações sobre notificações, consulte [alertas de custos de utilização](cost-mgt-alerts-monitor-usage-spending.md).
+
+<sup>1</sup> se for um cliente de pay as you go, o MSDN ou o Visual Studio o período de faturação de nota fiscal para uma subscrição poderão não ficar alinhadas ao calendário mensal. Para as subscrições e grupos de recursos que pertencem a este registo, pode criar um orçamento alinhado à sua fatura ou para os meses de calendário. Para criar um orçamento alinhado com a sua fatura, selecione um período de reposição do mês de faturação, faturação trimestre ou ano de faturação no momento da criação. Para criar um orçamento alinhado com o mês de calendário, selecione um período de reposição de mensalmente, trimestralmente ou anualmente no momento da criação.
 
 Eis um exemplo de criação de um orçamento mensal de US $4.500. É gerado um alerta de e-mail quando for atingido 90% do orçamento.
 

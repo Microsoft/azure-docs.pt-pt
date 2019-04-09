@@ -1,74 +1,68 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 11d07f33a4f5e268ff2f0ac2966bde40a63a7529
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776822"
 documentType: LandingData
 title: Documentação do Azure Notebooks
 metadata:
-  title: Documentação do Azure Notebooks - Inícios rápidos, Tutoriais, Guias | Microsoft Docs
-  description: Saiba como criar, executar e partilhar blocos de notas Jupyter através do serviço alojado do Azure Notebooks.
+  title: 'Documentação do Azure Notebooks - Inícios rápidos, Tutoriais, Guias | Microsoft Docs'
+  description: 'Saiba como criar, executar e partilhar blocos de notas Jupyter através do serviço alojado do Azure Notebooks.'
   services: notebooks
   author: kraigb
   manager: douge
-  ms.service: azure
+  ms.service: azure-notebooks
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/04/2018
   ms.author: kraigb
 abstract:
-  description: O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. O Jupyter (anteriormente denominado IPython) é um projeto de código aberto que lhe permite combinar facilmente texto em markdown, código executável (Python, R e F#), dados persistentes, gráficos e visualizações numa única tela partilhável chamada bloco de notas.
+  description: 'O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. O Jupyter (anteriormente denominado IPython) é um projeto de código aberto que lhe permite combinar facilmente texto em markdown, código executável (Python, R e F#), dados persistentes, gráficos e visualizações numa única tela partilhável chamada bloco de notas.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Explore estes inícios rápidos para saber como trabalhar com o Azure Notebooks.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - title: Inícios rápidos de cinco minutos
     items:
-    - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
-      html: <p>Saiba como criar e executar um bloco de notas Jupyter no Azure Notebooks e, em seguida, partilhe esse bloco de notas com outras pessoas.</p>
-      image:
-        src: media/index/Azure_AddNotebook.svg
-      title: Criar e partilhar um bloco de notas
-    - href: /azure/notebooks/quickstart-clone-jupyter-notebook
-      html: <p>Saiba como clonar um bloco de notas Jupyter a partir de um repositório do GitHub e como executá-lo na sua conta do Azure Notebooks.</p>
-      image:
-        src: media/index/Azure_ClonePage.svg
-      title: Clonar um bloco de notas
-    - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
-      html: <p>Saiba como transferir um bloco de notas Jupyter para o Azure Notebooks a partir do seu computador local ou de um URL Web e, em seguida, partilhe-o para colaboração.</p>
-      image:
-        src: media/index/Azure_MigrateNotebook.svg
-      title: Migrar um bloco de notas Jupyter local
-    - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
-      html: <p>Saiba como configurar um projeto do Azure Notebooks com conjunto específico de pacotes instalados e scripts de arranque.</p>
-      image:
-        src: media/index/Azure_CustomEnvironment.svg
-      title: Criar um projeto com um ambiente personalizado
-    - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
-      html: <p>Saiba como iniciar sessão no Azure Notebooks e a definir um ID de utilizador, o que lhe dá a capacidade de aceder a projetos guardados e de partilhar os blocos de notas com outras pessoas.</p>
-      image:
-        src: media/index/Azure_UserAccount.svg
-      title: Iniciar sessão e definir um ID de utilizador
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Explore estes inícios rápidos para saber como trabalhar com o Azure Notebooks.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
+            html: '<p>Saiba como criar e executar um bloco de notas Jupyter no Azure Notebooks e, em seguida, partilhe esse bloco de notas com outras pessoas.</p>'
+            image:
+              src: media/index/Azure_AddNotebook.svg
+            title: Criar e partilhar um bloco de notas
+          - href: /azure/notebooks/quickstart-clone-jupyter-notebook
+            html: <p>Saiba como clonar um bloco de notas Jupyter a partir de um repositório do GitHub e como executá-lo na sua conta do Azure Notebooks.</p>
+            image:
+              src: media/index/Azure_ClonePage.svg
+            title: Clonar um bloco de notas
+          - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
+            html: '<p>Saiba como transferir um bloco de notas Jupyter para o Azure Notebooks a partir do seu computador local ou de um URL Web e, em seguida, partilhe-o para colaboração.</p>'
+            image:
+              src: media/index/Azure_MigrateNotebook.svg
+            title: Migrar um bloco de notas Jupyter local
+          - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
+            html: <p>Saiba como configurar um projeto do Azure Notebooks com conjunto específico de pacotes instalados e scripts de arranque.</p>
+            image:
+              src: media/index/Azure_CustomEnvironment.svg
+            title: Criar um projeto com um ambiente personalizado
+          - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
+            html: '<p>Saiba como iniciar sessão no Azure Notebooks e a definir um ID de utilizador, o que lhe dá a capacidade de aceder a projetos guardados e de partilhar os blocos de notas com outras pessoas.</p>'
+            image:
+              src: media/index/Azure_UserAccount.svg
+            title: Iniciar sessão e definir um ID de utilizador
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Saiba como criar um bloco de notas do início ao fim.</a>
-- title: Amostras
-  items:
-  - type: paragraph
-    text: 'Utilize os exemplos seguintes para trabalhar com o Notebooks:'
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Saiba como criar um bloco de notas do início ao fim.</a>
+  - title: Amostras
     items:
-    - html: <a href="/azure/notebooks/azure-notebooks-samples">Blocos de notas Jupyter de exemplo</a>
+      - type: paragraph
+        text: 'Utilize os exemplos seguintes para trabalhar com o Notebooks:'
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/notebooks/azure-notebooks-samples">Blocos de notas Jupyter de exemplo</a>

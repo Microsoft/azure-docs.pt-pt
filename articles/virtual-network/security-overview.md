@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 9d45f3a7d20545ac7b66d27505078f21f06adddc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881856"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262147"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -62,8 +62,8 @@ As regras de segurança aumentadas simplificam a definição de segurança das r
 * **Internet** (Resource Manager) (**INTERNET** para a clássica): Esta etiqueta denota o espaço de endereços IP que está fora da rede virtual e acessível pela Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público pertencente ao Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureCloud** (apenas Resource Manager): Esta etiqueta denota o espaço de endereços IP para o Azure, incluindo todos [os endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Se especificar *AzureCloud* no valor, o tráfego é permitido ou negado para os endereços IP públicos do Azure. Se quiser apenas permitir o acesso ao AzureCloud numa determinada [região](https://azure.microsoft.com/regions), poderá especificar a região. Por exemplo, se pretender permitir o acesso ao AzureCloud do Azure apenas na região EUA Leste, poderá especificar *AzureCloud.EastUS* como a etiqueta de serviço. 
 * **AzureTrafficManager** (apenas Resource Manager): Esta etiqueta denota o espaço de endereços IP para os endereços IP de sonda do Gestor de tráfego do Azure. Pode encontrar mais informações sobre os endereços IP da pesquisa do Gestor de Tráfego nas [FAQ do Gestor de Tráfego do Microsoft Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
-* **Armazenamento** (apenas Resource Manager): Esta etiqueta denota o espaço de endereços IP para o serviço de armazenamento do Azure. Se especificar *Storage* no valor, o tráfego é permitido ou negado para o armazenamento. Se quiser apenas permitir o acesso ao armazenamento numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso ao Armazenamento do Azure apenas na região E.U.A. Leste, pode especificar *Storage.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. Todos os prefixos de endereço representados por esta etiqueta também são representados pela etiqueta **Internet**. 
-* **SQL** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do SQL Database do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e os serviços do Azure SQL Data Warehouse. Se especificar *Sql* no valor, o tráfego é permitido ou negado para o Sql. Se quiser apenas permitir o acesso ao Sql numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso à Base de Dados SQL do Azure apenas na região E.U.A. Leste, pode especificar *Sql.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. Todos os prefixos de endereço representados por esta etiqueta também são representados pela etiqueta **Internet**. 
+* **Armazenamento** (apenas Resource Manager): Esta etiqueta denota o espaço de endereços IP para o serviço de armazenamento do Azure. Se especificar *Storage* no valor, o tráfego é permitido ou negado para o armazenamento. Se quiser apenas permitir o acesso ao armazenamento numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso ao Armazenamento do Azure apenas na região E.U.A. Leste, pode especificar *Storage.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. 
+* **SQL** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do SQL Database do Azure, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL e os serviços do Azure SQL Data Warehouse. Se especificar *Sql* no valor, o tráfego é permitido ou negado para o Sql. Se quiser apenas permitir o acesso ao Sql numa determinada [região](https://azure.microsoft.com/regions), pode especificá-la. Por exemplo, se pretender permitir o acesso à Base de Dados SQL do Azure apenas na região E.U.A. Leste, pode especificar *Sql.EastUS* como a etiqueta de serviço. A etiqueta representa o serviço, mas não instâncias específicas do mesmos. Por exemplo, representa o serviço da Base de Dados SQL do Azure, mas não uma base de dados ou um servidor SQL. 
 * **AzureCosmosDB** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço de base de dados do Azure Cosmos. Se especificar *AzureCosmosDB* no valor, o tráfego é permitido ou negado para o AzureCosmosDB. Se só pretender permitir o acesso ao AzureCosmosDB numa [região](https://azure.microsoft.com/regions) específica, pode especificar a região no seguinte formato AzureCosmosDB.[ nome da região]. 
 * **AzureKeyVault** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço Cofre de chaves do Azure. Se especificar *AzureKeyVault* no valor, o tráfego é permitido ou negado para o AzureKeyVault. Se só pretender permitir o acesso ao AzureKeyVault numa [região](https://azure.microsoft.com/regions) específica, pode especificar a região no seguinte formato AzureKeyVault.[ nome da região]. 
 * **EventHub** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço Azure EventHub. Se especificar *EventHub* no valor, o tráfego será permitido ou negado para o EventHub. Se só pretender permitir o acesso ao EventHub numa [região](https://azure.microsoft.com/regions) específica, poderá especificar a região no seguinte formato EventHub.[nome da região]. 
@@ -95,19 +95,19 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todos|Permitir|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todos|Permitir|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todos|Negar|
 
@@ -115,19 +115,19 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todos | Permitir |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todos | Permitir |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todos | Negar |
 
@@ -135,11 +135,11 @@ Nas colunas **Source** (Origem) e **Destination** (Destino), *VirtualNetwork*, *
  
 Não pode remover as regras predefinidas, mas pode criar regras com prioridades superiores para substituí-las.
 
-## <a name="application-security-groups"></a>Grupos de segurança de aplicações
+## <a name="application-security-groups"></a>Grupos de segurança da aplicação
 
 Os grupos de segurança de aplicações permitem-lhe configurar a segurança de rede como uma extensão natural da estrutura de uma aplicação, possibilitando o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Pode reutilizar a política de segurança em escala sem a manutenção manual de endereços IP explícitos. A plataforma lida com a complexidade dos endereços IP explícitos e dos múltiplos conjuntos de regras, permitindo-lhe focar-se na lógica de negócio. Para compreender melhor os grupos de segurança de rede, considere o exemplo seguinte:
 
-![Grupos de segurança de aplicações](./media/security-groups/application-security-groups.png)
+![Grupos de segurança da aplicação](./media/security-groups/application-security-groups.png)
 
 Na imagem anterior, *NIC1* e *NIC2* são membros do grupo de segurança de rede *AsgWeb*. *NIC3* é membro do grupo de segurança de rede *AsgLogic*. *NIC4* é membro do grupo de segurança de rede *AsgDb*. Embora cada interface de rede neste exemplo seja membro de apenas um grupo de segurança de rede, as interfaces de rede podem ser membros de vários grupos, até atingirem os [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Não está associado nenhum grupo de segurança de rede às interfaces de rede. *NSG1* está associado a ambas as sub-redes e contém as seguintes regras:
 
@@ -147,7 +147,7 @@ Na imagem anterior, *NIC1* e *NIC2* são membros do grupo de segurança de rede 
 
 Esta regra é necessária para permitir o tráfego da Internet para os servidores Web. Uma vez que o tráfego de entrada a partir da Internet é negado pela regra de segurança [DenyAllInbound](#denyallinbound) predefinida, não é necessária qualquer regra adicional para os grupos de segurança de aplicações *AsgLogic* ou *AsgDb*.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Permitir |
 
@@ -155,7 +155,7 @@ Esta regra é necessária para permitir o tráfego da Internet para os servidore
 
 Uma vez que a regra de segurança predefinida [AllowVNetInBound](#allowvnetinbound) permite todas as comunicações entre recursos na mesma rede virtual, esta regra é necessária para negar o tráfego de todos os recursos.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Todos | Negar |
 
@@ -163,7 +163,7 @@ Uma vez que a regra de segurança predefinida [AllowVNetInBound](#allowvnetinbou
 
 Esta regra permite o tráfego do grupo de segurança de aplicações *AsgLogic* para o grupo de segurança de aplicações *AsgDb*. A prioridade desta regra é mais alta do que a da regra *Deny-Database-All*. Como resultado, esta regra é processada antes da regra *Deny-Database-All*, de modo a que o tráfego do grupo de segurança de aplicações *AsgLogic* seja permitido, ao passo que o restante tráfego é bloqueado.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Permitir |
 

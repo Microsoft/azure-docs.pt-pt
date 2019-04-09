@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892216"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269032"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planear um multi-factor Authentication com base na cloud do Azure
 
@@ -60,8 +60,14 @@ O Azure multi-factor Authentication é implementada através da imposição de p
 * Dispositivo conforme
 * Dispositivo de associado ao Azure AD híbrido
 * Aplicação aprovada do cliente
+ 
+
+Utilize o personalizáveis cartazes e modelos de e-mail [materiais de implementação da autenticação multifator] para implementar a autenticação multifator para sua organização. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Ativar a multi-factor Authentication com o acesso condicional
 
 Políticas de acesso condicional impõem o registo, exigindo que os utilizadores de anular o registo concluir o registo no primeiro início de sessão, uma importante consideração de segurança.
+
 
 [O Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribui para uma política de registo e políticas de deteção e remediação de risco automatizada para a história de multi-factor Authentication. As políticas podem ser criadas para forçar as alterações de palavra-passe quando existe uma ameaça de identidade comprometida ou exigir a MFA quando um início de sessão é considerado arriscado pelos seguintes [eventos](../reports-monitoring/concept-risk-events.md):
 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313025"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277788"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Definir funções RBAC para acesso administrativo
 

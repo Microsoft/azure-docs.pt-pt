@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903390"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272211"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory
 
@@ -282,7 +282,7 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SqlSink**. | Sim. |
-| writeBatchSize |Esta propriedade insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Valores permitidos são números inteiros para o número de linhas. |Não (predefinição: 10,000). |
+| writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são números inteiros para o número de linhas. |Não (predefinição: 10,000). |
 | writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00," que é 30 minutos. |Não. |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados para a instância gerida. Ele é invocado apenas uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados pré-carregado. |Não. |
 | sqlWriterStoredProcedureName |Este nome é o procedimento armazenado que define como aplicar dados de origem para a tabela de destino. São exemplos de procedimentos para fazer a upserts ou transformações com sua própria lógica de negócios. <br/><br/>Este procedimento armazenado está *invocado por lote*. Para fazer uma operação que é executado apenas uma vez e não tem nada a com dados de origem, por exemplo, delete ou truncate, use o `preCopyScript` propriedade. |Não. |
@@ -438,9 +438,9 @@ Quando os dados são copiados para a instância gerida da base de dados SQL do A
 
 Pode usar um procedimento armazenado quando os mecanismos de cópia interna não atendem a finalidade. É normalmente utilizado quando um upsert (atualização + insert) ou um processamento extra deve ser feito antes da última inserção de dados de origem na tabela de destino. Processamento extra pode incluir tarefas como a intercalação de colunas, procurar valores adicionais e a inserção em várias tabelas.
 
-O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na instância gerida. O exemplo parte do princípio de que os dados de entrada e a tabela de "Marketing" do sink tem três colunas: ProfileID, estado e categoria. Execute o upsert com base na coluna ProfileID e inscreva-se apenas uma categoria específica.
+O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na base de dados do SQL Server. Partem do princípio de que dados de entrada e o sink **Marketing** cada tabela têm três colunas: **ProfileID**, **estado**, e **categoria**. Fazer o upsert com base na **ProfileID** coluna e aplicá-la apenas para uma categoria específica.
 
-**Conjunto de dados de saída**
+**Conjunto de dados de saída:** "tableName" deve ser o mesmo nome de parâmetro de tipo de tabela no seu procedimento armazenado (veja abaixo o script do procedimento armazenado).
 
 ```json
 {
@@ -459,7 +459,7 @@ O exemplo a seguir mostra como usar um procedimento armazenado para fazer um ups
 }
 ```
 
-Defina a seção SqlSink numa atividade de cópia da seguinte forma:
+Definir o **sink do SQL** secção na atividade de cópia da seguinte forma.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Defina a seção SqlSink numa atividade de cópia da seguinte forma:
 }
 ```
 
-Na sua base de dados, defina o procedimento armazenado com o mesmo nome como SqlWriterStoredProcedureName. Processa dados de entrada da sua origem especificado e intercala-lo a tabela de saída. O nome do parâmetro de tipo de tabela no procedimento armazenado é igual a "tableName", que é definida no conjunto de dados.
+Na sua base de dados, definir o procedimento armazenado com o mesmo nome que o **SqlWriterStoredProcedureName**. Ele lida com dados de entrada da sua origem especificado e intercala a tabela de saída. O nome do parâmetro de tipo de tabela no procedimento armazenado deve ser igual a **tableName** definido no conjunto de dados.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

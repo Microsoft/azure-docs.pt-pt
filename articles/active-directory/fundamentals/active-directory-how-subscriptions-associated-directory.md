@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285011"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264901"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure com o seu inquilino do Azure Active Directory
 
@@ -30,6 +30,8 @@ Todos os seus utilizadores com uma única *doméstica* diretório para a autenti
 
 > [!Important]
 > Quando associa uma subscrição para um diretório diferente, os utilizadores que têm funções atribuídas usando [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão o acesso. Os administradores de subscrição clássica (administrador de serviços e Coadministradores) também irão perder o acesso.
+> 
+> Além disso, mover o seu cluster do Azure Kubernetes Service (AKS) para uma subscrição diferente, ou para mover a subscrição de proprietário de cluster para um novo inquilino, faz com que o cluster perca funções devido a atribuições de funções perdidas e os direitos de principais de serviço. Para obter mais informações sobre o AKS, consulte [do Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -67,15 +69,16 @@ Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as segui
 
     ![Página de alternador de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Alterar o diretório de subscrição é uma operação de nível de serviço, para que não afeta a propriedade de faturação de subscrição. O administrador de conta pode ainda alterar o administrador de serviço a partir da [Centro de contas](https://account.azure.com/subscriptions). Para eliminar o diretório original, tem de transferir a subscrição de faturação a propriedade para um administrador de conta nova. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md). 
+Alterar o diretório de subscrição é uma operação de nível de serviço, para que não afeta a propriedade de faturação de subscrição. O administrador de conta pode ainda alterar o administrador de serviço a partir da [Centro de contas](https://account.azure.com/subscriptions). Para eliminar o diretório original, tem de transferir a subscrição de faturação a propriedade para um administrador de conta nova. Para obter mais informações sobre como transferir a propriedade da faturação, veja [Transferir a propriedade de uma subscrição do Azure para outra conta](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Passos de associação de postagem
-
 Depois de associar uma subscrição para um diretório diferente, pode haver passos adicionais que tem de efetuar para retomar as operações.
 
 1. Se tiver quaisquer cofres de chaves, tem de alterar o ID de inquilino do Cofre de chaves. Para obter mais informações, consulte [alterar um ID de inquilino do Cofre de chaves após a movimentação de uma subscrição](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Se tiver registado um utilizar esta subscrição do Azure Stack, é necessário registrar novamente. Para obter mais informações, consulte [registar o Azure Stack com o Azure](../../azure-stack/azure-stack-registration.md).
+2. Se tiver registado um utilizar esta subscrição do Azure Stack, é necessário registrar novamente. Para obter mais informações, consulte [registar o Azure Stack com o Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

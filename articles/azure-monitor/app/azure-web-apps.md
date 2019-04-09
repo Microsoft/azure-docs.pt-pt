@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905839"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262504"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
 
 Ativar a monitorização, no .NET e .NET Core, aplicativos web com base em execução nos serviços de aplicações do Azure agora é mais fácil do que nunca. Enquanto que anteriormente precisava instalar manualmente uma extensão de site, o agente/extensão mais recente foi agora integrado à imagem do serviço de aplicações por predefinição. Este artigo irá guiá-lo a ativar a monitorização do Application Insights, bem como fornecer orientações preliminar para automatizar o processo para implementações em larga escala.
 
 > [!NOTE]
-> Adicionar manualmente uma extensão de site do Application Insights através de **ferramentas de desenvolvimento** > **extensões** foi preterido. A versão estável mais recente da extensão já está [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicações. Os ficheiros estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizadas automaticamente com cada versão estável. Se seguir as instruções do agente com base para ativar a monitorização abaixo, este irá automaticamente remover a extensão preterida para.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Adicionar manualmente uma extensão de site do Application Insights através de **ferramentas de desenvolvimento** > **extensões** foi preterido. Este método de instalação da extensão era depende das atualizações manuais para cada nova versão. A versão estável mais recente da extensão já está [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicações. Os ficheiros estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizadas automaticamente com cada versão estável. Se seguir as instruções do agente com base para ativar a monitorização abaixo, este irá automaticamente remover a extensão preterida para.
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
@@ -285,6 +282,8 @@ Abaixo está um exemplo, substitua todas as instâncias de `AppMonitoredSite` co
 
 Para ativar a monitorização através do PowerShell da aplicação, apenas as configurações de aplicativo subjacente tem de ser alterado. Segue-se um exemplo, que permite a monitorização de aplicações para um Web site chamado "AppMonitoredSite" no grupo de recursos "AppMonitoredRG", e configura os dados sejam enviados para a chave de instrumentação "012345678-abcd-ef01-2345-6789abcd".
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -317,7 +316,7 @@ A partir da versão 2.8.9 é utilizada a extensão de site previamente instalado
 
 Se a atualização é feita a partir de uma versão anterior 2.5.1, verifique que as dlls ApplicationInsigths são removidas a partir da pasta bin do aplicativo [ver passos de resolução de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Segue-se nosso guia de resolução de problemas passo a passo para monitorizar/agente de extensão com base em .NET e .NET Core com base em aplicações em execução nos serviços de aplicações do Azure.
 
@@ -348,6 +347,7 @@ A tabela abaixo fornece uma explicação mais detalhada sobre o que significa qu
 |Valor de problema|Explicação|Corrigir
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Este valor indica que a extensão detetou que algum aspecto do SDK já se encontra presente no aplicativo e será retirada. Tal pode dever-se uma referência a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, ou `Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas, por predefinição, a partir de determinados modelos do Visual Studio e as versões mais antigas do Visual Studio podem adicionar referências aos `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | Se o aplicativo está direcionado para .NET Core 2.1 ou 2.2 e se refere à [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-package, em seguida, coloca no Application Insights e extensão será retirada. | Os clientes no .NET Core 2.1,2.2 [recomendado](https://github.com/aspnet/Announcements/issues/287) para utilizar em vez disso, o Microsoft.AspNetCore.App. o meta-package.|
 |`AppAlreadyInstrumented:true` | Este valor também pode ser causado pela presença das dlls acima na pasta de aplicação de uma implementação anterior. | Limpe a pasta de aplicação para se certificar de que essas dlls são removidos.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Este valor indica que a extensão detetou referências a `Microsoft.AspNet.TelemetryCorrelation` no aplicativo e será retirada. | Remova a referência.
 |`AppContainsDiagnosticSourceAssembly**:true`|Este valor indica que a extensão detetou referências a `System.Diagnostics.DiagnosticSource` no aplicativo e será retirada.| Remova a referência.

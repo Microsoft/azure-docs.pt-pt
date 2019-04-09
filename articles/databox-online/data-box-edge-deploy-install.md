@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400013"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278484"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Edge de caixa de dados do Azure
 
@@ -90,7 +90,9 @@ O dispositivo tem de ser instalado num bastidor de 19 polegadas padrão. Utilize
 
 - Antes de começar, leia as instruções de segurança no seu livreto de segurança, ambientais e informações de regulamentação. Este livreto foi lançado com o dispositivo.
 - Começa a instalar os rails no espaço alocado que está mais próximo da parte inferior do bastidor de rack.
-- Para a configuração de montagem do tooled rail, precisa fornecer oito screws: #10-32, #12 a 24, #M5 ou #M6. O diâmetro principal dos screws tem de ser inferior a 10 mm (0.4").
+- Para a configuração de montagem do tooled rail:
+    -  Precisa fornecer oito screws: #10-32, #12 a 24, #M5 ou #M6. O diâmetro principal dos screws tem de ser inferior a 10 mm (0.4").
+    -  É necessário um screwdriver colocado para fixa.
 
 ### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit rail
 
@@ -102,6 +104,9 @@ Localize os componentes para instalar o assembly do rail kit:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instalar e remover a ferramenta sem rails (buraco quadrado ou buraco redondo racks)
 
+> [!TIP]
+> Esta opção é a ferramenta sem porque ele não requer ferramentas para instalar e remover os rails para o quadrado unthreaded ou arredondar buracos nos racks.
+
 1. Posicionar as partes de fim de left e right rail rotuladas **FRONT** com acesso à inward e orientar a cada peça final para os buracos no lado do front-de flanges o bastidor vertical de usuários.
 2. Alinhe cada peça final os buracos na parte inferior e superior dos espaços de U pretendidos.
 3. Interagir com o back-end do rail até ele totalmente o flange vertical rack e os cliques de bloqueio temporário no lugar certo. Repita estes passos para posicionar e a parte de front-end no flange bastidor vertical de usuários.
@@ -110,6 +115,9 @@ Localize os componentes para instalar o assembly do rail kit:
 ![Instalar e remover a ferramenta sem rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalar e remover rails tooled (Threaded buraco racks)
+
+> [!TIP]
+> Esta opção é tooled porque é necessária uma ferramenta (_um screwdriver colocado para fixa_) instalar e remover os rails nos threads buracos redondo nos racks.
 
 1. Remova os pins de frente e traseiro montar Retos usando um screwdriver colocado para fixa.
 2. Extrair e girar os subassemblies de bloqueio temporário do rail para removê-los dos colchetes de montagem.
@@ -152,7 +160,7 @@ NOTA: Para sistemas não equipados com mais travas, proteger o sistema usando sc
 
 1. Localize os colchetes CMA externos nos lados interior de ambos os flanges rack.
 2. Agrupar os cabos moderadamente, colocá-los limpar dos conectores do sistema para as laterais esquerda e direita.
-3. Os straps hook e o loop por meio de ranhuras tooled nos colchetes CMA externas de cada lado do sistema para proteger os pacotes de cabo de thread.
+3. Os straps hook e o loop por meio de ranhuras nos colchetes CMA externas de cada lado do sistema para proteger os pacotes de cabo de thread.
 
 
 ![Encaminhar os cabos](./media/data-box-edge-deploy-install/routing-cables.png)

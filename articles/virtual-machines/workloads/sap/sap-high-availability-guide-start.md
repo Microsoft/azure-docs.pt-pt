@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5ceab083077231fd856bb0f267717afdb9556d3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667060"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265071"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver
 
@@ -196,7 +196,7 @@ Esta série de artigos abrange:
     > Recomendamos vivamente que utilize o modelo de implementação Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implementação clássica. Saiba mais sobre o Azure [modelos de implementação][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * SAP elevada disponibilidade no:
-  * ![Windows][Logo_Windows]**Windows**, com **Cluster de ativação pós-falha de servidor do Windows (WSFC)**
+  * ![Windows][Logo_Windows]**Windows**, com **Cluster de ativação pós-falha de servidor do Windows (WSFC)** 
   * ![Linux][Logo_Linux] **Linux**, com **Framework de Cluster do Linux**
 
 Estes artigos, saiba como ajudar a proteger o ponto único de componentes de falha (SPOF), como SAP Central Services (ASCS/SCS) e sistemas de gestão de bases de dados (DBMS). Também aprende sobre componentes redundantes no Azure, como o servidor de aplicações SAP.
@@ -228,7 +228,7 @@ O artigo abrange ambos ![Windows][Logo_Windows] **Windows** e ![Linux][Logo_Linu
 
 * ![RHEL][Logo_Linux] [infraestrutura de preparar o Azure para elevada disponibilidade do SAP ASCS/SCS - configurar GlusterFS em RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [infraestrutura de preparar o Azure para elevada disponibilidade do SAP ASCS/SCS - configurar Pacemaker no RHEL ][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [infraestrutura de preparar o Azure para elevada disponibilidade do SAP ASCS/SCS - configurar Pacemaker no RHEL][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Instalação de um sistema de elevada disponibilidade do SAP NetWeaver no Azure
 

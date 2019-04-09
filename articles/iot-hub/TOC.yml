@@ -184,6 +184,8 @@ items:
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: Utilizar o serializador
           href: iot-hub-device-sdk-c-serializer.md
+      - name: Informações dos recursos do SDK C da IoT do Azure
+        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
       - name: Desenvolver para dispositivos restritos
         href: iot-hub-devguide-develop-for-constrained-devices.md
       - name: Desenvolver para dispositivos móveis
@@ -457,9 +459,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: d1aa4f75ce01f4169418f54fc19dfca6588fb751
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: bd2ac9a20e4797f9f25ffbd3ed4d369da1c3e469
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010707"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263796"

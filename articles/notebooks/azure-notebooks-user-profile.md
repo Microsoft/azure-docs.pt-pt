@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765922"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265615"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>O ID de utilizador e de perfil para blocos de notas do Azure
 
 Dentro do espaço de poderoso e colaboração de blocos de notas do Azure, o seu perfil de utilizador apresenta sua imagem pública a outras pessoas:
 
-[![Uma página de perfil de blocos de notas do Azure](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
+[![Apágina de perfil de blocos de notas do Azure n](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 O ID de utilizador faz parte dos URLs de usar para compartilhar projetos e blocos de notas. A lista seguinte descreve os diferentes padrões de URL:
 

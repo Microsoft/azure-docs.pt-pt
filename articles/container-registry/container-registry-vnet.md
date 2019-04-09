@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517934"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268432"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir o acesso a um Azure container registry através de uma rede virtual do Azure ou as regras de firewall
 
@@ -29,6 +29,8 @@ Este artigo mostra dois cenários para criar as regras de acesso de rede para li
 * Apenas um **Premium** registo de contentor pode ser configurado com regras de acesso de rede. Para obter informações sobre os escalões de serviço de registo, consulte [SKUs de registo de contentor do Azure](container-registry-skus.md). 
 
 * Apenas um [do Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster ou do Azure [máquina virtual](../virtual-machines/linux/overview.md) pode ser utilizado como um anfitrião para aceder a um registo de contentor numa rede virtual. *Outros serviços do Azure, incluindo o Azure Container Instances não são atualmente suportados.*
+
+* [Tarefas de ACR](container-registry-tasks-overview.md) operações não são atualmente suportadas num registo de contentor implementado a uma rede virtual.
 
 * Cada registro suporta um máximo de 100 regras de rede virtual.
 
@@ -372,7 +374,7 @@ Para limpar os seus recursos no portal, navegue para o grupo de recursos myResou
 Vários recursos de rede virtual e funcionalidades foram abordadas neste artigo, embora brevemente. A documentação da rede Virtual do Azure abrange extensivamente estes tópicos:
 
 * [Rede virtual](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
-* [Sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
+* [Subrede](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
 * [Pontos finais de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 <!-- IMAGES -->

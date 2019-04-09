@@ -9,8 +9,6 @@ items:
   items:
   - name: Criar uma nova base de dados de conhecimento
     href: How-To/create-knowledge-base.md
-  - name: Publicar uma base de dados de conhecimento
-    href: How-To/publish-knowledge-base.md
   - name: Receber resposta da base de dados de conhecimento
     items:
     - name: Utilizar o Postman
@@ -85,6 +83,7 @@ items:
   - name: Gerir base de dados de conhecimento
     items:
     - name: Criar e publicar uma base de dados de conhecimento
+      displayName: create bot, bot, publish to bot, test, edit
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Adicionar conversas à base de dados de conhecimento
       href: How-to/chit-chat-knowledge-base.md
@@ -197,9 +196,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogue
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 5b3ed41dfd4ee878f948c4940bc7b642bc26cb6a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 20b828d768787de721deb2010ef1c2de2f0b1905
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886510"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262590"

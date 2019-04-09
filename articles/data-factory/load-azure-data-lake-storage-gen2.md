@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447225"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269270"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados para Gen2 de armazenamento do Azure Data Lake com o Azure Data Factory
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* Conta de armazenamento do Azure com o Data Lake Storage Gen2 ativada: Se não tiver uma conta de armazenamento, clique em [aqui](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para criar um.
+* Conta de armazenamento do Azure com o Data Lake Storage Gen2 ativada: Se não tiver uma conta de armazenamento [criar uma conta](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * Conta do AWS com um registo de S3 que contém dados: Este artigo mostra como copiar dados do Amazon S3. Pode utilizar outros arquivos de dados ao seguir passos semelhantes.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
@@ -104,7 +104,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
    
    ![Especifique a conta de geração 2 de armazenamento do Azure Data Lake](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**: 
+9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfroms3** como o nome da pasta de saída e selecione **seguinte**. ADF criará o sistema de ficheiros do ADLS Gen2 correspondente e subpastas durante a cópia se não existir.
 
     ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 

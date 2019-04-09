@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905890"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261042"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -39,7 +39,9 @@ Este documento descreve como pode criar e configurar um ir autoalojado.
 3. Obter a chave de autenticação e registar o runtime de integração autoalojado com a chave. Eis um exemplo do PowerShell:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configurar um runtime de integração autoalojado numa VM do Azure com um modelo Azure Resource Manager (automatização)
@@ -110,7 +112,7 @@ Pode instalar o runtime de integração autoalojado ao transferir um pacote de i
 
 
 ## <a name="high-availability-and-scalability"></a>Elevada disponibilidade e escalabilidade
-Um runtime de integração autoalojado pode ser associado a várias máquinas no local. Estas máquinas são chamadas de nós. Pode ter até quatro nós associados a um runtime de integração autoalojado. Os benefícios de ter vários nós (máquinas no local com um gateway instalado) para um gateway lógico são:
+Um runtime de integração autoalojado pode ser associado a várias máquinas no local ou máquinas virtuais no Azure. Estas máquinas são chamadas de nós. Pode ter até quatro nós associados a um runtime de integração autoalojado. Os benefícios de ter vários nós (máquinas no local com um gateway instalado) para um gateway lógico são:
 * Disponibilidade mais elevada do runtime de integração autoalojado, de modo que ele 's já não é o ponto único de falha na sua integração de dados de grandes volumes de dados solução ou na cloud, Azure Data Factory, garantindo a continuidade com até quatro nós.
 * Melhorou o desempenho e a produtividade durante o movimento de dados entre aplicações no local e na cloud arquivos de dados. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
 

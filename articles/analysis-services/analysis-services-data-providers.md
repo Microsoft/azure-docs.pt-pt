@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3baccb6e0f5eef270dc8f0e06a8aa6b748fa4028
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056270"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270868"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para ligar ao Azure Analysis Services
 
@@ -34,8 +34,8 @@ Bibliotecas de cliente do Analysis Services Management Objects (AMO) e ADOMD est
 
 |Pacote  | Versão do produto  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.15.0.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.15.0.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |
 
 Assemblies do pacote NuGet AssemblyVersion siga semântico controle de versão: PRINCIPAIS. PEQUENAS. PATCH. Referências de NuGet carregar a versão esperada, mesmo se houver uma versão diferente no GAC (o que resulta da instalação com MSI). PATCH é incrementado para cada versão. Versões do AMO e ADOMD são mantidas em sincronia.
 

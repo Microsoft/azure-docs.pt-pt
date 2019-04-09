@@ -1,7 +1,6 @@
 ---
 title: Utilizar parâmetros para a criação de esquemas dinâmicas
 description: Saiba mais sobre os parâmetros de estáticos e dinâmicos e como usá-los cria planos gráficos dinâmicos.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279980"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -77,8 +76,8 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado u
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
-- `{YourMG}` - substituir pelo nome do seu grupo de gestão
-- `{subscriptionId}` - substituir pelo ID da subscrição
+- `{YourMG}` -Substituir pelo nome do seu grupo de gestão
+- `{subscriptionId}` -Substituir pelo seu ID de subscrição
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível de esquema
 
