@@ -1,19 +1,18 @@
 ---
 title: Como gerir as atribuições com o PowerShell
 description: Saiba como gerir a atribuição de esquema com o módulo do PowerShell de esquemas de Azure oficial, Az.Blueprint.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 47026975a5142760f90a1a5712b532519f969fd7
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57995674"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256877"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerir as atribuições com o PowerShell
 
@@ -333,8 +332,8 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de esquema](../concepts/lifecycle.md).
-- Compreender como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
-- Aprenda a personalizar a [esquema de ordem de sequenciamento](../concepts/sequencing-order.md).
-- Descubra como tornar a usar [esquema de bloqueio do recurso](../concepts/resource-locking.md).
-- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md).
+- Saiba mais sobre o [ciclo de vida de um esquema](../concepts/lifecycle.md).
+- Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
+- Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
+- Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).
+- Resolva problemas durante a atribuição de um esquema com a [resolução de problemas gerais](../troubleshoot/general.md).

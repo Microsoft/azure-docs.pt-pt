@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 154e0dcefab6d5bcdfc9532ba4258d09593f0970
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311144"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267162"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -54,14 +54,15 @@ Atividade de cópia executa as seguintes fases para copiar dados de uma origem p
 
 Pode usar a atividade de cópia para **copiar ficheiros como-é** entre dois arquivos de dados de ficheiros, na qual os caso os dados é copiado com eficiência sem qualquer serialização/desserialização.
 
-Atividade de cópia também suporta a leitura e gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e no Parquet**e o codec de compressão **GZip, Deflate, BZip2 e ZipDeflate** são suportados. Ver [formatos de ficheiro e de compressão suportados](supported-file-formats-and-compression-codecs.md) com detalhes.
+Atividade de cópia também suporta a leitura e gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e no Parquet**, compressão e da decompresing arquivos e com os codecs seguintes: **GZip, Deflate, BZip2 e ZipDeflate**. Ver [formatos de ficheiro e de compressão suportados](supported-file-formats-and-compression-codecs.md) com detalhes.
 
 Por exemplo, pode efetuar as seguintes atividades de cópia:
 
-* Copiar dados no SQL Server no local e escrever para o Azure Data Lake Store em formato ORC.
+* Copiar dados no SQL Server no local e escrever para a geração 2 de armazenamento do Azure Data Lake em formato Parquet.
 * Copiar arquivos no formato de texto (CSV) de sistema de ficheiros no local e escrita em BLOBs do Azure no formato Avro.
-* Copiar arquivos compactados de sistema de ficheiros no local e, em seguida, descomprimir terra para o Azure Data Lake Store.
+* Copiar arquivos compactados de sistema de ficheiros no local e, em seguida, descomprimir ' s land para geração 2 de armazenamento do Azure Data Lake.
 * Copiar dados em formato compactado texto (CSV) de GZip do Blob do Azure e escrever para a base de dados do Azure SQL.
+* E muitos mais casos com a serialização/desserialização ou compactação/descompactação precisam.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 

@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 87c3be01b5a77aa43a23fa64e5359e8ac4a20a36
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400366"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271242"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>O Azure Stack de discos geridos: diferenças e considerações
 
@@ -73,7 +73,7 @@ Pode utilizar o seguinte script para converter uma VM atualmente aprovisionada d
 ```powershell
 $subscriptionId = 'subid'
 
-# The name of your resource group
+# The name of your resource group where your VM to be converted exists
 $resourceGroupName ='rgmgd'
 
 # The name of the managed disk
@@ -89,8 +89,9 @@ $vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm2018
 # The storage type for the managed disk; PremiumLRS or StandardLRS.
 $accountType = 'StandardLRS'
 
-# The Azure Stack location where the managed disk is located.
+# The Azure Stack location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
+# Configure the new managed VM point to the old unmanaged VM's configuration (network config, vm name, location).
 $location = 'local'
 $virtualMachineName = 'mgdvm'
 $virtualMachineSize = 'Standard_D1'
@@ -100,6 +101,9 @@ $nicname = 'unmgdvm295'
 
 # Set the context to the subscription ID in which the managed disk will be created
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+#Delete old VM, but keep the OS disk
+Remove-AzureRmVm -Name $virtualMachineName -ResourceGroupName $resourceGroupName
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
 

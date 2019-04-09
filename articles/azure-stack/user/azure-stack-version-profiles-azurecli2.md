@@ -15,11 +15,11 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
 ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057783"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257574"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utilizar perfis de versão de API com a CLI do Azure no Azure Stack
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244371"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257166"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -143,7 +143,7 @@ Nesta seção, veremos como configurar um alerta de exceção de consulta com ba
 
 10. Por fim, adicione os detalhes do alerta (nome da regra, a descrição, a gravidade de alerta). Quando tiver terminado, clique em **criar regra de alerta** na parte inferior.
 
-    ![Em detalhes de alerta escreva o nome de regra de alerta, escreva uma descrição e escolha uma gravidade ](./media/alerts/9alertdetails.png)
+    ![Em detalhes de alerta escreva o nome de regra de alerta, escreva uma descrição e escolha uma gravidade](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem receberá notificações de alerta (clássicas)?
 
@@ -163,9 +163,9 @@ Utilize os nova experiência/perto-realtime os alertas do alerta se tiver de not
 * [Utilizar webhooks para automatizar a responder a alertas](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Consulte também
-* [Testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
-* [Diagnósticos proativos](../../azure-monitor/app/proactive-diagnostics.md) 
+* [Diagnóstico proativo](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

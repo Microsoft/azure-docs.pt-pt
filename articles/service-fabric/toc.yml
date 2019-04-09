@@ -84,22 +84,6 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: Limpar o seu cluster e eliminar a infraestrutura
       href: service-fabric-tutorial-standalone-clean-up.md
-- name: Melhores práticas
-  items:
-  - name: Descrição geral das melhores práticas do Service Fabric
-    href: service-fabric-best-practices-overview.md
-  - name: Segurança
-    href: service-fabric-best-practices-security.md
-  - name: Redes
-    href: service-fabric-best-practices-networking.md
-  - name: Planeamento e dimensionamento de computação
-    href: service-fabric-best-practices-capacity-scaling.md
-  - name: Infraestrutura como código
-    href: service-fabric-best-practices-infrastructure-as-code.md
-  - name: Monitorização e diagnóstico
-    href: service-fabric-best-practices-monitoring.md
-  - name: Lista de verificação da preparação de produção
-    href: service-fabric-production-readiness-checklist.md
 - name: Amostras
   items:
   - name: Exemplos de código
@@ -118,6 +102,30 @@ items:
     href: service-fabric-application-scenarios.md
   - name: Arquitetura
     href: service-fabric-architecture.md
+  - name: Segurança
+    items:
+    - name: Segurança do Service Fabric
+      href: service-fabric-best-practices-security.md
+    - name: Segurança da Aplicação do Service Fabric
+      href: service-fabric-application-and-service-security.md
+    - name: Segurança do Cluster do Service Fabric
+      href: service-fabric-cluster-security.md
+    - name: Atributos de Segurança Comuns do Azure
+      href: service-fabric-security-attributes.md
+  - name: Melhores práticas
+    items:
+    - name: Descrição geral das melhores práticas do Service Fabric
+      href: service-fabric-best-practices-overview.md
+    - name: Redes
+      href: service-fabric-best-practices-networking.md
+    - name: Planeamento e dimensionamento de computação
+      href: service-fabric-best-practices-capacity-scaling.md
+    - name: Infraestrutura como código
+      href: service-fabric-best-practices-infrastructure-as-code.md
+    - name: Monitorização e diagnóstico
+      href: service-fabric-best-practices-monitoring.md
+    - name: Lista de verificação da preparação de produção
+      href: service-fabric-production-readiness-checklist.md
   - name: Terminologia
     href: service-fabric-technical-overview.md
   - name: A criar aplicações
@@ -833,8 +841,6 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Guias de resolução de problemas
     href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
-  - name: Atributos de Segurança Comuns
-    href: service-fabric-security-attributes.md
   - name: Código de exemplo
     href: https://aka.ms/servicefabricsamples
   - name: Opções de suporte
@@ -845,9 +851,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: de46010e1123b34c84731e97951bb67edc43f0b2
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 02b5712aedc96fce447f11b755b837b52855379b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847560"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278467"

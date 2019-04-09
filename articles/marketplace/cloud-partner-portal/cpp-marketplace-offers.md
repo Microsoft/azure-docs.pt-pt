@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446714"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010588"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>O Azure e ofertas do Marketplace do AppSource
 
@@ -56,11 +56,11 @@ A tabela seguinte lista os tipos de oferta atual suportados pelos [Cloud Partner
 | [Serviço de consultoria](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Ambos | Consultores da Microsoft qualificado podem listar os serviços de domínio específico no Azure Marketplace ou no AppSource.  Seus conhecimentos auxiliam os clientes a avaliar seus problemas e a criação e a implementar as soluções certas para cumprir os seus objetivos empresariais.  |
 | [Contentor](./containers/cpp-containers-offer.md)  | Azure | Solução é uma imagem de contentor do Docker aprovisionada como um serviço baseado em Kubernetes ou instâncias de contentor do Azure. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Um pacote que expande esse planejamento de recursos empresariais (ERP) e o sistema de gerenciamento de negócios. |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Um pacote que estende esse cliente sistema (CRM gestão) de recursos, por meio de suas vendas, serviço, o serviço de projeto e módulos do serviço de campo.  |
-| [Dynamics 365 para operações e finanças](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Um pacote que expande este serviço (ERP) que suporta a avançada de planeamento de recursos do enterprise Finanças, operações, fabrico e fornecer gestão de cadeias. |
-| [Módulo do IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Um contentor de Docker-compatíveis com o que é executado num dispositivo IoT Edge.  Ela contém de módulos de computacionais pequeno que usar uma combinação de código personalizado, outros serviços do Azure e serviços de terceiros 3rd. |
-| [Aplicação do Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Um pacote que utiliza fluxos de dados para ligar relatórios e dashboards a dados no armazenamento de dados comuns. |
-| [Aplicação SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solução é uma subscrição de software-como-serviço, gerenciada pelo publicador, os utilizadores que iniciem sessão através de uma interface personalizada que tira partido do Azure Active Directory. |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Um pacote que estende esse cliente sistema (CRM gestão) de recursos, por meio de suas vendas, serviço, o serviço de projeto e módulos do serviço de campo  |
+| [Dynamics 365 para operações e finanças](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Um pacote que expande este serviço (ERP) que suporta a avançada de planeamento de recursos do enterprise Finanças, operações, fabrico e gestão de cadeia de abastecimento |
+| [Módulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Um contentor de Docker-compatíveis com o que é executado num dispositivo IoT Edge.  Ela contém de módulos de computacionais pequeno que usar uma combinação de código personalizado, outros serviços do Azure e serviços de terceiros 3rd. |
+| [Aplicação do Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Uma aplicação do Power BI que pacotes de conteúdo personalizável do Power BI, incluindo conjuntos de dados, relatórios e dashboards |
+| [Aplicação SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solução é uma subscrição de software-como-serviço, gerenciada pelo publicador, os utilizadores que iniciarem sessão através de uma interface personalizada que utiliza o Azure Active Directory. |
 | [Máquina virtual](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Solução está contida dentro de uma única máquina virtual implementada para a subscrição do cliente.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -69,4 +69,4 @@ Para obter mais informações, consulte [publicação guia por tipo de oferta](.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ficará a par das operações gerais que pode efetuar em ofertas do marketplace e seus atributos técnicos comuns e os ativos no tópico [gerir ofertas](./manage-offers/cpp-manage-offers.md).
+Ficará a par das operações gerais que pode efetuar em ofertas do marketplace e seus atributos técnicos comuns e os ativos no artigo [gerir ofertas](./manage-offers/cpp-manage-offers.md).

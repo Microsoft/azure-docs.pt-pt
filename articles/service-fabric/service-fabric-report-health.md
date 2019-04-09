@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670392"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058616"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um [modelo de estado de funcionamento](service-fabric-health-introduction.md) projetado para sinalizar cluster mau estado de funcionamento e condições do aplicativo em entidades específicas. O modelo de estado de funcionamento utiliza **Informadores de estado de funcionamento** (componentes do sistema e watchdogs). O objetivo é fácil e rápido de diagnóstico e reparo. Criadores de serviços precisam pensar iniciais sobre o estado de funcionamento. Deve ser relatada qualquer condição que pode afetar o estado de funcionamento, especialmente se ele pode ajudar a problemas de sinalizador próximo da raiz. As informações de estado de funcionamento podem poupar tempo e esforço na depuração e investigação. A utilidade é especialmente clara assim que o serviço está em execução em escala na cloud (privada ou do Azure).
@@ -55,18 +55,18 @@ Uma vez o estado de funcionamento reporting design é claro, relatórios de esta
 > 
 
 ## <a name="health-client"></a>Cliente de estado de funcionamento
-Os relatórios de estado de funcionamento são enviados para o armazenamento de estado de funcionamento por meio de um cliente do Estado de funcionamento, o que se encontrem dentro do cliente de recursos de infraestrutura. O cliente do Estado de funcionamento pode ser configurado com as seguintes definições:
+Os relatórios de estado de funcionamento são enviados para o Gestor de estado de funcionamento através de um cliente do Estado de funcionamento, o que se encontrem dentro do cliente de recursos de infraestrutura. O Gestor de estado de funcionamento guarda relatórios no arquivo de estado de funcionamento. O cliente do Estado de funcionamento pode ser configurado com as seguintes definições:
 
-* **HealthReportSendInterval**: O atraso entre a hora que do relatório é adicionado ao cliente e a hora será enviado para o arquivo de estado de funcionamento. Utilizado para relatórios do batch numa única mensagem, em vez de enviar uma mensagem para cada relatório. A criação de batches melhora o desempenho. Predefinição: 30 segundos.
-* **HealthReportRetrySendInterval**: O intervalo no qual o cliente do Estado de funcionamento reenvia o estado de funcionamento acumulado relatórios para o arquivo de estado de funcionamento. Predefinição: 30 segundos.
-* **HealthOperationTimeout**: O período de tempo limite de uma mensagem de relatório para o arquivo de estado de funcionamento. Se uma mensagem exceder o tempo limite, o cliente do Estado de funcionamento repete-lo até que o arquivo de estado de funcionamento confirma que o relatório tiver sido processado. Predefinição: dois minutos.
+* **HealthReportSendInterval**: O atraso entre a hora que do relatório é adicionado ao cliente e a hora será enviado para o Gestor de estado de funcionamento. Utilizado para relatórios do batch numa única mensagem, em vez de enviar uma mensagem para cada relatório. A criação de batches melhora o desempenho. Predefinição: 30 segundos.
+* **HealthReportRetrySendInterval**: O intervalo no qual o cliente do Estado de funcionamento reenvia o estado de funcionamento acumulado relatórios para o Gestor de estado de funcionamento. Predefinição: 30 segundos, mínimo: 1 segundo.
+* **HealthOperationTimeout**: O período de tempo limite de uma mensagem de relatório enviada para o Gestor de estado de funcionamento. Se uma mensagem exceder o tempo limite, o cliente do Estado de funcionamento repete-lo até que o Gestor de estado de funcionamento confirma que o relatório tiver sido processado. Predefinição: dois minutos.
 
 > [!NOTE]
-> Quando os relatórios são limitativas, o cliente de recursos de infraestrutura deve ser mantido ativo para, pelo menos, o HealthReportSendInterval para garantir que são enviadas. Se a mensagem é perdida ou o arquivo de estado de funcionamento não é possível aplicá-las devido a erros transitórios, o cliente de recursos de infraestrutura deve ser mantido ativo mais para lhe dar uma chance para tentar novamente.
+> Quando os relatórios são limitativas, o cliente de recursos de infraestrutura deve ser mantido ativo para, pelo menos, o HealthReportSendInterval para garantir que são enviadas. Se a mensagem é perdida ou o Gestor de estado de funcionamento não é possível aplicá-las devido a erros transitórios, o cliente de recursos de infraestrutura deve ser mantido ativo mais para lhe dar uma chance para tentar novamente.
 > 
 > 
 
-A colocação em memória intermédia no cliente demora a exclusividade dos relatórios em consideração. Por exemplo, se um gerador de relatórios de ruim específico está a comunicar 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios são substituídos pela última versão. No máximo um esses relatórios existe na fila de cliente. Se a criação de batches estiver configurada, o número de relatórios enviados para o arquivo de estado de funcionamento é apenas um por intervalo de envio. Este relatório é o último relatório foi adicionado, que reflete o estado mais recente da entidade.
+A colocação em memória intermédia no cliente demora a exclusividade dos relatórios em consideração. Por exemplo, se um gerador de relatórios de ruim específico está a comunicar 100 relatórios por segundo na mesma propriedade da mesma entidade, os relatórios são substituídos pela última versão. No máximo um esses relatórios existe na fila de cliente. Se a criação de batches estiver configurada, o número de relatórios enviados para o Gestor de estado de funcionamento é apenas um por intervalo de envio. Este relatório é o último relatório foi adicionado, que reflete o estado mais recente da entidade.
 Especificar parâmetros de configuração quando `FabricClient` é criado pela transmissão [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) com os valores pretendidos para entradas relacionadas com o estado de funcionamento.
 
 O exemplo seguinte cria um cliente de recursos de infraestrutura e especifica que os relatórios devem ser enviados quando são adicionados. Em tempos limite e erros que podem ser repetidos, as repetições ocorrem cada 40 segundos.
@@ -312,7 +312,7 @@ Com base nos dados de estado de funcionamento, escritores de serviço e os admin
 
 [Utilizar relatórios de estado de funcionamento do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Monitorizar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md)
+[Atualização de aplicação do Service Fabric](service-fabric-application-upgrade.md)
 

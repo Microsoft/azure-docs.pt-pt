@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521249"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010452"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto para discurso?
 
@@ -38,7 +38,7 @@ Esta tabela lista os principais recursos de voz:
 
 | Caso de utilização | SDK | REST |
 |----------|-----|------|
-| Converta texto em voz. | Não | Sim |
+| Converta texto em voz. | Sim | Sim |
 | Carregar conjuntos de dados para adaptação de voz. | Não | Sim\* |
 | Criar e gerir modelos de tipo de letra de voz. | Não | Sim\* |
 | Criar e gerir implementações de tipo de letra de voz. | Não | Sim\* |
@@ -54,24 +54,31 @@ Esta tabela lista os principais recursos de voz:
 
 Oferecemos inícios rápidos, criados para executar o código em menos de 10 minutos. Esta tabela inclui uma lista de guias de introdução de texto para discurso organizados por idioma.
 
-| Início Rápido | Plataforma | Referência da API |
+| Início rápido (REST) | Plataforma | Referência da API |
 |------------|----------|---------------|
 | [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+| Início rápido (SDK) | Plataforma | Referência da API |
+|------------|----------|---------------|
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Procurar](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Procurar](https://aka.ms/csspeech/cppref) |
 
 ## <a name="sample-code"></a>Código de exemplo
 
 Código de exemplo para voz está disponível no GitHub. Esses exemplos abrangem a conversão de texto para discurso em linguagens de programação mais populares.
 
 * [Exemplos de texto para voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos de texto para voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [SDK de Voz](speech-sdk-reference.md)
-* [Dispositivos de voz SDK](speech-devices-sdk.md)
-* [REST API: Speech-to-text](rest-speech-to-text.md)
-* [REST API: Text-to-speech](rest-text-to-speech.md)
+* [API de Voz](speech-sdk-reference.md)
+* [SDK de Dispositivos de Voz](speech-devices-sdk.md)
+* [REST API: Conversão de voz em texto](rest-speech-to-text.md)
+* [REST API: Conversão de texto em voz](rest-text-to-speech.md)
 * [REST API: Transcrição de batch e personalização](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos Seguintes

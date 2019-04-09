@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549152"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260753"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -46,7 +46,7 @@ Se achar que a fábrica de dados não tem uma identidade gerida associada a segu
 
 - [Gerar a identidade gerida com o PowerShell](#generate-managed-identity-using-powershell)
 - [Gerar a identidade gerida com a REST API](#generate-managed-identity-using-rest-api)
-- Gerar a identidade gerida através de um modelo Azure Resource Manager
+- [Gerar a identidade gerida através de um modelo Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Gerar a identidade gerida com o SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Pode obter a identidade gerida a partir do portal do Azure ou através de progra
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Obter a identidade gerida através do portal do Azure
 
-Pode encontrar as informações de identidade gerida a partir do portal do Azure -> sua fábrica de dados -> Definições -> propriedades:
+Pode encontrar as informações de identidade gerida a partir do portal do Azure -> sua fábrica de dados -> propriedades:
 
-- ID DE IDENTIDADE DE SERVIÇO
-- INQUILINO DE IDENTIDADE DE SERVIÇO
-- **ID de aplicação do serviço de identidade** > Copie este valor
+- ID do Objeto da Identidade Gerida
+- Inquilino da Identidade Gerida
+- **Geridos pelo ID da Identity Application** > Copie este valor
 
 ![Obter a identidade gerida](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

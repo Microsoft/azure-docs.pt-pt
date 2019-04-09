@@ -3,7 +3,7 @@ title: Copiar dados do SQL Server para o Armazenamento de Blobs com o Azure Data
 description: Saiba como copiar dados de um arquivo de dados no local para a cloud mediante a utilização de um runtime de integração autoalojado no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: jingwang
-ms.openlocfilehash: f2dc2418354cb1083c02516fbcdea710a74152ad
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.author: abnarain
+ms.openlocfilehash: 7e09c36128c3471ce9df33b2a78eb14fab89435b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256996"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -193,7 +193,7 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 
 1. Introduza um nome para o runtime de integração e selecione **Seguinte**.
 
-    ![Nome do runtime de Integração](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+    ![Nome do runtime de integração](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
 
 1. Em **opção 1: Configuração rápida**, selecione **clique aqui para iniciar a configuração rápida neste computador**. 
 

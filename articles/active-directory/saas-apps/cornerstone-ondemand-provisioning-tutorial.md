@@ -13,21 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24945cae273e072d3be314a66248674e25fe287
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 9d17a3c81784d56c6fcad7c7608559abf732882a
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198869"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057936"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar o fundamento OnDemand para o aprovisionamento automático de utilizadores
 
-
 O objetivo deste tutorial é demonstrar os passos para ser executada na base OnDemand e Azure Active Directory (Azure AD) para configurar o Azure AD para aprovisionar e desaprovisionar utilizadores e/ou grupos para fundamento OnDemand automaticamente.
-
 
 > [!NOTE]
 > Este tutorial descreve um conector assentes no serviço de aprovisionamento de utilizador do Azure AD. Para obter detalhes importantes sobre o que faz este serviço, como ele funciona e perguntas mais frequentes, consulte [automatizar o aprovisionamento de utilizador e a aplicações SaaS com o Azure Active Directory de desaprovisionamento](../manage-apps/user-provisioning.md).
@@ -36,68 +34,62 @@ O objetivo deste tutorial é demonstrar os passos para ser executada na base OnD
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes pré-requisitos:
 
-*   Um inquilino do Azure AD
-*   Um inquilino de alicerce OnDemand
-*   Uma conta de utilizador na base OnDemand com permissões de administrador
-
+* Um inquilino do Azure AD
+* Um inquilino de alicerce OnDemand
+* Uma conta de utilizador na base OnDemand com permissões de administrador
 
 > [!NOTE]
 > O Azure AD aprovisionamento integração depende a [fundamento OnDemand Webservice](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), que está disponível para as equipes de alicerce OnDemand.
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Adicionando o fundamento OnDemand da Galeria
+
 Antes de configurar a peça fundamental OnDemand para aprovisionamento automático de utilizadores com o Azure AD, terá de adicionar OnDemand base a partir da Galeria de aplicações do Azure AD à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar o fundamento OnDemand a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** > **todas as aplicações**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![As secção de aplicações empresariais][2]
-    
-3. Para adicionar a peça fundamental OnDemand, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-4. Na caixa de pesquisa, escreva **fundamento OnDemand**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Aprovisionamento de OnDemand base](./media/cornerstone-ondemand-provisioning-tutorial/AppSearch.png)
+4. Na caixa de pesquisa, escreva **fundamento OnDemand**, selecione **fundamento OnDemand** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-5. No painel de resultados, selecione **fundamento OnDemand**e, em seguida, clique nas **Add** botão para adicionar a peça fundamental OnDemand à sua lista de aplicações SaaS.
-
-    ![Aprovisionamento de OnDemand base](./media/cornerstone-ondemand-provisioning-tutorial/AppSearchResults.png)
-
-    ![Aprovisionamento de OnDemand base](./media/cornerstone-ondemand-provisioning-tutorial/AppCreation.png)
+    ![Alicerce OnDemand na lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-cornerstone-ondemand"></a>Atribuir utilizadores a fundamento OnDemand
 
-O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento automático de utilizadores, apenas a utilizadores e/ou grupos que foram "atribuídos" a uma aplicação no Azure AD são sincronizados. 
+O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento automático de utilizadores, apenas a utilizadores e/ou grupos que foram "atribuídos" a uma aplicação no Azure AD são sincronizados.
 
 Antes de configurar e ativar o aprovisionamento de utilizador automático, deve decidir o que os utilizadores e/ou grupos no Azure AD precisam de acesso a fundamento OnDemand. Depois de decidir, pode atribuir estes utilizadores e/ou grupos a fundamento OnDemand ao seguir as instruções aqui:
 
-*   [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+* [Atribuir um utilizador ou grupo a uma aplicação empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Dicas importantes para atribuir utilizadores a fundamento OnDemand
 
-*   Recomenda-se que um único utilizador do Azure AD está atribuído a fundamento OnDemand para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador do Azure AD está atribuído a fundamento OnDemand para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Quando atribuir um utilizador a fundamento OnDemand, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
+* Quando atribuir um utilizador a fundamento OnDemand, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
 
 ## <a name="configuring-automatic-user-provisioning-to-cornerstone-ondemand"></a>Configurar o aprovisionamento automático de utilizadores para OnDemand de base
 
 Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de aprovisionamento para criar, atualizar e desativar os utilizadores e/ou grupos no OnDemand base com base no utilizador e/ou atribuições de grupo no Azure AD.
 
-
 ### <a name="to-configure-automatic-user-provisioning-for-cornerstone-ondemand-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores para OnDemand de fundamento no Azure AD:
 
+1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **fundamento OnDemand**.
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e procure **Azure Active Directory > aplicações empresariais > todos os aplicativos**.
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Selecione OnDemand de base da sua lista de aplicações SaaS.
- 
-    ![Aprovisionamento de OnDemand base](./media/cornerstone-ondemand-provisioning-tutorial/Successcenter2.png)
+2. Na lista de aplicações, selecione **fundamento OnDemand**.
+
+    ![A ligação de base OnDemand na lista de aplicações](common/all-applications.png)
 
 3. Selecione o **aprovisionamento** separador.
 
@@ -109,11 +101,11 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 5. Sob o **credenciais de administrador** secção, de entrada a **nome de utilizador administrador**, **palavra-passe de administrador**, e **domínio** de sua OnDemand de base conta.
 
-    *   Na **nome de utilizador administrador** campo, preencher o domínio \ nomedeutilizador da conta de administrador no seu inquilino de alicerce OnDemand. Exemplo: contoso\admin.
+    * Na **nome de utilizador administrador** campo, preencher o domínio \ nomedeutilizador da conta de administrador no seu inquilino de alicerce OnDemand. Exemplo: contoso\admin.
 
-    *   Na **palavra-passe de administrador** campo, preencher a palavra-passe correspondente ao nome de utilizador administrador.
+    * Na **palavra-passe de administrador** campo, preencher a palavra-passe correspondente ao nome de utilizador administrador.
 
-    *   Na **domínio** campo, preencher o URL do serviço Web do inquilino fundamento OnDemand. Exemplo: O serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, para Contoso domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como obter o URL do serviço Web, consulte [aqui](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * Na **domínio** campo, preencher o URL do serviço Web do inquilino fundamento OnDemand. Exemplo: O serviço está localizado em `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, para Contoso domínio é `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Para obter mais informações sobre como obter o URL do serviço Web, consulte [aqui](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar à base OnDemand. Se a ligação falhar, certifique-se de que a conta de base OnDemand tem permissões de administrador e tente novamente.
 
@@ -147,21 +139,20 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
     ![Aprovisionamento de OnDemand base](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD em OnDemand de base do serviço de aprovisionamento de aprovisionamento.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+
 ## <a name="connector-limitations"></a>Limitações de conector
 
 * O OnDemand fundamento **posição** atributo espera um valor que corresponde às funções no portal de Fundação OnDemand. A lista de válido **posição** valores podem ser obtidos ao navegar até **editar registo de utilizador > estrutura da organização > posição** no portal de Fundação OnDemand.
+
     ![Base de aprovisionamento de OnDemand Editar utilizador](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png) ![OnDemand fundamento aprovisionamento posição](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png) ![OnDemand fundamento lista de posições de aprovisionamento](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
-    
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

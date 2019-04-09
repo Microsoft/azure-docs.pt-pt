@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652387"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264068"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
 
@@ -135,7 +135,7 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 
 Para saber mais sobre a sua fatura e os custos, veja:
 
-- [Ver e transferir a sua utilização do Microsoft Azure e a cobrança](billing-download-azure-daily-usage.md)
+- [Ver e transferir a utilização e as cobranças do Microsoft Azure](billing-download-azure-daily-usage.md)
 - [Compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md)
 - [Compreender os termos na sua fatura do Azure](billing-understand-your-invoice.md)
 - [Compreender os termos na utilização de detalhadas do Microsoft Azure](billing-understand-your-usage.md)
@@ -143,7 +143,7 @@ Para saber mais sobre a sua fatura e os custos, veja:
 
 Se tiver um contrato de cliente da Microsoft, consulte:
 
-- [Compreender os encargos da nota fiscal para o seu perfil de faturação ](billing-mca-understand-your-bill.md)
+- [Compreender os encargos da nota fiscal para o seu perfil de faturação](billing-mca-understand-your-bill.md)
 - [Compreender os termos da nota fiscal para o seu perfil de faturação](billing-mca-understand-your-invoice.md)
 - [Compreender o ficheiro de utilização e os encargos do Azure para o seu perfil de faturação](billing-mca-understand-your-usage.md)
 - [Ver e transferir documentos de imposto para o seu perfil de faturação](billing-mca-download-tax-document.md)

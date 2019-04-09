@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769285"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263843"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure em segurança exportar grandes quantidades de dados do armazenamento de Blobs do Azure. O serviço exige que envie discos vazios para o datacenter do Azure. O serviço exporta os dados da sua conta de armazenamento para as unidades e, em seguida, é fornecido as unidades de volta.
@@ -25,7 +25,7 @@ Antes de criar uma tarefa de exportação para transferir dados para fora do arm
 - Ter uma subscrição do Azure Active Directory que pode ser utilizada para o serviço de importação/exportação.
 - Ter, pelo menos, uma conta de armazenamento do Azure. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-quickstart-create-account.md).
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks).
-- Ter uma conta de FedEx/DHL.  
+- Ter uma conta de FedEx/DHL. Se pretender utilizar uma operadora que não seja FedEx/DHL, contacte a equipa de operações de caixa de dados do Azure em `adbops@microsoft.com`. 
     - A conta tem de ser válida, deve ter o saldo e tem de ter capacidades de envio de devolução.
     - Gere um número de controlo para a tarefa de exportação.
     - Cada tarefa deve ter um número de controlo separado. Várias tarefas com o mesmo número de controlo não são suportadas. 
@@ -55,7 +55,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     - Selecione uma subscrição.
     - Introduza ou selecione um grupo de recursos.
 
-        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. Na **detalhes da tarefa**:
 
@@ -82,7 +82,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
 
 4. Na **devolver informações sobre o envio**:
 
-    - Selecione a operadora na lista pendente.
+    - Selecione a operadora na lista pendente. Se pretender utilizar uma operadora que não seja FedEx/DHL, escolha uma opção existente na lista pendente. Equipe de operações de caixa de dados do contacto do Azure em `adbops@microsoft.com` com as informações sobre a operadora que pretende utilizar.
     - Introduza um número de conta de operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades-se ao assim que a tarefa de importação estiver concluída. 
     - Forneça um nome de contato completo e válido, telefone, e-mail, rua, cidade, zip, estado/província e país/região.
 

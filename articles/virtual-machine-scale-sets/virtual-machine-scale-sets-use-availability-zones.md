@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 24cff3a2ec4d0bed7a030ca430eaa698eb4a7325
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981405"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278773"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquina virtual que utiliza as zonas de disponibilidade
 
@@ -67,7 +67,7 @@ Para utilizar zonas de disponibilidade, o conjunto de dimensionamento tem de ser
 - [Portal do Azure](#use-the-azure-portal)
 - CLI do Azure
 - [Azure PowerShell](#use-azure-powershell)
-- [Modelos Azure Resource Manager](#use-azure-resource-manager-templates)
+- [Modelos do Azure Resource Manager](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -94,7 +94,7 @@ az vmss create \
     --zones 1
 ```
 
-Para obter um exemplo completo de um dimensionamento de zona única definida e os recursos de rede, consulte [este script da CLI de exemplo](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh.)
+Para obter um exemplo completo de um dimensionamento de zona única definida e os recursos de rede, consulte [este script da CLI de exemplo](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.sh)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de dimensionamento com redundância de zona
 

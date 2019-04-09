@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861507"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutorial: Integração do Active Directory do Azure com Appraisd
 
@@ -161,7 +161,7 @@ Para configurar o Azure AD início de sessão único com Appraisd, execute os se
 
 1. Numa janela do browser web diferente, inicie sessão no Appraisd como um administrador de segurança.
 
-2. No canto superior direito da página, clique em **definições** ícone, em seguida, navegue até à **configuração**.
+2. No canto superior direito da página, clique em **definições** ícone, em seguida, navegue até à **configuração**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Para configurar o Azure AD início de sessão único com Appraisd, execute os se
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. Cópia a **estado de reencaminhamento do padrão** valor e cole-o na **estado de reencaminhamento** caixa de texto no **configuração básica de SAML** no portal do Azure.
+    a. Cópia a **estado de reencaminhamento do padrão** valor e cole-o na **estado de reencaminhamento** caixa de texto no **configuração básica de SAML** no portal do Azure.
 
-    b. Copiar o **URL de início de sessão iniciadas pelo serviço** valor e cole-o na **URL de início de sessão** caixa de texto no **configuração básica de SAML** no portal do Azure.
+    b. Copiar o **URL de início de sessão iniciadas pelo serviço** valor e cole-o na **URL de início de sessão** caixa de texto no **configuração básica de SAML** no portal do Azure.
 
 5. Desloque para baixo na mesma página sob **identificar utilizadores**, execute os seguintes passos:
 
@@ -185,7 +185,7 @@ Para configurar o Azure AD início de sessão único com Appraisd, execute os se
 
     b. Na **URL de emissor do fornecedor de identidade** caixa de texto, cole o valor de **identificador do Azure Ad**, que copiou do portal do Azure e clique em **guardar**.
 
-    c. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **certificado X.509** caixa e clique em **guardar**.
+    c. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **certificado X.509** caixa e clique em **guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -246,11 +246,11 @@ Para ativar o Azure AD os utilizadores iniciam sessão Appraisd, eles têm de se
 
 1. Inicie sessão no Appraisd como um administrador de segurança.
 
-2. No canto superior direito da página, clique em **definições** ícone, em seguida, navegue até à **Centro de administração**.
+2. No canto superior direito da página, clique em **definições** ícone, em seguida, navegue até à **Centro de administração**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. Na barra de ferramentas na parte superior da página, clique em **pessoas**, em seguida, navegue até à **adicionar um novo utilizador**.
+3. Na barra de ferramentas na parte superior da página, clique em **pessoas**, em seguida, navegue até à **adicionar um novo utilizador**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
@@ -276,6 +276,6 @@ Quando clica no mosaico Appraisd no painel de acesso, deve ser automaticamente s
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

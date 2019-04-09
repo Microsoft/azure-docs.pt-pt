@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883943"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264101"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de registo para o Azure Monitor com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados de registo para o Azure Monitor, de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Azure Monitor.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -61,7 +61,8 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 | Autorização |A assinatura de autorização. Posteriormente neste artigo, pode ler sobre como criar um cabeçalho de HMAC-SHA256. |
 | Tipo de registo |Especifique o tipo de registo dos dados que está a ser submetidos. O limite de tamanho para este parâmetro é de 100 carateres. |
 | x-ms-date |A data em que o pedido foi processado no formato RFC 1123. |
-| campo Hora gerado |O nome de um campo nos dados que contém o carimbo de hora do item de dados. Se especificar um campo, em seguida, seu conteúdo é utilizado para **TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 aaaa-MM-: ssZ. |
+| x-ms-AzureResourceId | ID de recurso do recurso do Azure, os dados deve ser associado com. Isso popula o [_ResourceId](log-standard-properties.md#_resourceid) propriedade e permite que os dados a serem incluídos na [centrada no recurso](manage-access.md#access-modes) consultas. Se este campo não for especificado, os dados não serão incluídos nas consultas centrada no recurso. |
+| campo Hora gerado | O nome de um campo nos dados que contém o carimbo de hora do item de dados. Se especificar um campo, em seguida, seu conteúdo é utilizado para **TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 aaaa-MM-: ssZ. |
 
 ## <a name="authorization"></a>Autorização
 Qualquer pedido para a API de Recoletor de dados do Azure Monitor HTTP tem de incluir um cabeçalho de autorização. Para autenticar um pedido, tem de assinar o pedido com principal ou a chave secundária para a área de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte do pedido.   

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c56970091da74cfc389d60ad91f430fcb64d4bba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175111"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266975"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>Ligar de protocolos - OAuth 2.0 e OpenID v2.0
 
@@ -41,10 +41,11 @@ Em quase todos os fluxos do OAuth 2.0 e OpenID Connect, há quatro partes envolv
 * O **servidor de autorização** é o ponto final v2.0 e responsável por assegurar a identidade do utilizador, conceder, revogar o acesso aos recursos e emissão de tokens. O servidor de autorização, também conhecido como o fornecedor de identidade --lo em segurança processa algo a ver com as informações do utilizador, o acesso e as relações de confiança entre partes num fluxo.
 * O **proprietário do recurso** é, normalmente, o utilizador final. É a parte que tem os dados e tem o poder para permitir que terceiros acessar esse dados ou recursos.
 * O **OAuth cliente** é a sua aplicação, identificada pelo seu ID da aplicação. O cliente de OAuth costuma ser a parte que o usuário final interage com e ele solicita tokens do servidor de autorização. O cliente deve ser concedido permissão para aceder ao recurso pelo proprietário do recurso.
-* O **servidor do recurso** é onde residem o recurso ou dados. Ele confia o servidor de autorização para autenticar e autorizar o cliente de OAuth com segurança e utiliza access_tokens de portador para se certificar de que pode ser concedido acesso a um recurso.
+* O **servidor do recurso** é onde residem o recurso ou dados. O servidor de autorização para autenticar e autorizar o cliente de OAuth de forma segura de confianças de entidades e utiliza os tokens de acesso de portador para se certificar de que pode ser concedido acesso a um recurso.
 
 ## <a name="app-registration"></a>Registo de aplicações
-Cada aplicação que utiliza o ponto final v2.0 deve ser registrada no [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou por meio do novo **registos das aplicações (pré-visualização)** experiência no [portal do Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) antes de pode interagir com o OAuth ou OpenID Connect. O processo de registo de aplicação irá recolher e atribuir alguns valores à sua aplicação:
+
+Todas as aplicações que queira aceitar tanto pessoais e contas escolares ou profissionais têm de estar registadas por meio do novo **registos de aplicações (pré-visualização)** experiência no [portal do Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) antes de ele pode iniciar sessão a estes utilizadores utilizar o OAuth 2.0 ou OpenID Connect. O processo de registo de aplicação irá recolher e atribuir alguns valores à sua aplicação:
 
 * Uma **ID da aplicação** que identifica exclusivamente a sua aplicação
 * R **URI de redirecionamento** ou **identificador de pacote** que podem ser utilizadas para direcionar as respostas de volta à sua aplicação
@@ -52,7 +53,7 @@ Cada aplicação que utiliza o ponto final v2.0 deve ser registrada no [apps.dev
 
 Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-v2-register-an-app.md).
 
-## <a name="endpoints"></a>Pontos Finais
+## <a name="endpoints"></a>Pontos finais
 
 Depois de registado, o aplicativo se comunica com o Azure AD ao enviar pedidos para o ponto final v2.0:
 
@@ -63,7 +64,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Onde o `{tenant}` pode efetuar uma das quatro valores diferente:
 
-| Value | Descrição |
+| Valor | Descrição |
 | --- | --- |
 | `common` | Permite aos utilizadores com contas Microsoft pessoais e contas escolares/do Azure AD para iniciar sessão na aplicação. |
 | `organizations` | Permite que apenas os utilizadores com contas escolares/do Azure AD para iniciar sessão na aplicação. |
@@ -71,6 +72,9 @@ Onde o `{tenant}` pode efetuar uma das quatro valores diferente:
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` | Permite que apenas os utilizadores com contas escolares/de um Azure AD específico de inquilino para iniciar sessão na aplicação. O nome de domínio amigável de inquilino do Azure AD ou identificador GUID do inquilino pode ser utilizado. |
 
 Para saber como interagir com estes pontos finais, escolha um tipo de aplicação específica no [protocolos](#protocols) secção e siga as ligações para obter mais informações.
+
+> [!TIP]
+> Qualquer aplicação registada no Azure AD pode utilizar o ponto final v2.0, mesmo que eles não iniciar sessão em contas pessoais.  Dessa forma, é possível migrar aplicações existentes para a versão 2.0 e [MSAL](reference-v2-libraries.md) sem voltar a criar seu aplicativo.  
 
 ## <a name="tokens"></a>Tokens
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e9bfb835a1dea240573c21ccbbe13088561851ab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c2f953c98e41291951f07556bd0cd441d2793d1d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259138"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de monitorização de recursos de infraestrutura do serviço do Azure
 
@@ -45,6 +45,9 @@ O New Relic é outra ferramenta de gestão de desempenho de aplicações que se 
 
 A pilha ELK é uma coleção de tecnologias de código-fonte aberto: Elasticsearch, Logstash e Kibana. Ao utilizar estes em combinação, pode recolher, armazenar e analisar dados de monitorização e diagnóstico do Service Fabric. Temos um tutorial para saber como fazê-lo com aplicações de Java do Service Fabric nativas [aqui](service-fabric-tutorial-java-elk.md). 
 
+## <a name="humio"></a>Humio
+
+Humio é um serviço de recolha de registo que pode recolher os registos a partir das suas aplicações e eventos do Service Fabric na cloud ou no local em tempo real. Além do observability em direto, Humio oferece capacidades de análise e visualização de ponta para visualização e a recolha de informações a partir do diagnóstico. Humio tem planos de preços de custo-eficiência e foi concebido para dimensionamento, mantendo o mesmo é ritmo muito rápida velocidade. Integra-se diretamente com eventos de plataforma do Service Fabric e a telemetria da aplicação. Pode ler mais sobre a integração Humio e o Service Fabric [aqui](https://github.com/humio/service-fabric-humio).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

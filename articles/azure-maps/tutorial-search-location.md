@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 42a7eee37d993e5f9245374adbfd133344797eff
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540470"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058174"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -138,8 +138,8 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
 5. Na função `GetMap`, após inicializar o mapa, adicione o seguinte código JavaScript.
 
     ```JavaScript
-    //Wait until the map resources are loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -161,7 +161,7 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
     });
     ```
 
-   Este segmento de código, que um evento de carregamento é adicionado ao mapa, que serão acionados quando os recursos de mapa tenham sido totalmente carregados. No processador de eventos de carregamento do mapa, é criada uma origem de dados para armazenar os dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada para as camadas de mapa.
+   Este segmento de código um `ready` evento é adicionado ao mapa, que será acionado quando os recursos de mapa tenham sido carregados e o mapa está pronto para ser acedido. No mapa `ready` manipulador de eventos, uma origem de dados é criada para armazenar dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada para as camadas de mapa.
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ Esta secção mostra como utilizar os mapas [a API de pesquisa](https://docs.mic
 
 ### <a name="service-module"></a>Módulo Serviço
 
-1. No mapa de carregar o manipulador de eventos, construa o URL de serviço de pesquisa, adicionando o seguinte código Javascript.
+1. No mapa `ready` manipulador de eventos, construa o URL de serviço de pesquisa, adicionando o seguinte código Javascript.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -229,7 +229,7 @@ Neste momento, a página de MapSearch pode apresentar as localizações dos pont
 
 O mapa criado até ao momento está focado apenas nos dados de longitude/latitude para os resultados da pesquisa. No entanto, se observar o JSON não processado devolvido pelo serviço de Pesquisa dos Maps, é possível reparar que contém informações adicionais sobre cada um dos postos de combustível, incluindo o nome e a morada. Pode incorporar esses dados no mapa com caixas de pop-up interativas.
 
-1. Adicione as seguintes linhas de código no processador de eventos de carregamento do mapa depois do código, para consultar o serviço de pesquisa difusa. Isto irá criar uma instância de uma Pop-up e adicionar um evento de mouseover para a camada de símbolo.
+1. Adicione as seguintes linhas de código no mapa `ready` manipulador de eventos depois do código para consultar o serviço de pesquisa difusa. Isto irá criar uma instância de uma Pop-up e adicionar um evento de mouseover para a camada de símbolo.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -284,7 +284,7 @@ Pode aceder ao código de exemplo deste tutorial aqui:
 
 > [Procurar localização com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-[Veja o exemplo aqui ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+[Veja o exemplo registada aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 O próximo tutorial demonstra como apresentar um percurso entre duas localizações.
 

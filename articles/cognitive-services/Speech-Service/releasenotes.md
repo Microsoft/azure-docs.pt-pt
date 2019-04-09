@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/3/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856095"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010163"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-140-2019-april-release"></a>Voz SDK 1.4.0: Versão de Abril de 2019
+
+**Novos recursos** 
+
+* O SDK suporta agora o serviço de texto para voz como uma versão beta. É suportada no Windows e Linux a área de trabalho do C++, C#e Java. Para obter mais informações, veja a [descrição geral do texto para discurso](text-to-speech.md#get-started-with-text-to-speech).
+* O SDK suporta agora arquivos de áudio MP3 e Opus/Ogg como ficheiros de fluxo de entrada. Esta funcionalidade só está disponível no Linux a partir de C++ e C# e está atualmente na versão beta (mais detalhes [aqui](how-to-use-compressed-audio-input-streams.md)).
+* O SDK de voz para Java, .NET core, Objective-C e C++ passaram a suporte de macOS. O suporte de Objective-C para macOS está atualmente na versão beta.
+* iOS: O SDK de voz para iOS (Objective-C) agora também é publicado como um CocoaPod.
+* JavaScript: Suporte para microfone não padrão como um dispositivo de entrada.
+* JavaScript: Suporte para o proxy para node. js.
+
+**Amostras**
+
+* Foram adicionados exemplos para utilizar o SDK de voz com C++ e com Objective-C no macOS.
+* Foram adicionados exemplos que demonstram a utilização do serviço de texto para voz.
+
+**Melhorias / alterações**
+
+* Python: Propriedades adicionais de resultados de reconhecimento agora são expostas por meio do `properties` propriedade.
+* Para obter suporte adicional de desenvolvimento e depuração pode redirecionar informações de registo e diagnóstico do SDK num arquivo de log (mais detalhes [aqui](how-to-use-logging.md)).
+* JavaScript: Melhore o desempenho de processamento de áudio.
+
+**Correções de erros**
+
+* Mac/iOS: Foi corrigido um erro que levou a uma longa espera quando não foi possível estabelecer uma ligação para o serviço de voz.
+* Python: melhore o tratamento de erros por argumentos em chamadas de retorno de Python.
+* JavaScript: Terminou a RequestSession fixo estado errado, geração de relatórios para voz.
 
 ## <a name="speech-sdk-131-2019-february-refresh"></a>1.3.1 do SDK de voz: Atualização de Fevereiro de 2019
 
@@ -177,7 +205,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 * Suporte para Objective-C no iOS. Confira nosso [início rápido de Objective-C para iOS](quickstart-objectivec-ios.md).
 * Suporte para JavaScript no browser. Confira nosso [guia de introdução do JavaScript](quickstart-js-browser.md).
 
-**Alterações recentes**
+**Alterações interruptivas**
 
 * Com esta versão, é introduzido um número de alterações de última hora.
   Verifique se existem [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
@@ -196,7 +224,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 
 * Expor informações de detalhes de erro adicionais sobre os erros de ligação.
 
-**Alterações recentes**
+**Alterações interruptivas**
 
 * No Java (Android), o `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não necessita de um parâmetro de caminho. Agora o caminho é detetado automaticamente em todas as plataformas suportadas.
 * O acessador get da propriedade `EndpointUrl` em Java e c# foi removido.
@@ -225,7 +253,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 * O resultado do reconhecimento contém mais campos. Eles estão deslocamento do início de áudio e a duração (ambos em tiques) do texto reconhecido e valores adicionais que representam o estado de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * AuthorizationToken de suporte para a criação de instâncias de fábrica.
 
-**Alterações recentes**
+**Alterações interruptivas**
 
 * Eventos de reconhecimento: Tipo de evento NoMatch foi mesclado no evento de erro.
 * SpeechOutputFormat na linguagem c# foi mudado para OutputFormat para permanecer alinhado com o C++.

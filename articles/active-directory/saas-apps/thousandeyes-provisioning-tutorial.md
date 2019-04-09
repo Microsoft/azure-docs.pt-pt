@@ -13,18 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/28/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: bb9ac9974be94195f6ed0315aece7dfea749ce33
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436809"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057511"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para aprovisionamento automático de utilizadores
-
 
 O objetivo deste tutorial é mostrar a os passos que necessários para executar no ThousandEyes e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para ThousandEyes automaticamente. 
 
@@ -32,15 +31,12 @@ O objetivo deste tutorial é mostrar a os passos que necessários para executar 
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
-*   Um inquilino do Azure Active directory
-*   Um ativo [ThousandEyes conta](https://www.thousandeyes.com/pricing)
-*   Uma conta de utilizador ThousandEyes que tenha sido atribuída uma função que inclui as seguintes permissões de 3:
-    * ver todos os utilizadores
-    * Editar utilizador
-    * Permissões de acesso de API
+* Um inquilino do Azure Active directory
+* Um inquilino ThousandEyes com o [plano Standard](https://www.thousandeyes.com/pricing) ou melhor ativado 
+* Uma conta de utilizador no ThousandEyes com permissões de administrador 
 
 > [!NOTE]
-> O Azure AD aprovisionamento integração depende da [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
+> O Azure AD aprovisionamento integração depende a [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), que está disponível para as equipes de ThousandEyes no plano Standard ou superior.
 
 ## <a name="assigning-users-to-thousandeyes"></a>Atribuir utilizadores a ThousandEyes
 
@@ -52,33 +48,18 @@ Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir qua
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Dicas importantes para atribuir utilizadores a ThousandEyes
 
-*   Recomenda-se que um único utilizador do Azure AD é atribuído a ThousandEyes para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+* Recomenda-se que um único utilizador do Azure AD é atribuído a ThousandEyes para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
-*   Ao atribuir um utilizador para ThousandEyes, tem de selecionar um a **utilizador** função ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo de atribuição. O **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores são ignorados.
-
-## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Configurar funções de utilizador aprovisionado automaticamente no ThousandEyes
-
-Para cada grupo de conta, é de aprovisionamento automático utilizadores para que podem configurar um conjunto de funções a serem aplicadas quando é criada a nova conta de utilizador. Por predefinição, o aprovisionamento automático de utilizadores são atribuídos a _utilizador normal_ função para todas as contas de grupos, a menos que configurado em contrário.
-
-1. Para especificar um novo conjunto de funções para os utilizadores aprovisionados ThousandEyes no registo e navegue para a secção de definições de SCIM **> o ícone de utilizador no canto superior direito > definições da conta > organização > segurança e autenticação.** 
-
-   ![Navegar para as definições de API SCIM](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
-
-2. Adicionar uma entrada para cada grupo de conta, atribua um conjunto de funções, em seguida, *guardar* as suas alterações.
-
-   ![Definir funções predefinidas e os grupos de conta para utilizadores criados através da API de SCIM](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
-
+* Ao atribuir um utilizador para ThousandEyes, tem de selecionar um a **utilizador** função, ou outro válido específico do aplicativo função (se disponível) na caixa de diálogo atribuição. O **acesso predefinido** função não funciona para o aprovisionamento e estes utilizadores são ignorados.
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Configurar o aprovisionamento para ThousandEyes 
 
 Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisionamento da conta de utilizador do ThousandEyes e configurar o serviço de aprovisionamento para criar, atualizar e desativar as contas de utilizador atribuído no ThousandEyes com base na atribuição de utilizadores e grupos no Azure AD .
 
 > [!TIP]
-> Também pode optar por ativada baseado em SAML único início de sessão (SSO) para ThousandEyes, seguindo a [instruções fornecidas na base de dados de conhecimento do Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) para concluir o SSO. SSO pode ser configurado independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementam uma à outra.
-
+> Também pode optar por ativada baseado em SAML início de sessão único para ThousandEyes, seguindo as instruções fornecidas [portal do Azure](https://portal.azure.com). Início de sessão único a pode ser configurada independentemente do serviço de aprovisionamento automático, embora esses dois recursos complementar entre si.
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurar o aprovisionamento automático de utilizadores conta para ThousandEyes no Azure AD
-
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para o **Azure Active Directory > aplicações empresariais > todos os aplicativos** secção.
 
@@ -90,7 +71,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
     ![ThousandEyes aprovisionamento](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Sob o **credenciais de administrador** secção, de entrada a **Token de portador do OAuth** gerados por conta dos seus ThousandEyes (pode encontrar e ou gerar um token na sua conta de ThousandEyes  **Perfil** secção).
+5. Sob o **credenciais de administrador** secção, de entrada a **Token de portador do OAuth** gerados por conta da sua ThousandEyes (pode encontrar e ou gerar um token na sua conta de ThousandEyes  **Perfil** secção).
 
     ![ThousandEyes aprovisionamento](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
@@ -98,7 +79,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 7. Introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento no **notificação por E-Mail** campo e marque a caixa de verificação "Enviar uma notificação por e-mail quando ocorre uma falha."
 
-8. Clique em **Guardar**. 
+8. Clique em **Guardar**.
 
 9. Na secção de mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory para ThousandEyes**.
 
@@ -106,17 +87,16 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
 11. Para ativar o Azure AD para ThousandEyes do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção
 
-12. Clique em **Guardar**. 
+12. Clique em **Guardar**.
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a ThousandEyes na secção utilizadores e grupos. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e seguir links para os registos de atividades, que descrevem a todas as ações executadas pelo serviço de aprovisionamento de aprovisionamento.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
-
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

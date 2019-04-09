@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 3/7/2019
+ms.date: 4/4/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: e709ccee9dfcc6b6931df86b5dd38c7255baefdb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118617"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057613"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,7 +25,8 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Rollup de - de atualização de Março de 2019 [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de Março de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Abril de 2019 [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de Abril de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Março de 2019 [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de Março de 2019 | Suportadas |
 | V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de Fevereiro de 2019 | Suportadas |
 | Rollup de - de atualização de Janeiro de 2019 [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 de Janeiro de 2019 | Suportadas |
 | Rollup de - de atualização de Dezembro de 2018 [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de Dezembro de 2018 | Suportadas |
@@ -38,6 +39,13 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-5200"></a>Versão do agente 5.2.0.0
+As notas de versão seguintes destinam-se a versão 5.2.0.0 do agente do Azure File Sync disponibilizada 4 de Abril de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 5.0.2.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Melhorias de confiabilidade para transferência de dados offline e transferência de dados retomar recursos
+- Melhorias de telemetria de sincronização
 
 ## <a name="agent-version-5100"></a>Versão do agente 5.1.0.0
 As notas de versão seguintes destinam-se a versão 5.1.0.0 do agente do Azure File Sync disponibilizada 7 de Março de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 5.0.2.0.

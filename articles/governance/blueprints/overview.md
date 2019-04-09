@@ -1,20 +1,18 @@
 ---
 title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço de esquemas do Azure permite-lhe criar, definir e implementar artefactos no ambiente do Azure.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802580"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259427"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Descrição geral do serviço Azure esquemas
 
@@ -22,7 +20,7 @@ Da mesma forma que um esquema permite que um engenheiro ou um arquiteto crie um 
 
 Os esquemas são uma forma declarativa de orquestrar a implementação de vários modelos de recursos e de outros artefactos, tais como:
 
-- Atribuições de Funções
+- Atribuições de Função
 - Atribuições de Política
 - Modelos do Azure Resource Manager
 - Grupos de Recursos
@@ -57,7 +55,7 @@ Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seg
 |Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
-|Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
+|Modelo do Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
 |Atribuição de Política | Subscrição, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à subscrição à qual o esquema está atribuído. A política ou iniciativa tem de ser no âmbito da localização da definição de esquema. Se a política ou iniciativa tiver parâmetros, estes parâmetros são atribuídos durante a criação ou atribuição do esquema. |
 |Atribuição de Função | Subscrição, Grupo de Recursos | Adicione um utilizador ou grupo existente a uma função incorporada para garantir que as pessoas certas têm sempre o acesso adequado aos seus recursos. As atribuições de funções podem ser definidas para a subscrição completa ou aninhadas num grupo de recursos específico incluído no esquema. |
 
@@ -87,9 +85,9 @@ Cada **Versão** **Publicada** de um esquema pode ser atribuída a uma subscriç
 
 Para utilizar esquemas, tem de ter permissões concedidas através do [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC). Para criar esquemas, a sua conta necessita das seguintes permissões:
 
-- `Microsoft.Blueprint/blueprints/write` - Criar uma definição de esquema
-- `Microsoft.Blueprint/blueprints/artifacts/write` - Criar artefactos numa definição de esquema
-- `Microsoft.Blueprint/blueprints/versions/write` - Publicar um esquema
+- `Microsoft.Blueprint/blueprints/write` -Criar uma definição do esquema
+- `Microsoft.Blueprint/blueprints/artifacts/write` -Criar artefactos numa definição de esquema
+- `Microsoft.Blueprint/blueprints/versions/write` -Publicar uma esquema
 
 Para eliminar esquemas, a sua conta necessita das seguintes permissões:
 
@@ -102,8 +100,8 @@ Para eliminar esquemas, a sua conta necessita das seguintes permissões:
 
 Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das seguintes permissões:
 
-- `Microsoft.Blueprint/blueprintAssignments/write` - Atribuir um esquema
-- `Microsoft.Blueprint/blueprintAssignments/delete` - Anular a atribuição de um esquema
+- `Microsoft.Blueprint/blueprintAssignments/write` -Atribuir um plano gráfico
+- `Microsoft.Blueprint/blueprintAssignments/delete` -Anular a atribuição de um plano gráfico
 
 > [!NOTE]
 > À medida que as atribuições de esquema são criadas numa subscrição, as permissões de atribuição e anulação da atribuição de esquema têm de ser concedidas no âmbito de uma subscrição ou herdadas para o âmbito de uma subscrição.

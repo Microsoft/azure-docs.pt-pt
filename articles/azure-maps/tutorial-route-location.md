@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 87ad3b8984907b5f5b889c36c2406f07cbeb242b
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056780"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260889"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -47,11 +47,11 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -83,7 +83,7 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
 
     Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Observe o evento `onload` no corpo da página, que irá chamar a função `GetMap` quando o corpo da página for carregada. Esta função irá conter o código JavaScript inline para aceder às APIs do Azure Maps. 
 
-3. Adicione o seguinte código JavaScript à função `GetMap`. Substitua a cadeia **\<A Sua Chave do Azure Maps\>** pela chave primária que copiou a partir da sua conta do Maps.
+3. Adicione o seguinte código JavaScript à função `GetMap`. Substitua a cadeia de caracteres `<Your Azure Maps Key>` com a chave primária que copiou a partir da sua conta de mapas.
 
     ```JavaScript
    //Instantiate a map object
@@ -96,11 +96,11 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
    });
    ```
 
-    O ficheiro **atlas.Map** fornece o controlo para um mapa Web visual e interativo, sendo um componente da API do Controlo de Mapas do Azure.
+    O ficheiro `atlas.Map` oferece o controlo para um mapa Web visual e interativo, sendo um componente da API do Controlo de Mapas do Azure.
 
 4. Guarde o ficheiro e abra-o no browser. Neste momento, tem um mapa básico que pode aprimorar mais.
 
-   ![Ver mapa básico](./media/tutorial-route-location/basic-map.png)
+   ![Ver mapa básico](media/tutorial-route-location/basic-map.png)
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Definir como o trajeto será composto
 
@@ -168,7 +168,7 @@ Neste tutorial, será composta uma rota simples com um ícone de símbolo para o
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Agora o mapa centra-se ao longo de Seattle, e pode ver o pin azul marcar o ponto inicial e o pin azul redondo marcar o ponto final.
 
-   ![Ver mapa com os pontos de partida e de chegada](./media/tutorial-route-location/map-pins.png)
+   ![Ver mapa com os pontos de partida e de chegada](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 
@@ -189,9 +189,9 @@ Esta secção mostra como utilizar a API do Azure Maps route service para encont
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   O **SubscriptionKeyCredential** cria um **SubscriptionKeyCredentialPolicy** para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. O **atlas.service.MapsURL.newPipeline()** aceita a **SubscriptionKeyCredential** política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O **routeURL** representa um URL para o Azure Maps [rota](https://docs.microsoft.com/rest/api/maps/route) operações.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `routeURL` representa um URL para o Azure Maps [rota](https://docs.microsoft.com/rest/api/maps/route) operações.
 
-2. Depois de configurar as credenciais e o URL, adicione o seguinte código JavaScript para construir a rota do início ao ponto final. O **routeURL** serviço para calcular as direções de rota encaminham os pedidos do Azure Maps. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, utilizar o **geojson.getFeatures()** método e adicionado à origem de dados.
+2. Depois de configurar as credenciais e o URL, adicione o seguinte código JavaScript para construir a rota do início ao ponto final. O `routeURL` serviço para calcular as direções de rota encaminham os pedidos do Azure Maps. Uma coleção de recursos de GeoJSON da resposta é extraída, em seguida, usando o `geojson.getFeatures()` método e adicionado à origem de dados.
 
     ```JavaScript
     //Start and end point input to the routeURL

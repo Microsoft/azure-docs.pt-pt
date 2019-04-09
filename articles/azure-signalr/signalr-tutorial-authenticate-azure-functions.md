@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012571"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278841"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação de serviço SignalR do Azure com as funções do Azure
 
@@ -53,7 +53,7 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Introduza as seguintes informações.
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Nome do recurso | Nome exclusivo da instância do SignalR Service |
     | Grupo de recursos | Criar um novo grupo de recursos com um nome exclusivo |
@@ -145,7 +145,7 @@ Quando a aplicação de chat é aberta pela primeira vez no browser, requer cred
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
@@ -204,7 +204,7 @@ A aplicação Web também requer uma API HTTP para enviar mensagens de chat. Vai
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
@@ -315,7 +315,7 @@ Tem estado a executar a aplicação de funções e a aplicação de chat localme
 
 1. Introduza as seguintes informações.
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Subscrição | Selecione a subscrição que contém a instância de serviço SignalR |
     | Grupo de recursos | Selecione o mesmo grupo de recursos |
@@ -348,7 +348,7 @@ Até agora, a aplicação de chat funciona anonimamente. No Azure, utilizará a 
 
 Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clientes ligados ou apenas para os clientes que tenham sido autenticados para um determinado utilizador.
 
-1. No VS Code, abra **SignalRInfo/function.json**.
+1. No VS Code, abra **negotiate/function.json**.
 
 1. Insira uma [expressão de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) na propriedade *userId* do enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. É definido o valor para o nome do utilizador autenticado. O atributo deverá ter agora o seguinte aspeto.
 
@@ -371,7 +371,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Pasta para implementar | Selecione a pasta de projetos principal |
     | Subscrição | Selecione a sua subscrição |
@@ -390,7 +390,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Ficheiro de definições locais | local.settings.json |
     | Subscrição | Selecione a sua subscrição |
@@ -449,7 +449,7 @@ A aplicação Web será alojada através da funcionalidade de sites estáticos d
 
 1. Introduza os seguintes valores:
 
-    | Name | Value |
+    | Name | Valor |
     |---|---|
     | Subscrição | Selecione a sua subscrição |
     | Conta de armazenamento | Selecione a conta de armazenamento que criou anteriormente |

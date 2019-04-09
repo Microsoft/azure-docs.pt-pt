@@ -1,22 +1,22 @@
 ---
 title: Migrar bases de dados de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Mova uma base de dados de conhecimento criada com a ferramenta QnA Maker numa nova base de dados de conhecimento.
+description: Migrar uma base de dados de conhecimento necessita de exportar a partir de uma base de dados de conhecimento, em seguida, importar para outro.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245920"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264323"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
 
@@ -48,10 +48,10 @@ Migrar uma base de dados de conhecimento necessita de exportar a partir de uma b
    ![Base de dados de conhecimento de importação](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. **Teste** a nova base de dados de conhecimento com o painel de teste. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
-1. **Publicar** a base de dados de conhecimento. Saiba como [publicar a sua base de dados de conhecimento](../How-To/publish-knowledge-base.md).
+1. **Publicar** a base de dados de conhecimento. Saiba como [publicar a sua base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 1. Utilize o ponto de extremidade no código da aplicação ou bot. Veja aqui como [criar um bot QnA](../Tutorials/create-qna-bot.md).
 
-    ![Valores do QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![Valores do QnA Maker](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
     Neste momento, todo o conhecimento conteúdo - perguntas, respostas e metadados, junto com os nomes dos arquivos de origem e os URLs são importados para a nova base de dados de conhecimento. 
 

@@ -19,7 +19,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author:
 - rimayber
 - dgoddard
@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d53b8fe46997f6b4f915bfb14a64d69b22cc5d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905108"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057834"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
 
@@ -141,7 +141,7 @@ Esta tabela mostra a distância em linha reta entre duas localizações, no enta
 
 Um valor padrão de 200 pode ser utilizado para a velocidade de propagação - valor é que a distância, em metros light viaja em 1 milissegundo.
 
-No exemplo Nova Iorque a San Francisco, é 4,148 km distância em linha reta. RTT mínimo = 2 * (4,148 / 20). A saída da equação estará em milissegundos.
+No exemplo Nova Iorque a San Francisco, é 4,148 km distância em linha reta. RTT mínimo = 2 * (4,148 / 200). A saída da equação estará em milissegundos.
 
 Conforme a distância física entre duas localizações é uma realidade fixa, se for necessário o desempenho de rede máxima, em seguida, a opção mais lógica é selecionar destinos com a menor distância entre eles. Principal, as decisões de design dentro da rede virtual podem ser feitas para otimizar o caminho do tráfego e reduzir a latência. Estas considerações de rede virtual são descritas na secção considerações de Design de rede abaixo.
 
@@ -350,3 +350,7 @@ Pode encontrar informações adicionais abaixo:
 Os clientes do Azure poderão ver os pacotes TCP com sinalizadores de TCP (SACK, ACK duplicado, retransmissão e RETRANSMITIR rápida) no capturas de pacotes que possam indicar problemas de desempenho de rede. Estes pacotes indicam especificamente ineficiências de rede como resultado de perda de pacotes. No entanto, perda de pacotes não é necessariamente devido a problemas de desempenho do Azure. Problemas de desempenho podem ser o resultado do aplicativo, sistema operacional ou outros problemas que podem não estar diretamente relacionadas com a plataforma do Azure. Também é importante observar que algumas retransmissão ou ACKs duplicados numa rede é normal – protocolos TCP foram criados para ser confiável. Além disso, evidências destes pacotes TCP numa captura de pacotes não indicam necessariamente um problema de rede sistêmicos a menos que estejam excessivas.
 
 No entanto, ele deve ser declarado claramente que esses tipos de pacotes são indicações de que a taxa de transferência não estiver a obter o máximo desempenho – pelos motivos relacionados discutidos em outras seções.
+
+## <a name="next-steps"></a>Próximos Passos
+
+Agora que discutimos a otimização de desempenho de TCP/IP para as VMs do Azure, as próximas etapas incluem [planear a outra rede Virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) considerações ou [Saiba mais sobre como ligar e configurar redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/).

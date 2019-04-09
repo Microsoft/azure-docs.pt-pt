@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058497"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281646"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Os Hubs de notificação do Azure - diagnosticar notificações removidas
 

@@ -1,19 +1,18 @@
 ---
 title: Exemplo - localizações permitido
 description: Esta definição de política de exemplo requer que todos os recursos são implementados para as localizações aprovadas.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0dc93b171fb610d901d2f13f3521b87aa91b1fd6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804722"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264731"
 ---
 # <a name="sample---allowed-region-locations"></a>Exemplo - região localizações permitido
 
@@ -55,7 +54,7 @@ O JSON que define os parâmetros da política, utilizado pela CLI do Azure e o A
 
 |Name |Type |Campo |Descrição |
 |---|---|---|---|
-|listOfAllowedLocations |Array |localizações |A lista de localizações permitidas|
+|listOfAllowedLocations |Matriz |localizações |A lista de localizações permitidas|
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
@@ -114,7 +113,7 @@ Remove-AzPolicyDefinition -Id $definition.ResourceId
 
 Os scripts de implementação e remoção utilizam os seguintes comandos. Cada comando na tabela seguinte liga à documentação específica do comando:
 
-| Comando | Notas |
+| Command | Notas |
 |---|---|
 | [New-AzPolicyDefinition](/powershell/module/az.resources/New-Azpolicydefinition) | Cria uma nova definição do Azure Policy. |
 | [Get-AzResourceGroup](/powershell/module/az.resources/Get-Azresourcegroup) | Obtém um grupo de recursos único. |
@@ -156,13 +155,13 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 ### <a name="azure-cli-explanation"></a>Explicação da CLI do Azure
 
-| Comando | Notas |
+| Command | Notas |
 |---|---|
-| [az policy definition create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Cria uma nova definição do Azure Policy. |
+| [criação da definição de política de AZ](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-create) | Cria uma nova definição do Azure Policy. |
 | [az group show](/cli/azure/group?view=azure-cli-latest#az-group-show) | Obtém um grupo de recursos único. |
 | [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
-| [az policy assignment delete](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Remove uma atribuição do Azure Policy existente. |
-| [az policy definition delete](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Remove uma definição do Azure Policy existente. |
+| [eliminação da atribuição de política AZ](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | Remove uma atribuição do Azure Policy existente. |
+| [eliminação de definição de política de AZ](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | Remove uma definição do Azure Policy existente. |
 
 ## <a name="rest-api"></a>API REST
 

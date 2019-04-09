@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762327"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282547"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server nas notas de versão da Máquina Virtual do Azure
 
@@ -30,8 +30,9 @@ Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server 
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
-| **Capacidade de suporte de imagem personalizada** | Agora pode instalar o [extensão SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) para imagens de sistema operacional e SQL personalizadas, que oferece a funcionalidade limitada do [licenciamento flexível](virtual-machines-windows-sql-ahb.md). Quando registar a sua imagem personalizada com o fornecedor de recursos do SQL, especifique o tipo de licença como 'AHUB' como caso contrário, o registo falhará. Capacidade de gestão através do painel no portal do Azure do SQL Config não é suportada para imagens personalizadas.   | 
+| **Capacidade de suporte de imagem personalizada** | Agora pode instalar o [extensão SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) para imagens de sistema operacional e SQL personalizadas, que oferece a funcionalidade limitada do [licenciamento flexível](virtual-machines-windows-sql-ahb.md). Quando registar a sua imagem personalizada com o fornecedor de recursos do SQL, especifique o tipo de licença como 'AHUB' como caso contrário, o registo falhará.  | 
 | **Capacidade de suporte de instância com nome** | Agora pode utilizar o [extensão SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) com uma instância nomeada, se a instância predefinida tiver sido desinstalada corretamente. | 
+| **Aprimoramento de portal** | A experiência do portal do Azure para implementar uma VM do SQL Server foi renovada para melhorar a usabilidade. Para obter mais informações, consulte o breve [início rápido](quickstart-sql-vm-create-portal.md) e mais completa [procedimentos](virtual-machines-windows-portal-sql-server-provision.md) guia para implantar uma VM do SQL Server. |
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação
@@ -85,4 +86,4 @@ Nenhuma
 * [Descrição geral do SQL Server numa VM do Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
 * [Aprovisionar uma Máquina Virtual do SQL Server Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
-* [Documentação do SQL Server no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server na documentação do Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)

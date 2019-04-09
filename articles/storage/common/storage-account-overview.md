@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371815"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278994"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
-Uma conta de armazenamento do Azure contém todos os seus objetos de dados do armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. Dados na sua conta de armazenamento do Azure são durável e elevada disponibilidade, seguro, dimensionável em massa e acessível a partir de qualquer lugar no mundo através de HTTP ou HTTPS. 
+Uma conta de armazenamento do Azure contém todos os seus objetos de dados do armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. Dados na sua conta de armazenamento do Azure são durável e elevada disponibilidade, seguro, dimensionável em massa e acessível a partir de qualquer lugar no mundo através de HTTP ou HTTPS.
 
 Para saber como criar uma conta de armazenamento do Azure, veja [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
@@ -52,7 +52,7 @@ Contas de fins gerais v1 fornecem acesso a todos os serviços de armazenamento d
 - Filas
 - Tabelas
 
-Embora as contas para fins gerais v2 são recomendadas na maioria dos casos, contas de fins gerais v1 são mais adequadas para estes cenários: 
+Embora as contas para fins gerais v2 são recomendadas na maioria dos casos, contas de fins gerais v1 são mais adequadas para estes cenários:
 
 * As aplicações requerem o modelo de implementação clássica do Azure. Contas para fins gerais v2 e contas de armazenamento de BLOBs suportam apenas o modelo de implementação Azure Resource Manager.
 
@@ -64,6 +64,10 @@ Embora as contas para fins gerais v2 são recomendadas na maioria dos casos, con
 
 Uma conta de armazenamento de BLOBs de bloco é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados como blobs de blocos ou blobs de acréscimo. Contas de armazenamento de BLOBs de bloco oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
 
+### <a name="filestorage-preview-storage-accounts"></a>Contas de armazenamento FileStorage (pré-visualização)
+
+Uma conta de armazenamento FileStorage é uma conta de armazenamento especializada utilizada para armazenar e criar partilhas de ficheiros de premium. Contas de armazenamento FileStorage oferecem características de desempenho exclusivo dedicado, como a segurança de IOPS. Para obter mais informações sobre essas características, consulte a [escalões de desempenho de partilha de ficheiros](../files/storage-files-planning.md#file-share-performance-tiers) seção dos arquivos de guia de planejamento.
+
 ## <a name="naming-storage-accounts"></a>Nomenclatura de contas de armazenamento
 
 Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em mente:
@@ -71,7 +75,7 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 - Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
 - O nome da sua conta do Storage tem de ser exclusivo no Azure. Duas contas de armazenamento não podem ter o mesmo nome.
 
-## <a name="performance-tiers"></a>Escalões de desempenho
+## <a name="general-purpose-performance-tiers"></a>Escalões de desempenho para fins gerais
 
 Contas de armazenamento para fins gerais podem ser configuradas para qualquer um dos seguintes escalões de desempenho:
 
@@ -84,9 +88,9 @@ Armazenamento do Azure oferece opções diferentes para aceder aos dados de blob
 
 Os escalões de acesso disponíveis são:
 
-* O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são um pouco mais. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
-* O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.
-* O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados na escalões de acesso esporádicas ou frequente. 
+* O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são maiores. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
+* O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser mais dispendioso do que a aceder aos dados na camada frequente.
+* O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados na escalões de acesso esporádicas ou frequente.
 
 Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de arquivo acesso](../blobs/storage-blob-storage-tiers.md).
 

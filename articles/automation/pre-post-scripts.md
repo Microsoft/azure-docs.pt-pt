@@ -10,11 +10,11 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056682"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263813"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -136,7 +136,7 @@ Um exemplo completo com todas as propriedades pode ser encontrado em: [Para obte
 > [!NOTE]
 > O `SoftwareUpdateConfigurationRunContext` objeto pode conter entradas duplicadas para máquinas. Isso pode fazer com que os scripts de pré e Post ser executado várias vezes na mesma máquina. Para resolver esse comportamento, utilize `Sort-Object -Unique` para selecionar apenas os nomes VM exclusivos em seu script.
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 
 Exemplos de scripts de pré e post podem ser encontrados na [Galeria de centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), ou importados através do portal do Azure. A importação dos mesmos através do portal, na sua conta de automatização, em **automatização de processos**, selecione **Galeria de Runbooks**. Uso **gestão de atualizações** para o filtro.
 

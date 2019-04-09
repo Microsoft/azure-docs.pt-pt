@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892582"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280218"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
 
@@ -79,7 +79,7 @@ Esta secção mostra o resumo das informações.
 |privacyMode|Sua divisão pode ter um dos seguintes modos: **Privada**, **pública**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
-|thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chamar Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
+|thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chame [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
 |faces|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
@@ -106,7 +106,7 @@ Esta secção mostra o resumo das informações.
 |do IdP|Os metadados do vídeo externo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi revisado e identificado como um vídeo para adultos manualmente.|
 |informações|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
-|thumbnailId|ID de miniatura do vídeo. Para obter a chamada de miniatura real Get-miniatura (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e transmita-o ID de vídeo e thumbnailId.|
+|thumbnailId|ID de miniatura do vídeo. Para obter a chamada real de miniatura [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e transmita-o ID de vídeo e thumbnailId.|
 |publishedUrl|Um url para transmitir o vídeo.|
 |publishedUrlProxy|Um url para transmitir o vídeo de (para dispositivos da Apple).|
 |viewToken|Um token de vista de resumo de duração para o vídeo de transmissão em fluxo.|

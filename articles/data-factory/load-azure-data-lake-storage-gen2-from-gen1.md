@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448920"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256792"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados de geração 1 de armazenamento do Azure Data Lake para geração 2 com o Azure Data Factory
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Conta de geração 1 do Data Lake Storage do Azure com dados no mesmo.
-* Conta de armazenamento do Azure com o Data Lake Storage Gen2 ativada: Se não tiver uma conta de armazenamento, clique em [aqui](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para criar um.
+* Conta de armazenamento do Azure com o Data Lake Storage Gen2 ativada: Se não tiver uma conta de armazenamento [criar uma conta](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -104,7 +104,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
    
    ![Especifique a conta de geração 2 de armazenamento do Azure Data Lake](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfromadlsgen1** como o nome da pasta de saída e selecione **seguinte**: 
+9. Na **escolher o ficheiro de saída ou a pasta** página, introduza **copyfromadlsgen1** como o nome da pasta de saída e selecione **seguinte**. ADF criará o sistema de ficheiros do ADLS Gen2 correspondente e subpastas durante a cópia se não existir.
 
     ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 

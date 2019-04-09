@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894974"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058446"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -32,7 +32,7 @@ O Azure Migrate ajuda-o a:
 - Pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware tem de ser geridas pelo vCenter Server (versão 5.5, 6.0, 6.5 ou 6.7).
 - Suporte para Hyper-V está atualmente em pré-visualização com suporte de produção, se estiver interessado em experimentá-lo, inscreva-se [aqui.](https://aka.ms/migratefuture)
 - Para avaliação de servidores físicos, pode tirar partido do nosso [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/).
-- Pode detetar até 1500 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 1500 VMs numa única avaliação.
+- Pode detetar até 1500 VMs numa única deteção e, num único projeto. Temos uma versão de pré-visualização disponível que permite que a deteção de até 10 000 VMs de VMware num único projeto com uma única aplicação, se estiver interessado em tentar, inscreva-se [aqui.](https://aka.ms/migratefuture)
 - Se pretender encontrar um ambiente maior, pode dividir a deteção e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). O Azure Migrate suporta até 20 projetos por subscrição.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 -  Só pode criar um projeto do Azure Migrate em áreas geográficas indicadas a seguir. No entanto, isso não restringe a capacidade de criar avaliações para outras localizações do Azure de destino.

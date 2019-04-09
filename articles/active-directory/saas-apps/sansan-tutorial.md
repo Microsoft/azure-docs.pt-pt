@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 13986b3ca5515ea07ba5bba2355b1cc67c1c3ebe
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 59cfdfaae597feb8f1cab212b407a8879d78f9f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223381"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Active Directory do Azure com Sansan
 
@@ -106,7 +106,7 @@ Para configurar o Azure AD início de sessão único com Sansan, execute os segu
     ![Sansan domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
-    | Ambiente | do IdP |
+    | Ambiente | URL |
     |:--- |:--- |
     | Web de PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | Aplicação móvel nativa |`https://internal.api.sansan.com/saml2/<company name>/acs` |
@@ -250,7 +250,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Sansan. Aplica�
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador ou do batch de utilizadores, terá de contactar o [equipa de suporte de Sansan](https://www.sansan.com/form/contact).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -258,8 +258,8 @@ Quando clica no mosaico Sansan no painel de acesso, deve ser automaticamente ses
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

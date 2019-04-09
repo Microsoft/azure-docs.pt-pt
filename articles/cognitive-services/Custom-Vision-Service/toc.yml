@@ -51,16 +51,20 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: Utilizar a API de predição
     href: use-prediction-api.md
-  - name: Exporte o seu modelo para formato móvel
-    href: export-your-model.md
-  - name: Utilizar o modelo ONNX com Windows ML
-    href: custom-vision-onnx-windows-ml.md
-  - name: Executar o modelo TensorFlow em Python
-    href: export-model-python.md
+  - name: Exportar modelos
+    items:
+    - name: Exporte o seu modelo para formato móvel
+      href: export-your-model.md
+    - name: Utilizar o modelo ONNX com Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Executar o modelo TensorFlow em Python
+      href: export-model-python.md
   - name: Exportar ou eliminar dados da conta
     href: ./export-delete-data.md
   - name: Mover o seu projeto de Versão de Avaliação Limitada para o Azure
     href: ./move-your-project-to-azure.md
+  - name: Atualizar a sua aplicação para a API 3.0
+    href: ./update-application-to-3.0-sdk.md
 - name: Referência
   items:
   - name: API de Formação de Visão Personalizada
@@ -97,9 +101,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Notas de Versão
     href: release-notes.md
-ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: df39e49ac586fc8e74a0b94074d94e7a6293e4e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893556"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044764"

@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884082"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260311"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar afirmações emitidas nos tokens de um aplicativo específico num inquilino (pré-visualização)
 
@@ -98,14 +98,14 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | domain_netbios_name |
 | e_exp |
 | e-mail |
-| endpoint |
+| ponto final |
 | enfpolids |
 | exp |
 | expires_on |
 | grant_type |
 | gráfico |
 | group_sids |
-| grupos |
+| Grupos |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,7 +156,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| Recurso |
+| recurso |
 | função |
 | funções |
 | scope |
@@ -177,7 +177,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| o nome de utilizador |
+| nome do utilizador |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,7 +284,7 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válidos por origem
 
-| Origem | ID | Descrição |
+| Fonte | ID | Descrição |
 |-----|-----|-----|
 | Utilizador | Apelido | Nome de família |
 | Utilizador | givenName | Nome Próprio |
@@ -320,8 +320,8 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 | Utilizador | extensionattribute15 | Atributo de extensão 15 |
 | Utilizador | othermail | Outro correio |
 | Utilizador | País | País |
-| Utilizador | city | Localidade |
-| Utilizador | state | Estado |
+| Utilizador | city | Cidade |
+| Utilizador | estado | Estado |
 | Utilizador | jobtitle | Cargo |
 | Utilizador | employeeid | ID do Empregado |
 | Utilizador | facsimiletelephonenumber | Número de telefone de fax |
@@ -360,7 +360,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. De
 
 |TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|string1, string2, separator|outputClaim|Associações de cadeias de caracteres de entrada utilizando um separador entre. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
+|Aderir|string1, string2, separator|outputClaim|Associações de cadeias de caracteres de entrada utilizando um separador entre. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrai a parte local de um endereço de e-mail. Por exemplo: correio: "foo@bar.com" resulta na outputClaim: "foo". Se não \@ início de sessão está presente, em seguida, a cadeia de entrada original é retornada como está.|
 
 **InputClaims:** Utilize um elemento de InputClaims para passar os dados a partir de uma entrada de esquema de afirmação para uma transformação. Ele possui dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
@@ -384,7 +384,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como uma origem de dados para NameID de SAML
 
-|Origem|ID|Descrição|
+|Fonte|ID|Descrição|
 |-----|-----|-----|
 | Utilizador | mail|Endereço de E-mail|
 | Utilizador | userprincipalname|Nome Principal de Utilizador|
@@ -411,11 +411,11 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. De
 | TransformationMethod | Restrições |
 | ----- | ----- |
 | ExtractMailPrefix | Nenhuma |
-| Associar | O sufixo estiver associado ao tem de ser um domínio verificado do inquilino de recursos. |
+| Aderir | O sufixo estiver associado ao tem de ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura de personalizado
 
-Uma chave de assinatura personalizada tem de ser atribuída ao objeto do principal de serviço para uma política de mapeamento de afirmações entrar em vigor. Todos os tokens emitidos e que tenham sido afetados pela política são assinados com a chave de assinatura personalizada e aplicações devem ser configuradas para aceitar tokens assinados com a chave de assinatura. Isto garante que os tokens foram modificadas pelo criador das afirmações de política de mapeamento e protege as aplicações de políticas criadas pelo atores maliciosos de mapeamento de afirmações de confirmação.
+Uma chave de assinatura personalizada tem de ser atribuída ao objeto do principal de serviço para uma política de mapeamento de afirmações entrar em vigor. Isto garante que os tokens foram modificadas pelo criador das afirmações de política de mapeamento e protege as aplicações de políticas criadas pelo atores maliciosos de mapeamento de afirmações de confirmação.  Aplicações que tenham afirmações mapeamento ativado têm de verificar um URI especial para o seu token de chaves de assinatura, acrescentando `appid={client_id}` para seus [pedidos de metadados de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Cenários de entre inquilinos
 

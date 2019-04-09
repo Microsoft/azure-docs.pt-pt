@@ -23,14 +23,12 @@ items:
     href: tutorial-geofence.md
 - name: Conceitos
   items:
-  - name: Níveis de zoom e grelha de mosaico
-    href: zoom-levels-and-tile-grid.md
+  - name: Autenticação com o Azure Maps
+    href: azure-maps-authentication.md
   - name: Integração do Event Grid do Azure Maps
     href: azure-maps-event-grid-integration.md
   - name: Escolher o melhor escalão de preço
     href: choose-pricing-tier.md
-  - name: Autenticação com o Azure Maps
-    href: azure-maps-authentication.md
   - name: Cobertura
     items:
     - name: Cobertura de geocodificação
@@ -43,10 +41,12 @@ items:
       href: routing-coverage.md
   - name: Linguagens suportadas
     href: supported-languages.md
-  - name: Estilos de Mapa suportados
+  - name: Estilos de mapas suportados
     href: supported-map-styles.md
   - name: Browsers suportados por SDK web
     href: supported-browsers.md
+  - name: Níveis de zoom e grelha de mosaico
+    href: zoom-levels-and-tile-grid.md
 - name: Guias de procedimentos
   items:
   - name: Gerir contas do Maps
@@ -159,7 +159,7 @@ items:
   items:
   - name: Termos de utilização do Azure Maps
     href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: Preços
+  - name: Preços do Azure Maps
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
@@ -167,7 +167,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Glossário
+  - name: Vídeos do Azure Maps
+    href: https://aka.ms/AzureMapsVideos
+  - name: Glossário do Azure Maps
     href: glossary.md
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates
@@ -177,7 +179,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Estudos de caso técnicos
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Vídeos
+  - name: Azure Maps na Escola de IoT
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
 - name: Relacionado
   items:
@@ -205,9 +207,9 @@ items:
       href: /azure/iot-edge
     - name: SDKs do Dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: db82c8eac3288867b524f19b688b6358b8e6bbc6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fa4c3a4f8158123e6773640c1612daa0c7390424
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575828"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058939"

@@ -11,29 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/5/2019
 ms.author: banders
-ms.openlocfilehash: 229b5a0948a81c9b5d78dd49f304e7b6891f95ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653250"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281986"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas de Self-serviços e os reembolsos para as reservas do Azure
 
 Reservas do Azure oferecem a flexibilidade para o ajudar a atender às suas necessidades em constante evolução. Podem trocar uma reserva para a reserva outra do mesmo tipo. Também pode reembolsar uma reserva, até 50 000 USD por ano, se já não precisa dele.
+
+Capacidade de exchange e cancelar self-service não está disponível para clientes do US Government Enterprise Agreement. São suportados outros tipos de subscrição administração pública dos EUA, incluindo o pay as you go e o CSP.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Uma instância reservada existente do Exchange
 
 Podem trocar sua reserva com três passos rápidos no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 1. Selecione as reservas que deseja reembolsar e clique em **Exchange**.  
-    ![Imagem de exemplo que mostra as reservas para retornar ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+    ![Imagem de exemplo que mostra as reservas para retornar](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
 2. Selecione o produto VM que pretende comprar e escreva uma quantidade. Certifique-se de que o novo total de compra é mais do que o total de retorno. [Determinar o tamanho correto antes de comprar](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
-    ![Imagem de exemplo que mostra o produto VM para aquisição com uma troca ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![Imagem de exemplo que mostra o produto VM para aquisição com uma troca](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Reveja e conclua a transação.  
-    ![Imagem de exemplo que mostra o produto VM para aquisição com uma troca, concluindo o retorno ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![Imagem de exemplo que mostra o produto VM para aquisição com uma troca, concluindo o retorno](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Para reembolso de uma reserva, aceda a **detalhes da reserva** e clique em **reembolso**.
 
@@ -84,7 +86,7 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 
 - Para saber como gerir uma reserva, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
-    - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
+    - [O que é o Azure Reservations?](billing-save-compute-costs-reservations.md)
     - [Gerir reservas no Azure](billing-manage-reserved-vm-instance.md)
     - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
     - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)

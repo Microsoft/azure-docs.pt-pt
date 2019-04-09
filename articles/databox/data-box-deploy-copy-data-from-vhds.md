@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 1358751c71dfba39574807c9b232957227980f5d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887515"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282564"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Utilize o Data Box para importar dados como managed disks no Azure
 
@@ -46,7 +46,7 @@ Com base nos grupos de recursos especificados, o Data Box cria uma partilha para
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Dentro de cada partilha, as seguintes quatro pastas são criadas que correspondem aos contentores na sua conta de armazenamento.
+Dentro de cada partilha, as pastas de três seguintes são criadas que correspondem aos contentores na sua conta de armazenamento.
 
 - SSD Premium
 - HDD Standard
@@ -143,7 +143,7 @@ Reveja as seguintes considerações antes de iniciar a cópia de dados:
 Dependendo se está a ligar através de SMB ou NFS, pode usar:
 
 - [Copiar dados através de SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [Copiar dados por meio de NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [Copiar dados através de NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
 Aguarde que as tarefas de cópia concluir. Certifique-se de que as tarefas de cópia tem concluído sem erros antes de ir para o passo seguinte.
 
@@ -179,5 +179,5 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 Avance para o próximo tutorial para saber como enviar o Data Box para a Microsoft.
 
 > [!div class="nextstepaction"]
-> [Enviar o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
+> [Envie o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
 

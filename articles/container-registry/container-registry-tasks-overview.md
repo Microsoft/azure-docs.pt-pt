@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915932"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256197"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR
 
@@ -78,7 +78,7 @@ Saiba mais sobre o sistema operacional e a aplicação de patches de estrutura n
 > [!NOTE]
 > Imagem de base de atualizações de compilações de Acionador apenas quando tanto as imagens bases e de aplicações residem no mesmo registo de contentor do Azure ou a base de reside num repositório do Docker Hub público.
 
-## <a name="multi-step-tasks"></a>Tarefas de vários passos
+## <a name="multi-step-tasks"></a>Tarefas com vários passos
 
 Tarefas de vários passos fornecem a definição de tarefa com base no passo e execução para criação, teste e correção de imagens de contentor na cloud. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
 
@@ -97,10 +97,9 @@ Saiba mais sobre tarefas de vários passos em [executar vários passo compilaç�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Quando estiver pronto para automatizar o sistema operacional e a estrutura de aplicação de patches ao criar as imagens de contentor na cloud, veja a série de tutoriais de tarefas de ACR de três partes.
+Quando estiver pronto para automatizar o SO e aplicação de patches de framework criando as imagens de contentor na cloud, veja as três partes [série de tutoriais de tarefas de ACR](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Criar imagens de contentor na cloud com tarefas de registo de contentor do Azure](container-registry-tutorial-quick-task.md)
+Opcionalmente, instale o [extensão Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e o [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensão para trabalhar com os registos de contentores do Azure. Extrair e enviar imagens para um Azure container registry ou executar tarefas de ACR, tudo no Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

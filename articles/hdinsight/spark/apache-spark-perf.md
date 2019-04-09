@@ -3,18 +3,18 @@ title: Otimizar tarefas do Spark para um desempenho - Azure HDInsight
 description: Mostra as estratégias comuns para um melhor desempenho de clusters do Spark.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.date: 04/03/2019
+ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117865"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058633"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Otimizar tarefas do Apache Spark
 
@@ -24,7 +24,7 @@ As secções seguintes descrevem as recomendações e otimizações de tarefa do
 
 ## <a name="choose-the-data-abstraction"></a>Escolha a abstração de dados
 
-Versões anteriores do Spark utilizam RDDs para dados abstratos, Spark 1.3 e 1.6 introduzidos DataFrames e conjuntos de dados, respectivamente. Considere os méritos relativos seguintes:
+Versões anteriores do Spark utilizam RDDs para dados abstratos, Spark 1.3, e 1.6 introduzidos DataFrames e conjuntos de dados, respectivamente. Considere os méritos relativos seguintes:
 
 * **DataFrames**
     * Melhor opção na maioria das situações.
@@ -33,7 +33,7 @@ Versões anteriores do Spark utilizam RDDs para dados abstratos, Spark 1.3 e 1.6
     * Acesso direto à memória.
     * Baixa sobrecarga coleta de lixo (GC).
     * Não tão amigável ao desenvolvedor como conjuntos de dados, como não há verificações de tempo de compilação ou programação de objeto de domínio.
-* **Conjuntos de dados**
+* **DataSets**
     * Bom em pipelines ETL complexas em que o impacto no desempenho é aceitável.
     * Não é boa em agregações em que o impacto de desempenho pode ser considerável.
     * Fornece a otimização de consultas através de Catalyst.
@@ -60,9 +60,10 @@ Quando cria um novo cluster do Spark, terá a opção de selecionar o armazename
 
 | Tipo de Store | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Cluster transitório |
-| Armazenamento do Azure Data Lake | **adl:**//url/ | **Mais rapidamente** | Sim | Cluster transitório |
-| Local HDFS | **hdfs:**//url/ | **Fastest** | Não | Cluster do Interactive 24x7 |
+| Armazenamento de Blobs do Azure | **wasb[s]:**//url/ | **Standard** | Sim | Cluster transitório |
+| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Mais rápido** | Sim | Cluster transitório |
+| Armazenamento do Azure Data Lake Ger 1| **adl:**//url/ | **Mais rápido** | Sim | Cluster transitório |
+| Local HDFS | **hdfs:**//url/ | **O mais rápido** | Não | Cluster do Interactive 24x7 |
 
 ## <a name="use-the-cache"></a>Utilizar a cache
 

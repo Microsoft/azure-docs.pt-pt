@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905278"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263767"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para .NET Core ILogger registos
 
@@ -208,10 +208,10 @@ Enquanto fornecedor antigo ainda pode ser usado (será removida apenas numa alte
 1. Fornecedor anterior não tinha suporte dos [âmbitos](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). No novo fornecedor, propriedades de âmbito são adicionadas automaticamente como propriedades personalizadas à telemetria recolhida.
 2. Agora podem ser capturados registos muito mais antecedência no pipeline de inicialização do aplicativo. ou seja Registos de classes de programa e inicialização agora podem ser capturados.
 3. Com o novo fornecedor, a filtragem é efetuada ao nível da estrutura em si. Filtragem de registos para o fornecedor do Application Insights pode ser feito no exatamente da mesma maneira como para outros fornecedores, incluindo provedores internos, como o Console, depuração e assim por diante. Também é possível aplicar os mesmos filtros para vários fornecedores.
-4. O [recomendado](https://github.com/aspnet/Announcements/issues/255) forma no Asp.Net Core (2.0 ou posterior) para os fornecedores de registo é usar métodos de extensão no ILoggingBuilder no `Program.cs` em si.
+4. O [recomendado](https://github.com/aspnet/Announcements/issues/255) forma no ASP.NET Core (2.0 ou posterior) para os fornecedores de registo é usar métodos de extensão no ILoggingBuilder no `Program.cs` em si.
 
 > [!Note]
-O novo provedor está disponível para aplicativos destinados `NETSTANDARD2.0` ou superior. Se seu aplicativo se destina a versões mais antigas do .NET Core, como o .NET Core 1.1, ou se direcionando para o .NET Framework, continue a utilizar o fornecedor de antigo.
+> O novo provedor está disponível para aplicativos destinados `NETSTANDARD2.0` ou superior. Se seu aplicativo se destina a versões mais antigas do .NET Core, como o .NET Core 1.1, ou se direcionando para o .NET Framework, continue a utilizar o fornecedor de antigo.
 
 ## <a name="console-application"></a>Aplicação de consola
 

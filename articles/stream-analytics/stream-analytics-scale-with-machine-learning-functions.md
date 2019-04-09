@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558010"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257285"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning
 É simples configurar uma tarefa do Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando for necessário executar a mesma tarefa com o maior volume de dados? Ela requer a compreender como configurar a tarefa do Stream Analytics, para que ele pode ser dimensionada. Neste documento, vamos nos concentrar nos aspetos de especiais de dimensionar tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar tarefas do Stream Analytics em geral, consulte o artigo [Dimensionar tarefas](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Azure Machine Learning no Stream Analytics?
-Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, os pedidos de serviço da Web do Azure Machine Learning. Serviços web Machine Learning suportam "criação de batches" várias linhas, a chamada de mini-batch, a mesma API chamada de serviço web, para melhorar a produtividade geral. Para obter mais informações, consulte [funções do Azure Machine Learning no Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) e [serviços da Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, os pedidos de serviço da Web do Azure Machine Learning. Serviços web Machine Learning suportam "criação de batches" várias linhas, a chamada de mini-batch, a mesma API chamada de serviço web, para melhorar a produtividade geral. Para obter mais informações, consulte [serviços da Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar uma tarefa de Stream Analytics com as funções de Machine Learning
 Ao configurar uma função de Machine Learning tarefa do Stream Analytics, há dois parâmetros a serem considerados, o tamanho de lote das chamadas de função do Machine Learning e as unidades de transmissão em fluxo (SUs) aprovisionadas para a tarefa do Stream Analytics. Para determinar os valores adequados para o SUs, primeiro uma decisão deve ser feita entre a latência e débito, ou seja, a latência da tarefa do Stream Analytics e débito de cada SU. SUs sempre podem ser adicionados a uma tarefa para aumentar o débito de uma consulta do Stream Analytics também particionada, embora SUs adicionais aumentam o custo de executar a tarefa.
@@ -77,8 +77,8 @@ Segue-se uma tabela para o débito de tarefa do Stream Analytics para SUs difere
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SUs** |5.000 |10,000 |40,000 |60,000 |100 000 |
-| **18 SUs** |7.500 |15,000 |60,000 |90,000 |150,000 |
+| **12 SUs** |5,000 |10,000 |40,000 |60,000 |100,000 |
+| **18 SUs** |7,500 |15,000 |60,000 |90,000 |150,000 |
 | **24 SUs** |10,000 |20,000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200,000 |300,000 |500,000 |

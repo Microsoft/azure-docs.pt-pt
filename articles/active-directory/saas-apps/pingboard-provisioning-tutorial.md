@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203748"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058385"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento automático de utilizadores
 
@@ -32,11 +32,11 @@ O objetivo deste tutorial é mostrar-lhe os passos que tem de seguir para ativar
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
-*   Um inquilino do Azure AD
-*   Um inquilino Pingboard [conta do Pro](https://pingboard.com/pricing) 
-*   Uma conta de utilizador no Pingboard com permissões de administrador 
+* Um inquilino do Azure AD
+* Um inquilino Pingboard [conta do Pro](https://pingboard.com/pricing)
+* Uma conta de utilizador no Pingboard com permissões de administrador
 
-> [!NOTE] 
+> [!NOTE]
 > Aprovisionamento de integração do Azure AD depende de [Pingboard API](https://pingboard.docs.apiary.io/#), que está disponível para a sua conta.
 
 ## <a name="assign-users-to-pingboard"></a>Atribuir utilizadores a Pingboard
@@ -69,7 +69,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 1. Definir **modo de aprovisionamento** ao **automática**.
 
     ![Aprovisionamento Pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. Sob o **credenciais de administrador** secção, utilize os seguintes passos:
 
     a. Na **URL de inquilino**, introduza `https://your_domain.pingboard.com/scim/v2`e substitua "your_domain" com o seu domínio real.
@@ -86,7 +86,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a conta de utiliz
 
 1. Introduza o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de aprovisionamento na **notificação por E-Mail**. Selecione a caixa de verificação abaixo.
 
-1. Selecione **Guardar**. 
+1. Selecione **Guardar**.
 
 1. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory para Pingboard**.
 
@@ -103,5 +103,5 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerir o aprovisionamento da conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-* [Configure single sign-on](pingboard-tutorial.md) (Configurar o início de sessão único)
+* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurar o início de sessão único](pingboard-tutorial.md)

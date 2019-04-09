@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886393"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Active Directory do Azure com Agiloft
 
@@ -167,13 +167,13 @@ Para configurar o Azure AD início de sessão único com Agiloft, execute os seg
 
     ![Agiloft Configuration](./media/agiloft-tutorial/setup4.png)
 
-    a. Na **Id de entidade do IdP / emissor** caixa de texto, cole o valor de **Azure Ad identificador**, que copiou do portal do Azure.
+    a. Na **Id de entidade do IdP / emissor** caixa de texto, cole o valor de **Azure Ad identificador**, que copiou do portal do Azure.
 
-    b. Na **URL de início de sessão do IdP** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    b. Na **URL de início de sessão do IdP** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
-    c. Na **URL de fim de sessão do IdP** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+    c. Na **URL de fim de sessão do IdP** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
 
-    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **conteúdo de certificado X.509 de fornecido IdP**  caixa de texto.
+    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **conteúdo de certificado X.509 de fornecido IdP** caixa de texto.
 
     e. Clique em **Concluir**.
 
@@ -232,7 +232,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Agiloft. Agiloft suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Agiloft, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -242,6 +242,6 @@ Quando clica no mosaico Agiloft no painel de acesso, deve ser automaticamente se
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
