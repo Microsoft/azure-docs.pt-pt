@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772784"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359763"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinar o endereço IP do ponto final de gestão
 
@@ -32,7 +32,6 @@ Vamos supor que o anfitrião da instância gerida é `mi-demo.xxxxxx.database.wi
 Agora, fazer outra `nslookup` para remover o nome realçado a `.vnet.` segmento. Obterá o endereço IP público ao executar este comando.
 
 ![Resolução de endereço IP público](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

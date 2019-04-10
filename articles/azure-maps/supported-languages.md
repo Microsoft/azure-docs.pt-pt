@@ -3,17 +3,17 @@ title: Idiomas suportados nas Azure Maps | Documentos da Microsoft
 description: Saiba mais sobre os idiomas suportados para os serviços do Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849646"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358122"
 ---
 # <a name="azure-maps-supported-languages"></a>Idiomas com suporte do Azure Maps
 Foram localizado numa variedade de linguagens do Azure Maps em serviços.  A tabela seguinte fornece os códigos de idiomas suportados para cada serviço.  
@@ -33,7 +33,10 @@ Foram localizado numa variedade de linguagens do Azure Maps em serviços.  A ta
 | da-DK      | Dinamarquês                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-NL      | Neerlandês                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Holandês (Bélgica)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | Português                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| EN-AU      | Inglês (Austrália)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| EN-NZ      | Inglês (Nova Zelândia)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | Inglês (Grã-Bretanha) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | Inglês (EUA)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estónio               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finlandês                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | FR-FR      | Francês                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

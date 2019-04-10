@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518790"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279878"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do contrato Enterprise para APIs de contrato de cliente da Microsoft
 
@@ -81,7 +81,7 @@ Se utilizar qualquer APIs existentes do EA, terá de atualizá-las para oferecer
 | Objetivo | Oferta antiga | Nova oferta |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Gestão de Custos do Azure](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Informações sobre consumo do Microsoft](/power-bi/desktop-connect-azure-consumption-insights) conector e pacote de conteúdos | [Aplicação do Microsoft Azure consumo Insights Power BI](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) e [ conector Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Informações sobre consumo do Microsoft](/power-bi/desktop-connect-azure-consumption-insights) conector e pacote de conteúdos | [Aplicação do Microsoft Azure consumo Insights Power BI](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) e [conector Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>APIs para obter o saldo e créditos
 
@@ -373,10 +373,10 @@ A tabela seguinte mostra os campos na API de folha de preços obter empresarial 
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Valores de cadeia exacta poderão diferir. |
 | includedQuantity  | includedQuantity | Não é aplicável para serviços em contratos de cliente da Microsoft. |
-| partNumber  | _Não aplicável_ | Em alternativa, utilize uma combinação de productOrderName (mesmo que offerId) e meterid. |
-| unitPrice  | unitPrice | Preço unitário é aplicável serviços consumidos contratos de cliente da Microsoft. |
+| númeroPeça  | _Não aplicável_ | Em alternativa, utilize uma combinação de productOrderName (mesmo que offerId) e meterid. |
+| preçoUnitário  | preçoUnitário | Preço unitário é aplicável serviços consumidos contratos de cliente da Microsoft. |
 | currencyCode  | pricingCurrency | Contratos de cliente da Microsoft têm representações de preços na moeda do preço e moeda de faturação. O currencyCode corresponde a pricingCurrency em contratos de cliente da Microsoft. |
-| offerId | productOrderName | Em vez de OfferId, pode usar productOrderName, mas não é igual a OfferId. No entanto, productOrderName e medidor determinam um preço em contratos de cliente da Microsoft relacionado com meterId e Offerid no inscrições herdadas. |
+| IDoferta | productOrderName | Em vez de OfferId, pode usar productOrderName, mas não é igual a OfferId. No entanto, productOrderName e medidor determinam um preço em contratos de cliente da Microsoft relacionado com meterId e Offerid no inscrições herdadas. |
 
 ## <a name="consumption-price-sheet-api-operations"></a>Operações de API da folha de preços de consumo
 
@@ -438,7 +438,7 @@ As propriedades mais antigas [APIs de folha de cálculo do preço do Azure Resou
 | Unidade | _Não aplicável_ | Pode ser analisado a partir unitOfMeasure. |
 | Unidade de medida | unitOfMeasure | &nbsp;  |
 | Número de peça | _Não aplicável_ | Em vez de partNumber, use productOrderName e MeterId para identificar exclusivamente o preço de um perfil de faturação. Campos estão listados da nota fiscal MCA em vez de partNumber no MCA faturas. |
-| Preço unitário | unitPrice | Preço unitário de contrato de cliente da Microsoft. |
+| Preço unitário | preçoUnitário | Preço unitário de contrato de cliente da Microsoft. |
 | Código de moeda | pricingCurrency | Contratos de cliente da Microsoft representam os preços na moeda de preços e moeda de faturação. Código de moeda é o mesmo que o pricingCurrency em contratos de cliente da Microsoft. |
 | Quantidade incluída | includedQuantity | Não é aplicável aos serviços em contratos de cliente da Microsoft. Mostrar com valores de zero. |
 |  ID da Oferta  | productOrderName | Em vez de OfferId, use productOrderName. Não são as mesmas como OfferId, no entanto o medidor e productOrderName determinam um preço em contratos de cliente da Microsoft. Relacionado com meterId e Offerid no inscrições herdadas. |
@@ -460,7 +460,7 @@ Os campos seguintes não são disponíveis no contrato de preço folha APIs da M
 |Campo extinto| Descrição|
 |---|---|
 | billingPeriodId | Não aplicável. Corresponde a InvoiceId para MCA. |
-| offerId | Não aplicável. Corresponde a productOrderName no MCA. |
+| IDoferta | Não aplicável. Corresponde a productOrderName no MCA. |
 | meterCategory  | Não aplicável. Corresponde ao serviço no MCA. |
 | unidade | Não aplicável. Pode ser analisado a partir unitOfMeasure. |
 | currencyCode | Mesmo que o pricingCurrency no MCA. |

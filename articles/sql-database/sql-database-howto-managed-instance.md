@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 09e130e8ac0738a3bf9c08147248702d06356a75
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93be58ac231ff2b88c6618c549c9d1975977b91f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782144"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360103"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como utilizar uma instância gerida na base de dados do Azure SQL
 
@@ -29,7 +29,7 @@ Neste artigo, pode encontrar várias guias, scripts e explicação que pode ajud
 
 - [Migrar TDE cert para uma instância gerida](sql-database-managed-instance-migrate-tde-certificate.md) – se a sua base de dados do SQL Server estiver protegido por encriptação de dados transparente (TDE), seria necessário migrar o certificado que uma instância gerida, pode utilizar para desencriptar a cópia de segurança que pretende restaurar no Azure.
 
-## <a name="network-configuration"></a>Configuração de rede
+## <a name="network-configuration"></a>Configuração da rede
 
 - [Determinar o tamanho de uma sub-rede de instância gerida](sql-database-managed-instance-determine-size-vnet-subnet.md) – instância gerida é colocada no dedica a sub-rede que não pode ser redimensionado depois de adicionar os recursos no interior. Portanto, seria necessário calcular o intervalo IP de endereços seriam necessário para a sub-rede dependendo do número e tipos de instâncias que pretende implementar na sub-rede.
 - [Criar nova VNet e sub-rede para uma instância gerida](sql-database-managed-instance-create-vnet-subnet.md) – VNet do Azure e a sub-rede onde pretende implementar as instâncias geridas devem ser configurados de acordo com o [descritos aqui de requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Neste guia, encontrará a forma mais fácil para criar a nova VNet e sub-rede configurada corretamente para instâncias geridas.

@@ -4,22 +4,20 @@ description: Impedi os utilizadores de atualização e a eliminação de recurso
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649174"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360437"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos pode prevenir alterações inesperadas 
 
@@ -36,12 +34,32 @@ Quando aplica um bloqueio num âmbito principal, todos os recursos dentro daquel
 
 Ao contrário do controlo de acesso baseado em funções, usar os bloqueios de gestão para aplicar uma restrição em todos os utilizadores e funções. Para saber mais sobre como definir permissões para utilizadores e funções, veja [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
-Bloqueios de Gestor de recursos aplicam-se apenas às operações que ocorrem no plano de gestão, que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem como recursos executam suas próprias funções. As alterações de recursos são restritas, mas as operações de recursos não restritas. Por exemplo, um bloqueio só de leitura numa base de dados SQL impede-o de eliminem ou modifiquem o banco de dados, mas ele não impede de criar, atualizar ou eliminar dados na base de dados. Transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
+Bloqueios de Gestor de recursos aplicam-se apenas às operações que ocorrem no plano de gestão, que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem como recursos executam suas próprias funções. As alterações de recursos são restritas, mas as operações de recursos não restritas. Por exemplo, um bloqueio só de leitura numa base de dados SQL impede-eliminem ou modifiquem o banco de dados. Ele não impede de criar, atualizar ou eliminar dados na base de dados. Transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
 Aplicando **só de leitura** pode levar a resultados inesperados, uma vez que algumas operações que parecem ler operações, na verdade, exigem ações adicionais. Por exemplo, colocar uma **só de leitura** bloqueio numa conta de armazenamento impede que todos os utilizadores de listar as chaves. A lista de operação de chaves é tratada por meio de um pedido POST porque as chaves retornadas estão disponíveis para operações de escrita. Por outro exemplo, colocar uma **só de leitura** bloqueio num recurso de serviço de aplicações impede que o Visual Studio Server Explorer de apresentar ficheiros para o recurso porque essa interação requer acesso de escrita.
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Quem pode criar ou eliminar bloqueios na sua organização
+## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou eliminar bloqueios
 Para criar ou eliminar bloqueios de gestão, tem de ter acesso ao `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.
+
+## <a name="managed-applications-and-locks"></a>Aplicações e bloqueios
+
+Alguns serviços do Azure, como o Azure Databricks, utilizam [aplicativos gerenciados](../managed-applications/overview.md) para implementar o serviço. Nesse caso, o serviço cria dois grupos de recursos. Um grupo de recursos contém uma descrição geral do serviço e não está bloqueado. O grupo de recursos contém a infraestrutura para o serviço e é bloqueado.
+
+Se tentar eliminar o grupo de recursos de infraestrutura, obterá um erro a indicar que o grupo de recursos está bloqueado. Se tentar eliminar o bloqueio para o grupo de recursos de infraestrutura, obterá um erro a indicar que o bloqueio não pode ser eliminado porque o proprietário é uma aplicação de sistema.
+
+Em vez disso, elimine o serviço, que também elimina o grupo de recursos de infraestrutura.
+
+Para aplicativos gerenciados, selecione o serviço que implementou.
+
+![Selecionar serviço](./media/resource-group-lock-resources/select-service.png)
+
+Observe que o serviço inclui uma ligação para uma **grupo de recursos gerido**. Grupo de recursos possui a infra-estrutura e está bloqueado. Não é possível eliminá-lo diretamente.
+
+![Mostrar grupo gerido por](./media/resource-group-lock-resources/show-managed-group.png)
+
+Para eliminar tudo para o serviço, incluindo o grupo de recursos de infraestrutura bloqueado, selecione **eliminar** para o serviço.
+
+![Eliminar serviço](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
@@ -52,12 +70,12 @@ Ao utilizar um modelo do Resource Manager para implementar um bloqueio, utilizar
 
 Ao aplicar um bloqueio para um **recursos**, utilize os seguintes formatos:
 
-* name - `{resourceName}/Microsoft.Authorization/{lockName}`
+* nome: `{resourceName}/Microsoft.Authorization/{lockName}`
 * tipo de- `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Ao aplicar um bloqueio para um **grupo de recursos** ou **subscrição**, utilize os seguintes formatos:
 
-* name - `{lockName}`
+* nome: `{lockName}`
 * tipo de- `Microsoft.Authorization/locks`
 
 O exemplo seguinte mostra um modelo que cria um plano do serviço de aplicações, um web site e um bloqueio no web site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/bloqueios**. O nome do bloqueio é criado pela concatenação com o nome do recurso **/Microsoft.Authorization/** e o nome do bloqueio.

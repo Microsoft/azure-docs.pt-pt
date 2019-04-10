@@ -2,16 +2,16 @@
 title: Manter os endereços IP durante a ativação pós-falha da VM do Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Descreve como manter os endereços IP quando efetuar a ativação pós-falha de VMs do Azure para recuperação após desastre para uma região secundária com o Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090751"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357900"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Manter os endereços IP durante a ativação pós-falha
 
@@ -49,7 +49,7 @@ Eis a arquitetura antes da ativação pós-falha.
         - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
         - Sudeste asiático tem uma VNet adicional (**VNet do Azure**) com o endereço espaço 10.2.0.0/16.
         - **VNet do Azure** contém uma sub-rede (**sub-rede 4**) com o endereço espaço 10.2.4.0/24.
-        - Nós de réplica para o SQL Server Always On, o controlador de domínio etc estão localizados num **sub-rede 4**.
+        - Nós de réplica para o SQL Server Always On, etc. do controlador de domínio estão localizados num **sub-rede 4**.
     - **VNet de origem** e **VNet do Azure** estão ligados com uma ligação de site-site VPN.
     - **VNet de recuperação** não está ligado com qualquer outra rede virtual.
     - **Da empresa A** atribui/verifica os endereços IP de destino para itens replicados. O IP de destino é o mesmo que o IP de origem para cada VM.
@@ -92,7 +92,7 @@ Antes da ativação pós-falha, a arquitetura é o seguinte:
 - Região secundária (destino) é o Azure Sudeste da Ásia - Sudeste asiático tem uma recuperação VNets (**recuperação VNet 1** e **recuperação VNet 2**) que são idênticos aos **1 de VNet de origem** e **Da origem de VNet 2**.
         - **VNet de recuperação 1** e **recuperação VNet 2** cada uma tem duas sub-redes que correspondem as sub-redes **1 de VNet de origem** e **2 de VNet de origem** -Sudeste asiático tem um VNet adicional (**VNet do Azure**) com o endereço espaço 10.3.0.0/16.
         - **VNet do Azure** contém uma sub-rede (**sub-rede 4**) com o endereço espaço 10.3.4.0/24.
-        -Nós de réplica para o SQL Server Always On, o controlador de domínio etc estão localizados num **sub-rede 4**.
+        -Nós de réplica para o SQL Server Always On, etc. do controlador de domínio estão localizados num **sub-rede 4**.
 - Há um número de ligações de VPN de site a site: 
     - **1 de VNet de origem** e **VNet do Azure**
     - **2 de VNet de origem** e **VNet do Azure**

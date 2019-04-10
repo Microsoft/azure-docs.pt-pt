@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849954"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281952"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar o balanceamento de carga e regras de saída no balanceador de carga Standard com a CLI do Azure
 
@@ -99,7 +99,7 @@ Criar um balanceador de carga com a entrada através de endereços IP [criar az 
 Criar um conjunto de endereços de back-end adicionais para definir a conectividade de saída para um conjunto de VMs com [criar az rede lb-conjunto de endereços](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) com o nome *bepooloutbound*.  Criar um agrupamento de saída separado fornece a máxima flexibilidade, mas pode omitir este passo e utilizar apenas a entrada *bepoolinbound* também.
 
 ```azurecli-interactive
-  az network lb address-pool \
+  az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \
     --name bepooloutbound
@@ -183,4 +183,4 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 Neste artigo, criou o Balanceador de carga Standard, configuradas regras de tráfego de Balanceador de carga de entrada, configuradas e a sonda de estado de funcionamento para as VMs no conjunto de back-end. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 
 > [!div class="nextstepaction"]
-> [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Tutoriais de Balanceador de carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

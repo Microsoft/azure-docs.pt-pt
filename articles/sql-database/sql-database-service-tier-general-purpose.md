@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997367"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357909"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviços de fins gerais - base de dados do Azure SQL
 
@@ -26,7 +26,7 @@ ms.locfileid: "55997367"
 
 Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados de SQL Server adaptada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três escalões de serviço que são utilizados no Azure SQL Database, cada uma com diferentes modelos de arquiteturais. Estes escalões de serviço são:
 
-- Fins gerais 
+- Fins gerais
 - Crítico para a empresa
 - Hiperescala
 

@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400964"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282819"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é o Gateway de caixa de dados do Azure?
 
@@ -29,6 +29,8 @@ Pode tirar-se partido do Data Box Gateway para transferir dados para a cloud, co
 - **Ingestão de dados contínua** -continuamente ingerir dados no dispositivo para copiar para a nuvem, independentemente do tamanho de dados. Como os dados são escritos para o dispositivo de gateway, o dispositivo carrega os dados ao armazenamento do Azure.  
 
 - **Transferência em massa, seguida de transferência incremental de inicial** -caixa de dados de utilização para o volume transferir num modo offline (propagação inicial) e dados de caixa de Gateway para transferências incrementais (feed em curso) através da rede.
+
+Para obter mais informações, aceda a [casos de utilização do Gateway de caixa de dados do Azure](data-box-gateway-use-cases.md).
 
 ## <a name="benefits"></a>Benefícios
 

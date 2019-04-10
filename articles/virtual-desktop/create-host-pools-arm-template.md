@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401421"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279232"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um conjunto de anfitrião com um modelo Azure Resource Manager
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
 
 Conjuntos de anfitrião são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de inquilino do Windows Virtual Desktop Preview. Cada conjunto de anfitrião pode conter um grupo de aplicações que os usuários podem interagir com como numa área de trabalho física.
 
@@ -75,3 +75,6 @@ Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -Use
 UPN do utilizador deve corresponder a identidade do utilizador no Azure Active Directory (por exemplo, user1@contoso.com). Se pretender adicionar múltiplos utilizadores, tem de executar este cmdlet para cada utilizador.
 
 Depois de concluir estes passos, utilizadores adicionados ao grupo de aplicação de ambiente de trabalho podem iniciar sessão no ambiente de Trabalho Virtual do Windows com clientes de ambiente de trabalho remoto suportados e ver um recurso para uma área de trabalho de sessão.
+
+>[!IMPORTANT]
+>Para ajudar a proteger o ambiente de área de Trabalho Virtual do Windows no Azure, recomendamos que não abrir a porta 3389 de entrada nas suas VMs. Área de Trabalho Virtual do Windows não precisa de uma porta de entrada aberta 3389 para os utilizadores acedam a VMs do conjunto de anfitrião. Se é necessário abrir a porta 3389 para fins de resolução de problemas, recomendamos que utilize [o acesso à VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

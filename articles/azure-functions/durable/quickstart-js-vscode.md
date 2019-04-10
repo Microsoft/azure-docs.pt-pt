@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 94906a75d323e3fb6c96f939e4fdcea60877508c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056304"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281238"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
@@ -127,11 +127,11 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 5. Usando uma ferramenta como [Postman](https://www.getpostman.com/) ou [cURL](https://curl.haxx.se/), enviar um pedido de HTTP POST para o ponto de final do URL.
 
-    A resposta é o resultado inicial da função HTTP nos informar a orquestração durável foi iniciado com êxito.  Ainda não é o resultado final da orquestração.  A resposta inclui alguns URLs útil.  Por enquanto, vamos consultar o estado da orquestração.
+   A resposta é o resultado inicial da função HTTP nos informar a orquestração durável foi iniciado com êxito. Ainda não é o resultado final da orquestração. A resposta inclui alguns URLs útil. Por enquanto, vamos consultar o estado da orquestração.
 
-6. Copie o valor de URL para `statusQueryGetUri`, cole-o na barra de endereço do navegador e execute o pedido.
+6. Copie o valor de URL para `statusQueryGetUri` e cole-o na barra de endereço do navegador e execute o pedido. Em alternativa também pode continuar a utilizar o Postman para emitir o pedido GET.
 
-    O pedido irá consultar a instância de orquestração para o estado. Obterá uma resposta eventual que é semelhante ao seguinte.  Isto mostra-na instância tiver sido concluída e inclui as saídas ou os resultados da função durável.
+   O pedido irá consultar a instância de orquestração para o estado. Obterá uma resposta eventual que mostra-na instância tiver sido concluída e inclui as saídas ou os resultados da função durável. Ele é semelhante a: 
 
     ```json
     {

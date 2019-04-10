@@ -1,6 +1,6 @@
 ---
 title: Configurar o início de sessão automático-acelerado para uma aplicação com uma política de deteção de Realm Inicial | Documentos da Microsoft
-description: Explica é que um inquilino do Azure AD e como gerir o Azure através do Azure Active Directory.
+description: Saiba como configurar a política de deteção de Realm Inicial para a autenticação do Azure Active Directory para utilizadores federados, incluindo sugestões automático-acelerado e domínio.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190267"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360927"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento de uma aplicação com uma política de deteção de Realm Inicial
 
-O documento seguinte fornece uma introdução à configuração de comportamento de autenticação do Azure Active Directory para utilizadores federados.   Ela abrange a configuração de autenticação e automático-acelerado restrições para os utilizadores nos domínios federados.
+Este artigo fornece uma introdução à configuração de comportamento de autenticação do Azure Active Directory para utilizadores federados. Ela abrange a configuração de autenticação e automático-acelerado restrições para os utilizadores nos domínios federados.
 
 ## <a name="home-realm-discovery"></a>Deteção de Território Doméstica
 Deteção de Realm Inicial (HRD) é o processo que permite que o Azure Active Directory (Azure AD) para determinar em que um utilizador tem de autenticar em tempo de início de sessão.  Quando um utilizador inicia sessão a um inquilino do Azure AD para aceder a um recurso ou para a página de início de sessão comuns do Azure AD, eles escreva um nome de utilizador (UPN). O Azure AD utiliza para descobrir onde o utilizador tem de iniciar sessão. 

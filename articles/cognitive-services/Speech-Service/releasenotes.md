@@ -8,17 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 13d43a3810bc07cede2a49760f122157de86c44d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010163"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359738"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-141"></a>1.4.1 do SDK de voz
+
+Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. Foram efetuadas as seguintes correções:
+
+* Impedi que o webpack a carregar o agente de proxy de https.
 
 ## <a name="speech-sdk-140-2019-april-release"></a>Voz SDK 1.4.0: Versão de Abril de 2019
 

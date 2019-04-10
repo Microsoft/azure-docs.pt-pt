@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904156"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360621"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -46,7 +46,7 @@ A tabela seguinte lista as diferentes formas que pode utilizar os registos no Az
 | Analisar | Uso [do Log Analytics](../log-query/get-started-portal.md) no portal do Azure para escrever [consultas de registo](../log-query/log-query-overview.md) e analisar dados de registo utilizando o poderoso mecanismo de análise do Data Explorer interativamente.<br>Utilize o [consola do Application Insights analytics](../app/analytics.md) no portal do Azure para escrever consultas de registo e analisar dados de registo do Application Insights interativamente. |
 | Visualizar | Afixar os resultados da consulta compostos como tabelas ou de gráficos para uma [dashboard do Azure](../../azure-portal/azure-portal-dashboards.md).<br>Criar uma [livro](../app/usage-workbooks.md) combinar com vários conjuntos de dados num relatório interativo. <br>Exportar os resultados de uma consulta para [Power BI](powerbi.md) utilizar visualizações diferentes e partilhar com utilizadores fora do Azure.<br>Exportar os resultados de uma consulta para [Grafana](grafana-plugin.md) para tirar partido das respetivas vistas e combine com outras origens de dados.|
 | Alerta | Configurar uma [regra de alerta de registo](alerts-log.md) que envia uma notificação ou demora [automatizada ação](action-groups.md) quando os resultados da consulta correspondem um resultado específico.<br>Configurar uma [regra de alerta de métrica](alerts-metric-logs.md) em determinados registos de dados de registo extraídos como métricas. |
-| Obter | Aceder os resultados da consulta de registo a partir de uma linha de comandos, utilizando [CLI do Azure](/azure/ext/log-analytics/monitor/log-analytics).<br>Aceder os resultados da consulta de registo a partir de uma linha de comandos, utilizando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Os resultados da consulta de registo de acesso de um aplicativo personalizado usando [REST API](https://dev.loganalytics.io/). |
+| Obter | Aceder os resultados da consulta de registo a partir de uma linha de comandos, utilizando [CLI do Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Aceder os resultados da consulta de registo a partir de uma linha de comandos, utilizando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Os resultados da consulta de registo de acesso de um aplicativo personalizado usando [REST API](https://dev.loganalytics.io/). |
 | Exportar | Criar um fluxo de trabalho para recuperar dados de registo e copie-o para uma localização externa usando [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -105,8 +105,8 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 |:---|:---|
 | Pedidos e exceções | Dados detalhados sobre exceções e pedidos de aplicação estão no _pedidos_, _pageViews_, e _exceções_ tabelas. Chama [componentes externos](../app/asp-net-dependencies.md) estão no _dependências_ tabela. |
 | Utilização e desempenho | Desempenho da aplicação está disponível na _pedidos_, _browserTimings_ e _performanceCounters_ tabelas. Dados para [métricas personalizadas](../app/api-custom-events-metrics.md#trackevent) está no _customMetrics_ tabela.|
-| Dados de rastreio | Resulta da [distribuído rastreio](/app/distributed-tracing) são armazenadas no _rastreios_ tabela. |
-| Testes de disponibilidade | Dados de resumo da [testes de disponibilidade](/app/monitor-web-app-availability) é armazenado na _availabilityResults_ tabela. Dados detalhados desses testes estão em armazenamento separado e acessado a partir do Application Insights no portal do Azure. |
+| Dados de rastreio | Resulta da [distribuído rastreio](../app/distributed-tracing.md) são armazenadas no _rastreios_ tabela. |
+| Testes de disponibilidade | Dados de resumo da [testes de disponibilidade](../app/monitor-web-app-availability.md) é armazenado na _availabilityResults_ tabela. Dados detalhados desses testes estão em armazenamento separado e acessado a partir do Application Insights no portal do Azure. |
 
 ### <a name="insights"></a>Informações
 
@@ -127,7 +127,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 | Dados | Descrição |
 |:---|:---|
 | Centro de Segurança do Azure | [Centro de segurança do Azure](/azure/security-center/) armazena os dados que recolhe numa área de trabalho do Log Analytics onde podem ser analisados com outros dados de registo. Ver [recolha de dados no Centro de segurança do Azure](../../security-center/security-center-enable-data-collection.md) para obter detalhes sobre a configuração de área de trabalho. |
-| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) armazena os dados de origens de dados numa área de trabalho do Log Analytics. Consulte [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure Sentinel](/azure/sentinel/) armazena os dados de origens de dados numa área de trabalho do Log Analytics. Ver [ligar a origens de dados](/azure/sentinel/connect-data-sources).  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

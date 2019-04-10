@@ -1,23 +1,30 @@
 ---
 title: Como procurar um endereço com o serviço de pesquisa de mapas do Azure | Documentos da Microsoft
 description: Saiba como procurar um endereço com o serviço de pesquisa de mapas do Azure
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875791"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277328"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço com o serviço de pesquisa do Azure Maps
 
 O serviço de pesquisa de mapas é um conjunto de APIs RESTful concebida para os programadores procurarem endereços, locais, pontos de interesse, listas de empresas e outras informações geográficas. O serviço atribui uma latitude/longitude para um endereço específico, Rua cruzada, funcionalidade geográfica ou ponto de interesse (POI). Valores de latitude e longitude devolvidos pela pesquisa podem ser usados como parâmetros noutros serviços de mapas, como o fluxo de trânsito e de rota.
+
+Neste artigo, ficará a saber, como:
+
+* Procure um através do endereço [API de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Procurar um endereço, juntamente com as propriedades e as coordenadas
+* Efetuar uma [pesquisa inversa de endereço](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para procurar um endereço de rua
+* Procure um usando Rua cruzada [endereço inverter entre Rua API de pesquisa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +58,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
     ![Pesquisa difusa](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |
@@ -65,7 +72,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
 5. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
     | countrySet | EUA |
   
@@ -77,7 +84,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
     ![Pesquisa difusa](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | LAT | 47.620525 |
     | lon | -122.349274 |
@@ -101,7 +108,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
     ![Pesquisa de endereço](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |
@@ -118,7 +125,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
 6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | typeahead | true |
 
@@ -142,7 +149,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
     ![Inverter os parâmetros de pesquisa de endereço](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |
@@ -154,7 +161,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
 5. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | número | true |
 
@@ -162,7 +169,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
 6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -170,7 +177,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
 7. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -178,7 +185,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
 8. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Value |
+    | Chave | Valor |
     |-----|------------|
     | roadUse | true |
 
@@ -200,7 +207,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
 3. Clique em **Params**e introduza a seguinte chave / valor pares para utilizar como parâmetros de consulta ou o caminho no URL do pedido:
   
-    | Chave | Value |
+    | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |

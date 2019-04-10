@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 2/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013122"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359807"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento da rede e endereçamento de IP para redes virtuais
 

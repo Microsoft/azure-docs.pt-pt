@@ -9,12 +9,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 5d89ac6a0a8918b30cac31580e7fc95c3f770b1a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d8c3ae10e770533c910583e6e2bc218d78df4339
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436766"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360954"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 

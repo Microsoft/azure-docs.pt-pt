@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441003"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278830"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo mostra os passos a seguir para configurar relatórios para o Azure Backup com um cofre dos serviços de recuperação. Ela também mostra como acessar relatórios com o Power BI. Depois de concluir estes passos, pode aceder diretamente ao Power BI para visualizar, personalizar e criar relatórios.
@@ -43,9 +43,6 @@ Siga estes passos para configurar a conta de armazenamento para um cofre dos ser
 
    * Na lista de recursos, introduza **serviços de recuperação**.
    * À medida que começa a escrever, a lista filtra com base na sua entrada. Quando vir **cofres dos serviços de recuperação**, selecioná-lo.
-
-      ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * É apresentada a lista dos cofres dos Serviços de Recuperação. Na lista dos cofres dos Serviços de Recuperação, selecione um cofre.
 
      O dashboard do cofre selecionado é aberto.

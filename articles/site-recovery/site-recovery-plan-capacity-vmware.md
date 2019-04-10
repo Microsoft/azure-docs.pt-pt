@@ -4,15 +4,15 @@ description: Este artigo pode ajudá-lo a planear a capacidade e dimensionamento
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 4/9/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: ramamill
+ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338285"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358005"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planear a capacidade e dimensionamento para recuperação de desastre do VMware para o Azure
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790163"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277426"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão
 
@@ -54,6 +54,7 @@ Seguem-se os operadores de critérios de correspondência suportados:
 - **Começa com**: Este operador corresponde a todos os campos que começam com o valor de Seletor especificado.
 - **Termina com**:  Este operador corresponde a todos os campos de solicitação que terminam com o valor de Seletor especificado.
 - **Contém**: Este operador corresponde a todos os campos de solicitação que contêm o valor de Seletor especificado.
+- **Igual a qualquer**: Este operador corresponde a todos os campos de pedido. * será o valor de Seletor.
 
 Em todos os casos, a correspondência é sensível a maiúsculas e expressões regulares não são permitidos como seletores.
 

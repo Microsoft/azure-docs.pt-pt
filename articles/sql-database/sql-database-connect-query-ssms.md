@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447739"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359975"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure
 
@@ -35,7 +35,7 @@ Neste início rápido, vai utilizar [SQL Server Management Studio] [ ssms-instal
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de uma VM](sql-database-managed-instance-configure-vm.md)|
   |||[Conectividade no local do](sql-database-managed-instance-configure-p2s.md)
-  |Carregar dados|A Adventure Works carregados por início rápido|[Restaurar a Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Carregar dados|A Adventure Works carregados por início rápido|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -44,7 +44,7 @@ Neste início rápido, vai utilizar [SQL Server Management Studio] [ ssms-instal
 
 ## <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 
-Antes de começar, certifique-se de que instalou a versão mais recente [SSMS][ssms-install-latest-84g]. 
+Antes de começar, certifique-se de que instalou a versão mais recente [SSMS][ssms-install-latest-84g].
 
 ## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
 
@@ -58,7 +58,7 @@ Obtenha as informações de ligação que tem de se ligar à base de dados SQL d
 
 ## <a name="connect-to-your-database"></a>Ligar à base de dados
 
-No SMSS, ligue ao seu servidor de base de dados do Azure SQL. 
+No SMSS, ligue ao seu servidor de base de dados do Azure SQL.
 
 > [!IMPORTANT]
 > Um servidor de base de dados do Azure SQL escuta na porta 1433. Para ligar a um servidor de base de dados SQL através de uma firewall empresarial, o firewall tem de ter esta porta abrir.
@@ -68,12 +68,12 @@ No SMSS, ligue ao seu servidor de base de dados do Azure SQL.
 
 2. Introduza as seguintes informações:
 
-   | Definição      | Valor sugerido    | Descrição | 
-   | ------------ | ------------------ | ----------- | 
+   | Definição      | Valor sugerido    | Descrição |
+   | ------------ | ------------------ | ----------- |
    | **Tipo de servidor** | Motor de base de dados | Valor obrigatório. |
    | **Nome do servidor** | O nome de servidor completamente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
-   | **Autenticação** | Autenticação do SQL Server | Este tutorial utiliza a autenticação do SQL. |
-   | **Início de sessão** | ID de utilizador da conta de administrador de servidor | O ID de utilizador da conta de administrador de servidor utilizado para criar o servidor. |
+   | **Authentication** | Autenticação do SQL Server | Este tutorial utiliza a autenticação do SQL. |
+   | **Iniciar sessão** | ID de utilizador da conta de administrador de servidor | O ID de utilizador da conta de administrador de servidor utilizado para criar o servidor. |
    | **Palavra-passe** | Senha de conta de administrador do servidor | A palavra-passe da conta de administrador de servidor utilizada para criar o servidor. |
    ||||
 
@@ -83,7 +83,7 @@ No SMSS, ligue ao seu servidor de base de dados do Azure SQL.
 
    ![ligar à base de dados no servidor](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Selecione **Ligar**. É aberta a janela do Object Explorer. 
+4. Selecione **Ligar**. É aberta a janela do Object Explorer.
 
 5. Para ver os objetos da base de dados, expanda **bases de dados** e, em seguida, expanda **mySampleDatabase**.
 
@@ -140,15 +140,14 @@ Executar isso [inserir](https://msdn.microsoft.com/library/ms174335.aspx) códig
 1. Substitua a consulta anterior este.
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. Selecione **Executar**. O resultado seguinte é apresentada. 
+
+2. Selecione **Executar**. O resultado seguinte é apresentada.
 
    ![Resultado](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>Atualizar dados
 
 Executar isso [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx) código Transact-SQL para modificar o seu novo produto.
@@ -188,8 +187,6 @@ Executar isso [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) códi
 - Para ligar e consultar com Python, consulte [Connect and query with Python (Ligar e consultar com Python)](sql-database-connect-query-python.md).
 - Para ligar e consultar com Ruby, consulte [Connect and query with Ruby (Ligar e consultar com Ruby)](sql-database-connect-query-ruby.md).
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

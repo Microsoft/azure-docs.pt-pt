@@ -1,19 +1,18 @@
 ---
 title: Exemplo - deteção de ameaças de nível de servidor de auditoria definir
 description: Esta definição de política de exemplo auditorias a políticas de alerta de segurança do SQL server se essas políticas não estão definidas para o estado especificado.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 81c13db06d62979eb9a099e240cb61a99615aee3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6d75ffb961828448f9ab410e292cfd363ac1ecf4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800491"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277345"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>Exemplo - deteção de ameaças de nível de servidor de auditoria definir
 
@@ -29,7 +28,7 @@ Pode implementar este modelo através do [portal do Azure](#deploy-with-the-port
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-server-threat-detection%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Faudit-sql-server-threat-detection%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 

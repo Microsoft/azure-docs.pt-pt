@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: f059ac4149a385a12b440db0ad6394a343a1f810
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 774455a2901782ef52b213c6a13c17636e28b1a4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761927"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356696"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>A verificar o firewall interno da instância gerida
 

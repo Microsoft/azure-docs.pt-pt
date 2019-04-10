@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: Nuvem SQL Server, SQL Server na nuvem, base de dados PaaS, SQL Server na nuvem, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835423"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360814"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Escolher o melhor opção de SQL Server no Azure
 
@@ -135,9 +135,9 @@ Quando começar a utilizar uma plataforma na cloud, o custo de execução da sua
 
 Para obter mais informações sobre preços, consulte os seguintes recursos:
 
-- [Preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Preços das máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 

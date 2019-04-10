@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 991df9f57149f51271cfecb4557e2f307103ac47
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 421972303ae6d63adf8f4a26af626a13e20a411d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880845"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359140"
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Utilize o PowerShell para configurar um grupo de ativação pós-falha de georreplicação ativa para uma base de dados na base de dados do Azure SQL
 
@@ -35,7 +35,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados à mesma.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $primaryresourcegroupname

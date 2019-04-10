@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010506"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360186"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
@@ -50,11 +50,11 @@ O custo de computação reflete a capacidade de total de computação é aprovis
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
-Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. Armazenamento de cópia de segurança está associado a cópias de segurança automáticas da sua instância e podem é alocado dinamicamente. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome. 
+Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. Armazenamento de cópia de segurança está associado a cópias de segurança automáticas da sua instância e podem é alocado dinamicamente. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome.
 
 7 dias de cópias de segurança automatizadas das suas bases de dados são copiados para o armazenamento de blobs Standard RA-GRS por predefinição. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações copiadas a cada 5 minutos. O tamanho do registo de transação depende da taxa de alteração da base de dados. É dada uma quantidade mínima de armazenamento igual a 100% do tamanho da base de dados sem custos extra. O consumo adicional do armazenamento de cópias de segurança será cobrado em GB/mês.
 
-Para obter mais informações sobre os preços de armazenamento, consulte a [preços](https://azure.microsoft.com/pricing/details/sql-database/single/) página. 
+Para obter mais informações sobre os preços de armazenamento, consulte a [preços](https://azure.microsoft.com/pricing/details/sql-database/single/) página.
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
@@ -71,7 +71,7 @@ O modelo de compra baseado em vCore permite que escolha os recursos de computaç
 > **Limitações de região:** Para a lista atualizada de regiões suportadas, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Se a sua base de dados individual ou um conjunto elástico consome mais de 300 DTUs, a conversão para o modelo de compra baseado em vCore pode reduzir o custo. Se optar por converter, pode converter a utilizar a API de escolha ou no portal do Azure, sem períodos de indisponibilidade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU cumpre os requisitos de negócios e desempenho, deve continuar a utilizá-lo. Se optar por converter o modelo de compra baseado em DTU para o modelo de compra baseado em vCore, selecione o tamanho de computação com as seguintes regras básicas: 
+Se a sua base de dados individual ou um conjunto elástico consome mais de 300 DTUs, a conversão para o modelo de compra baseado em vCore pode reduzir o custo. Se optar por converter, pode converter a utilizar a API de escolha ou no portal do Azure, sem períodos de indisponibilidade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU cumpre os requisitos de negócios e desempenho, deve continuar a utilizá-lo. Se optar por converter o modelo de compra baseado em DTU para o modelo de compra baseado em vCore, selecione o tamanho de computação com as seguintes regras básicas:
 
 - Cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore na camada de fins gerais
 - Cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore na camada de negócio críticos

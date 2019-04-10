@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4eee19a13a7a518087a77ed49fbb533ce47f03c8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238084"
 documentType: LandingData
 title: Base de dados SQL do Azure - plataforma como serviço
 metadata:
@@ -14,49 +8,50 @@ metadata:
   services: sql-database
   ms.subservice: service
   author: jovanpop-msft
+  ms.reviewer: carlrab
   manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 11/11/2018
   ms.author: jovanpop-msft
 sections:
-- items:
-  - type: paragraph
-    text: Base de dados SQL do Azure é uma plataforma totalmente gerida como um mecanismo de banco de dados do serviço (PaaS) que manipula a maioria das funções de gestão da base de dados, como a atualização, a aplicação de patches, as cópias de segurança e a monitorização sem o envolvimento do utilizador. Base de dados SQL do Azure é sempre em execução na versão estável mais recente do motor de base de dados do SQL Server e patches de SO com 99,99% de disponibilidade. Recursos de PaaS que estão incorporados na base de dados SQL do Azure permitem-lhe concentrar-se das atividades de administração e a otimização de base de dados específica de domínio que são críticos para a sua empresa.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: 'Base de dados SQL do Azure é uma plataforma totalmente gerida como um mecanismo de banco de dados do serviço (PaaS) que manipula a maioria das funções de gestão da base de dados, como a atualização, a aplicação de patches, as cópias de segurança e a monitorização sem o envolvimento do utilizador. Base de dados SQL do Azure é sempre em execução na versão estável mais recente do motor de base de dados do SQL Server e patches de SO com 99,99% de disponibilidade. Recursos de PaaS que estão incorporados na base de dados SQL do Azure permitem-lhe concentrar-se das atividades de administração e a otimização de base de dados específica de domínio que são críticos para a sua empresa.'
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Continuidade do negócio
+            href: /azure/sql-database/sql-database-business-continuity
+            html: '<p>Base de dados SQL do Azure permite que a sua empresa continuar a funcionar em caso de interrupção, especialmente para a sua infraestrutura de computação.</p>'
+          - title: Elevada disponibilidade
+            href: /azure/sql-database/sql-database-high-availability
+            html: '<p>Base de dados SQL do Azure garante que as bases de dados estão em execução 99,99% do tempo, sem se preocupar sobre a manutenção e tempos de inatividade.</p>'
+          - title: Cópias de segurança automatizadas
+            href: /azure/sql-database/sql-database-automated-backups
+            html: <p>Base de dados SQL do Azure cria cópias de segurança da base de dados e utiliza o armazenamento com redundância geográfica do Azure do acesso de leitura (RA-GRS) para fornecer redundância geográfica automaticamente.</p>
+          - title: Retenção de cópia de segurança de longo prazo
+            href: /azure/sql-database/sql-database-long-term-retention
+            html: <p>Ativa de base de dados SQL do Azure armazena SQL especificado da base de cópias de segurança completas para até 10 anos.</p>
+          - title: Georreplicação
+            href: /azure/sql-database/sql-database-geo-replication-overview
+            html: <p>Base de dados SQL do Azure permite-lhe criar réplicas legíveis da base de dados no Centro de dados iguais ou diferentes (região).</p>
+          - title: Dimensionar recursos
+            href: /azure/sql-database/sql-database-scale-resources
+            html: '<p>Base de dados SQL do Azure permite-lhe adicionar facilmente mais recursos (CPU, memória e armazenamento) sem tempo de aprovisionamento.</p>'
+  - title: Mais recursos
     items:
-    - title: Continuidade do negócio
-      href: /azure/sql-database/sql-database-business-continuity
-      html: <p>Base de dados SQL do Azure permite que a sua empresa continuar a funcionar em caso de interrupção, especialmente para a sua infraestrutura de computação.</p>
-    - title: Elevada disponibilidade
-      href: /azure/sql-database/sql-database-high-availability
-      html: <p>Base de dados SQL do Azure garante que as bases de dados estão em execução 99,99% do tempo, sem se preocupar sobre a manutenção e tempos de inatividade.</p>
-    - title: Cópias de segurança automatizadas
-      href: /azure/sql-database/sql-database-automated-backups
-      html: <p>Base de dados SQL do Azure cria cópias de segurança da base de dados e utiliza o armazenamento com redundância geográfica do Azure do acesso de leitura (RA-GRS) para fornecer redundância geográfica automaticamente.</p>
-    - title: Retenção de cópia de segurança de longo prazo
-      href: /azure/sql-database/sql-database-long-term-retention
-      html: <p>Ativa de base de dados SQL do Azure armazena SQL especificado da base de cópias de segurança completas para até 10 anos.</p>
-    - title: Georreplicação
-      href: /azure/sql-database/sql-database-geo-replication-overview
-      html: <p>Base de dados SQL do Azure permite-lhe criar réplicas legíveis da base de dados no Centro de dados iguais ou diferentes (região).</p>
-    - title: Dimensionar recursos
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Base de dados SQL do Azure permite-lhe adicionar facilmente mais recursos (CPU, memória e armazenamento) sem tempo de aprovisionamento.</p>
-- title: Mais recursos
-  items:
-  - type: paragraph
-    text: Base de dados SQL do Azure fornece um conjunto de funcionalidades adicionais de PaaS incorporadas que pode utilizar para gerir mais facilmente as suas bases de dados.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/sql-database/sql-database-security-index">Segurança avançada</a> detetar ameaças e vulnerabilidades nas suas bases de dados e permite-lhe proteger os seus dados.
-    - html: <a href="/azure/sql-database/sql-database-automatic-tuning">A otimização automática</a> analisa a sua carga de trabalho e fornece a as recomendações que podem otimizar o desempenho das suas aplicações ao adicionar índices, remover os índices não utilizados e automaticamente corrigir problemas de plano de consulta.
-    - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Capacidades de monitorização incorporadas</a> permitem-lhe obter as informações sobre o desempenho das suas bases de dados e a carga de trabalho e solucionar os problemas de desempenho.
-    - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Inteligência incorporada</a> automaticamente identifica os problemas potenciais em sua carga de trabalho e fornece-lhe as recomendações que podem ajudá-lo a corrigir os problemas.
+      - type: paragraph
+        text: Base de dados SQL do Azure fornece um conjunto de funcionalidades adicionais de PaaS incorporadas que pode utilizar para gerir mais facilmente as suas bases de dados.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/sql-database/sql-database-security-index">Segurança avançada</a> detetar ameaças e vulnerabilidades nas suas bases de dados e permite-lhe proteger os seus dados.
+          - html: '<a href="/azure/sql-database/sql-database-automatic-tuning">A otimização automática</a> analisa a sua carga de trabalho e fornece a as recomendações que podem otimizar o desempenho das suas aplicações ao adicionar índices, remover os índices não utilizados e automaticamente corrigir problemas de plano de consulta.'
+          - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Capacidades de monitorização incorporadas</a> permitem-lhe obter as informações sobre o desempenho das suas bases de dados e a carga de trabalho e solucionar os problemas de desempenho.
+          - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Inteligência incorporada</a> automaticamente identifica os problemas potenciais em sua carga de trabalho e fornece-lhe as recomendações que podem ajudá-lo a corrigir os problemas.

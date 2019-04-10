@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894598"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360646"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
-Como repor a um administrador escolher métodos de autenticação para o Azure multi-factor Authentication e a palavra-passe self-service (SSPR) recomenda-se que obrigue os utilizadores registem os vários métodos de autenticação. Quando um método de autenticação não está disponível para um utilizador, pode optar por autenticar com o outro método.
+Como administrador, escolher métodos de autenticação para o Azure multi-factor Authentication e reposição de palavra-passe self-service (SSPR), recomenda-se que obrigue os utilizadores registem os vários métodos de autenticação. Quando um método de autenticação não está disponível para um utilizador, pode optar por autenticar com o outro método.
 
 Os administradores podem definir na diretiva de quais métodos de autenticação estão disponíveis para utilizadores do SSPR e o MFA. Alguns métodos de autenticação podem não estar disponíveis para todas as funcionalidades. Para obter mais informações sobre como configurar as políticas veja os artigos [como implementar com êxito a reposição de palavra-passe self-service](howto-sspr-deployment.md) e [planear um multi-factor Authentication com base na cloud do Azure](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ A aplicação Microsoft Authenticator pode ajudar a impedir o acesso não autori
 
 Se ativar a utilização de ambos os notificação através do código de verificação da aplicação móvel, os utilizadores que registar a aplicação Microsoft Authenticator usando uma notificação de aplicações móveis e são capazes de utilizar de notificação e o código para verificar a respetiva identidade.
 
+> [!NOTE]
+> Se a organização tiver funcionários trabalhando em ou em viagem para a China, o **notificação através de aplicação móvel** método no **dispositivos Android** não funciona no país. Métodos alternativos devem ser disponibilizados para os utilizadores.
+
 ### <a name="verification-code-from-mobile-app"></a>Código de verificação da aplicação móvel
 
 A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem ser utilizadas como um token de software para gerar um código de verificação OATH. Depois de introduzir o seu nome de utilizador e palavra-passe, introduza o código fornecido pela aplicação para o ecrã de início de sessão. O código de verificação fornece uma segunda forma de autenticação.
@@ -149,11 +152,11 @@ A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem 
 > Palavra-passe self-service de reposição quando apenas um método é necessário para a reposição do código de verificação é a única opção disponível para os usuários **para garantir o nível mais elevado de segurança**.
 >
 
-Os utilizadores podem ter uma combinação de até 5 tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
+Os utilizadores podem ter uma combinação de até cinco tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens OATH de hardware (pré-visualização pública)
 
-OATH é um padrão aberto que especifica como uma única vez códigos de palavra-passe (OTP) são gerados. O Azure AD irá suportar a utilização de tokens OATH-TOTP SHA-1 da gama 30 segundos ou 60 segundos. Os clientes podem obter estes tokens do fornecedor de sua preferência. Tenha em atenção que as chaves secretas são limitadas a 128 carateres que podem não ser compatíveis com todos os tokens.
+OATH é um padrão aberto que especifica como uma única vez códigos de palavra-passe (OTP) são gerados. O Azure AD irá suportar a utilização de tokens OATH-TOTP SHA-1 da gama 30 segundos ou 60 segundos. Os clientes podem obter estes tokens do fornecedor de sua preferência. Chaves secretas estão limitadas a 128 carateres que podem não ser compatíveis com todos os tokens.
 
 ![OATH tokens a carregar para o painel de tokens OATH de servidor de MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ Dependendo do tamanho do ficheiro CSV, pode demorar alguns minutos a processar. 
 
 Depois de todos os erros tiverem sido preparados, o administrador, em seguida, pode ativar cada chave clicando **Activate** para o token a ser ativado e inserindo a OTP apresentado no token.
 
-Os utilizadores podem ter uma combinação de até 5 tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
+Os utilizadores podem ter uma combinação de até cinco tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
 
 ## <a name="mobile-phone"></a>Número de telemóvel
 

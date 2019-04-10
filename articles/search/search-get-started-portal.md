@@ -1,23 +1,29 @@
 ---
-title: Tutorial de início rápido de indexação e consulta através do portal do Azure - Azure Search
-description: Saiba como criar e consultar o seu primeiro índice na Azure Search utilizando o Assistente para importar dados e dados de exemplo incorporado no portal do Azure.
+title: 'Início rápido: Criar, carregar e consultar um índice no portal do Azure - Azure Search'
+description: Criar e consultar o seu primeiro índice na Azure Search utilizando o Assistente para importar dados e dados de exemplo incorporado no portal do Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137832"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282666"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Utilizar ferramentas do portal internas para importação de Azure Search, indexação e consultas
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Para obter um rápido recorrem aos conceitos de Azure Search, experimente as ferramentas incorporadas no portal do Azure. Assistentes e editores não oferecem uma paridade completa com o .NET e REST APIs, mas pode começar a utilizar rapidamente com uma introdução sem código, escrever consultas interessantes em relação a dados de exemplo numa questão de minutos.
 
@@ -222,7 +228,7 @@ O detetor de ocorrências refere-se à formatação no texto que corresponde à 
 
 ### <a name="fuzzy-search"></a> Experimentar a pesquisa difusa
 
-Por predefinição, os termos de consulta com erros ortográficos, como *samamish*para o planalto Samammish, na área de Seattle, não conseguem devolver correspondências em pesquisas típicas. O exemplo seguinte não devolve nenhum resultado.
+Por predefinição, com erros ortográficos termos de consulta, como *samamish* para o patamar Sammamish na área de Seattle, não conseguem devolver correspondências em pesquisas típicas. O exemplo seguinte não devolve nenhum resultado.
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Exemplo (termo com erros ortográficos, não processado): `search=samamish`
 

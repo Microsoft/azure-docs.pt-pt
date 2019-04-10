@@ -64,11 +64,11 @@ items:
       - name: Migrar
         items:
         - name: Para o SharePoint Online
-          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox
+          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: Para o Azure File Sync
-          href: https://docs.microsoft.com/azure/storage/files/storage-sync-offline-data-transfer
+          href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: Do arquivo do HDFS
-          href: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster
+          href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
   - name: Data Box Disk
     items:
     - name: Descrição geral
@@ -122,9 +122,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/databox/
     - name: Preços do Data Box Disk
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: cd18f6ccbe2115500f19e3bf27e99924c780ccb6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01e2eb95e5661444dd2353b228dc642968e13643
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439303"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359316"

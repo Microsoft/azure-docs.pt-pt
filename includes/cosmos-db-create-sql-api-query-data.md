@@ -5,26 +5,31 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: e6e70da1f939547cdb589ae7bcb6ed1f6148f22e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 9971b16da42cdf1de0464857291c74a947535735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733774"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287090"
 ---
-Pode utilizar agora consultas no Data Explorer para obter e filtrar os seus dados.
+Pode utilizar consultas no Data Explorer para obter e filtrar os seus dados.
 
-1. Veja-o por predefinição, a consulta está definida para `SELECT * FROM c`. Esta consulta predefinida obtém e apresenta todos os documentos na coleção. 
+1. Na parte superior a **documentos** separador no Data Explorer, reveja a consulta predefinida `SELECT * FROM c`. Esta consulta obtém e apresenta todos os documentos na coleção na ordem de ID. 
+   
+   ![A consulta predefinida no Data Explorer é "SELECT * FROM c"](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
+   
+1. Para alterar a consulta, selecione **Editar filtro**, substitua a consulta predefinida com `ORDER BY c._ts DESC`e, em seguida, selecione **aplicar filtro**.
+   
+   ![Altere a consulta predefinida ao adicionar ORDER BY c._ts DESC e clique em Aplicar Filtro](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
 
-    ![A consulta predefinida no Data Explorer é "SELECT * FROM c"](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-query.png)
+   O apresenta consulta modificado os documentos por ordem, com base no respetivo carimbo de hora, portanto, agora o segundo documento descendente é listada em primeiro lugar. 
+   
+   ![Alterar a consulta para ORDER BY c. TS DESC e clique em Aplicar filtro](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edited-query.png)
 
-2. Mantenha-se no separador **Documentos** e altere a consulta ao clicar no botão **Editar Filtro**, adicionar `ORDER BY c._ts DESC` à caixa de predicado de consulta e, em seguida, ao clicar em **Aplicar Filtro**.
+Se estiver familiarizado com a sintaxe SQL, pode introduzir qualquer suportado [consultas SQL](../articles/cosmos-db/sql-api-sql-query.md) na caixa de predicado de consulta. Também pode utilizar o Data Explorer para criar procedimentos armazenados, UDFs e acionadores para lógica de negócio do lado do servidor. 
 
-    ![Altere a consulta predefinida ao adicionar ORDER BY c._ts DESC e clique em Aplicar Filtro](./media/cosmos-db-create-sql-api-query-data/azure-cosmosdb-data-explorer-edit-query.png)
+O Data Explorer proporciona acesso fácil de portal do Azure para todos os recursos de acesso a dados programáticos incorporados disponíveis nas APIs. Também utilizar o portal para dimensionar o débito, obter chaves e cadeias de ligação e reveja as métricas e SLAs para a sua conta do Azure Cosmos DB. 
 
-Esta consulta modificada lista os documentos por ordem decrescente com base no respetivo carimbo de data/hora, por isso agora o segundo documento está listado primeiro. Se estiver familiarizado com a sintaxe do SQL, pode introduzir quaisquer [consultas SQL](../articles/cosmos-db/sql-api-sql-query.md) suportadas nesta caixa. 
-
-Esta ação conclui o nosso trabalho no Data Explorer. Antes de continuarmos para o trabalho com código, note que também pode utilizar o Data Explorer para criar procedimentos armazenados, UDFs e acionadores, para realizar lógica empresarial do lado do servidor, bem como débito de escala. O Data Explorer expõe todos os acessos a dados programáticos incorporados que estão disponíveis nas APIs, mas disponibiliza acesso fácil aos seus dados no portal do Azure.

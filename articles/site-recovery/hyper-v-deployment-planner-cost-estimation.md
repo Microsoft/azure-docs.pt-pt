@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320287"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359025"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
 
@@ -56,7 +56,7 @@ A primeira secção mostra o custo global de DR por componentes e o custo de DR 
 
 **Rede**: Custo VPN site a site e ExpressRoute para as necessidades de DR. 
 
-**Licença de ASR**: O custo de licença do Site Recovery para todas as VMs compatíveis. Caso tenha introduzido manualmente uma VM na tabela de análise detalhada de custos, o custo da licença do Site Recovery também é incluído para essa VM.
+**Licença do Azure Site Recovery**: O custo de licença do Site Recovery para todas as VMs compatíveis. Caso tenha introduzido manualmente uma VM na tabela de análise detalhada de custos, o custo da licença do Site Recovery também é incluído para essa VM.
 
 ### <a name="overall-dr-costs-by-states"></a>Custos globais de DR por estados
 O custo total da DR é categorizado com base em dois estados diferentes, replicação e exploração de DR.
@@ -111,13 +111,13 @@ Para adicionar VMs manualmente:
 
     b. **Tamanho de IaaS (a sua seleção)**
 
-    c. **Tipo de armazenamento (Standard/Premium)**
+    c. **Tipo de armazenamento Standard/Premium**
 
     d. **Tamanho de armazenamento total da VM (GB)**
 
     e. **Número de explorações de DR num ano**
 
-    f. **Duração de cada exploração de DR (Dias)**
+    f. **Duração de cada exploração de DR (dias)**
 
     g. **Tipo de SO**
 
@@ -157,7 +157,7 @@ Para adicionar VMs manualmente:
 
 **Total de custo de exploração de DR (média)**: O custo de computação e armazenamento para as explorações de DR.
 
-**Custo da licença de ASR**: A custo da licença do Site Recovery.
+**Custo da licença do Azure Site Recovery**: A custo da licença do Site Recovery.
 
 ## <a name="supported-target-regions"></a>Regiões de destino suportadas
 O Planeador de Implementações do Site Recovery fornece a estimativa de custos para as seguintes regiões do Azure. Se a sua região não estiver listada aqui, pode utilizar qualquer uma das regiões seguintes cujos preços estejam mais próximos da sua região:
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Moedas suportadas
 O Planeador de Implementações do Site Recovery pode gerar o relatório de custos com qualquer uma das moedas seguintes.
 
-|Moeda|Nome||Moeda|Nome||Moeda|Nome|
+|Moeda|Name||Moeda|Name||Moeda|Name|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileiro (R$)|
 |CAD|Dólar canadiano ($)||CHF|Franco suíço (chf)||DKK|Coroa dinamarquesa (kr)|

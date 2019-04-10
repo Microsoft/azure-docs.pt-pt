@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651317"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358280"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL
 
 Este artigo explica a comunicação numa instância gerida da base de dados do Azure SQL. Também descreve a arquitetura de conectividade e a forma como os componentes de direcionar o tráfego para a instância gerida.  
 
@@ -117,7 +117,6 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 
 > [!IMPORTANT]
 > Embora as regras de segurança de entrada necessário permitem tráfego a partir _qualquer_ nas portas de origem 9000, 9003, 1438, 1440 e 1452, estas portas são protegidas por uma firewall interna. Para obter mais informações, consulte [determinar o endereço de ponto final de gestão](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Se utilizar a replicação transacional numa instância gerida e, se utilizar qualquer base de dados de instância como um publicador ou distribuidor, abra a porta 445 (saída de TCP) nas regras de segurança da sub-rede. Esta porta permitirá o acesso à partilha de ficheiros do Azure.
 

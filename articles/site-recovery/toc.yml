@@ -45,7 +45,7 @@ items:
   - name: Recuperação após desastre da VM do Hyper-V para o Azure
     items:
     - name: Preparar o Azure
-      href: tutorial-prepare-azure.md
+      href: tutorial-prepare-azure-for-hyperv.md
     - name: Preparar Hyper-V no local
       href: hyper-v-prepare-on-premises-tutorial.md
     - name: Configurar a replicação para as VMs do Hyper-V
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: f9105e36a6e2cb1f803d65912f1d8e45cd731b20
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: d6a20deca43d657f331f9aedd96882451b70f88d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006830"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357655"

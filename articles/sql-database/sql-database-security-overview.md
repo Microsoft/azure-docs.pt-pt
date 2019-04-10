@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 7c01e8132cc8fe8fcc01e468973a273dbfcfad64
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261059"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359046"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -157,7 +157,7 @@ Para obter mais informações, consulte [começar com dados de deteção e class
 
 ### <a name="compliance"></a>Conformidade
 
-Além das funcionalidades acima e que podem ajudar a sua aplicação a cumprir diversos requisitos de segurança, a base de dados do Azure SQL também participa em auditorias regulares e foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+Além das funcionalidades acima e que podem ajudar a sua aplicação a cumprir diversos requisitos de segurança, a base de dados do Azure SQL também participa em auditorias regulares e foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

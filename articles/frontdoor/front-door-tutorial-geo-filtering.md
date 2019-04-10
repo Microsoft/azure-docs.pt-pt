@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: bdbf0d78b45291e7482c1af3999c8ce3980ef36f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578497"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357162"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Como configurar uma política de WAF filtragem geográfica para a porta de entrada
 Este tutorial mostra como utilizar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente. Esta política de filtragem geográfica de exemplo irá bloquear os pedidos de todos os outros países, exceto dos Estados Unidos.
@@ -45,7 +45,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 #### <a name="install-azfrontdoor-module"></a>Instalar o módulo de Az.FrontDoor 
 
 ```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
+Install-Module -Name Az.FrontDoor
 ```
 
 ### <a name="create-a-front-door-profile"></a>Criar um perfil de porta de entrada

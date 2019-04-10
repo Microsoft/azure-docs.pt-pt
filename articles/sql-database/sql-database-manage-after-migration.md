@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216939"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358413"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na cloud – gerenciamento de seus bancos de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -83,7 +83,7 @@ Base de dados SQL leva segurança e privacidade muito a sério. Security na base
 
 Existem [dois métodos de autenticação](sql-database-control-access.md#authentication) oferecidos na base de dados SQL:
 
-- [Autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
+- [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
 - Autenticação do SQL
 
 Não é suportada a autenticação tradicional do windows. O Azure Active Directory (AD) é um serviço centralizado de gestão de identidades e acessos. Com isso muito convenientemente pode fornecer um único início de sessão acesso (SSO) a todas as pessoas na sua organização. Isso significa que as credenciais são partilhadas entre todos os serviços do Azure para a autenticação mais simples. Oferece suporte a AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) e com um [alguns cliques](../active-directory/hybrid/how-to-connect-install-express.md) AAD pode ser integrado no Windows Server Active Directory. Autenticação do SQL funciona exatamente da mesma forma que utilizado no passado. Fornecer uma nome de utilizador/palavra-passe e pode autenticar os utilizadores a qualquer base de dados num determinado servidor de base de dados SQL. Isso também permite que a base de dados do SQL e SQL Data Warehouse oferecer autenticação multifator e contas de utilizador convidado dentro de um domínio do Azure AD. Se já tiver um Active Directory no local, pode federar o diretório com o Azure Active Directory para expandir o seu diretório para o Azure.
@@ -149,7 +149,7 @@ Encriptação fornece um mecanismo forte para proteger e proteger os seus dados 
 Na base de dados SQL, por predefinição, os dados Inativos nos ficheiros de dados e de registo no subsistema de armazenamento é completamente e sempre criptografados via [criptografia transparente de dados [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). As cópias de segurança também são encriptadas. Com o TDE, não há nenhuma alteração necessária no seu lado de aplicação que está a aceder a estes dados. A criptografia e descriptografia acontecem de forma transparente; Por conseguinte, o nome.
 Para proteger os dados confidenciais em trânsito e em inatividade, a base de dados SQL fornece um recurso chamado [sempre encriptado (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE é uma forma de encriptação do lado do cliente que encripta colunas confidenciais na sua base de dados (para que eles estão em texto cifrado para administradores de banco de dados e os utilizadores não autorizados). O servidor recebe os dados encriptados para começar. A chave para sempre encriptados também é armazenada no lado do cliente, para que os clientes autorizados apenas podem desencriptar as colunas confidenciais. O servidor e os administradores de dados não é possível ver os dados confidenciais, uma vez que as chaves de encriptação são armazenadas no cliente. AE encripta confidenciais colunas na tabela de ponta a ponta, de clientes não autorizados para o disco físico. AE suporta comparações de igualdade hoje em dia, para que os DBAs podem continuar a consultar colunas encriptadas como parte dos seus comandos SQL. Sempre encriptado pode de ser utilizado com uma variedade de opções de armazenamento de chaves, como [do Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), arquivo de certificados do Windows e módulos de segurança de local hardware.
 
-|**Características**|**Sempre encriptado**|**Encriptação de dados transparente**|
+|**Características**|**Sempre Encriptado**|**Encriptação de Dados Transparente**|
 |---|---|---|
 |**Intervalo de encriptação**|-A-ponto|Dados Inativos|
 |**Servidor de base de dados pode aceder a dados confidenciais**|Não|Sim, uma vez que a encriptação é para os dados Inativos|
@@ -207,7 +207,7 @@ Também o Expressroute permite-lhe ultrapassar 2x até o limite de largura de ba
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>É a base de dados SQL em conformidade com quaisquer requisitos de regulamentação e como o que ajuda a conformidade do meu próprio da organização
 
-Base de dados SQL está em conformidade com uma gama de normas regulamentares. Para ver o conjunto mais recente de regulamentares que tiverem sido cumpridos, visite o [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) e desagregar as regulamentares que são importantes para a sua organização para ver se a base de dados SQL está incluído em serviços do Azure em conformidade. É importante observar que embora a base de dados SQL pode ser certificada como um serviço em conformidade, ele auxilia a conformidade de serviço da sua organização, mas não automaticamente garante que ele.
+Base de dados SQL está em conformidade com uma gama de normas regulamentares. Para ver o conjunto mais recente de regulamentares que tiverem sido cumpridos pela base de dados SQL, visite o [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) e desagregar as regulamentares que são importantes para a sua organização para ver se a base de dados SQL está incluído no em conformidade Serviços do Azure. É importante observar que embora a base de dados SQL pode ser certificada como um serviço em conformidade, ele auxilia a conformidade de serviço da sua organização, mas não automaticamente garante que ele.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitorização de base de dados inteligente e a manutenção após a migração
 

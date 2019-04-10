@@ -3,16 +3,15 @@ title: Construtor de expressões de fluxo de mapeamento de dados do Azure Data F
 description: O construtor de expressões para dados de mapeamento de fábrica de dados do Azure fluxos
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885745"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359786"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 

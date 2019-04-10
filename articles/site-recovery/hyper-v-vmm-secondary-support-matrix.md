@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310613"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360805"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V para um site secundário
 
@@ -53,7 +53,7 @@ Apenas as máquinas do Linux com o armazenamento seguinte podem ser replicadas:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - Host/convidado de VM
 
-**Configuração** | **Suportado**  
+**Configuração** | **Suportadas**  
 --- | --- 
 Anfitrião - agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -70,7 +70,7 @@ VM do convidado - Multi-NIC | Sim
 
 ### <a name="host-storage"></a>Armazenamento de anfitrião
 
-**Armazenamento (anfitrião)** | **Suportado**
+**Armazenamento (anfitrião)** | **Suportadas**
 --- | --- 
 NFS | N/A
 SMB 3.0 |  Sim
@@ -79,7 +79,7 @@ Múltiplos caminhos (o MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidor físico ou de convidado
 
-**Configuração** | **Suportado**
+**Configuração** | **Suportadas**
 --- | --- | 
 VMDK |  N/A
 VHD/VHDX | Sim (até 16 discos)
@@ -99,7 +99,7 @@ Múltiplos caminhos (o MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportado**
+**Ação** | **Suportadas**
 --- | --- 
 Cofres de movimentação entre grupos de recursos (dentro ou entre subscrições) |  Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou entre subscrições) | Não
@@ -108,7 +108,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou
 
 O fornecedor coordena as comunicações entre servidores do VMM. 
 
-**Latest** | **Atualizações**
+**Mais Recente** | **Atualizações**
 --- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Funcionalidades e correções mais recentes](https://support.microsoft.com/kb/3155002)
 

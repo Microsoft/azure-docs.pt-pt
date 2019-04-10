@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05a30bee8e6eb0db2e06d6d5a3a7af0d0759fb4c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049409"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278705"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -75,7 +75,7 @@ Para obter mais informações, leia [diretrizes de capacidade do cluster](servic
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportar o modelo para o grupo de recursos
 
-Depois de criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) e configurar com êxito, o seu grupo de recursos a exportar o modelo do Resource Manager para o grupo de recursos. Exportar o modelo permite-lhe automatizar Implantações futuras do cluster e de recursos, porque o modelo contém toda a infraestrutura completa.  Para obter mais informações sobre a exportação de modelos, leia [grupos de recursos de gerir o Azure Resource Manager com o portal do Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
+Depois de criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) e configurar com êxito, o seu grupo de recursos a exportar o modelo do Resource Manager para o grupo de recursos. Exportar o modelo permite-lhe automatizar Implantações futuras do cluster e os respetivos recursos, porque o modelo contém toda a infraestrutura completa.  Para obter mais informações sobre a exportação de modelos, leia [grupos de recursos de gerir o Azure Resource Manager com o portal do Azure](/azure/azure-resource-manager/manage-resource-groups-portal).
 
 1. Na [portal do Azure](https://portal.azure.com), vá para o grupo de recursos que contém o cluster (**sfclustertutorialgroup**, se estiver a seguir este tutorial). 
 
@@ -815,7 +815,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 ```
 
 ## <a name="remove-a-node-type-from-the-cluster"></a>Remover um tipo de nó do cluster
-Depois de criar um cluster do Service Fabric, pode dimensionar um cluster horizontalmente ao remover um tipo de nó (conjunto de dimensionamento de máquina virtual) e todos nós do mesmo. Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster. Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
+Depois de criar um cluster do Service Fabric, pode aumentar horizontalmente um cluster através da remoção de um tipo de nó (conjunto de dimensionamento de máquina virtual) e todos os respetivos nós. Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster. Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
 
 > [!WARNING]
 > Utilizar Remove AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção não é recomendada a ser utilizada com frequência. É um comando perigoso como elimina o recurso de conjunto de dimensionamento de máquina virtual por trás do tipo de nó. 

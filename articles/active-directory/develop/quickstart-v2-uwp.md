@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793174"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360113"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início rápido: Chame a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
@@ -64,14 +64,14 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
 > Para o código de exemplo deste início rápido funcionar, terá de adicionar um URI de redirecionamento como **urn: ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Fazer esta alteração por mim]()
+> > [Efetuar esta alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurada](media/quickstart-v2-uwp/green-check.png) A sua aplicação está configurada com estes atributos.
+> > ![Já configurado](media/quickstart-v2-uwp/green-check.png) seu aplicativo está configurado com esses atributos.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Transfira o seu projeto do Visual Studio
 
- - [Transferir o projeto do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Transfira o projeto do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
@@ -86,11 +86,11 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
-> - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
->   - Se a sua aplicação suportar **Apenas a minha organização**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
->   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
+> - `Enter_the_Application_Id_here` -é o Id da aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` -é uma das opções abaixo:
+>   - Se a sua aplicação suportar **apenas a minha organização**, substitua este valor com o **Id do inquilino** ou **nome do inquilino** (por exemplo, contoso.onmicrosoft.com)
+>   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
+>   - Se a sua aplicação suportar **utilizadores com contas Microsoft todos os**, substitua este valor com `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Experimente o tutorial do ambiente de trabalho do Windows para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 
 > [!div class="nextstepaction"]
-> [UWP - Chamar tutorial da Graph API](tutorial-v2-windows-uwp.md)
+> [UWP - tutorial de chamada Graph API](tutorial-v2-windows-uwp.md)

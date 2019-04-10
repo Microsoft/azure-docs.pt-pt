@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: e3a75acb6d591a9fdf1e632369cc2e9ae6b6099d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447826"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359441"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras do Azure CLI para a Base de Dados SQL do Azure
 

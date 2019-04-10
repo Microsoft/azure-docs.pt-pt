@@ -1,7 +1,6 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de política de recurso do Azure Policy é utilizada para estabelecer as convenções para recursos na sua organização com a descrição quando a política é imposta e o efeito resultante para tirar.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f554be0803041b12dc49a576e8eb737732ec2a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894432"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283108"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -284,7 +283,7 @@ No exemplo a seguir `concat` é utilizado para criar uma pesquisa de campo de et
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valor
 
 Também podem ser formadas condições usando **valor**. **valor** verifica condições contra [parâmetros](#parameters), [suportada de funções de modelo](#policy-functions), ou literais.
 **valor** é emparelhado com qualquer suportado [condição](#conditions).

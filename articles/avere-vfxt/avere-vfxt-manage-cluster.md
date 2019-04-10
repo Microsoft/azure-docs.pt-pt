@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058055"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282207"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gerir o cluster do Avere vFXT
 

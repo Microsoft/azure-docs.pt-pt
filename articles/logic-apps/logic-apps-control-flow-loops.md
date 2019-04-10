@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225013"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360762"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetir ações de fluxo de trabalho ou processam matrizes no Azure Logic Apps
 
 Para processar uma matriz na sua aplicação lógica, pode criar uma [loop "Foreach"](#foreach-loop). Este ciclo repete-se uma ou mais ações em cada item na matriz. Para podem processar limites no número de itens de matriz "Foreach" faz um loop, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
 
-Para repetir ações até que uma condição é cumprida ou um estado é alterado, pode criar uma ["loop até"](#until-loop). A aplicação lógica executa todas as ações dentro do loop e, em seguida, verifica o estado ou condição. Se a condição for cumprida, o loop para. Caso contrário, o loop se repetir. Limites no número de "Até" de loops numa aplicação lógica executar, veja [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir ações até que uma condição é cumprida ou um estado é alterado, pode criar uma ["loop até"](#until-loop). Em primeiro lugar, a aplicação lógica executa todas as ações dentro do loop e, em seguida, verifica o estado ou condição. Se a condição for cumprida, o loop para. Caso contrário, o loop se repetir. Limites no número de "Até" de loops numa aplicação lógica executar, veja [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Se tiver um acionador que recebe uma matriz e quer executar um fluxo de trabalho para cada item da matriz, pode *debatch* essa matriz com o [ **SplitOn** acionar propriedade](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Se estiver a trabalhar com a definição de JSON da sua aplicação lógica, pod
 
 ## <a name="until-loop"></a>"Até" loop
   
-Para repetir ações até que uma condição é cumprida ou um estado é alterado, coloque essas ações num loop "Até". Seguem-se alguns cenários comuns em que pode usar um loop "Até":
+Para executar e repetir ações até que uma condição é cumprida ou um estado é alterado, coloque essas ações num loop "Até". Em primeiro lugar, a aplicação lógica executa quaisquer e todas as ações dentro do loop e, em seguida, verifica o estado ou condição. Se a condição for cumprida, o loop para. Caso contrário, o loop se repetir.
+
+Seguem-se alguns cenários comuns em que pode usar um loop "Até":
 
 * Chame um ponto final até obter a resposta pretendida.
 
@@ -175,11 +177,11 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Configurar a agenda de periodicidade](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Propriedade | Value |
+   | Propriedade | Valor |
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frequência** | Dia |
-   | **At these hours** (A estas horas) | 8 |
+   | **A estas horas** | 8 |
    ||| 
 
 1. No acionador, escolha **novo passo**. 
@@ -191,10 +193,10 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Definir propriedades de variável](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propriedade | Value | Descrição |
+   | Propriedade | Valor | Descrição |
    | -------- | ----- | ----------- |
-   | **Nome** | Limite | Nome da variável | 
-   | **Tipo** | Número inteiro | Tipo de dados da variável | 
+   | **Name** | Limite | Nome da variável | 
+   | **Type** | Número inteiro | Tipo de dados da variável | 
    | **Valor** | 0 | A variável do valor inicial | 
    |||| 
 
@@ -232,10 +234,10 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
       ![Configurar propriedades de e-mail](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propriedade | Value | Descrição |
+      | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
       | **Para** | *< endereço de e-mail\@domínio >* | endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail. | 
-      | **Assunto** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 
+      | **Requerente** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 
       | **Corpo** | <*email-content*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Neste exemplo, introduza qualquer texto que desejar. | 
       |||| 
 
@@ -252,7 +254,7 @@ Um loop "Até" tem limites predefinidos que pare a execução se alguma das segu
 | Propriedade | Valor predefinido | Descrição | 
 | -------- | ------------- | ----------- | 
 | **Contagem** | 60 | O maior número de ciclos executados antes do loop é encerrado. A predefinição é 60 ciclos. | 
-| **Tempo limite** | PT1H | A maioria dos quantidade de tempo para executar um loop antes do loop é encerrado. A predefinição é de uma hora e é especificada no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demora mais tempo do que o limite de tempo limite, não para o ciclo de atual. No entanto, o próximo ciclo não iniciar porque a condição de limite não for cumprida. | 
+| **Tempo Limite (excedido)** | PT1H | A maioria dos quantidade de tempo para executar um loop antes do loop é encerrado. A predefinição é de uma hora e é especificada no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demora mais tempo do que o limite de tempo limite, não para o ciclo de atual. No entanto, o próximo ciclo não iniciar porque a condição de limite não for cumprida. | 
 |||| 
 
 Para alterar esses limites predefinidos, escolha **Mostrar opções avançadas** na forma da ação de loop.

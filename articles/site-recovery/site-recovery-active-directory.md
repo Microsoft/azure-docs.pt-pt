@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821393"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358037"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres do Active Directory e DNS
 
@@ -106,7 +106,7 @@ Quando iniciar uma ativação pós-falha de teste, não inclua todos os controla
 A partir do Windows Server 2012, [as proteções adicionais são baseiam-se em serviços de domínio do Active Directory (AD DS)](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Estas salvaguardas ajudar a proteger os controladores de domínio virtualizados contra reversões de USN se suportar a plataforma de hipervisor subjacente **VM-GenerationID**. O Azure suporta **VM-GenerationID**. Por este motivo, os controladores de domínio que executam o Windows Server 2012 ou posterior em máquinas virtuais têm estas salvaguardas adicionais.
 
 
-Quando **VM-GenerationID** é reposta, o **InvocationID** também é reposto o valor de base de dados do AD DS. Além disso, o conjunto de RID é descartado e SYSVOL é marcado como não autoritativo. Para obter mais informações, consulte [introdução à virtualização de serviços de domínio do Active Directory](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [com segurança virtualizar o DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
+Quando **VM-GenerationID** é reposta, o **InvocationID** também é reposto o valor de base de dados do AD DS. Além disso, o conjunto de RID é descartado e pasta sysvol é marcada como não autoritativo. Para obter mais informações, consulte [introdução à virtualização de serviços de domínio do Active Directory](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [com segurança virtualizar o DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/).
 
 Realizar a ativação pós-falha para o Azure pode causar **VM-GenerationID** repor. A repor **VM-GenerationID** aciona proteções adicionais, quando a máquina virtual do controlador de domínio é iniciado no Azure. Isto pode resultar numa *atraso significativo* ser capaz de iniciar sessão na máquina virtual do controlador de domínio.
 
@@ -128,11 +128,11 @@ Se as proteções de Virtualização são acionadas após uma ativação pós-fa
 
     ![Alteração do ID de invocação](./media/site-recovery-active-directory/Event1109.png)
 
-* As partilhas do SYSVOL e NETLOGON não estão disponíveis.
+* Pasta SYSVOL e NETLOGON partilhas não estão disponíveis.
 
-    ![Partilha SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Partilha de pasta SYSVOL](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![Pasta de sysvol do NtFrs](./media/site-recovery-active-directory/Event13565.png)
 
 * Bases de dados DFSR são eliminados.
 
@@ -146,7 +146,7 @@ Se as proteções de Virtualização são acionadas após uma ativação pós-fa
 >
 >
 
-1. No prompt de comando, execute o seguinte comando para verificar se as pastas SYSVOL e NETLOGON são partilhadas:
+1. No prompt de comando, execute o seguinte comando para verificar se a pasta sysvol e a pasta NETLOGON são partilhados:
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ Se forem satisfeitas as condições anteriores, é provável que o controlador d
     * Embora não o recomendamos [replicação de FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), se usar a replicação de FRS, siga os passos para uma restauração autoritativa. O processo é descrito em [usando a chave de registo BurFlags para serviço de replicação de ficheiros](https://support.microsoft.com/kb/290762).
 
         Para obter mais informações sobre BurFlags, consulte a mensagem de blogue [D2 e D4: Para que ele serve? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
-    * Se utilizar a replicação de DFSR, conclua os passos para uma restauração autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativo para SYSVOL replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
+    * Se utilizar a replicação de DFSR, conclua os passos para uma restauração autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativa para a pasta sysvol replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
 
         Também pode utilizar as funções do PowerShell. Para obter mais informações, consulte [funções do PowerShell de autoritativo/restauro não autoritativo de DFSR SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
 

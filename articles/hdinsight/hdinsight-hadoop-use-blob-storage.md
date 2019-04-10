@@ -1,24 +1,22 @@
 ---
 title: Consultar dados a partir do armazenamento do Azure compatível com HDFS - Azure HDInsight
 description: Saiba como consultar dados de armazenamento do Azure e o armazenamento do Azure Data Lake para armazenar os resultados da sua análise.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/08/2019
+ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361919"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360776"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
-Para analisar dados num cluster do HDInsight, pode armazenar os dados no [armazenamento do Azure](../storage/common/storage-introduction.md), [do Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[do Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), ou ambos. Ambas opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem que haja perda de dados do utilizador.
+Para analisar dados num cluster do HDInsight, pode armazenar os dados no [armazenamento do Azure](../storage/common/storage-introduction.md), [do Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[do Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), ou uma combinação. Estas opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem perda de dados de utilizador.
 
 Apache Hadoop suporta uma noção do sistema de ficheiros predefinido. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster do HDInsight, pode especificar um contentor de BLOBs no armazenamento do Azure como o sistema de ficheiros predefinido ou com o HDInsight 3.6, pode selecionar o armazenamento do Azure ou do Azure Data Lake Storage Gen 1 / Azure Data Lake Storage Gen 2 como os arquivos padrão sistema com algumas exceções. Para a Suportabilidade da utilização do Data Lake Storage Gen 1 como tanto o armazenamento predefinido e ligado, consulte [disponibilidade para o cluster de HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -41,6 +39,8 @@ A partilha de um contentor de blobs como sistema de ficheiros predefinido para m
  
  > [!NOTE]  
  > A camada de acesso de arquivo é uma camada offline que tenha uma latência de obtenção de hora várias e não é recomendada para utilização com o HDInsight. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">camada de acesso de arquivo</a>.
+
+Se optar por proteger a sua conta de armazenamento com o **Firewalls e redes virtuais** restrições sobre **redes selecionadas**, certifique-se de que ativar a exceção **permitir fidedigna Microsoft serviços...**  para que o HDInsight pode aceder à sua conta de armazenamento.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 O diagrama seguinte apresenta uma vista abstrata da arquitetura de armazenamento do HDInsight relativamente à utilização do Armazenamento do Azure:
@@ -335,7 +335,7 @@ Neste artigo, aprendeu a utilizar o armazenamento do Azure compatível com HDFS 
 Para obter mais informações, consulte:
 
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
-* [Introdução ao armazenamento do Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Introdução ao Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
 * [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data]
 * [Utilizar o Apache Hive com o HDInsight][hdinsight-use-hive]
 * [Utilizar o Apache Pig com o HDInsight][hdinsight-use-pig]

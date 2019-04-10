@@ -1,18 +1,18 @@
 ---
 title: Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de VMs de Hyper-V para o Azure | Documentos da Microsoft
 description: Saiba mais sobre a recuperação de desastre do Azure Site Recovery Deployment Planner Hyper-V para o Azure.
-author: nsoneji
+author: mayurigupta13
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 4/9/2019
+ms.author: mayg
+ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207399"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360268"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure
 
@@ -30,7 +30,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 * Avaliação de elegibilidade de VMs com base no número de discos, no tamanho do disco, em IOPS, na alteração a dados e em algumas características da VM.
 
-**Necessidade de largura de banda de rede vs avaliação de RPO**
+**Largura de banda de rede tem de avaliação de RPO**
 
 * A largura de banda de rede estimada necessária para a replicação delta
 * O débito que o Azure Site Recovery consegue a partir do local para o Azure
@@ -51,7 +51,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 * O espaço de armazenamento livre necessário em cada volume de armazenamento de Hyper-V para a replicação inicial e a replicação de diferenças com êxito para garantir que a replicação de VM não irá causar qualquer período de inatividade indesejável para as suas aplicações de produção
 * Frequência de cópia máxima a definir para replicação do Hyper-V
 
-**Orientação para a criação de batches na replicação inicial** 
+**Documentação de orientação de criação de batches de replicação inicial** 
 * Número de batches de VM a utilizar para proteção
 * Lista de VMs em cada batch
 * Ordem pela qual cada batch deve ser protegido
@@ -70,7 +70,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
+| | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
 Cenários suportados |Sim|Sim|Não|Sim*|Não
 Versão suportada | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
@@ -132,8 +132,8 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
   >Cada Deployment Planner novo é uma atualização acumulativa do ficheiro .zip. Não tem de copiar os ficheiros mais recentes para a pasta anterior. Pode criar e utilizar uma pasta nova.
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta ASR Deployment Planner é 2.3.
-Consulte a página [Histórico de Versões do Planeador de Implementações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
+A versão mais recente da ferramenta do Azure Site Recovery Deployment Planner é 2.3.
+Consulte a [histórico de versões do Planeador de implementações do Azure Site Recovery implementação](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) página para obter as correções que foram adicionadas em cada atualização.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

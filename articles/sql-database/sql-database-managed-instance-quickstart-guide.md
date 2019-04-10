@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 08b7870000b38d782e9282eef7ec9c0d551094dd
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444305"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360162"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução ao Azure SQL Database instância gerida
 

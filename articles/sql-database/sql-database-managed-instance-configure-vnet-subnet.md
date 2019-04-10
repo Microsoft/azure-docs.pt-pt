@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762777"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358840"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para a instância gerida da base de dados SQL do Azure
 
@@ -25,10 +25,9 @@ Instância de gerida de base de dados de SQL do Azure tem de ser implementada de
 
 Se um dos seguintes casos se aplica a si, pode validar e modificar a sua rede usando o script explicado neste artigo:
 
-* Tem uma nova sub-rede que ainda não está configurada.
-* Não tiver a certeza de que a sub-rede está em sintonia com o [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* Para verificar se a sub-rede ainda está em conformidade com o [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) depois de efetuar alterações.
-
+- Tem uma nova sub-rede que ainda não está configurada.
+- Não tiver a certeza de que a sub-rede está em sintonia com o [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Para verificar se a sub-rede ainda está em conformidade com o [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) depois de efetuar alterações.
 
 > [!Note]
 > Só pode criar uma instância gerida nas redes virtuais criadas com o modelo de implementação Azure Resource Manager. As redes virtuais do Azure criadas através do modelo de implementação clássica não são suportadas. Calcular o tamanho da sub-rede, seguindo as diretrizes a [determinar o tamanho da sub-rede para instâncias geridas](sql-database-managed-instance-determine-size-vnet-subnet.md) artigo. Não pode redimensionar a sub-rede depois de implementar os recursos no interior.

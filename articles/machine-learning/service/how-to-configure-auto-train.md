@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541150"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358301"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -26,7 +26,7 @@ Para ver exemplos de um automatizada experimentações de machine learning, cons
 
 Opções de configuração disponíveis no automatizada de machine learning:
 
-* Selecione o tipo de experimentação: Classificação, regressão ou de previsão
+* Selecione o tipo de experimentação: Classificação, regressão ou previsão de série temporal
 * Origem de dados, formatos e obtenção de dados
 * Escolher o destino de computação: local ou remoto
 * Aprendizagem automatizada as definições de experimentação
@@ -39,7 +39,7 @@ Antes de começar a sua experimentação, deve determinar o tipo de problema de 
 
 Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo. Embora os algoritmos DNN estejam disponíveis durante o treinamento, ML automatizado não criar modelos DNN.
 
-Classificação | Regressão | Previsão
+Classificação | Regressão | Previsão de série temporal
 |-- |-- |--
 [Regressão logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Net elástico](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Net elástico](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -112,7 +112,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` pode retornar o script:
 
-Chave | Tipo |    Mutuamente exclusivo com | Descrição
+Chave | Tipo | Mutuamente exclusivo com    | Descrição
 ---|---|---|---
 X | Pandas Dataframe ou matriz de Numpy | data_train, etiqueta, colunas |  Todas as funcionalidades para treinar com
 Y | Pandas Dataframe ou matriz de Numpy |   label   | Etiqueta de dados para preparar com. Para classificação, devem ser uma matriz de inteiros.
@@ -191,6 +191,7 @@ Alguns exemplos incluem:
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
+        blacklist_models='XGBoostClassifier',
         X=X,
         y=y,
         n_cross_validations=2)
@@ -202,55 +203,25 @@ Alguns exemplos incluem:
         task='regression',
         max_time_sec=600,
         iterations=100,
+        whitelist_models='kNN regressor'
         primary_metric='r2_score',
         X=X,
         y=y,
         n_cross_validations=5)
     ```
 
-Existem três diferentes `task` valores de parâmetros, que determinam a lista de algoritmos para aplicar.  Utilize o `whitelist` ou `blacklist` parâmetros para modificar ainda mais iterações com os algoritmos disponíveis para incluir ou excluir.
-* Classificação
-    * LogisticRegression
-    * SGD
-    * MultinomialNaiveBayes
-    * BernoulliNaiveBayes
-    * SVM
-    * LinearSVM
-    * KNN
-    * DecisionTree
-    * RandomForest
-    * ExtremeRandomTrees
-    * LightGBM
-    * GradientBoosting
-    * TensorFlowDNN
-    * TensorFlowLinearClassifier
-    * XGBoostClassifier
-* Regressão
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
-* Previsão
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
+Os três diferentes `task` valores de parâmetro determinam a lista de algoritmos para aplicar.  Utilize o `whitelist` ou `blacklist` parâmetros para modificar ainda mais iterações com os algoritmos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada no [SupportedAlgorithms classe](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+
+## <a name="primary-metric"></a>Métrica primária
+A métrica primária; conforme mostrado nos exemplos acima determina a métrica a ser utilizado durante a preparação de modelos para otimização. A métrica primária, que pode selecionar é determinada pelo tipo de tarefa que escolher. Segue-se uma lista de métricas disponíveis.
+
+|Classificação | Regressão | Previsão de série temporal
+|-- |-- |--
+|accuracy| spearman_correlation | spearman_correlation
+|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
+|average_precision_score_weighted | r2_score | r2_score
+|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
+|precision_score_weighted |
 
 ## <a name="data-pre-processing-and-featurization"></a>Processamento prévio de dados e featurization
 
@@ -269,7 +240,7 @@ Se usar `preprocess=True`, os seguintes passos de pré-processamento de dados s�
 
 ## <a name="time-series-forecasting"></a>Previsão de série temporal
 Para o tipo de tarefa de previsão de série de tempo tem parâmetros adicionais para definir.
-1. time_horizon_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados. 
+1. time_column_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados. 
 1. max_horizon - isso define o período de tempo que pretende prever horizontalmente com base na periodicidade dos dados de treinamento. Por exemplo se tiver dados de treinamento com detalhamento de tempo diária, até que ponto por definir em dias em que quer que o modelo para treinar para.
 1. grain_column_names - isso define o nome de colunas que contêm dados de séries de tempo individuais em seus dados de treinamento. Por exemplo, se a previsão de vendas de uma determinada marca pela loja, definiria colunas de arquivo e marca como as colunas de intervalo de agregação.
 
@@ -324,7 +295,6 @@ Existem algumas opções pode definir para concluir a sua experimentação.
 1. Saia do após um período de tempo - usando experiment_timeout_minutes nas definições do que pode definir o período de tempo em minutos uma experimentação deve continuar em execução.
 1. Sair quando for alcançada uma pontuação - usando experiment_exit_score que pode optar por executar o experiement depois de uma classificação com base em sua métrica principal foi atingida.
 
-
 ## <a name="explore-model-metrics"></a>Explorar métricas de modelo
 Pode ver os resultados num widget ou inline, se estiver num bloco de notas. Ver [controlar e avaliar modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
 
@@ -355,7 +325,7 @@ recall_score_micro|Lembre-se é a percentagem de elementos, na verdade, numa det
 recall_score_weighted|Lembre-se é a percentagem de elementos, na verdade, numa determinada classe, que estão identificadas corretamente. Ponderada é a média aritmética de remoção para cada classe, ponderado por número de instâncias verdadeiros em cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "ponderado"|
 weighted_accuracy|Precisão ponderada é precisão em que o peso para cada exemplo é igual a proporção de instâncias verdadeiras na classe de verdadeiro esse exemplo|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight é um vetor igual a proporção dessa classe para cada elemento no destino|
 
-### <a name="regression-and-forecasting-metrics"></a>Regressão e métricas de previsão
+### <a name="regression-and-time-series-forecasting-metrics"></a>Métricas de previsão de série de regressão e de tempo
 As métricas seguintes são salvas em cada iteração para uma regressão ou a tarefa de previsão.
 
 |Métrica|Descrição|Cálculo|Parâmetros adicionais

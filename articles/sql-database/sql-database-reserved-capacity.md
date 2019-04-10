@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650262"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359734"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -84,8 +84,8 @@ Para saber como gerir a base de dados de SQL reservadas de reserva de capacidade
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
-- [Quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md)
-- [Gerir o Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
+- [O que é o Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
+- [Gerir reservas do Azure](../billing/billing-manage-reserved-vm-instance.md)
 - [Compreender o que Azure reservas de desconto](../billing/billing-understand-reservation-charges.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](../billing/billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](../billing/billing-understand-reserved-instance-usage-ea.md)

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010741"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278875"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -649,7 +649,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Ler quaisquer artefactos de esquemas |
 > | Ação | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar quaisquer artefactos de esquema |
 > | Ação | Microsoft.Blueprint/blueprintAssignments/read | Ler quaisquer artefactos de esquemas |
-> | Ação | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Obtenha o ID de objeto do principal de serviço Azure Blueprints. |
+> | Ação | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Obtenha o ID de objeto do principal do serviço Azure Blueprints. |
 > | Ação | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar artefactos de esquema |
 > | Ação | Microsoft.Blueprint/blueprints/artifacts/delete | Eliminar quaisquer artefactos de esquema |
 > | Ação | Microsoft.Blueprint/blueprints/artifacts/read | Ler quaisquer artefactos de esquemas |
@@ -661,7 +661,7 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > | Ação | Microsoft.Blueprint/blueprints/versions/read | Ler quaisquer esquemas |
 > | Ação | Microsoft.Blueprint/blueprints/versions/write | Criar ou atualizar quaisquer esquemas |
 > | Ação | Microsoft.Blueprint/blueprints/write | Criar ou atualizar quaisquer esquemas |
-> | Ação | Microsoft.Blueprint/register/action | Regista o Fornecedor de Recursos de Esquemas do Azure |
+> | Ação | Microsoft.Blueprint/register/action | Regista o Fornecedor de Recursos do Azure Blueprints |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 

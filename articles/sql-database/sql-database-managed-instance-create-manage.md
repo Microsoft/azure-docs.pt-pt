@@ -7,17 +7,17 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c4f8144c3e941c673da3ecc9be7ac7f091583d4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864673"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359149"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência da API gerida para instâncias geridas da base de dados SQL do Azure
 
@@ -64,9 +64,9 @@ Para criar e gerir instâncias geridas com [CLI do Azure](/cli/azure), utilize o
 |[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Atualizações de uma instância gerida|
 |[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Remove uma instância gerida|
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria uma base de dados gerida|
-|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Bases de dados geridas de listas disponíveis|
+|[lista de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Bases de dados geridas de listas disponíveis|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaurar uma base de dados gerida|
-|[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove uma base de dados gerida|
+|[eliminação de midb AZ sql](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Remove uma base de dados gerida|
 
 ## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: Criar e gerir bases de dados de instância
 

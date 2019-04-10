@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117460"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277699"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas de virtuais do Azure disk encryption (ADE) ativada para outra região do Azure
 
@@ -148,7 +148,7 @@ Pode usar [o script](#copy-ade-keys-to-dr-region-using-powershell-script) para c
 Se selecionar um cofre de chaves já criado na região de destino em vez de permitir que o Azure Site Recovery criá-la. Certifique-se de que o Cofre de chaves tem necessitam de permissões, tal como mencionado acima.</br>
 *Por exemplo*: Um utilizador tentar replicar uma VM, que tem um cofre de chaves na região de origem dizer "ContososourceKeyvault".
 Utilizador tem a permissão all sobre o Cofre de chaves de região de origem, mas durante a proteção, seleciona um cofre de chaves "ContosotargetKeyvault", que não tem permissão, em seguida, será de proteção já criado emite um erro.</br>
-**Como corrigir:** Tem de "Home page > Keyvaults > ContososourceKeyvault > políticas de acesso" e adicione as permissões conforme mostrado acima. 
+**Como corrigir:** Tem de "Home page > Keyvaults > ContososourceKeyvault > políticas de acesso" e adicione as permissões conforme mostrado acima.
 
 **Causa 2:** Poderá ter selecionado um já criado o Cofre de chaves de região de destino que não têm decry pt-encriptar permissões.
 Se selecionar um cofre de chaves já criado na região de destino em vez de permitir que o Azure Site Recovery criá-la. Certifique-se de que o utilizador tem desencriptação-encriptar as permissões no caso de estiver a encriptar a chave demasiado na região de origem.</br>

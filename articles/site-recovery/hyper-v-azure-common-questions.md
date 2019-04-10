@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c4e87e365e11084a7088522f64abef238d04b715
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357987"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
@@ -29,6 +29,31 @@ Durante a replicação, os dados são replicados para o armazenamento do Azure e
 
 ## <a name="azure"></a>Azure
 
+### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>O que preciso no Hyper-V para orquestrar a replicação com o Site Recovery?
+
+Para o servidor de anfitrião Hyper-V, o que precisa depende do cenário de implementação. Confira os pré-requisitos do Hyper-V para:
+
+* [Replicar VMs Hyper-V (sem o VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replicar VMs Hyper-V (com o VMM) para o Azure](site-recovery-vmm-to-azure.md)
+* [Replicar VMs Hyper-V para um datacenter secundário](site-recovery-vmm-to-vmm.md)
+* Se estiver a replicar para um datacenter secundário, leia sobre [sistemas operativos convidados suportados para VMs de Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
+* Se estiver a replicar para o Azure, o Site Recovery suporta todos os sistemas operativos convidados que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+
+### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>Posso proteger as VMs quando Hyper-V está em execução num sistema operativo cliente?
+Não, as VMs têm de estar localizadas num servidor de anfitrião Hyper-V que está a ser executado na máquina do servidor Windows suportada. Se precisar de proteger um computador cliente pode replicá-la como uma máquina física [Azure](site-recovery-vmware-to-azure.md) ou uma [datacenter secundário](site-recovery-vmware-to-vmware.md).
+
+### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Anfitriões Hyper-V tem de ser em clouds do VMM?
+Se pretender replicar para um datacenter secundário, em seguida, VMs Hyper-V tem de estar no Hyper-V aloja servidores localizados numa nuvem VMM. Se pretender replicar para o Azure, pode replicar VMs com ou sem nuvens do VMM. [Leia mais](tutorial-hyper-v-to-azure.md) sobre replicação de Hyper-V para o Azure.
+
+
+### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
+Sim. Recuperação de sites converte de geração 2 para a geração 1 durante a ativação pós-falha. Na reativação pós-falha da máquina é convertida novamente para a geração 2. [Leia mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+
+
+### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Posso implementar a Recuperação de Sites com o VMM se tiver apenas um servidor VMM?
+
+Sim. Pode optar por replicar as VMs nos servidores de Hyper-V na nuvem do VMM para o Azure ou pode replicar entre nuvens do VMM no mesmo servidor. Para o local para a replicação no local, recomendamos que tenha um servidor VMM em sites primários e secundários. 
+
 ### <a name="what-do-i-need-in-azure"></a>O que é necessário no Azure?
 Terá de uma subscrição do Azure, um cofre dos serviços de recuperação, uma conta de armazenamento e uma rede virtual. O cofre, a conta de armazenamento e a rede tem de ser na mesma região.
 
@@ -43,7 +68,7 @@ Não, a recuperação de sites não interceta os dados replicados e não tem qua
 
 Site Recovery é ISO 27001:2013, 27018, HIPAA, DPA certified e está no processo de SOC2 e FedRAMP JAB.
 
-### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>Vamos guardar os metadados de locais dentro de um regiões geográficas?
+### <a name="can-we-keep-on-premises-metadata-within-a-geographic-region"></a>Vamos guardar os metadados de locais dentro de uma região geográfica?
 Sim. Quando cria um cofre numa região, podemos assegurar que todos os metadados usados pelo Site Recovery permanece dentro do limite de geográfico dessa região.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
@@ -75,7 +100,7 @@ Sim, o Site Recovery suporta anfitriões de Hyper-V em cluster. Tenha em atenç�
 - Todos os nós do cluster devem ser registados no mesmo cofre.
 - Se não estiver a utilizar o VMM, todos os anfitriões de Hyper-V no cluster devem ser adicionados ao mesmo site de Hyper-V.
 - Instalar o agente do Azure Site Recovery Provider e serviços de recuperação em cada anfitrião de Hyper-V no cluster e adicione cada anfitrião para um site de Hyper-V.
-- Não existem passos específicos precisa ser feito no cluster.
+- Não existem passos específicos precisam ser feito no cluster.
 - Se executar a ferramenta Planeador de implementações do Hyper-V, a ferramenta recolhe os dados de perfil do nó que está a ser executado e onde a VM está em execução. A ferramenta não é possível recolher todos os dados de um nó que estiver desativado, mas irá controlar a esse nó. Depois do nó está em execução, a ferramenta é iniciada a recolher os dados de perfil VM da mesma (se a VM é parte da lista VM de perfil e está em execução no nó).
 - Se uma VM num anfitrião Hyper-V no Cofre de recuperação de Site é migrada para outro anfitrião Hyper-V no mesmo cluster ou para um anfitrião autónomo, a replicação para a VM não é afetada. O anfitrião de Hyper-V tem de cumprir [pré-requisitos](hyper-v-azure-support-matrix.md#on-premises-servers)e ser configurado num cofre de recuperação de sites. 
 
@@ -127,7 +152,7 @@ Sim, o ExpressRoute pode ser utilizado para replicar VMs no Azure. O site Recove
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar através de VPN?
 
-Ao replicar para o Azure, o tráfego de replicação atinge os pontos finais públicos de uma conta de armazenamento do Azure, assim, apenas pode replicar através da internet pública com o ExpressRoute (peering público) e VPN não funciona. 
+Ao replicar para o Azure, o tráfego de replicação atinge os pontos finais públicos de uma conta de armazenamento do Azure. Assim, apenas pode replicar através da internet pública com o ExpressRoute (peering público), e a VPN não funciona. 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quais são os requisitos de VM replicados?
 
@@ -181,13 +206,13 @@ Pode executar uma ativação pós-falha planeada ou não planeada de VMs de Hype
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Como posso acessar as VMs do Azure após a ativação pós-falha?
-Após a ativação pós-falha, pode acessar as VMs do Azure através de uma ligação de Internet segura, através de uma VPN de site a site ou através do Azure ExpressRoute. Terá de preparar uma série de coisas para se ligar. [Saber mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Após a ativação pós-falha, pode acessar as VMs do Azure através de uma ligação de Internet segura, através de uma VPN de site a site ou através do Azure ExpressRoute. Terá de preparar uma série de coisas para se ligar. [Saiba mais](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>É efetuada a ativação pós-falha dados resilientes?
 O Azure foi concebido para ser resiliente. Recuperação de site foi desenvolvida para ativação pós-falha para um datacenter secundário do Azure, de acordo com o SLA do Azure. Quando ocorre a ativação pós-falha, devemos verificar se os metadados e cofres permanecem na mesma região geográfica que escolheu para o cofre.
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
-[Ativação pós-falha](site-recovery-failover.md) não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell](/powershell/module/az.siterecovery) para acionar uma ativação pós-falha.
+[Ativação pós-falha](site-recovery-failover.md) não é automática. Inicia as ativações pós-falha com um clique único no portal ou pode utilizar [PowerShell](/powershell/module/az.recoveryservices) para acionar uma ativação pós-falha.
 
 ### <a name="how-do-i-fail-back"></a>Como posso efetuar a ativação pós-falha?
 
@@ -199,7 +224,7 @@ Após a sua infraestrutura no local novamente em funcionamento, pode efetuar a r
     - Transferência completa: Com esta opção os dados são sincronizados durante a ativação pós-falha. Esta opção transfere o disco inteiro. É mais rápido porque não existem as somas de verificação são calculadas, mas há mais tempo de inatividade. Utilize esta opção se esteve executando a réplica de VMs do Azure durante algum tempo ou se a VM no local tiver sido eliminada.
 
 2. Pode selecionar a falha de volta para a mesma VM ou a uma VM alternativa. Pode especificar que a recuperação de Site deve criar a VM, se ainda não exista.
-3. Depois de concluída a sincronização inicial, selecione para concluir a ativação pós-falha. Depois de terminar, pode iniciar sessão na VM no local para verificar que tudo está a funcionar conforme esperado. No portal do Azure, pode ver que as VMs do Azure foram paradas.
+3. Depois de concluída a sincronização inicial, selecione para concluir a ativação pós-falha. Depois de terminar, pode iniciar sessão VM no local para verificar que tudo está a funcionar conforme esperado. No portal do Azure, pode ver que as VMs do Azure foram paradas.
 4. Consolida a ativação pós-falha para concluir a cópia de segurança e começar a aceder à carga de trabalho da VM no local novamente.
 5. Depois de tem realizarão a reativação pós-falha cargas de trabalho, ativar a replicação inversa, para que as VMs no local novamente a replicar para o Azure.
 

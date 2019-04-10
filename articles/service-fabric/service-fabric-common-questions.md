@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045803"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359416"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -136,7 +136,7 @@ Não. VMs de baixa prioridade não são suportadas.
 Seguem-se significa para a sua aplicação obter as credenciais para autenticar no Cofre de chaves:
 
 R. Durante a tarefa de compilação/remessa seus aplicativos, pode extrair um certificado para o pacote de dados da sua aplicação SF e utilizá-lo para autenticar para o Cofre de chaves.
-B. Para anfitriões MSI ativada do conjunto de dimensionamento de máquinas virtuais, pode desenvolver um SetupEntryPoint simples do PowerShell para a sua aplicação SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do Cofre de chaves](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
+B. Para anfitriões MSI ativada do conjunto de dimensionamento de máquinas virtuais, pode desenvolver um SetupEntryPoint simples do PowerShell para a sua aplicação SF conseguir [um token de acesso do ponto de extremidade MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e, em seguida, [recuperar seus segredos do Cofre de chaves](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Design do aplicativo
 

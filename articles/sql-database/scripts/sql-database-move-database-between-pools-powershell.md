@@ -12,12 +12,12 @@ ms.reviewer: ''
 ms.author: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 9b179bb7021e77acd99b529d6ab3b0d638858dbd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27a2eb025db014a1c71152a13339bc46510eae77
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894245"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357813"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Utilizar o PowerShell para criar conjuntos elásticos e mover bases de dados entre conjuntos elásticos
 
@@ -35,7 +35,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Depois de executar o script de exemplo, pode ser utilizado o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
+Utilize o seguinte comando para remover o grupo de recursos e todos os recursos associados à mesma.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

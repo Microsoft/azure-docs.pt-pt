@@ -8,19 +8,19 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273146"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358329"
 ---
-# <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL?
+# <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL
 
 A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. Base de dados SQL proporciona um desempenho dimensionável de forma dinâmica dentro de dois modelos de compras diferentes: um modelo de compra baseado em vCore e um modelo de compra baseado em DTU. A Base de Dados SQL disponibiliza também opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP dentro da memória](sql-database-in-memory.md) para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente.
 
@@ -102,12 +102,12 @@ Utilize a [monitorização de desempenho incorporada](sql-database-performance.m
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
 Num ambiente tradicional do SQL Server, geralmente (pelo menos) 2 máquinas localmente definidas com cópias (sincronicamente manter) exatas dos dados (com funcionalidades como instâncias de Cluster de ativação pós-falha ou a grupos de Disponibilidade AlwaysOn) para proteger contra uma Falha de um único componente/máquina.  Isso fornece elevada disponibilidade, mas não protege contra um desastre natural destruir seu centro de dados.
- 
+
 Recuperação após desastre parte do princípio de que um evento catastrófico será geograficamente localizados suficiente para ter outra máquina/conjunto de máquinas com uma cópia dos seus dados perto de.  No SQL Server, poderia usar grupos de Disponibilidade AlwaysOn em execução no modo assíncrono para obter esta capacidade.  A velocidade da luz problemas normalmente, isto significa que as pessoas não pretende esperar até que a replicação para acontecer que distantes antes de consolidar uma transação, portanto, há a potencial perda de dados quando o fizer ativações pós-falha não planeadas.
 
 Bases de dados no serviço premium e comercial crítico camadas já [fazer algo muito semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para a sincronização de um grupo de disponibilidade. Bases de dados nos escalões de serviço mais baixos fornecem redundância por meio de armazenamento com um [mecanismo de diferente mas equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Há uma lógica que protege contra uma falha de máquina única.  A funcionalidade de georreplicação ativa lhe a capacidade de proteger contra desastres em que uma região inteira for destruída.
 
-As zonas de disponibilidade do Azure é um play sobre o problema de elevada disponibilidade.  Ele tenta proteger contra a falha de um único centro de dados criar numa única região.  Então, quer proteger contra a perda de energia ou de rede para um edifício. No SQL Azure, isso funcionará ao colocar as réplicas diferentes em diferentes zonas de disponibilidade (edifícios diferentes, com eficiência) e, caso contrário, está a funcionar como antes. 
+As zonas de disponibilidade do Azure é um play sobre o problema de elevada disponibilidade.  Ele tenta proteger contra a falha de um único centro de dados criar numa única região.  Então, quer proteger contra a perda de energia ou de rede para um edifício. No SQL Azure, isso funcionará ao colocar as réplicas diferentes em diferentes zonas de disponibilidade (edifícios diferentes, com eficiência) e, caso contrário, está a funcionar como antes.
 
 Na verdade, o contrato de nível de serviço de disponibilidade de 99,99% líder da indústria do Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/), com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 x 7. A plataforma do Azure totalmente gerencia cada base de dados e não garantias de nenhuma perda de dados e alta porcentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. Disponibilidade de Premium é obtida com a integração de computação e armazenamento num único nó para o desempenho e, em seguida, implementar a tecnologia semelhante para grupos de Disponibilidade AlwaysOn nos bastidores. Para uma discussão completa sobre as capacidades de elevada disponibilidade da base de dados do Azure SQL, consulte [disponibilidade de base de dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
 
@@ -156,7 +156,7 @@ Também adicionámos o conjunto de funcionalidades de [processamento de consulta
 A Base de Dados SQL proporciona um conjunto de [funcionalidades de segurança e conformidade incorporadas](sql-database-security-overview.md), para ajudar a sua aplicação a cumprir diversos requisitos de segurança e conformidade.
 
 > [!IMPORTANT]
-> Base de dados SQL do Azure (todas as opções de implantação), foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+> Base de dados SQL do Azure (todas as opções de implantação), foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
 
 ### <a name="advance-threat-protection"></a>Proteção Avançada Contra Ameaças
 
@@ -186,7 +186,7 @@ A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores d
 
 ### <a name="compliance-certification"></a>Certificação de conformidade
 
-A Base de Dados SQL participa em auditorias regulares e foi certificada por várias normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+A Base de Dados SQL participa em auditorias regulares e foi certificada por várias normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
 
 ## <a name="easy-to-use-tools"></a>Ferramentas fáceis de utilizar
 
@@ -240,7 +240,6 @@ Os clientes da base de dados SQL terão os seguintes direitos associados com o b
 |Clientes de núcleo do SQL Server Enterprise Edition com SA|<li>Pode pagar a taxa Base no SKU de críticos de negócio ou para fins gerais</li><br><li>1 núcleo no local = 4 núcleos no SKU de fins gerais</li><br><li>1 núcleo no local = 1 núcleo na SKU crítica de negócios</li>|
 |Clientes de núcleo do SQL Server Standard Edition com SA|<li>Paguem apenas taxa Base na SKU de fins gerais</li><br><li>1 núcleo no local = 1 núcleo no SKU de fins gerais</li>|
 |||
-
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver a equipa de engenharia do SQL Server
 

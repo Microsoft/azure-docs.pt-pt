@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275611"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361140"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -32,38 +32,38 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 
 | **Região** | **Inferior Gen2 disponíveis** | **As atualizações automáticas de começar** |
 |:--- |:--- |:--- |
-| Este da Austrália |Disponível |1 de Junho de 2019 |
+| Leste da Austrália |Disponível |1 de Junho de 2019 |
 | Sudeste da Austrália |15 de Abril de 2019 |1 de Maio de 2019 |
-| Sul do Brasil |15 de Maio de 2019 |\* |
+| Sul do Brasil |15 de Maio de 2019 |1 de Junho de 2019 |
 | Canadá Central |Disponível |1 de Junho de 2019 |
 | Leste do Canadá |\* |\* |
-| Centro dos E.U.A. |Disponível |1 de Junho de 2019 |
+| EUA Central |Disponível |1 de Junho de 2019 |
 | Leste da China |\* |\* |
 | Leste da China 2 |\* |\* |
-| Norte da China |\* |\* |
+| China Norte |\* |\* |
 | Norte da China 2 |\* |\* |
-| Este Asiático |Disponível |1 de Junho de 2019 |
-| Este dos E.U.A. |Disponível |1 de Junho de 2019 |
-| Este dos E.U.A. 2 |Disponível |A 1 de Junho. 2019 |
-| França Central |\* |\* |
+| Ásia Oriental |Disponível |1 de Junho de 2019 |
+| EUA Leste |Disponível |1 de Junho de 2019 |
+| EUA Leste 2 |Disponível |1 de Junho de 2019 |
+| França Central |\* |1 de Junho de 2019 |
 | Alemanha Central |\* |\* |
 | Alemanha Oeste-Central |1 de Setembro de 2019|2 de Janeiro de 2020 |
 | Índia Central |Disponível |1 de Junho de 2019 |
 | Índia do Sul |15 de Abril de 2019 |1 de Junho de 2019 |
-| Este do Japão |Disponível |1 de Junho de 2019 |
+| Leste do Japão |Disponível |1 de Junho de 2019 |
 | Oeste do Japão |Disponível |1 de Maio de 2019 |
 | Coreia do Sul Central |15 de Abril de 2019 |1 de Junho de 2019 |
-| Sul da Coreia do Sul |15 de Abril de 2019 |1 de Maio de 2019 |
-| Centro-Norte dos E.U.A. |15 de Abril de 2019 |1 de Maio de 2019 |
-| Norte da Europa |Disponível |1 de Junho de 2019 |
-| Centro-Sul dos E.U.A. |Disponível |1 de Junho de 2019 |
+| Coreia do Sul |15 de Abril de 2019 |1 de Maio de 2019 |
+| EUA Centro-Norte |15 de Abril de 2019 |1 de Maio de 2019 |
+| Europa do Norte |Disponível |1 de Junho de 2019 |
+| EUA Centro-Sul |Disponível |1 de Junho de 2019 |
 | Sudeste Asiático |Disponível |1 de Junho de 2019 |
-| Sul do R.U. |15 de Abril de 2019 |1 de Junho de 2019 |
-| Oeste do R.U. |\*|\* |
-| Centro Oeste dos E.U.A  |2 de Setembro de 2019 |2 de Janeiro de 2020|
+| Reino Unido Sul |15 de Abril de 2019 |1 de Junho de 2019 |
+| Reino Unido Oeste |\*|\* |
+| EUA Centro-Oeste |2 de Setembro de 2019 |2 de Janeiro de 2020|
 | Europa Ocidental |Disponível |1 de Junho de 2019 |
-| Oeste dos E.U.A. |15 de Abril de 2019 |1 de Junho de 2019 |
-| Oeste dos E.U.A 2 |Disponível |1 de Junho de 2019 |
+| EUA Oeste |15 de Abril de 2019 |1 de Junho de 2019 |
+| EUA Oeste 2 |Disponível |1 de Junho de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 

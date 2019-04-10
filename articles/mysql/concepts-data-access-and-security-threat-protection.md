@@ -5,26 +5,26 @@ author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: 7911f652341c4448a6fa5fbe88f5838389c228b2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.date: 04/05/2019
+ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912440"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277583"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Base de dados do Azure para MySQL proteção avançada contra ameaças
 
 A Proteção Avançada Contra Ameaças para Base de Dados do Azure para MySQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar as suas bases de dados.
 
-Proteção avançada contra ameaças faz parte da oferta de segurança de dados avançada, que é um pacote unificado para os recursos de segurança avançada. Proteção avançada contra ameaças podem ser acessada e gerenciada através da [portal do Azure](https://portal.azure.com) e está atualmente em pré-visualização.
+> [!NOTE]
+> Proteção avançada contra ameaças está em pré-visualização pública.
+
+Proteção avançada contra ameaças faz parte da oferta de segurança de dados avançada, que é um pacote unificado para os recursos de segurança avançada. Proteção avançada contra ameaças podem ser acessada e gerenciada através do [portal do Azure](https://portal.azure.com) ou utilizando [REST API](/rest/api/mysql/serversecurityalertpolicies). A funcionalidade está disponível para os servidores de fins gerais e memória otimizada.
 
 > [!NOTE]
 > A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
-> 
 
-> [!NOTE]
-> Esta funcionalidade está disponível em todas as regiões do Azure em que a base de dados do Azure para MySQL é implementada para os servidores de fins gerais e memória otimizada.
 
 ## <a name="what-is-advanced-threat-protection"></a>O que é a proteção avançada contra ameaças?
 
@@ -32,7 +32,7 @@ Proteção avançada contra ameaças para a base de dados do Azure para MySQL fo
 
 ![Conceito de proteção avançada contra ameaças](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Alertas de proteção contra ameaças avançadas 
+## <a name="advanced-threat-protection-alerts"></a>Alertas do Advanced Threat Protection 
 Proteção avançada contra ameaças para a base de dados do Azure para MySQL Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados e ele pode acionar os seguintes alertas:
 - **Acesso a partir de uma localização invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor MySQL, onde alguém iniciou sessão para a base de dados do Azure para o servidor MySQL a partir de uma localização geográfica invulgar. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
 - **Acesso a partir do Centro de dados do Azure invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor MySQL, onde alguém iniciou sessão para o servidor de um centro de dados do Azure invulgar que foi visto neste servidor durante o período recente. Em alguns casos, o alerta Deteta uma ação legítima (sua nova aplicação no Azure, Power BI, base de dados para o Editor de consultas do MySQL). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).

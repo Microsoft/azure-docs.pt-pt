@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259827"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282870"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -144,7 +144,7 @@ Se o seu fornecedor de serviços ExpressRoute em ambos os sites, pode trabalhar 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Pode ter vários circuitos do ExpressRoute no metro mesmo? Posso ligá-los à mesma rede virtual?
 
-Sim. Pode ter vários circuitos do ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering do ExpressRoute e os circuitos são criados em diferentes localizações de peering, pode ligá-las à mesma rede virtual. Se o circuitos é criado na mesma localização de peering, não pode associá-los à mesma rede virtual. Cada nome de localização no portal do Azure ou na API do PowerShell/CLI representa uma localização de peering. Por exemplo, pode selecionar as localizações de peering "Singapura" e "Singapura2" e ligar circuitos de cada à mesma rede virtual. 
+Sim. Pode ter vários circuitos do ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering do ExpressRoute e os circuitos são criados em diferentes localizações de peering, pode ligá-las à mesma rede virtual. Se o circuitos é criado na mesma localização de peering, ainda pode ligá-las para a mesma rede virtual, mas apenas circuitos do ExpressRoute até 4 em cada localização de peering. Por exemplo, pode selecionar as localizações de peering "Singapura" e "Singapura2" e ligar circuitos de cada à mesma rede virtual. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como posso ligar minhas redes virtuais a um circuito do ExpressRoute
 

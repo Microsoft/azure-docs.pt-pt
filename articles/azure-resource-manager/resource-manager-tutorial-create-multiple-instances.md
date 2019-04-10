@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fc6acb211e30af460106acd1c19b61db52f09269
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311887"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279386"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
 
@@ -126,14 +126,14 @@ Veja a secção [Implementar o modelo](./resource-manager-quickstart-create-temp
 
 Para listar as três contas de armazenamento, omita o parâmetro --name:
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>CLI do Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,7 +155,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a criar várias instâncias de contas de armazenamento. O próximo tutorial, irá aprender a mover um recurso de um grupo de recursos para outro grupo de recursos.
+Neste tutorial, aprendeu a criar várias instâncias de contas de armazenamento.  No próximo tutorial, vai desenvolver um modelo com vários recursos e vários tipos de recurso. Alguns dos recursos têm recursos dependentes.
 
 > [!div class="nextstepaction"]
-> [Mover recursos](./resource-manager-tutorial-move-resources.md)
+> [Criar recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

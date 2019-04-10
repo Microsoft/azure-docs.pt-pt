@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846999"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359005"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Saiba como utilizar a cópia de segurança e restaurar no Azure SQL Data Warehou
 
 R *instantâneo de armazém de dados* cria um ponto de restauro que pode aproveitar para recuperar ou cópia do armazém de dados para um estado anterior.  Uma vez que o SQL Data Warehouse é um sistema distribuído, um instantâneo do armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. Instantâneos capturam as alterações incrementais dos dados armazenados no seu armazém de dados.
 
-R *restauro do armazém de dados* é um novo armazém de dados que é criado a partir de um ponto de restauro de um existente ou o armazém de dados eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque ele cria novamente os dados depois de danos acidentais ou eliminação. Armazém de dados também é um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento.  SQL Data Warehouse utiliza mecanismos de restauro rápido dentro da mesma região que tem sido medida para menos de 20 minutos para qualquer tamanho de dados.
+R *restauro do armazém de dados* é um novo armazém de dados que é criado a partir de um ponto de restauro de um existente ou o armazém de dados eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque ele cria novamente os dados depois de danos acidentais ou eliminação. Armazém de dados também é um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento.  Tarifas de restauro do SQL Data Warehouse podem variar dependendo do tamanho de base de dados e a localização do armazém de dados de origem e de destino. Em média na mesma região, taxas de restauro normalmente demoram cerca de 20 minutos. 
 
 ## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
 
