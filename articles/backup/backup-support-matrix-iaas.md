@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649816"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361470"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -28,7 +28,7 @@ Outras matrizes de suporte:
 
 Eis como pode criar cópias de segurança e restaurar VMs do Azure com o serviço de cópia de segurança do Azure.
 
-**Cenário** | **Cópia de segurança** | **Agente** |**Restaurar**
+**Cenário** | **Cópia de segurança** | **Agente** |**Restauro**
 --- | --- | --- | ---
 Cópia de segurança direta de VMs do Azure  | Fazer backup de toda a VM.  | Nenhum agente é necessária na VM do Azure. O Azure Backup instala e usa uma extensão para o [agente de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que está em execução na VM. | Restaure da seguinte forma:<br/><br/> - **Criar uma VM básica**. Isto é útil se a VM não tem nenhuma configuração especial, como vários endereços IP.<br/><br/> - **Restaurar o disco da VM**. Restaure o disco. Em seguida, anexá-lo a uma VM existente ou criar uma nova VM a partir do disco com o PowerShell.<br/><br/> - **Substituir o disco da VM**. Se existe uma VM e utiliza discos geridos (sem criptografia), pode restaurar um disco e utilizá-lo para substituir um disco existente na VM.<br/><br/> - **Restaurar ficheiros/pastas específicas**. Pode restaurar ficheiros/pastas a partir de uma VM, em vez de partir toda a VM.
 Cópia de segurança direta de VMs do Azure (apenas Windows)  | Cópia de segurança de ficheiros/pastas/volume do específico. | Instalar o [agente dos serviços de recuperação do Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> Pode executar o agente de MARS juntamente com a extensão de cópia de segurança para o agente de VM do Azure criar cópias de segurança a VM ao nível do ficheiro/pasta. | Restaure ficheiros/pastas específicos.
@@ -109,7 +109,7 @@ Restaurar ficheiros | Pode recuperar ficheiros a partir de um ponto de recupera�
 
 ## <a name="support-for-file-level-restore"></a>Suporte para o restauro ao nível do ficheiro
 
-**Restaurar** | **Suportado**
+**Restauro** | **Suportadas**
 --- | ---
 Restaurar ficheiros em sistemas operativos | Pode restaurar ficheiros em qualquer máquina que tenha o mesmo (ou compatível) o SO da VM de cópia de segurança. consulte a [tabela de sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar ficheiros em VMs clássicas | Não suportado.
@@ -123,7 +123,7 @@ Restaurar ficheiros com as definições de rede especiais | Restauro não são s
 
 A tabela seguinte resume o suporte para cópia de segurança durante as tarefas de gestão da VM, como adição ou substituição de discos VM.
 
-**Restaurar** | **Suportado**
+**Restauro** | **Suportadas**
 --- | ---
 Restaure em subscrição/região/zona. | Não suportado.
 Restaurar para uma VM existente | Utilize a opção de disco de substituição.
@@ -157,8 +157,8 @@ Criar cópias de segurança consistência de VMs | não suportado. <br/><br/>O A
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados VM do Azure | Fazer uma cópia de segurança de uma VM com discos de dados ou inferior a 16.
-Tamanho do disco de dados | Disco individual pode ser até 4095 GB.<br/><br/> Se os cofres estiver executando a versão mais recente do Azure Backup (conhecido como restaurar instantânea), tamanhos até 4 TB de disco são suportadas. [Saiba mais](backup-instant-restore-capability.md).
+Discos de dados VM do Azure | Fazer uma cópia de segurança de uma VM com discos de dados ou inferior a 16. <br/><br/> Disco suporta tamanhos até 4 TB.
+Tamanho do disco de dados | Disco individual pode ser até 4095 GB.<br/><br/> Se os cofres estiver executando a versão mais recente do Azure Backup (conhecido como restaurar instantânea), tamanhos até 4 TB de disco são suportadas. [Saiba mais](backup-instant-restore-capability.md).  
 Tipo de armazenamento | Premium HDD, standard SSD, Standard SSD. <br/><br/> Standard SSD é suportada se os cofres estão atualizados para a versão mais recente da cópia de segurança de VM do Azure (também conhecida como restaurar instantânea). [Saiba mais](backup-instant-restore-capability.md).
 Managed disks | Suportado.
 Discos encriptados | Suportado.<br/><br/> VMs do Azure ativadas com encriptação de disco do Azure podem ser uma cópia de segurança (com ou sem a aplicação do Azure AD).<br/><br/> VMs encriptadas não não possível recuperar ao nível do ficheiro/pasta. Tem de recuperar toda a VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidas pelo Azure Backup.
@@ -168,8 +168,11 @@ Adicionar disco à VM protegida | Suportado.
 Redimensionar disco numa VM protegida | Suportado.
 Armazenamento partilhado| Não é recomendável fazer backup de VMs através de CSV ou servidor de ficheiros de escalamento horizontal. Gravadores CSV são provável que falhem.
 
-## <a name="vm-network-support"></a>Suporte de rede VM
+> [!NOTE]
+> O Azure Backup não suporta discos repartidos. Redimensionamento do disco não é recomendado pela cópia de segurança do Azure.
 
+
+## <a name="vm-network-support"></a>Suporte de rede VM
 
 **Componente** | **Suporte**
 --- | ---
@@ -210,7 +213,7 @@ Segurança de dados:
 - No back-end, o Azure Backup utiliza a [encriptação do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md), que protege os dados inativos.
 
 
-**Machine** | **Em trânsito** | **Em repouso**
+**Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
 Máquinas do Windows sem DPM/MABS no local | ![Sim][green] | ![Sim][green]
 VMs do Azure | ![Sim][green] | ![Sim][green]
@@ -226,7 +229,7 @@ Cópia de segurança suporta a compactação do tráfego de cópia de segurança
 - Para VMs do Azure, a extensão da VM lê os dados diretamente a partir da conta de armazenamento do Azure através da rede de armazenamento. Não é necessário comprimir este tráfego.
 - Se estiver a utilizar o DPM ou MABS, pode poupar largura de banda ao comprimir os dados antes de ele cópia de segurança para DPM/MABS.
 
-**Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
+**Máquina** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
 --- | --- | ---
 Máquinas do Windows sem DPM/MABS no local | ND | ![Sim][green]
 VMs do Azure | ND | ND

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757972"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426227"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de estado de funcionamento de agente no Azure Monitor
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics no Azure Monitor ou um grupo de gestão do System Center Operations Manager ligado ao Azure Monitor, que são sem resposta e a submeter dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -51,7 +51,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Grupo de gestão do System Center Operations Manager | Sim | Os eventos de heartbeat são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e, depois, reencaminhados para o Azure Monitor. Não é necessária uma conexão direta de agentes do Operations Manager para o Azure Monitor. Dados de eventos de heartbeat são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-Quando adiciona a solução à sua área de trabalho do Log Analytics, o **estado de funcionamento do agente** mosaico será adicionado ao seu dashboard. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando adiciona a solução à sua área de trabalho do Log Analytics, o **estado de funcionamento do agente** mosaico será adicionado ao seu dashboard. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico de solução de estado de funcionamento de agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Clique no mosaico **Funcionamento de Agente** para abrir o dashboard **Funcionamento de Agente**.  O dashboard inclui as colunas da tabela seguinte. Cada coluna mostra os dez principais eventos por ocorrência que correspondem aos critérios dessa coluna relativamente ao intervalo de tempo especificado. Pode executar uma pesquisa de registos que forneça a lista completa ao selecionar **Ver tudo**, no canto inferior direito de cada coluna, ou ao clicar no cabeçalho das colunas.
 
@@ -76,21 +76,21 @@ A solução cria um tipo de registo na área de trabalho do Log Analytics.
 
 | Propriedade | Descrição |
 | --- | --- |
-| Type | *Heartbeat*|
-| Categoria | O valor é *Agente Direto*, *Agente do SCOM* ou *Servidor de Gestão do SCOM*.|
-| Computador | O nome do computador.|
-| OSType | Sistema operativo Windows ou Linux.|
-| OSMajorVersion | Versão principal do sistema operativo.|
-| OSMinorVersion | Versão inferior do sistema operativo.|
-| Versão | Versão do agente do log Analytics ou o agente do Operations Manager.|
-| SCAgentChannel | O valor é *Direto* e/ou *SCManagementServer*.|
-| IsGatewayInstalled | Se o gateway do Log Analytics estiver instalado, o valor é *true*, caso contrário, o valor é *falso*.|
-| ComputerIP | O endereço IP do computador.|
-| RemoteIPCountry | A localização geográfica onde o computador está implementado.|
-| ManagementGroupName | O nome do grupo de gestão do Operations Manager.|
-| SourceComputerId | ID exclusivo do computador.|
-| RemoteIPLongitude | Longitude da localização geográfica do computador.|
-| RemoteIPLatitude | Latitude da localização geográfica do computador.|
+| `Type` | *Heartbeat*|
+| `Category` | O valor é *Agente Direto*, *Agente do SCOM* ou *Servidor de Gestão do SCOM*.|
+| `Computer` | O nome do computador.|
+| `OSType` | Sistema operativo Windows ou Linux.|
+| `OSMajorVersion` | Versão principal do sistema operativo.|
+| `OSMinorVersion` | Versão inferior do sistema operativo.|
+| `Version` | Versão do agente do log Analytics ou o agente do Operations Manager.|
+| `SCAgentChannel` | O valor é *Direto* e/ou *SCManagementServer*.|
+| `IsGatewayInstalled` | Se o gateway do Log Analytics estiver instalado, o valor é *true*, caso contrário, o valor é *falso*.|
+| `ComputerIP` | O endereço IP do computador.|
+| `RemoteIPCountry` | A localização geográfica onde o computador está implementado.|
+| `ManagementGroupName` | O nome do grupo de gestão do Operations Manager.|
+| `SourceComputerId` | ID exclusivo do computador.|
+| `RemoteIPLongitude` | Longitude da localização geográfica do computador.|
+| `RemoteIPLatitude` | Latitude da localização geográfica do computador.|
 
 Cada agente que reporta a um servidor de gestão do Operations Manager envia dois heartbeats e valor da propriedade SCAgentChannel vai incluir quer **direto** e **SCManagementServer** consoante o que origens de dados e soluções de monitorização que ativou na sua subscrição. Se se lembra, dados das soluções são enviados diretamente a partir de um servidor de gestão do Operations Manager para o Azure Monitor, ou devido ao volume de dados recolhidos no agente, são enviados diretamente do agente para o Azure Monitor. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
 

@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276529"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426448"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
 
@@ -85,7 +85,7 @@ Tenha em atenção que a pilha de rede Virtual não é, inerentemente ineficient
 
 #### <a name="azure-and-fragmentation"></a>Azure e a fragmentação
 
-Pilha de rede virtual está configurada para soltar "fragmentos fora de ordem," pacotes fragmentados ou seja, não chegam a sua ordem fragmentado original. Esses pacotes são largados principalmente por causa de uma vulnerabilidade de segurança de rede anunciada em Novembro de 2018 chamado FragmentStack.
+Pilha de rede virtual está configurada para soltar "fragmentos fora de ordem," pacotes fragmentados ou seja, não chegam a sua ordem fragmentado original. Esses pacotes são largados principalmente por causa de uma vulnerabilidade de segurança de rede anunciada em Novembro de 2018 chamado FragmentSmack.
 
 FragmentSmack é um defeito da forma que o kernel do Linux manipulado remontagem de fragmentados pacotes IPv4 e IPv6. Um atacante remoto pode utilizar esta falha para operações de remontagem fragmento Caro de Acionador, que poderia levar a CPU maior e uma negação de serviço no sistema de destino.
 

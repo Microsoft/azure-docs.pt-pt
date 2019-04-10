@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 20d6ccca448d53da54835aad1d6dd85702c7390f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446927"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357104"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o Visual Studio Code para ligar e consultar uma base de dados do SQL do Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "58446927"
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de uma VM](sql-database-managed-instance-configure-vm.md)|
   |||[Conectividade no local do](sql-database-managed-instance-configure-p2s.md)
-  |Carregar dados|A Adventure Works carregados por início rápido|[Restaurar a Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Carregar dados|A Adventure Works carregados por início rápido|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -46,11 +46,11 @@ ms.locfileid: "58446927"
 
 Certifique-se de que instalou a versão mais recente [Visual Studio Code](https://code.visualstudio.com/Download) e carregar o [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações sobre como instalar a extensão do mssql, consulte [instalar o VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) e [mssql para Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## <a name="configure-visual-studio-code"></a>Configurar o Visual Studio Code 
+## <a name="configure-visual-studio-code"></a>Configurar o Visual Studio Code
 
-### <a name="mac-os"></a>**Mac OS**
+### **<a name="mac-os"></a>Mac OS**
 
-Para macOS, terá de instalar o OpenSSL, que é um pré-requisito para .NET Core que a extensão do mssql utiliza. Abra o terminal e introduza os comandos seguintes para instalar **brew**, **OpenSSL**. 
+Para macOS, terá de instalar o OpenSSL, que é um pré-requisito para .NET Core que a extensão do mssql utiliza. Abra o terminal e introduza os comandos seguintes para instalar **brew**, **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
 
 Nenhuma configuração especial necessária.
 
-### <a name="windows"></a>**Windows**
+### **<a name="windows"></a>Windows**
 
 Nenhuma configuração especial necessária.
 
@@ -83,13 +83,13 @@ Obtenha as informações de ligação que tem de se ligar à base de dados SQL d
 
 No Visual Studio Code, defina o modo de idioma para **SQL** para ativar comandos mssql e IntelliSense T-SQL.
 
-1. Abra uma nova janela do Visual Studio Code. 
+1. Abra uma nova janela do Visual Studio Code.
 
-2. Prima **Ctrl**+**N**. É aberto um novo ficheiro de texto sem formatação. 
+2. Prima **Ctrl**+**N**. É aberto um novo ficheiro de texto sem formatação.
 
 3. Selecione **texto sem formatação** no canto inferior direito da barra de estado.
 
-4. Na **selecionar modo de idioma** menu pendente que se abre, selecione **SQL**. 
+4. Na **selecionar modo de idioma** menu pendente que se abre, selecione **SQL**.
 
 ## <a name="connect-to-your-database"></a>Ligar à base de dados
 
@@ -97,7 +97,6 @@ Utilize o Visual Studio Code para estabelecer uma ligação ao servidor da Base 
 
 > [!IMPORTANT]
 > Antes de continuar, certifique-se de que tem o seu servidor e informações prontas início de sessão. Assim que começar a introduzir as informações de perfil de ligação, se alterar o foco do Visual Studio Code, terá de reiniciar a criação do perfil.
->
 
 1. No Visual Studio Code, prima **Ctrl + Shift + P** (ou **F1**) para abrir a paleta de comandos.
 
@@ -105,17 +104,17 @@ Utilize o Visual Studio Code para estabelecer uma ligação ao servidor da Base 
 
 3. Selecione **criar perfil de ligação**.
 
-4. Siga as instruções para especificar propriedades de ligação do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar. 
+4. Siga as instruções para especificar propriedades de ligação do novo perfil. Depois de especificar cada valor, escolha **Enter** para continuar.
 
    | Propriedade       | Valor sugerido | Descrição |
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome do servidor** | O nome de servidor completamente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
    | **Nome da base de dados** | mySampleDatabase | A base de dados para ligar a. |
-   | **Autenticação** | Início de sessão do SQL| Este tutorial utiliza a autenticação do SQL. |
+   | **Authentication** | Início de sessão do SQL| Este tutorial utiliza a autenticação do SQL. |
    | **Nome de utilizador** | Nome de utilizador | O nome de utilizador da conta de administrador do servidor utilizado para criar o servidor. |
-   | **Palavra-passe (Início de Sessão do SQL)** | Palavra-passe | A palavra-passe da conta de administrador do servidor utilizada para criar o servidor. |
-   | **Guardar Palavra-passe?** | Sim ou Não | Selecione **Sim** se não pretender que introduzir a palavra-passe de cada vez. |
-   | **Introduza um nome para este perfil** | Nome de um perfil, como **mySampleProfile** | Um perfil guardado acelera a sua ligação nos inícios de sessão subsequentes. | 
+   | **Palavra-passe (início de sessão do SQL)** | Palavra-passe | A palavra-passe da conta de administrador do servidor utilizada para criar o servidor. |
+   | **Guardar palavra-passe?** | Sim ou Não | Selecione **Sim** se não pretender que introduzir a palavra-passe de cada vez. |
+   | **Introduza um nome para este perfil** | Nome de um perfil, como **mySampleProfile** | Um perfil guardado acelera a sua ligação nos inícios de sessão subsequentes. |
 
    Se tiver êxito, é apresentada uma notificação a indicar o seu perfil é criado e ligado.
 
@@ -144,22 +143,22 @@ Execute o seguinte [inserir](https://msdn.microsoft.com/library/ms174335.aspx) i
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-           , [StandardCost]
-           , [ListPrice]
-           , [SellStartDate]
-           )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-           ,100
-           ,100
-           ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. Prima **Ctrl**+**Shift**+**i** para inserir uma nova linha no `Product` tabela.

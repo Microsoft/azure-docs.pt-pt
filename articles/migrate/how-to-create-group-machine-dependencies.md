@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: af47678b19209936aed86c132a8a3f400c3a7e8f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280915"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360348"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
@@ -128,14 +128,14 @@ Para executar as consultas de Kusto:
 1. Depois de instalar os agentes, vá para o portal e clique em **descrição geral**.
 2. No **descrição geral**, aceda à **Essentials** secção do projeto e clique no nome de área de trabalho fornecido junto a **área de trabalho OMS**.
 3. Na página de área de trabalho do Log Analytics, clique em **gerais** > **registos**.
-4. Escreva a consulta para recolher dados de dependência com os registos do Azure Monitor. Consultas de exemplo para recolher dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Escreva a consulta para recolher dados de dependência com os registos do Azure Monitor. Localize consultas de exemplo na secção seguinte.
 5. Execute a consulta ao clicar em execução. 
 
 [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Kusto. 
 
 ### <a name="sample-azure-monitor-logs-queries"></a>Consultas de registos de exemplo do Azure Monitor
 
-Seguem-se exemplos de consultas que pode utilizar para extrair dados de dependência. Tenha em atenção que as consultas podem ser modificadas para extrair os pontos de dados preferencial. Está disponível uma lista exaustiva dos campos nos registos de dados de dependência [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Seguem-se exemplos de consultas que pode utilizar para extrair dados de dependência. Pode modificar as consultas para extrair os pontos de dados preferencial. Está disponível uma lista exaustiva dos campos nos registos de dados de dependência [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Encontre mais de exemplos de consultas [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 #### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Resumir as conexões de entrada num conjunto de máquinas
 

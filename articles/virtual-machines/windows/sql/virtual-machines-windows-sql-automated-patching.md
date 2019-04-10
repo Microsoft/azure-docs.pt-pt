@@ -16,17 +16,17 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848259"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425990"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de Patches Automatizada para o SQL Server nas Máquinas Virtuais do Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [Clássico](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
+> * [Clássica](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 A aplicação de patches automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure com o SQL Server. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. No SQL Server, esta restrição assegura que as atualizações do sistema e eventuais reinícios associados ocorrem na melhor altura para a base de dados. 
 
@@ -96,11 +96,6 @@ Na **configuração do SQL Server** painel, clique nas **editar** botão no auto
 Quando terminar, clique nas **OK** botão na parte inferior dos **configuração do SQL Server** painel para guardar as alterações.
 
 Se pretende ativar a aplicação de patches automatizada pela primeira vez, o Azure configura o agente IaaS do SQL Server em segundo plano. Durante este período, o portal do Azure poderá não mostrar que a aplicação de patches automatizada está configurada. Aguarde alguns minutos até que o agente ser instalado, configurado. Depois que o portal do Azure reflete as novas definições.
-
-> [!NOTE]
-> Também pode configurar a aplicação de patches automatizada através de um modelo. Para obter mais informações, consulte [modelo de início rápido do Azure para a aplicação de patches automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
-> 
-> 
 
 ## <a name="configuration-with-powershell"></a>Configuração com o PowerShell
 Depois de aprovisionar a VM do SQL, utilize o PowerShell para configurar a aplicação de patches automatizada.

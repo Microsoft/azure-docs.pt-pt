@@ -5,17 +5,17 @@ title: O Azure Monitor Application insights documentação - tutoriais, referên
 description: O Azure Monitor Application Insights fornece a monitorização do desempenho de aplicações de nível de código mais aprofundada.
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4bf1ccd3da83900208ab8f15b54ea110b1dbb2f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244246"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426278"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -82,18 +82,18 @@ ms.locfileid: "56244246"
                                                         <h3>Inícios rápidos</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
-                                                            <a href="./learn/dotnetcore-quick-start.md">Núcleo do ASP.NET</a><br>
+                                                            <a href="./learn/dotnetcore-quick-start.md">Núcleo de ASP.NET</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
-                                                            <a href="./learn/mobile-center-quickstart.md">móvel</a><br>
+                                                            <a href="./learn/mobile-center-quickstart.md">Telemóvel</a><br>
                                                             <a href="./app/website-monitoring.md">Monitorização do navegador de cliente</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Tutoriais</h3>
                                                         <p>
-                                                            <a href="./learn/tutorial-runtime-exceptions.md">Encontrar e diagnosticar exceções de runtime</a><br>
-                                                            <a href="./learn/tutorial-performance.md">Encontrar e diagnosticar problemas de desempenho</a><br>
-                                                            <a href="./learn/tutorial-alert.md">Monitorizar e alertar relativamente ao estado de funcionamento das aplicações</a><br>
+                                                            <a href="./learn/tutorial-runtime-exceptions.md">Localizar e diagnosticar exceções de tempo de execução</a><br>
+                                                            <a href="./learn/tutorial-performance.md">Localizar e diagnosticar problemas de desempenho</a><br>
+                                                            <a href="./learn/tutorial-alert.md">Monitorizar e alertar relativamente ao estado de funcionamento da aplicação</a><br>
                                                             <a href="./learn/tutorial-users.md">Compreender o comportamento do utilizador</a><br>
                                                             <a href="./learn/tutorial-app-dashboards.md">Criar dashboards personalizados</a>
                                                             </p>
@@ -103,25 +103,25 @@ ms.locfileid: "56244246"
                                                             <a href="./app/distributed-tracing.md">O que é distribuído rastreio?</a><br>
                                                             <a href="./app/opencensus-python.md">OpenCensus para Python</a><br>
                                                             <a href="./app/opencensus-go.md">OpenCensus para Go</a><br>
-                                                            <a href="./app/opencensus-local-forwarder.md">Reencaminhador de local</a>
+                                                            <a href="./app/opencensus-local-forwarder.md">Reencaminhador local</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>Deteção inteligente automática</h3>
                                                         <p>
-                                                            <a href="./app/proactive-failure-diagnostics.md">Anomalias de falha</a><br>
+                                                            <a href="./app/proactive-failure-diagnostics.md">Anomalias de falhas</a><br>
                                                             <a href="./app/proactive-performance-diagnostics.md">Anomalias de desempenho</a><br>
                                                             <a href="./app/proactive-trace-severity.md">Degradação de rastreio</a><br>
                                                             <a href="./app/proactive-exception-volume.md">Anormais aumentos na exceções</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">Vazamentos de memória</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">Baixa utilização da CPU</a><br>
                                                             <a href="./app/proactive-application-security-detection-pack.md">Problemas de segurança</a><br>
-                                                            <a href="./app/proactive-cloud-services.md">Azure Cloud Services</a><br>
+                                                            <a href="./app/proactive-cloud-services.md">Cloud Services do Azure</a><br>
                                                             <a href="./app/proactive-arm-config.md">Gerir deteção inteligente com modelos</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Referência</h3>
                                                         <p>
-                                                            <a href="./app/auto-collect-dependencies.md">Coleção automática de dependência</a><br>
+                                                            <a href="./app/auto-collect-dependencies.md">Coleção automática da dependência</a><br>
                                                             <a href="./app/correlation.md">Correlação de telemetria</a><br>
                                                             <a href="./app/nuget.md">Pacotes NuGet</a><br>
                                                             <a href="./app/azure-functions-supported-features.md">Funções do Azure</a>
@@ -153,7 +153,7 @@ ms.locfileid: "56244246"
                                                         <h3>Aplicações de .NET</h3>
                                                         <p>
                                                             <a href="./app/asp-net.md">Configuração de monitorização profunda</a><br>
-                                                            <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a> (Monitor de Estado)<br>
+                                                            <a href="./app/monitor-performance-live-website-now.md">Monitor de Estado</a><br>
                                                             <a href="./app/azure-web-apps.md">Serviço de aplicações, monitorização</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Métricas e eventos personalizados</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Abra o repositório do GitHub de SDK de .NET de origem</a>
@@ -199,14 +199,14 @@ ms.locfileid: "56244246"
                                                             <a href="./app/usage-cohorts.md">Coortes</a><br>
                                                             <a href="./app/usage-impact.md">Impacto</a><br>
                                                             <a href="./app/usage-retention.md">Retenção</a><br>
-                                                            <a href="./app/usage-flows.md">Fluxos de utilizador</a>
+                                                            <a href="./app/usage-flows.md">Fluxos do Utilizador</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>Monitorização em tempo real<br> visualização, &amp; analysis</h3>
                                                         <p>
                                                             <a href="./app/overview-dashboard.md">Dashboard de descrição geral &amp; dashboard de aplicações</a><br>
                                                             <a href="./app/monitor-web-app-availability.md">Monitorização de disponibilidade global</a><br>
-                                                            <a href="./app/live-stream.md">Fluxo de métricas em direto</a><br>
+                                                            <a href="./app/live-stream.md">Live Metrics Stream</a><br>
                                                             <a href="./app/app-map.md">Mapeamento de aplicação distribuída</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">A monitorização ao nível do grupo de recursos</a><br>
                                                             <a href="./app/usage-workbooks.md">Relatórios interativos</a><br>
@@ -226,12 +226,12 @@ ms.locfileid: "56244246"
                                                         <h3>Modelo de dados</h3>
                                                         <p>
                                                             <a href="./app/data-model.md">Descrição geral</a><br>
-                                                            <a href="./app/data-model-request-telemetry.md">Pedido</a><br>
+                                                            <a href="./app/data-model-request-telemetry.md">Pedir</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Dependência</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Exceção</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">Rastreio</a><br>
                                                             <a href="./app/data-model-event-telemetry.md">Evento</a><br>
-                                                            <a href="./app/data-model-metric-telemetry.md">Métricas</a><br>
+                                                            <a href="./app/data-model-metric-telemetry.md">Métrica</a><br>
                                                             <a href="./app/data-model-context.md">Contexto</a>
                                                             </p>
                                                         </p>

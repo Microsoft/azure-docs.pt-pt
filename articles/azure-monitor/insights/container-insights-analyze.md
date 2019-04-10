@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234005"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426397"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores 
 Com o Azure Monitor para contentores, pode utilizar os gráficos de desempenho e estado de funcionamento para monitorizar a carga de trabalho de seus clusters do Azure Kubernetes Service (AKS) de duas perspetivas, diretamente a partir de um cluster do AKS ou todos os clusters do AKS numa subscrição do Azure Monitorize. Visualização do Azure Container Instances (ACI) também é possível ao monitorizar um cluster do AKS específico.
@@ -71,7 +71,7 @@ A tabela seguinte fornece uma análise detalhada do cálculo controlando os Esta
 | |Aviso |N/A |
 | |Crítica |< 100% |
 | |Desconhecidos |Se não comunicadas nos últimos 30 minutos |
-|**Node** | | |
+|**Nó** | | |
 | |Bom estado de funcionamento |> 85% |
 | |Aviso |60 - 84% |
 | |Crítica |< 60% |
@@ -99,6 +99,33 @@ Gráfico de desempenho apresenta quatro métricas de desempenho:
 - **Contagem de pod de atividade**: Uma contagem de pod e o estado a partir do Kubernetes. Estados de pods representados são *todos os*, *pendente*, *em execução*, e *desconhecido* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 
 Pode usar as teclas de seta esquerda/direita para percorrer cada ponto de dados no gráfico e a seta para cima/para baixo para as chaves para percorrer as linhas de percentil.
+
+Monitor do Azure para contentores também suporta o Azure Monitor [Explorador de métricas](../platform/metrics-getting-started.md), onde pode criar seus próprios gráficos de plotagem, correlacionar e investigar as tendências e afixar nos dashboards. No Explorador de métricas, também pode utilizar os critérios que definiu para visualizar as métricas, como a base de um [métrica com base em regra de alerta](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>Ver métricas de contentor no Explorador de métricas
+No Explorador de métricas, pode ver o nó agregado e pod métricas de utilização do Azure Monitor para contentores. A tabela seguinte resume os detalhes para ajudar a compreender como utilizar os gráficos de métricas para visualizar as métricas de contentor.
+
+|Espaço de nomes | Métrica |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+Pode aplicar [divisão](../platform/metrics-charts.md#apply-splitting-to-a-chart) de uma métrica para vê-la por dimensão e visualizar como diferentes segmentos do mesmo comparar entre si. Para um nó, pode segmentar o gráfico pela *anfitrião* dimensão, e a partir de um pod pode segmentá-lo pelas seguintes dimensões:
+
+* Controlador
+* Espaço de nomes do Kubernetes
+* Nó
+* Fase
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analisar os nós, controladores e estado de funcionamento do contentor
 
 Quando muda para **nós**, **controladores**, e **contentores** separador apresentada automaticamente no lado direito da página é o painel de propriedades.  Mostra as propriedades do item selecionado, incluindo etiquetas definir para organizar os objetos de Kubernetes. Clique nas **>>** ligação no painel para view\hide o painel.  
 
@@ -133,7 +160,7 @@ Por predefinição, os dados de desempenho se baseia em seis últimas horas, mas
 
 Quando passa o mouse sobre o gráfico de barras sob o **tendência** coluna, cada barra mostra a utilização da CPU ou memória, dependendo de qual a métrica é selecionada, dentro de um período de exemplo de 15 minutos. Depois de selecionar o gráfico de tendência por meio de um teclado, pode utilizar as teclas Alt + PageUp ou Alt + PageDown para percorrer cada barra individualmente e obter os detalhes do mesmo, tal como faria no mouseover.
 
-![Tendência de barra exemplo de passagem de Mouse do gráfico](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Coloque o cursor do gráfico de barras de tendência ao longo de exemplo](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 No exemplo seguinte, tenha em atenção para o primeiro na lista - nó *aks-nodepool1 -*, o valor de **contentores** é 9, que é um rollup do número total de contentores implementados.
 
@@ -176,7 +203,7 @@ As informações que são apresentadas ao ver controladores são descritas na ta
 |--------|-------------|
 | Nome | O nome do controlador.|
 | Estado | O estado de rollup dos contentores se foi concluída em execução com o estado, tal como *OK*, *Terminated*, *falha* *parado*, ou *Colocada em pausa*. Se o contentor está em execução, mas o estado foi um não está corretamente apresentados ou não foi capturado pelo agente e não tenha respondido a mais de 30 minutos, o estado é *desconhecido*. São fornecidos detalhes adicionais do ícone de estado na tabela abaixo.|
-| Média&nbsp;%, Min&nbsp;%, Máx.&nbsp;%, percentis 50 º&nbsp;%, 90&nbsp;% | Média de rollup da percentagem média de cada entidade para a métrica selecionada e percentil. |
+| Média&nbsp;%, Min&nbsp;%, Máx.&nbsp;%, percentis 50 º&nbsp;%, 90&nbsp;% | Agregar média da percentagem média de cada entidade para a métrica selecionada e percentil. |
 | AVG, Min, Max, 50th, 90th  | Agregação do média da CPU millicore ou memória desempenho do contentor para o percentil selecionado. O valor médio é medido desde o limite de CPU/memória definido para um pod. |
 | Contentores | Número total de contentores para o controlador ou pod. |
 | Reinicia | Agregação da contagem de reinício de contentores. |

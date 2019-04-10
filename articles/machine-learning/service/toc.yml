@@ -122,6 +122,11 @@ items:
     - name: Otimizar hiperparâmetros
       displayName: parameter
       href: how-to-tune-hyperparameters.md
+  - name: Controle e monitorize as experimentações
+    items:
+    - name: Comece, monitorize ou cancele execuções
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
     - name: Métricas de registo para execuções de preparações
       href: how-to-track-experiments.md
   - name: Automatizar a aprendizagem automática
@@ -206,9 +211,9 @@ items:
   - name: Comparar os nossos produtos de ML
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: cbe10e172a66e7bf43baa3a96900b244b8eb733c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 597b2bb6fbd9c795245cb7cb9a6820d585c3fc47
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918744"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426511"

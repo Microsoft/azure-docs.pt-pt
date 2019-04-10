@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492815"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426618"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -38,9 +38,9 @@ Ao tentar criar cópias de segurança, selecionar uma Conta de Armazenamento par
 Sim. No entanto, terá de [Parar a Proteção](backup-azure-files.md#stop-protecting-an-azure-file-share) no Cofre ligado, [Anular o registo](troubleshoot-azure-files.md#configuring-backup) dessa Conta de Armazenamento e, em seguida, protegê-la noutro Cofre.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Em que áreas geográficas posso criar cópias de segurança de partilhas de Ficheiros do Azure <br/>
-A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmente em Pré-visualização e está disponível apenas nas seguintes áreas geográficas: 
-- Leste da Austrália (AE) 
-- Sudeste da Austrália (ASE) 
+A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmente em Pré-visualização e está disponível apenas nas seguintes áreas geográficas:
+- Leste da Austrália (AE)
+- Sudeste da Austrália (ASE)
 - Sul do Brasil (BRS)
 - Canadá Central (CNC)
 - Leste do Canadá (CE)
@@ -50,17 +50,17 @@ A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmen
 - EUA Leste 2 (EUS2)
 - Leste do Japão (JPE)
 - Oeste do Japão (JPW)
-- Índia Central (INC) 
+- Índia Central (INC)
 - Índia do Sul (INS)
 - KR do Sul Central (KRC)
 - Sul KR do Sul (KRS)
-- EUA Centro-Norte (NCUS) 
-- Europa do Norte (NE) 
-- EUA Centro-Sul (SCUS) 
+- EUA Centro-Norte (NCUS)
+- Europa do Norte (NE)
+- EUA Centro-Sul (SCUS)
 - Sudeste Asiático (SEA)
-- Sul do Reino Unido (UKS) 
-- Oeste do Reino Unido (UKW) 
-- Europa Ocidental (WE) 
+- Sul do Reino Unido (UKS)
+- Oeste do Reino Unido (UKW)
+- Europa Ocidental (WE)
 - EUA Oeste (WUS)
 - EUA Centro-Oeste (WCUS)
 - EUA Oeste 2 (WUS 2)
@@ -82,7 +82,7 @@ Não. As partilhas de ficheiros numa Conta de Armazenamento só podem ser proteg
 Pode ter até 200 Instantâneos para uma partilha de ficheiros em qualquer altura. O limite inclui instantâneos tirados pelo Azure Backup, conforme definido pela sua política. Se as cópias de segurança começarem a falhar depois de atingirem o limite, elimine os pontos de restauro A Pedido para obter futuras cópias de segurança com êxito.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Depois de ativar as Redes Virtuais na minha Conta de Armazenamento, a Cópia de Segurança das partilhas de ficheiros na conta começou a falhar. Porquê?
-A cópia de segurança de partilhas de ficheiros do Azure não suporta Contas de Armazenamento que tenham Redes Virtuais ativadas. Desative as Redes Virtuais nas Contas de Armazenamento para permitir cópias de segurança bem-sucedidas. 
+A cópia de segurança de partilhas de ficheiros do Azure não suporta Contas de Armazenamento que tenham Redes Virtuais ativadas. Desative as Redes Virtuais nas Contas de Armazenamento para permitir cópias de segurança bem-sucedidas.
 
 ## <a name="restore"></a>Restauro
 
@@ -91,6 +91,10 @@ Quando uma partilha de ficheiros do Azure é eliminada, é-lhe apresentada a lis
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>Posso restaurar a partir de cópias de segurança se tiver parado a proteção numa partilha de ficheiros do Azure? <br/>
 Sim. Se tiver escolhido **Reter Dados de Cópia de Segurança** quando parou a proteção, poderá restaurar a partir de todos os pontos de restauro existentes.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se cancelar uma tarefa de restauro em curso?
+Se uma tarefa de restauro em curso é cancelada, o pára de processo de restauro e todos os ficheiros restaurados antes do cancelamento, permanecem no destino configurado (localização original ou alternativa) sem qualquer reversões. 
+
 
 ## <a name="manage-backup"></a>Gerir a Cópia de Segurança
 
@@ -108,6 +112,6 @@ Quando é aplicada uma política nova a uma ou mais partilhas de ficheiros, a ag
 
 ## <a name="see-also"></a>Consulte também
 Esta informação é apenas sobre a cópia de segurança de Ficheiros do Azure. Para obter mais informações sobre outras áreas do Azure Backup, veja algumas destas outras FAQs sobre Cópias de Segurança:
--  [FAQ sobre o cofre dos Serviços de Recuperação](backup-azure-backup-faq.md)
--  [FAQ sobre as cópias de segurança de VMs do Azure](backup-azure-vm-backup-faq.md)
--  [FAQ sobre o agente do Azure Backup](backup-azure-file-folder-backup-faq.md)
+-  [FAQ do cofre dos serviços de recuperação](backup-azure-backup-faq.md)
+-  [FAQ de cópia de segurança de VM do Azure](backup-azure-vm-backup-faq.md)
+-  [Agente de cópia de segurança do Azure FAQ](backup-azure-file-folder-backup-faq.md)

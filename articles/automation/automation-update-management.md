@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862952"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426494"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -565,7 +565,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>Utilizando os grupos dinâmicos (pré-visualização)
+## <a name="using-dynamic-groups"></a>Utilizando os grupos dinâmicos
 
 Gestão de atualizações fornece a capacidade para visar um grupo dinâmico de VMs do Azure para implementações de atualizações. Estes grupos são definidos por uma consulta, quando uma implementação de atualização é iniciada, os membros desse grupo são avaliados. Grupos dinâmicos não funcionam com as VMs clássicas. Ao definir a sua consulta, os seguintes itens podem ser usados juntos para preencher o grupo dinâmico
 

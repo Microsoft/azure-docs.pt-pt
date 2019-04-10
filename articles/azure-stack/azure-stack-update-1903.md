@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
-ms.openlocfilehash: 79f61f99050748c93ca4bd17d1849f4cbba7a295
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360567"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471482"
 ---
 # <a name="azure-stack-1903-update"></a>Atualização de 1903 de pilha do Azure
 
@@ -97,7 +97,8 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 
 - Quando executa [AzureStack teste](azure-stack-diagnostic-test.md), será apresentada uma mensagem de aviso do controlador de gestão de placas base (BMC). Pode ignorar este aviso.
 
-- <!-- 2468613 - IS --> Durante a instalação desta atualização, poderá ver alertas com o título **erro – o modelo para typu FaultType UserAccounts.New está em falta.** Pode ignorar com segurança estes alertas. Os alertas fechar automaticamente depois de concluída a instalação desta atualização.
+<!-- 2468613 - IS -->
+- Durante a instalação desta atualização, poderá ver alertas com o título **erro – modelo para UserAccounts typu FaultType. Novo está em falta.** Pode ignorar com segurança estes alertas. Os alertas fechar automaticamente depois de concluída a instalação desta atualização.
 
 ## <a name="post-update-steps"></a>Passos de pós-atualização
 
@@ -124,10 +125,15 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos inteiro e, em seguida, elimine as subscrições de utilizador.
 
 <!-- 1663805 - IS ASDK --> 
-- Não é possível ver as permissões à sua subscrição a utilizar os portais do Azure Stack. Como solução, utilize [PowerShell para verificar as permissões](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- Não é possível ver as permissões à sua subscrição a utilizar os portais do Azure Stack. Como solução, utilize [PowerShell para verificar as permissões](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- No portal de utilizador, ao navegar para um blob numa conta de armazenamento e tente abri **política de acesso** na árvore de navegação, a janela subsequente não consegue carregar.
+- No portal de utilizador, ao navegar para um blob numa conta de armazenamento e tente abri **política de acesso** na árvore de navegação, a janela subsequente não consegue carregar. Para contornar este problema, os seguintes cmdlets PowerShell permitem criar, obter, definir e eliminar políticas de acesso, respectivamente:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - No portal de utilizador, ao tentar carregar um blob com o **OAuth(preview)** opção, a tarefa falhar com uma mensagem de erro. Para contornar este problema, carregar o blob com o **SAS** opção.
@@ -157,17 +163,16 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 - Uma VM do Ubuntu 18.04 criado com autorização de SSH ativada não permitirá que use as chaves SSH para iniciar sessão. Como solução, utilize o acesso VM para a extensão do Linux para implementar as chaves SSH após o aprovisionamento ou utilizar a autenticação baseada em palavra-passe.
 
-- O Azure Stack agora oferece suporte a agentes do Windows Azure Linux superiores versão 2.2.20. Esse suporte foi uma parte da correção 1901 e 1902 e permite que os clientes manter as imagens do linux consistentes entre o Azure e o Azure Stack.
-
+- O Azure Stack agora oferece suporte a agentes do Windows Azure Linux superiores versão 2.2.20. Esse suporte foi uma parte das correções 1901 e 1902 e permite que os clientes manter as imagens do Linux consistentes entre o Azure e o Azure Stack.
 
 - Se não tiver um anfitrião de ciclo de vida do Hardware (HLH): antes de compilação 1902, era necessário definir diretiva de grupo **computador configuração Windows Settings\Local \ opções** para **Enviar LM e NTLM – utilizar a segurança de sessão de NTLMv2 se negociado**. Desde compilação 1902, tem de deixar-o como **não definido** ou defina-o como **apenas a resposta de enviar NTLMv2** (que é o valor predefinido). Caso contrário, não será possível estabelecer uma sessão remota do PowerShell e verá uma **o acesso é negado** erro:
 
-   ```shell
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed

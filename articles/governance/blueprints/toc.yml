@@ -79,6 +79,8 @@ items:
   - name: Atualizar atribuições existentes a partir do portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Gerir Esquemas como Código (comunidade)
+    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
   expanded: true
 - name: Resolução de problemas
   displayName: errors, violation
@@ -98,6 +100,8 @@ items:
   expanded: true
 - name: Recursos
   items:
+  - name: GitHub - Exemplos do Azure Blueprints
+    href: https://github.com/Azure/azure-blueprints
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/
   - name: Calculadora de preços
@@ -108,9 +112,9 @@ items:
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Descrição Geral do Azure Blueprints
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: 2055a6cf630d8894deb04b730a65f2e143d686a8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f55ec759cac8ace468bc4216a30aef765f9d213a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498776"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358580"

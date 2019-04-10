@@ -4,26 +4,26 @@ titlesuffix: Azure Virtual Network
 description: Cenários de resolução de nome para o IaaS do Azure, soluções híbridas, entre diferentes serviços cloud, do Active Directory e utilizar o seu próprio servidor DNS.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418742"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426431"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
 
 Dependendo de como utilizar o Azure para alojar o IaaS, PaaS e soluções híbridas, poderá ter de permitir que as máquinas virtuais (VMs) e outros recursos implementados numa rede virtual para comunicar entre si. Embora pode permitir a comunicação utilizando endereços IP, é muito mais simples de utilizar nomes que podem ser memorizados facilmente e não são alterados. 
 
-Quando precisam de recursos implementados em redes virtuais resolver os nomes de domínio para endereços IP internos, podem utilizar um dos dois métodos:
+Quando os recursos implementados nas redes virtuais têm de resolver os nomes de domínio para endereços IP internos, só podem utilizar um método de dois:
 
 * [Resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution)
 * [Resolução que utiliza o seu próprio servidor DNS de nomes](#name-resolution-that-uses-your-own-dns-server) (que pode reencaminhar consultas para os servidores DNS fornecidos pelo Azure)
@@ -34,7 +34,7 @@ O tipo de resolução de nomes que utiliza depende de como os seus recursos prec
 > Dependendo do seu cenário, pode querer utilizar a funcionalidade zonas privadas do DNS do Azure, que está atualmente em pré-visualização pública. Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](../dns/private-dns-overview.md).
 >
 
-| **Cenário** | **Solução** | **Suffix** |
+| **Cenário** | **Solução** | **Sufixo** |
 | --- | --- | --- |
 | Resolução de nomes entre as VMs localizadas na mesma rede virtual ou serviços Cloud do Azure instâncias de função no mesmo serviço cloud. | [As zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou [resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution) |Nome de anfitrião ou FQDN |
 | Resolução de nomes entre VMs nas redes virtuais em diferentes ou instâncias de função nos serviços cloud diferentes. |[As zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou, servidores DNS geridos pelo cliente reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy do DNS). Ver [resolução de nomes através de seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918574"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426261"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente do Azure Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do agente do Azure Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -74,8 +74,8 @@ Utilize a lista seguinte para alterar a localização da cache.
 
 1. Pare o motor de Cópia de Segurança executando o seguinte comando numa linha de comandos elevada:
 
-    ```PS C:\> Net stop obengine``` 
-  
+    ```PS C:\> Net stop obengine```
+
 2. Não mova os ficheiros. Em vez disso, copie a pasta do espaço na cache para outra unidade com espaço suficiente. O espaço da cache original pode ser removido após confirmar que as cópias de segurança estão a trabalhar com o novo espaço da cache.
 3. Atualize as seguintes entradas de registo com o caminho para a nova pasta de espaço da cache.<br/>
 
@@ -111,7 +111,14 @@ A pasta de cache e o VHD de metadados não têm os atributos necessários para o
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Existe alguma forma de ajustar a quantidade de largura de banda utilizada pelo serviço de Cópia de Segurança?<br/>
   Sim, utilize a opção **Alterar Propriedades** no Agente do Backup para ajustar a largura de banda. Pode ajustar a quantidade de largura de banda e as horas em que a utiliza. Para obter instruções passo a passo, veja **[Ativar a limitação de rede](backup-configure-vault.md#enable-network-throttling)**.
 
+## <a name="restore"></a>Restauro
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontece se cancelar uma tarefa de restauro em curso?
+Se uma tarefa de restauro em curso é cancelada, o pára de processo de restauro e todos os ficheiros restaurados antes do cancelamento, permanecem no destino configurado (localização original ou alternativa) sem qualquer reversões.
+
+
 ## <a name="manage-backups"></a>Gerir cópias de segurança
+
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>O que acontece se mudar o nome de um servidor do Windows que está a efetuar a cópia de segurança dos dados para o Azure?<br/>
 Quando mudar o nome de um servidor, todas as cópias de segurança atualmente configuradas são paradas. Registe o nome novo do servidor no cofre do Backup. Quando registar o nome novo no cofre, a primeira operação de cópia de segurança é uma cópia de segurança *completa*. Se precisar de recuperar dados de cópias de segurança no cofre com o nome do servidor antigo, utilize a opção [**Outro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) no assistente **Recuperar Dados**.
 
@@ -119,7 +126,7 @@ Quando mudar o nome de um servidor, todas as cópias de segurança atualmente co
 O agente do Backup do Azure depende do NTFS. A [especificação do comprimento do caminho do ficheiro está limitada pela API do Windows](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Se os ficheiros que pretende proteger têm um comprimento de caminho de ficheiro maior do que o permitido pela API do Windows, crie uma cópia de segurança da pasta principal ou da unidade de disco.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Que carateres são permitidos no caminho de ficheiro da política do Backupdo Azure com o agente do Backup do Azure? <br>
- O agente do Backup do Azure depende do NTFS. Permite a [carateres suportados pelo NTFS](/windows/desktop/FileIO/naming-a-file#naming_conventions) como parte da especificação do ficheiro. 
- 
+ O agente do Backup do Azure depende do NTFS. Permite a [carateres suportados pelo NTFS](/windows/desktop/FileIO/naming-a-file#naming_conventions) como parte da especificação do ficheiro.
+
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Recebo o aviso "As Cópias de Segurança do Azure não foram configuradas para este servidor", embora tenha configurado uma política de cópias de segurança <br/>
 Este aviso ocorre quando as definições do agendamento de cópias de segurança armazenadas no servidor local não são as mesmas que as definições armazenadas no cofre de cópias de segurança. Quando o servidor ou as definições tenham sido recuperadas para um bom estado conhecido, as agendas de cópia de segurança podem perder a sincronização. Se receber este aviso, [reconfigure a política de cópia de segurança](backup-azure-manage-windows-server.md) e, em seguida, **Execute a Cópia de Segurança Agora** para ressincronizar o servidor local com o Azure.

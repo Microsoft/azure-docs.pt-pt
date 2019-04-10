@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905208"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426512"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -77,7 +77,7 @@ Pode configurar bases de dados SQL do Azure e bases de dados de instância para 
 > Conjuntos elásticos e as instâncias geridas que a sua própria telemetria de diagnóstico separado dos bancos de dados que contêm. Isso é importante observar que a telemetria de diagnóstico está configurada em separado para cada um destes recursos, como documentado a seguir.
 
 > [!NOTE]
-> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados (embora a mostrar no ecrã). Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -141,7 +141,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para bases de 
 1. Repita estes passos para cada base de dados que pretende monitorizar.
 
 > [!NOTE]
-> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados (embora a mostrar no ecrã). Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Repita estes passos para cada base de dados de SQL do Azure que pretende monitorizar.
 

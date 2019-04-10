@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006345"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361350"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementação do Azure Site Recovery para recuperação após desastre de Hyper-V para o Azure
 
@@ -98,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(Opcional) A palavra-passe para ligar ao anfitrião Hyper-V. Se não o especificar como um parâmetro, ser-lhe-á solicitado quando executar o comando.|
 |-StorageAccountName|(Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
 |-StorageAccountKey|(Opcional) A chave que é utilizada para aceder à conta de armazenamento. Aceda ao portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* > **Definições** > **Chaves de Acesso** > **Chave1** (ou a chave de acesso primária de uma conta de armazenamento clássica).|
-|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando a região de destino está na cloud do Azure US Government ou do Azure China.|
+|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando a região de destino for Azure US Government ou Azure China 21Vianet.|
 
 Recomendamos que crie perfis para VMs por mais que 7 dias. Se o volume de alterações mudar mensalmente, recomendamos que crie os perfis durante a semana em que constatar o volume de alterações máximo. A melhor forma consiste em criar perfis para 31 dias, de modo a obter a melhor recomendação. 
 
@@ -255,12 +255,12 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
 * [Resumo no local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Recommendations (Recomendações)](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [VM-colocação em armazenamento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Recomendações](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [Colocação do armazenamento de VMs](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Compatible VMs (VMs Compatíveis)](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs (VMs Não Compatíveis)](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Requisito de armazenamento no local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [Lotes de IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Criação de batches na IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimativa de custos](hyper-v-deployment-planner-cost-estimation.md)
 
 ![Relatório do planeador de implementação](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
@@ -283,7 +283,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser do tipo Fins gerais v1 (GPv1).|
 | -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal do Azure > **Contas de armazenamento** > *nome da conta de armazenamento* > **Definições** > **Chaves de Acesso** > **Chave1**.|
 | -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Para o Hyper-V, este ficheiro é o ficheiro de saída da operação GetVMList. Se estiver a preparar manualmente, o ficheiro deve conter um nome de servidor ou endereço IP seguido do nome da VM (separado com uma \ por linha). O nome da VM especificada no ficheiro deve ser igual ao nome da VM no anfitrião Hyper-V.<br><br>**Exemplo:** Vmlist. txt contém as VMs seguintes:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando a região do Azure de destino for Azure US Government ou Azure China.|
+|-Ambiente|(Optional) O seu ambiente de destino para a conta de armazenamento do Azure. Pode ser um de três valores: AzureCloud, AzureUSGovernment ou AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando o região do Azure de destino for Azure US Government ou Azure China 21Vianet.|
 
 ### <a name="example"></a>Exemplo
 ```

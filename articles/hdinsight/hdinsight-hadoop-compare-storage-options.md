@@ -1,19 +1,18 @@
 ---
 title: Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 description: Fornece uma visão geral dos tipos de armazenamento e como eles funcionam com o Azure HDInsight.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/08/2019
+ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101487"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361792"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 
@@ -119,6 +118,8 @@ Para obter mais informações, consulte [utilizam o URI de geração 2 de armaze
 O armazenamento do Azure é uma solução de armazenamento para fins gerais robusta que se integra perfeitamente com o HDInsight. O HDInsight pode utilizar um contentor de blobs no Armazenamento do Azure como o sistema de ficheiros predefinido para o cluster. Através de uma interface HDFS, o conjunto completo de componentes no HDInsight pode operar diretamente em dados estruturados ou não estruturados armazenados como blobs.
 
 Recomendamos que utilize contentores de armazenamento separada para o armazenamento de cluster predefinido e os seus dados de negócio, isolar os registos do HDInsight e os arquivos temporários de seus próprios dados de negócio. Também recomendamos a eliminar o contentor de BLOBs predefinido, que contém os registos de sistema da aplicação e, após cada utilização para reduzir o custo de armazenamento. Certifique-se de que obtém os registos antes de eliminar o contentor.
+
+Se optar por proteger a sua conta de armazenamento com o **Firewalls e redes virtuais** restrições sobre **redes selecionadas**, certifique-se de que ativar a exceção **permitir fidedigna Microsoft serviços...**  para que o HDInsight pode aceder à sua conta de armazenamento.
 
 ### <a name="hdinsight-storage-architecture"></a>Arquitetura de armazenamento do HDInsight
 

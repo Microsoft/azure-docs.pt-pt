@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277425"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426533"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemplo 3: Criar uma rede de perímetro para proteger redes com uma firewall, UDR e NSGs
 
@@ -396,7 +396,7 @@ Aqui estão as especificidades de cada regra necessário para concluir este exem
     > [!TIP]
     > Embora esta regra de exemplo utiliza `<explicit-dest>` referência, deve usar uma abordagem consistente em toda a configuração de firewall. Recomendamos usando um objeto de rede nomeado para facilitar a leitura mais fácil e de capacidade de suporte. O `<explicit-dest>` mostrado aqui é apenas mostrar um método alternativo de referência. Em geral, não recomendado, especialmente para configurações complexas.
 
-* **Regra de saída à internet**: Esta regra de pass permite tráfego de qualquer rede de origem para passar para as redes de destino selecionadas. A Barracuda NextGen firewall geralmente tem isso esta regra "no" por padrão, mas num Estado desabilitado. Com o botão direito sobre esta regra para aceder a **ativar regra** comando. Modifique a regra, mostrada na captura de ecrã, para adicionar os objetos de rede para sub-redes de back-end e front-end para o atributo de origem desta regra. Estes objetos de rede que criou na secção pré-requisitos deste artigo.
+* **Regra de saída à internet**: Esta regra de pass permite tráfego de qualquer rede de origem para passar para as redes de destino selecionadas. A Barracuda NextGen firewall tem, normalmente, esta regra "ativado", por padrão, mas num Estado desabilitado. Com o botão direito sobre esta regra para aceder a **ativar regra** comando. Modifique a regra, mostrada na captura de ecrã, para adicionar os objetos de rede para sub-redes de back-end e front-end para o atributo de origem desta regra. Estes objetos de rede que criou na secção pré-requisitos deste artigo.
   
     ![Regra de firewall de saída][14]
 

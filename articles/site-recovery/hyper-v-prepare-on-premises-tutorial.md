@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315780"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361880"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de Hyper-V no local para a recuperação após desastre para o Azure
 
-Este tutorial mostra como preparar a infraestrutura de Hyper-V no local quando pretende replicar VMs Hyper-V para o Azure para fins de recuperação após desastre. Anfitriões Hyper-V podem ser geridos pelo System Center Virtual Machine Manager (VMM), mas não seja necessário.  Neste tutorial, ficará a saber como:
+Este artigo descreve como preparar a infraestrutura de Hyper-V no local quando desejar configurar a recuperação após desastre de VMs de Hyper-para o Azure, utilizando [do Azure Site Recovery](site-recovery-overview.md).
+
+
+Este é o segundo tutorial de uma série que mostra-lhe como configurar a recuperação após desastre para o Azure para VMs de Hyper-V no local. No primeiro tutorial, iremos [configurados os componentes do Azure](tutorial-prepare-azure.md) necessária para a recuperação após desastre de Hyper-V.
+
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Reveja os requisitos do Hyper-V e requisitos do VMM, se aplicável.
-> * Preparar o VMM, se aplicável
-> * Verifique se o acesso à internet para localizações do Azure
-> * Preparar VMs, para que pode acessá-los após a ativação pós-falha para o Azure
+> * Reveja os requisitos de Hyper-V e os requisitos do VMM, se os seus anfitriões de Hyper-V forem geridos pelo System Center VMM.
+> * Prepare o VMM, se aplicável.
+> * Verifique se o acesso à internet para localizações do Azure.
+> * Prepare VMs, para que pode acessá-los após a ativação pós-falha para o Azure.
 
-Este é o segundo tutorial da série. Certifique-se de que [configurou os componentes do Azure](tutorial-prepare-azure.md) conforme descrito no tutorial anterior.
+> [!NOTE]
+> Tutoriais mostram-lhe o caminho de implantação mais simples para um cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, consulte o artigo na seção como a do Site Recovery sumário.
 
+## <a name="before-you-start"></a>Antes de começar
 
+Certifique-se de que já preparou a Azure conforme descrito no [primeiro tutorial nesta série](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Rever requisitos e pré-requisitos
 
@@ -79,7 +87,7 @@ Para ligar às VMs do Windows via RDP após a ativação pós-falha, permitir o 
 
 1. Para aceder através da Internet, ative o protocolo RDP na VM local antes da ativação pós-falha. Certifique-se de que são adicionadas regras de TCP e UDP para o perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.
 2. Para aceder através da rede de VPNs, ative o protocolo RDP na máquina local. O protocolo RDP deve estar permitido em **Firewall do Windows** -> **Aplicações e funcionalidades permitidas** para redes de **Domínio e Privadas**.
-   Verifique se a política de SAN do sistema operativo está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se houverem, só poderá iniciar sessão na máquina virtual depois de a atualização estar concluída.
+   Verifique se a política de SAN do sistema operativo está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135). Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se existirem, não será possível iniciar sessão na máquina virtual enquanto a atualização for concluída.
 3. Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque**  para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Após a ativação pós-falha, pode aceder a VMs do Azure com o mesmo endereço IP, como a VM replicada no local ou um endereço IP diferente. [Saiba mais](concepts-on-premises-to-azure-networking.md) sobre como configurar o endereçamento IP para ativação pós-falha.

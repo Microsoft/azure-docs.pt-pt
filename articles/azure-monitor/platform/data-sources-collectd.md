@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999322"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426142"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recolher dados de recolhidos nos agentes do Linux no Azure Monitor
 [Recolhidos](https://collectd.org/) é um daemon de Linux do código-fonte aberto que periodicamente recolhe métricas de desempenho de aplicativos e suas informações de nível de sistema. Aplicativos de exemplo incluem a Máquina Virtual de Java (JVM), o servidor MySQL e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho recolhidos no Azure Monitor.
@@ -112,14 +112,14 @@ Para manter um modelo familiar entre as métricas de infraestrutura recolhidas p
 
 | Campo de métrica recolhidos | Campo de Monitor do Azure |
 |:--|:--|
-| anfitrião | Computador |
-| Plug-in | Nenhuma |
-| plugin_instance | Nome de Instância<br>Se **plugin_instance** é *nulo* , em seguida, InstanceName = "*total*" |
-| tipo | ObjectName |
-| type_instance | CounterName<br>Se **type_instance** é *nulo* , em seguida, CounterName =**em branco** |
-| dsnames[] | CounterName |
-| dstypes | Nenhuma |
-| values[] | CounterValue |
+| `host` | Computador |
+| `plugin` | Nenhuma |
+| `plugin_instance` | Nome de Instância<br>Se **plugin_instance** é *nulo* , em seguida, InstanceName = "*total*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>Se **type_instance** é *nulo* , em seguida, CounterName =**em branco** |
+| `dsnames[]` | CounterName |
+| `dstypes` | Nenhuma |
+| `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

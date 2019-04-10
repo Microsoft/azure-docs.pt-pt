@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275968"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426363"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (c#)
 
@@ -269,7 +269,7 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
 
 ## <a name="run-your-net-application"></a>Execute a sua aplicação .NET
 
-Adicione a cadeia de ligação específicos do dispositivo para o código para o dispositivo autenticar com o Azure IoT Central. Siga estas instruções para [gerar a cadeia de ligação do dispositivo](concepts-connectivity.md#get-a-connection-string) utilizando o **ID de âmbito**, **ID de dispositivo**, e **chave primária** é feita uma Observe de anteriormente.
+Adicione a cadeia de ligação específicos do dispositivo para o código para o dispositivo autenticar com o Azure IoT Central. Siga estas instruções para [gerar a cadeia de ligação do dispositivo](howto-generate-connection-string.md) utilizando o **ID de âmbito**, **ID de dispositivo**, e **chave primária** é feita uma Observe de anteriormente.
 
 1. Substitua `{your device connection string}` no **Program.cs** ficheiro com a cadeia de ligação que gerou.
 
@@ -350,14 +350,14 @@ Ativar/desativar definições
 
 | Nome a apresentar | Nome do campo | No texto | Desativar o texto | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ATIVADO      | DESATIVADO      | Inativa     |
+| IR           | activateIR | ON      | OFF      | Desativado     |
 
 ### <a name="properties"></a>Propriedades
 
 | Type            | Nome a apresentar | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/D       |
+| Texto            | Localização     | localização   | N/A       |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

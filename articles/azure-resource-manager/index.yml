@@ -1,85 +1,78 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d6ae30f73fa16bbd5e3c698e12c54c074f0a0b43
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772740"
 documentType: LandingData
 title: Documentação do Resource Manager no Azure
 metadata:
-  title: Documentação do Resource Manager no Azure - Tutoriais, exemplos, referência e recursos
+  title: 'Documentação do Resource Manager no Azure - Tutoriais, exemplos, referência e recursos'
   description: Saiba como utilizar o Resource Manager para implementar e gerir recursos de solução como um grupo e criar modelos para a implementação de recursos repetíveis e consistentes.
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  keywords: Resource Manager, azure, devops, tutoriais, exemplos, referência, documentação
+  keywords: 'Resource Manager, azure, devops, tutoriais, exemplos, referência, documentação'
   author: mumian
   manager: dougeby
   ms.author: jgao
   ms.topic: landing-page
   ms.date: 12/10/2018
 abstract:
-  description: Saiba como utilizar o Resource Manager para implementar, monitorizar e gerir recursos de solução como um grupo. Tutoriais, referências de API e outra documentação mostram-lhe como configurar os grupos de recursos e criar modelos para a implementação repetível e consistente.
+  description: 'Saiba como utilizar o Resource Manager para implementar, monitorizar e gerir recursos de solução como um grupo. Tutoriais, referências de API e outra documentação mostram-lhe como configurar os grupos de recursos e criar modelos para a implementação repetível e consistente.'
 sections:
-- title: Inícios rápidos
-  items:
-  - type: paragraph
-    text: Utilize várias ferramentas para criar modelos do Azure Resource Manager para implementar recursos do Azure.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Gerar um modelo com o portal do Azure
-      href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Criar um modelo com o Visual Studio Code
-      href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-      text: Criar um modelo com o Visual Studio
-      href: https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como criar modelos do Azure Resource Manager para implementar recursos do Azure.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Utilize várias ferramentas para criar modelos do Azure Resource Manager para implementar recursos do Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Gerar um modelo com o portal do Azure
+            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Criar um modelo com o Visual Studio Code
+            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Criar um modelo com o Visual Studio
+            href: 'https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy'
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Utilizar a referência de modelo do Resource Manager</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Criar várias instâncias de um recurso do Azure</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-move-resources">Mover recursos</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Definir a ordem de implementação de recursos</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Condições de utilização</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrar o Azure Key Vault</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">Criar modelos ligados</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">Implementar extensões de máquina virtual</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Implementar extensões SQL</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Proteger artefactos de modelo</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Utilizar as práticas de implementação segura</a>.
-    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Resolver problemas de implementações de modelos</a>.
-- title: Amostras
-  items:
-  - type: paragraph
-    text: Modelos de configuração de exemplo para tarefas comuns de implementação.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Saiba como criar modelos do Azure Resource Manager para implementar recursos do Azure.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Utilizar a referência de modelo do Resource Manager</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Criar várias instâncias de um recurso do Azure</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Definir a ordem de implementação de recursos</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Condições de utilização</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrar o Azure Key Vault</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">Criar modelos ligados</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">Implementar extensões de máquina virtual</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Implementar extensões SQL</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Proteger artefactos de modelo</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Utilizar as práticas de implementação segura</a>.'
+          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Resolver problemas de implementações de modelos</a>.'
+  - title: Amostras
     items:
-    - html: <a href="https://azure.microsoft.com/resources/templates/">Modelos de Início Rápido do Azure</a>
-    - html: <a href="https://resources.azure.com/">Azure Resource Explorer (Pré-visualização)</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Modelos de configuração de exemplo para tarefas comuns de implementação.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/templates/">Modelos de Início Rápido do Azure</a>'
+          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (Pré-visualização)</a>'
+  - title: Referência
     items:
-    - title: Modelos
-      html: <p><a href="/azure/templates/">Referência de modelo</a></p><p><a href="/azure/resource-group-template-functions">Funções de modelos</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções da definição de IU</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definição de IU</a></p>
-    - title: Linha de Comandos
-      html: <p><a href="/cli/azure/resource">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
-    - title: Linguagens
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/resources/">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Modelos
+            html: <p><a href="/azure/templates/">Referência de modelo</a></p><p><a href="/azure/resource-group-template-functions">Funções de modelos</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções de definição de IU</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definição de IU</a></p>
+          - title: Linha de Comandos
+            html: <p><a href="/cli/azure/resource">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
+          - title: Linguagens
+            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/resources/">API REST</a></p>

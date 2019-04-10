@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: 063ea2392dcaa705436bfbd7ba5d429bb096651e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891040"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425827"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com node. js
 
@@ -25,17 +25,10 @@ Neste guia, vai aprender a:
 - Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
 
 > [!Note]
-> **Se ficar bloqueado** em qualquer altura, veja a secção [Resolução de problemas](troubleshooting.md) ou publique um comentário nesta página.
-
-Está agora pronto para criar um ambiente de desenvolvimento baseado no Kubernetes no Azure.
+> **Se tiver problemas** em qualquer altura, consulte a [resolução de problemas](troubleshooting.md) secção.
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do espaço de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. O seu computador local pode executar Windows, Mac ou Linux. Para o Linux, há suporte para as distribuições seguintes: Ubuntu (18.04, 16.04, and 14.04), Debian 8 and 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2, and SLES 12.
-
-Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> Se já tiver a CLI do Azure instalada, certifique-se de que está a utilizar a versão 2.0.43 ou superior.
+O Azure Dev Spaces só precisa de configuração mínima do computador local. A maior parte da configuração do espaço de desenvolvimento é armazenada na cloud e é partilhável com outros utilizadores. Comece por transferir e executar a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Iniciar sessão na CLI do Azure
 Inicie sessão no Azure. Escreva o seguinte comando numa janela de terminal:
@@ -112,7 +105,7 @@ Neste momento, tem uma aplicação Web básica que pode ser executada localmente
     ```
 
 O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com as predefinições:
-* `./Dockerfile` descreve a imagem de contentor da aplicação e como o código-fonte é construído e executado no contentor.
+* `./Dockerfile` Descreve a aplicação imagem de contentor e como o código-fonte é criado e é executado dentro do contentor.
 * Um [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
 
 Por enquanto, não é necessário entender o conteúdo completo desses ficheiros. No entanto, importa realçar que **os mesmos recursos de configuração como código do Kubernetes e do Docker podem ser utilizados do desenvolvimento à produção, dando maior consistência em diferentes ambientes.**
@@ -167,7 +160,7 @@ O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não
 Abra a aplicação Web num dispositivo móvel através do URL público para webfrontend. Pode copiar e enviar o URL da sua área de trabalho para o dispositivo, para não ter de inserir o endereço comprido. Quando a aplicação Web é carregada no dispositivo móvel, irá reparar que a IU não aparece corretamente num dispositivo pequeno.
 
 Para corrigir este problema, vai adicionar uma etiqueta meta `viewport`:
-1. Abra o ficheiro `./public/index.html`
+1. Abra o ficheiro. `./public/index.html`
 1. Adicione a etiqueta meta `viewport` ao elemento `head` existente:
 
     ```html
@@ -272,7 +265,7 @@ Nesta configuração, o contentor é configurado para iniciar o *nodemon*. Quand
 1. Edite a mensagem “hello” novamente em `server.js`e guarde o ficheiro.
 1. Atualize o browser ou clique no botão *Say It Again* (Repetir) para ver as alterações a entrarem em vigor.
 
-**Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.** Em seguida, irá ver como pode criar e chamar um segundo contentor.
+**Agora tem um método para iteração no código e depuração diretamente no Kubernetes rapidamente!** Em seguida, irá ver como pode criar e chamar um segundo contentor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

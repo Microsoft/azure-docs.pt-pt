@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c1465f31c8b5eb15b6fe63ed61a946e3b32d550
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440091"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361859"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada no Azure DevTest Labs
 Este artigo aborda a definição de uma política de retenção, limpar a fábrica e extinção imagens antigas de todos os outros laboratórios de Dev/Test na organização. 
@@ -25,9 +25,9 @@ Este artigo aborda a definição de uma política de retenção, limpar a fábri
 ## <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que seguiu estes artigos antes de avançar:
 
-- [Criar uma fábrica de imagem](image-factory-create.md)
-- [Executar uma fábrica de imagem a partir do Azure DevOps](image-factory-set-up-devops-lab.md)
-- [Guardar imagens personalizadas e distribuir a vários laboratórios](image-factory-save-distribute-custom-images.md)
+- [Criar uma fábrica de imagens](image-factory-create.md)
+- [Executar uma fábrica de imagens a partir do Azure DevOps](image-factory-set-up-devops-lab.md)
+- [Guardar imagens personalizadas e distribuir para vários laboratórios](image-factory-save-distribute-custom-images.md)
 
 Os itens seguintes já deverá estar no local:
 
@@ -73,7 +73,7 @@ Adicionar uma nova imagem à sua fábrica também é simple. Quando quiser inclu
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-1. [Agendar sua compilação/liberação](/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar periodicamente a fábrica de imagem. Ele atualiza as imagens de gerado por fábrica de mensagens em fila em intervalos regulares.
+1. [Agendar sua compilação/liberação](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar periodicamente a fábrica de imagem. Ele atualiza as imagens de gerado por fábrica de mensagens em fila em intervalos regulares.
 2. Faça mais imagens de ouro da sua fábrica. Também pode considerar [criar artefactos](devtest-lab-artifact-author.md) partes adicionais de suas tarefas de configuração VM do script e incluir os artefactos de suas imagens de fábrica.
-4. Criar uma [separar compilação/liberação](/devops/pipelines/overview.md?view=azure-devops-2019) para executar o **DistributeImages** separadamente do script. Pode executar este script quando efetuar alterações ao Labs.json e obter imagens copiadas para laboratórios de destino sem ter de recriar todas as imagens novamente.
+4. Criar uma [separar compilação/liberação](/azure/devops/pipelines/overview.md?view=azure-devops-2019) para executar o **DistributeImages** separadamente do script. Pode executar este script quando efetuar alterações ao Labs.json e obter imagens copiadas para laboratórios de destino sem ter de recriar todas as imagens novamente.
 
