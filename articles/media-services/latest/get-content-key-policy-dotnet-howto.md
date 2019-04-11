@@ -10,24 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 04/09/2019
 ms.author: juliako
-ms.openlocfilehash: 882f4650c0a3d558ee06c96658b779f9f0c76f76
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322506"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471176"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
 
-Um dos principais princípios de design da API v3 é tornar a API mais segura. As APIs v3 não devolvem segredos ou credenciais sobre uma operação **Get** ou **List**. As chaves são sempre nulas, vazias ou saneadas da resposta. Tem de chamar um método de ação separado para obter segredos ou credenciais. As ações separadas permitem-lhe definir diferentes permissões de segurança RBAC no caso de algumas APIs obterem/mostrarem segredos e outras não. Para obter informações sobre como gerir o acesso através do RBAC, consulte [Utilizar o RBAC para gerir acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
+Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolverem segredos ou as credenciais no **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou saneadas da resposta. O utilizador precisa para chamar um método de ação separada para obter segredos ou as credenciais. O **leitor** função não é possível chamar operações para que ele não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite-lhe definir permissões de segurança mais granulares do RBAC numa função personalizada, se assim o desejar.
 
-Alguns exemplos incluem 
-
-* não devolver valores ContentKey no Get do StreamingLocator, 
-* não devolver as chaves de restrição no get do ContentKeyPolicy, 
-* não devolver a parte da cadeia de consulta do URL (para remover a assinatura) dos URLs de Entrada de Tarefas.
+Para obter mais informações, consulte [contas RBAC e dos serviços de multimédia](rbac-overview.md)
 
 O exemplo neste artigo mostra como usar o .NET para obter uma chave de assinatura da política existente. 
  

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 7c06489af7c418a437c2e7a8714c89bee1414c2b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357960"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471737"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicionar preenchimento automático ou sugestões para a sua aplicação do Azure Search
 
@@ -164,7 +164,7 @@ Abra o **HomeController.cs** ficheiro, sob o diretório de controladores.
 
 A primeira coisa que notará é um método na parte superior da classe chamada `InitSearch`. Esta ação cria um cliente de índice HTTP autenticado para o serviço do Azure Search. Para obter mais informações, consulte [como utilizar o Azure Search a partir de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-Na linha 41, tenha em atenção a função de sugerido. Baseia-se a [DocumentsOperationsExtensions.Suggest método](/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+Na linha 41, tenha em atenção a função de sugerido. Baseia-se a [DocumentsOperationsExtensions.Suggest método](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092723"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471720"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -143,8 +143,8 @@ O [especificação do modelo de dados de OpenTracing](https://opentracing.io/) e
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`, `PageView`                 | `Span` com o `span.kind = server`                  |
-| `Dependency`                          | `Span` com o `span.kind = client`                  |
+| `Request`,  `PageView`                 | `Span` com `span.kind = server`                  |
+| `Dependency`                          | `Span` com `span.kind = client`                  |
 | `Id` de `Request` e `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
 | `Operation_ParentId`                  | `Reference` do tipo `ChildOf` (o intervalo de principal)   |
@@ -183,6 +183,11 @@ O [Application Insights SDK para Java](../../azure-monitor/app/java-get-started.
 > Apenas as chamadas efetuadas através do Apache HTTPClient são suportadas para a funcionalidade de correlação. Se estiver a utilizar o Spring RestTemplate ou Feign, ambos podem ser utilizadas com o Apache HTTPClient, nos bastidores.
 
 Atualmente, não é suportada a propagação automática de contexto em tecnologias (tal Kafka, RabbitMQ ou do Azure Service Bus) de mensagens. No entanto, é possível codificar esses cenários manualmente utilizando o `trackDependency` e `trackRequest` APIs. Essas APIs, telemetria de dependência representa uma mensagem a ser colocados em fila por um produtor e o pedido representa uma mensagem a ser processada por um consumidor. Neste caso, ambos `operation_id` e `operation_parentId` deve ser propagadas nas propriedades da mensagem.
+
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>Correlação de telemetria na aplicação de Java assíncrono
+
+Para correlacionar a telemetria na aplicação de Spring Boot de assíncrono, siga [isso](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) artigo detalhado. Ele fornece orientações para instrumentar do Spring [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) , bem como [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
 
 <a name="java-role-name"></a>
 ## <a name="role-name"></a>Nome da função

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835457"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471091"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação para U-SQL
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Para obter mais informações sobre como utilizar appliers numa expressão SELECT, consulte [U-SQL SELECIONE selecionando de CROSS APPLY e OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
+Para obter mais informações sobre como utilizar appliers numa expressão SELECT, consulte [U-SQL SELECIONE selecionando de CROSS APPLY e OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
 A definição de classe base definida pelo utilizador applier é o seguinte:
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Para obter mais informações, consulte [expressão COMBINAR (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+Para obter mais informações, consulte [expressão COMBINAR (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 Para definir uma combinação de definidas pelo utilizador, temos de criar o `ICombiner` interface com o [`SqlUserDefinedCombiner`] atributo, que é opcional para uma definição de combinação definidas pelo utilizador.
 
@@ -1877,7 +1877,7 @@ Conjuntos de linhas de entrada são transmitidos como **esquerda** e **certo** `
 
 Para fins de colocação em cache, podemos criar uma lista\<T\> tipo de estrutura de memória como resultado de um LINQ execução da consulta, especificamente lista <`IRow`>. O tipo de dados anônimos pode ser utilizado durante a enumeração também.
 
-Ver [introdução às consultas de LINQ (c#)](https://msdn.microsoft.com/library/bb397906.aspx) para obter mais informações sobre consultas do LINQ, e [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) para obter mais informações sobre o IEnumerable\<T\> interface.
+Ver [introdução às consultas de LINQ (c#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) para obter mais informações sobre consultas do LINQ, e [IEnumerable\<T\> Interface](/dotnet/api/system.collections.generic.ienumerable-1) para obter mais informações sobre o IEnumerable\<T\> interface.
 
 Para obter os valores de dados real a partir de entrada `IRowset`, usamos o método GET () de `IRow` interface.
 

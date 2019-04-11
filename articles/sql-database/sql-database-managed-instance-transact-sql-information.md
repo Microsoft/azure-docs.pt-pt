@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358436"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471567"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -217,7 +217,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 
 - Não são suportados vários ficheiros de registo.
 - Objetos em memória não são suportados na camada de serviço de fins gerais.  
-- Existe um limite de 280 ficheiros por instância de fins gerais, implicando 280 ficheiros máximos por base de dados. Dados e de registo em geral ficheiros finalidade escalão são computada como este limite. [Camada de negócio críticos suporta 32.767 ficheiros por base de dados](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Existe um limite de 280 ficheiros por instância de fins gerais, implicando 280 ficheiros máximos por base de dados. Dados e de registo em geral ficheiros finalidade escalão são computada como este limite. [Camada de negócio críticos suporta 32.767 ficheiros por base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Base de dados não pode conter grupos de ficheiros que contêm dados filestream.  Restauro falhará se contiver. bak `FILESTREAM` dados.  
 - Cada arquivo é colocado no armazenamento de Blobs do Azure. E/s e o débito por ficheiro dependem do tamanho de cada ficheiro individual.  
 
@@ -467,7 +467,6 @@ As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 - `@@SERVICENAME` Devolve nulo, porque o conceito de serviço, pois existe para o SQL Server não se aplica para uma instância gerida. Ver [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` é suportada. Devolve Nulo se o início de sessão do Azure AD não está a ser sys.syslogins. Ver [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` Não é suportada. Devolve (problema conhecido temporário) de dados incorreto. Ver [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` e outras funções de data/hora incorporado devolve sempre a hora no fuso horário UTC. Ver [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Limitações e problemas conhecidos
 
@@ -494,7 +493,7 @@ Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição e
 
 Neste exemplo, bancos de dados existentes continuarão a funcionar e cresça sem qualquer problema, desde que não são adicionados novos ficheiros. No entanto novas bases de dados não foi possível ser criados ou restaurados porque não existe espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todas as bases de dados não atinja o limite de tamanho de instância. Nesse caso o erro devolvido não fica claro.
 
-Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) através de vistas de sistema. Se estiver a atingir este limite tentar [vazio e elimine alguns dos ficheiros mais pequenos, usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para [escalão crítico para a empresa que não tem este limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Pode [identificar o número de ficheiros restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) através de vistas de sistema. Se estiver a atingir este limite tentar [vazio e elimine alguns dos ficheiros mais pequenos, usando a instrução DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou mudar para [escalão crítico para a empresa que não tem este limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 
@@ -567,11 +566,11 @@ Módulos CLR colocados numa instância gerida e consultas servidores ligados/dis
 
 **Solução**: Se for possível utilize ligações de contexto no módulo CLR.
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Bases de dados do TDE encriptado não suportam cópias de segurança iniciada pelo utilizador
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>TDE encriptado bases de dados com a chave gerida pelo serviço não suportam cópias de segurança iniciada pelo utilizador
 
-Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados que é encriptado com encriptação de dados transparente (TDE). TDE força seja encriptada com chaves TDE internas e não é possível exportar a chave, portanto, não será possível restaurar a cópia de segurança.
+Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` numa base de dados são encriptados com gerida pelo serviço dados encriptação transparente (TDE). TDE gerida pelo serviço força seja encriptada com a chave TDE interno e não é possível exportar a chave, portanto, não será possível restaurar a cópia de segurança.
 
-**Solução**: Utilize cópias de segurança automáticas e restauro de ponto no tempo, ou desativar a encriptação na base de dados.
+**Solução**: Utilize cópias de segurança automáticas e restauro de ponto no tempo, ou utilize [gerida pelo cliente (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso, ou desativar a encriptação na base de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

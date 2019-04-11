@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576208"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471635"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos ou as revisões de acesso a aplicações no Azure AD
 
@@ -35,13 +35,13 @@ Este artigo descreve como criar um ou mais as revisões de acesso para membros d
 
 ## <a name="create-one-or-more-access-reviews"></a>Criar um ou mais as revisões de acesso
 
-1. Início de sessão no portal do Azure e abra o [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Inicie sessão no portal do Azure e abra o [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Clique em **controles**.
+1. No menu à esquerda, clique em **as revisões de acesso**.
 
 1. Clique em **nova revisão de acesso** para criar uma nova revisão de acesso.
 
-    ![Examine - controlos de acesso](./media/create-access-review/controls.png)
+    ![Examine - controlos de acesso](./media/create-access-review/access-reviews.png)
 
 1. Nome da revisão de acesso. Opcionalmente, forneça a revisão de uma descrição. O nome e descrição são apresentadas aos revisores.
 
@@ -51,15 +51,15 @@ Este artigo descreve como criar um ou mais as revisões de acesso para membros d
 
     ![Criar uma revisão de acesso - início e datas de término](./media/create-access-review/start-end-dates.png)
 
-1. Para tornar a revisão de acesso recorrente, altere a **frequência** definição **uma vez** para **semanal**, **mensal**,  **Trimestral** ou **anualmente**e utilizar os **duração** caixa de texto ou de controlo de deslize para definir o número de dias será cada revisão da série recorrente abrir para a entrada de revisores. Por exemplo, a duração máxima que pode definir para uma revisão mensal é dias 27, para evitar a sobreposição de revisões.
+1. Para tornar a revisão de acesso recorrente, altere a **frequência** definição **uma vez** para **semanal**, **mensal**,  **Trimestral** ou **anualmente**. Utilize o **duração** caixa de texto ou de controlo de deslize para definir o número de dias será cada revisão da série recorrente abrir para a entrada de revisores. Por exemplo, a duração máxima que pode definir para uma revisão mensal é dias 27, para evitar a sobreposição de revisões.
 
 1. Utilize o **final** definição para especificar como terminar o acesso recorrente rever série. A série pode ser encerrada de três formas: ela seja executada continuamente para iniciar as revisões indefinidamente, até uma data específica ou após um determinado número de ocorrências de conclusão. , Outro administrador de utilizador ou outro administrador Global pode parar a série após a criação, alterando a data no **definições**, para que ele termina a essa data.
 
-1. Na **utilizadores** secção, especifique os utilizadores que a revisão de acesso aplica-se a. As revisões de acesso podem ser para os membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso apenas de revisão para rever os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de examinar todos os utilizadores que são membros ou que têm acesso à aplicação.
+1. Na **utilizadores** secção, especifique os utilizadores que se aplica a revisão de acesso. As revisões de acesso podem ser para os membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso apenas de revisão para rever os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de examinar todos os utilizadores que são membros ou que têm acesso à aplicação.
 
     ![Criar uma revisão de acesso - utilizadores](./media/create-access-review/users.png)
 
-1. Na **grupos** secção, selecione um ou mais grupos que gostaria de rever a associação de.
+1. Na **grupo** secção, selecione um ou mais grupos que gostaria de rever a associação de.
 
     > [!NOTE]
     > Selecionar mais de um grupo, irá criar várias revisões de acesso. Por exemplo, se selecionar grupos de cinco, irá criar cinco revisões de acesso separado.
@@ -112,7 +112,9 @@ Este artigo descreve como criar um ou mais as revisões de acesso para membros d
 
 ## <a name="start-the-access-review"></a>Iniciar a revisão de acesso
 
-Depois de especificar as definições para uma revisão de acesso, clique em **iniciar**.
+Depois de especificar as definições para uma revisão de acesso, clique em **iniciar**. A revisão de acesso será apresentado na sua lista com um indicador do seu estado.
+
+![Lista de revisões de acesso](./media/create-access-review/access-reviews-list.png)
 
 Por predefinição, o Azure AD envia um e-mail para os revisores logo após a revisão é iniciado. Se optar por não ter o Azure AD para enviar o e-mail, certifique-se de que informe os revisores de que uma revisão de acesso está a aguardar a sua conclusão. Pode mostrar-lhes as instruções sobre como a [rever o acesso a grupos ou aplicações](perform-access-review.md). Se sua revisão for para convidados rever o seu próprio acesso, mostrar-lhes as instruções sobre como a [rever acesso para si próprio para grupos ou aplicações](review-your-access.md).
 
@@ -120,13 +122,15 @@ Se alguns dos revisores são convidados, convidados são notificados por e-mail 
 
 ## <a name="manage-the-access-review"></a>Gerir a revisão de acesso
 
-Pode monitorizar o progresso conforme os revisores de concluir as revisões no dashboard do Azure AD no **as revisões de acesso** secção. Nenhum direito de acesso forem alterado no diretório até [a revisão é concluída](complete-access-review.md).
+Pode monitorizar o progresso conforme os revisores de concluir as revisões no **descrição geral** página de revisão de acesso. Nenhum direito de acesso forem alterado no diretório até [a revisão é concluída](complete-access-review.md).
+
+![Progresso de revisões de acesso](./media/create-access-review/overview-progress.png)
 
 Se se tratar de uma revisão de uso individual, em seguida, após o período de revisão de acesso ou o administrador para a revisão de acesso, siga os passos em [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md) para ver e aplicar os resultados.  
 
-Para gerir uma série de revisões de acesso, navegue para a revisão de acesso de **controles**, e será encontrar ocorrências futuras nas revisões de agendada e edite a data de fim ou adicionar/remover os revisores da mesma forma. 
+Para gerir uma série de acesso a revisões, navegue para a revisão de acesso, e será encontrar ocorrências futuras nas revisões de agendada e edite a data de fim ou adicionar/remover os revisores da mesma forma.
 
-Com base nas suas seleções após as definições de conclusão,-aplicar automaticamente irá ser executado após a data de fim a revisão ou quando manualmente para a revisão. O estado da revisão deixará de concluído por meio de Estados intermediários como aplicar e, finalmente, para o estado aplicado. Deve esperar para ver utilizadores sem permissão, caso haja algum, que está a ser removido a atribuição de aplicação ou associação de grupo dentro de alguns minutos.
+Com base nas suas seleções **nas definições de conclusão**, aplicar automaticamente irá ser executado após a data de fim a revisão ou quando manualmente para a revisão. O estado da revisão será alterado de **concluído** através de Estados intermediários como **aplicar** e, finalmente, para o estado **aplicados**. Deve esperar para ver utilizadores sem permissão, caso haja algum, que está a ser removido a atribuição de aplicação ou associação de grupo dentro de alguns minutos.
 
 ## <a name="create-reviews-via-apis"></a>Criar análises através de APIs
 
