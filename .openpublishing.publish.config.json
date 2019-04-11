@@ -37,9 +37,6 @@
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
-  "enable_incremental_build": true,
-  "enable_push_aggregation": true,
-  "enable_pull_request_aggregation": true,
   "contribution_branch_mappings": {
     "live-sxs": "live"
   },
@@ -92,11 +89,13 @@
       "path_to_root": "policy-templates",
       "url": "https://github.com/Azure/azure-policy",
       "branch": "master",
-      "branch_mapping": {
-        "release-build-mysql": "release-build",
-        "release-build-postgresql": "release-build",
-        "release-build-stellar": "release-build"
-      }
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "blueprints-templates",
+      "url": "https://github.com/Azure/azure-blueprints",
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "azure-docs-json-samples",
