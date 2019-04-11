@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418062"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470071"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux com uma imagem personalizada
 
@@ -65,8 +65,8 @@ Quando inclui a opção `--docker`, é gerado um dockerfile para o projeto. Este
 
 Quando lhe for pedido, escolha um runtime do trabalho entre os seguintes idiomas:
 
-* `dotnet`: cria um projeto de biblioteca de classes .NET (.csproj).
-* `node`: cria um projeto do JavaScript.
+* `dotnet`: cria um projeto de biblioteca de classes do .NET (arquivo. csproj).
+* `node`: cria um projeto de JavaScript.
 * `python`: cria um projeto de Python.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
@@ -256,6 +256,16 @@ Agora, pode testar as suas funções em execução no Linux no Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
+## <a name="enable-application-insights"></a>Ativar o Application Insights
+
+A forma recomendada para monitorizar a execução das suas funções é integrar a sua aplicação de funções com o Azure Application Insights. Quando cria uma aplicação de funções no portal do Azure, esta integração é feita para, por predefinição. No entanto, quando criar a sua aplicação de função com a CLI do Azure, não é feita a integração na sua aplicação de função no Azure.
+
+Para ativar o Application Insights para a sua aplicação de função:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
+
 ## <a name="enable-continuous-deployment"></a>Ativar a implementação contínua
 
 Uma das vantagens da utilização de contentores é a capacidade de implementar automaticamente atualizações quando os contentores são atualizados no Registro. Ativar a implementação contínua com o [az functionapp deployment contentor config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) comando.
@@ -292,4 +302,4 @@ Neste tutorial, ficou a saber como:
 Saiba como ativar a funcionalidade de integração contínua integrada na plataforma principal do Serviço de Aplicações. Pode configurar a sua aplicação de funções para que o contentor seja novamente implementado ao atualizar a imagem no Hub do Docker.
 
 > [!div class="nextstepaction"] 
-> [Implementação contínua com a Aplicação Web para Contentores](../app-service/containers/app-service-linux-ci-cd.md)
+> [Implementação contínua com a aplicação Web para contentores](../app-service/containers/app-service-linux-ci-cd.md)

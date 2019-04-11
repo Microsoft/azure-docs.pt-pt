@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311575"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470377"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial do projeto Acoustics Unreal criar
 Este documento descreve o processo de submissão de um criar acoustics usando a extensão de Unreal editor.
@@ -40,6 +40,8 @@ O separador de objetos é o primeiro separador, que é apresentado quando abrir 
 
 Selecione um ou mais objetos no Outliner mundo, ou utilizar o **seleção em massa** secção para ajudar a selecionar todos os objetos da categoria específica. Assim que os objetos estão selecionados, utilize o **etiquetagem** secção para aplicar a etiqueta pretendida para os objetos selecionados.
 
+Se algo precisa de nenhum dos dois **AcousticsGeometry** nem **AcousticsNavigation** marca, ela será ignorada na simulação. Apenas estáticas malhas, entrelaçamentos de barra de navegação e cenários são suportados. Se marcar qualquer outra coisa, ela será ignorada.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Para referência: As partes de separador de objetos
 
 ![Separador de captura de ecrã de Acoustics objetos no Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ Não incluem as coisas que não devem afetar acoustics, tais como as malhas de c
 
 Transformação de um objeto no momento do cálculo da sonda (através do separador de sondas, abaixo) é fixa nos resultados de criar. Mover qualquer um dos objetos marcados na cena será necessário refazer o cálculo da sonda e rebaking a cena.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Criar ou marcar uma malha de navegação
+### <a name="create-or-tag-a-navigation-mesh"></a>Criar ou marcar uma malha de navegação
 
-Uma malha de navegação é utilizada para colocar os pontos de sonda de simulação. Pode usar do Unreal [Volume dos limites de malha Nav](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), ou pode especificar sua própria malha de navegação. Tem de marcar pelo menos um objeto como **Acoustics navegação**.
+Uma malha de navegação é utilizada para colocar os pontos de sonda de simulação. Pode usar do Unreal [Volume dos limites de malha Nav](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), ou pode especificar sua própria malha de navegação. Tem de marcar pelo menos um objeto como **Acoustics navegação**. Se usar a malha de navegação do Unreal, certifique-se de que o tiver criado pela primeira vez.
+
+### <a name="acoustics-volumes"></a>Volumes de Acoustics ###
+
+Há personalização além disso, avançada que pode ser feitas em suas áreas de navegação com **Acoustics Volumes**. **Volumes de Acoustics** são actors pode adicionar a sua cena, que permitem-lhe selecionar áreas para incluir e ignorar da malha de navegação. O ator expõe uma propriedade que pode ser alterada entre "Include" e "Excluir". Volumes de "Inclusão" Certifique-se apenas áreas da malha navegação dentro deles são consideradas e volumes "Excluir" marcar as áreas que deverão ser ignorados. "Excluir" volumes sempre são aplicadas após volumes de "Inclusão". Certifique-se à marca **Acoustics Volumes** como **Acoustics navegação** no processo normal no separador de objetos. Estes atores são ***não*** automaticamente marcado.
+
+![Propriedades de captura de ecrã de Acoustics Volume no Unreal](media/unreal-acoustics-volume-properties.png)
+
+"Excluir" volumes destinam-se principalmente a fornecer controle refinado sobre onde não coloque sondas para fortalecendo a utilização de recursos.
+
+![Captura de ecrã do Volume de Acoustics de exclusão no Unreal](media/unreal-acoustics-volume-exclude.png)
+
+Volumes de "Inclusão" são úteis para criar secções manuais de uma cena, por exemplo, se pretender dividir a sua cena em várias zonas de acústicos. Por exemplo, se tiver uma cena grandes, muitos quilómetros de distância ao quadrado, e tem duas áreas de interesse que pretende inserir acoustics no. Pode desenhar dois grandes volumes de "Inclusão" da cena e produzir ficheiros ACE para cada uma de um de cada vez. Em seguida, no jogo, pode utilizar volumes de Acionador combinados com chamadas de esquema ao carregar o ficheiro ACE adequado quando o jogador aproxima cada mosaico.
+
+**Volumes de Acoustics** apenas restringir a navegação e ***não*** a geometria. Cada pesquisa dentro de "Inclusão" **Acoustics Volume** ainda irá extrair a geometria necessária fora o volume ao executar simulações wave. Por conseguinte, não deve ser descontinuidades em oclusão ou outros acoustics resultantes de player cruzar de uma seção para outra.
 
 ## <a name="select-acoustic-materials"></a>Selecione acústicos materiais
 
@@ -87,6 +103,7 @@ O tempo de reverberation de um determinado material numa sala inversamente está
 4. Mostra o material acústico que o material de cena lhe foi atribuído. Clique numa lista pendente para reatribuir um material de cena para um material acústico diferente.
 5. Mostra o coeficiente de absorption acústico do material selecionado na coluna anterior. Um valor zero significa que perfeitamente reflexiva (sem absorption), enquanto um valor 1 significa que perfeitamente absorptive (nenhuma reflexão). Alterar este valor irá atualizar o Material de Acoustics (etapa #4) para **personalizado**.
 
+Se fizer alterações aos materiais em seu cenário, terá de mudar os separadores no plug-in do projeto Acoustics para ver essas alterações serão refletidas na **materiais** separador.
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Calcular e reveja as localizações da sonda de serviço de escuta
 
@@ -98,7 +115,7 @@ Depois de atribuir os materiais, mude para o **sondas** separador.
 
 1. O **sondas** botão de separador usado para exibir esta página
 2. Uma breve descrição sobre o que precisa fazer usando esta página
-3. Utilize esta opção para escolher uma resolução de simulação de genérico ou tudo bem. Genérico é mais rápido, mas tem determinadas vantagens e desvantagens. Ver [vs genérico bem resolução](#Coarse-vs-Fine-Resolution) abaixo para obter detalhes.
+3. Utilize esta opção para escolher uma resolução de simulação de genérico ou tudo bem. Genérico é mais rápido, mas tem determinadas vantagens e desvantagens. Ver [inserir resolução](bake-resolution.md) abaixo para obter detalhes.
 4. Escolha a localização onde os ficheiros de dados acoustics devem ser colocados através deste campo. Clique no botão com "..." para utilizar um Seletor de pasta. Para obter mais informações sobre os ficheiros de dados, consulte [ficheiros de dados](#Data-Files) abaixo.
 5. Os ficheiros de dados para essa cena serão nomeados com o prefixo fornecido aqui. A predefinição é "[nome do nível] _AcousticsData".
 6. Clique nas **Calculate** botão para voxelize a cena e calcular as localizações de pontos de sonda. Isso é feito localmente no seu computador e deve ser feito antes de fazer um criar. Depois das sondas foram calculadas, os controlos acima serão desativados e este botão será alterado para dizer **clara**. Clique nas **clara** botão para apagar os cálculos e ativar os controlos para que pode recalcular com novas definições.
@@ -147,21 +164,7 @@ Pontos de sonda são sinônimos de localizações de player possíveis (serviço
 
 ![Captura de ecrã de Acoustics sondas pré-visualização em Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Resolução vs genérico
-
-A única diferença entre as definições de resolução de genérico e tudo bem, é a frequência com que a simulação é executada. Bem utiliza uma frequência de duas vezes tão elevada como genérico.
-Embora isso possa parecer simple, tem várias implicações na simulação acústica:
-
-* O wavelength para genérico se duas vezes, desde que tudo bem, sendo, portanto, os voxels duas vezes tão grandes.
-* O tempo de simulação está diretamente relacionada com o tamanho de voxel, tornando um genérico criar aproximadamente 16 vezes mais rápido do que um criar tudo bem.
-* Portais (por exemplo, as portas ou windows) inferior ao tamanho de voxel não podem ser simulados. A definição genérico pode fazer com que alguns destes portais menores, a não ser simulada; portanto, eles não passará som por meio em tempo de execução. Pode ver se isso está acontecendo, visualizando o voxels.
-* A frequência de simulação inferior resulta em menos diffraction em torno de cantos e margens.
-* Origens de som não podem estar localizadas dentro de "preenchido" voxels, que é voxels que contêm a geometria - isso resulta em nenhum som. É mais difícil colocar as origens de som para que não estejam dentro o voxels maiores de genérico que é quando utiliza a definição adequada.
-* O maior voxels será atrapalham a mais em portais, conforme mostrado abaixo. A primeira imagem foi criada com genérico, enquanto o segundo é a mesma porta com resolução fina. Conforme indicado pelas marcas de vermelhas, há muito menos intrusões a porta através da definição tudo bem. A linha azul é a porta, conforme definido por geometry, enquanto a linha vermelha é o portal de acústico eficaz definido pelo tamanho voxel. Como esta invasão papel em determinada situação depende completamente como os voxels alinhar com a geometria do portal, que é determinado pelo tamanho e localizações de seus objetos na cena.
-
-![Captura de ecrã do voxels genérico preenchendo uma porta no Unreal](media/unreal-coarse-bake.png)
-
-![Captura de ecrã do voxels bem numa porta no Unreal](media/unreal-fine-bake.png)
+Ver [inserir resolução](bake-resolution.md) para obter mais detalhes sobre o vs genérico bem resolução.
 
 ## <a name="bake-your-level-using-azure-batch"></a>Inserir o seu nível com o Azure Batch
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7feb77830fe8312cc2b48ffdb2c1af0abfb4b8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: fcda3e1ee8029bf40a0d7eec2ad440b7b128a650
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263524"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470273"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e de fluxo de código de autorização de OAuth 2.0
 
@@ -69,7 +69,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`    | obrigatório    | O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | obrigatório    | O **ID da aplicação (cliente)** que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua aplicação.  |
 | `response_type` | obrigatório    | Tem de incluir `code` para o fluxo de código de autorização.       |
-| `redirect_uri`  | Recomendado | O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Para aplicações de dispositivos móveis e nativas, deve usar o valor predefinido de `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
+| `redirect_uri`  | obrigatório | O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Para aplicações de dispositivos móveis e nativas, deve usar o valor predefinido de `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | obrigatório    | Uma lista separada por espaço de [âmbitos](v2-permissions-and-consent.md) que pretende que o utilizador para autorizar. |
 | `response_mode`   | Recomendado | Especifica o método que deve ser utilizado para enviar a cópia de token resultante à sua aplicação. Pode ser um dos seguintes procedimentos:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` Fornece o código como um parâmetro de cadeia de caracteres de consulta no seu URI de redirecionamento. Se estiver solicitando um token de ID com o fluxo implícito, é possível utilizar `query` conforme especificado no [especificação de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver solicitando apenas do código, pode usar `query`, `fragment`, ou `form_post`. `form_post` executa uma POSTAGEM que contém o código para o seu URI de redirecionamento. Para mais informações, veja [protocolo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Recomendado | Um valor incluído no pedido que também vai ser devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O valor pode também codificar a informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
@@ -242,7 +242,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 Access_tokens tiverem vida curta e deve atualizá-los depois que ocorra para continuar a aceder a recursos. Pode fazê-lo ao submeter outro `POST` pedido para o `/token` ponto final, desta vez, desde que o `refresh_token` em vez do `code`.  Tokens de atualização são válidas para todas as permissões que o cliente já recebeu o consentimento para - portanto, um token de atualização emitido um pedido para `scope=mail.read` pode ser utilizado para pedir um novo token de acesso para `scope=api://contoso.com/api/UseResource`.  
 
-Atualizar tokens não têm tempo de vida especificado. Normalmente, os tempos de vida de tokens de atualização são relativamente longos. No entanto, em alguns casos, tokens de atualização expirarem, são revogados ou não têm privilégios suficientes para a ação desejada. Seu aplicativo precisa esperar e manipular [erros devolvidos pelo ponto de final de emissão de token](#error-codes-for-token-endpoint-errors) corretamente.  Tenha em atenção que os tokens de atualização não são revogados quando utilizados para adquirir novos tokens de acesso. 
+Atualizar tokens não têm tempo de vida especificado. Normalmente, os tempos de vida de tokens de atualização são relativamente longos. No entanto, em alguns casos, tokens de atualização expirarem, são revogados ou não têm privilégios suficientes para a ação desejada. Seu aplicativo precisa esperar e manipular [erros devolvidos pelo ponto de final de emissão de token](#error-codes-for-token-endpoint-errors) corretamente. 
+
+Embora os tokens de atualização não são revogados quando utilizados para adquirir novos tokens de acesso, é esperado para eliminar o token de atualização antigo. O [especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-6) diz: "O servidor de autorização pode emitir um novo token de atualização, nesse caso o cliente deve eliminar o token de atualização antiga e substituí-lo com o novo token de atualização. O servidor de autorização pode revogar o token de atualização antigo depois de emitir um novo token de atualização para o cliente."  
 
 ```
 // Line breaks for legibility only
@@ -254,7 +256,6 @@ Content-Type: application/x-www-form-urlencoded
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=refresh_token
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
 ```
@@ -271,8 +272,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | obrigatório    | Tem de ser `refresh_token` para este vertente do fluxo de código de autorização. |
 | `scope`         | obrigatório    | Uma lista de âmbitos separadas por espaços. Os âmbitos solicitados neste leg tem de ser equivalente a ou um subconjunto dos âmbitos solicitada no leg de pedido de authorization_code original. Se os âmbitos especificados neste pedido abrangem vários servidores de recursos, o ponto final v2.0 irá devolver um token para o recurso especificado no âmbito da primeira. Para obter uma explicação mais detalhada de âmbitos, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md). |
 | `refresh_token` | obrigatório    | Refresh_token que obteve no segundo leg do fluxo. |
-| `redirect_uri`  | obrigatório    |  A `redirect_uri`registado no aplicativo do cliente. |
-| `client_secret` | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não deve ser utilizada num aplicativo nativo, porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web.                                                                                                                                                    |
+| `client_secret` | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não deve ser utilizada num aplicativo nativo, porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web. |
 
 #### <a name="successful-response"></a>Resposta com êxito
 

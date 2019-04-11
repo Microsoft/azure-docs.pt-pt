@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889809"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471040"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -80,7 +80,7 @@ O modelo de projeto cria um projeto c#, instala o `Microsoft.NET.Sdk.Functions` 
 
 * **host.json**: Permite-lhe configurar o anfitrião de funções. Estas definições aplicam-se tanto ao executar localmente e no Azure. Para obter mais informações, consulte [referência de Host. JSON](functions-host-json.md).
 
-* **local.settings.json**: Mantém as definições utilizadas ao executar as funções localmente. Estas definições não são utilizadas pelo Azure, elas são usadas pelos [ferramentas de núcleo de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar as definições da aplicação para variáveis necessárias para as suas funções. Adicione um novo item para o **valores** matriz para cada ligação exigida pelos enlaces de funções no seu projeto. Para obter mais informações, consulte [arquivo de configurações Local](functions-run-local.md#local-settings-file) no artigo de ferramentas de núcleo de funções do Azure.
+* **local.settings.json**: Mantém as definições utilizadas ao executar as funções localmente. Estas definições não são utilizadas pelo Azure, elas são usadas pelos [ferramentas de núcleo de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar definições de aplicações para as variáveis de ambiente necessárias para as suas funções. Adicione um novo item para o **valores** matriz para cada ligação exigida pelos enlaces de funções no seu projeto. Para obter mais informações, consulte [arquivo de configurações Local](functions-run-local.md#local-settings-file) no artigo de ferramentas de núcleo de funções do Azure.
 
     >[!IMPORTANT]
     >Porque o ficheiro Settings pode conter segredos, deve exclui-lo de seu controle de origem do projeto. O **Copy to Output Directory** definição para este ficheiro deve ser sempre **copiar se for mais recente**. 
@@ -207,15 +207,11 @@ Também pode gerir as definições da aplicação de uma das seguintes outras fo
 
 ## <a name="monitoring-functions"></a>Funções de monitorização
 
-É a forma recomendada para monitorizar a execução da sua função no Azure através da integração com o Azure Application Insights. Quando cria uma aplicação de funções no portal do Azure, esta integração é feita para, por predefinição. No entanto, quando criar a sua aplicação de função durante a publicação do Visual Studio, não é feita a integração na sua aplicação de função no Azure. Em vez disso, obtém incorporada Registro em log, que não é recomendado.
+A forma recomendada para monitorizar a execução das suas funções é integrar a sua aplicação de funções com o Azure Application Insights. Quando cria uma aplicação de funções no portal do Azure, esta integração é feita para, por predefinição. No entanto, quando criar a sua aplicação de função durante a publicação do Visual Studio, não é feita a integração na sua aplicação de função no Azure.
 
-Para ativar o Application Insights para a sua aplicação de função no Azure:
+Para ativar o Application Insights para a sua aplicação de função:
 
-1. Criar uma instância do Application Insights no [portal do Azure](https://portal.azure.com) e copie a chave de instrumentação. Para saber como, veja [manualmente ligar um recurso do App Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Adicionar uma aplicação definição denominada `APPINSIGHTS_INSTRUMENTATIONKEY` às definições da aplicação de função no Azure, conforme descrito na [definições da aplicação de função](#function-app-settings). Esta definição de aplicação contém a chave de instrumentação que criou no passo anterior.
-
-1. Remover o `AzureWebJobsDashboard` definição de aplicação a partir da aplicação de função no Azure, o que desativa o registo incorporado.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
 

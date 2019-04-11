@@ -4,37 +4,33 @@ description: Descreve as funções para utilizar num modelo do Azure Resource Ma
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 87ce2019f85a2c1be742d3abf6c2fc61c5dcec10
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866934"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470717"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
 O Resource Manager proporciona as seguintes funções para obter valores do recurso:
 
-* [lista *](#list)
+* [list*](#list)
 * [Fornecedores](#providers)
-* [reference](#reference)
+* [Referência](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
 * [subscrição](#subscription)
 
 Para obter valores de parâmetros, variáveis ou a implementação atual, veja [das funções de valor de implementação](resource-group-template-functions-deployment.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 <a id="listkeys" />
 <a id="list" />
@@ -173,17 +169,19 @@ O objeto devolvido varia consoante a função de lista que utilizar. Por exemplo
 }
 ```
 
-Outras funções de lista têm formatos de retornados diferentes. Para ver o formato de uma função, incluí-lo na secção de saídas como mostra o modelo de exemplo. 
+Outras funções de lista têm formatos de retornados diferentes. Para ver o formato de uma função, incluí-lo na secção de saídas como mostra o modelo de exemplo.
 
 ### <a name="remarks"></a>Observações
 
 Especifique o recurso com o nome de recurso ou o [resourceId função](#resourceid). Quando utilizar uma função de lista no mesmo modelo que implementa o recurso referenciado, utilize o nome do recurso.
 
+Se utilizar um **lista** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado. Obter um erro se o **lista** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso existe. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma lista com um recurso condicionalmente implementado.
+
 ### <a name="example"></a>Exemplo
 
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) mostra como devolver as chaves primária e secundárias da conta de armazenamento na secção de saídas. Ele também retorna um token SAS para a conta de armazenamento. 
 
-Para obter o token de token de SAS, passe um objeto para a hora de expiração. A hora de expiração tem de ser no futuro. Este exemplo destina-se para mostrar como utilizar as funções de lista. Normalmente, poderia usar o token SAS num valor de recursos em vez de retorná-lo como um valor de saída. Valores de saída são armazenados no histórico de implementação e não são seguras.
+Para obter o token SAS, passe um objeto para a hora de expiração. A hora de expiração tem de ser no futuro. Este exemplo destina-se para mostrar como utilizar as funções de lista. Normalmente, poderia usar o token SAS num valor de recursos em vez de retorná-lo como um valor de saída. Valores de saída são armazenados no histórico de implementação e não são seguras.
 
 ```json
 {
@@ -246,23 +244,10 @@ Para obter o token de token de SAS, passe um objeto para a hora de expiração. 
         }
     }
 }
-``` 
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
-```
-
-<a id="providers" />
 
 ## <a name="providers"></a>Fornecedores
+
 `providers(providerNamespace, [resourceType])`
 
 Devolve informações sobre um fornecedor de recursos e os tipos de recursos suportados. Se não fornecer um tipo de recurso, a função devolve todos os tipos suportados para o fornecedor de recursos.
@@ -336,21 +321,8 @@ Para o **Microsoft. Web** fornecedor de recursos e **sites** tipo de recurso, o 
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
-```
-
-<a id="reference" />
-
 ## <a name="reference"></a>Referência
+
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Devolve um objeto que representa o estado de runtime de um recurso.
@@ -374,6 +346,8 @@ A função de referência obtém o estado de tempo de execução de um recurso a
 A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação.
 
 Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
+
+Se utilizar o **referência** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado.  Obter um erro se o **referência** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso existe. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma referência com um recurso condicionalmente implementado.
 
 Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que retorna o objeto na secção de saídas. Se tiver um recurso existente desse tipo, o seu modelo retorna o objeto sem ter de implementar todos os novos recursos. 
 
@@ -514,18 +488,6 @@ O objeto completo é no seguinte formato:
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
-```
-
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) faz referência a uma conta de armazenamento que não está implementada neste modelo. A conta de armazenamento já existe na mesma subscrição.
 
 ```json
@@ -550,21 +512,8 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
-```
-
-<a id="resourcegroup" />
-
 ## <a name="resourcegroup"></a>resourceGroup
+
 `resourceGroup()`
 
 Devolve um objeto que representa o grupo de recursos atual. 
@@ -635,21 +584,8 @@ O exemplo anterior retorna um objeto no seguinte formato:
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
-```
-
-<a id="resourceid" />
-
 ## <a name="resourceid"></a>resourceId
+
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Devolve o identificador exclusivo de um recurso. Utilize esta função quando o nome do recurso é ambíguo ou não aprovisionada dentro do mesmo modelo. 
@@ -789,21 +725,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | differentSubOutput | Cadeia | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
-```
-
-<a id="subscription" />
-
 ## <a name="subscription"></a>subscrição
+
 `subscription()`
 
 Devolve detalhes sobre a subscrição para a implementação atual. 
@@ -839,19 +762,8 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
-```
-
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

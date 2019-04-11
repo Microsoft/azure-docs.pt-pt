@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3b79c75b9846a4f8966a113c6e06fabc25bcf011
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225931"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470955"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implementar um módulo do IoT Edge do node. js para o seu dispositivo simulado
 
@@ -35,8 +35,8 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura ge
 
 Um dispositivo Azure IoT Edge:
 
-* Pode seguir os passos no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
-* Se estiver a executar o IoT Edge no Windows, o IoT Edge versão 1.0.5 não suporta módulos node. js. Para obter mais informações, consulte [notas de versão 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obter passos sobre como instalar uma versão específica, consulte [atualizar o daemon de segurança de IoT Edge e o tempo de execução](how-to-update-iot-edge.md).
+* Pode seguir os passos no início rápido para [Linux](quickstart-linux.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
+* Módulos do node. js para o IoT Edge não suportam contentores do Windows. 
 
 Recursos da cloud:
 
@@ -47,6 +47,7 @@ Recursos de desenvolvimento:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
+   * Se estiver a desenvolver num dispositivo Windows, certifique-se de que o Docker está [configurado para utilizar contentores Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 * [Node.js e npm](https://nodejs.org). O pacote npm é distribuído com o Node.js, o que significa que quando transfere o Node.js, obtém automaticamente o npm instalado no seu computador.
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
@@ -184,7 +185,7 @@ Cada modelo inclui o código de exemplo, que captura os dados simulados do senso
 
 10. No explorador do VS Code, abra o ficheiro **deployment.template.json** na área de trabalho da solução do IoT Edge. Este ficheiro diz ao agente do IoT Edge para quais módulos para implementar, neste caso **tempSensor** e **NodeModule**e informa ao hub do IoT Edge como rotear mensagens entre eles. A extensão do Visual Studio Code povoa automaticamente a maior parte das informações que precisa no modelo de implementação, mas certifique-se de que tudo está correta para a sua solução: 
 
-   1. A plataforma padrão do seu IoT Edge está definida como **amd64** no seu estado do VS Code barra, que significa que seu **NodeModule** está definido como Linux amd64 versão da imagem. Alterar a plataforma de predefinição na barra de status da **amd64** ao **arm32v7** ou **windows-amd64** se de que é arquitetura de seu dispositivo IoT Edge. 
+   1. A plataforma padrão do seu IoT Edge está definida como **amd64** no seu estado do VS Code barra, que significa que seu **NodeModule** está definido como Linux amd64 versão da imagem. Alterar a plataforma de predefinição na barra de status da **amd64** ao **arm32v7** se de que é arquitetura de seu dispositivo IoT Edge. 
 
       ![Plataforma de imagem do módulo de atualização](./media/tutorial-node-module/image-platform.png)
 
@@ -229,8 +230,9 @@ Pode ver o endereço da imagem de contentor completo com a etiqueta no comando `
 >[!TIP]
 >Se receber um erro ao tentar criar e enviar por push o seu módulo, tome as seguintes verificações:
 >* Iniciou sessão ao Docker no Visual Studio Code, utilizando as credenciais do seu registo de contentor? Estas credenciais são diferentes dos que utilizar para iniciar sessão no portal do Azure.
->* O repositório do contentor está correto? Open **módulos** > **cmodule** > **Module** e encontre a **repositório** campo. O repositório de imagens deve ser semelhante à  **\<registryname\>.azurecr.io/nodemodule**. 
->* Está a criar o mesmo tipo de contentores que está a executar o seu computador de desenvolvimento? Visual Studio Code é predefinida como contentores do Linux amd64. Se o computador de desenvolvimento está a executar contentores do Windows ou Linux arm32v7 contentores, atualize a plataforma na barra de status azul na parte inferior da janela do VS Code, de acordo com sua plataforma de contentores.
+>* O repositório do contentor está correto? Open **módulos** > **nodemodule** > **Module** e encontre a **repositório** campo. O repositório de imagens deve ser semelhante à  **\<registryname\>.azurecr.io/nodemodule**. 
+>* Está a criar o mesmo tipo de contentores que está a executar o seu computador de desenvolvimento? Visual Studio Code é predefinida como contentores do Linux amd64. Se o computador de desenvolvimento estiver a executar contentores do Linux arm32v7, atualize a plataforma na barra de status azul na parte inferior da janela do VS Code, de acordo com sua plataforma de contentores.
+>* Módulos do node. js para o IoT Edge não suportam contentores do Windows.
 
 ## <a name="deploy-and-run-the-solution"></a>Implementar e executar a solução
 

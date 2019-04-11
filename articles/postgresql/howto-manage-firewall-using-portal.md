@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 555904642df069e9d87b2286bce23181da0f8184
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086637"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470802"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Criar e gerir a base de dados do Azure para as regras de firewall do PostgreSQL no portal do Azure
-Regras de firewall ao nível do servidor permitem que os administradores aceder a uma base de dados do Azure para o servidor PostgreSQL a partir de um endereço IP especificado ou intervalo de endereços IP. 
+Regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma base de dados do Azure para o servidor PostgreSQL de um endereço IP especificado ou intervalo de endereços IP.
+
+Regras de rede (VNet) virtual também podem ser utilizadas para proteger o acesso ao seu servidor. Saiba mais sobre [criação e gestão de rede Virtual do serviço pontos finais e regras no portal do Azure](howto-manage-vnet-using-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de procedimentos, terá de:
@@ -34,7 +36,7 @@ Para seguir este guia de procedimentos, terá de:
 
    ![Pesquisa do Bing para o que é o meu IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Adicione intervalos de endereços adicional. Nas regras da firewall da base de dados do Azure para PostgreSQL, pode especificar um único endereço IP ou um intervalo de endereços. Se pretender limitar a regra para um único endereço IP, escreva o mesmo endereço no campo para o IP inicial e final. Abrir a firewall permite aos administradores, utilizadores e aplicações para iniciar sessão a qualquer base de dados no servidor PostgreSQL para o qual tenham credenciais válidas.
+4. Adicione intervalos de endereços adicional. Nas regras da firewall da base de dados do Azure para PostgreSQL, pode especificar um único endereço IP ou um intervalo de endereços. Se pretender limitar a regra para um único endereço IP, escreva o mesmo endereço no campo para o IP inicial e final. Abrir a firewall permite aos administradores, utilizadores e aplicações para aceder a qualquer base de dados no servidor PostgreSQL para o qual tenham credenciais válidas.
 
    ![Portal do Azure – regras de firewall](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -58,4 +60,5 @@ Repita os passos para gerir as regras de firewall.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Da mesma forma, pode criar scripts para [criar e gerir a base de dados do Azure para as regras de firewall do PostgreSQL com a CLI do Azure](howto-manage-firewall-using-cli.md).
+- Proteger ainda mais o acesso ao seu servidor pela [criação e gestão de rede Virtual do serviço pontos finais e regras no portal do Azure](howto-manage-vnet-using-portal.md).
 - Para obter ajuda na conexão com uma base de dados do Azure para o servidor PostgreSQL, consulte [bibliotecas de ligação para base de dados do Azure para PostgreSQL](concepts-connection-libraries.md).

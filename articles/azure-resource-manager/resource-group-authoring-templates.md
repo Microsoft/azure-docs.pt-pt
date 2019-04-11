@@ -10,23 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904938"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470972"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação.
 
 Este artigo destina-se a utilizadores que têm um pouco familiarizado com modelos do Resource Manager. Ele fornece informações detalhadas sobre a estrutura e a sintaxe do modelo. Se pretender uma introdução à criação de um modelo, veja [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>Formato de modelo
 
@@ -496,7 +493,7 @@ Define os recursos com a seguinte estrutura:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. |
+| condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. Ver [condição](#condition). |
 | apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
 | tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
 | nome |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. |
@@ -533,6 +530,8 @@ Normalmente, utiliza este valor quando pretender criar um novo recurso ou utiliz
 ```
 
 Para um modelo de exemplo completo que utilize o `condition` elemento, consulte [VM com uma rede Virtual nova ou existente, o armazenamento e o IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+Se utilizar um [referência](resource-group-template-functions-resource.md#reference) ou [lista](resource-group-template-functions-resource.md#list) função com um recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado. Obter um erro se a função refere-se a um recurso que não existe. Utilize o [se](resource-group-template-functions-logical.md#if) função para se certificar de que a função é avaliada apenas para condições de quando o recurso está implementado. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma referência com um recurso condicionalmente implementado.
 
 ### <a name="resource-names"></a>Nomes de recursos
 

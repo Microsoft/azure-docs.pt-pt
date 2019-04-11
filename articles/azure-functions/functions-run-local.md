@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009840"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470845"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -466,6 +466,16 @@ As seguintes opções de implementação do contentor personalizado estão dispo
 | **`--max`**  | Opcionalmente, define o número máximo de instâncias de aplicações de função para implementar. |
 | **`--min`**  | Opcionalmente, define o número mínimo de instâncias de aplicações de função para implementar. |
 | **`--config`** | Define um ficheiro de configuração de implementação opcional. |
+
+## <a name="monitoring-functions"></a>Funções de monitorização
+
+A forma recomendada para monitorizar a execução das suas funções é através da integração com o Azure Application Insights. Quando cria uma aplicação de funções no portal do Azure, esta integração é feita para, por predefinição. No entanto, quando criar a sua aplicação de função com a CLI do Azure, não é feita a integração na sua aplicação de função no Azure.
+
+Para ativar o Application Insights para a sua aplicação de função:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885082"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471057"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 
@@ -167,8 +167,8 @@ O ponto mais comuns de falha é que a firewall e de ou portas de proxy e limites
 
 Para o Azure AD Connect versão 1.1.443.0 e posteriores, necessitar de HTTPS de saída acesso ao seguinte:
 
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
+* \*.passwordreset.microsoftonline.com
+* \*.servicebus.windows.net
 
 Para mais granularidade, veja a lista atualizada de [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) atualizado a cada quarta-feira e entra em vigor a próxima segunda-feira.
 

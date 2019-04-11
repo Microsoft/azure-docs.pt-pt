@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração de azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361493"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470904"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -96,13 +96,15 @@ Quando os espaços de desenvolvimento do Azure está ativado no seu cluster do A
 * Remove qualquer espaço de nomes do Kubernetes com o nome *azds*, se ela existe e cria um novo.
 * Implementa um objeto do inicializador de Kubernetes.
 
+Ele também usa o mesmo principal de serviço que utiliza o seu cluster do AKS para fazer chamadas de serviço para outros componentes de espaços de desenvolvimento do Azure.
+
 ![Preparar o cluster espaços de desenvolvimento do Azure](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Para utilizar espaços de desenvolvimento do Azure, tem de existir pelo menos um espaço de desenvolvimento. Os espaços de desenvolvimento do Azure utilizam espaços de nomes do Kubernetes no seu cluster do AKS para espaços de desenvolvimento. Quando está a ser instalado um controlador, pede-lhe para criar um novo espaço de nomes do Kubernetes ou escolha um espaço de nomes existente para utilizar como seu primeiro espaço de desenvolvimento. Quando um espaço de nomes é designado como um espaço de desenvolvimento, o controlador adiciona a *azds.io/space=true* etiqueta para esse espaço de nomes para identificá-lo como um espaço de desenvolvimento. O espaço de desenvolvimento inicial cria ou designar está selecionado por predefinição, depois de preparar o seu cluster. Quando é selecionado um espaço, é utilizado por espaços de desenvolvimento do Azure para a criação de novas cargas de trabalho.
 
 Por predefinição, o controlador cria um espaço de desenvolvimento com o nome *predefinição* atualizando os existentes *padrão* espaço de nomes do Kubernetes. Pode utilizar as ferramentas do lado do cliente para criar novos espaços de desenvolvimento e remover os espaços existentes de desenvolvimento. Devido a uma limitação no Kubernetes, o *predefinição* não é possível remover o espaço de desenvolvimento. O controlador também remove quaisquer espaços de nomes do Kubernetes existentes com o nome *azds* para evitar conflitos com a `azds` comando utilizado pelas ferramentas do lado do cliente.
 
-O objeto do inicializador de Kubernetes é usado para inserir os pods com três contentores durante a implementação de instrumentação: um contentor de devspaces proxy, um contentor de inicialização da proxy devspaces e um contentor de compilação devspaces. **Executam todos os três destes contentores com acesso à raiz do seu cluster do AKS.**
+O objeto do inicializador de Kubernetes é usado para inserir os pods com três contentores durante a implementação de instrumentação: um contentor de devspaces proxy, um contentor de inicialização da proxy devspaces e um contentor de compilação devspaces. **Executam todos os três destes contentores com acesso à raiz do seu cluster do AKS.** Eles também usam a mesma entidade de serviço que utiliza o seu cluster do AKS para fazer chamadas de serviço para outros componentes de espaços de desenvolvimento do Azure.
 
 ![Inicializador de Kubernetes de espaços de desenvolvimento do Azure](media/how-dev-spaces-works/kubernetes-initializer.svg)
 

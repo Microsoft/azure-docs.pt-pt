@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309646"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470343"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de criar projeto Acoustics Unity
 Este tutorial descreve acoustics implantando com o projeto Acoustics no Unity.
@@ -137,7 +137,7 @@ O nome de cena é utilizado para ligar a cena aos ficheiros que armazenar o posi
 
 1. O **sondas** botão de separador usado para exibir esta página
 2. Uma breve descrição sobre o que precisa fazer usando esta página
-3. Utilizá-las para escolher uma resolução de simulação de genérico ou tudo bem. Genérico é mais rápido, mas tem determinadas vantagens e desvantagens. Ver [escolher vs genérico resolução fina](#Coarse-vs-Fine-Resolution) abaixo para obter detalhes.
+3. Utilizá-las para escolher uma resolução de simulação de genérico ou tudo bem. Genérico é mais rápido, mas tem determinadas vantagens e desvantagens. Ver [inserir resolução](bake-resolution.md) abaixo para obter detalhes.
 4. Escolha a localização onde os ficheiros de dados acoustics devem ser colocados através deste campo. Clique no botão com "..." para utilizar um Seletor de pasta. A predefinição é **ativos/AcousticsData**. Uma **Editor** subpasta também será criada nesta localização. Para obter mais informações sobre os ficheiros de dados, consulte [ficheiros de dados](#Data-Files) abaixo.
 5. Os ficheiros de dados para essa cena serão nomeados com o prefixo fornecido aqui. A predefinição é "Acoustics_ [nome da cena]".
 6. Depois das sondas foram calculadas, os controlos acima serão desativados. Clique nas **clara** botão para apagar os cálculos e ativar os controlos para que pode recalcular com novas definições.
@@ -145,21 +145,7 @@ O nome de cena é utilizado para ligar a cena aos ficheiros que armazenar o posi
 
 Nesta versão do projeto Acoustics, sondas não é possível colocar manualmente e devem ser colocadas durante o processo automatizado fornecido no **sondas** separador.
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Escolher genérico versus resolução
-
-A única diferença entre as definições de resolução de genérico e tudo bem, é a frequência com que a simulação é executada. Bem utiliza uma frequência de duas vezes tão elevada como genérico.
-Embora isso possa parecer simple, tem várias implicações na simulação acústica:
-
-* O wavelength para genérico se duas vezes, desde que tudo bem, sendo, portanto, os voxels duas vezes tão grandes.
-* O tempo de simulação está diretamente relacionada com o tamanho de voxel, tornando um genérico criar aproximadamente 16 vezes mais rápido do que um criar tudo bem.
-* Portais (por exemplo, as portas ou windows) inferior ao tamanho de voxel não podem ser simulados. A definição genérico pode fazer com que alguns destes portais menores, a não ser simulada; portanto, eles não passará som por meio em tempo de execução. Pode ver se isso está acontecendo, visualizando o voxels.
-* A frequência de simulação inferior resulta em menos diffraction em torno de cantos e margens.
-* Origens de som não podem estar localizadas dentro de "preenchido" voxels, que é voxels que contêm a geometria - isso resulta em nenhum som. É mais difícil localizar as origens de som para que não estejam dentro o voxels maiores de genérico que está a utilizar a definição adequada.
-* O maior voxels será atrapalham a mais em portais, conforme mostrado abaixo. A primeira imagem foi criada com genérico, enquanto o segundo é a mesma porta com resolução fina. Conforme indicado pelas marcas de vermelhas, há muito menos intrusões a porta através da definição tudo bem. A linha azul é a porta, conforme definido por geometry, enquanto a linha vermelha é o portal de acústico eficaz definido pelo tamanho voxel. Como esta invasão papel em determinada situação depende completamente como os voxels alinhar com a geometria do portal, que é determinado pelo tamanho e localizações de seus objetos na cena.
-
-![Captura de ecrã do voxels genérico na porta](media/coarse-voxel-doorway.png)
-
-![Captura de ecrã do voxels bem na porta](media/fine-voxel-doorway.png)
+Ver [inserir resolução](bake-resolution.md) para obter mais detalhes sobre o vs genérico bem resolução.
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Inserir sua cena com o Azure Batch
 Pode incluir sua cena com um cluster de computação na cloud com o serviço Azure Batch. O plug-in do projeto Acoustics Unity liga-se diretamente ao Azure Batch para criar uma instância, gerenciar e subdividir um cluster do Azure Batch para cada criar. Sobre o **colocá** separador, introduza as credenciais do Azure, selecione um tipo de máquina de cluster e o tamanho e clique em **inserir**.
@@ -210,7 +196,7 @@ Por exemplo, no nosso teste numa máquina de 8 núcleos com o Intel Xeon E5-1660
 Instalar e configurar o Docker no PC que irá processar a simulação-
 1. Instalar o [conjunto de ferramentas do Docker](https://www.docker.com/products/docker-desktop).
 2. Inicie as definições do Docker, navegue para as opções de "Advanced" e configurar recursos de ter, pelo menos, 8GB de RAM. As CPUs mais pode alocar a Docker, mais rapidamente a criar irá concluir. ![Captura de ecrã das definições de Docker de exemplo](media/docker-settings.png)
-3. Navegue para "Unidades partilhadas" e ativar partilha para a unidade utilizada para processamento.![Opções de unidade de Screnshot de Docker partilhado](media/docker-shared-drives.png)
+3. Navegue para "Unidades partilhadas" e ativar partilha para a unidade utilizada para processamento.![Opções de unidade de captura de ecrã do Docker partilhado](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Executar criar local
 1. Clique no botão "Preparar Local inserir" no **inserir** separador e selecione uma pasta onde serão guardados os ficheiros de entrada e os scripts de execução. Em seguida, pode executar a criar em qualquer máquina, desde que cumprem os requisitos mínimos de hardware e tem o Docker instalado ao copiar a pasta para que a máquina.

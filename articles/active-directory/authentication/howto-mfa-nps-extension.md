@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311735"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470360"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -193,7 +193,7 @@ Depois de ativar a MFA para um cliente RADIUS utilizando a extensão de NPS, tod
 
 Se tiver utilizadores que não estejam inscritos para a MFA, pode determinar o que acontece quando o utilizador tentar autenticar. Utilize a definição de registo *REQUIRE_USER_MATCH* no caminho do registo *HKLM\Software\Microsoft\AzureMFA* para controlar o comportamento de funcionalidade. Esta definição não tem uma opção de configuração única:
 
-| Chave | Value | Predefinição |
+| Chave | Valor | Predefinição |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERDADEIRO/FALSO | Não definido (equivalente ao verdadeiro) |
 
@@ -206,6 +206,8 @@ Pode optar por criar esta chave e defini-lo como FALSE, enquanto os seus utiliza
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Como posso verificar que o certificado de cliente é instalado conforme o esperado?
 
 Procure o certificado autoassinado criado pelo instalador no arquivo de certificados e verifique se a chave privada tem as permissões concedidas ao utilizador **serviço de rede**. O certificado tem um nome de requerente dos **CN \<tenantid\>, UO = extensão NPS da Microsoft**
+
+Os certificados autoassinados gerados pelos *AzureMfaNpsExtnConfigSetup.ps1* script também têm uma duração de validade de dois anos. Ao verificar se o certificado é instalado, deve verificar também que o certificado não expirou.
 
 -------------------------------------------------------------
 
@@ -262,6 +264,14 @@ Certifique-se de que o AD Connect está em execução e que o utilizador esteja 
 
 Certifique-se de que https://adnotifications.windowsazure.com está acessível a partir do servidor que executa a extensão NPS.
 
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Por que a autenticação não está a funcionar, apesar de um certificado válido que estejam presentes?
+
+Se o certificado de computador anterior tiver expirado, e um novo certificado foi gerado, deve eliminar todos os certificados expirados. Ter certificados expirados podem causar problemas com a extensão de NPS a iniciar.
+
+Para verificar se tiver um certificado válido, verifique o Store de certificado da conta de computador local com o MMC e certifique-se de que o certificado não passou a sua data de expiração. Para gerar um certificado válido recentemente, volte a executar os passos na secção "[executar o script PowerShell](#run-the-powershell-script)"
+
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gerir os Protocolos TLS/SSL e Conjuntos de Cifras
 
 Recomenda-se que conjuntos de cifras mais antigas e mais fraco desativados ou removidos requerida pela sua organização. Pode encontrar informações sobre como concluir esta tarefa no artigo [Gerir Protocolos SSL/TLS e Conjuntos de Cifras para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
@@ -272,4 +282,4 @@ Recomenda-se que conjuntos de cifras mais antigas e mais fraco desativados ou re
 
 - Saiba como integrar [Gateway de ambiente de trabalho remoto](howto-mfa-nps-extension-rdg.md) e [servidores VPN](howto-mfa-nps-extension-vpn.md) usando a extensão NPS
 
-- [Resolver mensagens de erro da extensão NPS para Multi-Factor Authentication do Azure](howto-mfa-nps-extension-errors.md)
+- [Resolver mensagens de erro da extensão NPS para multi-factor Authentication do Azure](howto-mfa-nps-extension-errors.md)

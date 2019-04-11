@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2019
+ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876811"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470003"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a base de dados do Azure para MariaDB regras de firewall com o portal do Azure
-Regras de firewall ao nível do servidor permitem que os administradores aceder a uma base de dados do Azure para MariaDB Server a partir de um endereço IP especificado ou um intervalo de endereços IP. 
+Regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma base de dados do Azure para MariaDB Server de um endereço IP especificado ou um intervalo de endereços IP.
+
+Regras de rede (VNet) virtual também podem ser utilizadas para proteger o acesso ao seu servidor. Saiba mais sobre [criação e gestão de rede Virtual do serviço pontos finais e regras no portal do Azure](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall ao nível do servidor no portal do Azure
 
@@ -52,7 +54,6 @@ Repita os passos para gerir as regras de firewall.
 * Para modificar uma regra existente, clique em qualquer um dos campos na regra e, em seguida, modifique. Clique em **Guardar** para guardar as alterações.
 * Para eliminar uma regra existente, clique nas reticências [...] e, em seguida, clique em **eliminar**. Clique em **Guardar** para guardar as alterações.
 
-<!--
-## Next steps
- - Similarly, you can script to [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
-- For help in connecting to an Azure Database for MariaDB server, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md) -->
+## <a name="next-steps"></a>Passos Seguintes
+ - Da mesma forma, pode criar scripts para [criar e gerir a base de dados do Azure para as regras de firewall da MariaDB com a CLI do Azure](howto-manage-firewall-cli.md).
+ - Proteger ainda mais o acesso ao seu servidor pela [criação e gestão de rede Virtual do serviço pontos finais e regras no portal do Azure](howto-manage-vnet-portal.md).

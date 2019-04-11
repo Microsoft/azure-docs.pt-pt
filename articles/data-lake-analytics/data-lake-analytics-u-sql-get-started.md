@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233361"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469612"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução ao U-SQL no Azure Data Lake Analytics
 U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para permitem-lhe processar dados em qualquer escala. Por meio da capacidade de dimensionável e de consulta distribuído de U-SQL, pode analisar eficazmente os dados em repositórios relacionais, como a base de dados do Azure SQL. U-SQL, pode processar os dados não estruturados, ao aplicar o esquema na leitura e inserção de lógica personalizada e UDFs. Além disso, o U-SQL inclui extensibilidade que lhe dá controle refinado sobre como executar à escala. 
@@ -27,7 +27,7 @@ U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para permit
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de seguir os exemplos de U-SQL neste documento, leia e conclua [Tutorial: scripts de desenvolver U-SQL com ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com ferramentas do Azure Data Lake para Visual Studio.
+Antes de seguir os exemplos de U-SQL neste documento, ler e concluir [Tutorial: Desenvolver scripts U-SQL com ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). Esse tutorial explica a mecânica do uso do U-SQL com ferramentas do Azure Data Lake para Visual Studio.
 
 ## <a name="your-first-u-sql-script"></a>O seu primeiro script U-SQL
 
@@ -55,7 +55,7 @@ Este script não tem quaisquer passos de transformação. Lê a partir do arquiv
 Tenha em atenção o ponto de interrogação junto os dados de digitar o `Duration` campo. Isso significa que o `Duration` campo pode ser nulo.
 
 ### <a name="key-concepts"></a>Conceitos-chave
-* **Variáveis de conjunto de linhas**: cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. U-SQL segue o padrão de nomenclatura de variável T-SQL (`@searchlog`, por exemplo) no script.
+* **Variáveis de conjunto de linhas**: Cada expressão de consulta que produz um conjunto de linhas pode ser atribuído a uma variável. U-SQL segue o padrão de nomenclatura de variável T-SQL (`@searchlog`, por exemplo) no script.
 * O **EXTRAIR** lê dados a partir de um ficheiro de palavra-chave e define o esquema na leitura. `Extractors.Tsv` é um extrator de U-SQL incorporada para ficheiros de valores separador separados. Pode desenvolver extratores personalizados.
 * O **saída** escreve dados de um conjunto de linhas para um ficheiro. `Outputters.Csv()` é um outputter de U-SQL incorporada para criar um ficheiro de separados por vírgulas. Pode desenvolver operadores personalizados.
 
@@ -117,7 +117,7 @@ Uso **SELECIONE** para transformar os conjuntos de linhas:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-A cláusula WHERE usa um [expressão c# booleana](https://msdn.microsoft.com/library/6a71f45d.aspx). Pode utilizar a linguagem de expressão do c# para fazer as suas próprias expressões e funções. Pode até mesmo executar filtragem mais complexas ao combiná-los com lógicas conjunções (ANDs) e disjunctions (ORs).
+A cláusula WHERE usa um [expressão c# booleana](/dotnet/csharp/language-reference/operators/index). Pode utilizar a linguagem de expressão do c# para fazer as suas próprias expressões e funções. Pode até mesmo executar filtragem mais complexas ao combiná-los com lógicas conjunções (ANDs) e disjunctions (ORs).
 
 O script seguinte utiliza o método DateTime.Parse() e um conjunto.
 
@@ -222,8 +222,8 @@ A cláusula de U-SQL que pode ser utilizada para restringir a saída aos grupos 
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Para cenários avançados de agregação, consulte a documentação de referência de U-SQL para [agregar, análise e as funções de referência](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+Para cenários avançados de agregação, consulte a documentação de referência de U-SQL para [agregar, análise e as funções de referência](/u-sql/built-in-functions)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral do Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Desenvolver scripts U-SQL com ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

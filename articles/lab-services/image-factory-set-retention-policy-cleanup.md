@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 48412b3006a462fcc9c77219f42fb41d08f2df61
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361859"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469375"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada no Azure DevTest Labs
 Este artigo aborda a definição de uma política de retenção, limpar a fábrica e extinção imagens antigas de todos os outros laboratórios de Dev/Test na organização. 
@@ -75,5 +75,5 @@ Adicionar uma nova imagem à sua fábrica também é simple. Quando quiser inclu
 ## <a name="next-steps"></a>Passos Seguintes
 1. [Agendar sua compilação/liberação](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) para executar periodicamente a fábrica de imagem. Ele atualiza as imagens de gerado por fábrica de mensagens em fila em intervalos regulares.
 2. Faça mais imagens de ouro da sua fábrica. Também pode considerar [criar artefactos](devtest-lab-artifact-author.md) partes adicionais de suas tarefas de configuração VM do script e incluir os artefactos de suas imagens de fábrica.
-4. Criar uma [separar compilação/liberação](/azure/devops/pipelines/overview.md?view=azure-devops-2019) para executar o **DistributeImages** separadamente do script. Pode executar este script quando efetuar alterações ao Labs.json e obter imagens copiadas para laboratórios de destino sem ter de recriar todas as imagens novamente.
+4. Criar uma [separar compilação/liberação](/azure/devops/pipelines/overview?view=azure-devops-2019) para executar o **DistributeImages** separadamente do script. Pode executar este script quando efetuar alterações ao Labs.json e obter imagens copiadas para laboratórios de destino sem ter de recriar todas as imagens novamente.
 

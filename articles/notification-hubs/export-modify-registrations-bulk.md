@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: a86c3bd85f9d611787a41754f49ee2475ba33a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175793"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469136"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportar e importar registos de Notification Hubs do Azure em massa
 Existem cenários em que é necessário para criar ou modificar um grande número de registos num hub de notificação. Alguns destes cenários são atualizações de etiqueta, seguindo os cálculos de batch ou a migrar uma implementação de push existente para utilizar os Hubs de notificação.
@@ -34,7 +34,7 @@ Esta secção assume que tem as seguintes entidades:
 
 - Um hub de notificação aprovisionado.
 - Um contentor de BLOBs de armazenamento do Azure.
-- Referências para os pacotes de armazenamento do Azure e Azure NuGet do Service Bus.
+- Referências para o [pacote NuGet de armazenamento do Azure](https://www.nuget.org/packages/windowsazure.storage/) e [pacote NuGet dos Hubs de notificação](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Criar ficheiro de entrada e o armazenamos num blob
 Um ficheiro de entrada contém uma lista de registos de serializada em XML, um por linha. Utilizar o SDK do Azure, o exemplo de código seguinte mostra como serializar os registros e carregá-los para o contentor de Blobs.
@@ -132,7 +132,7 @@ Esses arquivos contêm a lista de operações com êxito ou falhadas de seu lote
 O código de exemplo seguinte importa registos para um hub de notificação.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 5/16/2018
+ms.date: 4/05/2019
 ms.author: scottwhi
-ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082731"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469119"
 ---
-# <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Com um token de informações para obter informações sobre uma imagem
+# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Utilizar um token de informações para obter as informações para uma imagem
 
-A API de Pesquisa Visual do Bing devolve informações sobre uma imagem que indicar. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, consulte [o que é a API de pesquisa Visual do Bing?](overview.md). Este artigo demonstra como utilizar um token de informações. Para exemplos que demonstram a carregar uma imagem para obter informações, veja os inícios rápidos ([c#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
+A API de Pesquisa Visual do Bing devolve informações sobre uma imagem que indicar. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, consulte [o que é a API de pesquisa Visual do Bing?](overview.md). Este artigo demonstra como utilizar um token de informações. Para exemplos que demonstram como carregar uma imagem para obter informações, veja os inícios rápidos ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
-
-Se enviar o token ou o URL de uma imagem para a Pesquisa Visual, o seguinte mostra os dados de formato que tem de incluir no corpo de POST. Os dados do formulário tem de incluir o cabeçalho Content-Disposition e a respetiva `name` parâmetro tem de ser definido como "knowledgeRequest". Para obter detalhes sobre o `imageInfo` de objeto, consulte o pedido.
+Se enviar pesquisa Visual do Bing um token de imagem ou o URL, o código a seguir mostra os dados do formulário que tem de incluir no corpo da POSTAGEM. Os dados do formulário tem de incluir o `Content-Disposition` cabeçalho e tem de definir seu `name` parâmetro para "knowledgeRequest". Para obter detalhes sobre o `imageInfo` de objeto, consulte o pedido:
 
 ```json
 {
@@ -44,7 +43,7 @@ Se enviar o token ou o URL de uma imagem para a Pesquisa Visual, o seguinte most
 }
 ```
 
-Os exemplos neste artigo mostram como utilizar o token de informações. Obtenha o token de informações de um objeto de imagem numa resposta de API /images/search. Para obter informações sobre como obter o token de informações, consulte [API de pesquisa de imagens do Bing](../Bing-Image-Search/overview.md).
+Os exemplos neste artigo mostram como utilizar o token de informações. Obter o token de informações de um `Image` objeto num /images/resposta da API de pesquisa. Para obter informações sobre como obter o token de informações, consulte [o que é a API de pesquisa de imagens do Bing?](../Bing-Image-Search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -59,28 +58,24 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
+Para obter exemplos que utilizam o token de informações, consulte [c#](#use-with-c) | [Java](#use-with-java) | [node. js](#use-with-nodejs) | [Python](#use-with-python).
 
-Para obter exemplos que utilizam o token de informações, consulte [c#](#using-csharp) | [Java](#using-java) | [node. js](#using-nodejs) | [Python](#using-python).
+## <a name="use-with-c"></a>Utilizar com oC#
 
-<a name="using-csharp" />
+### <a name="c-prerequisites"></a>C#Pré-requisitos
 
-## <a name="using-c"></a>Utilizar C#
+- Qualquer versão do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter este código em execução no Windows.
+- Uma subscrição do Azure. Neste início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
 
-### <a name="prerequisites"></a>Pré-requisitos
-
-Precisa do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
-
-Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
-
-## <a name="running-the-application"></a>Executar a aplicação
+## <a name="run-the-application"></a>Executar a aplicação
 
 Para executar esta aplicação, siga os passos abaixo:
 
-1. Crie uma solução de Consola nova no Visual Studio.
-1. Substitua os conteúdos de `Program.cs` pelo código mostrado neste início rápido.
-2. Substitua o valor `accessKey` pela sua chave de subscrição.
-2. Substitua o `insightsToken` valor com um token de informações a partir de uma resposta de pesquisa/imagens /.
-3. Execute o programa.
+1. Crie uma solução de consola no Visual Studio.
+2. Substitua os conteúdos de Program.cs pelo código mostrado neste início rápido.
+3. Substitua o valor `accessKey` pela sua chave de subscrição.
+4. Substitua o `insightsToken` valor com um token de informações a partir de uma resposta de pesquisa/imagens /.
+5. Execute o programa.
 
 ```csharp
 using System;
@@ -238,21 +233,18 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-<a name="using-java" />
+## <a name="use-with-java"></a>Utilize com Java
 
-## <a name="using-java"></a>Utilizar o Java
+### <a name="java-prerequisites"></a>Pré-requisitos de Java
 
-### <a name="prerequisites"></a>Pré-requisitos
+- Tem de utilizar [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Se tiver um favorito, mas um editor de texto será suficiente, pode usar um IDE Java.
+- Neste início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
 
-Irá precisar do [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar este código. Pode utilizar um IDE Java se tiver um favorito, mas um editor de texto será suficiente.
-
-Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
-
-## <a name="running-the-application"></a>Executar a aplicação
+## <a name="run-the-java-application"></a>Executar a aplicação de Java
 
 Para executar esta aplicação, siga os passos abaixo:
 
-1. Transfira ou instale a [biblioteca gson](https://github.com/google/gson). Também pode obtê-la através do Maven.
+1. Transferir ou instalar o [biblioteca Gson Java](https://github.com/google/gson). Também pode obter Gson através do Maven.
 2. Crie um novo projeto Java no seu IDE ou editor favorito.
 3. Adicione o código fornecido a um ficheiro com o nome `VisualSearch.java`.
 4. Substitua o valor `subscriptionKey` pela sua chave de subscrição.
@@ -351,38 +343,35 @@ public class InsightsToken {
         return gson.toJson(json);
     }
 
-    
+
 }
 ```
 
+## <a name="use-with-nodejs"></a>Utilizar com o node. js
 
-<a name="using-nodejs" />
+### <a name="nodejs-prerequisites"></a>Pré-requisitos do node. js
 
-## <a name="using-nodejs"></a>Com Node.js
+- Tem de ter [node. js 6](https://nodejs.org/en/download/) executar esse código.
+- Neste início rápido, pode utilizar um [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chave de subscrição ou uma chave de subscrição paga.
 
-### <a name="prerequisites"></a>Pré-requisitos
-
-Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
-
-Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
-
-## <a name="running-the-application"></a>Executar a aplicação
+## <a name="run-the-javascript-application"></a>Executar a aplicação do JavaScript
 
 Para executar esta aplicação, siga os passos abaixo:
 
 1. Crie uma pasta para o seu projeto (ou utilize o seu IDE ou editor favorito).
 2. Numa linha de comandos ou terminal, navegue para a pasta que acabou de criar.
-3. Instale os módulos do pedido:  
-   ```  
+3. Instale os módulos do pedido:
+  
+   ```
    npm install request  
-   ```  
-3. Instale os módulos de dados de formulário:  
-   ```  
+   ```
+1. Instale os módulos de dados de formulário:  
+   ```
    npm install form-data  
-   ```  
-4. Crie um ficheiro com o nome GetVisualInsights.js e adicione-lhe o seguinte código.
-5. Substitua o valor `subscriptionKey` pela sua chave de subscrição.
-7. Execute o programa.  
+   ```
+1. Crie um ficheiro com o nome GetVisualInsights.js e adicione-lhe o seguinte código.
+1. Substitua o valor `subscriptionKey` pela sua chave de subscrição.
+1. Execute o programa.  
    ```
    node GetVisualInsights.js
    ```
@@ -422,19 +411,14 @@ function requestCallback(err, res, body) {
 }
 ```
 
+## <a name="use-with-python"></a>Utilizar com o Python
 
-<a name="using-python" />
+### <a name="python-prerequisites"></a>Pré-requisitos do Python
 
-## <a name="using-python"></a>Utilizar o Python
+- Tem de ter [Python 3](https://www.python.org/) executar esse código.
+- Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
 
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Irá precisar do [Python 3](https://www.python.org/) para executar este código.
-
-Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
-
-## <a name="running-the-walkthrough"></a>Executar as instruções
+## <a name="run-the-python-application"></a>Executar a aplicação de Python
 
 Para executar esta aplicação, siga os passos abaixo:
 
@@ -442,7 +426,6 @@ Para executar esta aplicação, siga os passos abaixo:
 2. Crie um ficheiro com o nome visualsearch.py e adicione o código apresentado neste guia de início rápido.
 3. Substitua o valor `SUBSCRIPTION_KEY` pela sua chave de subscrição.
 4. Execute o programa.
-
 
 ```python
 """Bing Visual Search example"""
@@ -492,8 +475,8 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Tutorial de aplicação de página única de pesquisa Visual do Bing](tutorial-bing-visual-search-single-page-app.md)  
-[Descrição geral da Pesquisa Visual do Bing](overview.md)  
-[Experimente](https://aka.ms/bingvisualsearchtryforfree)  
+[Criar uma aplicação de web de página única de pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)  
+[O que é a API de Pesquisa Visual do Bing?](overview.md)  
+[Experimentar os Serviços Cognitivos](https://aka.ms/bingvisualsearchtryforfree)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc) (Referência da API de Pesquisa Visual do Bing)
+[Imagens – pesquisa Visual](https://aka.ms/bingvisualsearchreferencedoc)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257166"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469801"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -145,6 +145,24 @@ Nesta seção, veremos como configurar um alerta de exceção de consulta com ba
 
     ![Em detalhes de alerta escreva o nome de regra de alerta, escreva uma descrição e escolha uma gravidade](./media/alerts/9alertdetails.png)
 
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como anular a subscrição de notificações por e-mail de alerta clássica
+
+Esta secção aplica-se ao **alertas de disponibilidade clássica**, **alertas de métricas do Application Insights**e, a **alertas de anomalias de falha clássico**.
+
+Está recebendo notificações de email para esses alertas clássicos se qualquer um dos seguintes se aplicar:
+
+* Seu endereço de email está listado no campo de destinatários de email de notificação nas definições da regra de alerta.
+
+* A opção para enviar notificações por correio eletrónico aos utilizadores que contém determinadas funções para a subscrição está ativada e possuem uma função respectiva para essa subscrição específica do Azure.
+
+![Captura de ecrã da notificação de alerta](./media/alerts/alert-notification.png)
+
+Para controlar melhor a segurança e privacidade em geral, recomendamos que especificar explicitamente os destinatários de notificação para as alertas Clássicos no **destinatários de e-mail de notificação** campo. A opção para notificar todos os utilizadores que contém determinadas funções é fornecida para compatibilidade com versões anteriores.
+
+Para anular a subscrição de notificações de correio electrónico geradas por uma determinada regra de alerta, remova o seu endereço de email a partir da **destinatários de e-mail de notificação** campo.
+
+Se o seu endereço de e-mail não estiver explicitamente, recomendamos que desative a opção para notificar automaticamente a todos os membros de determinadas funções e, em vez disso, listar todos os emails de usuário que precisam para receber notificações para essa regra de alerta no email de notificação campo de destinatários.
+
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem receberá notificações de alerta (clássicas)?
 
 Esta secção apenas se aplica a alertas clássicos e irá ajudá-lo a otimizar suas notificações de alerta para garantir que apenas os destinatários desejados recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e os alertas de nova experiência, consulte a [artigo de descrição geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, utilize [grupos de ação](../platform/action-groups.md).
@@ -165,7 +183,7 @@ Utilize os nova experiência/perto-realtime os alertas do alerta se tiver de not
 ## <a name="see-also"></a>Consulte também
 * [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
-* [Diagnóstico proativo](../../azure-monitor/app/proactive-diagnostics.md) 
+* [Diagnósticos proativos](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040995"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469629"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definidos pelo utilizador do U-SQL (UDOs)
 Este artigo descreve como desenvolver operadores definidos pelo utilizador para processar os dados numa tarefa U-SQL.
@@ -115,7 +115,7 @@ Este artigo descreve como desenvolver operadores definidos pelo utilizador para 
 8. No **Explorador de Soluções**, clique com o botão direito do rato em **Script.usql**, e, em seguida, clique em **Criar Script**.
 9. No **Explorador de Soluções**, clique com o botão direito do rato em **Script.usql**, e, em seguida, clique em **Submeter Script**.
 10. Se ainda não tiver ligado à sua subscrição do Azure, será solicitado que introduza as credenciais de conta do Azure.
-11. Clique em **submeter**. Os resultados da submissão e a ligação da tarefa ficam disponíveis na janela de resultados quando a submissão estiver concluída.
+11. Clique em **Submit** (Submeter). Os resultados da submissão e a ligação da tarefa ficam disponíveis na janela de resultados quando a submissão estiver concluída.
 12. Clique nas **atualizar** botão para ver a versão mais recente estado da tarefa e atualizar o ecrã.
 
 **Para ver a saída**
@@ -124,5 +124,5 @@ Este artigo descreve como desenvolver operadores definidos pelo utilizador para 
 2. Expanda os exemplos, expanda saídas e, em seguida, faça duplo clique em **Drivers.csv**.
 
 ## <a name="see-also"></a>Consulte também
-* [Estendendo as expressões de U-SQL com o código de utilizador](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [Estendendo as expressões de U-SQL com o código de utilizador](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [Utilizar ferramentas do Data Lake para Visual Studio para desenvolver aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

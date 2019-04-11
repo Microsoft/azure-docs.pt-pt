@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: b3079a7f2e71e26164d96cf167b67f1a60f7a23b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046478"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469748"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados com o Azure Data Lake Tools para Visual Studio
 
@@ -28,7 +28,7 @@ Em nosso cenário, os dados são uniformidade distribuídos por todos os examine
 
 O Azure Data Lake Tools para Visual Studio pode ajudar a detetar se o trabalho tiver um problema de distorção de dados. Se existir um problema, pode resolvê-lo ao tentar as soluções nesta secção.
 
-## <a name="solution-1-improve-table-partitioning"></a>Solução 1: Melhorar o particionamento de tabela
+## <a name="solution-1-improve-table-partitioning"></a>Solução 1: Melhorar a criação de partições de tabela
 
 ### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Opção 1: Filtrar o valor da chave distorcido com antecedência
 
@@ -44,13 +44,13 @@ Em vez de usar apenas _estado_ como uma chave de partição, pode utilizar mais 
 
 ### <a name="option-4-use-round-robin-distribution"></a>Opção 4: Utilizar a distribuição round robin
 
-Se não conseguir encontrar uma chave apropriada para a partição e a distribuição, pode tentar utilizar a distribuição round-robin. Distribuição round-robin trata igualmente a todas as linhas e os coloca aleatoriamente em buckets correspondentes. Os dados são distribuídos uniformemente, mas ele perde informações de localidade, uma desvantagem que também pode reduzir o desempenho de tarefa para algumas operações. Além disso, se estiver fazendo a agregação para a chave distorcida mesmo assim, o problema de distorção de dados serão mantidas. Para saber mais sobre a distribuição round robin, consulte a secção de distribuições de tabela U-SQL em [CREATE TABLE (U-SQL): criar uma tabela com o esquema](https://msdn.microsoft.com/library/mt706196.aspx#dis_sch).
+Se não conseguir encontrar uma chave apropriada para a partição e a distribuição, pode tentar utilizar a distribuição round-robin. Distribuição round-robin trata igualmente a todas as linhas e os coloca aleatoriamente em buckets correspondentes. Os dados são distribuídos uniformemente, mas ele perde informações de localidade, uma desvantagem que também pode reduzir o desempenho de tarefa para algumas operações. Além disso, se estiver fazendo a agregação para a chave distorcida mesmo assim, o problema de distorção de dados serão mantidas. Para saber mais sobre a distribuição round robin, consulte a secção de distribuições de tabela U-SQL em [CREATE TABLE (U-SQL): Criar uma tabela com o esquema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
 ## <a name="solution-2-improve-the-query-plan"></a>Solução 2: Melhorar o plano de consulta
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: Utilizar a instrução CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Opção 1: Utilize a instrução CREATE STATISTICS
 
-U-SQL fornece a instrução CREATE STATISTICS em tabelas. Esta declaração fornece mais informações para o otimizador de consultas sobre as características dos dados, tais como distribuição de valor, que são armazenados numa tabela. Para a maioria das consultas, o otimizador de consultas já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Ocasionalmente, poderá ter de melhorar o desempenho das consultas ao criar estatísticas adicionais com CREATE STATISTICS ou ao modificar a estrutura de consulta. Para obter mais informações, consulte a [CREATE STATISTICS (U-SQL)](https://msdn.microsoft.com/library/azure/mt771898.aspx) página.
+U-SQL fornece a instrução CREATE STATISTICS em tabelas. Esta declaração fornece mais informações para o otimizador de consultas sobre as características dos dados, tais como distribuição de valor, que são armazenados numa tabela. Para a maioria das consultas, o otimizador de consultas já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Ocasionalmente, poderá ter de melhorar o desempenho das consultas ao criar estatísticas adicionais com CREATE STATISTICS ou ao modificar a estrutura de consulta. Para obter mais informações, consulte a [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics) página.
 
 Exemplo de código:
 
@@ -169,7 +169,7 @@ Atributos do modo de combinação de:
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): Todas as linhas de saída depende de uma única linha de entrada da esquerda (e potencialmente todas as linhas da direita com o mesmo valor de chave).
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): todas as linhas de saída depende de uma única linha de entrada do lado direito (e potencialmente todas as linhas a partir da esquerda com o mesmo valor de chave).
+- qlUserDefinedCombiner(Mode=CombinerMode.Right): Todas as linhas de saída depende de uma única linha de entrada do lado direito (e potencialmente todas as linhas a partir da esquerda com o mesmo valor de chave).
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Todas as linhas de saída depende de uma única linha de entrada da esquerda e à direita com o mesmo valor.
 
