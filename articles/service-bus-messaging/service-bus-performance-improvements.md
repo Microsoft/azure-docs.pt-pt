@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848585"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501642"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para melhoramentos do desempenho através de mensagens do Service Bus
 
@@ -127,6 +127,19 @@ Pré-busca mensagens aumenta a produtividade geral para uma fila ou subscrição
 A propriedade para time-to-live (TTL) de uma mensagem é verificada pelo servidor no momento, que o servidor envia a mensagem para o cliente. O cliente não verifica a propriedade de valor de TTL da mensagem quando a mensagem é recebida. Em vez disso, a mensagem pode ser recebida, mesmo que o valor de TTL da mensagem passou enquanto a mensagem foi colocado em cache pelo cliente.
 
 Pré-busca não afeta o número de operações mensagens a cobrar e está disponível apenas para o protocolo de cliente do Service Bus. O protocolo HTTP não suporta o pré-busca. Pré-busca está disponível para síncronas e assíncronas recebem operações.
+
+## <a name="prefetching-and-receivebatch"></a>Pré-busca e ReceiveBatch
+
+Embora os conceitos de pré-busca várias mensagens em conjunto tem uma semântica parecida ao processamento de mensagens num lote (ReceiveBatch), existem algumas pequenas diferenças que devem ser mantidas em mente ao tirar partido destes elementos.
+
+Obtenção prévia é a configuração (ou modo) no cliente (QueueClient e SubscriptionClient) e ReceiveBatch é uma operação (que tem semântica de solicitação-resposta).
+
+Ao utilizar estes em conjunto, considere os seguintes casos-
+
+* Obtenção prévia deve ser maior que ou igual ao número de mensagens que está esperando para receber de ReceiveBatch.
+* Obtenção prévia pode ter até n/3 pelo número de mensagens processados por segundo, onde n é a duração de bloqueio predefinida.
+
+Existem alguns desafios em ter uma greedy abordar (ou seja, mantendo a contagem de obtenção prévia muito elevada), uma vez que isso significa que a mensagem está bloqueada para um destinatário específico. A recomendação é tentar horizontalmente obtenção prévia de valores entre os limiares mencionados acima e empiricamente identificar o que se encaixa.
 
 ## <a name="multiple-queues"></a>Várias filas
 

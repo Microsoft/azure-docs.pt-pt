@@ -1,5 +1,5 @@
 ---
-title: Como implementar o módulo de gestão de dispositivos do Azure IoT OPC UA do zero | Documentos da Microsoft
+title: Como implementar o módulo duplo de OPC para o Azure a partir do zero | Documentos da Microsoft
 description: Como implementar OPC duplo a partir do zero.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759481"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491361"
 ---
-# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementar o módulo duplo OPC e as dependências do zero
+# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementar o módulo duplo de OPC e as dependências do zero
 
-O módulo de OPC dispositivo duplo é executado no IoT Edge e fornece vários serviços de borda para os serviços de registo e OPC dispositivo duplo. 
+O módulo duplo de OPC é executado no IoT Edge e fornece vários serviços de borda para o dispositivo duplo OPC e serviços de registo. 
 
 Existem várias opções para implementar módulos para sua [do Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, entre eles
 
@@ -109,7 +109,7 @@ Todos os módulos são implementados através de um manifesto de implantação. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Implementar a gestão de dispositivos do OPC UA [dependências](howto-opc-twin-deploy-dependencies.md) e de obteve resultante `.env` ficheiro. Tenha em atenção o implementada `hub name` das `PCS_IOTHUBREACT_HUB_NAME` variável no resultante `.env` ficheiro.
+1. Implementar o duplo de OPC [dependências](howto-opc-twin-deploy-dependencies.md) e de obteve resultante `.env` ficheiro. Tenha em atenção o implementada `hub name` das `PCS_IOTHUBREACT_HUB_NAME` variável no resultante `.env` ficheiro.
 
 2. Registre-se e iniciar um [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) gateway do IoT Edge bem como observar seu `device id`.
 
@@ -189,7 +189,7 @@ Todos os módulos são implementados através de um manifesto de implantação. 
    ```
 
    O `device id` parâmetro diferencia maiúsculas de minúsculas. Os pontos de parâmetro de conteúdo para a implementação do manifestam do ficheiro que guardou. 
-    ![az IoT Edge set-modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![saída de conjunto de módulos do IoT Edge AZ](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Após a implantação de módulos para o seu dispositivo, pode ver todos eles com o seguinte comando:
 
@@ -205,7 +205,7 @@ Para problemas de resolução e depurá-la são útil para executar os módulos 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Implementar a gestão de dispositivos do OPC UA [dependências](howto-opc-twin-deploy-dependencies.md).
+1. Implementar o duplo de OPC [dependências](howto-opc-twin-deploy-dependencies.md).
 
 2. Instale [(18.02.0+) do Docker CE](https://www.docker.com/community-edition) nos [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) ou [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

@@ -1,6 +1,6 @@
 ---
-title: Recolha de dados do Azure Information Protection na pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Saiba como recolher dados do Azure Information Protection na sentinela do Azure.
+title: Ligar os dados do Azure Information Protection para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do Azure Information Protection na sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c5866d3096823f91a70b28c7c5dd1790e1b3bf8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2f970910e19b3c1ed9d262d356c49848f4248b09
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537172"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489833"
 ---
-# <a name="collect-data-from-azure-information-protection"></a>Recolher dados do Azure Information Protection
+# <a name="connect-data-from-azure-information-protection"></a>Ligue os dados do Azure Information Protection
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -41,7 +41,7 @@ Se já tiver o Azure Information Protection, certifique-se de que é [ativada na
 Se o Azure Information Protection é implementado e obtenção de dados, os dados de alertas podem facilmente ser transmitidos em sentinela do Azure.
 
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **do Azure Information Protection** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **do Azure Information Protection** mosaico.
 
 2. Vá para o [portal do Azure Information Protection](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 

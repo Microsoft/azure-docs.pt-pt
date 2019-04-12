@@ -1,5 +1,5 @@
 ---
-title: Como implementar as dependências de cloud de gestão de dispositivos do Azure IoT OPC UA | Documentos da Microsoft
+title: Como implementar as dependências de cloud de OPC duplo no Azure | Documentos da Microsoft
 description: Como implementar as dependências de OPC duplo Azure.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759557"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491991"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantação de dependências para o desenvolvimento local
 
@@ -52,7 +52,7 @@ O script de implementação tenta registar aplicações do AAD no Azure Active D
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que implementou com êxito os serviços de gestão de dispositivos de OPC para um projeto existente, este é o passo seguinte sugerido:
+Agora que implementou com êxito os serviços de duplo de OPC para um projeto existente, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre como implementar módulos de gestão de dispositivos de OPC](howto-opc-twin-deploy-modules.md)
+> [Saiba mais sobre como implementar módulos OPC duplo](howto-opc-twin-deploy-modules.md)

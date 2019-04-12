@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469340"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488239"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734560"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496969"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734560"
 
 Este artigo captura as perguntas mais frequentes (FAQ) sobre o Monitor de desempenho de rede (NPM) no Azure
 
-[Monitor de desempenho de rede](/azure/networking/network-monitoring-overview) é uma conta baseada na cloud [a monitorização de rede híbrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solução que ajuda a monitorizar o desempenho de rede entre vários pontos na sua infraestrutura de rede. Ele também ajuda a monitorizar a conectividade de rede [pontos finais de serviços e de aplicações](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) e [monitorizar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Monitor de desempenho de rede](/azure/networking/network-monitoring-overview) é uma conta baseada na cloud [a monitorização de rede híbrida](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solução que ajuda a monitorizar o desempenho de rede entre vários pontos na sua infraestrutura de rede. Ele também ajuda a monitorizar a conectividade de rede [pontos finais de serviços e de aplicações](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) e [monitorizar o desempenho do Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Monitor de desempenho de rede Deteta problemas de rede, como blackholing de tráfego, erros de encaminhamento e problemas que os métodos de monitorização de rede convencionais não conseguem detetar. A solução gera alertas e notifica-o quando existir uma falha do limiar de uma ligação de rede. Também garante a deteção atempada de problemas de desempenho de rede e localiza a origem do problema num dispositivo ou segmento de rede específico. 
 

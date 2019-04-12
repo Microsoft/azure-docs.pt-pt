@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260668"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505690"
 ---
 # <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definir e atribuir um plano gráfico no portal
 
@@ -41,116 +41,117 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Criar um plano gráfico a partir da página de definições de esquema](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Fornecer um **nome do esquema** como **MyBlueprint**. (Utilize até 48 letras e números, mas sem espaços ou carateres especiais). Deixe **esquema Descrição** em branco por agora. 
-   
+1. Fornecer um **nome do esquema** como **MyBlueprint**. (Utilize até 48 letras e números, mas sem espaços ou carateres especiais). Deixe **esquema Descrição** em branco por agora.
+
 1. Na **localização da definição** caixa, selecione as reticências à direita, selecione a [grupo de gestão](../management-groups/overview.md) ou uma subscrição onde pretende guardar o plano gráfico e escolha **selecione**.
 
 1. Certifique-se de que as informações estão corretas. O **nome do esquema** e **localização da definição** campos não não possível alterar mais tarde. Em seguida, selecione **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
-1. Adicione uma atribuição de função ao nível da subscrição: 
+1. Adicione uma atribuição de função ao nível da subscrição:
 
-   a. Selecione o **+ adicionar artefacto** linha sob **subscrição**. O **adicionar artefacto** é aberta a janela à direita do navegador. 
-   
-   b. Selecione **atribuição de função** para **tipo de Artefato**. 
-   
-   c. Sob **função**, selecione **contribuinte**. Deixe o **adicionar utilizador, aplicação ou grupo** caixa de com a caixa de verificação que indica um parâmetro dinâmico. 
-   
-   d. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione o **+ adicionar artefacto** linha sob **subscrição**. O **adicionar artefacto** é aberta a janela à direita do navegador.
+
+   1. Selecione **atribuição de função** para **tipo de Artefato**.
+
+   1. Sob **função**, selecione **contribuinte**. Deixe o **adicionar utilizador, aplicação ou grupo** caixa de com a caixa de verificação que indica um parâmetro dinâmico.
+
+   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
 
    ![Atribuição de função para um artefacto de esquema](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > A maioria dos artefatos suportam parâmetros. Um parâmetro que tenha atribuído um valor durante a criação de esquema é uma *parâmetro estático*. Se o parâmetro é atribuído durante a atribuição do esquema, é um *parâmetro dinâmico*. Para obter mais informações, veja [Parâmetros de esquema](./concepts/parameters.md).
 
-1. Adicione uma atribuição de política ao nível da subscrição: 
+1. Adicione uma atribuição de política ao nível da subscrição:
 
-   a. Selecione o **+ adicionar artefacto** linha sob o artefacto de atribuição de função. 
-   
-   b. Selecione **atribuição de política** para **tipo de Artefato**. 
-   
-   c. Alteração **tipo** ao **incorporadas**. Na **pesquisa**, introduza **marca**. 
-   
-   d. Clique fora da caixa **Pesquisar** para filtrar os resultados. Selecione **aplicar etiqueta e respetivo valor predefinido para grupos de recursos**. 
-   
-   e. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione o **+ adicionar artefacto** linha sob o artefacto de atribuição de função.
 
-1. Selecione a linha de atribuição de política **aplicar etiqueta e respetivo valor predefinido para grupos de recursos**. 
+   1. Selecione **atribuição de política** para **tipo de Artefato**.
+
+   1. Alteração **tipo** ao **incorporadas**. Na **pesquisa**, introduza **marca**.
+
+   1. Clique fora da caixa **Pesquisar** para filtrar os resultados. Selecione **aplicar etiqueta e respetivo valor predefinido para grupos de recursos**.
+
+   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
+
+1. Selecione a linha de atribuição de política **aplicar etiqueta e respetivo valor predefinido para grupos de recursos**.
 
 1. A janela para fornecer os parâmetros para o artefacto como parte da definição do esquema é aberto e permite a definição de parâmetros para todas as atribuições (parâmetros estáticos) com base nesse plano gráfico, em vez de durante a atribuição (parâmetros dinâmicos). Este exemplo utiliza os parâmetros dinâmicos durante a atribuição do esquema, então, deixe as predefinições e selecione **Cancelar**.
 
-1. Adicione um grupo de recursos ao nível da subscrição: 
+1. Adicione um grupo de recursos ao nível da subscrição:
 
-   a. Selecione o **+ adicionar artefacto** linha sob **subscrição**. 
-   
-   b. Selecione **grupo de recursos** para **tipo de Artefato**. 
-   
-   c. Deixe o **nome a apresentar do artefacto**, **nome do grupo de recursos**, e **localização** caixas em branco, mas certifique-se de que a caixa de verificação está selecionada para cada propriedade de parâmetro para torná-las parâmetros dinâmicos. 
-   
-   d. Selecione **adicionar** para adicionar este artefacto ao esquema.
+   1. Selecione o **+ adicionar artefacto** linha sob **subscrição**.
 
-1. Adicione um modelo no grupo de recursos: 
+   1. Selecione **grupo de recursos** para **tipo de Artefato**.
 
-   a. Selecione o **+ adicionar artefacto** linha sob o **ResourceGroup** entrada. 
-   
-   b. Selecione **modelo Azure Resource Manager** para **tipo de Artefato**, defina **nome a apresentar do artefacto** para **StorageAccount**e deixe  **Descrição** em branco. 
-   
-   c. No separador **Modelo** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de o colar o modelo, selecione o **parâmetros** separador e tenha em atenção que os parâmetros de modelo **storageAccountType** e **localização** foram detetados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico. 
-   
-   > [!IMPORTANT]
-   > Se estiver a importar o modelo, certifique-se de que o arquivo é apenas um JSON e não inclui o HTML. Quando está a apontar para um URL no GitHub, certifique-se de que selecionou **RAW** para obter o ficheiro JSON puro e não um inseridos em HTML para exibição no GitHub. Se o modelo importado não for JSON puro, ocorrerá um erro.
+   1. Deixe o **nome a apresentar do artefacto**, **nome do grupo de recursos**, e **localização** caixas em branco, mas certifique-se de que a caixa de verificação está selecionada para cada propriedade de parâmetro para torná-las parâmetros dinâmicos.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroups('ResourceGroup').location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
 
-   d. Limpar o **storageAccountType** caixa de verificação e tenha em atenção que a lista pendente contém apenas os valores incluídos no modelo do Resource Manager sob **allowedValues**. Selecione a caixa para defini-lo novamente como um parâmetro dinâmico. 
-   
-   e. Selecione **adicionar** para adicionar este artefacto ao esquema.
+1. Adicione um modelo no grupo de recursos:
+
+   1. Selecione o **+ adicionar artefacto** linha sob o **ResourceGroup** entrada.
+
+   1. Selecione **modelo Azure Resource Manager** para **tipo de Artefato**, defina **nome a apresentar do artefacto** para **StorageAccount**e deixe  **Descrição** em branco.
+
+   1. No separador **Modelo** na caixa do editor, cole o seguinte modelo do Resource Manager.
+      Depois de o colar o modelo, selecione o **parâmetros** separador e tenha em atenção que os parâmetros de modelo **storageAccountType** e **localização** foram detetados. Cada parâmetro foi automaticamente detectado e preenchido, mas configurado como um parâmetro dinâmico.
+
+      > [!IMPORTANT]
+      > Se estiver a importar o modelo, certifique-se de que o arquivo é apenas um JSON e não inclui o HTML. Quando está a apontar para um URL no GitHub, certifique-se de que selecionou **RAW** para obter o ficheiro JSON puro e não um inseridos em HTML para exibição no GitHub. Se o modelo importado não for JSON puro, ocorrerá um erro.
+
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
+
+   1. Limpar o **storageAccountType** caixa de verificação e tenha em atenção que a lista pendente contém apenas os valores incluídos no modelo do Resource Manager sob **allowedValues**. Selecione a caixa para defini-lo novamente como um parâmetro dinâmico.
+
+   1. Selecione **adicionar** para adicionar este artefacto ao esquema.
 
    ![Modelo do Resource Manager para o artefacto de esquema](./media/create-blueprint-portal/add-resource-manager-template.png)
 
@@ -172,16 +173,16 @@ Na [criar um plano gráfico](#create-a-blueprint), não forneça uma descrição
 
 1. Selecione **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
-1. Adicione uma atribuição de função sob o grupo de recursos: 
+1. Adicione uma atribuição de função sob o grupo de recursos:
 
-   a. Selecione o **+ adicionar artefacto** linha diretamente sob o **ResourceGroup** entrada. 
-   
-   b. Selecione **atribuição de função** para **tipo de Artefato**. 
-   
-   c. Sob **função**, selecione **proprietário**e desmarque a caixa de verificação sob o **adicionar utilizador, aplicação ou grupo** caixa. 
-   
-   d. Procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um conjunto de parâmetros estáticos as mesmas em cada atribuição deste esquema. 
-   
+   1. Selecione o **+ adicionar artefacto** linha diretamente sob o **ResourceGroup** entrada.
+
+   1. Selecione **atribuição de função** para **tipo de Artefato**.
+
+   1. Sob **função**, selecione **proprietário**e desmarque a caixa de verificação sob o **adicionar utilizador, aplicação ou grupo** caixa.
+
+   1. Procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um conjunto de parâmetros estáticos as mesmas em cada atribuição deste esquema.
+
    e. Selecione **adicionar** para adicionar este artefacto ao esquema.
 
    ![Segundo atribuição de função para o artefacto de esquema](./media/create-blueprint-portal/add-role-assignment-2.png)
@@ -217,15 +218,15 @@ Depois de um plano gráfico foi publicado, pode ser atribuída a uma subscriçã
 
    Se existirem suportadas Enterprise ofertas disponíveis a partir [faturação do Azure](../../billing/index.md), uma **criar nova** ligação está ativada no **subscrição** caixa. Siga estes passos.
 
-   a. Selecione o **criar novo** ligação para criar uma nova subscrição em vez de selecionar os existentes.
+   1. Selecione o **criar novo** ligação para criar uma nova subscrição em vez de selecionar os existentes.
 
-   b. Fornecer um **nome a apresentar** para a nova subscrição.
+   1. Fornecer um **nome a apresentar** para a nova subscrição.
 
-   c. Selecione o disponíveis **oferecem** na lista pendente.
+   1. Selecione o disponíveis **oferecem** na lista pendente.
 
-   d. Utilize o botão de reticências para selecionar o [grupo de gestão](../management-groups/index.md) que a subscrição será um filho do.
+   1. Utilize o botão de reticências para selecionar o [grupo de gestão](../management-groups/index.md) que a subscrição será um filho do.
 
-   e. Selecione **criar** na parte inferior da página.
+   1. Selecione **criar** na parte inferior da página.
 
    ![Criar uma subscrição para uma subscrição de atribuição do esquema](./media/create-blueprint-portal/assignment-create-subscription.png)
 
@@ -254,7 +255,8 @@ Depois de um plano gráfico foi publicado, pode ser atribuída a uma subscriçã
 1. Para **ResourceGroup**, forneça um **nome** de **StorageAccount** e uma **localização** de **E.U.A. Leste 2** do a lista pendente.
 
    > [!NOTE]
-   > Para cada artefato que adicionou no grupo de recursos durante a definição do esquema, esse artefato é recuado para alinhar com o grupo de recursos ou o objeto que irá implantá-la com. Artefatos que não aceitam parâmetros ou não ter parâmetros definidos na atribuição são listados apenas para informações contextuais.
+   > Para cada artefato que adicionou no grupo de recursos durante a definição do esquema, esse artefato é recuado para alinhar com o grupo de recursos ou o objeto que irá implantá-la com.
+   > Artefatos que não aceitam parâmetros ou não ter parâmetros definidos na atribuição são listados apenas para informações contextuais.
 
 1. No modelo do Azure Resource Manager **StorageAccount**, selecione **Standard_GRS** para o **storageAccountType** parâmetro.
 
@@ -294,7 +296,8 @@ Se já não precisar de uma atribuição do esquema, removê-lo a partir de uma 
 1. Com o plano gráfico de que pretende eliminar e selecione o botão direito **esquema de eliminação**. Em seguida, selecione **Sim** na caixa de diálogo de confirmação.
 
 > [!NOTE]
-> Eliminar um plano gráfico neste método também elimina a todas as versões publicadas do esquema selecionado. Para eliminar uma única versão, abra o plano gráfico, selecione o **versões publicadas** separador, selecione a versão que pretende eliminar e, em seguida, selecione **eliminar esta versão**. Além disso, não é possível eliminar um plano gráfico até que excluiu todos da atribuição do esquema de definição do esquema.
+> Eliminar um plano gráfico neste método também elimina a todas as versões publicadas do esquema selecionado.
+> Para eliminar uma única versão, abra o plano gráfico, selecione o **versões publicadas** separador, selecione a versão que pretende eliminar e, em seguida, selecione **eliminar esta versão**. Além disso, não é possível eliminar um plano gráfico até que excluiu todos da atribuição do esquema de definição do esquema.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

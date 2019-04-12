@@ -1,6 +1,6 @@
 ---
-title: Recolher dados do Azure AD na pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como recolher dados do Azure Active Directory no Azure sentinela.
+title: Ligar a dados do Azure AD para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do Azure Active Directory ao Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575135"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494889"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Recolher dados do Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Ligue os dados do Azure Active Directory
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -38,7 +38,7 @@ Sentinel do Azure permite-lhe recolher dados a partir [do Azure Active Directory
 
 ## <a name="connect-to-azure-ad"></a>Ligar ao Azure AD
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **Azure Active Directory** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **Azure Active Directory** mosaico.
 
 2. Junto aos registos que pretende transmitir para o Azure sentinela, clique em **Connect**.
 

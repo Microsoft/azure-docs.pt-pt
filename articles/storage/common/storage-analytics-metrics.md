@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259759"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489294"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análise de armazenamento do Azure (clássico)
 
@@ -75,7 +75,7 @@ Siga estes passos para ativar as métricas no [portal do Azure](https://portal.a
 O [portal do Azure](https://portal.azure.com) não atualmente permitem-lhe configurar métrica de minuto na sua conta de armazenamento; tem de ativar métrica de minuto com o PowerShell ou programaticamente.
 
 > [!NOTE]
->  Tenha em atenção que o portal do Azure não atualmente permitem-lhe configurar métrica de minuto na sua conta de armazenamento. Tem de ativar métrica de minuto com o PowerShell ou programaticamente.  
+>  Tenha em atenção que o portal do Azure não atualmente permitem-lhe configurar métrica de minuto na sua conta de armazenamento. Tem de ativar métrica de minuto com o PowerShell ou programaticamente.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>Ativar as métricas de armazenamento com o PowerShell  
 Pode utilizar o PowerShell no seu computador local para configurar as métricas de armazenamento na sua conta de armazenamento utilizando o cmdlet do Azure PowerShell **Get-AzureStorageServiceMetricsProperty** para obter as definições atuais e o cmdlet  **Conjunto AzureStorageServiceMetricsProperty** para alterar as definições atuais.  
@@ -139,7 +139,7 @@ Se quiser baixar as métricas de armazenamento de longa duração ou analisá-lo
 
 ||||  
 |-|-|-|  
-|**Métricas**|**Nomes de tabela**|**Notas**|  
+|**Métricas**|**Nomes de tabelas**|**Notas**|  
 |Métricas por hora|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nas versões anteriores ao 08-2013-15, essas tabelas eram conhecidas como:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> As métricas para o serviço de ficheiros estão disponíveis a partir de 2015-04-05 de versão.|  
 |Métrica de minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Só pode ser ativada com o PowerShell ou programaticamente.<br /><br /> As métricas para o serviço de ficheiros estão disponíveis a partir de 2015-04-05 de versão.|  
 |Capacidade|$MetricsCapacityBlob|Serviço blob.|  
@@ -148,7 +148,7 @@ Pode encontrar detalhes completos dos esquemas para essas tabelas na [esquema de
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**Apresentam uma AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**PartitionKey**|**RowKey**|**Carimbo de data/hora**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**Apresentam uma AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|user;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553947"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503082"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | --- | --- |
 | Redes virtuais |1,000 |
 | Sub-redes por rede virtual |3000 |
-| Peerings de rede virtual por rede virtual |100 |
+| Peerings de rede virtual por rede virtual |500 |
 | Servidores DNS por rede virtual |20 |
 | Endereços IP privados por rede virtual |65,536 |
 | Endereços IP privados por interface de rede |256 |
@@ -68,7 +68,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Recurso | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Endereços IP públicos - dinâmico | 1000 para o básico. |Contacte o suporte. |
-| Endereços IP públicos - estáticos | 200 para o básico. |Contacte o suporte. |
+| Endereços IP públicos - estáticos | 1000 para o básico. |Contacte o suporte. |
 | Endereços IP públicos - estáticos | 200 para o Standard.|Contacte o suporte. |
 | Tamanho de prefixo IP público (pré-visualização) | /28 | /28 |
 

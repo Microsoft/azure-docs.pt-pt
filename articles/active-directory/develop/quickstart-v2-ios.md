@@ -1,5 +1,5 @@
 ---
-title: Início rápido do Azure AD v2 iOS | Microsoft Docs
+title: Guia de introdução do Microsoft identity plataforma iOS | Azure
 description: Saiba como iniciar sessão dos utilizadores e consultar o Microsoft Graph numa aplicação nativa iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439267"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496134"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação nativa do iOS
 
@@ -30,7 +30,7 @@ ms.locfileid: "58439267"
 
 Este início rápido contém um exemplo de código que demonstra como uma aplicação iOS nativa pode iniciar sessão em contas pessoais ou contas profissionais e escolares, obter um token de acesso e chamar a Microsoft Graph API.
 
-![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-ios/ios-intro-updated.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>Registar e transferir
@@ -46,14 +46,14 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
 > Para o código de exemplo para este início rápido funcionar, terá de adicionar um URL de resposta como `msal<AppId>://auth` (onde msal\<AppId > é o Id de aplicação).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Fazer esta alteração por mim]()
+> > [Efetuar esta alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurada](media/quickstart-v2-ios/green-check.png) A sua aplicação está configurada com este atributo
+> > ![Já configurado](media/quickstart-v2-ios/green-check.png) seu aplicativo está configurado com esse atributo
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Passo 2: Transfira o seu servidor web ou projeto
 
-- [Transfira o Projeto XCode](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Transfira o projeto XCode](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o seu projeto
 
@@ -147,7 +147,7 @@ self.applicationContext = try MSALPublicClientApplication(clientId: kClientID, a
 > |Em que: ||
 > |---------|---------|
 > | `clientId` | O ID de Aplicação da aplicação registada em *portal.azure.com* |
-> | `authority` | O ponto final v2.0 do Azure AD. Na maioria dos casos será *https<span/>: //login.microsoftonline.com/common* |
+> | `authority` | O Microsoft identity platform ponto final. Na maioria dos casos será *https<span/>: //login.microsoftonline.com/common* |
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 
@@ -155,7 +155,7 @@ A MSAL tem dois métodos que servem para comprar tokens: `acquireToken` e `acqui
 
 #### <a name="getting-an-access-token-interactively"></a>Obter um token de acesso interativamente
 
-Algumas situações exigem forçar os utilizadores a interagir com o ponto final v2.0 do Azure Active Directory (Azure AD), o que irá resultar numa alternância de contexto para o browser de sistema para validar as credenciais dos utilizadores ou para darem consentimento. Alguns exemplos incluem:
+Algumas situações exijam forçar os utilizadores interajam com o Microsoft identity platform ponto final que irá resultar numa alternância de contexto para o navegador de sistema para optar por validar credenciais de utilizadores ou consentimento. Alguns exemplos incluem:
 
 * A primeira vez que os utilizadores iniciam sessão na aplicação
 * Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
@@ -190,6 +190,6 @@ Experimente o tutorial para iOS para obter um guia passo a passo completo sobre 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Conheça os passos para criar a aplicação utilizada neste início rápido
 
 > [!div class="nextstepaction"]
-> [Chamar tutorial da Graph API iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Tutorial de iOS chamada Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630170"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490451"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: Detetar rostos numa imagem usando a REST API e PHP
 
@@ -26,6 +26,7 @@ Neste início rápido, irá utilizar a API de REST de Face do Azure com o PHP pa
 - Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
 - Um editor de código, como [Visual Studio Code](https://code.visualstudio.com/download).
 - O PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) pacote.
+- Um navegador da web habilitados para PHP. Se não tiver definido este, pode fazê-ao instalar e configurar [XAMPP](https://www.apachefriends.org/) no seu computador.
 
 ## <a name="initialize-the-html-file"></a>Inicializar o arquivo HTML
 
@@ -290,4 +291,4 @@ Abra o ficheiro num navegador da web habilitados para PHP. Deve obter uma cadeia
 Explore as API Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o sexo.
 
 > [!div class="nextstepaction"]
-> [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [APIs de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

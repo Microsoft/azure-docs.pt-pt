@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904768"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500387"
 ---
 # <a name="what-is-text-analytics-api"></a>O que é a API de análise de texto?
 
@@ -58,6 +58,18 @@ O fluxo de trabalho é simples: submete dados para análise e processa as saída
 A saída é devolvida como um único documento JSON, com resultados para cada documento de texto que publicou, com base no ID. Posteriormente, pode analisar, visualizar ou categorizar os resultados em informações acionáveis.
 
 Os dados não são armazenados na sua conta. As operações realizadas pela API de Análise de Texto não têm um estado específico, o que significa que o texto que fornecer é processado e os resultados são devolvidos imediatamente.
+
+## <a name="text-analytics-for-multiple-programming-experience-levels"></a>Experiência de análise de texto para a programação de vários níveis
+
+Pode começar a utilizar a API de análise de texto em seus processos, mesmo que não tenha experiência em programação. Utilize estes tutoriais para saber como pode utilizar a API para analisar o texto de formas diferentes de acordo com seu nível de experiência. 
+
+* Programação mínima necessária:
+    * [Utilize a API de análise de texto e MS Flow para identificar o sentimento dos comentários num grupo do Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Integrar o Power BI com a API de análise de texto para analisar os comentários dos clientes](tutorials/tutorial-power-bi-key-phrases.md)
+* Experiência de programação recomendada:
+    * [Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Criar uma aplicação Flask traduzir texto, analisar sentimentos e sintetizar a conversão de voz](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+
 
 <a name="supported-languages"></a>
 

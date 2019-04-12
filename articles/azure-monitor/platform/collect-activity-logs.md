@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905992"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505639"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recolher e analisar registos de atividades do Azure na área de trabalho do Log Analytics no Azure Monitor
 
 ![Símbolo de registos de atividades do Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-A solução Log Analytics da atividade ajuda a analisar e pesquisar os [registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) todas as subscrições do Azure. O registo de atividades do Azure é um registo que disponibiliza informações aprofundadas sobre as operações executadas em recursos nas suas subscrições. O registo de atividades anteriormente era conhecido como *registos de auditoria* ou *registos operacionais* , uma vez que comunica eventos para as suas subscrições.
+A solução Log Analytics da atividade ajuda a analisar e pesquisar os [registo de atividades do Azure](activity-logs-overview.md) todas as subscrições do Azure. O registo de atividades do Azure é um registo que disponibiliza informações aprofundadas sobre as operações executadas em recursos nas suas subscrições. O registo de atividades anteriormente era conhecido como *registos de auditoria* ou *registos operacionais* , uma vez que comunica eventos para as suas subscrições.
 
 Utilizar o registo de atividades, pode determinar a *o que*, *quem*, e *quando* para quaisquer operações (PUT, POST, DELETE) efetuadas para os recursos na sua subscrição de escrita. Também é possível compreender o estado de operações e outras propriedades relevantes. O registo de Atividades não incluem operações de leitura (GET) nem operações para recursos que utilizam o modelo de implementação clássica.
 
@@ -52,28 +52,39 @@ Ao contrário da maioria das outras soluções do Azure Monitor, os dados não s
 
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
-| [Grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
+| [Agentes do Windows](agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
+| [Grupo de gestão do System Center Operations Manager](om-agents.md) | Não | A solução não recolhe informações de agentes que reportam a um grupo de gestão do Operations Manager. |
 | [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução não recolhe informações do armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Para aceder às informações de registo de atividades do Azure, tem de ter uma subscrição do Azure.
+Para aceder às informações de registo de atividades do Azure, tem de ter uma subscrição do Azure.
+
+A solução também requer que os fornecedores de recursos de dois seguintes são registados na sua subscrição:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Para aprender a registar ou certifique-se de que estão registadas, consulte [tipos e fornecedores de recursos do Azure](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Configuração
 
 Execute os seguintes passos para configurar a solução Log Analytics da atividade para as áreas de trabalho.
 
-1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../../azure-monitor/insights/solutions.md).
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+
+2. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../insights/solutions.md).
+
 2. Configure registos de atividades para aceder à sua área de trabalho do Log Analytics.
     1. No portal do Azure, selecione a sua área de trabalho e, em seguida, clique em **registo de atividades do Azure**.
     2. Para cada subscrição, clique no nome da subscrição.  
+        
         ![Adicionar subscrição](./media/collect-activity-logs/add-subscription.png)
+    
     3. Na *SubscriptionName* painel, clique em **Connect**.  
+    
         ![Ligar a subscrição](./media/collect-activity-logs/subscription-connect.png)
-
-Iniciar sessão no portal do Azure para ligar uma subscrição do Azure à sua área de trabalho.  
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
@@ -98,5 +109,5 @@ Dados de registo de atividade só é apresentado *depois de* que configurou os s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Criar uma [alerta](../../azure-monitor/platform/alerts-metric.md) quando ocorre uma atividade específica.
-- Uso [pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas de registos de atividades.
+- Criar uma [alerta](../platform/alerts-metric.md) quando ocorre uma atividade específica.
+- Uso [pesquisa de registos](../log-query/log-query-overview.md) para ver informações detalhadas de registos de atividades.

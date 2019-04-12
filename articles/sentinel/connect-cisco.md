@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de Cisco sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados de Cisco no sentinela do Azure.
+title: Ligue os dados de Cisco para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Aprenda a conectar dados de Cisco a sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37dcd1dd7052db864797407897851d57e91d43e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883915"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495707"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Ligar a sua aplicação Cisco ASA 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58883915"
 Pode ligar o Azure sentinela a qualquer aplicação Cisco ASA. Cisco ASA nativamente está integrada no Azure sentinela para ingestão de dados, para que, apesar da aplicação Cisco não salva registos como CEF, sentinela Azure ingere-las da mesma forma que ele manipula registos CEF. A integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em dados de ficheiro de registo do ASA da Cisco. 
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Passo 1: Ligar a sua aplicação de Cisco ASA através de um agente
 
@@ -42,7 +42,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de 
 
 ### <a name="deploy-the-agent-in-azure"></a>Implementar o agente no Azure
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação. 
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação. 
 
 1. Sob **configuração do agente Linux Syslog**:
    - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM dedicada, que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vcpus, 8 GB de memória)** e tem um endereço IP público.
@@ -79,7 +79,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de 
 Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sentinela de mensagens em fila para ser executado num servidor Linux dedicado.
 
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação.
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação.
 1. Para criar uma VM do Linux dedicado, em **configuração do agente Linux Syslog** escolha **implementação Manual**.
    1. Sob **transfira e instale o agente de Syslog**, selecione **máquina Linux não Azure**. 
    1. Na **agente direto** ecrã que se abre, selecione **agente para Linux** para transferir o agente ou execute este comando para baixá-lo no seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

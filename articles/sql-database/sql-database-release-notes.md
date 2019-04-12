@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/10/2019
 ms.author: carlrab
-ms.openlocfilehash: c63ce51f442c8d7552c382f0e103be443afb9c75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360082"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495110"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão da base de dados SQL
 
@@ -42,6 +42,8 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 |Modo de lote no Rowstore (no nível de compatibilidade 150)|Para obter informações, consulte [modo de lote no Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
 |Feedback de concessão de memória (modo de linha) (no nível de compatibilidade 150)|Para obter informações, consulte [Feedback de concessão de memória (modo de linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Tabela variável diferidos compilação (no nível de compatibilidade 150)|Para obter informações, consulte [compilação de diferimento variável de tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
+|Análise de SQL|Para obter informações, consulte [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)|
+| Suporte de fuso horário para instâncias geridas|Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md)|
 |||
 
 ## <a name="march-2019"></a>Março de 2019
@@ -57,6 +59,7 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
+| Suporte de fuso horário para instâncias geridas|Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md)|
 | Limites de registo foi adicionado para bases de dados individuais|Para obter mais informações, consulte [único limites de recursos do banco de dados vCore](sql-database-vcore-resource-limits-single-databases.md).|
 | Limites de registo foi adicionado para conjuntos elásticos e bases de dados agrupadas|Para obter mais informações, consulte [limites dos recursos de vCore conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Governação de taxa de registo de transação foi adicionada| Adicionados novos conteúdos [governação de taxa de registo de transação](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|

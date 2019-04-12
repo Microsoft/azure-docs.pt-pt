@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361553"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501302"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -210,9 +210,9 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica|Especifique o período de tempo em segundos. O limite de tempo para a criação de uma réplica com monitoração de estado; após o qual será iniciado um relatório de estado de funcionamento de aviso |
-|ClusterPauseThreshold|int, a predefinição é 1|Dinâmica|Se o número de nós no sistema de ir abaixo deste valor, em seguida, o posicionamento; carregar balanceamento; e ativação pós-falha está parado. |
+|ClusterPauseThreshold|Int, a predefinição é 1|Dinâmica|Se o número de nós no sistema de ir abaixo deste valor, em seguida, o posicionamento; carregar balanceamento; e ativação pós-falha está parado. |
 |CreateInstanceTimeLimit|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(300)|Dinâmica|Especifique o período de tempo em segundos. O limite de tempo para a criação de uma instância sem monitoração de estado; após o qual será iniciado um relatório de estado de funcionamento de aviso |
-|ExpectedClusterSize|int, a predefinição é 1|Dinâmica|Quando o cluster é inicialmente foi iniciado; o FM irá esperar, para isso, muitos de nós para comunicar-se a antes de iniciar a colocação de outros serviços; incluindo os serviços do sistema, como a atribuição de nomes. Aumento deste valor aumenta o tempo que demora um cluster para arrancar; mas impede os nós de início de ficar sobrecarregado e também as movimentações adicionais que serão necessárias à medida que mais nós fique online. Este valor em geral, deve ser definido como alguns pequena fração do tamanho do cluster inicial. |
+|ExpectedClusterSize|Int, a predefinição é 1|Dinâmica|Quando o cluster é inicialmente foi iniciado; o FM irá esperar, para isso, muitos de nós para comunicar-se a antes de iniciar a colocação de outros serviços; incluindo os serviços do sistema, como a atribuição de nomes. Aumento deste valor aumenta o tempo que demora um cluster para arrancar; mas impede os nós de início de ficar sobrecarregado e também as movimentações adicionais que serão necessárias à medida que mais nós fique online. Este valor em geral, deve ser definido como alguns pequena fração do tamanho do cluster inicial. |
 |ExpectedNodeDeactivationDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para um nó concluir a desativação no. |
 |ExpectedNodeFabricUpgradeDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para um nó a ser atualizado durante a atualização do Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para todas as réplicas ser actualizado num nó durante a atualização da aplicação. |
@@ -403,10 +403,11 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 | **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(5)|Dinâmica|Especifique o período de tempo em segundos. O intervalo de limpeza de permissão para anular o registo do tipo de aplicação durante a limpeza do tipo de aplicação automática.|
 |AzureStorageMaxConnections | Int, a predefinição é 5000 |Dinâmica|O número máximo de ligações simultâneas para o armazenamento do azure. |
 |AzureStorageMaxWorkerThreads | int, a predefinição é 25 |Dinâmica|O número máximo de threads de trabalho em paralelo. |
 |AzureStorageOperationTimeout | Tempo em segundos, a predefinição é de 6000 |Dinâmica|Especifique o período de tempo em segundos. Tempo limite para a conclusão da operação xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, a predefinição é falso |Dinâmica|Esta configuração ativa ou desativa a limpeza automática de pacote de aplicação fornecimento com êxito. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, a predefinição é falso |Dinâmica|Ativa ou desativa a limpeza automática de pacote de aplicação fornecimento com êxito. |
 |CleanupUnusedApplicationTypes|bool, a predefinição é falso |Dinâmica|Esta configuração se estiver ativada, permite que a anulação do registo automaticamente as versões do tipo de aplicações não utilizadas a ignorar as versões mais recentes três não utilizadas, corte, deste modo, o espaço em disco ocupado pelo arquivo de imagem. A limpeza automática será acionada no final de aprovisionamento com êxito para esse tipo de aplicação específica e também é executada periodicamente uma vez por dia para todos os tipos de aplicação. Número de versões não utilizadas para ignorar é configurável utilizando o parâmetro "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, a predefinição é falso |Estático| Esta configuração permite-nos ativar ou desativar a validação de soma de verificação durante o aprovisionamento de aplicação. |
 |DisableServerSideCopy | Bool, a predefinição é falso |Estático|Esta configuração ativa ou desativa a cópia do lado do servidor de pacote de aplicação no ImageStore durante o aprovisionamento de aplicação. |

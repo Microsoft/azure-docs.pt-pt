@@ -11,23 +11,31 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/27/2019
-ms.openlocfilehash: 6181183b1455d5ca38ab9bbd37102cb3bc091b3c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/09/2019
+ms.openlocfilehash: c08b5559fd599fb297f294a54aed67c65676aee4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622098"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496238"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Gerir a encriptação de dados transparente numa instância gerida com a sua própria chave de Cofre de chaves do Azure
 
 Este exemplo de script do PowerShell configura a encriptação de dados transparente (TDE) no cenário traga a sua própria chave para SQL instância gerida do Azure, utilizar uma chave do Cofre de chaves do Azure. Para saber mais sobre o TDE com suporte de Bring Your Own Key (BYOK), veja [TDE traga a sua própria chave para o Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma instância gerida existente. Ver [utilize o PowerShell para criar uma base de dados do SQL do Azure de instância gerida](sql-database-create-configure-managed-instance-powershell.md).
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o PowerShell de AZ 1.4.0 ou posterior. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Utilizar ambas as PowerShell localmente ou utilizar o Azure Cloud Shell requer 1.1.1-preview AZ PowerShell ou uma versão de pré-visualização posterior. Se precisar de atualizar, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps), ou executar o script de exemplo para instalar o módulo abaixo.
+
+`Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
+
+Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 

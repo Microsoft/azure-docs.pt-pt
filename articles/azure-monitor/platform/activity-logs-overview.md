@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650296"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496884"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -95,19 +95,11 @@ R **perfil de registo** controla a forma como o registo de atividades é exporta
 * As categorias de eventos (ação de escrita, eliminação,) devem ser enviadas. *O significado de "category" nos perfis de registo e eventos de registo de atividades é diferente. No perfil de registo, o "Category" representa o tipo de operação (ação de escrita, eliminação,). Num evento de registo de atividades, a propriedade de "category" representa a origem ou o tipo de evento (por exemplo, administração, ServiceHealth, alerta e muito mais).*
 * Que regiões (localizações) devem ser exportados. Certifique-se incluir "global", como o número de eventos no registo de atividades é eventos globais.
 * O tempo que o registo de atividades deve ser mantido numa conta de armazenamento.
-    - A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
+    - A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
     - Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativado (por exemplo, se apenas as opções de Hubs de eventos ou o Log Analytics estão selecionadas), as políticas de retenção não têm efeito.
     - Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
 Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja na mesma subscrição que aquele emite os registos. O utilizador que configura a definição tem de ter o acesso RBAC adequado para ambas as subscrições.
-
-> [!NOTE]
->  Atualmente não é possível arquivar dados para uma conta de armazenamento que está atrás de uma rede virtual protegida.
-
-> [!WARNING]
-> O formato dos dados de registo na conta de armazenamento foi alterado para linhas de JSON no dia 1 de Novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 Estas definições podem ser configuradas através da opção de "Exportação" no painel do registo de atividades no portal do. Eles também podem ser configurados por meio de programação [utilizando a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), cmdlets do PowerShell, ou a CLI. Uma subscrição só pode ter um perfil de registo.
 

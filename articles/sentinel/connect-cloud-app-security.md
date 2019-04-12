@@ -1,6 +1,6 @@
 ---
-title: Recolher dados do Cloud App Security na pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Saiba como recolher dados do Cloud App Security no sentinela do Azure.
+title: Ligar a dados do Cloud App Security para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do Cloud App Security ao Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b0033f5f8636053f88825541b8b2cfcbf2fc9f8b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a7dfeed7b52453b38720c21c7d213679b8d2854
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245493"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496374"
 ---
-# <a name="collect-data-from-microsoft-cloud-app-security"></a>Recolher dados do Microsoft Cloud App Security 
+# <a name="connect-data-from-microsoft-cloud-app-security"></a>Ligue os dados do Microsoft Cloud App Security 
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -39,7 +39,7 @@ Se já tiver o Cloud App Security, certificar-se de que é [ativada na sua rede]
 Se o Cloud App Security é implementado e ingestão de seus dados, os dados de alertas podem facilmente ser transmitido em sentinela do Azure.
 
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **Cloud App Security** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **Cloud App Security** mosaico.
 
 2. Clique em **Ligar**.
 

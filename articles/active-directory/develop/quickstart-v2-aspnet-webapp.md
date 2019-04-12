@@ -1,5 +1,5 @@
 ---
-title: Início rápido do servidor Web ASP.NET do Azure AD v2.0 | Microsoft Docs
+title: Plataforma de identidade do Microsoft ASP.NET web server guia de introdução | Azure
 description: Saiba como implementar o Início de sessão com a Microsoft numa aplicação Web ASP.NET com o OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 44b11f49d788dd3c16c0cb8dd47cc59848b607ed
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200264"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505403"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "58200264"
 
 Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode iniciar sessão em contas pessoais (hotmail.com, outlook.com, entre outras) e em contas escolares e profissionais a partir de qualquer instância do Azure Active Directory (Azure AD).
 
-![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -39,7 +39,7 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Vá para a nova [portal do Azure – registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) painel.
 > 1. Introduza um nome para a sua aplicação e clique em **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
@@ -50,8 +50,9 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização)** > **Novo registo**.
-> 1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
+> 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
+> 1. Selecione **novo registo**.
+> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Quickstart`.
 >      - Adicione `https://localhost:44368/` no **URL de Resposta** e clique em **Registar**.
 Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão Implícita** e, em seguida, selecione **Guardar**.
@@ -60,14 +61,14 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a sua aplicação no portal do Azure
 > Para o código de exemplo deste início rápido funcionar, terá de adicionar um URL de resposta como `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Fazer esta alteração por mim]()
+> > [Efetuar esta alteração para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com este atributo
+> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) seu aplicativo está configurado com esse atributo
 
 #### <a name="step-2-download-your-project"></a>Passo 2: Transfira o seu projeto
 
-[Transfira a solução do Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Transferir a solução do Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
@@ -82,11 +83,11 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
-> - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
+> - `Enter_the_Application_Id_here` -é o Id da aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` -é uma das opções abaixo:
 >   - Se a sua aplicação suportar **Apenas a minha organização**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
->   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
+>   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
+>   - Se a sua aplicação suportar **utilizadores com contas Microsoft todos os**, substitua este valor com `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
@@ -132,7 +133,7 @@ public void Configuration(IAppBuilder app)
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
-                ValidateIssuer = false
+                ValidateIssuer = false // Simplification (see note below)
             },
             // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
             Notifications = new OpenIdConnectAuthenticationNotifications
@@ -148,12 +149,16 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}/v2.0> para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
-> | `RedirectUri`  | URL para onde os utilizadores são enviados após a autenticação no ponto final v2.0 do Azure AD |
+> | `RedirectUri`  | URL onde os utilizadores são enviados após a autenticação contra o ponto de extremidade do Microsoft identity platform |
 > | `PostLogoutRedirectUri`     | URL para onde os utilizadores são enviados depois de terminarem sessão |
 > | `Scope`     | A lista dos âmbitos que estão a ser solicitados, separados por espaços |
 > | `ResponseType`     | Pedido de que a resposta da autenticação contenha um token de ID |
 > | `TokenValidationParameters`     | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está definido como `false` para indicar que pode aceitar inícios de sessão de todos os tipos de conta: pessoal, escolar ou profissional |
 > | `Notifications`     | Uma lista de delegados que podem ser executados em diferentes mensagens *OpenIdConnect* |
+
+
+> [!NOTE]
+> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. No real aplicativos necessários para validar o emissor, consulte os exemplos para compreender como fazê-lo.
 
 ### <a name="initiate-an-authentication-challenge"></a>Iniciar um desafio de autenticação
 

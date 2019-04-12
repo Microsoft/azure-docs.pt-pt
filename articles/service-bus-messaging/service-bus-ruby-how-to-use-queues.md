@@ -12,26 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 074976ea1f889893b5daa21cea5c186ec77145c4
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588352"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501115"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Como utilizar filas do Service Bus com Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este guia descreve como utilizar as filas do Service Bus. Os exemplos são escritos em Ruby e utilizam a gem do Azure. Os cenários abrangidos incluem **criando filas, enviar e receber mensagens**, e **eliminar filas**. Para obter mais informações sobre as filas do Service Bus, consulte a [passos seguintes](#next-steps) secção.
+Neste tutorial, saiba como criar aplicações Ruby para enviar mensagens para e receber mensagens de uma fila do Service Bus. Os exemplos são escritos em Ruby e utilizam a gem do Azure.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo.
+    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
+    2. Criar um barramento de serviço **espaço de nomes**. 
+    3. Obter o **cadeia de ligação**. 
 
-## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > Irá criar um **fila** no espaço de nomes do Service Bus com o Ruby neste tutorial. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila

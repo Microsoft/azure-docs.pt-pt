@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259869"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501149"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
 Tokens de acesso permitem que os clientes com segurança chamar APIs protegidas pelo Azure. Os tokens de acesso do Azure Active Directory (Azure AD) são [JWTs](https://tools.ietf.org/html/rfc7519), objetos JSON iniciados pelo Azure de codificada em Base64. Os clientes devem tratar acesso destinam-se os tokens como cadeias de caracteres opacas, como o conteúdo do token para o recurso apenas. Para validação e fins de depuração, os desenvolvedores podem decodificar JWTs através de um site como [jwt.ms](https://jwt.ms). O cliente pode obter um token de acesso de qualquer ponto de extremidade (versão 1.0 ou v2.0) utilizando uma variedade de protocolos.
 
-Quando solicita um token de acesso, o Azure AD devolve também alguns metadados sobre o token de acesso para consumo da sua aplicação. Estas informações incluem a hora de expiração do token de acesso e os âmbitos para a qual é válido. Estes dados permite à aplicação efetuar a colocação em cache inteligente de tokens de acesso sem ter de analisar o token de acesso em si.
+Quando o pedido de cliente, um token de acesso, do Azure AD também devolve alguns metadados sobre o token de acesso para consumo da sua aplicação. Estas informações incluem a hora de expiração do token de acesso e os âmbitos para a qual é válido. Estes dados permite à aplicação efetuar a colocação em cache inteligente de tokens de acesso sem ter de analisar o token de acesso em si.
 
 Se seu aplicativo é um recurso (web API) que os clientes podem pedir acesso a, tokens de acesso fornecem informações úteis para utilização na autenticação e autorização, tais como o utilizador, cliente, emissor, permissões e muito mais. 
 
 Veja as secções seguintes para saber como um recurso pode validar e utilizar as afirmações dentro de um token de acesso.
 
-> [!NOTE]
-> Ao testar a aplicação de cliente com uma conta pessoal (por exemplo, hotmail.com ou outlook.com), pode achar que o token de acesso recebido pelo seu cliente é uma cadeia opaca. Isto acontece porque o recurso que está sendo acessado solicitou herdados MSA (conta Microsoft) pedidos de suporte que são encriptados e não podem ser compreendidos pelo cliente.
+> [!Important]
+> Tokens de acesso são criados com base no *público-alvo* do token, que significa que o aplicativo que possui os âmbitos no token.  Esta é a forma como uma definição de recurso `accessTokenAcceptedVersion` no [manifesto da aplicação](reference-app-manifest.md#manifest-reference) para `2` permite que um cliente chamar o ponto de extremidade v1.0 receber um token de acesso da versão 2.0.  Da mesma forma, é por isso o token de acesso a alteração [afirmações opcionais](active-directory-optional-claims.md) para seu executar de cliente não alterar o token de acesso recebido quando um token é solicitado para `user.read`, que é propriedade do recurso de MS Graph.  
+> Pela mesma razão, ao testar a aplicação de cliente com uma conta pessoal (por exemplo, hotmail.com ou outlook.com), pode achar que o token de acesso recebido pelo seu cliente é uma cadeia opaca. Isto acontece porque o recurso que está sendo acessado solicitou herdados MSA (conta Microsoft) pedidos de suporte que são encriptados e não podem ser compreendidos pelo cliente.
 
 ## <a name="sample-tokens"></a>Tokens de exemplo
 
@@ -124,7 +125,7 @@ As seguintes declarações serão incluídas na v1.0 tokens se aplicável, mas n
 | `onprem_sid`| Cadeia de caracteres, em [formato do SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Em casos em que o utilizador tem uma autenticação no local, esta afirmação fornece seu SID. Pode usar `onprem_sid` para autorização em aplicativos herdados.|
 | `pwd_exp`| int, um carimbo de UNIX | Indica que a senha do usuário expira. |
 | `pwd_url`| String | Um URL onde os utilizadores possam ser enviados para repor a palavra-passe. |
-| `in_corp`|booleano | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída. |
+| `in_corp`|boolean | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída. |
 | `nickname`| String | Um nome adicional para o utilizador, separado do primeiro ou último nome.|
 | `family_name` | String | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. |
 | `given_name` | String | Fornece o primeiro ou o nome dado do utilizador, conforme definido no objeto user. |

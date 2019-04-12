@@ -8,19 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854709"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Active Directory do Azure com Evernote
 
@@ -53,7 +53,7 @@ Para configurar a integração do Evernote com o Azure AD, terá de adicionar Ev
 
 **Para adicionar Evernote a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -61,11 +61,11 @@ Para configurar a integração do Evernote com o Azure AD, terá de adicionar Ev
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar uma nova aplicação, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Evernote**, selecione **Evernote** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Evernote**, selecione **Evernote** a partir do painel de resultados, em seguida, clique nas **Add** botão para adicionar a aplicação.
 
      ![Evernote na lista de resultados](common/search-new-app.png)
 
@@ -97,7 +97,7 @@ Para configurar o Azure AD início de sessão único com Evernote, execute os se
 
     ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na **definir a segurança de início de sessão único com o SAML** página, clique no **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo.
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
@@ -117,13 +117,23 @@ Para configurar o Azure AD início de sessão único com Evernote, execute os se
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-7. Sobre o **configurar Evernote** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Para modificar a **assinatura** opções, clique nas **editar** botão para abrir o **certificado de assinatura SAML** caixa de diálogo.
+
+    ![image](common/edit-certificate.png) 
+
+    ![image](./media/evernote-tutorial/samlassertion.png)
+
+    a. Selecione o **asserção e resposta SAML de início de sessão** opção para **opção assinatura**.
+
+    b. Clicar em **Guardar**
+
+8. Sobre o **configurar Evernote** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -169,8 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -231,11 +240,11 @@ Nesta secção, vai testar a configuração do Azure AD única início de sessã
 
 Quando clica no mosaico Evernote no painel de acesso, deve ser automaticamente sessão iniciada no Evernote para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

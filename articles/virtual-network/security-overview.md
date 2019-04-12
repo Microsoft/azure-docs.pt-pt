@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262147"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501132"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -80,6 +80,7 @@ As regras de segurança aumentadas simplificam a definição de segurança das r
 * **AzureMonitor** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço AzureMonitor. Se especificar *AzureMonitor* no valor, o tráfego é permitido ou negado para AzureMonitor. 
 * **ServiceFabric** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço do ServiceFabric. Se especificar *ServiceFabric* no valor, o tráfego é permitido ou negado para ServiceFabric. 
 * **AzureMachineLearning** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço AzureMachineLearning. Se especificar *AzureMachineLearning* no valor, o tráfego é permitido ou negado para AzureMachineLearning. 
+* **BatchNodeManagement** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço Azure BatchNodeManagement. Se especificar *BatchNodeManagement* no valor, tráfego permitido ou negado do serviço Batch em nós de computação.
 
 > [!NOTE]
 > Etiquetas de serviço dos serviços do Azure denota os prefixos de endereço a partir da cloud específico a ser utilizado. 
@@ -95,19 +96,19 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todos|Permitir|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todos|Permitir|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Acesso|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todos|Negar|
 
@@ -115,19 +116,19 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todos | Permitir |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todos | Permitir |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todos | Negar |
 
@@ -135,11 +136,11 @@ Nas colunas **Source** (Origem) e **Destination** (Destino), *VirtualNetwork*, *
  
 Não pode remover as regras predefinidas, mas pode criar regras com prioridades superiores para substituí-las.
 
-## <a name="application-security-groups"></a>Grupos de segurança da aplicação
+## <a name="application-security-groups"></a>Grupos de segurança de aplicações
 
 Os grupos de segurança de aplicações permitem-lhe configurar a segurança de rede como uma extensão natural da estrutura de uma aplicação, possibilitando o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos. Pode reutilizar a política de segurança em escala sem a manutenção manual de endereços IP explícitos. A plataforma lida com a complexidade dos endereços IP explícitos e dos múltiplos conjuntos de regras, permitindo-lhe focar-se na lógica de negócio. Para compreender melhor os grupos de segurança de rede, considere o exemplo seguinte:
 
-![Grupos de segurança da aplicação](./media/security-groups/application-security-groups.png)
+![Grupos de segurança de aplicações](./media/security-groups/application-security-groups.png)
 
 Na imagem anterior, *NIC1* e *NIC2* são membros do grupo de segurança de rede *AsgWeb*. *NIC3* é membro do grupo de segurança de rede *AsgLogic*. *NIC4* é membro do grupo de segurança de rede *AsgDb*. Embora cada interface de rede neste exemplo seja membro de apenas um grupo de segurança de rede, as interfaces de rede podem ser membros de vários grupos, até atingirem os [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Não está associado nenhum grupo de segurança de rede às interfaces de rede. *NSG1* está associado a ambas as sub-redes e contém as seguintes regras:
 
@@ -147,7 +148,7 @@ Na imagem anterior, *NIC1* e *NIC2* são membros do grupo de segurança de rede 
 
 Esta regra é necessária para permitir o tráfego da Internet para os servidores Web. Uma vez que o tráfego de entrada a partir da Internet é negado pela regra de segurança [DenyAllInbound](#denyallinbound) predefinida, não é necessária qualquer regra adicional para os grupos de segurança de aplicações *AsgLogic* ou *AsgDb*.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Permitir |
 
@@ -155,7 +156,7 @@ Esta regra é necessária para permitir o tráfego da Internet para os servidore
 
 Uma vez que a regra de segurança predefinida [AllowVNetInBound](#allowvnetinbound) permite todas as comunicações entre recursos na mesma rede virtual, esta regra é necessária para negar o tráfego de todos os recursos.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Todos | Negar |
 
@@ -163,7 +164,7 @@ Uma vez que a regra de segurança predefinida [AllowVNetInBound](#allowvnetinbou
 
 Esta regra permite o tráfego do grupo de segurança de aplicações *AsgLogic* para o grupo de segurança de aplicações *AsgDb*. A prioridade desta regra é mais alta do que a da regra *Deny-Database-All*. Como resultado, esta regra é processada antes da regra *Deny-Database-All*, de modo a que o tráfego do grupo de segurança de aplicações *AsgLogic* seja permitido, ao passo que o restante tráfego é bloqueado.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Acesso |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Permitir |
 

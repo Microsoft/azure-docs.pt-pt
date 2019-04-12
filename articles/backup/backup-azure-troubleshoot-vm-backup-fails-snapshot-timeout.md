@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286436"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491521"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -51,7 +51,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Código de erro**: UserErrorRpCollectionLimitReached <br>
 **Mensagem de erro**: Atingiu o limite máximo da coleção de ponto de restauro. <br>
 * Este problema pode ocorrer se existir um bloqueio no grupo de recursos de ponto de recuperação que impede a limpeza automática de ponto de recuperação.
-* Este problema também pode acontecer se várias cópias de segurança são acionadas por dia. Atualmente, recomendamos que apenas uma cópia de segurança por dia como instantâneas RPs são mantidas durante 7 dias e apenas 18 RPs instantâneas pode ser associado uma VM em qualquer momento. <br>
+* Este problema também pode acontecer se várias cópias de segurança são acionadas por dia. Atualmente, recomendamos apenas uma cópia de segurança por dia à medida que os pontos de restauro imediato são retidos durante 1 a 5 dias de acordo com o período de retenção configurado instantâneo e apenas 18 RPs instantâneas pode ser associado uma VM em qualquer momento. <br>
 
 Ação recomendada:<br>
 Para resolver este problema, remova o bloqueio do grupo de recursos da VM e repita a operação para acionar a limpeza.

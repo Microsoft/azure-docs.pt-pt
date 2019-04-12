@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470360"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491496"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 

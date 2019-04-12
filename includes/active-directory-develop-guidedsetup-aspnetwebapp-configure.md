@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2018
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cce0bb9d1a9317396d197d182a424a45c8448f1b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 123a2ece06cb58ce6dbb35a914a87eb45fbcf5be
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203646"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505806"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
@@ -29,24 +29,28 @@ Para registar a sua aplicação e adicionar as suas informações de registo de 
 
 Pode registar a sua aplicação rapidamente ao fazer o seguinte:
 
-1. Registar a sua aplicação através da [Portal de registo de aplicação do Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure).
-2. Introduza um nome para o seu e-mail e a sua aplicação.
-3. Certifique-se de que a opção para a configuração interativa está marcada.
-4. Siga as instruções para adicionar um URL de redirecionamento para seu aplicativo.
+1. Vá para a nova [portal do Azure – registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) painel.
+1. Introduza um nome para a sua aplicação e clique em **Registar**.
+1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
 
-Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
+Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 
-1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) para registar uma aplicação.
-2. Introduza um nome para o seu e-mail e a sua aplicação.
-3. Certifique-se que a opção para a configuração interativa está desmarcada
-4. Selecione `Add Platform`e, em seguida, selecione `Web`.
-5. Vá para o Visual Studio e, no Explorador de soluções, selecione o projeto e observar a janela de propriedades (se não vir uma janela de propriedades, pressione F4)
-6. Alterar o SSL ativado para `True`.
-7. Com o botão direito no projeto no Visual Studio, em seguida, escolha **propriedades**e o **Web** separador. Na *servidores* secção alteração a *Url de projeto* para ser o URL do SSL.
-8. Copie o URL de SSL e adicionar este URL à lista de URLs de redirecionamento na lista do Portal de registo de URLs de redirecionamento:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-9. Adicione o seguinte na `web.config` localizado na pasta raiz na secção `configuration\appSettings`:
+1. Vá para o Visual Studio e:
+   - no Solution Explorer, selecione o projeto e observe a janela de propriedades (se não vir uma janela de propriedades, pressione F4)
+   - Alterar o SSL ativado para `True`.
+   - Com o botão direito no projeto no Visual Studio, em seguida, escolha **propriedades**e o **Web** separador. Na *servidores* secção alteração a *Url de projeto* para ser o URL do SSL.
+   - Copie o URL do SSL. Irá adicionar este URL à lista de URLs de redirecionamento na lista do Portal de registo de URLs de redirecionamento no próximo passo:<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
+1. Selecione **novo registo**.
+1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
+   - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Tutorial`.
+   - Adicionar o URL do SSL tinha copiou a partir do Visual Studio no passo 1 (por exemplo `https://localhost:44368/`) no **URL de resposta**e clique em **registar**.
+1. Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão Implícita** e, em seguida, selecione **Guardar**.
+1. Adicione o seguinte na `web.config` localizado na pasta raiz na secção `configuration\appSettings`:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -55,5 +59,5 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
     <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" />
     ```
 
-10. Substitua `ClientId` com o ID da aplicação que acabou de registar.
-11. Substitua `redirectUri` com o URL de SSL do seu projeto.
+1. Substitua `ClientId` com o ID da aplicação que acabou de registar.
+1. Substitua `redirectUri` com o URL de SSL do seu projeto.

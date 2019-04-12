@@ -1,5 +1,5 @@
 ---
-title: Como implementar o módulo de gestão de dispositivos do Azure IoT OPC UA para um projeto existente | Documentos da Microsoft
+title: Como implementar um módulo duplo de OPC para um projeto existente do Azure | Documentos da Microsoft
 description: Como implementar duplo de OPC para um projeto existente.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255891"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493251"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar duplo de OPC para um projeto existente
 
-O módulo de OPC dispositivo duplo é executado no IoT Edge e fornece vários serviços de borda para os serviços de registo e OPC dispositivo duplo. 
+O módulo duplo de OPC é executado no IoT Edge e fornece vários serviços de borda para os serviços de registo e OPC duplo. 
 
-O serviço de micro do OPC dispositivo duplo facilita a comunicação entre as operadoras de fábrica e dispositivos de servidor OPC UA no chão de fábrica através de um módulo do IoT Edge do OPC duplo. O serviço micro expõe serviços OPC UA (procura, leitura, escrita e execução) através da sua API de REST. 
+O serviço de micro do OPC duplo facilita a comunicação entre as operadoras de fábrica e dispositivos de servidor OPC UA no chão de fábrica através de um módulo do IoT Edge do OPC duplo. O serviço micro expõe serviços OPC UA (procura, leitura, escrita e execução) através da sua API de REST. 
 
-O serviço de micro do registo de dispositivo do OPC UA fornece acesso a aplicativos de OPC UA registrados e os respetivos pontos finais. Operadores e os administradores podem registar e anular o registo de novos aplicativos de OPC UA e procurar os existentes, incluindo os respetivos pontos finais. Além de gerenciamento de ponto final e de aplicativos, o serviço de registo também cataloga módulos registados do OPC dispositivo duplo do IoT Edge. A API de serviço dá-lhe controlo da borda módulo funcionalidade, por exemplo, iniciar ou parar a deteção de servidores (Serviços de análise) ou ativar o novo duplos de ponto de extremidade que podem ser acedidos através do serviço de micro OPC duplo.
+Os microsserviços de registro de dispositivo OPC UA fornece acesso a aplicativos de OPC UA registrados e os respetivos pontos finais. Operadores e os administradores podem registar e anular o registo de novos aplicativos de OPC UA e procurar os existentes, incluindo os respetivos pontos finais. Além de gerenciamento de ponto final e de aplicativos, o serviço de registo também cataloga módulos do IoT Edge duplo OPC registados. A API de serviço dá-lhe controlo da borda módulo funcionalidade, por exemplo, iniciar ou parar a deteção de servidores (Serviços de análise) ou ativar o novo duplos de ponto de extremidade que podem ser acedidos através do serviço de micro OPC duplo.
 
-O núcleo do módulo é a identidade do Supervisor. O supervisor gere duplo de ponto final, que corresponde a pontos finais do servidor OPC UA ativados com a API de registro OPC UA correspondente. Este duplos de ponto final traduzir OPC UA JSON recebidos do serviço micro OPC duplo em execução na cloud para mensagens binárias de OPC UA, o que são enviadas através de um canal seguro com monitoração de estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de deteção que enviam eventos de deteção de dispositivo para o serviço de integração de dispositivo do OPC UA para processamento, em que esses eventos resultam em atualizações para o registo de OPC UA.  Este artigo mostra-lhe como implementar o módulo duplo de OPC para um projeto existente. 
+O núcleo do módulo é a identidade do Supervisor. O supervisor gere duplo de ponto final, que corresponde a pontos finais do servidor OPC UA ativados com a API de registro OPC UA correspondente. Este duplos de ponto final traduzir OPC UA JSON recebidos do serviço micro OPC duplo em execução na cloud para mensagens binárias de OPC UA, o que são enviadas através de um canal seguro com monitoração de estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de deteção que enviam eventos de deteção de dispositivo para o serviço de integração de dispositivos de OPC UA para processamento, em que esses eventos resultam em atualizações para o registo de OPC UA.  Este artigo mostra-lhe como implementar o módulo duplo de OPC para um projeto existente. 
 
 > [!NOTE]
 > Para obter mais informações sobre os detalhes da implementação e instruções, consulte o GitHub [repositório](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ O script de implementação tenta registrar duas aplicações do AAD no Azure Ac
 2. Em alternativa, implemente um inquilino do AAD privado noutra subscrição, reinicie o script e selecione usá-lo.
 
 > [!WARNING]
-> NUNCA continue sem autenticação.  Se optar por fazê-lo, qualquer pessoa pode aceder aos pontos finais de gestão de dispositivos de OPC da Internet não autenticada.   Pode sempre escolher a [opção de implementação de "local"](howto-opc-twin-deploy-dependencies.md) a idéia sobre o.
+> NUNCA continue sem autenticação.  Se optar por fazê-lo, qualquer pessoa pode aceder os pontos de extremidade do OPC duplo partir da Internet não autenticada.   Pode sempre escolher a [opção de implementação de "local"](howto-opc-twin-deploy-dependencies.md) a idéia sobre o.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implementar uma demonstração de serviços de IoT industrial do tudo-em-um
 

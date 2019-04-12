@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882908"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491292"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -113,7 +113,7 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 - <a name="cross-region"></a>Pode configurar o peering entre redes virtuais na mesma região ou regiões diferentes. Peering de redes virtuais em diferentes regiões também é referido como *Global VNet Peering*. 
 - Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure ou regiões de cloud da China ou regiões de cloud do Governo. Não é possível configurar o peering entre nuvens. Por exemplo, uma VNet na cloud pública do Azure não pode ser agrupada para uma VNet na cloud do Azure China.
 - Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Não existe suporte para o Balanceador de carga Standard para tanto, o VNet Peering e o Global VNet Peering.
-- Pode utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais em modo de peering global em pré-visualização. A pré-visualização está disponível em todas as regiões do Azure, regiões da cloud na China e regiões de cloud do Governo. Não é necessária nenhuma lista de permissões. Pode testar em pré-visualização através da CLI, PowerShell, modelos ou API. Portal não é suportado na pré-visualização.
+- Pode utilizar gateways remotos ou permitir que o trânsito de gateway no globalmente em modo de peering de redes virtuais e redes virtuais em modo de peering localmente.
 - As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando configurar o peering de redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao inquilino do Azure Active Directory idêntica ou diferente. Se ainda não tiver um inquilino do AD, pode [criá-lo](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Suporte para o peering entre redes virtuais das subscrições associadas aos diferentes inquilinos do Azure Active Directory não está disponível no Portal. Pode utilizar modelos, PowerShell ou CLI.
 - As redes virtuais que configurar o peering tem de ter espaços de endereços IP não sobrepostos.
 - Não é possível adicionar intervalos de endereços para ou eliminar intervalos de endereços do espaço de endereços da rede virtual depois de uma rede virtual é executado o peering com outra rede virtual. Para adicionar ou remover intervalos de endereços, eliminar o peering, adicionar ou remover os intervalos de endereços, em seguida, recrie o peering. Para intervalos de endereços para adicionar ou remover intervalos de endereços das redes virtuais, veja [gerir redes virtuais](manage-virtual-network.md).

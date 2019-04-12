@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361470"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496100"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -41,8 +41,8 @@ Saiba mais sobre a cópia de segurança [a utilizar um servidor de cópia de seg
 **Ação** | **Suporte**
 --- | ---
 Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para:  Windows Server de 2019 (núcleos de Datacenter/Datacenter), Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
-Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
-Fazer cópias de segurança de uma VM que VM de encerramento/offline/buscando | Suportado.<br/><br/> Instantâneo é consistente de falhas única, não consistente com a aplicação.
+Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Fazer uma cópia de segurança de uma VM que está encerramento/offline VM | Suportado.<br/><br/> Instantâneo é consistente de falhas única, não consistente com a aplicação.
 Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessário realizar qualquer ação.
 Fazer cópias de segurança de discos geridos depois de ativar o bloqueio do grupo de recursos | Não suportado.<br/><br/> O Azure Backup não é possível eliminar os pontos mais antigos do recurso e as cópias de segurança começarão a falhar quando for atingido o limite máximo de pontos de restauro.
 Modificar a política de cópia de segurança para uma VM | Suportado.<br/><br/> A VM será efetuada utilizando as definições de agendamento e retenção na nova política. Se as definições de retenção estão expandidas, pontos de recuperação existentes são marcados e mantidos. Se eles estão reduzidos, pontos de recuperação existentes serão eliminados na tarefa de limpeza seguinte e, eventualmente, eliminados.
@@ -149,8 +149,7 @@ Cópia de segurança de VMs que são implementadas num [conjunto de dimensioname
 Cópia de segurança de VMs implementadas a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicada pela Microsoft, terceiros) |  Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
 Cópia de segurança de VMs que são implementadas a partir de uma imagem personalizada (de terceiros) |   Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
 Fazer uma cópia de segurança de VMs que são migradas para o Azure  | Suportado.<br/><br/> Para fazer backup da VM, o agente da VM deve ser instalado na máquina migrada.
-Criar cópias de segurança consistência de VMs | não suportado. <br/><br/>O Azure Backup não suporta a consistência de várias VMS.
-
+Criar cópias de segurança consistência multi-VM | Cópia de segurança do Azure não fornece consistência de dados e aplicações em várias VMs.
 
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
@@ -166,7 +165,7 @@ Discos com acelerador de escrita ativados | Não suportado.<br/><br/> Se estiver
 Criar cópias de segurança com eliminação de duplicados discos | Não suportado.
 Adicionar disco à VM protegida | Suportado.
 Redimensionar disco numa VM protegida | Suportado.
-Armazenamento partilhado| Não é recomendável fazer backup de VMs através de CSV ou servidor de ficheiros de escalamento horizontal. Gravadores CSV são provável que falhem.
+Armazenamento partilhado| Não é recomendada para o backup das VMs com o Volume de partilhado de Cluster (CSV) ou o servidor de ficheiros de escalamento horizontal. Gravadores CSV são provável que falhem durante a cópia de segurança. No restauro, discos de CSV volumes podem não acontecer-up.
 
 > [!NOTE]
 > O Azure Backup não suporta discos repartidos. Redimensionamento do disco não é recomendado pela cópia de segurança do Azure.

@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Uma instância gerida na base de dados do Azure SQL é totalmente gerido da base de dados motor de instância do SQL Server alojado na cloud do Azure. Esta é a melhor opção de PaaS para migrar a sua base de dados do SQL Server para a cloud. Saiba como criar e utilizar a instância gerida com os nossos inícios rápidos, tutoriais e amostras.'
@@ -78,6 +78,7 @@ sections:
           - html: Instâncias geridas estão protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
           - html: '(Pré-visualização) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Voltar a criar remover bases de dados com o PowerShell</a>'
           - html: 'Funcionalidade de restauro geográfico permite-lhe <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar a base de dados para outro Datacenter com o PowerShell</a>.'
+          - html: '(Pré-visualização) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Fuso de horário de configurar</a> durante a criação de instância.'
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph

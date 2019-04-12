@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de Barracuda sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados de Barracuda no sentinela do Azure.
+title: Ligar dados Barracuda a pré-visualização de sentinela de Azure | Documentos da Microsoft
+description: Saiba como ligar a dados da Barracuda a sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574723"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492843"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ligar a sua aplicação da Barracuda 
 
@@ -31,11 +31,10 @@ Conector do barracuda Web Application Firewall (WAF) permite-lhe ligar facilment
 
 
 > [!NOTE]
-> 
-> - Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configurar e ligar o Barracuda WAF
-Barracuda Web Application Firewall pode integrar e exportar registos diretamente para [ASI] através do servidor de OMS do Azure.
+Barracuda Web Application Firewall pode integrar e exportar registos diretamente para o Azure sentinela através do servidor de OMS do Azure.
 1. Aceda a [fluxo de configuração do Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)e siga as instruções para configurar a ligação, usando esses parâmetros:
     - **ID da área de trabalho**: Copie o valor do seu ID de área de trabalho a partir da página de conector Barracuda sentinela do Azure.
     - **Chave primária**: Copie o valor da sua chave primária a partir da página de conector Barracuda sentinela do Azure.

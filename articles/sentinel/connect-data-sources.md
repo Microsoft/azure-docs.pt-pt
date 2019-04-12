@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884800"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492367"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -34,9 +34,9 @@ Para integrar sentinela do Azure, primeiro tem de ligar às suas origens de dado
 
 ![Recoletores de dados](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>Métodos de recolha de dados
+## <a name="data-connection-methods"></a>Métodos de ligação de dados
 
-Os seguintes métodos de recolha de dados são suportados pelo Azure sentinela:
+Os seguintes métodos de ligação de dados são suportados pelo Azure sentinela:
 
 - **Serviços da Microsoft**:<br> Serviços da Microsoft estão ligados nativamente, aproveitando a base do Azure para integração de fora da caixa, as seguintes soluções podem ser ligadas em poucos cliques:
     - [Office 365](connect-office-365.md)
@@ -45,14 +45,14 @@ Os seguintes métodos de recolha de dados são suportados pelo Azure sentinela:
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Centro de Segurança do Azure](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Proteção contra ameaças avançada do Azure](connect-azure-atp.md)
-    - [O cloud App Security](connect-cloud-app-security.md)
+    - [Proteção Avançada Contra Ameaças do Azure](connect-azure-atp.md)
+    - [Cloud App Security](connect-cloud-app-security.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
 
 - **Soluções externas através da API**: Algumas origens de dados estão ligadas através de APIs que são fornecidas pela origem de dados ligada. Normalmente, a maioria das tecnologias de segurança fornecem um conjunto de APIs, através do qual os registos de eventos pode ser obtidos. As APIs de ligar ao Azure sentinela e recolher os tipos de dados específicos e enviá-los para o Azure Log Analytics. Aplicações ligadas através da API incluem:
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **Soluções externas através de agente**: Sentinel do Azure pode ser ligada a todas as outras origens de dados que podem realizar a transmissão de registos em tempo real utilizando o protocolo de Syslog, através de um agente. <br>A maioria das aplicações utilizam o protocolo de Syslog para enviar mensagens de eventos que incluem o registo em si e os dados sobre o registo. O formato dos registos varia, mas a maioria das aplicações suportam o padrão de Common Event Format (CEF). <br>O agente de Azure sentinela, que se baseia o agente do OMS, converte CEF formatado registos num formato que podem ser ingeridos pelo Log Analytics. Dependendo do tipo de aplicação, o agente é instalado diretamente na aplicação da ou num servidor Linux dedicado. O agente para Linux recebe eventos a partir do Syslog daemon através do UDP, mas em casos em que uma máquina Linux é esperada para recolher um grande volume de eventos do Syslog, enviados por TCP partir do Syslog daemon para o agente e daí para o Log Analytics.
     - Firewalls, proxies e pontos de extremidade:
         - [F5](connect-f5.md)

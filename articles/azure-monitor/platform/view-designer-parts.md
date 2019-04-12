@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470734"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493030"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência a partes de visualização do estruturador de vistas no Azure Monitor
 Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.

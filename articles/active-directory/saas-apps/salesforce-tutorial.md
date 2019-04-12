@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 239298959efa5c17d2f3d0c0aa5c4c30853c076f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902040"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Active Directory do Azure com o Salesforce
 
@@ -57,7 +58,7 @@ Para configurar a integração do Salesforce para o Azure AD, terá de adicionar
 
 **Para adicionar Salesforce a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -65,13 +66,13 @@ Para configurar a integração do Salesforce para o Azure AD, terá de adicionar
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar uma nova aplicação, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Salesforce**, selecione **Salesforce** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Salesforce**, selecione **Salesforce** a partir do painel de resultados, em seguida, clique nas **Add** botão para adicionar a aplicação.
 
-     ![Salesforce na lista de resultados](common/search-new-app.png)
+    ![Salesforce na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -101,7 +102,7 @@ Para configurar o Azure AD início de sessão único com o Salesforce, execute o
 
     ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na **definir a segurança de início de sessão único com o SAML** página, clique no **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo.
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
@@ -134,7 +135,7 @@ Para configurar o Azure AD início de sessão único com o Salesforce, execute o
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -206,8 +207,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -249,11 +249,11 @@ Nesta secção, vai testar a configuração do Azure AD única início de sessã
 
 Quando clica no mosaico do Salesforce no painel de acesso, deve ser automaticamente sessão iniciada no Salesforce para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

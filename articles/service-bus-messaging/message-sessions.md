@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497844"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500146"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: primeiro, primeiro out (FIFO) 
 
@@ -51,7 +51,7 @@ Sessões fornecem simultâneas da demultiplexação dos fluxos de mensagens inte
 
 R [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) recetor é criado pelo cliente abertos ao recebimento de uma sessão. As chamadas de cliente [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) ou [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) em c#. No modelo de retorno de chamada reativo, ele registra um manipulador de sessão.
 
-Quando o [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objeto é aceite e enquanto ele é mantido por um cliente, esse cliente mantém um bloqueio exclusivo em todas as mensagens com essa sessão [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) que existe na fila ou subscrição, e também em todas as mensagens com isso **SessionId** que chegam ainda enquanto a sessão é mantida.
+Quando o [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) objeto é aceite e enquanto ele é mantido por um cliente, esse cliente mantém um bloqueio exclusivo em todas as mensagens com essa sessão [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) que existe na fila ou subscrição, e também em todas as mensagens com isso **SessionId** que chegam ainda enquanto a sessão é mantida.
 
 O bloqueio seja liberado quando **feche** ou **CloseAsync** são chamados, ou quando o bloqueio expira em casos em que o aplicativo é não é possível efetuar a operação de fecho. O bloqueio de sessão deve ser tratado como um bloqueio exclusivo num ficheiro, que significa que o aplicativo deve fechar a sessão assim que ele já não precisa dele e/ou não espera que as mensagens adicionais.
 

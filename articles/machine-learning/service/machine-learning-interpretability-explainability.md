@@ -11,11 +11,11 @@ author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
 ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469782"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494445"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>SDK do Azure Machine Learning Interpretability
 

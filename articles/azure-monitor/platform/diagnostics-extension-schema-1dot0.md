@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811533"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492724"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuração de diagnósticos do Azure 1.0
 > [!NOTE]
 > Diagnóstico do Azure é o componente utilizado para recolher contadores de desempenho e outras estatísticas de máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric e serviços em nuvem.  Esta página só é relevante se estiver a utilizar um destes serviços.
 >
 
-Diagnóstico do Azure é utilizado com outros produtos de diagnóstico do Microsoft, como o Azure Monitor, o Application Insights e o Log Analytics.
+Diagnóstico do Azure é utilizado com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e o Log Analytics.
 
 O ficheiro de configuração de diagnósticos do Azure define os valores que são usados para inicializar o Monitor de diagnóstico. Esse arquivo é usado para inicializar as definições de diagnóstico de configuração, quando o monitor de diagnóstico é iniciado.  
 
@@ -116,7 +116,7 @@ Atributos:
 |Atributo|Type|Descrição|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferLogLevelFilter**|cadeia|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
 |**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="logs-element"></a>Elemento de registos  
@@ -129,7 +129,7 @@ Atributos:
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferLogLevelFilter**|cadeia|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
 |**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="directories-element"></a>Elemento de diretórios  
@@ -154,7 +154,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento de FailedRequestLogs  
@@ -166,7 +166,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento de IISLogs  
@@ -178,7 +178,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="datasources-element"></a>Elemento de origens de dados  
@@ -195,7 +195,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**container**|cadeia|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="absolute-element"></a>Elemento absoluto  
@@ -207,7 +207,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**path**|cadeia|Necessário. O caminho absoluto para o diretório a monitorizar.|  
+|**caminho**|string|Necessário. O caminho absoluto para o diretório a monitorizar.|  
 |**expandEnvironment**|boolean|Necessário. Se definido como **true**, variáveis de ambiente no caminho são expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento de LocalResource  
@@ -219,8 +219,8 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|cadeia|Necessário. O nome do recurso local que contém o diretório para monitorizar.|  
-|**relativePath**|cadeia|Necessário. O caminho relativo para o recurso local para monitorizar.|  
+|**nome**|string|Necessário. O nome do recurso local que contém o diretório para monitorizar.|  
+|**relativePath**|string|Necessário. O caminho relativo para o recurso local para monitorizar.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters elemento  
  Define o caminho para o contador de desempenho a recolher.
@@ -244,7 +244,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|cadeia|Necessário. O caminho para o contador de desempenho a recolher.|  
+|**counterSpecifier**|string|Necessário. O caminho para o contador de desempenho a recolher.|  
 |**sampleRate**|duração|Necessário. A taxa em que o contador de desempenho deve ser recolhido.|  
 
 ## <a name="windowseventlog-element"></a>Elemento de WindowsEventLog  
@@ -257,7 +257,7 @@ Atributos:
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferLogLevelFilter**|cadeia|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
+|**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
 |**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="datasource-element"></a>Elemento de origem de dados  
@@ -269,5 +269,5 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|cadeia|Necessário. Uma expressão XPath especificando o registo para recolher.|  
+|**nome**|string|Necessário. Uma expressão XPath especificando o registo para recolher.|  
 

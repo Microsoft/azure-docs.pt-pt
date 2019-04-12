@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906077"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489387"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -29,7 +29,7 @@ Este início rápido requer o Azure PowerShell AZ versão 1.0.0 do módulo ou po
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Iniciar sessão e registar
+## <a name="sign-in-and-register"></a>Iniciar sessão e registar
 
 1. Inicie sessão na sua subscrição do Azure com o comando `Connect-AzAccount` e siga as instruções no ecrã.
 
@@ -53,10 +53,10 @@ Quando cria o Cofre:
 - Se utilizou isso [script de exemplo](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para criar a VM, o grupo de recursos é **myResourceGroup**, a VM está ***myVM**, e os recursos estão no **WestEurope**  região.
 - Cópia de segurança do Azure processa automaticamente o armazenamento de cópias de segurança. Por predefinição utiliza o Cofre [armazenamento Georredundante (GRS)](../storage/common/storage-redundancy-grs.md). Redundância geográfica garante que uma cópia de segurança dados são replicados para uma região secundária do Azure, centenas de quilómetros de distância da região primária.
 
-Agora, crie um cofre.
+Agora, crie um cofre:
 
 
-1. Utilize o [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)para criar o Cofre:
+1. Utilize o [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) para criar o Cofre:
 
     ```powershell
     New-AzRecoveryServicesVault `
@@ -114,7 +114,7 @@ Executam cópias de segurança em conformidade com a agenda especificada na pol�
 - Depois da cópia de segurança inicial, cada tarefa de cópia de segurança cria pontos de recuperação incrementais.
 - Os pontos de recuperação incrementais são eficientes em termos de armazenamento e tempo, uma vez que só transferem as alterações feitas desde a última cópia de segurança.
 
-Para executar um backup ad hoc, utilize o[AzRecoveryServicesBackupItem de cópia de segurança](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Para executar um backup ad hoc, utilize o [AzRecoveryServicesBackupItem de cópia de segurança](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
 - Especificar um contentor no cofre que contém os seus dados de cópia de segurança com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Cada VM da qual vai fazer uma cópia de segurança é tratada como um item. Para iniciar uma tarefa de cópia de segurança, é obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -162,7 +162,7 @@ Se já não precisar de fazer uma cópia de segurança da VM, pode limpá-los.
 - Se quiser experimentar o restauro de VM, ignore o limpa cópia de segurança.
 - Se tiver utilizado uma VM existente, pode ignorar o último [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet para manter o grupo de recursos e a VM no local.
 
-Desative a proteção, remova os pontos de restauro e o cofre. Em seguida, eliminar o grupo de recursos e os recursos VM associados, da seguinte forma:
+Desative a proteção, remova os pontos de restauro e o cofre. Em seguida, elimine o grupo de recursos e os recursos VM associados, da seguinte forma:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

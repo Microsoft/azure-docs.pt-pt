@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369535"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493064"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -118,7 +118,7 @@ A lista a seguir explica esta atividade detalhadamente:
 A lista a seguir explica esta atividade detalhadamente:
 
 * **Descrição de atividade**: Indica que um administrador efetuar uma reposição em nome de um utilizador a partir do portal do Azure de palavra-passe.
-* **Ator atividade**: O administrador que efetuou a reposição em nome de outro utilizador final ou administrador de palavra-passe. Tem de ser seja um administrador global, administrador de palavras-passe, utilizador administrador ou administrador de suporte técnico.
+* **Ator atividade**: O administrador que efetuou a reposição em nome de outro utilizador final ou administrador de palavra-passe. Tem de ser um administrador de palavras-passe, o administrador de utilizador ou o administrador de suporte técnico.
 * **Destino de atividade**: O utilizador cuja palavras-passe foi reposta. O utilizador pode ser um utilizador final ou um administrador diferente.
 * **Estados de atividade**:
   * _Success_: Indica que um administrador com êxito de reposição da palavra-passe de um utilizador.
@@ -180,12 +180,12 @@ A lista a seguir explica esta atividade detalhadamente:
 * [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registe-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md).
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
-* [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
-* [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
-* [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
-* [Creio que algo está a funcionar incorretamente. Como posso resolver problemas da SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
+* [Os dados que são utilizados pela SSPR e quais dados devem ser preenchidos para os seus utilizadores?](howto-sspr-authenticationdata.md)
+* [Os métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
+* [Quais são as opções de política com SSPR?](concept-sspr-policy.md)
+* [O que é a repetição de escrita de palavra-passe e por que me importo-lo?](howto-sspr-writeback.md)
+* [Quais são todas as opções na SSPR e o que fazer que significam?](concept-sspr-howitworks.md)
+* [Eu acho que algo está quebrado. Como posso resolver SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tenho uma pergunta que não foi abordada](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Registos de exemplo de auditoria de atividade da SSPR no Azure AD"

@@ -12,33 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842775"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501200"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Como utilizar filas do Service Bus com PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este guia mostra-lhe como utilizar as filas do Service Bus. Os exemplos são escritos em PHP e a utilização a [Azure SDK para PHP](../php-download-sdk.md). Os cenários abrangidos incluem **criando filas**, **enviar e receber mensagens**, e **eliminar filas**.
+Neste tutorial, saiba como criar aplicativos PHP para enviar mensagens e receber mensagens de uma fila do Service Bus. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
+    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
+    2. Criar um barramento de serviço **espaço de nomes**. 
+    3. Obter o **cadeia de ligação**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+        > [!NOTE]
+        > Irá criar um **fila** no espaço de nomes do Service Bus com o PHP neste tutorial. 
+3. [SDK do Azure para PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>Criar uma aplicação PHP
 O único requisito para criar uma aplicação PHP que acede ao serviço de Blobs do Azure é a referência de classes no [Azure SDK para PHP](../php-download-sdk.md) de dentro de seu código. Pode utilizar quaisquer ferramentas de desenvolvimento para criar a sua aplicação ou o bloco de notas.
 
 > [!NOTE]
 > A instalação do PHP também tem de ter o [extensão de OpenSSL](https://php.net/openssl) instalado e ativado.
-> 
-> 
 
-Neste guia, irá utilizar as funcionalidades de serviço que podem ser chamadas a partir de dentro de um aplicativo PHP localmente ou em código em execução dentro de uma função da web do Azure, a função de trabalho ou o Web site.
+Neste guia, irá utilizar as funcionalidades de serviço, que podem ser chamadas de dentro de um aplicativo PHP localmente ou em código em execução dentro de uma função da web do Azure, a função de trabalho ou o Web site.
 
 ## <a name="get-the-azure-client-libraries"></a>Obter bibliotecas de cliente do Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -72,7 +77,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 Em que `Endpoint` costuma ter o formato `[yourNamespace].servicebus.windows.net`.
 
-Para criar qualquer cliente de serviço do Azure tem de utilizar o `ServicesBuilder` classe. Pode:
+Para criar qualquer cliente de serviço do Azure, tem de utilizar o `ServicesBuilder` classe. Pode:
 
 * Transmita a cadeia de ligação direta para o mesmo.
 * Utilize o **CloudConfigurationManager (CCM)** para verificar várias fontes externas para a cadeia de ligação:

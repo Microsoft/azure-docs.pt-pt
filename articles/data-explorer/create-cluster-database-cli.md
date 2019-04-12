@@ -6,13 +6,13 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: b1cc7d2966572da23a64e4555a0e94b440efa005
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/10/2019
+ms.openlocfilehash: 451eeaf6b30c85371728968d834aa6e34092dbc3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59043977"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491258"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com a CLI do Azure
 
@@ -79,7 +79,7 @@ Se o resultado contém `provisioningState` com o `Succeeded` valor, em seguida, 
 1. Crie a base de dados, utilize o seguinte comando:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
@@ -87,8 +87,8 @@ Se o resultado contém `provisioningState` com o `Succeeded` valor, em seguida, 
    | cluster-name | *azureclitest* | O nome do cluster onde a base de dados será criado.|
    | nome | *clidatabase* | O nome da base de dados.|
    | resource-group | *testrg* | O nome do grupo de recursos onde será criado o cluster. |
-   | soft-delete-period | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
-   | armazenamento frequente-cache-período | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos na cache. |
+   | soft-delete-period | *P365D* | Indica a quantidade de tempo que os dados serão mantidos disponíveis para consulta. Ver [política de retenção](/azure/kusto/concepts/retentionpolicy) para obter mais informações. |
+   | armazenamento frequente-cache-período | *P31D* | Indica a quantidade de tempo que os dados serão mantidos na cache. Ver [política de cache](/azure/kusto/concepts/cachepolicy) para obter mais informações. |
 
 1. Execute o seguinte comando para ver a base de dados que criou:
 

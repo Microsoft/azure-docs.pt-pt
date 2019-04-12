@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0e07e371afaa239ca423f4266557cd2f55aa3a55
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403158"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495263"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -50,7 +50,7 @@ Para configurar o manifesto do aplicativo:
 
 | Chave  | Tipo de valor | Descrição  | Valor de exemplo |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Int32 que pode ser nulo | Especifica a versão de token de acesso esperada pelo recurso. Isso altera a versão e formato do JWT produzidos independentes do ponto final ou cliente utilizado para pedir o token de acesso.<br/><br/>O ponto final utilizado, a versão 1.0 ou versão 2.0, é escolhido pelo cliente e afeta apenas a versão do id_tokens. Recursos tem de configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato do token de acesso de suporte.<br/><br/>Valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for nulo, ela é padronizada como 1, o que corresponde ao ponto final do v1.0. | `2` |
+| `accessTokenAcceptedVersion` | Int32 que pode ser nulo | Especifica a versão de token de acesso esperada pelo recurso. Isso altera a versão e formato do JWT produzidos independentes do ponto final ou cliente utilizado para pedir o token de acesso.<br/><br/>O ponto final utilizado, a versão 1.0 ou versão 2.0, é escolhido pelo cliente e afeta apenas a versão do id_tokens. Recursos tem de configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato do token de acesso de suporte.<br/><br/>Valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for nulo, ela é padronizada como 1, o que corresponde ao ponto final do v1.0. <br/><br/>Se `signInAudience` é `AzureADandPersonalMicrosoftAccount`, o valor tem de ser `2` | `2` |
 | `allowPublicClient` | boolean | Especifica o tipo de aplicação de contingência. Azure AD infere o tipo de aplicação da replyUrlsWithType por predefinição. Existem determinados cenários em que o Azure AD não é possível determinar o tipo de aplicação de cliente (por exemplo, [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) fluxo onde o pedido HTTP acontece sem um redirecionamento de URL). Nesses casos, do Azure AD interpretará o tipo de aplicação com base no valor desta propriedade. Se este valor é definido como verdadeiro o tipo de aplicação de contingência está definido como cliente público, como uma aplicação instalada em execução num dispositivo móvel. O valor predefinido é false, que significa que o tipo de aplicação de contingência é um cliente confidencial, tais como a aplicação web. | `false` |
 | `appId` | Cadeia de caracteres de identificador | Especifica o identificador exclusivo da aplicação que está atribuído a uma aplicação pelo Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica a coleção de funções de que uma aplicação poderá declarar. Estas funções podem ser atribuídas a utilizadores, grupos ou principais de serviço. Para obter mais exemplos e informações, consulte [adicionar funções de aplicação na sua aplicação e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

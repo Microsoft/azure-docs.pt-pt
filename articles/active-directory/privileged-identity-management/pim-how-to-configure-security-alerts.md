@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/04/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd391af4e4b4722e433e9bf25f0d584fba2321e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577234"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496714"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurar alertas de segurança para funções do Azure AD no PIM
 
@@ -97,7 +97,7 @@ Esta secção lista todos os alertas de segurança para funções do Azure AD, a
 | **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
 | **Acionador** | Acionado se dois critérios diferentes são cumpridos e pode configurar os dois. Em primeiro lugar, precisa atingir um certo limite de administradores globais. Em segundo lugar, um determinado percentual das atribuições de função total tem de ser administradores globais. Se cumprir apenas um dessas medidas, o alerta não aparecer. |
 | **Número mínimo de administradores globais** | Esta definição especifica o número de administradores globais, de 2 para 100, que considere uma quantidade de não segura. |
-| **Percentagem de administradores globais** | Esta definição especifica a percentagem mínima de administradores que são administradores globais, de % 0 e 100%, o que é inseguro no seu ambiente. |
+| **Percentagem de Administradores Globais** | Esta definição especifica a percentagem mínima de administradores que são administradores globais, de % 0 e 100%, o que é inseguro no seu ambiente. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Funções estão a ser ativadas com demasiada frequência
 
@@ -109,7 +109,7 @@ Esta secção lista todos os alertas de segurança para funções do Azure AD, a
 | **Prevenção** | Certifique-se de que o [duração da ativação](pim-how-to-change-default-settings.md) para funções com privilégios é definido tempo suficiente para os utilizadores executar suas tarefas.</br>[Exigir a MFA](pim-how-to-change-default-settings.md) para funções privilegiadas que tenham contas compartilhadas por vários administradores. |
 | **Ação de redução de dentro do portal** | N/A |
 | **Acionador** | Acionado se um utilizador ativa a mesma função com privilégios a várias vezes dentro de um período de tempo especificado. Pode configurar o período de tempo e o número de ativações. |
-| **Período de tempo de renovação de ativação** | Esta definição especifica em dias, horas, minutos e, segundo o período de tempo que pretende utilizar para controlar as renovações suspeitas. |
+| **Intervalo de tempo de renovação da ativação** | Esta definição especifica em dias, horas, minutos e, segundo o período de tempo que pretende utilizar para controlar as renovações suspeitas. |
 | **Número de renovações de ativação** | Esta definição especifica o número de ativações, de 2 para 100, o que considerar digna de alerta, durante o período de tempo que escolheu. Pode alterar esta definição ao mover o controlo de deslize ou digitando um número na caixa de texto. |
 
 ## <a name="configure-security-alert-settings"></a>Configurar definições de alerta de segurança

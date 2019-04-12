@@ -1,6 +1,6 @@
 ---
-title: Recolha de dados do Centro de segurança do Azure em pré-visualização sentinela do Azure | Documentos da Microsoft
-description: Saiba como recolher dados do Centro de segurança do Azure no Azure sentinela.
+title: Ligar os dados do Centro de segurança do Azure para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do Centro de segurança do Azure ao Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f59c5f6a9f497a6420172996f9f327f16ffd26f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd6fe027da8c16157c7fce6c348e49c0a6b73ea3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242280"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490676"
 ---
-# <a name="collect-data-from-azure-security-center"></a>Recolher dados a partir do Centro de segurança do Azure
+# <a name="connect-data-from-azure-security-center"></a>Ligar dados a partir do Centro de segurança do Azure
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -29,7 +29,7 @@ ms.locfileid: "57242280"
 
 
 
-Sentinel do Azure permite-lhe recolher alertas a partir [Centro de segurança do Azure](../security-center/security-center-intro.md) e transmiti-los em sentinela do Azure. 
+Sentinel do Azure permite-lhe ligar alertas a partir [Centro de segurança do Azure](../security-center/security-center-intro.md) e transmiti-los em sentinela do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Sentinel do Azure permite-lhe recolher alertas a partir [Centro de segurança do
 
 ## <a name="connect-to-azure-security-center"></a>Ligar ao centro de segurança do Azure
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **Centro de segurança do Azure** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **Centro de segurança do Azure** mosaico.
 1. No lado direito, clique em **Connect** junto a cada subscrição cujas alertas pretende transmitir para o Azure sentinela. Certifique-se atualizar cada subscrição para o escalão Standard de centro de segurança do Azure para alertas de fluxo para sentinela do Azure.
 
 3. Clique em **Ligar**.

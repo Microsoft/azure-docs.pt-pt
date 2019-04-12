@@ -1,5 +1,5 @@
 ---
-title: Como implementar o módulo de gestão de certificados do Azure IoT OPC UA do zero | Documentos da Microsoft
+title: Como implementar o módulo de cofre OPC do zero - Azure | Documentos da Microsoft
 description: Como implementar OPC cofre a partir do zero.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759511"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496901"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>Implementar OPC cofre a partir do zero
+# <a name="deploy-opc-vault-from-scratch"></a>Implementar o Cofre OPC de raiz
 
-O Azure IoT OPC UA gestão de certificados, também conhecido como cofre OPC, é um microsserviço que pode configurar, registre-se e gerir o ciclo de vida do certificado para aplicações de servidor e cliente de OPC UA na cloud. Este artigo mostra-lhe como implementar OPC cofre a partir do zero.
+O Cofre de OPC é um microsserviço que pode configurar, registe-se e gerenciar o ciclo de vida do certificado para o servidor OPC UA e aplicações de cliente na cloud. Este artigo mostra-lhe como implementar OPC cofre a partir do zero.
 
 ## <a name="configuration-and-environment-variables"></a>Variáveis de ambiente e de configuração
 

@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 3e07824db683b55cf5827962c1030d6cfd6c9f66
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762808"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490434"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizar o Azure para alojar e executar cenários de carga de trabalho SAP
 
@@ -32,7 +32,7 @@ Além de alojar cenários SAP NetWeaver, com diferentes DBMS no Azure, pode aloj
 
 A exclusividade do Azure para o SAP HANA é uma oferta que define o Azure para além de competição. Para permitir o alojamento de mais memória e recursos de CPU, exigência de cenários SAP que envolvem o SAP HANA, o Azure oferece a utilização de cliente dedicado hardware bare-metal com o objetivo de implementações do SAP HANA que necessitem de até 24 TB (Escalamento 120 TB) de memória em execução para S/4HANA ou outras cargas de trabalho do SAP HANA. Esta solução do Azure exclusiva de SAP HANA no Azure (instâncias grandes) permite-lhe executar o SAP HANA no hardware dedicado de bare-metal com a camada de aplicação SAP ou a camada de meio ware de carga de trabalho alojadas no nativo máquinas de virtuais do Azure. Esta solução está documentada em vários documentos na secção "SAP HANA no Azure (instâncias grandes)".   
 
-Cenários de carga de trabalho SAP no Azure de alojamento também podem criar os requisitos de integração de identidade e o início de sessão único com o diretório de atividade do Azure para diferentes componentes do SAP e SAP SaaS ou a PaaS oferece. Uma lista de tais integração e cenários de início de sessão único com entidades do Azure Active Directory (AAD) e a SAP é descrita e documentada na secção "integração de identidade do AAD SAP e início de sessão único."
+Cenários de carga de trabalho SAP no Azure de alojamento também podem criar os requisitos de integração de identidade e o início de sessão único com o Azure Active Directory para diferentes componentes do SAP e SAP SaaS ou a PaaS oferece. Uma lista de tais integração e cenários de início de sessão único com entidades do Azure Active Directory (AAD) e a SAP é descrita e documentada na secção "integração de identidade do AAD SAP e início de sessão único."
 
 ## <a name="latest-changes"></a>Alterações mais recentes
 
@@ -71,16 +71,16 @@ Esta secção da documentação abrange a diferentes aspetos do SAP HANA. Como p
 
 A documentação específica para HANA no Azure é composta por esta lista de artigos e seus subarticles:
 
-- [Quickstart: Instalação manual de instância única SAP HANA em VMs do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Início rápido: Instalação manual de instância única SAP HANA em VMs do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Implementar o SAP S/4HANA ou BW/4HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
 - [Configurações e operações de infraestrutura do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [Elevada disponibilidade de SAP HANA para máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
 - [Disponibilidade do SAP HANA dentro de uma região do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 - [Disponibilidade do SAP HANA em regiões do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions)
 - [Elevada disponibilidade do SAP HANA em máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
-- [Guia de segurança para SAP HANA em máquinas de virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
+- [Guia de segurança para SAP HANA em Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [Cópia de segurança do SAP HANA do Azure no nível de ficheiro](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Cópia de segurança do SAP HANA com base nos instantâneos de armazenamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [Cópia de segurança SAP HANA baseada em instantâneos de armazenamento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
  
 
@@ -89,7 +89,7 @@ Nesta secção, encontrará documentação de planeamento e implementação do S
 
 - [SAP Business One em Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/business-one-azure)
 - [Implementar o SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-ides-erp6-erp7-sp3-sql)
-- [Executar o SAP NetWeaver em VMs do Linux do Microsoft Azure SUSE](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
+- [Executar o SAP NetWeaver em VMs SUSE Linux do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart)
 - [Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Implementação de máquinas virtuais do Azure para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [Proteger uma implementação de aplicação SAP NetWeaver com várias camada com o Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap)

@@ -3,19 +3,19 @@ title: Este início rápido mostra como inscrever dispositivos X.509 no Serviço
 description: Este início rápido utiliza inscrições em grupo. Neste início rápido, vai inscrever dispositivos X.509 no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 390421c2805bf242b8f931200c8b8981cb7116c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f375044fe7e2276b68476e609f33ca8372db9921
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875005"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500877"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início rápido: Inscrever dispositivos X.509 para o serviço aprovisionamento de dispositivos comC#
 
@@ -53,7 +53,7 @@ Para utilizar estas ferramentas de teste para gerar certificados, execute os seg
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+   Esta operação deve demorar vários minutos a ser concluída.
 
    As ferramentas de teste estão localizada em *azure-iot-sdk-c/tools/CACertificates* do repositório que clonou.    
 
@@ -176,4 +176,4 @@ Se quiser explorar o exemplo de serviço C#, não limpe os recursos criados nest
 Neste Início Rápido, criou um grupo de inscrição para um certificado de AC de raiz ou intermediário X.509 com o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
  
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md) (Tutoriais do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure)
+> [Tutoriais de serviço de aprovisionamento de dispositivos IoT Hub do Azure](./tutorial-set-up-cloud.md)

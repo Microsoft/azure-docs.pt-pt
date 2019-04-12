@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: c92bb8e7441e9701d11f3223fa6ebde7869d6233
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895735"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490415"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -53,7 +53,7 @@ Por predefinição, um acionador HTTP devolve HTTP 200 OK com um corpo vazio nas
 Veja o exemplo de idioma específico:
 
 * [C#](#trigger---c-example)
-* [Script do c# (.csx)](#trigger---c-script-example)
+* [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
@@ -117,6 +117,8 @@ O [configuração](#trigger---configuration) seção explica essas propriedades.
 Aqui está o script código c# que liga `HttpRequest`:
 
 ```cs
+#r "Newtonsoft.Json"
+
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
@@ -559,10 +561,10 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|----------------------|
 | **tipo** | n/d| Necessário - tem de ser definido como `httpTrigger`. |
 | **direção** | n/d| Necessário - tem de ser definido como `in`. |
-| **name** | n/d| Necessário - o nome da variável no código de função para a pedido ou corpo do pedido. |
+| **nome** | n/d| Necessário - o nome da variável no código de função para a pedido ou corpo do pedido. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina o chaves, se houver, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave de API é necessário.</li><li><code>function</code>&mdash;É necessária uma chave de API específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;A chave mestra é necessária.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
 | **Métodos** |**Métodos** | Uma matriz dos métodos HTTP para o qual a função responde. Se não for especificado, a função responde a todos os métodos HTTP. Ver [personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
-| **route** | **rota** | Define o modelo de rota, controlar a que URLs responde de sua função de pedido. O valor predefinido se não for fornecida nenhuma é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
+| **rota** | **Encaminhar** | Define o modelo de rota, controlar a que URLs responde de sua função de pedido. O valor predefinido se não for fornecida nenhuma é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto de extremidade http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** | _Suportado apenas para o tempo de execução do versão 1.x._<br/><br/>Configura o acionador HTTP para atuar como um [webhook](https://en.wikipedia.org/wiki/Webhook) recetor para o fornecedor especificado. Não definir o `methods` propriedade se definir esta propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final do webhook para fins gerais sem lógica para um provedor específico. Esta definição limita pedidos apenas às através de HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde às [GitHub webhooks](https://developer.github.com/webhooks/). Não utilize o _authLevel_ propriedade com o GitHub webhooks. Para obter mais informações, consulte a secção de webhooks do GitHub neste artigo.</li><li><code>slack</code>&mdash;A função responde às [Slack webhooks](https://api.slack.com/outgoing-webhooks). Não utilize o _authLevel_ propriedade com Slack webhooks. Para obter mais informações, consulte a secção de Slack webhooks neste artigo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Acionador - utilização
@@ -802,7 +804,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |---------|---------|
 | **tipo** |Tem de ser definido como `http`. |
 | **direção** | Tem de ser definido como `out`. |
-|**name** | O nome da variável no código de função para a resposta, ou `$return` para utilizar o valor de retorno. |
+|**nome** | O nome da variável no código de função para a resposta, ou `$return` para utilizar o valor de retorno. |
 
 ## <a name="output---usage"></a>Saída - utilização
 

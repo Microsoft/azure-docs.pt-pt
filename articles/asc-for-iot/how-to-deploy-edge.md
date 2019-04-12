@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 40f771e97b61c28229b0eff29191247ef2fef695
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862850"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505622"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementar um módulo de segurança no seu dispositivo IoT Edge
 
@@ -75,8 +75,25 @@ Existem três passos para criar uma implementação de IoT Edge para o Centro de
 1. Partir do **adicionar módulos** separador, **módulos de implementação** área, clique em **AzureSecurityCenterforIoT**. 
    
 1. Alteração da **name** ao **azureiotsecurity**.
-1. Alterar o nome de **URI da imagem** para **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. Alteração da **URI de imagem** ao **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Verifique se o **opções de criar contentor** valor está definido como:      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. Certifique-se de que **duplo do módulo de conjunto de propriedades pretendidas** está selecionada e alterar o objeto de configuração para:
       
     ``` json
@@ -89,12 +106,16 @@ Existem três passos para criar uma implementação de IoT Edge para o Centro de
 1. Clique em **Guardar**.
 1. Desloque-se para a parte inferior do separador e selecione **configurar definições de Runtime do Edge avançadas**.
    
-  >[!Note]
-  > Fazer **não** desativar a comunicação AMQP para o Hub do IoT Edge.
-  > Centro de segurança do Azure para o módulo de IoT requer comunicação AMQP com o Hub do IoT Edge.
+   >[!Note]
+   > Fazer **não** desativar a comunicação AMQP para o Hub do IoT Edge.
+   > Centro de segurança do Azure para o módulo de IoT requer comunicação AMQP com o Hub do IoT Edge.
    
-1. Alteração da **imagem** sob **Edge Hub** para **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
-      
+1. Alteração da **imagem** sob **Edge Hub** para **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+
+   >[!Note]
+   > Centro de segurança do Azure para o módulo de IoT requer uma versão bifurcada do IoT Hub do Edge, com base na versão 1.20 do SDK.
+   > Ao alterar a imagem de Hub do IoT Edge, são instruindo o seu dispositivo IoT Edge para substituir a versão estável mais recente com a versão bifurcada do Hub do IoT Edge, que não é oficialmente suportado pelo serviço de IoT Edge.
+
 1. Certifique-se **criar opções** está definida como: 
          
     ``` json
@@ -137,8 +158,8 @@ Se ocorrer um problema, registos de contentor são a melhor forma de saber mais 
    
    | Name | IMAGEM |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    Se o mínimo necessário contentores não estão presentes, verifique se o manifesto de implantação do IoT Edge está em sintonia com as definições recomendadas. Para obter mais informações, consulte [módulo do IoT Edge/implementar](#deployment-using-azure-portal).

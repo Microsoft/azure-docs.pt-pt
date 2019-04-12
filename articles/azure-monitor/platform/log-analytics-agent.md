@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841111"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492809"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics do Azure
 
@@ -41,8 +41,9 @@ O agente para Linux e Windows não é apenas para ligar ao Log Analytics, automa
 ## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
-* Windows Server 2008 R2 ou posterior
-* Windows 7 SP1 e posterior.
+* Windows Server 2019
+* Windows Server 2008 R2, 2012, 2012 R2, 2016, versão 1709 e versão 1803
+* Windows 7 SP1 e posterior
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados
 Esta secção fornece detalhes sobre as distribuições suportadas de Linux.    
@@ -104,7 +105,8 @@ Para o agente do Linux, o servidor proxy é especificado durante a instalação 
 |proxyhost | Endereço ou FQDN do gateway de análise de registo do servidor proxy |
 |porta | Número de porta opcional para o gateway de análise de registo do servidor de proxy |
 
-Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
+Por exemplo:
+`https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Se utilizar carateres especiais, tais como "\@" a palavra-passe, receberá um erro de ligação de proxy porque o valor é analisado incorretamente.  Para contornar este problema, codificar a palavra-passe no URL usando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  

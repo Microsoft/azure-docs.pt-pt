@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884517"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505673"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -59,7 +59,7 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 
    * **Interno**: portal de gateway e desenvolvedor de gestão de API são acessíveis apenas a partir de dentro da rede virtual através de um balanceador de carga interno. O gateway pode aceder a recursos na rede virtual.
 
-     ![Peering privado][api-management-vnet-private]`
+     ![Peering privado][api-management-vnet-private]
 
      Agora verá uma lista de todas as regiões onde o seu serviço de gestão de API está aprovisionado. Selecione uma VNET e sub-rede para cada região. A lista é preenchida com clássica e Resource Manager redes virtuais disponíveis nas suas subscrições do Azure que são configuradas na região que está a configurar.
 
@@ -154,7 +154,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-  * Para outros da gestão de API do serviço dependências que são forçado, seus deve ser a forma de resolver o nome de anfitrião e entrar em contacto com o ponto final. Estes incluem
+  * Para outras dependências do serviço de gestão de API que estão configurado com túnel forçado, deve haver uma forma de resolver o nome de anfitrião e entrar em contacto com o ponto final. Estes incluem
       - Métricas e monitorização de estado de funcionamento
       - Portal do Azure Diagnostics
       - Reencaminhamento de SMTP

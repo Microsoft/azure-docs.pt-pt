@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c3d4731883991f867b49eb3d4884ee1b7d4a6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9a0911588141552e616e8555380b14c910225840
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882102"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Active Directory do Azure com o JIRA SAML SSO pela Microsoft
 
@@ -36,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="description"></a>Descrição
 
-Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlassian JIRA para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD ao iniciar sessão na aplicação JIRA. Este plug-in utiliza SAML 2.0 para a Federação.
+Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlassian JIRA para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD para início de sessão na aplicação JIRA. Este plug-in utiliza SAML 2.0 para a Federação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,6 +65,9 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 * Núcleo do JIRA e Software: 6.0 para 7.12
 * Serviço de atendimento JIRA 3.0.0 para 3.5.0
 * JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory início de sessão único para JIRA 5.2](jira52microsoft-tutorial.md)
+
+> [!NOTE]
+> Tenha em atenção que no JIRA também oferece suporte a Linux Ubuntu 16.04 de versão
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -144,7 +148,7 @@ Para configurar o Azure AD início de sessão único com o JIRA SAML SSO pela Mi
 
 ### <a name="configure-jira-saml-sso-by-microsoft-single-sign-on"></a>Configurar o JIRA SAML SSO pelo Microsoft Single Sign-On
 
-1. Numa janela do browser web diferente, inicie sessão na sua instância do JIRA como administrador.
+1. Numa janela do browser web diferente, inicie sessão para a sua instância do JIRA como um administrador.
 
 2. Paire o rato sobre o ícone de roda dentada e clique nas **suplementos**.
 
@@ -186,18 +190,18 @@ Para configurar o Azure AD início de sessão único com o JIRA SAML SSO pela Mi
 
     c. Na **nome do botão de início de sessão** escreva o nome do botão, a organização quer que os utilizadores para ver no ecrã de início de sessão.
 
-    d. Na **locais de ID de usuário de SAML** selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o id de utilizador do JIRA. Se o id de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão.
+    d. Na **locais de ID de usuário de SAML** selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o ID de utilizador no JIRA. Se o ID de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão.
 
     > [!Note]
     > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterá-la para uma opção de atributo e introduza o nome do atributo adequado.
 
-    e. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o Id de utilizador.
+    e. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o ID de utilizador.
 
     f. Se estiver a utilizar o domínio Federado (como etc. do AD FS) com o Azure AD, em seguida, clique nas **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
 
     g. Na **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
 
-    h. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador terminar a sessão do JIRA.
+    h. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador terminar sessão no JIRA.
 
     i. Clique em **guardar** botão para guardar as definições.
 
@@ -222,8 +226,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -261,7 +264,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no servidor no local JIRA
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no seu servidor no local do JIRA como administrador.
+1. Inicie sessão no seu servidor no local do JIRA como um administrador.
 
 2. Paire o rato sobre o ícone de roda dentada e clique nas **gestão de utilizadores**.
 
@@ -299,6 +302,6 @@ Ao clicar o JIRA SAML SSO ao mosaico da Microsoft no painel de acesso, deve ser 
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

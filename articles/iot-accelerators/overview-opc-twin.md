@@ -1,5 +1,5 @@
 ---
-title: O que é a gestão de dispositivos do Azure IoT OPC UA | Documentos da Microsoft
+title: O que é o OPC duplo - Azure | Documentos da Microsoft
 description: Descrição geral do OPC duplo
 author: dominicbetts
 ms.author: dobett
@@ -8,15 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3bbc20aa61faafb1405fa756b334bae05ec4129b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759273"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496817"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>O que é a gestão de dispositivos do Azure IoT aberto plataforma comunicações (OPC)?
-Gestão de dispositivos do Azure IoT OPC UA, também conhecido como OPC duplo, é composta por microsserviços que utilizam o Azure IoT Edge e IoT Hub para ligar a cloud e a rede de fábrica. Duplo de OPC fornece deteção, o registro e o controlo remoto dos dispositivos industriais através de REST APIs. Duplo de OPC não necessita de uma arquitetura de unificação de OPC (OPC UA) SDK, é independente de linguagem de programação e pode ser incluído num fluxo de trabalho sem servidor. Este artigo descreve vários casos de utilização do OPC duplo.
+
+Duplo de OPC é composta por microsserviços que utilizam o Azure IoT Edge e IoT Hub para ligar a cloud e a rede de fábrica. Duplo de OPC fornece deteção, o registro e o controlo remoto dos dispositivos industriais através de REST APIs. Duplo de OPC não necessita de uma arquitetura de unificação de OPC (OPC UA) SDK, é independente de linguagem de programação e pode ser incluído num fluxo de trabalho sem servidor. Este artigo descreve vários casos de utilização do OPC duplo.
 
 ## <a name="discovery-and-control"></a>Deteção e controlo
 Pode usar o duplo de OPC para simples para deteção e o Registro.
@@ -41,4 +42,4 @@ Duplo de OPC pode ser utilizado com aplicações escritas em qualquer linguagem 
 Agora que aprendeu sobre OPC duplo e seus usos, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [O que é o OPC Cofre](overview-opc-twin-architecture.md)
+> [O que é o Cofre OPC](overview-opc-twin-architecture.md)

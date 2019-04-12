@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rosh
 ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470785"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493950"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Encontrar imagens semelhantes de pesquisas anteriores com ImageInsightsToken
 

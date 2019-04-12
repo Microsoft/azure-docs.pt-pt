@@ -3,17 +3,17 @@ title: Como utilizar as políticas de alocação personalizado com o serviço de
 description: Como utilizar as políticas de alocação personalizado com o serviço de aprovisionamento de dispositivos do Azure IoT Hub
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 668631cca9fbd6a7968181826f600b1302a67df0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+manager: philmea
+ms.openlocfilehash: f0eb2f7358e8fb1564275e1de510f302d2eef90b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482068"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500945"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -351,23 +351,7 @@ Nesta secção, irá preparar um ambiente de programação utilizado para criar 
 
 Esta secção é orientada em relação uma estação de trabalho baseados em Windows. Para obter um exemplo de Linux, consulte a configuração das VMs no [como aprovisionar para arquitetura "multitenancy"](how-to-provision-multitenant.md).
 
-1. Transfira o [sistema de compilação CMake](https://cmake.org/download/). Verifique se o binário transferido com o valor de hash criptográfico que corresponde à versão que baixar. Os valores de hash criptográfico também estão localizados da ligação de transferência de CMake já fornecida.
-
-    O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    Os seguintes valores de hash para a versão 3.13.4 foram listados no site de CMake no momento da redação deste artigo:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Transfira o [sistema de compilação CMake](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
@@ -376,7 +360,7 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+    Esta operação deve demorar vários minutos a ser concluída.
 
 
 3. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. 

@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778013"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500690"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Este tutorial contém os seguintes passos:
-
-1. Criar um espaço de nomes do Service Bus com o Portal do Azure.
-2. Criar uma fila do Service Bus com o portal do Azure.
-3. Escreva uma aplicação de consola .NET Core para enviar um conjunto de mensagens para a fila.
-4. Escreva uma aplicação de consola .NET Core para receber essas mensagens da fila.
+Neste tutorial, vai criar aplicações de consola .NET Core para enviar mensagens para e receber mensagens de uma fila do Service Bus. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
 2. [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
-2. Uma subscrição do Azure.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
+    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
+    2. Criar um barramento de serviço **espaço de nomes**. 
+    3. Obter o **cadeia de ligação**. 
+    4. Criar um barramento de serviço **fila**. 
 
 ## <a name="send-messages-to-the-queue"></a>Enviar mensagens para a fila
 
@@ -206,7 +197,7 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
 
 ## <a name="receive-messages-from-the-queue"></a>Receber mensagens da fila
 
-Para receber as mensagens que acabou de enviar, crie outra aplicação de consola .NET Core e instale o pacote NuGet **Microsoft.Azure.ServiceBus**, semelhante à aplicação do remetente anterior.
+Para receber as mensagens que enviar, crie outra aplicação de consola .NET Core e instale o **Microsoft.Azure.ServiceBus** pacote NuGet, semelhante à aplicação do remetente anterior.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Escrever código para receber mensagens da fila
 

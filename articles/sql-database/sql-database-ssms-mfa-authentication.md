@@ -1,10 +1,10 @@
 ---
-title: Autenticação Multifator - SQL do Azure | Documentos da Microsoft
+title: Utilizar a autenticação do AAD de multi-factor com SQL Database do Azure e Azure SQL Data Warehouse | Documentos da Microsoft
 description: Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) com o Active Directory Universal Authentication.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
@@ -12,21 +12,38 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: 938d1b820bbc85824138d77b81b0f922fd494d0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003373"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494906"
 ---
-# <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação universal com a base de dados SQL e SQL Data Warehouse (suporte do SSMS para a MFA)
-Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) usando *Active Directory Universal Authentication*. 
-**Transferir o SSMS mais recente** – no computador cliente, transfira a versão mais recente do SSMS, da [baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todas as funcionalidades neste artigo, utilize, pelo menos, Julho de 2017, versão 17,2.  A caixa de diálogo de ligação mais recente, tem o seguinte aspeto: ![Ligue-se 1mfa-universal](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "conclui a caixa de nome de utilizador.")  
+# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>Utilizar a autenticação do AAD de multi-factor com SQL Database do Azure e Azure SQL Data Warehouse (suporte do SSMS para a MFA)
+Azure SQL Data Warehouse e base de dados SQL do Azure suportam ligações do SQL Server Management Studio (SSMS) usando *Active Directory Universal Authentication*. Este artigo aborda as diferenças entre as várias opções de autenticação e também as limitações associadas através da autenticação Universal. 
+
+**Transferir o SSMS mais recente** – no computador cliente, transfira a versão mais recente do SSMS, da [baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
+
+
+Para todos os recursos discutidos neste artigo, utilize, pelo menos, Julho de 2017, versão 17,2.  A caixa de diálogo de ligação mais recente, deve ter um aspeto semelhante à seguinte imagem:
+ 
+  ![Ligue-se 1mfa-universal](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "conclui a caixa de nome de utilizador.")  
 
 ## <a name="the-five-authentication-options"></a>As opções de cinco autenticação  
-- Active Directory Universal Authentication suporta os dois métodos de autenticação não interativa (`Active Directory - Password` autenticação e `Active Directory - Integrated` autenticação). Não interativa `Active Directory - Password` e `Active Directory - Integrated` métodos de autenticação podem ser usados em muitos aplicativos diferentes (ADO.NET, JDBC, ODBC, etc.). Esses dois métodos nunca resultam em caixas de diálogo pop-up.
 
-- `Active Directory - Universal with MFA` a autenticação é um método interativo que também suporta *multi-factor Authentication* (MFA). A Azure MFA ajuda a salvaguardar o acesso a dados e a aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Proporciona uma autenticação segura com uma variedade de opções de verificação simples (telefonema, mensagem de texto, smart cards com pin ou notificação de aplicação móvel), permitindo aos utilizadores escolher o método que preferem. MFA interativa com o Azure AD pode resultar numa caixa de diálogo pop-up para validação.
+Active Directory Universal Authentication suporta os dois métodos de autenticação não interativa:
+    - `Active Directory - Password` autenticação
+    - `Active Directory - Integrated` autenticação
+
+Há dois autenticação não interativa modelos, que podem ser usados em muitos aplicativos diferentes (ADO.NET, JDCB, ODC, etc.). Esses dois métodos nunca resultam em caixas de diálogo pop-up: 
+- `Active Directory - Password` 
+- `Active Directory - Integrated` 
+
+O método interativo é que também suporta a multi-factor authentication (MFA) é: 
+- `Active Directory - Universal with MFA` 
+
+
+A Azure MFA ajuda a salvaguardar o acesso a dados e a aplicações, satisfazendo, em simultâneo, a necessidade dos utilizadores de terem um processo de início de sessão simples. Proporciona uma autenticação segura com uma variedade de opções de verificação simples (telefonema, mensagem de texto, smart cards com pin ou notificação de aplicação móvel), permitindo aos utilizadores escolher o método que preferem. MFA interativa com o Azure AD pode resultar numa caixa de diálogo pop-up para validação.
 
 Para obter uma descrição de multi-factor Authentication, consulte [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
 Para obter os passos de configuração, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
@@ -54,10 +71,10 @@ Os utilizadores do AD do Azure suportados para cenários B2B do Azure AD, como o
 - Para obter os passos de configuração, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 - Outras pessoas conceda acesso à base de dados: [Autorização e autenticação de base de dados SQL: Conceder acesso](sql-database-manage-logins.md)  
 - Certifique-se de que outras pessoas podem ligar-se através da firewall: [Configurar uma regra de firewall ao nível do servidor de base de dados do Azure SQL com o portal do Azure](sql-database-configure-firewall-settings.md)  
-- [Configurar e gerir a autenticação do Azure Active Directory com a Base de Dados SQL ou o SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
+- [Configurar e gerir a autenticação do Azure Active Directory com a base de dados SQL ou SQL Data Warehouse](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework (17.0.0 DG)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
-- [Importar um ficheiro BACPAC para uma nova Base de Dados SQL do Azure](../sql-database/sql-database-import.md)  
+- [Importar um ficheiro BACPAC para uma nova base de dados do Azure SQL](../sql-database/sql-database-import.md)  
 - [Exportar uma base de dados SQL do Azure para um ficheiro BACPAC](../sql-database/sql-database-export.md)  
 - Interface da c# [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - Ao usar **Active Directory - Universal com a MFA** autenticação, o rastreamento da ADAL é disponíveis a partir [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desativado por predefinição, pode ativar o rastreio da ADAL ao utilizar o **ferramentas**, **opções** menu, em **dos serviços do Azure**, **na Cloud do Azure**,  **O nível de rastreio de janela de saída da ADAL**, seguido pela ativação **saída** no **vista** menu. Os rastreios estão disponíveis na janela de saída ao selecionar **opção do Azure Active Directory**.  

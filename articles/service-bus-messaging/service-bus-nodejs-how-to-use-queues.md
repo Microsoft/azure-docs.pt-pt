@@ -12,25 +12,31 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587876"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500843"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Como utilizar filas do Service Bus com o node. js
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como utilizar filas do Service Bus com o node. js. Os exemplos são escritos em JavaScript e utilizam o módulo do Azure node. js. Os cenários abrangidos incluem **criando filas**, **enviar e receber mensagens**, e **eliminar filas**. Para obter mais informações sobre as filas, consulte a [próximos passos](#next-steps) secção.
+Neste tutorial, saiba como criar aplicações node. js para enviar mensagens para e receber mensagens de uma fila do Service Bus. Os exemplos são escritos em JavaScript e utilizam o módulo do Azure node. js. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
+    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
+    2. Criar um barramento de serviço **espaço de nomes**. 
+    3. Obter o **cadeia de ligação**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
+        > [!NOTE]
+        > Irá criar um **fila** no espaço de nomes do Service Bus utilizando node. js neste tutorial. 
+ 
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 Crie uma aplicação node. js em branco. Para obter instruções sobre como criar uma aplicação node. js, consulte [criar e implementar uma aplicação node. js para um Web site do Azure][Create and deploy a Node.js application to an Azure Website], ou [serviço de nuvem de node. js] [ Node.js Cloud Service] com o Windows PowerShell.
@@ -114,7 +120,7 @@ Depois de fazer o processamento prévio sobre as opções de pedido, terá de ch
 function (returnObject, finalCallback, next)
 ```
 
-Esse retorno de chamada e após o processamento da `returnObject` (a resposta do pedido para o servidor), o retorno de chamada ou tem de invocar `next` se existir para continuar a processar outros filtros ou, simplesmente invocar `finalCallback`, que termina o serviço invocação.
+Esse retorno de chamada e após o processamento da `returnObject` (a resposta do pedido para o servidor), o retorno de chamada ou tem de invocar `next` se existir para continuar a processar outros filtros ou invocar `finalCallback`, que termina a invocação de serviço .
 
 Dois filtros que implementam a lógica de repetição são incluídos com o Azure SDK para node. js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. O código seguinte cria um `ServiceBusService` objeto que usa o `ExponentialRetryPolicyFilter`:
 
@@ -182,7 +188,7 @@ Para saber mais sobre as filas, consulte os seguintes recursos.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
 * [Azure SDK para o nó] [ Azure SDK for Node] repositório no GitHub
-* [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
+* [Centro para Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

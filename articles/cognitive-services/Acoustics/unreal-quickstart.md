@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470394"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492416"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Guia de introdução do projeto Acoustics Unreal/Wwise
 Neste início rápido, irá experimentar projeto Acoustics controles de design usando o conteúdo de exemplo fornecido para o Unreal Engine e Wwise.

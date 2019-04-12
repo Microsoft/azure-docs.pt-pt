@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101538"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494666"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -176,7 +176,7 @@ Para carregar os seus próprios certificados e testar o acesso:
 
 5. Utilize um browser nessa VM e aceda a https://mytestapp.ilbase.com. (Ou vá para tudo o que é o nome da sua aplicação com o seu domínio.)
 
-6. Utilize um browser nessa VM e aceda a https://mytestapp.ilbase.com. Se utilizar um certificado autoassinado, aceite a falta de segurança.
+6. Utilize um browser nessa VM e aceda a https://mytestapp.ilbase.com. Se utilizar um certificado autoassinado, aceite a falta de segurança.
 
     O endereço IP para o ILB está listado em **Endereços IP**. Esta lista também inclui os endereços IP utilizados pelo VIP externo e para o tráfego de gestão de entrada.
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470717"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490763"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 

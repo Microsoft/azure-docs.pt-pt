@@ -1,6 +1,6 @@
 ---
 title: Proteger uma base de dados individual ou agrupada na SQL Database do Azure | Documentos da Microsoft
-description: Saiba mais sobre técnicas e funcionalidades para proteger uma base de dados individual ou agrupada na base de dados do Azure SQL.
+description: Um tutorial que ensina sobre técnicas e funcionalidades para proteger uma base de dados individual ou agrupada na base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893276"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496442"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger uma base de dados individual ou agrupada
+
+Neste tutorial, ficará a saber como:
+
+> [!div class="checklist"]
+> - Criar regras de firewall ao nível do servidor e ao nível da base de dados
+> - Configurar um administrador do Azure Active Directory (AD)
+> - Gerir o acesso de utilizador com a autenticação do SQL, autenticação do Azure AD e as cadeias de ligação segura
+> - Ativar funcionalidades de segurança, tais como a segurança de dados avançada, auditoria, máscara de dados e a encriptação
 
 Base de dados SQL do Azure protege os dados numa base de dados individual ou agrupada, permitindo-lhe:
 
@@ -28,14 +37,6 @@ Base de dados SQL do Azure protege os dados numa base de dados individual ou agr
 
 > [!NOTE]
 > Uma base de dados SQL do Azure numa instância gerida está protegida com regras de segurança de rede e de pontos de extremidade privados, conforme descrito em [instância gerida de base de dados SQL do Azure](sql-database-managed-instance-index.yml) e [arquitetura de conectividade](sql-database-managed-instance-connectivity-architecture.md).
-
-Pode melhorar a segurança da base de dados com apenas alguns passos simples. Neste tutorial, ficará a saber como:
-
-> [!div class="checklist"]
-> - Criar regras de firewall ao nível do servidor e ao nível da base de dados
-> - Configurar um administrador do Azure Active Directory (AD)
-> - Gerir o acesso de utilizador com a autenticação do SQL, autenticação do Azure AD e as cadeias de ligação segura
-> - Ativar funcionalidades de segurança, tais como a segurança de dados avançada, auditoria, máscara de dados e a encriptação
 
 Para obter mais informações, consulte a [descrição geral da segurança do Azure SQL Database](/azure/sql-database/sql-database-security-index) e [capacidades](sql-database-security-overview.md) artigos.
 

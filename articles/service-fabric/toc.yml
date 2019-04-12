@@ -84,6 +84,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: Limpar o seu cluster e eliminar a infraestrutura
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Melhores práticas
+  items:
+  - name: Descrição geral das melhores práticas do Service Fabric
+    href: service-fabric-best-practices-overview.md
+  - name: Segurança
+    href: service-fabric-best-practices-security.md
+  - name: Redes
+    href: service-fabric-best-practices-networking.md
+  - name: Planeamento e dimensionamento de computação
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infraestrutura como código
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Monitorização e diagnóstico
+    href: service-fabric-best-practices-monitoring.md
+  - name: Lista de verificação da preparação de produção
+    href: service-fabric-production-readiness-checklist.md
 - name: Amostras
   items:
   - name: Exemplos de código
@@ -112,20 +128,6 @@ items:
       href: service-fabric-cluster-security.md
     - name: Atributos de Segurança Comuns do Azure
       href: service-fabric-security-attributes.md
-  - name: Melhores práticas
-    items:
-    - name: Descrição geral das melhores práticas do Service Fabric
-      href: service-fabric-best-practices-overview.md
-    - name: Redes
-      href: service-fabric-best-practices-networking.md
-    - name: Planeamento e dimensionamento de computação
-      href: service-fabric-best-practices-capacity-scaling.md
-    - name: Infraestrutura como código
-      href: service-fabric-best-practices-infrastructure-as-code.md
-    - name: Monitorização e diagnóstico
-      href: service-fabric-best-practices-monitoring.md
-    - name: Lista de verificação da preparação de produção
-      href: service-fabric-production-readiness-checklist.md
   - name: Terminologia
     href: service-fabric-technical-overview.md
   - name: A criar aplicações
@@ -851,9 +853,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 02b5712aedc96fce447f11b755b837b52855379b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9490e4a9b91dc752e373d696e27069bc4d402342
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278467"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495588"

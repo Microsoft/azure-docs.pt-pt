@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba mais sobre o peering de rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880428"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489986"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -80,7 +80,6 @@ Também pode tentar o [resolução de problemas de problemas de peering de rede 
 
 As seguintes restrições aplicam-se apenas quando as redes virtuais global em modo de peering:
 - Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Existe suporte para o Balanceador de carga Standard para o Global VNet Peering.
-- Pode utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais em modo de peering global em pré-visualização. A pré-visualização está disponível em todas as regiões do Azure, regiões da cloud na China e regiões de cloud do Governo. Não é necessária nenhuma lista de permissões. Pode testar em pré-visualização através da CLI, PowerShell, modelos ou API. Portal não é suportado na pré-visualização.
 
 Para saber mais sobre os requisitos e as limitações, veja [Requisitos e limitações do peering de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites ao número de peerings que pode criar para uma rede virtual, veja [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites de rede do Azure). 
 

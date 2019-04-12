@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358280"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59497071"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL
 
@@ -40,9 +40,9 @@ Uma instância gerida é uma plataforma como oferta de serviço (PaaS). A Micros
 
 Algumas operações iniciadas por aplicações ou os utilizadores finais podem exigir do SQL Server gerido instâncias para interagir com a plataforma. Um caso é a criação de uma base de dados de instância gerida. Este recurso é exposto através do portal do Azure, PowerShell, CLI do Azure e a API REST.
 
-Instâncias geridas dependem de serviços do Azure como armazenamento do Azure para cópias de segurança, o Azure Service Bus para telemetria, o Azure Active Directory para autenticação e o Azure Key Vault para encriptação de dados transparente (TDE). As instâncias geridas efetuar ligações para estes serviços.
+Instâncias geridas dependem de serviços do Azure como armazenamento do Azure para cópias de segurança, para a telemetria dos Hubs de eventos do Azure, Azure Active Directory para autenticação, Azure Key Vault para encriptação de dados transparente (TDE) e alguns dos serviços de plataforma do Azure que fornecem recursos de segurança e capacidade de suporte. As instâncias geridas faz ligações para estes serviços.
 
-Todas as comunicações utilizam certificados de criptografia e assinatura. Para verificar a fidedignidade de comunicar as partes, geridas instâncias constantemente Verifique se estes certificados, entrar em contato com uma autoridade de certificação. Se os certificados são revogados ou não não possível verificar, a instância gerida fecha as ligações para proteger os dados.
+Todas as comunicações são criptografadas e assinada utilizando certificados. Para verificar a fidedignidade de comunicar as partes, geridas instâncias constantemente verificar estes certificados através de listas de revogação de certificado. Se os certificados são revogados, a instância gerida fecha as ligações para proteger os dados.
 
 ## <a name="high-level-connectivity-architecture"></a>Arquitetura de alto nível de conectividade
 
@@ -50,7 +50,7 @@ Num alto nível, uma instância gerida é um conjunto de componentes do serviço
 
 Um cluster virtual pode alojar várias instâncias geridas. Se for necessário, o cluster é automaticamente se expande ou contratos quando o cliente é alterado o número de instâncias aprovisionados na sub-rede.
 
-Aplicações de cliente podem ligar a instâncias geridas e podem consultar e atualizar bancos de dados apenas se eles são executados dentro da rede virtual, em modo de peering virtual rede ou a rede ligados por VPN ou Azure ExpressRoute. Esta rede tem de utilizar um ponto de extremidade e endereços IP privados.  
+Aplicações de cliente podem ligar a instâncias geridas e pode consultar e atualizar bancos de dados dentro da rede virtual, em modo de peering de rede virtual, ou de rede ligados por VPN ou Azure ExpressRoute. Esta rede tem de utilizar um ponto de extremidade e endereços IP privados.  
 
 ![Diagrama de arquitetura de conectividade](./media/managed-instance-connectivity-architecture/connectivityarch002.png)
 
@@ -80,14 +80,14 @@ Microsoft gerencia a instância gerida utilizando um ponto de final de gestão. 
 Quando as ligações começam dentro da instância gerida (tal como acontece com as cópias de segurança e registos de auditoria), o tráfego é apresentado iniciar a partir endereço IP do ponto final de gestão. Pode limitar o acesso aos serviços do público de uma instância gerida através da definição de regras de firewall para permitir apenas o endereço IP da instância gerida. Para obter mais informações, consulte [Verifique se o firewall interno da instância gerida](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Ao contrário da firewall para ligações que começam dentro da instância gerida, os serviços do Azure que estão dentro de região a instância gerida tem uma firewall que está otimizada para o tráfego que passa entre estes serviços.
+> Traffice que vai para serviços do Azure que estão dentro de região a instância gerida está otimizada e para que razão não NATed para endereço IP instância geridas gestão ponto final público. Por esse motivo se precisar de utilizar regras de firewall baseadas em IP, mais comumente para armazenamento, o serviço precisa ser numa região diferente da instância gerida.
 
 ## <a name="network-requirements"></a>Requisitos da rede
 
 Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. A sub-rede tem de ter as seguintes características:
 
 - **Sub-rede dedicado:** Sub-rede da instância gerida não pode conter qualquer outro serviço de cloud que está associado e não pode ser uma sub-rede de gateway. A sub-rede não pode conter qualquer recurso, mas a instância gerida e, mais tarde não é possível adicionar recursos na sub-rede.
-- **Grupo de segurança de rede (NSG):** Um NSG associado a rede virtual tem de definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e [regras de segurança de saída](#mandatory-outbound-security-rules) antes de quaisquer outras regras. Pode utilizar um NSG para controlar o acesso ao ponto final de dados a instância gerida ao filtrar o tráfego na porta 1433.
+- **Grupo de segurança de rede (NSG):** Um NSG associado a rede virtual tem de definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e [regras de segurança de saída](#mandatory-outbound-security-rules) antes de quaisquer outras regras. Pode utilizar um NSG para controlar o acesso ao ponto final de dados a instância gerida ao filtrar o tráfego na porta 1433 e portas 11999 11000 quando a instância gerida está configurada para redirecionar as ligações.
 - **Tabela de rota definida pelo (UDR) de utilizador:** Uma tabela UDR que está associada a rede virtual tem de incluir específico [entradas](#user-defined-routes).
 - **Não existem pontos finais de serviço:** Nenhum ponto de final de serviço deve ser associado a sub-rede a instância gerida. Certifique-se de que a opção de pontos finais de serviço é desabilitada quando criar a rede virtual.
 - **Endereços IP suficientes:** A sub-rede de instância gerida tem de ter, pelo menos, 16 endereços IP. O mínimo recomendado é 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias geridas](sql-database-managed-instance-determine-size-vnet-subnet.md). Pode implementar instâncias geridas na [da rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de configurá-lo para satisfazer [os requisitos de rede para instâncias geridas](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
@@ -99,19 +99,19 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 
 | Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
-|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |Qualquer        |Permitir |
-|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |Permitir |
+|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DE MI  |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DE MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórios
 
 | Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |80, 443, 12000|TCP     |Qualquer              |AzureCloud  |Permitir |
-|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI *  |Permitir |
+|móveis  |80, 443, 12000|TCP     |SUB-REDE DE MI        |AzureCloud |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
 
 > [!IMPORTANT]
-> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Aprovisionamento de instância gerida através de implementações de ARM irá falhar se regras de entrada e saídas estão configuradas em separado para cada porta. Se estas portas são nas regras separadas, a implementação irá falhar com o código de erro `VnetSubnetConflictWithIntendedPolicy`
+> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Gerido através do Azure Resource Manager as implementações irão falhar se regras de entrada e saídas estão configuradas em separado para cada porta de aprovisionamento da instância. Se estas portas são nas regras separadas, a implementação irá falhar com o código de erro `VnetSubnetConflictWithIntendedPolicy`
 
 \* Sub-rede de MI refere-se para o intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Pode encontrar estas informações no portal do Azure, nas propriedades de sub-rede.
 
@@ -124,43 +124,111 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 
 |Name|Prefixo de endereço|Salto seguinte|
 |----|--------------|-------|
-|subnet_to_vnetlocal|[mi_subnet]|Rede virtual|
-|mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
-|mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
-|mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
-|mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
-|mi-16-4-nexthop-internet|16.0.0.0/4|Internet|
-|mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
-|mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
-|mi-172-12-nexthop-internet|172.0.0.0/12|Internet|
-|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
-|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
-|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
-|mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
-|mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
-|mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
-|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
-|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
-|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
-|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
-|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
-|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
-|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
-|mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
-|mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
-|mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
-|mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
-|mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
-|mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
-|mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
-|mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
-|mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
-|mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
+|subnet_to_vnetlocal|SUB-REDE DE MI|Rede virtual|
+|mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
+|mi-13-96-13-nexthop-internet|13.96.0.0/13|Internet|
+|mi-13-104-14-nexthop-internet|13.104.0.0/14|Internet|
+|mi-20-8-nexthop-internet|20.0.0.0/8|Internet|
+|mi-23-96-13-nexthop-internet|23.96.0.0/13|Internet|
+|mi-40-64-10-nexthop-internet|40.64.0.0/10|Internet|
+|mi-42-159-16-nexthop-internet|42.159.0.0/16|Internet|
+|mi-51-8-nexthop-internet|51.0.0.0/8|Internet|
+|mi-52-8-nexthop-internet|52.0.0.0/8|Internet|
+|mi-64-4-18-nexthop-internet|64.4.0.0/18|Internet|
+|mi-65-52-14-nexthop-internet|65.52.0.0/14|Internet|
+|mi-66-119-144-20-nexthop-internet|66.119.144.0/20|Internet|
+|mi-70-37-17-nexthop-internet|70.37.0.0/17|Internet|
+|mi-70-37-128-18-nexthop-internet|70.37.128.0/18|Internet|
+|mi-91-190-216-21-nexthop-internet|91.190.216.0/21|Internet|
+|mi-94-245-64-18-nexthop-internet|94.245.64.0/18|Internet|
+|mi-103-9-8-22-nexthop-internet|103.9.8.0/22|Internet|
+|mi-103-25-156-22-nexthop-internet|103.25.156.0/22|Internet|
+|mi-103-36-96-22-nexthop-internet|103.36.96.0/22|Internet|
+|mi-103-255-140-22-nexthop-internet|103.255.140.0/22|Internet|
+|mi-104-40-13-nexthop-internet|104.40.0.0/13|Internet|
+|mi-104-146-15-nexthop-internet|104.146.0.0/15|Internet|
+|mi-104-208-13-nexthop-internet|104.208.0.0/13|Internet|
+|mi-111-221-16-20-nexthop-internet|111.221.16.0/20|Internet|
+|mi-111-221-64-18-nexthop-internet|111.221.64.0/18|Internet|
+|mi-129-75-16-nexthop-internet|129.75.0.0/16|Internet|
+|mi-131-253-16-nexthop-internet|131.253.0.0/16|Internet|
+|mi-132-245-16-nexthop-internet|132.245.0.0/16|Internet|
+|mi-134-170-16-nexthop-internet|134.170.0.0/16|Internet|
+|mi-134-177-16-nexthop-internet|134.177.0.0/16|Internet|
+|mi-137-116-15-nexthop-internet|137.116.0.0/15|Internet|
+|mi-137-135-16-nexthop-internet|137.135.0.0/16|Internet|
+|mi-138-91-16-nexthop-internet|138.91.0.0/16|Internet|
+|mi-138-196-16-nexthop-internet|138.196.0.0/16|Internet|
+|mi-139-217-16-nexthop-internet|139.217.0.0/16|Internet|
+|mi-139-219-16-nexthop-internet|139.219.0.0/16|Internet|
+|mi-141-251-16-nexthop-internet|141.251.0.0/16|Internet|
+|mi-146-147-16-nexthop-internet|146.147.0.0/16|Internet|
+|mi-147-243-16-nexthop-internet|147.243.0.0/16|Internet|
+|mi-150-171-16-nexthop-internet|150.171.0.0/16|Internet|
+|mi-150-242-48-22-nexthop-internet|150.242.48.0/22|Internet|
+|mi-157-54-15-nexthop-internet|157.54.0.0/15|Internet|
+|mi-157-56-14-nexthop-internet|157.56.0.0/14|Internet|
+|mi-157-60-16-nexthop-internet|157.60.0.0/16|Internet|
+|mi-167-220-16-nexthop-internet|167.220.0.0/16|Internet|
+|mi-168-61-16-nexthop-internet|168.61.0.0/16|Internet|
+|mi-168-62-15-nexthop-internet|168.62.0.0/15|Internet|
+|mi-191-232-13-nexthop-internet|191.232.0.0/13|Internet|
+|mi-192-32-16-nexthop-internet|192.32.0.0/16|Internet|
+|mi-192-48-225-24-nexthop-internet|192.48.225.0/24|Internet|
+|mi-192-84-159-24-nexthop-internet|192.84.159.0/24|Internet|
+|mi-192-84-160-23-nexthop-internet|192.84.160.0/23|Internet|
+|mi-192-100-102-24-nexthop-internet|192.100.102.0/24|Internet|
+|mi-192-100-103-24-nexthop-internet|192.100.103.0/24|Internet|
+|mi-192-197-157-24-nexthop-internet|192.197.157.0/24|Internet|
+|mi-193-149-64-19-nexthop-internet|193.149.64.0/19|Internet|
+|mi-193-221-113-24-nexthop-internet|193.221.113.0/24|Internet|
+|mi-194-69-96-19-nexthop-internet|194.69.96.0/19|Internet|
+|mi-194-110-197-24-nexthop-internet|194.110.197.0/24|Internet|
+|mi-198-105-232-22-nexthop-internet|198.105.232.0/22|Internet|
+|mi-198-200-130-24-nexthop-internet|198.200.130.0/24|Internet|
+|mi-198-206-164-24-nexthop-internet|198.206.164.0/24|Internet|
+|mi-199-60-28-24-nexthop-internet|199.60.28.0/24|Internet|
+|mi-199-74-210-24-nexthop-internet|199.74.210.0/24|Internet|
+|mi-199-103-90-23-nexthop-internet|199.103.90.0/23|Internet|
+|mi-199-103-122-24-nexthop-internet|199.103.122.0/24|Internet|
+|mi-199-242-32-20-nexthop-internet|199.242.32.0/20|Internet|
+|mi-199-242-48-21-nexthop-internet|199.242.48.0/21|Internet|
+|mi-202-89-224-20-nexthop-internet|202.89.224.0/20|Internet|
+|mi-204-13-120-21-nexthop-internet|204.13.120.0/21|Internet|
+|mi-204-14-180-22-nexthop-internet|204.14.180.0/22|Internet|
+|mi-204-79-135-24-nexthop-internet|204.79.135.0/24|Internet|
+|mi-204-79-179-24-nexthop-internet|204.79.179.0/24|Internet|
+|mi-204-79-181-24-nexthop-internet|204.79.181.0/24|Internet|
+|mi-204-79-188-24-nexthop-internet|204.79.188.0/24|Internet|
+|mi-204-79-195-24-nexthop-internet|204.79.195.0/24|Internet|
+|mi-204-79-196-23-nexthop-internet|204.79.196.0/23|Internet|
+|mi-204-79-252-24-nexthop-internet|204.79.252.0/24|Internet|
+|mi-204-152-18-23-nexthop-internet|204.152.18.0/23|Internet|
+|mi-204-152-140-23-nexthop-internet|204.152.140.0/23|Internet|
+|mi-204-231-192-24-nexthop-internet|204.231.192.0/24|Internet|
+|mi-204-231-194-23-nexthop-internet|204.231.194.0/23|Internet|
+|mi-204-231-197-24-nexthop-internet|204.231.197.0/24|Internet|
+|mi-204-231-198-23-nexthop-internet|204.231.198.0/23|Internet|
+|mi-204-231-200-21-nexthop-internet|204.231.200.0/21|Internet|
+|mi-204-231-208-20-nexthop-internet|204.231.208.0/20|Internet|
+|mi-204-231-236-24-nexthop-internet|204.231.236.0/24|Internet|
+|mi-205-174-224-20-nexthop-internet|205.174.224.0/20|Internet|
+|mi-206-138-168-21-nexthop-internet|206.138.168.0/21|Internet|
+|mi-206-191-224-19-nexthop-internet|206.191.224.0/19|Internet|
+|mi-207-46-16-nexthop-internet|207.46.0.0/16|Internet|
+|mi-207-68-128-18-nexthop-internet|207.68.128.0/18|Internet|
+|mi-208-68-136-21-nexthop-internet|208.68.136.0/21|Internet|
+|mi-208-76-44-22-nexthop-internet|208.76.44.0/22|Internet|
+|mi-208-84-21-nexthop-internet|208.84.0.0/21|Internet|
+|mi-209-240-192-19-nexthop-internet|209.240.192.0/19|Internet|
+|mi-213-199-128-18-nexthop-internet|213.199.128.0/18|Internet|
+|mi-216-32-180-22-nexthop-internet|216.32.180.0/22|Internet|
+|mi-216-220-208-20-nexthop-internet|216.220.208.0/20|Internet|
 ||||
 
 Além disso, pode adicionar entradas à tabela de rotas para encaminhar o tráfego que tem intervalos de IP privados no local como um destino através do gateway de rede virtual ou a aplicação de rede virtual (NVA).
 
-Se a rede virtual inclui um DNS personalizado, adicione uma entrada para o endereço IP de resolução recursiva do Azure (por exemplo, 168.63.129.16). Para obter mais informações, consulte [configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado tem de ser capaz de resolver os nomes de anfitrião nesses domínios e os respetivos subdomínios: *microsoft.com*, *windows.net*, *windows.com*,  *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *microsoftonline-p.com*.
+Se a rede virtual inclui um DNS personalizado, o servidor DNS personalizado tem de ser capaz de resolver os nomes de anfitrião no \*. core.windows.net zona. Usando recursos adicionais, como a autenticação do Azure AD pode exigir a resolução de FQDNs adicionais. Para obter mais informações, consulte [configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -171,4 +239,4 @@ Se a rede virtual inclui um DNS personalizado, adicione uma entrada para o ender
   - Partir do [portal do Azure](sql-database-managed-instance-get-started.md).
   - Usando [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - Usando [um modelo Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - Usando [um modelo do Azure Resource Manager (usando a JumpBox, com o SSMS incluídos)](https://portal.azure.com/).
+  - Usando [um modelo do Azure Resource Manager (usando a JumpBox, com o SSMS incluídos)](https://portal.azure.com/). 

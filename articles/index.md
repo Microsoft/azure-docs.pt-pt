@@ -7,11 +7,11 @@ ms.topic: hub-page
 featureFlags:
 - clicktale
 ms.openlocfilehash: 3b35608c30262f633af073daacc8795f8eca1e7e
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471601"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496510"
 ---
 <div id="main" class="v2">
     <div class="container">

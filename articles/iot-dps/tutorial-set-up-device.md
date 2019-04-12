@@ -3,18 +3,18 @@ title: Configurar o dispositivo para o Serviço Aprovisionamento de Dispositivos
 description: Configurar o dispositivo para ser aprovisionado através do Serviço Aprovisionamento de Dispositivos no Hub IoT durante o processo de fabrico de dispositivos
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/02/2018
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: eae674693b647eed5bce0a38236d44d457c1c2ae
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486925"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500979"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurar um dispositivo para ser aprovisionado com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 
@@ -45,23 +45,7 @@ Se não estiver familiarizado com o processo de aprovisionamento automático, re
 
 O SDK de Cliente do Serviço Aprovisionamento de Dispositivos ajuda-o a implementar o software de registo de dispositivos. Contudo, antes de poder utilizá-lo, tem de compilar uma versão do SDK que seja específica da plataforma de cliente de desenvolvimento e do mecanismo de atestação. Neste tutorial, vai criar um SDK que utiliza o Visual Studio 2017 numa plataforma de desenvolvimento Windows para um tipo de atestação suportado:
 
-1. Transfira o [sistema de compilação CMake](https://cmake.org/download/). Verifique se o binário transferido com o valor de hash criptográfico que corresponde à versão que baixar. Os valores de hash criptográfico também estão localizados da ligação de transferência de CMake já fornecida.
-
-    O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    Os seguintes valores de hash para a versão 3.13.4 foram listados no site de CMake no momento da redação deste artigo:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Transfira o [sistema de compilação CMake](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
@@ -70,7 +54,7 @@ O SDK de Cliente do Serviço Aprovisionamento de Dispositivos ajuda-o a implemen
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+    Esta operação deve demorar vários minutos a ser concluída.
 
 
 1. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. 
@@ -227,5 +211,5 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como aprovisionar o dispositivo no seu hub IoT ao inscrevê-lo no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure para aprovisionamento automático.
 
 > [!div class="nextstepaction"]
-> [Provision the device to your IoT hub](tutorial-provision-device-to-hub.md) (Aprovisionar o dispositivo no seu hub IoT)
+> [Aprovisionar o dispositivo ao seu hub IoT](tutorial-provision-device-to-hub.md)
 

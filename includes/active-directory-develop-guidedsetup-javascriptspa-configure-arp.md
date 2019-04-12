@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: f9993058f93cf94ee468a92ac7cbb2d6881e61be
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7a6fa45d0f4ea09fbc84d3185aa0e58db165ac19
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214265"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502786"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar informações de registo da aplicação à sua aplicação
 
@@ -35,7 +35,7 @@ Configurar o `Redirect URL` campo com o URL para a sua página Index. HTML com b
 > 2. Copie o valor de **URL** na área de transferência:<br/> ![Propriedades do projeto](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
 > 3. Cole o valor como um **URL de redirecionamento** na parte superior esta página e, em seguida, selecione **atualização**.
 
-<p/>
+<p>
 
 > #### <a name="setting-redirect-url-for-node"></a>URL de redirecionamento de definição de nó
 > Para node. js, pode definir a web porta do servidor no *Server. js* ficheiro. Este tutorial utiliza a porta 30662 para referência, mas pode usar qualquer outra porta disponível. Siga as instruções abaixo para configurar um URL de redirecionamento as informações de registo de aplicação:<br/>

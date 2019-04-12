@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a912e1786e005e9a4b6ba2cc22713a172234a489
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 610aeec9e4c40d0aad0c28f02697e2cf01edbe4a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578667"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494008"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recursos do Azure no PIM
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/23/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717cec41f152f0ebe3120b25db76cd684f39cbe3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575016"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492639"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Descubra os recursos do Azure para gerir no PIM
 

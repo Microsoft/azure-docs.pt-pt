@@ -3,17 +3,17 @@ title: Como utilizar as chaves simétricas para aprovisionar dispositivos legado
 description: Como utilizar as chaves simétricas para aprovisionar dispositivos legados com a sua instância do serviço de aprovisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/31/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 543c19056a78a1a14a0861231c9ec97d4e6b93b7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+manager: philmea
+ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486601"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500282"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como aprovisionar dispositivos legados com chaves simétricas
 
@@ -53,23 +53,7 @@ Nesta secção, irá preparar um ambiente de programação utilizado para criar 
 
 O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo simulado irá tentar fazer o aprovisionamento durante a respetiva sequência de arranque.
 
-1. Transfira o [sistema de compilação CMake](https://cmake.org/download/). Verifique se o binário transferido com o valor de hash criptográfico que corresponde à versão que baixar. Os valores de hash criptográfico também estão localizados da ligação de transferência de CMake já fornecida.
-
-    O exemplo seguinte utilizado o Windows PowerShell para verificar o hash criptográfico para a versão 3.13.4 de x64 distribuição de MSI:
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    Os seguintes valores de hash para a versão 3.13.4 foram listados no site de CMake no momento da redação deste artigo:
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. Transfira o [sistema de compilação CMake](https://cmake.org/download/).
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
@@ -78,7 +62,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+    Esta operação deve demorar vários minutos a ser concluída.
 
 
 3. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta. 
@@ -295,7 +279,7 @@ Lembre-se de que isso deixa a chave de dispositivo derivada incluída como parte
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais Reprovisioning, veja [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-* [Quickstart: Aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
+* [Início rápido: Aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md)
 * Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados](how-to-unprovision-devices.md) 
 
 

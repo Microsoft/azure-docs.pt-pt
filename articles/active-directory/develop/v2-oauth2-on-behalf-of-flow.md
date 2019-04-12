@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276053"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501608"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo do OAuth 2.0 On-Behalf-Of
 
@@ -55,7 +55,7 @@ Os passos que se seguem constituem o fluxo OBO e são explicados com a ajuda de 
 
 ## <a name="service-to-service-access-token-request"></a>Pedido de token de acesso de serviço a serviço
 
-Para pedir um token de acesso, crie um HTTP POST para o ponto de final token com os seguintes parâmetros v2.0 específico de inquilino.
+Para pedir um token de acesso, crie um HTTP POST para o inquilino específico Microsoft identity platform ponto final do token com os seguintes parâmetros.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtenção de consentimento para a aplicação de camada intermediária
 
-Consoante o público-alvo para a sua aplicação, poderá considerar estratégias diferentes para garantir que o fluxo OBO é efetuada com êxito. Em todos os casos, o objetivo final é garantir que recebe o consentimento adequado. Como isso ocorrer, no entanto, depende dos utilizadores que seu aplicativo oferece suporte. 
+Consoante o público-alvo para a sua aplicação, poderá considerar estratégias diferentes para garantir que o fluxo OBO é efetuada com êxito. Em todos os casos, o objetivo final é garantir que recebe o consentimento adequado. Como isso ocorrer, no entanto, depende dos utilizadores que seu aplicativo oferece suporte.
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Consentimento para as aplicações do Azure AD só
 
 #### <a name="default-and-combined-consent"></a>/.default e combinado de consentimento
 
-Para aplicativos que só precisam de iniciar sessão no trabalho contas escolares ou profissionais, a abordagem de "Aplicações de cliente conhecido" tradicional é suficiente. A aplicação de camada intermediária adiciona o cliente à lista de aplicações do cliente conhecidos em seu manifesto e, em seguida, o cliente pode acionar um fluxo de consentimento combinado para si próprio e a aplicação de camada intermediária. O ponto final v2.0, isso é feito com o [ `/.default` âmbito](v2-permissions-and-consent.md#the-default-scope). Quando acionar um ecrã de consentimento a utilizar as aplicações de cliente conhecidos e `/.default`, o ecrã de consentimento mostrará as permissões para ambos os o cliente para a API de camada intermediária e também pedir as permissões que são necessárias para a API de camada intermediária. O utilizador efetua a confirmação para ambas as aplicações e, em seguida, o fluxo OBO funciona.
+Para aplicativos que só precisam de iniciar sessão no trabalho contas escolares ou profissionais, a abordagem de "Aplicações de cliente conhecido" tradicional é suficiente. A aplicação de camada intermediária adiciona o cliente à lista de aplicações do cliente conhecidos em seu manifesto e, em seguida, o cliente pode acionar um fluxo de consentimento combinado para si próprio e a aplicação de camada intermediária. No Microsoft identity platform ponto final, isso é feito com o [ `/.default` âmbito](v2-permissions-and-consent.md#the-default-scope). Quando acionar um ecrã de consentimento a utilizar as aplicações de cliente conhecidos e `/.default`, o ecrã de consentimento mostrará as permissões para ambos os o cliente para a API de camada intermediária e também pedir as permissões que são necessárias para a API de camada intermediária. O utilizador efetua a confirmação para ambas as aplicações e, em seguida, o fluxo OBO funciona.
 
 Neste momento, o sistema de contas Microsoft pessoa não suporta o consentimento combinado e então, essa abordagem não funciona para aplicações que pretendem inscrever-se especificamente em contas pessoais. As contas Microsoft pessoais, a ser utilizadas como contas de convidado num inquilino são processadas utilizando o sistema do Azure AD e podem aceder através de consentimento combinado.
 

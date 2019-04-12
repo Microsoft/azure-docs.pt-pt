@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de firewall do Windows em pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Saiba como recolher dados de firewall do Windows no Azure sentinela.
+title: Ligue os dados de firewall do Windows para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar os dados de firewall do Windows ao sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574845"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494225"
 ---
 # <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
 
@@ -31,12 +31,11 @@ O conector de firewall do Windows permite-lhe ligar facilmente os seus registos 
 
 
 > [!NOTE]
-> 
-> - Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="enable-the-connector"></a>Ativar o conector 
 
-1. No portal do Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **firewall do Windows** mosaico. 
+1. No portal do Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **firewall do Windows** mosaico. 
 1. Selecione os tipos de dados que pretende transmitir em fluxo.
 1. Clique em **Instalar**.
 6. Para utilizar o esquema relevante no Log Analytics para o firewall do Windows, procure **SecurityEvent**.

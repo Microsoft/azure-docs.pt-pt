@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051891"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491001"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 Selecione as opções seguintes, conforme mostrado na imagem:
 
 1. Selecione *nos* para **Estado**
-2. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo no. Se quiser armazenar os dados para sempre, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
-3. Definir **retenção** para o número de dias que pretende armazenar os dados de.
-4. Selecione *nos* para **estado de análise de tráfego**.
-5. Selecione uma área de trabalho do Log Analytics existente ou selecione **criar nova área de trabalho** para criar um novo. Uma área de trabalho do Log Analytics é utilizada pela análise de tráfego para armazenar os dados agregados e indexados que, em seguida, são utilizados para gerar a análise. Se selecionar uma área de trabalho existente, tem de existir uma das regiões suportadas e foram atualizados para a nova linguagem de consulta. Se não desejar atualizar de uma área de trabalho existente ou não tem uma área de trabalho numa região suportada, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [do Azure Monitor registos de atualização para a nova pesquisa de registo](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+2. Selecione *versão 2* para **versão de fluxo de registos**. Versão 2 contém estatísticas de sessão de fluxo (Bytes e pacotes)
+3. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo no. Se quiser armazenar os dados para sempre, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
+4. Definir **retenção** para o número de dias que pretende armazenar os dados de.
+5. Selecione *nos* para **estado de análise de tráfego**.
+6. Selecione uma área de trabalho do Log Analytics (OMS) existente ou selecione **criar nova área de trabalho** para criar um novo. Uma área de trabalho do Log Analytics é utilizada pela análise de tráfego para armazenar os dados agregados e indexados que, em seguida, são utilizados para gerar a análise. Se selecionar uma área de trabalho existente, ela tem de existir da [regiões suportadas](#supported-regions) e foram atualizados para a nova linguagem de consulta. Se não desejar atualizar de uma área de trabalho existente ou não tem uma área de trabalho numa região suportada, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualizar o Azure Log Analytics para a nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    A área de trabalho do Log Analytics que aloja a solução de análise de tráfego e os NSGs não tem de ser na mesma região. Por exemplo, pode ter a análise de tráfego numa área de trabalho na região da Europa Ocidental, embora possa ter NSGs nos E.U.A. leste e E.U.A. oeste. Vários NSGs podem ser configurados na mesma área de trabalho.
-6. Selecione **Guardar**.
+    A área de trabalho de análise do registo que aloja a solução de análise de tráfego e os NSGs não tem de ser na mesma região. Por exemplo, pode ter a análise de tráfego numa área de trabalho na região da Europa Ocidental, embora possa ter NSGs nos E.U.A. leste e E.U.A. oeste. Vários NSGs podem ser configurados na mesma área de trabalho.
+7. Selecione **Guardar**.
 
-    ![Seleção de conta de armazenamento, área de trabalho do Log Analytics e ativação de análise de tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![Seleção de conta de armazenamento, área de trabalho do Log Analytics e ativação de análise de tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 Repita os passos anteriores para quaisquer outros NSGs para o qual pretende ativar a análise de tráfego para. Dados dos registos de fluxo são enviados para a área de trabalho, por isso, certifique-se de que as leis e regulamentações locais no seu país permitem o armazenamento de dados na região onde a área de trabalho existe.
 
@@ -300,7 +301,7 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
     ![Dashboard que mostra a distribuição de rede virtual](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - A topologia de rede Virtual mostra a faixa de opções principal para a seleção dos parâmetros como o da rede virtual (rede virtual do Inter ligações/Active/Inactive), ligações externas, fluxos ativos e fluxos maliciosos da rede virtual.
-- Pode filtrar a topologia de rede Virtual com base nas subscrições, áreas de trabalho, grupos de recursos e intervalo de tempo. Filtros adicionais que o ajudam a compreender o fluxo são: Fluxo de tipo (inter-Vnet, IntraVNET etc), direção de fluxo de mensagens em fila (entrada, saída), estado do fluxo (permitido, bloqueado) VNETs (destino e ligado), o tipo de ligação (Peering ou Gateway - P2S e S2S) e do NSG. Utilize estes filtros para se concentrar em VNets que pretende examinar em detalhes.
+- Pode filtrar a topologia de rede Virtual com base nas subscrições, áreas de trabalho, grupos de recursos e intervalo de tempo. Filtros adicionais que o ajudam a compreender o fluxo são: Fluxo de tipo (inter-Vnet, IntraVNET e assim por diante), direção do fluxo (entrada, saída), estado do fluxo (permitidos, bloqueados), VNETs (Direcionados e ligado), tipo de ligação (Peering ou Gateway - P2S e S2S) e o NSG. Utilize estes filtros para se concentrar em VNets que pretende examinar em detalhes.
 - A topologia de rede Virtual mostra a distribuição de tráfego para uma rede virtual com respeito a fluxos (permitido/bloqueado/entrada/saída/Benign/maliciosos), protocolo de aplicação e grupos de segurança de rede, por exemplo:
 
     ![Topologia de rede virtual que mostra detalhes de distribuição e o fluxo de tráfego](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262572"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489198"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Resolução de problemas combinados o registo de informações de segurança (pré-visualização)
 
@@ -38,14 +38,14 @@ A tabela seguinte apresenta uma lista de todos os eventos de auditoria gerados p
 | Atividade | Estado | Razão | Descrição |
 | --- | --- | --- | --- |
 | Utilizador registado todas as informações de segurança necessárias | Êxito | Utilizador registado todas as informações de segurança necessário. | Este evento ocorre quando um utilizador foi concluída com êxito o registo.|
-| Utilizador registado todas as informações de segurança necessárias | Com Falhas | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancelar o Registro do modo de interrupção.|
+| Utilizador registado todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancelar o Registro do modo de interrupção.|
 | Informações de segurança do utilizador registado | Êxito | Utilizador registado *método*. | Este evento ocorre quando um usuário registra um método individual. *Método* pode ser Authenticator app, telefone, E-Mail, segurança perguntas, aplicação palavra-passe, telefone alternativo e assim por diante.| 
 | Informações de segurança do utilizador revisto | Êxito | Utilizador analisado com êxito as informações de segurança. | Este evento ocorre quando um utilizador seleciona **parece bem** na página de revisão de informações de segurança.|
-| Informações de segurança do utilizador revisto | Com Falhas | Utilizador não foi possível analisar informações de segurança. | Este evento ocorre quando um utilizador seleciona **parece bem** nas informações de segurança reveja a página, mas algo falhar back-end.|
+| Informações de segurança do utilizador revisto | Falha | Utilizador não foi possível analisar informações de segurança. | Este evento ocorre quando um utilizador seleciona **parece bem** nas informações de segurança reveja a página, mas algo falhar back-end.|
 | Informações de segurança do utilizador eliminado | Êxito | Utilizador eliminado *método*. | Este evento ocorre quando um usuário exclui um método individual. *Método* pode ser Authenticator app, telefone, E-Mail, segurança perguntas, aplicação palavra-passe, telefone alternativo e assim por diante.|
-| Informações de segurança do utilizador eliminado | Com Falhas | Não foi possível eliminar o utilizador *método*. | Este evento ocorre quando um usuário tentar excluir um método, mas a tentativa falhar por algum motivo. *Método* pode ser Authenticator app, telefone, E-Mail, segurança perguntas, aplicação palavra-passe, telefone alternativo e assim por diante.|
+| Informações de segurança do utilizador eliminado | Falha | Não foi possível eliminar o utilizador *método*. | Este evento ocorre quando um usuário tentar excluir um método, mas a tentativa falhar por algum motivo. *Método* pode ser Authenticator app, telefone, E-Mail, segurança perguntas, aplicação palavra-passe, telefone alternativo e assim por diante.|
 | Informações de segurança de predefinição do utilizador foi alterado | Êxito | Utilizador alterou as informações de segurança predefinidas *método*. | Este evento ocorre quando um utilizador altera o método predefinido. *Método* podem ser notificação de aplicação de autenticador, um código da minha aplicação authenticator ou o token, chamada + X XXXXXXXXXX, texto, um código para + X XXXXXXXXX e assim por diante.|
-| Informações de segurança de predefinição do utilizador foi alterado | Com Falhas | Utilizador falha ao alterar as informações de segurança predefinidas *método*. | Este evento ocorre quando um usuário tentar altere o método predefinido, mas a tentativa falhar por algum motivo. *Método* podem ser notificação de aplicação de autenticador, um código da minha aplicação authenticator ou o token, chamada + X XXXXXXXXXX, texto, um código para + X XXXXXXXXX e assim por diante.|
+| Informações de segurança de predefinição do utilizador foi alterado | Falha | Utilizador falha ao alterar as informações de segurança predefinidas *método*. | Este evento ocorre quando um usuário tentar altere o método predefinido, mas a tentativa falhar por algum motivo. *Método* podem ser notificação de aplicação de autenticador, um código da minha aplicação authenticator ou o token, chamada + X XXXXXXXXXX, texto, um código para + X XXXXXXXXX e assim por diante.|
 
 ## <a name="troubleshooting-interrupt-mode"></a>Modo de interrupção de resolução de problemas
 
@@ -154,7 +154,7 @@ Numa janela do PowerShell, execute o seguinte comando, fornecendo as localizaç�
 
 Para desativar a experiência de pré-visualização para os seus utilizadores, conclua estes passos:
 
-1. Inicie sessão no portal do Azure como um administrador global ou administrador de utilizadores.
+1. Inicie sessão no portal do Azure como um administrador do utilizador.
 2. Aceda a **do Azure Active Directory** > **definições de utilizador** > **gerir as definições para as funcionalidades de pré-visualização do painel de acesso**.
 3. Sob **os utilizadores podem utilizar funcionalidades de pré-visualização para registar e gerir informações de segurança**, defina o seletor para **None**e, em seguida, selecione **guardar**.
 

@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486160"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496493"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração de diagnóstico 1.2 do Azure
 > [!NOTE]
 > Diagnóstico do Azure é o componente utilizado para recolher contadores de desempenho e outras estatísticas de máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric e serviços em nuvem.  Esta página só é relevante se estiver a utilizar um destes serviços.
 >
 
-Diagnóstico do Azure é utilizado com outros produtos de diagnóstico do Microsoft, como o Azure Monitor, o Application Insights e o Log Analytics.
+Diagnóstico do Azure é utilizado com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e o Log Analytics.
 
 Este esquema define os valores possíveis que pode utilizar para inicializar as definições de diagnóstico de configuração quando o monitor de diagnóstico é iniciado.  
 
@@ -192,12 +192,12 @@ Define as configurações para os dados de telemetria recolha. A tabela seguinte
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**annotation**|Atributo necessário:<br /><br /> **displayName** -o nome a apresentar para o contador<br /><br /> Atributo opcional:<br /><br /> **Localidade** -a região a utilizar quando se apresenta o nome do contador|  
+|**Anotação**|Atributo necessário:<br /><br /> **displayName** -o nome a apresentar para o contador<br /><br /> Atributo opcional:<br /><br /> **Localidade** -a região a utilizar quando se apresenta o nome do contador|  
 
 ## <a name="windowseventlog-element"></a>Elemento de WindowsEventLog  
  A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especificar "*".|
+|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especificar "*".|
 

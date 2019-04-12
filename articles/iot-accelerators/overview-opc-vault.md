@@ -1,5 +1,5 @@
 ---
-title: O que é a gestão de certificados do Azure IoT OPC UA | Documentos da Microsoft
+title: O que é o Cofre de OPC - Azure | Documentos da Microsoft
 description: Descrição geral do cofre OPC
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ba3313d927ec4317d6c051f6058d75a415b92288
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759317"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490381"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-ua-certificate-management"></a>O que é a gestão de certificados do Azure IoT aberto plataforma comunicações (OPC) UA?
+# <a name="what-is-opc-vault"></a>O que é o OPC Cofre?
 
-O Azure IoT OPC UA gestão de certificados, também conhecido como cofre OPC, é um microsserviço que pode configurar, registre-se e gerir o ciclo de vida do certificado para aplicações de servidor e cliente de OPC UA na cloud. Este artigo descreve casos de uso simples do cofre OPC.
+O Cofre de OPC é um microsserviço que pode configurar, registe-se e gerenciar o ciclo de vida do certificado para o servidor OPC UA e aplicações de cliente na cloud. Este artigo descreve casos de uso simples do cofre OPC.
 
 ## <a name="certificate-management"></a>Gestão de certificados
 

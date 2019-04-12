@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470343"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494787"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de criar projeto Acoustics Unity
 Este tutorial descreve acoustics implantando com o projeto Acoustics no Unity.

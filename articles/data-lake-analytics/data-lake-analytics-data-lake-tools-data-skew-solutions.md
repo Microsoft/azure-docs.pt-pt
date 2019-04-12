@@ -9,11 +9,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
 ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59469748"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496202"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados com o Azure Data Lake Tools para Visual Studio
 

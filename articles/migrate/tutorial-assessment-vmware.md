@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313164"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490326"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -56,7 +56,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 4. Crie um novo grupo de recursos.
 5. Especifique a geografia na qual quer criar o projeto e, em seguida, clique em **Criar**. Só pode criar um projeto do Azure Migrate em áreas geográficas indicadas a seguir. No entanto, ainda pode planear a migração para qualquer localização do Azure. A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
 
-**Geografia** | **Localização de armazenamento**
+**Geografia** | **Localização do armazenamento**
 --- | ---
 Azure Government | Gov (US) - Virginia
 Ásia | Sudeste Asiático
@@ -98,7 +98,7 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 2. Execute o comando abaixo para gerar o hash para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Exemplo de utilização: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas definições.
 
 #### <a name="continuous-discovery"></a>Deteção contínua
@@ -194,6 +194,9 @@ Importe o ficheiro transferido para o vCenter Server.
     - Especifique o nome (FQDN) ou o endereço IP do vCenter Server.
     - Em **Nome de utilizador** e **Palavra-passe**, especifique as credenciais da conta só de leitura que o recoletor utilizará para detetar VMs no vCenter Server.
     - Em **Âmbito da coleção**, selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) acerca da deteção de um ambiente maior.
+
+       > [!NOTE]
+       > **Âmbito da coleção** lista apenas as pastas de anfitriões e clusters. Pastas de VMs não não possível selecionar diretamente como âmbito da coleção. No entanto, pode descobrir com uma conta do vCenter que tem acesso às VMs individuais. [Saiba mais](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) sobre como âmbito para uma pasta de VMs.
 
 7. Em **Especificar projeto de migração**, especifique o ID e a chave de projeto do Azure Migrate que copiou do portal. Se não os tiver copiado, abra o portal do Azure a partir da VM do recoletor. Na página **Descrição geral** do projeto, clique em **Detetar Máquinas** e copie os valores.  
 8. Em **Ver o progresso da recolha**, monitorize o estado da deteção. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.

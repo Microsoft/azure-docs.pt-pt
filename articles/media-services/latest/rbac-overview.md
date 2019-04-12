@@ -13,11 +13,11 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471921"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490780"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de serviços de multimédia
 

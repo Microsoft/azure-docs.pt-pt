@@ -1,6 +1,6 @@
 ---
-title: Recolher dados do Office 365 em pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Saiba como recolher dados do Office 365 no Azure sentinela.
+title: Ligar a dados do Office 365 para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do Office 365 ao sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574863"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495195"
 ---
-# <a name="collect-data-from-office-365-logs"></a>Recolher dados de registos do Office 365
+# <a name="connect-data-from-office-365-logs"></a>Ligar dados a partir de registos do Office 365
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -33,11 +33,11 @@ Pode transmitir em fluxo registos de auditoria a partir [Office 365](https://doc
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ser um administrador global ou administrador de segurança no seu inquilino
-- No seu computador, a partir da qual iniciou sessão no Azure sentinela para criar a ligação, a marca suretha porta 4433 está aberta ao tráfego da web.
+- No seu computador, a partir da qual iniciou sessão no Azure sentinela para criar a ligação, certifique-se de que a porta 4433 está aberta ao tráfego da web.
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **do Office 365** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **do Office 365** mosaico.
 
 2. Se ainda não ativou a ele, em **conexão** utilizar o **ativar** botão para ativar a solução do Office 365. Se já foi ativado, serão identificado no ecrã de ligação, como já foi ativado.
 1. Office 365 permite-lhe transmitir dados a partir de vários inquilinos para sentinela do Azure. Para cada inquilino que pretende ligar, adicionar o inquilino sob **ligue-se os inquilinos ao Azure sentinela**. 

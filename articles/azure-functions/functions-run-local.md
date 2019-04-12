@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470845"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495537"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 

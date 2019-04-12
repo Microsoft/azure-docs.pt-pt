@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/09/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576746"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488637"
 ---
 # <a name="start-using-pim"></a>Comece a utilizar o PIM
 
@@ -104,7 +104,7 @@ Depois do PIM ser configurado, pode realizar as tarefas de gestão de identidade
 
 | Tarefas + Gerir | Descrição |
 | --- | --- |
-| **Minhas funções**  | Apresenta uma lista de funções elegíveis e ativas atribuídos ao utilizador. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
+| **As minhas funções**  | Apresenta uma lista de funções elegíveis e ativas atribuídos ao utilizador. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
 | **Os meus pedidos** | Apresenta os pedidos pendentes para ativar as atribuições de funções elegíveis. |
 | **Aprovar pedidos** | Apresenta uma lista de pedidos de ativação de funções elegíveis pelos utilizadores no seu diretório que está a seu cargo para aprovar. |
 | **Rever acesso** | Lista as revisões de acesso do Active Directory que está atribuído a concluir, se estiver a rever o acesso para si próprio ou por outra pessoa. |

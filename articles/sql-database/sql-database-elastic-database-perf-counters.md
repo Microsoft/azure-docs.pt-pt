@@ -1,10 +1,10 @@
 ---
-title: Contadores de desempenho do gestor de mapas de partições horizontais
+title: Criar contadores de desempenho para controlar o desempenho do Gestor de mapas de partições horizontais
 description: ShardMapManager classe e de dados dependentes encaminhamento contadores de desempenho
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
@@ -12,18 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 2823f997a38e280bdbf19beb3a478a73ef1ae842
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895181"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494923"
 ---
-# <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gestor de mapas de partições horizontais
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Criar contadores de desempenho para controlar o desempenho do Gestor de mapas de partições horizontais
+
+Contadores de desempenho são utilizados para controlar o desempenho das [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) operações. Esses contadores são acessíveis no Monitor de desempenho no "bases de dados elásticas: Categoria de gestão de partições horizontais".
 
 Pode capturar o desempenho de um [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md), especialmente quando se utilizam [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Contadores são utilizados para controlar o desempenho das [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) operações. Esses contadores são acessíveis no Monitor de desempenho no "bases de dados elásticas: Categoria de gestão de partições horizontais".
 
 **A versão mais recente:** Aceda a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte também [atualizar uma aplicação para utilizar a biblioteca de cliente mais recente do bases de dados elásticas](sql-database-elastic-scale-upgrade-client-library.md).
 
@@ -67,7 +68,7 @@ Os contadores de desempenho serão atualizados por todas as operações de cache
 
 ### <a name="see-also"></a>Consulte também
 
-[Descrição geral das funcionalidades da Base de Dados Elástica](sql-database-elastic-scale-introduction.md)  
+[Descrição geral das funcionalidades de base de dados elásticas](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

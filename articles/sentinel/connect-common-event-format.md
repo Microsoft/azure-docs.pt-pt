@@ -1,6 +1,6 @@
 ---
-title: Recolher dados CEF sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados CEF no sentinela do Azure.
+title: Ligar dados CEF a pré-visualização de sentinela de Azure | Documentos da Microsoft
+description: Saiba como ligar a dados CEF ao sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005611"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489404"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa com o formato de evento comum
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005611"
 
 Pode ligar o Azure sentinela com uma solução externa que permite-lhe guardar os ficheiros de registo do Syslog. Se a aplicação permite-lhe guardar os registos como Syslog Common Event Format (CEF), a integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em todos os dados.
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > Dados são armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="how-it-works"></a>Como funciona
@@ -59,7 +58,7 @@ Em alternativa, pode implementar o agente manualmente numa VM do Azure existente
 ### <a name="deploy-the-agent-in-azure"></a>Implementar o agente no Azure
 
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação. 
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação. 
 
 1. Sob **configuração do agente Linux Syslog**:
    - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM do Linux dedicado que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vcpus, 8 GB de memória)** e tem um endereço IP público.
@@ -96,7 +95,7 @@ Em alternativa, pode implementar o agente manualmente numa VM do Azure existente
 Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sentinela de mensagens em fila para ser executado num servidor Linux dedicado.
 
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação.
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação.
 1. Para criar uma VM do Linux dedicado, em **configuração do agente Linux Syslog** escolha **implementação Manual**.
    1. Sob **transfira e instale o agente de Syslog**, selecione **máquina Linux não Azure**. 
    1. Na **agente direto** ecrã que se abre, selecione **agente para Linux** para transferir o agente ou execute este comando para baixá-lo no seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

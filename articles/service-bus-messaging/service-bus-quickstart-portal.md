@@ -8,29 +8,26 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 700b58723073e425c0587665ccd884932837dcbf
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889550"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501081"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
-O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.  
-
-![fila](./media/service-bus-quickstart-portal/quick-start-queue.png)
-
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, confirme que tem instalada:
 
-- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
+- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes de começar.
+- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Utilizar o Visual Studio para criar um exemplo que envia mensagens para e recebe a mensagem de uma fila. O exemplo é testar a fila que criou com o PowerShell. 
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -75,7 +72,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-Os nomes da fila e da cadeia de ligação são transmitidos para o método `Main()` como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia para armazenar estes valores:
+O nome da fila e de cadeia de ligação são transmitidos para o `Main()` método como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia de caracteres para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -112,7 +109,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync() cria um cliente de fila com os argumentos da linha de comandos, chama um processador de mensagens de receção com o nome `RegisterOnMessageHandlerAndReceiveMessages()` e envia o conjunto de mensagens:
+O método MainAsync() cria um cliente de fila com os argumentos da linha de comandos, chama um manipulador de mensagem de recebimento denominado `RegisterOnMessageHandlerAndReceiveMessages()`e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -204,13 +201,13 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para obter mais informações sobre como escrever código para enviar e receber mensagens, avance para o tutorial seguinte do Service Bus:
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre como escrever código para enviar e receber mensagens, avance para os tutoriais a **enviar e receber mensagens** secção. 
 
 > [!div class="nextstepaction"]
-> [Atualizar o inventário com o portal do Azure](./service-bus-tutorial-topics-subscriptions-portal.md)
+> [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[do Azure]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

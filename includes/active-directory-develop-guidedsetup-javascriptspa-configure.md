@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: ec9eba4766da1afbbee568374de1ce06dc92ab2b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 1eaae979f030d3044b44c46bedee2bd9e3346784
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203358"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503275"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
@@ -39,7 +39,7 @@ ms.locfileid: "58203358"
 > Para node. js, pode definir a web porta do servidor no *Server. js* ficheiro. Este tutorial utiliza a porta 30662 para referência, mas pode usar qualquer outra porta disponível. Siga as instruções abaixo para configurar um URL de redirecionamento as informações de registo de aplicação:<br/>
 > - Mude novamente para o *registo de aplicação* e defina `http://localhost:30662/` como uma `Redirect URL`, ou utilize `http://localhost:[port]/` se estiver a utilizar uma porta TCP personalizada (em que *[porta]* é o número de porta TCP personalizado).
 
-<p/>
+<p>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Visual Studio instruções para obter o URL de redirecionamento
 > Siga estes passos para obter o URL de redirecionamento:
@@ -54,14 +54,15 @@ ms.locfileid: "58203358"
     ```javascript
     var applicationConfig = {
         clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
     ```
 
-<ol start="2">
-<li>
-Substitua <code>Enter the application Id here</code> com o ID da aplicação que acabou de registar.
-</li>
-</ol>
+    Em que:
+    - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
+    - `Enter_the_Tenant_Info_Here` -está definido para uma das seguintes opções:
+       - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
+       - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
+       - Se a sua aplicação suportar **contas em qualquer diretório organizacional e contas Microsoft pessoais**, substitua este valor com `common`

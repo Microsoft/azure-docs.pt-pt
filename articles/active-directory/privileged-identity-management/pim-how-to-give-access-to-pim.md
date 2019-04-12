@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/29/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b938335dbace5a827bcfa43172704dc8b09da2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: bb22e3cc93baebac023c0148812c6a4c6c95be60
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579619"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489215"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Conceder acesso a outros administradores para gerir o PIM
 

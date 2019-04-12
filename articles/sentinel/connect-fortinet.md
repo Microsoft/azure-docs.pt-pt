@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de Fortinet sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados de Fortinet no sentinela do Azure.
+title: Ligar dados Fortinet a pré-visualização de sentinela de Azure | Documentos da Microsoft
+description: Saiba como ligar a dados Fortinet a sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6c4bfbf67e45284f8f21166543228a821074b3b9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883221"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492127"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Ligar a sua aplicação da Fortinet 
 
@@ -42,7 +42,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de 
 
 ### <a name="deploy-the-agent-in-azure"></a>Implementar o agente no Azure
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação. 
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação. 
 
 1. Sob **configuração do agente Linux Syslog**:
    - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM dedicada, que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vcpus, 8 GB de memória)** e tem um endereço IP público.
@@ -79,7 +79,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de 
 Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sentinela de mensagens em fila para ser executado num servidor Linux dedicado.
 
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação.
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação.
 1. Para criar uma VM do Linux dedicado, em **configuração do agente Linux Syslog** escolha **implementação Manual**.
    1. Sob **transfira e instale o agente de Syslog**, selecione **máquina Linux não Azure**. 
    1. Na **agente direto** ecrã que se abre, selecione **agente para Linux** para transferir o agente ou execute este comando para baixá-lo no seu computador Linux:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

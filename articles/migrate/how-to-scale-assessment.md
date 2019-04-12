@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265254"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490642"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -39,20 +39,11 @@ O Azure Migrate necessita de acesso aos servidores VMware para detetar automatic
 - Detalhes: Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
 - Para restringir o acesso, atribua a função Sem acesso com Propagar para o objeto subordinado aos objetos subordinados (anfitriões vSphere, arquivos de dados, VMs e redes).
 
-Se estiver a implementar num ambiente de inquilino, eis uma forma de configurar estas definições:
+Se estiver a implementar num ambiente multi-inquilino e gostaria de âmbito por pasta de VMs para um único inquilino, é possível selecionar diretamente a pasta VM ao definir o âmbito coleção no Azure Migrate. Seguem-se instruções sobre como a deteção de âmbito por pasta de VMs:
 
-1. Criar um utilizador por inquilino e utilizar [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), atribuir permissões só de leitura para todas as VMs que pertencem a um inquilino específico. Em seguida, utilize as credenciais para a deteção. RBAC garante que o utilizador correspondente do vCenter terão acesso às VMs apenas específico de inquilino.
-2. Configurar o RBAC para os utilizadores de inquilino diferente conforme descrito no exemplo a seguir para 1 utilizador e o utilizador n. º 2:
-
-    - Na **nome de utilizador** e **palavra-passe**, especifique as credenciais de conta só de leitura que o recoletor utilizará para detetar VMs no
-    - Datacenter1 - conceder permissões só de leitura ao utilizador n. º 1 e 2 a utilizador. Não propagar essas permissões para todos os objetos subordinados, porque definirá permissões em VMs individuais.
-
-      - VM1 (inquilino n. º 1) (permissões só de leitura para o utilizador n. º 1)
-      - VM2 (inquilino n. º 1) (permissões só de leitura para o utilizador n. º 1)
-      - VM3 (inquilino n. º 2) (permissões só de leitura para o utilizador n. º 2)
-      - VM4 (inquilino n. º 2) (permissões só de leitura para o utilizador n. º 2)
-
-   - Se efetuar a deteção com as credenciais do utilizador n. º 1, em seguida, apenas a VM1 e a VM2 serão detetado.
+1. Criar um utilizador por inquilino e atribuir permissões só de leitura para todas as VMs que pertencem a um inquilino específico. 
+2. Conceda o acesso só de leitura utilizador para todos os objetos de principal onde estão alojadas as VMs. Todos os objetos principais - host, pasta de anfitriões, cluster, pasta de clusters - na hierarquia até o Centro de dados estão a ser incluído. Não é necessário propagar as permissões para todos os objetos subordinados.
+3. Utilizar as credenciais para a deteção de selecionar o datacenter como *âmbito da coleção*. O RBAC configurar garante que o utilizador correspondente do vCenter terão acesso às VMs apenas específico de inquilino.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planear os projetos de migração e deteções
 
@@ -97,7 +88,7 @@ Se tiver vários servidores de vCenter com menos de 1500 máquinas de virtuais p
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mais de 1500 máquinas num único servidor do vCenter
 
-Se tiver mais de 1500 máquinas de virtuais num único servidor do vCenter, terá de dividir a deteção em vários projetos de migração. Dividir deteções, pode tirar partido do campo de âmbito a aplicação e especifique o anfitrião, cluster, pasta ou centro de dados que pretende detetar. Por exemplo, se tiver duas pastas no vCenter Server, um com 1000 VMs (Pasta1) e outro com 800 VMs (Folder2), pode utilizar o campo de âmbito para dividir as deteções entre essas pastas.
+Se tiver mais de 1500 máquinas de virtuais num único servidor do vCenter, terá de dividir a deteção em vários projetos de migração. Dividir deteções, pode tirar partido do campo de âmbito a aplicação e especifique o anfitrião, cluster, pasta de anfitriões, a pasta de clusters ou centro de dados que pretende detetar. Por exemplo, se tiver duas pastas no vCenter Server, um com 1000 VMs (Pasta1) e outro com 800 VMs (Folder2), pode utilizar o campo de âmbito para dividir as deteções entre essas pastas.
 
 **Deteção contínua:** Neste caso, terá de criar duas aplicações de recoletor, para o recoletor primeiro, especifique o âmbito como Pasta1 e ligá-la para o primeiro projeto de migração. É possível em paralelo começar a deteção do Folder2 com a aplicação recoletora segundo e ligá-lo para o segundo projeto de migração.
 

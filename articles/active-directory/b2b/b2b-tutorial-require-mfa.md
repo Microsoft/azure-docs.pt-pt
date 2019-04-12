@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: d83cad9c6681a9d1c852c3d874028ceb6913344f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293997"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496629"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor o multi-factor authentication para utilizadores convidados B2B
 
@@ -72,7 +72,7 @@ Para concluir o cenário deste tutorial, precisa de:
 3.  Termine a sessão.
 
 ## <a name="create-a-conditional-access-policy-that-requires-mfa"></a>Criar uma política de acesso condicional que exija a MFA
-1.  Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global, administrador de segurança ou administrador de acesso condicional.
+1.  Inicie sessão no seu [portal do Azure](https://portal.azure.com/) como um administrador de segurança ou um administrador de acesso condicional.
 2.  No portal do Azure, selecione **Azure Active Directory**. 
 3.  Na página **Azure Active Directory**, na secção **Segurança**, selecione **Acesso condicional**.
 4.  Na página **Acesso Condicional**, na barra de ferramentas na parte superior, selecione **Nova política**.

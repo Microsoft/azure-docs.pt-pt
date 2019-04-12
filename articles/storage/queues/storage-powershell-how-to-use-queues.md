@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 7f317c061c66a344731172f83e1c85dc5487379d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9992673ab36d5b4b2cc1ca18a5108107c14a1eb1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005194"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488956"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de filas do Azure com o Azure PowerShell
 
@@ -24,7 +24,7 @@ Armazenamento de filas do Azure é um serviço para armazenar grandes quantidade
 > * Obter uma fila
 > * Adicione uma mensagem
 > * Ler uma mensagem
-> * Eliminar uma mensagem 
+> * Eliminar uma mensagem
 > * Eliminar uma fila
 
 Nesta explicação de procedimento requer o módulo Azure PowerShell Az versão 0,7 ou posterior. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
@@ -46,7 +46,7 @@ Connect-AzAccount
 Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Irá utilizar este exercício **eastus**. Store isso na variável **localização** para utilização futura.
 
 ```powershell
-Get-AzLocation | select Location 
+Get-AzLocation | select Location
 $location = "eastus"
 ```
 
@@ -108,16 +108,16 @@ O exemplo seguinte demonstra como adicionar uma mensagem à sua fila.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
-$queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
+$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 1"
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 # Add two more messages to the queue 
-$queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
+$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
-$queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
+$queueMessage = New-Object -TypeName "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 3"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
@@ -192,7 +192,7 @@ Neste artigo de procedimentos, aprendeu sobre a gestão de armazenamento de fila
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de armazenamento do Microsoft Azure PowerShell
 
-* [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)
+* [Cmdlets do PowerShell de armazenamento](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
 

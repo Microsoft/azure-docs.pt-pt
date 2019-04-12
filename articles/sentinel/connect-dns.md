@@ -1,6 +1,6 @@
 ---
-title: Recolher dados DNS em pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Saiba como recolher dados DNS no Azure sentinela.
+title: Ligue os dados DNS em pré-visualização de sentinela de Azure | Documentos da Microsoft
+description: Saiba como ligar a dados DNS no Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530421"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489747"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
 
@@ -29,7 +29,7 @@ ms.locfileid: "57530421"
 
 Pode ligar-se a qualquer servidor de nomes de domínio (DNS) em execução no Windows para sentinela do Azure. Isso é feito ao instalar um agente na máquina de DNS. Registos de utilização do DNS, pode obter segurança, desempenho e informações de relacionados com operações de mensagens em fila para a infraestrutura DNS da sua organização ao recolher, analisar, e correlacionar analíticas e registos de auditoria e outros dados relacionados de servidores DNS.
 
-Ao ativar a recolha de registos DNS, pode:
+Ao ativar a ligação de registo de DNS, pode:
 - Identificar os clientes que tentam resolver os nomes de domínios maliciosos
 - Identificar registos de recursos obsoletos
 - Identificar os nomes de domínio consultados com frequência e clientes DNS conversador
@@ -38,11 +38,11 @@ Ao ativar a recolha de registos DNS, pode:
 
 ## <a name="how-it-works"></a>Como funciona
 
-Coleção de DNS é conseguida ao instalar um agente na máquina de DNS. O agente recebe eventos do DNS e os passa para o Log Analytics.
+Ligação de DNS é conseguida ao instalar um agente na máquina de DNS. O agente recebe eventos do DNS e os passa para o Log Analytics.
 
 ## <a name="connect-your-dns-appliance"></a>Ligar a sua aplicação de DNS
 
-1. No portal do Azure sentinela, selecione **recolha de dados** e escolha o **DNS** mosaico.
+1. No portal do Azure sentinela, selecione **conectores de dados** e escolha o **DNS** mosaico.
 1. Se as máquinas DNS no Azure:
     1. Clique em **transferir e instalar o agente para máquinas de virtuais do Windows**.
     1. Na **máquinas virtuais** , selecione a máquina DNS que pretende transmitir para o Azure sentinela. Certifique-se de que esta é uma VM do Windows.
@@ -56,7 +56,7 @@ Coleção de DNS é conseguida ao instalar um agente na máquina de DNS. O agent
 
 3. Para utilizar o esquema relevante no Log Analytics para os registos DNS, procure **DnsEvents**.
 
-## <a name="validate"></a>Validar 
+## <a name="validate"></a>Validação 
 
 No Log Analytics, procure o esquema **DnsEvents** e certifique-se de eventos.
 

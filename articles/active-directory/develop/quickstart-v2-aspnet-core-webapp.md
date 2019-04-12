@@ -1,5 +1,5 @@
 ---
-title: O Azure AD v2.0 início rápido para aplicações web ASP.NET Core | Documentos da Microsoft
+title: Plataforma de identidade do Microsoft início rápido para aplicações web ASP.NET Core | Azure
 description: Aprenda a implementar Microsoft início de sessão numa aplicação Web do ASP.NET Core através do OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005650"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505352"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005650"
 
 Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pode iniciar sessão em contas pessoais (hotmail.com, outlook.com, outras pessoas) e profissionais e escolares contas a partir de qualquer instância do Azure Active Directory (Azure AD).
 
-![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,17 @@ public void ConfigureServices(IServiceCollection services)
 
 O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, o que é utilizada em cenários de browser, bem como definir o desafio para OpenID Connect. 
 
-A linha que contém `.AddAzureAd` adiciona a autenticação do Azure AD à sua aplicação. Em seguida, é configurado para início de sessão com o ponto de final de v2.0 do Azure AD.
+A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de identidade do Microsoft à sua aplicação. Em seguida, é configurado para início de sessão com o ponto de extremidade de plataforma de identidade Microsoft.
 
 > |Onde  |  |
 > |---------|---------|
 > | ClientId  | ID da aplicação (cliente) da aplicação registada no portal do Azure. |
 > | Autoridade | O ponto de extremidade STS para autenticar o usuário. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {inquilino} é o nome do seu inquilino ou o ID de inquilino, ou *comuns* para obter uma referência para o ponto de extremidade comum (utilizado para aplicações multi-inquilino) |
 > | TokenValidationParameters | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está definido como `false` para indicar que ele pode aceitar inícios de sessão de qualquer pessoais, ou contas escolares ou profissionais. |
+
+
+> [!NOTE]
+> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. No real aplicativos necessários para validar o emissor, consulte os exemplos para compreender como fazê-lo.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteger um controlador ou o método de um controlador
 
@@ -154,8 +158,7 @@ Pode proteger um controlador ou métodos de controlador usando o `[Authorize]` a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja o repositório do GitHub para este guia de introdução do ASP.NET Core para obter mais informações, incluindo instruções sobre como adicionar autenticação a uma aplicação ASP.NET Core Web totalmente nova:
+Veja o repositório do GitHub para este tutorial de ASP.NET Core para obter mais informações, incluindo instruções sobre como adicionar autenticação para um aplicativo ASP.NET Core Web totalmente novo, como chamar o Microsoft Graph e outras APIs da Microsoft, como chamar as suas próprias APIs, como adicionar autorização, como início de sessão aos utilizadores em clouds nacionais ou com identidades sociais e muito mais:
 
 > [!div class="nextstepaction"]
-> [Exemplo de código da aplicação Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [Tutorial de aplicação Web do núcleo do ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

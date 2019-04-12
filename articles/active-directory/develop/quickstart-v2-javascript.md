@@ -1,6 +1,6 @@
 ---
-title: Início de JavaScript rápido do Azure AD v2 | Documentos da Microsoft
-description: Saiba como os aplicativos JavaScript podem chamar uma API que precisam de tokens de acesso ao ponto final de v2.0 do Azure Active Directory
+title: Guia de introdução do Microsoft identity platform JavaScript | Azure
+description: Saiba como os aplicativos JavaScript podem chamar uma API que precisam de tokens de acesso pela plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -12,24 +12,32 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 63827c74d584053b5131fbc602a04d4d24338f47
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203052"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500333"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação do JavaScript
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação de página única (SPA) de JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Neste início rápido, irá aprender como usar um código de exemplo que demonstra como um JavaScript a aplicação de página única (SPA) pode iniciar sessão em contas pessoais, trabalhar e escolar contas, obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API web.
+Neste início rápido, irá aprender como usar um código de exemplo que demonstra como uma aplicação de página única (SPA) de JavaScript pode iniciar sessão em contas pessoais, trabalhar e escolar contas e obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API web.
 
-![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Terá a seguinte configuração para este início rápido:
+* Para executar o projeto com um servidor de node. js,
+    * Instalar o [Node. js](https://nodejs.org/en/download/)
+    * Instale [Visual Studio Code](https://code.visualstudio.com/download) para editar os arquivos do projeto
+* Para executar o projeto como uma solução do Visual Studio, instale [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registre-se e transferir a aplicação de início rápido
@@ -39,7 +47,9 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+> 1. Vá para a nova [portal do Azure – registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) painel.
 > 1. Introduza um nome para a sua aplicação e clique em **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
@@ -47,9 +57,11 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 >
-> 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) registar uma aplicação.
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização) > Novo registo**.
+> 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
+> 1. Selecione **novo registo**.
+> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 > 1. Quando o **registar uma aplicação** é apresentada a página, introduza um nome para a sua aplicação.
 > 1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
 > 1. Selecione o **Web** plataforma sob a **URI de redirecionamento** secção e defina o valor como `http://localhost:30662/`.
@@ -65,7 +77,7 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 > > [Efetuar estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
+> > ![Já configurado](media/quickstart-v2-javascript/green-check.png) seu aplicativo está configurado com esses atributos.
 
 #### <a name="step-2-download-the-project"></a>Passo 2: Transfira o projeto
 
@@ -95,11 +107,11 @@ var applicationConfig = {
 > [!div renderon="docs"]
 >
 > Em que:
-> - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
-> - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
+> - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` -está definido para uma das seguintes opções:
 >   - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
->   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
+>   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
+>   - Se a sua aplicação suportar **contas em qualquer diretório organizacional e contas Microsoft pessoais**, substitua este valor com `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
@@ -121,14 +133,16 @@ var applicationConfig = {
 
 * Se utilizar [Visual Studio](https://visualstudio.microsoft.com/downloads/), certifique-se de selecionar a solução de projeto e, em seguida, prima **F5** para executar o seu projeto.
 
+Depois do navegador carrega a aplicação, clique em **sessão**.  A primeira vez que iniciar sessão, lhe for pedido para fornecer o seu consentimento para permitir que a aplicação para aceder ao seu perfil e para o início de sessão. Com êxito de início de sessão, deverá ver as informações do perfil de utilizador apresentadas na página.
+
 ## <a name="more-information"></a>Mais Informações
 
-### <a name="msaljs"></a>*msal.js*
+### *<a name="msaljs"></a>msal.js*
 
-A MSAL é a biblioteca utilizada para iniciar sessão de utilizadores e tokens utilizados para aceder a uma API protegida pelo Microsoft Azure Active Directory (Azure AD) do pedido. O guia de introdução *Index* contém uma referência à biblioteca:
+A MSAL é a biblioteca utilizada para iniciar sessão de utilizadores e pedir tokens utilizados para aceder a uma API protegida pela plataforma de identidade da Microsoft. O guia de introdução *Index* contém uma referência à biblioteca:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
 ```
 
 Em alternativa, se tiver o nó instalado, pode baixá-lo através do npm:
@@ -189,14 +203,14 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Existem situações em que precisa forçar os utilizadores interajam com o ponto final de v2.0 do Azure AD. Por exemplo:
+Existem situações em que precisa forçar os utilizadores interajam com o ponto final de plataforma de identidade Microsoft. Por exemplo:
 * Os utilizadores podem ter de reintroduzir as respetivas credenciais porque a palavra-passe expirou
 * A aplicação está a solicitar acesso a âmbitos de recursos adicionais que o usuário precisa para dar consentimento para
 * É precisa a autenticação de dois fatores
 
 Padrão recomendado normal para a maioria dos aplicativos é chamar `acquireTokenSilent` em primeiro lugar, em seguida, capturar a exceção e, em seguida, chame `acquireTokenRedirect` (ou `acquireTokenPopup`) para iniciar um pedido de interativo.
 
-Chamar o `acquireTokenPopup(scope)` resulta numa janela de pop-up para iniciar sessão (ou `acquireTokenRedirect(scope)` resulta em redirecionar utilizadores para o ponto de final de v2.0 do Azure AD) em que os utilizadores têm de interagir por qualquer uma das suas credenciais, a confirmar a dar o consentimento para o recurso necessário, ou concluir a autenticação de dois fatores.
+Chamar o `acquireTokenPopup(scope)` resulta numa janela de pop-up para iniciar sessão (ou `acquireTokenRedirect(scope)` resulta em redirecionar utilizadores para o ponto de extremidade de plataforma de identidade Microsoft) em que os usuários precisam interagir qualquer uma das respetivas credenciais de instalação, a dar o consentimento à necessários recurso ou concluir a autenticação de dois fatores.
 
 ```javascript
 myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {

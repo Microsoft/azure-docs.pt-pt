@@ -1,5 +1,5 @@
 ---
-title: Termos de serviço e declaração de privacidade para aplicações do Azure AD | Documentos da Microsoft
+title: Termos de serviço e declaração de privacidade para aplicações | Azure
 description: Saiba como pode configurar os termos de serviço e declaração de privacidade de aplicações registadas para utilizar o Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193514"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500308"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Termos de serviço e declaração de privacidade de aplicações do Azure Active Directory registadas
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar os termos de serviço e declaração de privacidade de uma aplicação
 
 Os desenvolvedores que criam e gerir as aplicações que se integram com o Azure Active Directory (Azure AD) e contas da Microsoft deverá incluir ligações aos termos da aplicação de serviço e declaração de privacidade. Os termos de serviço e declaração de privacidade são apresentados aos utilizadores através da experiência de consentimento do utilizador. Ajudam os utilizadores que podem dar seu aplicativo. Os termos de serviço e declaração de privacidade são essenciais sobretudo para destinada ao utilizador multi-inquilinos aplicações – aplicações que são utilizadas por vários diretórios ou que estão disponíveis para qualquer conta Microsoft.
 
@@ -47,7 +47,7 @@ Antes de adicionar links para os termos da sua aplicação de serviço e a priva
 | Diretriz     | Descrição                           |
 |---------------|---------------------------------------|
 | Formato        | URL válido                             |
-| Esquemas válidas | HTTP e HTTPS</br>Recomendamos que HTTPS |
+| Esquemas válidas | HTTP e HTTPS<br/>Recomendamos que HTTPS |
 | Comprimento máximo    | 2048 carateres                       |
 
 Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statement`

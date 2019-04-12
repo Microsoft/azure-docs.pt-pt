@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803530"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500469"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -69,9 +69,13 @@ Para obter mais informações, consulte [transmissão em fluxo registos com a CL
 
 ### <a name="app-logging"></a>Registo de aplicação
 
-Ativar [registo de aplicações](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) através do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicações para escrever a saída do console padrão e os fluxos de erro de console padrão da sua aplicação no local sistema de ficheiros ou armazenamento de Blobs do Azure. O registo para o sistema de ficheiros local do serviço de aplicações instância está desativada 12 horas depois de estar configurada. Se precisar de retenção mais longa, configure a aplicação para escrever a saída para um contentor de armazenamento de Blobs.
+Ativar [registo de aplicações](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) através do portal do Azure ou [CLI do Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar o serviço de aplicações para escrever a saída do console padrão e os fluxos de erro de console padrão da sua aplicação no local sistema de ficheiros ou armazenamento de Blobs do Azure. O registo para o sistema de ficheiros local do serviço de aplicações instância está desativada 12 horas depois de estar configurada. Se precisar de retenção mais longa, configure a aplicação para escrever a saída para um contentor de armazenamento de Blobs. Os registos de aplicações Java e Tomcat podem ser encontrados no `/home/LogFiles/Application/` diretório.
 
 Se o aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) para o rastreio, pode reencaminhar estes rastreios para revisão para o Azure Application Insights com as instruções de configuração do Registro em log framework [Registos de rastreio de explorar o Java no Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+
+### <a name="troubleshooting-tools"></a>Ferramentas de resolução de problemas
+
+As imagens incorporadas do Java se baseiam os [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) sistema operativo. Utilize o `apk` Gestor de pacotes para instalar a solução do problema de ferramentas ou comandos.
 
 ## <a name="customization-and-tuning"></a>Personalização e Otimização
 
@@ -81,31 +85,34 @@ Serviço de aplicações do Azure para Linux oferece imediatamente suporte para 
 - [Configurar um domínio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Ativar o SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Adicionar uma CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar o site Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Definir opções de tempo de execução de Java
 
-Para definir a memória alocada ou outras opções de tempo de execução JVM nos ambientes do Tomcat e Java SE, defina o JAVA_OPTS conforme mostrado abaixo, como um [definição de aplicação](/azure/app-service/web-sites-configure#app-settings). Serviço de aplicações Linux passa esta definição como uma variável de ambiente para o tempo de execução Java quando ele é iniciado.
+Para definir a memória alocada ou outras opções de tempo de execução JVM nos ambientes do Tomcat e Java SE, crie uma [definição de aplicação](/azure/app-service/web-sites-configure#app-settings) com o nome `JAVA_OPTS` com as opções. Serviço de aplicações Linux passa esta definição como uma variável de ambiente para o tempo de execução Java quando ele é iniciado.
 
-No portal do Azure, em **as configurações do aplicativo** da aplicação web, criar uma nova definição de aplicação com o nome `JAVA_OPTS` que inclui as definições adicionais, tais como `$JAVA_OPTS -Xms512m -Xmx1204m`.
+No portal do Azure, em **as configurações do aplicativo** da aplicação web, criar uma nova definição de aplicação com o nome `JAVA_OPTS` que inclui as definições adicionais, tais como `-Xms512m -Xmx1204m`.
 
-Para configurar a definição de aplicação o plug-in do Maven de Linux do Azure App Service, adicione marcas de definição/valor na secção de plug-in do Azure. O exemplo seguinte define uma heapsize específico de Java de máxima e mínima:
+Para configurar a definição de aplicação de plug-in do Maven, adicione marcas de definição/valor na secção de plug-in do Azure. O exemplo seguinte define uma heapsize específico de Java de máxima e mínima:
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Os desenvolvedores com um único aplicativo bloco de implementação de um em seu plano do serviço de aplicações podem utilizar as seguintes opções:
 
-- Instâncias B1 e S1:-Xms1024m-Xmx1024m
-- Instâncias de B2 e S2:-Xms3072m-Xmx3072m
-- Instâncias B3 e S3:-Xms6144m-Xmx6144m
+- Instâncias de B1 e S1: `-Xms1024m -Xmx1024m`
+- Instâncias de B2 e S2: `-Xms3072m -Xmx3072m`
+- Instâncias B3 e S3: `-Xms6144m -Xmx6144m`
 
 Quando o ajuste definições de área dinâmica para dados de aplicação, reveja os detalhes do seu plano de serviço de aplicações e levar em conta vários aplicativos e o bloco de implementação tem de localizar a alocação ideal de memória.
+
+Se estiver implantando um aplicativo de JAR, deve ser nomeado `app.jar` para que a imagem incorporada pode identificar corretamente a sua aplicação. (O plug-in do Maven faz essa renomeação automaticamente.) Se não deseja mudar o nome do seu JAR para `app.jar`, pode carregar um script de shell com o comando a executar o JAR. Em seguida, cole o caminho completo para esse script no [ficheiro de arranque](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do Portal.
 
 ### <a name="turn-on-web-sockets"></a>Ativar o web sockets
 
@@ -126,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>Definir a codificação de caracteres padrão
 
-No portal do Azure, em **as configurações do aplicativo** da aplicação web, criar uma nova definição de aplicação com o nome `JAVA_OPTS` com o valor `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+No portal do Azure, em **as configurações do aplicativo** da aplicação web, criar uma nova definição de aplicação com o nome `JAVA_OPTS` com o valor `-Dfile.encoding=UTF-8`.
 
 Em alternativa, pode configurar a definição de aplicação com o plug-in do Maven do serviço de aplicações. Adicione as etiquetas de nome e valor de definição na configuração do plug-in:
 
@@ -134,10 +141,14 @@ Em alternativa, pode configurar a definição de aplicação com o plug-in do Ma
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### <a name="adjust-startup-timeout"></a>Ajustar o tempo limite de inicialização
+
+Se a sua aplicação Java é especialmente grande, deve aumentar o limite de tempo de inicialização. Para tal, crie uma definição da aplicação, `WEBSITES_CONTAINER_START_TIME_LIMIT` e defini-lo para o número de segundos que o serviço de aplicações deve aguardar antes de exceder o tempo limite. O valor máximo é `1800` segundos.
 
 ## <a name="secure-applications"></a>Aplicações seguras
 

@@ -12,28 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: f226b9b802bca47cc6fd7b9cdec550b23c7c88d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 958dc02ecc744f89badee851467f2e78190287cd
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890827"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501030"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como utilizar filas do Service Bus com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-Este artigo descreve como utilizar as filas do Service Bus. Os exemplos são escritos em Java e utilize o [Azure SDK para Java][Azure SDK for Java]. Os cenários abrangidos incluem **criando filas**, **enviar e receber mensagens**, e **eliminar filas**.
+Neste tutorial, saiba como criar aplicações Java para enviar mensagens e receber mensagens de uma fila do Service Bus. 
 
 > [!NOTE]
 > Pode encontrar exemplos de Java no GitHub no [repositório azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
+    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
+    2. Criar um barramento de serviço **espaço de nomes**. 
+    3. Obter o **cadeia de ligação**.
+    4. Criar um barramento de serviço **fila**.
+3. Instale [Azure SDK para Java][Azure SDK for Java]. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
 Certifique-se de que instalou o [Azure SDK para Java] [ Azure SDK for Java] antes de criar este exemplo. Se estiver a utilizar Eclipse, pode instalar o [Azure Toolkit para Eclipse] [ Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar os **bibliotecas do Microsoft Azure para Java** ao seu projeto:

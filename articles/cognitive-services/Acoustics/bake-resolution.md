@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: KyleStorck
 ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471835"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495280"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Resolução de criar Acoustics de projeto
 Esta descrição geral conceptual descreve a diferença entre as resoluções de genérico e tudo bem, ao mesmo tempo implantando acoustics. Escolha esta definição durante o passo de sondas do fluxo de trabalho baking.

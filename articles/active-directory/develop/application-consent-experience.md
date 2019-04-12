@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/27/2019
 ms.author: celested
-ms.reviewer: zawad
+ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86424a7c797dfd7e73ad5f0e56929616d9653b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170980"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500486"
 ---
-# <a name="understanding-azure-ad-application-consent-experiences"></a>Experiências de compreender o consentimento de aplicação do Azure AD
+# <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
 
 Saiba que mais sobre a aplicação do Azure Active Directory (Azure AD) a experiência do usuário de consentimento. Por isso, pode inteligentemente gerir aplicações na sua organização e/ou desenvolvimento de aplicativos com uma experiência mais integrada de consentimento.
 
@@ -85,4 +85,5 @@ Aqui estão as experiências de consentimento que um utilizador poderá ver nos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Obtenha uma visão geral passo a passo dos [como o framework de consentimento do Azure AD implementa consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Para obter mais detalhes, saiba [como uma aplicação de multi-inquilino pode utilizar a estrutura do consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementar "utilizador" e "admin" consentimento, suporte a mais avançada padrões de aplicação de várias camadas.
+- Para obter mais detalhes, saiba [como uma aplicação de multi-inquilino pode utilizar a estrutura do consentimento](active-directory-devhowto-multi-tenant-overview.md) implementar "utilizador" e "admin" consentimento, suporte a mais avançada padrões de aplicação de várias camadas.
+- Saiba mais [como configurar o domínio de publicador da aplicação](howto-configure-publisher-domain.md).

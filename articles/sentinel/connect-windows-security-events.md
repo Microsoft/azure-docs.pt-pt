@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de eventos de segurança Windows sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados de eventos de segurança Windows no Azure sentinela.
+title: Ligar a dados de eventos de segurança do Windows para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados de eventos de segurança do Windows para sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d131d39a9d9770046fa3f9368250204e4d0b0162
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576093"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491957"
 ---
 # <a name="connect-windows-security-events"></a>Ligar aos eventos de segurança do Windows 
 
@@ -42,7 +42,7 @@ Pode transmitir em fluxo todos os eventos de segurança de servidores do Windows
 
 Para integrar totalmente os eventos de segurança do Windows com o Azure sentinela:
 
-1. No portal do Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **eventos de segurança do Windows** mosaico. 
+1. No portal do Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **eventos de segurança do Windows** mosaico. 
 1. Selecione os tipos de dados que pretende transmitir em fluxo.
 1. Clique em **Atualizar**.
 6. Para utilizar o esquema relevante no Log Analytics para os eventos de segurança do Windows, procure **SecurityEvent**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579330"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494035"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerir problemas de proteção de ponto final com o Centro de segurança do Azure
 Centro de segurança do Azure monitoriza o estado de proteção antimalware e os relatórios isso o painel de problemas de proteção de ponto final. Centro de segurança destaca os problemas, como ameaças detetadas e proteção insuficiente, que pode tornar as máquinas virtuais (VMs) e os computadores vulneráveis a ameaças de antimalware. Ao utilizar as informações em **problemas do Endpoint protection**, pode identificar um plano para resolver quaisquer problemas identificados.
@@ -47,7 +47,7 @@ Neste exemplo, utilizamos **computação**.  Veremos como instalar o antimalware
 
 ## <a name="install-antimalware-on-azure-vms"></a>Instalar o antimalware em VMs do Azure
 
-1. Selecione **computação** no menu principal do Centro de segurança ou **descrição geral**.
+1. Selecione **computação e aplicações** no menu principal do Centro de segurança ou **descrição geral**.
 
    ![Selecione computação][1]
 

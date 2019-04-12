@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439301"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501388"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Mensagens de dispositivo-para-cloud do Azure IoT com o rastreio distribuído (pré-visualização) de rastreio
 
@@ -35,8 +35,8 @@ Neste artigo, vai utilizar o [Azure IoT device SDK para C](./iot-hub-device-sdk-
 - A pré-visualização do rastreio distribuído é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
 
   - **Europa do Norte**
-  - **Sudeste asiático**
-  - **E.U.A. oeste 2**
+  - **Sudeste Asiático**
+  - **EUA Oeste 2**
 
 - Este artigo pressupõe que esteja familiarizado com o envio de mensagens de telemetria ao seu hub IoT. Certifique-se de que concluiu o [enviar telemetria início rápido de C](./quickstart-send-telemetry-c.md).
 
@@ -98,7 +98,7 @@ Estas instruções são para a criação de exemplo no Windows. Para outros ambi
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+    Esta operação deve demorar vários minutos a ser concluída.
 
 1. Crie um subdiretório `cmake` no diretório de raiz do repositório git e navegue para essa pasta.
 

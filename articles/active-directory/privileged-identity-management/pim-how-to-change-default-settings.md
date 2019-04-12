@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/30/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576867"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492282"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Configurar definições de função do Azure AD no PIM
 
@@ -73,17 +73,17 @@ Utilize o **multi-factor Authentication** comutador para especificar se pretende
 * Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e Office 365. Esse é um recurso de segurança, uma vez que estas funções devem ser protegidas com cuidado:  
   
   * Administrador de Faturação
-  * Administrador da Aplicação Cloud
+  * Administrador de Aplicações de Cloud
   * Administrador de Conformidade
   * Administrador de Acesso Condicional
-  * Administrador de Serviço CRM
-  * Aprovador de Acesso ao Cofre de Cliente
+  * Administrador de Serviço de CRM
+  * Aprovador de Acesso ao Sistema de Proteção de Dados do Cliente
   * Gravadores de Diretórios
   * Administrador do Exchange
   * Administrador Global
   * Administrador do Information Protection
   * Administrador de Serviços do Intune
-  * Administrador do Power BI
+  * Administrador de Serviço do Power BI
   * Administrador com Função Privilegiada
   * Administrador de Segurança
   * Administrador do Serviço SharePoint

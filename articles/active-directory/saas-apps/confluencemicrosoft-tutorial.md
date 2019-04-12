@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c0a7ff6d06325a6e6f631b92335f9a41c2c8c06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854811"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501234"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Active Directory do Azure com confluência SAML SSO pela Microsoft
 
@@ -36,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="description"></a>Descrição:
 
-Utilize a sua conta do Microsoft Azure Active Directory com o servidor de confluência Atlassian para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD ao iniciar sessão na aplicação confluência. Este plug-in utiliza SAML 2.0 para a Federação.
+Utilize a sua conta do Microsoft Azure Active Directory com o servidor de confluência Atlassian para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD para início de sessão na aplicação confluência. Este plug-in utiliza SAML 2.0 para a Federação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,6 +79,9 @@ A partir de agora, os seguintes versões do confluência são suportadas:
 - Confluência: 6.11.0
 - Confluência: 6.12.0
 
+> [!NOTE]
+> Tenha em atenção que confluência também oferece suporte a Linux Ubuntu 16.04 de versão
+
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
@@ -104,7 +108,7 @@ Para configurar a integração do confluência SAML SSO pela Microsoft para o Az
 
 4. Na caixa de pesquisa, escreva **confluência SAML SSO pela Microsoft**, selecione **confluência SAML SSO pela Microsoft** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Confluência SAML SSO pela Microsoft na lista de resultados](common/search-new-app.png)
+    ![Confluência SAML SSO pela Microsoft na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -157,7 +161,7 @@ Para configurar o Azure AD início de sessão único com confluência SAML SSO p
 
 ### <a name="configure-confluence-saml-sso-by-microsoft-single-sign-on"></a>Configurar confluência SAML SSO pelo Microsoft Single Sign-On
 
-1. Numa janela do browser web diferente, inicie sessão na sua instância de confluência como administrador.
+1. Numa janela do browser web diferente, inicie sessão para a sua instância de confluência como um administrador.
 
 2. Paire o rato sobre o ícone de roda dentada e clique nas **suplementos**.
 
@@ -184,18 +188,18 @@ Para configurar o Azure AD início de sessão único com confluência SAML SSO p
 
     c. Na **nome do botão de início de sessão** escreva o nome do botão, a organização quer que os utilizadores para ver no ecrã de início de sessão.
 
-    d. Na **locais de ID de usuário de SAML**, selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o id de utilizador confluência. Se o id de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão. 
+    d. Na **locais de ID de usuário de SAML**, selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o ID de utilizador confluência. Se o ID de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão. 
 
     > [!Note]
     > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterá-la para uma opção de atributo e introduza o nome do atributo adequado.
     
-    e. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o Id de utilizador. 
+    e. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o ID de utilizador. 
 
     f. Se estiver a utilizar o domínio Federado (como etc. do AD FS) com o Azure AD, em seguida, clique nas **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
     
     g. Na **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
 
-    h. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador terminar a sessão de confluência. 
+    h. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador termina sessão confluência. 
 
     i. Clique em **guardar** botão para guardar as definições.
 
@@ -220,8 +224,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -259,7 +262,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no servidor no local de c
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no seu servidor no local de confluência como administrador.
+1. Inicie sessão no seu servidor no local de confluência como um administrador.
 
 2. Paire o rato sobre o ícone de roda dentada e clique nas **gestão de utilizadores**.
 
@@ -291,7 +294,7 @@ Ao clicar o confluência SAML SSO ao mosaico da Microsoft no painel de acesso, d
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

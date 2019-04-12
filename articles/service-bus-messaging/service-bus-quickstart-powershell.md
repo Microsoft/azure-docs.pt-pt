@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045246"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499806"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o Azure PowerShell para criar uma fila do Service Bus
-O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.
-
-![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o PowerShell para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita][] antes de começar.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, confirme que tem instalada:
 
-- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
+- Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita][] antes de começar. 
+- [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior. Utilizar o Visual Studio para criar um exemplo que envia mensagens para e recebe a mensagem de uma fila. O exemplo é testar a fila que criou no portal. 
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-Este início rápido requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e Configurar o Azure PowerShell][].
+Este início rápido requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e Configurar o Azure PowerShell][]. Se estiver familiarizado com o Azure Cloud Shell, pode usá-lo sem instalar o Azure PowerShell no seu computador. Para obter detalhes sobre o Azure Cloud Shell, consulte [descrição geral do Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 1. Em primeiro lugar, instale o módulo do PowerShell do Service Bus, se ainda não o tiver feito:
 
@@ -130,7 +128,7 @@ Esta secção contém mais detalhes sobre o que faz o código de exemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obter a cadeia de ligação e a fila
 
-Os nomes da fila e da cadeia de ligação são transmitidos para o método `Main()` como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia de caracteres para armazenar estes valores:
+O nome da fila e de cadeia de ligação são transmitidos para o `Main()` método como argumentos da linha de comandos. `Main()` declara duas variáveis de cadeia de caracteres para armazenar estes valores:
 
 ```csharp
 static void Main(string[] args)
@@ -167,7 +165,7 @@ Em seguida, o método `Main()` inicia o ciclo de mensagens assíncronas, `MainAs
 
 ### <a name="message-loop"></a>Ciclo de mensagens
 
-O método MainAsync() cria um cliente de fila com os argumentos da linha de comandos, chama um processador de mensagens de receção com o nome `RegisterOnMessageHandlerAndReceiveMessages()` e envia o conjunto de mensagens:
+O método MainAsync() cria um cliente de fila com os argumentos da linha de comandos, chama um manipulador de mensagem de recebimento denominado `RegisterOnMessageHandlerAndReceiveMessages()`e envia o conjunto de mensagens:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para obter mais informações sobre como escrever código para enviar e receber mensagens, avance para o tutorial seguinte do Service Bus:
+Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necessários para enviar e receber mensagens numa fila. Para saber mais sobre como escrever código para enviar e receber mensagens, avance para os tutoriais a **enviar e receber mensagens** secção. 
 
 > [!div class="nextstepaction"]
-> [Atualizar inventário com o Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Enviar e receber mensagens](service-bus-dotnet-get-started-with-queues.md)
 
 [do Azure]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Instalar e Configurar o Azure PowerShell]: /powershell/azure/install-Az-ps

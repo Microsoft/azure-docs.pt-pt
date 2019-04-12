@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 33e2ac136ae68ee0c0ce0109a6f6934727d3a6c5
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e054456662af3ef9df0760af163ec5d09df18b21
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203739"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502701"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Iniciar sessão dos utilizadores e chamar o Microsoft Graph a partir de uma aplicação Android
 
@@ -29,7 +29,7 @@ Quando concluir o guia, a aplicação irá aceitar inícios de sessão de contas
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de exemplo gerada por este guia
 
-![Mostra como a aplicação de exemplo gerado por este funciona de tutoriais](media/active-directory-develop-guidedsetup-android-intro/android-intro-updated.png)
+![Mostra como a aplicação de exemplo gerado por este funciona de tutoriais](media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
 A aplicação neste exemplo irá iniciar sessão dos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API remota (Microsoft Graph API neste caso) que requer autorização e é também protegida pela plataforma de identidade da Microsoft.
 

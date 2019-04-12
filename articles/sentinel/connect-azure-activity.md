@@ -1,6 +1,6 @@
 ---
-title: Recolher dados de atividade do Azure em pré-visualização sentinela do Azure | Documentos da Microsoft
-description: Saiba como recolher dados de atividade do Azure no Azure sentinela.
+title: Ligue os dados de atividade do Azure para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar os dados de atividade do Azure ao Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 42ce8d06489cfacf7ba9bb3de1425224b5df95e7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240580"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494683"
 ---
-# <a name="collect-data-from-azure-activity-log"></a>Recolher dados de registo de atividades do Azure
+# <a name="connect-data-from-azure-activity-log"></a>Ligue os dados do registo de atividades do Azure
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -37,7 +37,7 @@ Pode transmitir em fluxo registos a partir [registo de atividades do Azure](../a
 
 ## <a name="connect-to-azure-activity-log"></a>Ligar ao registo de atividades do Azure
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **registo de atividades do Azure** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **registo de atividades do Azure** mosaico.
 
 2. No painel de registo de atividade do Azure, selecione as subscrições que pretende transmitir para o Azure sentinela. 
 

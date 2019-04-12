@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 04/09/2019
 ms.author: juliako
 ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471176"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496323"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obter uma chave de assinatura da política existente
 

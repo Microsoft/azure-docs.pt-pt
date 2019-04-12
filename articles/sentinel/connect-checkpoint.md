@@ -1,6 +1,6 @@
 ---
-title: Ponto de verificação de recolher dados sentinela na pré-visualização no Azure | Documentos da Microsoft
-description: Saiba como recolher dados de ponto de verificação no sentinela do Azure.
+title: Ligar a dados do ponto de verificação para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do ponto de verificação para sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58876501"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489181"
 ---
 # <a name="connect-your-check-point-appliance"></a>Ligar a sua aplicação de ponto de verificação
 
@@ -30,7 +30,7 @@ ms.locfileid: "58876501"
 Pode ligar sentinela do Azure para qualquer aplicação de ponto de verificação ao guardar os ficheiros de registo como Syslog CEF. A integração com o Azure sentinela permite-lhe executar facilmente análises e consultas em dados de ficheiro de registo do ponto de verificação. Para obter mais informações sobre como o Azure sentinela ingere dados CEF, consulte [aparelhos de ligar o CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
+> Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Passo 1: Ligar a sua aplicação de ponto de verificação da utilização de um agente
 
@@ -42,7 +42,7 @@ Para ver um diagrama de rede de ambas as opções, consulte [ligar a origens de 
 
 ### <a name="deploy-the-agent-in-azure"></a>Implementar o agente no Azure
 
-1. No portal do Azure sentinela, clique em **recolha de dados** e selecione o tipo de aplicação. 
+1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação. 
 
 1. Sob **configuração do agente Linux Syslog**:
    - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM dedicada, que é conectada automaticamente à sua área de trabalho. A VM é um **padrão D2s v3 (2 vcpus, 8 GB de memória)** e tem um endereço IP público.

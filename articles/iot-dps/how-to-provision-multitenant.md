@@ -3,17 +3,17 @@ title: Como aprovisionar dispositivos para arquitetura "multitenancy", em que o 
 description: Como aprovisionar dispositivos para arquitetura "multitenancy" com a sua instância do serviço de aprovisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544448"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500741"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -208,7 +208,7 @@ Nesta secção, irá clone o SDK de C do Azure IoT em cada VM. O SDK contém um 
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    Atualmente, o tamanho deste repositório é de cerca de 220 MB. Esta operação deve demorar vários minutos a ser concluída.
+    Esta operação deve demorar vários minutos a ser concluída.
 
 1. Para ambas as VMs, crie um novo **cmake** pasta dentro do repositório e a alteração para essa pasta.
 
@@ -420,7 +420,7 @@ Para eliminar o grupo de recursos por nome:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais Reprovisioning, veja [conceitos de reprovisoning de dispositivos no Hub IoT](concepts-device-reprovision.md) 
+- Para saber mais Reprovisioning, veja [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
 - Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados](how-to-unprovision-devices.md) 
 
 

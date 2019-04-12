@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f4caed1ea0490470009c21f22624861808cb2d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578684"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496083"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -87,7 +87,7 @@ Para funções de recursos do Azure, apenas um administrador de subscrição, um
 
 PIM suporta os seguintes cenários:
 
-**Enquanto Administrador de Função com Privilégios, pode:**
+**Como um administrador com função privilegiada, pode:**
 
 - Ativar a aprovação de funções específicas
 - Especificar utilizadores e/ou grupos de aprovação para aprovar pedidos
@@ -108,5 +108,5 @@ PIM suporta os seguintes cenários:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Requisitos de licença para utilizar o PIM](subscription-requirements.md)
-- [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Implementar o PIM](pim-deployment-plan.md)

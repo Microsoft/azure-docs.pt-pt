@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48142961e4b6714090441b24e4bd6ca07afaf598
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: df0593faaf8b68c793a65312b208fe858804db53
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622251"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496286"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -43,9 +43,9 @@ As seguintes funções de administrador estão disponíveis:
 * **[Desenvolvedor de aplicativos](#application-developer)**: Os utilizadores nesta função podem criar registos de aplicações quando o "Os utilizadores podem registar aplicações" definição está definida como não. Esta função também concede permissão para consentir em nome da própria quando o "Os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles" definição está definida como não. Os utilizadores atribuídos a esta função são adicionados como proprietários durante a criação de novos registos de aplicação ou aplicações da empresa.
 
 * **[Administrador de autenticação](#authentication-administrator)**: Os utilizadores com esta função podem definir ou repor as credenciais de palavra-passe. Os administradores de autenticação podem exigir que os utilizadores voltar a registar contra credenciais de palavra-passe existente (por exemplo, MFA ou FIDO) e revogar **Lembre-se a MFA no dispositivo**, que pede para a MFA no próximo início de sessão de utilizadores que são não-administradores ou atribuída apenas as seguintes funções:
-  * Administrador da Autenticação
-  * Leitores de Diretório
-  * Utilizador Que Convida Convidados
+  * Administrador de Autenticação
+  * Leitores de Diretórios
+  * Emitente de Convites
   * Leitor do Centro de Mensagens
   * Leitor de Relatórios
 
@@ -73,9 +73,9 @@ As seguintes funções de administrador estão disponíveis:
   ----- | ----------
   [Centro de conformidade do Microsoft 365](https://protection.microsoft.com) | Proteger e gerir os dados da sua organização em todos os serviços do Microsoft 365<br>Gerir alertas de conformidade
   [Gestor de conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Controlar, atribuir e verificar suas atividades da organização a conformidade a normas
-  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir a governação de dados<br>Executar dados de e legais da investigação<br>Gerir pedido do requerente de dados
+  [Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir a governação de dados<br>Executar dados de e legais da investigação<br>Gerir pedido do requerente de dados
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Ver todos os dados de auditoria do Intune
-  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas<br>Pode criar e modificar as políticas de ficheiros e permitir ações de governação de ficheiros<br> Pode ver todos os relatórios incorporados sob a gestão de dados
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas<br>Pode criar e modificar as políticas de ficheiros e permitir ações de governação de ficheiros<br> Pode ver todos os relatórios incorporados sob a gestão de dados
 
 <!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
 
@@ -96,7 +96,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administradores de dispositivos](#device-administrators)**: Esta função está disponível para atribuição apenas como um administrador local adicional na [definições do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os utilizadores com esta função tornam-se administradores de computadores locais em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory. 
 
-* **[Leitores de diretório](#directory-readers)**: Esta é uma função legada que está a ser atribuída às aplicações que não suportam o [consentimento Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não deve ser atribuído a quaisquer utilizadores.
+* **[Leitores de diretório](#directory-readers)**: Esta é uma função que deve ser atribuída a aplicativos herdados apenas para que não suportam o [consentimento Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não atribua aos utilizadores.
 
 * **[Contas de sincronização de diretórios](#directory-synchronization-accounts)**: Não utilize. Esta função é atribuída automaticamente ao serviço Azure AD Connect e não é a finalidade ou suportada para qualquer outro uso.
 
@@ -135,8 +135,8 @@ As seguintes funções de administrador estão disponíveis:
 * **[Suporte de escalão 2 de parceiros](#partner-tier2-support)**: Não utilize. Esta função foi preterida e será removida do Azure AD no futuro. Esta função é destinada à utilização por um pequeno número de parceiros de revenda da Microsoft e não se destina a utilização geral.
 
 * **[Administrador de suporte técnico (palavra-passe)](#helpdesk-administrator)**: Os utilizadores com esta função podem alterar palavras-passe, invalidar os tokens de atualização, gerir pedidos de serviço e monitorizar o estado de funcionamento do serviço. Invalidar um token de atualização força o utilizador iniciar sessão novamente. Os administradores de suporte técnico podem repor palavras-passe e invalidar os tokens de atualização de outros utilizadores que são não-administradores ou atribuída apenas as seguintes funções:
-  * Leitores de Diretório
-  * Utilizador Que Convida Convidados
+  * Leitores de Diretórios
+  * Emitente de Convites
   * Administrador de Suporte Técnico
   * Leitor do Centro de Mensagens
   * Leitor de Relatórios
@@ -173,11 +173,11 @@ As seguintes funções de administrador estão disponíveis:
   [Centro de segurança do Microsoft 365](https://protection.microsoft.com) | Monitorizar políticas relacionadas com segurança em todos os serviços do Microsoft 365<br>Gerir ameaças de segurança e alertas<br>Ver relatórios
   Identity Protection Center | Todas as permissões da função do leitor de segurança<br>Além disso, a capacidade de executar todas as operações do Centro de proteção de identidade, exceto para repor palavras-passe
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função do leitor de segurança<br>**Não é possível** gerir atribuições de funções do Azure AD ou definições
-  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir políticas de segurança<br>Ver, investigar e responder a ameaças de segurança<br>Ver relatórios
+  [Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir políticas de segurança<br>Ver, investigar e responder a ameaças de segurança<br>Ver relatórios
   Proteção Avançada Contra Ameaças do Azure | Monitorizar e responder à atividade suspeita de segurança
   Windows Defender ATP e EDR | Atribuir funções<br>Gerir grupos de máquinas<br>Configurar a deteção de ameaças do ponto final e a remediação automática<br>Ver, investigar e responder a alertas
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Utilizador de vistas, dispositivo, inscrição, configuração e informações sobre a aplicação<br>Não é possível efetuar alterações ao Intune
-  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e definições, carregar registos e desempenhar ações de governação
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e definições, carregar registos e desempenhar ações de governação
   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações
   [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
 
@@ -201,10 +201,10 @@ As seguintes funções de administrador estão disponíveis:
   [Centro de segurança do Microsoft 365](https://protection.microsoft.com) | Ver políticas relacionadas com segurança em todos os serviços do Microsoft 365<br>Ameaças de segurança de View e alertas<br>Ver relatórios
   Identity Protection Center | Ler todos os relatórios de segurança e informações das definições de funcionalidades de segurança<br><ul><li>Anti-spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de mensagens
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tem acesso só de leitura para todas as informações apresentadas no PIM do Azure AD: As políticas e relatórios para atribuições de funções do Azure AD, o security analisa e acesso aos dados de política e relatórios para cenários, além de atribuição de função do Azure AD de leitura no futuro.<br>**Não é possível** inscrever-se no PIM do Azure AD ou fazer alterações ao mesmo. No portal do PIM ou através do PowerShell, alguém nesta função pode ativar as funções adicionais (por exemplo, Administrador Global ou administrador com função privilegiada), se o utilizador é elegível para eles.
-  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Ver as políticas de segurança<br>Ver e investigar ameaças de segurança<br>Ver relatórios
+  [Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Ver as políticas de segurança<br>Ver e investigar ameaças de segurança<br>Ver relatórios
   Windows Defender ATP e EDR | Ver e investigar alertas
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Utilizador de vistas, dispositivo, inscrição, configuração e informações sobre a aplicação. Não é possível efetuar alterações ao Intune.
-  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas
+  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas
   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista
   [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
 
@@ -237,7 +237,7 @@ As seguintes funções de administrador estão disponíveis:
   | --- | --- |
   |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir pedidos de suporte do Office<p>Atualizar as políticas de expiração de palavra-passe|
   |<p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades de utilizador, exceto o nome Principal de utilizador</p>
-  |Apenas em utilizadores que são não-administradores ou em qualquer um dos seguintes limitada funções de administrador:<ul><li>Leitores de Diretório<li>Utilizador Que Convida Convidados<li>Administrador de Suporte Técnico<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Eliminar e restauro</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerir todas as propriedades de utilizador, incluindo o nome Principal de utilizador</p><p>Repor palavra-passe</p><p>Atualizar as chaves de dispositivo (FIDO)</p>
+  |Apenas em utilizadores que são não-administradores ou em qualquer um dos seguintes limitada funções de administrador:<ul><li>Leitores de Diretórios<li>Emitente de Convites<li>Administrador de Suporte Técnico<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Eliminar e restauro</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerir todas as propriedades de utilizador, incluindo o nome Principal de utilizador</p><p>Repor palavra-passe</p><p>Atualizar as chaves de dispositivo (FIDO)</p>
   
   <b>Importante</b>: Os utilizadores com esta função podem alterar as palavras-passe para as pessoas que podem ter acesso a informações confidenciais ou privadas ou críticos de configuração dentro e fora do Azure Active Directory. Alterar a palavra-passe de um utilizador pode significar que a capacidade de assumir a identidade e permissões do usuário. Por exemplo:
   * Registo de aplicação e aplicação empresarial proprietários, que podem gerir as credenciais de aplicações que possuem. Esses aplicativos podem ter privilegiado permissões no Azure AD e noutro local não é concedido a administradores de utilizador. Através deste caminho um administrador do utilizador poderá assumir a identidade de um proprietário da aplicação e, em seguida, mais assumir a identidade de um aplicativo com privilégios ao atualizar as credenciais para a aplicação.
@@ -302,7 +302,7 @@ Pode criar registos de aplicações independentemente do "os utilizadores podem 
 | microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | Criar oAuth2PermissionGrants no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Criar servicePrincipals no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
 
-### <a name="authentication-administrator"></a>Administrador da Autenticação
+### <a name="authentication-administrator"></a>Administrador de Autenticação
 Pode ver, definir e repor as informações de método de autenticação para qualquer utilizador não administrador.
 
 | **Ações** | **Descrição** |
@@ -350,7 +350,7 @@ Pode aceder e gerir os serviços incluindo o Intune e de ferramentas de gerencia
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="cloud-application-administrator"></a>Administrador da Aplicação Cloud
+### <a name="cloud-application-administrator"></a>Administrador de Aplicações de Cloud
 Pode criar e gerir todos os aspetos de registos de aplicações e aplicações empresariais, exceto o Proxy de Aplicações.
 
 | **Ações** | **Descrição** |
@@ -392,7 +392,7 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="cloud-device-administrator"></a>Administrador de Dispositivo na Cloud
+### <a name="cloud-device-administrator"></a>Administrador de Dispositivos de Cloud
 Acesso total para gerir dispositivos no Azure AD.
 
 | **Ações** | **Descrição** |
@@ -506,7 +506,7 @@ Pode gerir capacidades de acesso condicional.
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Ler a propriedade policies.conditionalAccess no Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/tenantDefault/update | Atualizar a propriedade policies.conditionalAccess no Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>Administrador de Serviço CRM
+### <a name="crm-service-administrator"></a>Administrador de Serviço de CRM
 Pode gerir todos os aspetos do produto Dynamics 365.
 
   > [!NOTE]
@@ -523,7 +523,7 @@ Pode gerir todos os aspetos do produto Dynamics 365.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="customer-lockbox-access-approver"></a>Aprovador de Acesso ao Cofre de Cliente
+### <a name="customer-lockbox-access-approver"></a>Aprovador de Acesso ao Sistema de Proteção de Dados do Cliente
 Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizacionais do cliente.
 
   > [!NOTE]
@@ -536,7 +536,7 @@ Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizaciona
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
 | microsoft.office365.lockbox/allEntities/allTasks | Gerir todos os aspetos do Sistema de Proteção de Dados do Cliente do Office 365 |
 
-### <a name="device-administrators"></a>Administradores de Dispositivo
+### <a name="device-administrators"></a>Administradores de Dispositivos
 Os utilizadores atribuídos a esta função são adicionados ao grupo Administradores local em dispositivos associados ao AD Azure.
 
 | **Ações** | **Descrição** |
@@ -544,7 +544,7 @@ Os utilizadores atribuídos a esta função são adicionados ao grupo Administra
 | microsoft.aad.directory/groupSettings/basic/read | Ler as propriedades básicas em groupSettings no Azure Active Directory. |
 | microsoft.aad.directory/groupSettingTemplates/basic/read | Ler as propriedades básicas de groupSettingTemplates no Azure Active Directory. |
 
-### <a name="directory-readers"></a>Leitores de Diretório
+### <a name="directory-readers"></a>Leitores de Diretórios
 Pode ler as informações de diretório básicas. Para conceder acesso a aplicações, não se destina aos utilizadores.
 
 | **Ações** | **Descrição** |
@@ -676,7 +676,7 @@ Pode gerir todos os aspetos do produto Exchange.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="guest-inviter"></a>Utilizador Que Convida Convidados
+### <a name="guest-inviter"></a>Emitente de Convites
 Pode convidar utilizadores convidados independentemente da definição "Os membros podem convidar convidados".
 
 | **Ações** | **Descrição** |
@@ -866,7 +866,7 @@ Não utilize – não se destina a utilização geral.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="power-bi-service-administrator"></a>Administrador do Power BI
+### <a name="power-bi-service-administrator"></a>Administrador de Serviço do Power BI
 Pode gerir todos os aspetos do produto Power BI.
 
   > [!NOTE]
@@ -1013,7 +1013,7 @@ Pode gerir todos os aspetos do serviço do SharePoint.
 | microsoft.office365.sharepoint/allEntities/allTasks | Criar e eliminar todos os recursos e ler e atualizar propriedades padrão em microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="teams-communications-administrator"></a>Administrador de Comunicações do Teams
+### <a name="teams-communications-administrator"></a>Administrador de Comunicações de Equipas
 Pode gerir funcionalidades de chamadas e reuniões no serviço Microsoft Teams.
 
   > [!NOTE]
@@ -1127,42 +1127,42 @@ DisplayName de gráfico | Nome a apresentar de portal do Azure | directoryRoleTe
 ----------------- | ------------------------- | -------------------------
 Administrador de Aplicações | Administrador de aplicações | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programador de Aplicações | Programador de aplicações | CF1C38E5-3621-4004-A7CB-879624DCED7C
-Administrador da Autenticação | Administrador da autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Administrador de Autenticação | Administrador de autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Administrador de Faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrador da Análise de Computadores | Administrador da Análise de Computadores | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Administrador da Aplicação Cloud | Administrador da aplicação Cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
-Administrador de Dispositivo na Cloud | Administrador de dispositivo na cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
+Administrador de Aplicações de Cloud | Administrador de aplicações de cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
+Administrador de Dispositivos de Cloud | Administrador de dispositivos de cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
 Administrador de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
 Administrador de Conformidade | Administrador de Conformidade | 17315797-102d-40b4-93e0-432062caca18
-Administrador de Acesso Condicional | Administrador do Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-Administrador de Serviço CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
-Aprovador de Acesso ao Cofre de Cliente | Aprovador de acesso do Cofre de cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
-Administradores de Dispositivo | Administradores de dispositivos | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Administrador de Acesso Condicional | Administrador de Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
+Administrador de Serviço de CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
+Aprovador de Acesso ao Sistema de Proteção de Dados do Cliente | Aprovador de acesso do Cofre de cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Administradores de Dispositivos | Administradores de dispositivos | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Associação de dispositivo | Associação de dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Gestores de Dispositivo | Gestores de dispositivos | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utilizadores de dispositivos | Utilizadores de dispositivos | d405c6df-0af8-4e3b-95e4-4d06e542189e
-Leitores de Diretório | Leitores de diretórios | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Contas de sincronização de diretório | Contas de sincronização do diretório | d29b2b05-8046-44ba-8758-1e26182fcf32
-Gravadores de Diretórios | Escritores de diretórios | 9360feb5-f418-4baa-8175-e2a00bac4301
+Leitores de Diretórios | Leitores de diretórios | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
+Contas de sincronização de diretório | Contas de sincronização de diretórios | d29b2b05-8046-44ba-8758-1e26182fcf32
+Gravadores de Diretórios | Escritores em diretórios | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrador de Serviço Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
-Utilizador Que Convida Convidados | Autor de convites | 95e79109-95c0-4d8e-aee3-d01accf2d47b
+Emitente de Convites | Emitente de Convites | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de Suporte Técnico | Administrador de palavras-passe | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador do Information Protection | Administrador do Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrador de Serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
-Administrador de Licenças | Administrador de licença | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
+Administrador de Licenças | Administrador de licenças | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador do Serviço Lync | Administrador do Skype para Empresas | 75941009-915a-4869-abe7-691bff18279e
 Leitor do Centro de Mensagens | Leitor do centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Parceiro de Suporte de Escalão 1 | Suporte para parceiros do escalão 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Parceiro de Suporte de Escalão 2 | Suporte para parceiros do escalão 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
-Administrador do Power BI | Administrador do Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrador de Serviço do Power BI | Administrador do Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrador de Autenticação Privilegiada | Administrador de autenticação privilegiada | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
-Administrador com Função Privilegiada | Administrador com Função Privilegiada | e8611ab8-c189-46e8-94e1-60213ab1f814
+Administrador com Função Privilegiada | Administrador de Funções Privilegiadas | e8611ab8-c189-46e8-94e1-60213ab1f814
 Leitor de Relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Administrador de Segurança | Administrador de segurança | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Leitor de Segurança | Leitor de segurança | 5d6b6bb7-de71-4623-b4af-96380a352509
 Administrador de Assistência Técnica | Administrador de serviço | f023fd81-a637-4b56-95fd-791ac0226033
 Administrador do Serviço SharePoint | Administrador do SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
-Administrador de Comunicações do Teams | Administrador de Comunicações do Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
+Administrador de Comunicações de Equipas | Administrador de Comunicações de Equipas | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Especialista de Suporte de Comunicações do Teams | Especialista de Suporte de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de Serviço do Teams | Administrador de Serviço do Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8

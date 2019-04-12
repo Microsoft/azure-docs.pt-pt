@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f3f041fa3b594b4b680d794c1c013e55b97da4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235194"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501600"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de ajuda e suporte para programadores
 
@@ -55,7 +55,6 @@ Em que *{Your termos de pesquisa}* correspondem às suas palavras-chave de pesqu
 | Ferramenta  | Descrição  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Colar um ID ou o token de acesso para decodificar os valores e nomes de afirmações. |
-| [Analisador de código de erro](https://apps.dev.microsoft.com/portal/tools/errors)| Cole o código de erro recebido durante o início de sessão ou páginas para ver possíveis causas e resoluções de consentimento. |
 | [Do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Ferramenta que lhe permite fazer pedidos e ver respostas com o Microsoft Graph API. |
 
 ## <a name="post-a-question-to-stack-overflow"></a>Publique uma pergunta do Stack Overflow

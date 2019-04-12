@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105306"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489319"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Carga de tráfego interno de saldo com um balanceador de carga básico no portal do Azure
 
@@ -95,11 +95,10 @@ Crie um balanceador de carga interno básico com o portal. O nome e endereço IP
     | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
     | Name                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Type          | Selecione **público**.                                        |
+    | Type          | Selecione **interno**.                                        |
     | SKU           | Selecione **Básico**.                          |
     | Rede virtual           | Selecione *MyVNet*.                          |    
-| Endereço IP público | Selecione **Criar novo**. |
-    | Atribuição de endereços IP pública              | Selecione **estático**.   |
+    | Atribuição de endereços IP              | Selecione **estático**.   |
     | Endereço IP privado|Escreva um endereço que está no espaço de endereços da sua rede virtual e sub-rede, por exemplo *10.3.0.7*.  |
 
 3. Na **rever + criar** separador, clique em **criar**. 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014128"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496799"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
@@ -75,6 +75,10 @@ Existem três tipos de opções de exportação:
 
 **Custom** – permite-lhe agendar semanal e mensal exporta com opções de semana até à data e mês até à data. *A exportação inicial será executado imediatamente.*
 
+Se tiver uma subscrição pay as you go, o MSDN ou o Visual Studio, seu período de faturação de nota fiscal pode não Alinhar ao calendário mensal. Para esses tipos de subscrições e grupos de recursos, pode criar uma exportação alinhado ao seu período de nota fiscal ou para os meses de calendário. Para criar uma exportação alinhada com o seu mês de nota fiscal, navegue para **personalizada**, em seguida, selecione **faturação período para datas**.  Para criar uma exportação alinhada com o mês de calendário, selecione **mês até à data**.
+>
+>
+
 ![Nova exportação - separador de noções básicas que mostra uma seleção de semana até à data semanal personalizada](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Verificar se os dados são recolhidos
@@ -93,6 +97,7 @@ O ficheiro abre com o programa ou a aplicação que definiu para abrir as extens
 
 ![Exemplo exportados dados CSV mostrados no Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+
 ## <a name="access-exported-data-from-other-systems"></a>Aceder aos dados exportados a partir de outros sistemas
 
 Um dos objetivos de exportar os dados do Cost Management é aceder aos dados a partir de sistemas externos. Pode utilizar um sistema de dashboard ou outro sistema financeiro. Estes sistemas variam bastante, de modo que mostrar um exemplo seria impraticável.  No entanto, pode começar a perceber como aceder aos seus dados de aplicações em [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md).
@@ -108,4 +113,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para otimizar e melhorar a eficiência, ao identificar os recursos inativos e subutilizados.
 
 > [!div class="nextstepaction"]
-> [Analisar e tomar medidas relacionadas com recomendações de otimização](tutorial-acm-opt-recommendations.md)
+> [Revisão e tomar medidas relacionadas com recomendações de otimização](tutorial-acm-opt-recommendations.md)

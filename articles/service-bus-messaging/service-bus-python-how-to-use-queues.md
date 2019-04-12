@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242603"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500503"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como utilizar filas do Service Bus com Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como utilizar as filas do Service Bus. Os exemplos são escritos em Python e utilize o [pacote de Python do Azure Service Bus][Python Azure Service Bus package]. Os cenários abrangidos incluem **criando filas, enviar e receber mensagens**, e **eliminar filas**.
+Neste tutorial, saiba como criar aplicações de Python para enviar mensagens para e receber mensagens de uma fila do Service Bus. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo.
+    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
+    2. Criar um barramento de serviço **espaço de nomes**. 
+    3. Obter o **cadeia de ligação**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Para instalar o Python ou o [pacote de Python do Azure Service Bus][Python Azure Service Bus package], consulte a [guia de instalação do Python](../python-how-to-install.md).
-> 
-> Consulte a documentação completa do SDK de Python de barramento de serviço [aqui](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > Irá criar um **fila** no espaço de nomes do Service Bus com o Python neste tutorial. 
+1. Instalar o Python ou o [pacote de Python do Azure Service Bus][Python Azure Service Bus package], consulte a [guia de instalação do Python](../python-how-to-install.md). Consulte a documentação completa de Python SDK do Service Bus [aqui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Criar uma fila
 O **ServiceBusClient** objeto permite-lhe trabalhar com as filas. Adicione o seguinte código perto da parte superior de qualquer ficheiro de Python no qual pretende aceder através de programação do Service Bus:

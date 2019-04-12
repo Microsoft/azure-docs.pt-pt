@@ -2,18 +2,18 @@
 title: Pontos finais de segurança no serviço de aprovisionamento de dispositivos de IoT | Documentos da Microsoft
 description: Conceitos - como controlar o acesso ao serviço de aprovisionamento de dispositivos de IoT para aplicações de back-end. Inclui informações sobre os tokens de segurança.
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496975"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495435"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
@@ -39,7 +39,7 @@ Pode conceder [permissões](#device-provisioning-service-permissions) das seguin
 > [!NOTE]
 > Ver [permissões](#device-provisioning-service-permissions) para obter informações detalhadas.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 O Azure IoT Hub serviço aprovisionamento de dispositivos concede acesso a pontos finais verificando um token com as diretivas de acesso partilhado. Credenciais de segurança, tais como chaves simétricas, nunca são enviadas durante a transmissão.
 
@@ -75,7 +75,7 @@ O token de segurança tem o seguinte formato:
 
 Seguem-se os valores esperados:
 
-| Value | Descrição |
+| Valor | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificar a partir de base64 e usada como chave para realizar a computação do HMAC-SHA256.|
 | {expiry} |UTF8 cadeias de caracteres para o número de segundos desde a UTC de 00:00:00 "Epoch" em 1 de Janeiro de 1970. |

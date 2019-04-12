@@ -1,5 +1,5 @@
 ---
-title: Recolher dados de inteligência de ameaças na pré-visualização de sentinela de Azure | Documentos da Microsoft
+title: Ligar a dados de inteligência de ameaças para a pré-visualização de sentinela do Azure | Documentos da Microsoft
 description: Saiba mais sobre como ligar a dados de inteligência de ameaças ao Azure sentinela.
 documentationcenter: na
 author: rkarlin
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400636"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494838"
 ---
-# <a name="collect-data-from-threat-intelligence-providers"></a>Recolher dados de fornecedores de inteligência de ameaças 
+# <a name="connect-data-from-threat-intelligence-providers"></a>Ligar dados a partir de fornecedores de inteligência de ameaças 
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -44,7 +44,7 @@ Pode transmitir em fluxo registos de fornecedores de inteligência de ameaças e
 
 1. Se já estiver a utilizar um fornecedor de inteligência de ameaças, certifique-se de que navegar para a aplicação de sugestão e conceder permissão para enviar indicadores para a Microsoft e especificar o serviço como sentinela do Azure.  
 
-2. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **informações sobre ameaças** mosaico.
+2. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **informações sobre ameaças** mosaico.
 
 3. Clique em **Ligar**. 
 

@@ -11,11 +11,11 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471737"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495741"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicionar preenchimento automático ou sugestões para a sua aplicação do Azure Search
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521674"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496595"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
 
@@ -32,7 +32,7 @@ Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho p
 
 Para começar a enviar os registos de automatização para registos do Azure Monitor, é necessário:
 
-* Versão de Novembro 2016 ou posterior do [do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+* A versão mais recente do [do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [começar a utilizar com os registos do Azure Monitor](../log-analytics/log-analytics-get-started.md). 
 * O ResourceId para a sua conta de automatização do Azure.
 
@@ -40,14 +40,14 @@ Para localizar o ResourceId para a sua conta de automatização do Azure:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 Para localizar o ResourceId sua área de trabalho do Log Analytics, execute o PowerShell seguinte:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 Se tiver mais do que um contas de automatização ou encontrar áreas de trabalho, a saída dos comandos anteriores, o *Name* tem de configurar e copie o valor para *ResourceId*.
@@ -63,19 +63,20 @@ Se precisa localizar o *Name* da sua conta de automatização no portal do Azure
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 Depois de executar este script, pode demorar uma hora antes de começar a ver registos nos registos do Azure Monitor do novo JobLogs ou JobStreams que estão sendo gravados.
 
-Para ver os registos, execute a seguinte consulta na pesquisa de registos do log analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta na pesquisa de registos do log analytics:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificar configuração
 
 Para confirmar a sua conta de automatização está a enviar registos para a área de trabalho do Log Analytics, verifique se diagnóstico está corretamente configurado na conta de automatização utilizando o PowerShell seguinte:
 
 ```powershell-interactive
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 Na saída Certifique-se de que:
@@ -136,7 +137,8 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 
 Agora que iniciou a enviar os registos da tarefa de automatização para registos do Azure Monitor, vejamos o que pode fazer com estes registos no interior de registos do Azure Monitor.
 
-Para ver os registos, execute a seguinte consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta:
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Enviar um e-mail quando uma tarefa de runbook falha ou suspende
 Um dos principais clientes pede destina-se a capacidade de enviar um e-mail ou uma mensagem de texto quando algo dá errado com uma tarefa de runbook.   
@@ -173,7 +175,7 @@ Para remover a definição de diagnóstico da conta de automatização, execute 
 ```powershell-interactive
 $automationAccountId = "[resource id of your automation account]"
 
-Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 ## <a name="summary"></a>Resumo

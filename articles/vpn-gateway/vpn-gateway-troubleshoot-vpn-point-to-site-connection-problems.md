@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630458"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492384"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure
 
@@ -57,6 +57,35 @@ Para obter mais informações sobre como instalar o certificado de cliente, cons
 
 > [!NOTE]
 > Ao importar o certificado de cliente, não selecione a **ativar a proteção forte por chave privada** opção.
+
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>Não foi possível estabelecer a ligação de rede entre o computador e o servidor VPN porque o servidor remoto não está a responder
+
+### <a name="symptom"></a>Sintoma
+
+Quando tenta e ligar a um gteway de rede virtual do Azure com o IKEv2 no Windows, obterá a seguinte mensagem de erro:
+
+**Não foi possível estabelecer a ligação de rede entre o computador e o servidor VPN porque o servidor remoto não está a responder**
+
+### <a name="cause"></a>Causa
+ 
+ O problema ocorre se a versão do Windows não tem suporte para a fragmentação do IKE
+ 
+### <a name="solution"></a>Solução
+
+O IKEv2 é suportado no Windows 10 e Windows Server 2016. No entanto, para poder utilizar o IKEv2, tem de instalar as atualizações e definir uma chave de registo localmente. As versões de SO anteriores ao Windows 10 não são suportadas e só podem utilizar o SSTP.
+
+Para preparar o Windows 10 ou o Windows Server 2016 para o IKEv2:
+
+1. Instale a atualização.
+
+   | Versão do SO | Date | Número/Ligação |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10, Versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10, Versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 versão 1709 | 22 de Março de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Defina o valor da chave de registo. Crie ou defina a chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD no registo como 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erro de cliente VPN: A mensagem recebida era inesperada ou formatado incorretamente
 
@@ -107,7 +136,7 @@ Ao tentar ligar a uma rede virtual do Azure com o cliente VPN, receberá a segui
 
 Receberá a seguinte mensagem de erro:
 
-**Erro de transferência de ficheiros. URI de destino não está especificado.**
+**Erro de transferência de ficheiros. O URI de destino não foi especificado.**
 
 ### <a name="cause"></a>Causa 
 

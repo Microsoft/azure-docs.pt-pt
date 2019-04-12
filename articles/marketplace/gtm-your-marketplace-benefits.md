@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887255"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489576"
 ---
 # <a name="your-marketplace-benefits"></a>Os benefícios do Marketplace
 
@@ -73,7 +73,7 @@ A tabela a seguir resumem os requisitos de elegibilidade:
 
 \* Necessita de competência silver ou gold. <br>
 \*\* Requer a competência gold. <br>
-\*\*\* Requer a competência gold e listagem de venda conjunta pronto no catálogo de OCP. <br>
+\*\*\* Requer a competência gold e venda conjunta pronto em listagens de parceiros. <br>
 ^ Apenas, transact aplicável ao Azure Marketplace.
 
 ## <a name="next-steps"></a>Passos Seguintes

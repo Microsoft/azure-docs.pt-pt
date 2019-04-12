@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054812"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489816"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação do dispositivo utilizando certificados de AC X.509
 
@@ -40,7 +40,7 @@ Para o ambiente de produção, recomendamos que adquira um certificado X.509 de 
 
 Também pode criar uma AC de X.509 autoassinado para a experimentação, ou para utilização em redes de IoT fechados.
 
-Independentemente de como obter o certificado X.509 de AC, certifique-se de manter o respetivo correspondente privada chave segredo e protegidos, o tempo todo.  Isso é necessário para criar a confiança na autenticação de X.509 de AC de confiança. 
+Independentemente de como obter o certificado X.509 de AC, certifique-se de manter o respetivo correspondente privada chave segredo e protegidos, o tempo todo.  Isso é necessário para criar a confiança na autenticação de X.509 de AC de confiança.
 
 Saiba como [criar um certificado de AC autoassinado](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que pode utilizar para a experimentação ao longo desta descrição do recurso.
 
@@ -48,7 +48,9 @@ Saiba como [criar um certificado de AC autoassinado](https://github.com/Azure/az
 
 O proprietário de um certificado X.509 de AC criptograficamente pode iniciar sessão uma AC intermédia que por sua vez pode se outra AC intermediária, e assim por diante, até o último intermediário AC termina este processo ao inscrever um dispositivo. O resultado é uma cadeia de cascata de certificados, conhecido como uma cadeia de certificados de confiança. Na vida real isso continua como delegação de confiança para inscrever dispositivos. Esta delegação é importante porque estabelece uma variável criptograficamente cadeia de custódia e evita a partilha de chaves de assinatura.
 
-![img-Generic-CERT-chain-of-Trust](./media/generic-cert-chain-of-trust.png)
+![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+O certificado do dispositivo (também chamado de um certificado de folha) tem de ter o *nome do requerente* definido como o **ID do dispositivo** que foi utilizado quando registar o dispositivo de IoT no IoT Hub do Azure. Esta definição é necessária para a autenticação.
 
 Saiba aqui como [criar uma cadeia de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) como feito ao inscrever dispositivos.
 

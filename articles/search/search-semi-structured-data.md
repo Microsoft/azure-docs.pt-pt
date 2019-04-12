@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471465"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489232"
 ---
 # <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial: Indexar e pesquisar dados semiestruturados (JSON blobs) no Azure Search
 
@@ -37,9 +37,9 @@ Os seguintes serviços, ferramentas e dados são utilizados neste início rápid
 
 [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial. 
 
-[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) é utilizado para armazenar os dados de exemplo.
+[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo.
 
-[Aplicação de ambiente de trabalho postman](https://www.getpostman.com/) é utilizado para enviar pedidos para o Azure Search.
+[Aplicação de ambiente de trabalho postman](https://www.getpostman.com/) para enviar pedidos para o Azure Search.
 
 [Json.zip de versões de avaliação clínica](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contém os dados utilizados neste tutorial. Transfira e deszipe esse arquivo para a sua própria pasta. Dados são originados [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), convertido em JSON para este tutorial.
 
@@ -295,7 +295,7 @@ A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recurs
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode anexar os algoritmos de serviços cognitivos com tecnologia de ia para um pipeline de indexador. Como próximo passo, avance para o tutorial seguinte.
+Existem várias abordagens e várias opções para indexar JSON blobs. Como passo seguinte, revisar e testar as várias opções para ver o que funciona melhor para o seu cenário.
 
 > [!div class="nextstepaction"]
-> [Indexação com IA](cognitive-search-tutorial-blob.md)
+> [Como indexar blobs JSON com o indexador Blob do Azure Search](search-howto-index-json-blobs.md)

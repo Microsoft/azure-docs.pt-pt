@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199635"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492350"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
 
@@ -37,9 +37,6 @@ Neste documento, descrevemos dois cenários:
 1. Ambas as redes virtuais estão a utilizar o modelo de implementação Resource Manager
 2. A rede virtual spoke é clássica e a rede virtual do hub com o gateway está no Resource Manager
 
-> [!IMPORTANT]  
-> O trânsito de gateway é atualmente suportado com o peering de redes virtuais global em pré-visualização. A pré-visualização está disponível em todas as regiões do Azure, regiões da cloud na China e regiões de cloud de governo, mas não em nuvens. Não é necessária nenhuma lista de permissões. Pode testar em pré-visualização através da CLI, PowerShell, modelos ou API. Portal não é suportado na pré-visualização. 
-
 ## <a name="requirements"></a>Requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -54,8 +51,8 @@ O exemplo neste documento precisa que os seguintes recursos sejam criados:
 Consulte os seguintes documentos para obter instruções:
 
 1. [Criar um gateway de VPN numa rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Criar peering de rede virtual com o mesmo modelo de implementação](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Criar peering de rede virtual com diferentes modelos de implementação](../virtual-network/create-peering-different-deployment-models.md)
+2. [Criar o peering de rede virtual com o mesmo modelo de implementação](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Criar rede virtual peering com modelos de implementação diferentes](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Permissões
 
@@ -63,10 +60,10 @@ As contas que utiliza para criar um peering de rede virtual têm de ter as funç
     
 |Rede virtual|Modelo de implementação|Função|Permissões|
 |---|---|---|---|
-|Hub-RM|Resource Manager|[Contribuidor de Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Clássica|[Contribuidor de Rede Clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|Spoke-Classic|Resource Manager|[Contribuidor de Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Clássica|[Contribuidor de Rede Clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|Hub-RM|Resource Manager|[Contribuinte de Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Clássica|[Contribuinte de Rede Clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
+|Spoke-Classic|Resource Manager|[Contribuinte de Rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Clássica|[Contribuinte de Rede Clássica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Saiba mais sobre [funções incorporadas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) e a atribuição de permissões específicas para [funções personalizadas](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (apenas Resource Manager).
 

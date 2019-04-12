@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173373"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490916"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure
 
-Como um administrador global ou um utilizador que está atribuído a qualquer uma das funções de diretório administrador limitado, pode utilizar o portal do Azure para convidar utilizadores de colaboração B2B. Pode convidar utilizadores convidados para o diretório, a um grupo ou a uma aplicação. Depois de convidar um utilizador através de qualquer um destes métodos, conta do utilizador convidado é adicionada ao Azure Active Directory (Azure AD), com um tipo de utilizador de *convidado*. O utilizador convidado, em seguida, têm de resgatar o convite para aceder aos recursos.
+Como um utilizador a quem é atribuído a qualquer uma das funções de diretório administrador limitado, pode utilizar o portal do Azure para convidar utilizadores de colaboração B2B. Pode convidar utilizadores convidados para o diretório, a um grupo ou a uma aplicação. Depois de convidar um utilizador através de qualquer um destes métodos, conta do utilizador convidado é adicionada ao Azure Active Directory (Azure AD), com um tipo de utilizador de *convidado*. O utilizador convidado, em seguida, têm de resgatar o convite para aceder aos recursos.
 
 Depois de adicionar um utilizador convidado ao diretório, pode optar por enviar o utilizador convidado uma ligação direta para uma aplicação partilhada ou o utilizador convidado pode clique no URL de resgate no e-mail de convite. Para obter mais informações sobre o processo de resgate, consulte [resgate de convite de colaboração do B2B](redemption-experience.md).
 
@@ -31,7 +31,7 @@ Depois de adicionar um utilizador convidado ao diretório, pode optar por enviar
 
 Para adicionar utilizadores de colaboração B2B ao diretório, siga estes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador do Azure Active Directory.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como um utilizador que seja atribuído qualquer do administrador limitado de funções de diretório.
 2. No painel de navegação, selecione **do Azure Active Directory**.
 3. Em **Gerir**, selecione **Utilizadores**.
 4. Selecione **Novo utilizador convidado**.

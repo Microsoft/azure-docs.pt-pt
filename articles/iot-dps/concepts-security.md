@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046905"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490277"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de aprovisionamento de dispositivos IoT Hub 
 
@@ -77,7 +77,11 @@ Um certificado intermédio é um certificado X.509, o que foi assinado pelo cert
 
 ### <a name="end-entity-leaf-certificate"></a>Certificado de "folha" de entidade final
 
-O certificado de folha ou o certificado de entidade final, identifica o titular de certificado. Ele tem o certificado de raiz na sua cadeia de certificados, bem como zero ou mais certificados intermédios. O certificado de folha não é utilizado para assinar todos os outros certificados. Exclusivamente identifica o dispositivo ao serviço de aprovisionamento e é por vezes referido como o certificado do dispositivo. Durante a autenticação, o dispositivo utiliza a chave privada associada este certificado para responder a uma prova de desafio de posse do serviço. Para obter mais informações, consulte [autenticar os dispositivos assinados com certificados X.509 de AC](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+O certificado de folha ou o certificado de entidade final, identifica o titular de certificado. Ele tem o certificado de raiz na sua cadeia de certificados, bem como zero ou mais certificados intermédios. O certificado de folha não é utilizado para assinar todos os outros certificados. Exclusivamente identifica o dispositivo ao serviço de aprovisionamento e é por vezes referido como o certificado do dispositivo. Durante a autenticação, o dispositivo utiliza a chave privada associada este certificado para responder a uma prova de desafio de posse do serviço.
+
+Folha de certificados utilizados com um [inscrição Individual](./concepts-service.md#individual-enrollment) entrada tem um requisito que o **nome do requerente** tem de ser definido para o ID de registo de entrada de inscrição Individual. Folha certificados utilizados com um [grupo de inscrição](./concepts-service.md#enrollment-group) entrada deve ter o **nome do requerente** definido como o ID de dispositivo desejado que será mostrado no **registos de registo** para o dispositivo autenticado no grupo de inscrição.
+
+Para obter mais informações, consulte [autenticar os dispositivos assinados com certificados X.509 de AC](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlar o acesso de dispositivo ao serviço de aprovisionamento com certificados X.509
 

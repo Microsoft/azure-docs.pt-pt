@@ -7,11 +7,11 @@ ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
 ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470921"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493217"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utilizar o emulador do Cosmos para o local de desenvolvimento e teste
 

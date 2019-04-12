@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b4fbfc1d9c9441c6c9f12987de5feb1a90e9f17f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256384"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491753"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IoT industrial (IIoT)
 
@@ -23,7 +23,7 @@ IIoT é a Internet das coisas Industrial. IIoT melhora a eficiência industrial 
 
 Melhore a produtividade operacional e a rentabilidade com um acelerador de solução de fábrica ligada. Ligue e monitorize o seu equipamento industrial e dispositivos na cloud, incluindo as suas máquinas já em funcionamento na fábrica. Analise os seus dados de IoT para obter informações que o ajudam a aumentar o desempenho de toda a fábrica.
 
-Reduzir o processo demorado de aceder a máquinas do chão de fábrica com gestão de dispositivos do Azure IoT OPC UA (OPC duplo) e concentrar-se de seu tempo na criação de soluções de IIoT. Simplifique a gestão de certificados e integração de ativos industriais com gestão de certificados do Azure IoT OPC UA (OPC cofre) e se sentir seguro de que a conectividade do recurso está protegida. Estes microsserviços fornecem uma API de como o REST por cima de [componentes do Azure Industrial IoT](https://github.com/Azure/azure-iiot-opc-ua). A API de serviço dá-lhe controlo da funcionalidade do módulo de borda. 
+Reduzir o processo demorado de aceder a máquinas de chão de fábrica com o OPC duplo e concentrar-se de seu tempo na criação de soluções de IIoT. Simplifique a gestão de certificados e integração de ativos industriais com o Cofre de OPC e se sentir seguro de que a conectividade do recurso está protegida. Estes microsserviços fornecem uma API de como o REST por cima de [componentes do Azure Industrial IoT](https://github.com/Azure/azure-iiot-opc-ua). A API de serviço dá-lhe controlo da funcionalidade do módulo de borda. 
 
 ![Descrição geral de IoT industrial](media/overview-iot-industrial/overview.png)
 
@@ -39,11 +39,11 @@ Se não estiver familiarizado com como funcionam os módulos do Azure IoT Edge, 
 
 ## <a name="factory-floor-connectivity"></a>Conectividade do chão de fábrica
 
-Gestão de dispositivos do Azure IoT OPC UA, também conhecido como OPC duplo, é um componente de IIoT que automatiza a deteção de dispositivos e de registo e oferece controlo remoto dos dispositivos industriais através de REST APIs. Duplo de OPC, utiliza o Azure IoT Edge e IoT Hub para ligar a cloud e a rede de fábrica. Duplo de OPC permite aos desenvolvedores IIoT se concentrar na criação de aplicativos do IIoT sem se preocupar sobre como aceder de forma segura as máquinas no local.
+Duplo de OPC é um componente de IIoT que automatiza a deteção de dispositivos e de registo e oferece controlo remoto dos dispositivos industriais através de REST APIs. Duplo de OPC, utiliza o Azure IoT Edge e IoT Hub para ligar a cloud e a rede de fábrica. Duplo de OPC permite aos desenvolvedores IIoT se concentrar na criação de aplicativos do IIoT sem se preocupar sobre como aceder de forma segura as máquinas no local.
 
 ## <a name="security"></a>Segurança
 
-Gestão de certificados de IoT OPC UA ou OPC cofre do Azure é uma implementação de OPC UA Global deteção de servidor (GDS) que pode configurar, registe-se e gerenciar o ciclo de vida do certificado para o servidor OPC UA e aplicações de cliente na cloud. OPC cofre simplifica a implementação e manutenção de conectividade de recurso seguro no espaço de industrial. Ao automatizar a gestão de certificados, o Cofre de OPC libera os operadores de fábrica dos processos manuais e complexos associados com a conectividade e gestão de certificados.
+Cofre de OPC é uma implementação de OPC UA Global deteção de servidor (GDS) que pode configurar, registe-se e gerenciar o ciclo de vida do certificado para o servidor OPC UA e aplicações de cliente na cloud. OPC cofre simplifica a implementação e manutenção de conectividade de recurso seguro no espaço de industrial. Ao automatizar a gestão de certificados, o Cofre de OPC libera os operadores de fábrica dos processos manuais e complexos associados com a conectividade e gestão de certificados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

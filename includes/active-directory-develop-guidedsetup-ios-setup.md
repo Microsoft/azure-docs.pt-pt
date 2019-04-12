@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203549"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502805"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configurar a sua aplicação iOS
 
@@ -61,7 +61,7 @@ Copie e cole o abaixo. Este comando obtém as dependências para uma pasta de Ca
 carthage update
 ```
 
-> O processo acima é utilizado para transferir e criar a biblioteca de autenticação da Microsoft (MSAL). A MSAL lida com a aquisição, colocação em cache e atualizar os tokens de utilizador utilizados para aceder a APIs protegidas o v2.0 do Azure Active Directory.
+> O processo acima é utilizado para transferir e criar a biblioteca de autenticação da Microsoft (MSAL). A MSAL processa a aquisição, colocação em cache e atualizar os tokens de utilizador utilizados para aceder a APIs protegidas por plataforma de identidade da Microsoft.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Adicionar a estrutura MSAL à sua aplicação
 

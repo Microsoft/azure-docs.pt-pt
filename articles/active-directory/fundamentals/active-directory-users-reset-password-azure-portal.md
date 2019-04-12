@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce76fa7fecb8a82f76d40827bfa868061a0ed584
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204904"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492707"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Repor palavra-passe de um utilizador com o Azure Active Directory
+
 Como administrador, pode redefinir a senha de um usuário, se a palavra-passe é esquecida, se o utilizador obtém impedido de aceder um dispositivo ou se o usuário nunca recebeu uma palavra-passe.
 
 >[!Note]
@@ -32,7 +33,7 @@ Como administrador, pode redefinir a senha de um usuário, se a palavra-passe é
 
 ## <a name="to-reset-a-password"></a>Repor uma palavra-passe
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como um administrador global, administrador de utilizador ou administrador de palavras-passe. Para obter mais informações sobre as funções disponíveis, consulte [atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como um administrador de utilizador ou administrador de palavras-passe. Para obter mais informações sobre as funções disponíveis, consulte [atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Selecione **do Azure Active Directory**, selecione **utilizadores**, procure e selecione o utilizador que precisa a reposição e, em seguida, selecione **Repor palavra-passe**.
 
@@ -50,6 +51,7 @@ Como administrador, pode redefinir a senha de um usuário, se a palavra-passe é
     >Nunca expira a palavra-passe temporária. Da próxima vez que o utilizador inicia sessão, a palavra-passe continuarão a funcionar, seja como for quanto tempo passou, uma vez que a palavra-passe temporária gerada.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Depois de repor a palavra-passe do utilizador, pode executar os seguintes processos de basic:
 
 - [Adicionar ou eliminar utilizadores](add-users-azure-active-directory.md)

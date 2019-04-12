@@ -13,11 +13,11 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471057"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496408"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 

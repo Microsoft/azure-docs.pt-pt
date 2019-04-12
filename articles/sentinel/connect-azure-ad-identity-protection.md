@@ -1,6 +1,6 @@
 ---
-title: Recolha de dados do Azure AD Identity Protection na pré-visualização de sentinela de Azure | Documentos da Microsoft
-description: Saiba como recolher dados do Azure AD Identity Protection em sentinela do Azure.
+title: Ligar os dados do Azure AD Identity Protection para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar a dados do Azure AD Identity Protection para Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 609aced38b7e30f78d81934867196c568dcc85ca
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d8306056655809c69af2ed39b5bbf8efebe05d3f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240003"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496168"
 ---
-# <a name="collect-data-from-azure-ad-identity-protection"></a>Recolher dados do Azure AD Identity Protection
+# <a name="connect-data-from-azure-ad-identity-protection"></a>Ligar dados a partir do Azure AD Identity Protection
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
@@ -42,7 +42,7 @@ Se já tiver o Azure AD Identity Protection, certifique-se de que é [ativada na
 Se o Azure AD Identity Protection é implementado e obtenção de dados, os dados de alertas podem facilmente ser transmitidos em sentinela do Azure.
 
 
-1. No Azure sentinela, selecione **recolha de dados** e, em seguida, clique nas **Azure AD Identity Protection** mosaico.
+1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **Azure AD Identity Protection** mosaico.
 
 2. Clique em **Connect** para iniciar a transmissão em fluxo de eventos do Azure AD Identity Protection para Azure sentinela.
 

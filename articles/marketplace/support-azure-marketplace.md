@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620824"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491343"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -40,7 +40,6 @@ Abra um pedido com a Microsoft [suporte do publicador de marketplace](https://su
 
 | Canal de suporte | Descrição |  
 |:--- |:--- |  
-| Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Ambiente do Slack para parceiros com problemas técnicos de suporte. Daí sobre 350 + parceiros trabalha atualmente neste ambiente. |  
 | Fóruns do MSDN: Marketplace localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Fórum do Microsoft Developer Network. |  
 | Stack Overflow: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Pilha de ambiente de capacidade excedida para obter soluções e fazer perguntas sobre tudo relacionado à Azure Marketplace.<ul> <li>Stack Overflow: O Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: O Azure Resource Manager, localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Máquinas virtuais no Azure localizado em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Contentores no Azure localizado em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 | Suporte para o AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Suporte de publicação para aplicações do Dynamics |

@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181491"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494770"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)
 
 Ao executar aplicações modernas e baseadas em microsserviços no Kubernetes, muitas vezes deseja controlar quais componentes podem comunicar entre si. O princípio de privilégio mínimo deve ser aplicado a forma como o tráfego pode fluir entre pods num cluster do Azure Kubernetes Service (AKS). Digamos que é provável que deseja bloquear tráfego diretamente para aplicações de back-end. O *política de rede* funcionalidade no Kubernetes permite-lhe definir regras para o tráfego de entrada e saída entre pods num cluster.
 
-Calico, um sistema de rede do código-fonte aberto e solução de segurança de rede fundada por Tigera, oferece um mecanismo de políticas de rede que pode implementar as regras de política de rede do Kubernetes. Este artigo mostra-lhe como instalar o motor de política de rede Calico e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre pods no AKS.
+Este artigo mostra-lhe como instalar o motor de política de rede e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre pods no AKS. Esta funcionalidade encontra-se em pré-visualização.
 
 > [!IMPORTANT]
 > Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
@@ -27,7 +27,7 @@ Calico, um sistema de rede do código-fonte aberto e solução de segurança de 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão 2.0.56 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
+Precisa da versão 2.0.61 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
 Para criar um cluster do AKS que pode utilizar a política de rede, ative primeiro um sinalizador de funcionalidade na sua subscrição. Para registar o *EnableNetworkPolicy* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az] [ az-feature-register] comando conforme mostrado no exemplo a seguir:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Todos os pods num cluster do AKS podem enviar e receber tráfego sem limitações, por predefinição. Para melhorar a segurança, pode definir regras que controlam o fluxo de tráfego. Aplicações de back-end, muitas vezes, só são expostas para os serviços front-end necessários, por exemplo. Em alternativa, os componentes de base de dados só estão acessíveis para os escalões de aplicação que se ligar aos mesmos.
 
-As políticas de rede são recursos do Kubernetes que permitem-lhe controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base nas definições, como etiquetas atribuídas, espaço de nomes ou porta de tráfego. Políticas de rede são definidas como YAML manifestos. Estas políticas podem ser incluídas como parte de um manifesto mais amplo que também cria uma implementação ou o serviço.
+Política de rede é uma especificação de Kubernetes, que define as políticas de acesso para a comunicação entre os Pods. Utilizar políticas de rede, define um conjunto ordenado de regras para enviar e receber o tráfego e aplicá-las a uma coleção de pods que correspondem aos seletores de etiqueta de um ou mais.
+
+Estas regras de política de rede são definidas conforme YAML manifestos. Políticas de rede podem ser incluídas como parte de um manifesto mais amplo que também cria uma implementação ou o serviço.
+
+### <a name="network-policy-options-in-aks"></a>Opções de política de rede no AKS
+
+O Azure fornece duas maneiras de implementar a política de rede. Escolha uma opção de diretiva de rede quando cria um cluster do AKS. A opção de política não pode ser alterada após a criação do cluster:
+
+* Implementação do Azure, chamada *políticas de rede do Azure*.
+* *Políticas de rede Calico*, uma rede de código-fonte aberto e a solução de segurança de rede fundada por [Tigera][tigera].
+
+Ambas as implementações de utilizam o Linux *IPTables* para impor políticas de. As políticas são convertidas em conjuntos de pares IP permitidos e não permitidos. Estes pares, em seguida, são programadas como IPTable regras do filtro.
+
+Política de rede só funciona com a opção de CNI do Azure (avançado). Implementação é diferente para as duas opções:
+
+* *Políticas de rede do Azure* -CNI o Azure configura uma ponte no anfitrião da VM para funcionamento em rede do nó de dentro. As regras de filtragem são aplicadas quando os pacotes passam a ponte.
+* *Políticas de rede Calico* -CNI o Azure configura a rotas de local kernel para o tráfego de intra-nó. As políticas são aplicadas na interface de rede o pod.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e Calico e as respetivas funcionalidades
+
+| Capacidade                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Plataformas suportadas                      | Linux                      | Linux                       |
+| Suporte a opções de redes             | Azure CNI                  | Azure CNI                   |
+| Conformidade com a especificação do Kubernetes | Todos os tipos de política suportados |  Todos os tipos de política suportados |
+| Funcionalidades adicionais                      | Nenhuma                       | Estendido o modelo de política consiste em política de rede Global, definir globais de rede e ponto final de anfitrião. Para obter mais informações sobre como utilizar o `calicoctl` CLI para gerir estes estendido de recursos, consulte [referência de usuário calicoctl][calicoctl]. |
+| Suporte                                  | Suportado pelo suporte do Azure e a equipe de engenharia | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pagas adicional, consulte [opções de suporte do projeto Calico][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Criar um cluster do AKS e ativar a política de rede
 
 Para ver as políticas de rede em ação, vamos criar e, em seguida, expanda numa diretiva que define o fluxo de tráfego:
 
@@ -59,9 +87,7 @@ Para ver as políticas de rede em ação, vamos criar e, em seguida, expanda num
 * Permitir o tráfego com base nas etiquetas de pod.
 * Permitir o tráfego com base no espaço de nomes.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Criar um cluster do AKS e ativar a política de rede
-
-Política de rede pode ser ativada apenas quando o cluster ser criado. Não é possível ativar a política de rede num cluster do AKS existente. 
+Em primeiro lugar, vamos criar um cluster do AKS que suporta a política de rede. O recurso da diretiva de rede pode ser ativado apenas quando o cluster ser criado. Não é possível ativar a política de rede num cluster do AKS existente.
 
 Para utilizar a política de rede com um cluster do AKS, tem de utilizar o [CNI Azure Plug-in] [ azure-cni] e definir sua própria rede virtual e sub-redes. Para obter mais informações sobre como planear os intervalos de sub-rede obrigatório, consulte [configurar redes avançada][use-advanced-networking].
 
@@ -71,6 +97,7 @@ O script de exemplo seguinte:
 * Cria um Azure Active Directory (Azure AD) principal de serviço para utilização com o cluster do AKS.
 * Atribui *contribuinte* permissões para o AKS do cluster principal de serviço na rede virtual.
 * Cria um cluster do AKS na rede virtual definida e permite a política de rede.
+    * O *azure* é utilizada a opção de política de rede. Para utilizar Calico como a opção de política de rede em vez disso, utilize o `--network-policy calico` parâmetro.
 
 Fornecer seu próprio segura *SP_PASSWORD*. Pode substituir a *RESOURCE_GROUP_NAME* e *CLUSTER_NAME* variáveis:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 A criação do cluster demora alguns minutos. Quando o cluster estiver pronto, configure `kubectl` para ligar ao seu cluster do Kubernetes com o [az aks get-credentials] [ az-aks-get-credentials] comando. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los:
@@ -454,6 +481,9 @@ Para saber mais sobre as políticas, veja [as políticas de rede do Kubernetes][
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

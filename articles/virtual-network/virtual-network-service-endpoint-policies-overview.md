@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652591"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494179"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -24,7 +24,7 @@ Com as políticas de ponto final de serviço da Rede Virtual (VNet), pode filtra
 
 Esta funcionalidade está disponível na __pré-visualização__ para os seguintes serviços e regiões do Azure:
 
-__O armazenamento do Azure__: WestCentralUS, WestUS2.
+__O armazenamento do Azure__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 Para obter as notificações mais atualizadas para pré-visualização, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -35,13 +35,13 @@ Para obter as notificações mais atualizadas para pré-visualização, veja a p
 
 As políticas de ponto final de serviço da rede virtual oferecem as seguintes vantagens:
 
-- __Segurança melhorada para o tráfego da Rede Virtual para os Serviços do Azure__
+- __Segurança melhorada para o tráfego de rede Virtual para serviços do Azure__
 
   As [etiquetas de serviço do Azure para grupos de segurança de rede](https://aka.ms/servicetags) permitem-lhe restringir o tráfego de saída da rede virtual para serviços do Azure específicos. Contudo, permite o tráfego para todos os recursos desse serviço. 
   
   Com as políticas de ponto final, agora pode restringir o acesso de saída da rede virtual a apenas recursos específicos do Azure. Isto dá um controlo de segurança muito mais granular para proteger os dados acedidos na rede virtual. 
 
-- __Políticas dimensionáveis e de elevada disponibilidade para filtrar o tráfego dos serviços do Azure__
+- __Políticas de dimensionáveis e com elevada disponibilidade para filtrar o tráfego de serviço do Azure__
 
    As políticas de ponto final proporcionam uma solução dimensionável horizontalmente e de elevada disponibilidade para filtrar o tráfego dos serviços do Azure a partir de redes virtuais através de pontos finais de serviço. Não são necessárias sobrecargas adicionais para manter dispositivos de rede centrais para esse tráfego nas suas redes virtuais.
 

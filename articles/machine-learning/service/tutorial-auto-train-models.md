@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 8eb569e628e598dbfd890c11656a23007f915b45
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670902"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491170"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -103,7 +103,7 @@ import os
 
 Crie um objeto de área de trabalho a partir da área de trabalho existente. R [área de trabalho](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) é uma classe que aceita as suas informações de recursos e subscrição do Azure. Ele também cria um recurso da nuvem para monitorizar e controlar suas execuções de modelo.
 
-`Workspace.from_config()` lê o ficheiro **aml_config/config.json** e carrega os detalhes para um objeto com o nome `ws`.  `ws` é utilizado em todo o restante código neste tutorial.
+`Workspace.from_config()` lê o arquivo **aml_config/config.json** e carrega os detalhes num objeto chamado `ws`.  `ws` é utilizado em todo o resto do código neste tutorial.
 
 Depois de ter um objeto de área de trabalho, especifique um nome para a experimentação. Crie e registe um diretório local com a área de trabalho. O histórico de todas as execuções é registrado na experimentação especificada e na [portal do Azure](https://portal.azure.com).
 
@@ -136,8 +136,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 
@@ -654,10 +653,10 @@ Defina o parâmetro de experimentação e as definições para a geração autom
 |Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração. Reduza este valor para diminuir o tempo de execução total.|
-|**iterations**|30|Número de iterações. Em cada iteração, um novo modelo de aprendizagem automática é preparado com os seus dados. Este é o valor principal que afeta o tempo de execução total.|
+|**Iterações**|30|Número de iterações. Em cada iteração, um novo modelo de aprendizagem automática é preparado com os seus dados. Este é o valor principal que afeta o tempo de execução total.|
 |**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo mais adequado será escolhido com base nesta métrica.|
-|**preprocess**| Verdadeiro | Usando **True**, a experimentação pode pré-processar os dados de entrada (processamento de dados em falta, converter o texto em numérico, etc.)|
-|**Verbosidade**| logging.INFO | Controla o nível de registo.|
+|**pré-processar**| Verdadeiro | Usando **True**, a experimentação pode pré-processar os dados de entrada (processamento de dados em falta, converter o texto em numérico, etc.)|
+|**verbosity**| logging.INFO | Controla o nível de registo.|
 |**n_cross_validations**|5|Número de divisões de validação cruzada a efetuar quando os dados de validação não for especificados.|
 
 
@@ -775,7 +774,8 @@ rundata
 ```
 
 <div>
-<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped>
+.dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;

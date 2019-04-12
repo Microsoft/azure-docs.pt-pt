@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884368"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505775"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -393,7 +393,7 @@ O armazenamento do Azure suporta seguintes dimensões de métricas no Azure Moni
 | Nome da Dimensão | Descrição |
 | ------------------- | ----------------- |
 | BlobType | O tipo de blob para apenas as métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
-| ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: todos os outros erros do lado do servidor, exceto os descritos </li> <li> ServerBusyError: pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li> AuthorizationError: pedido autenticado que falhou devido a acesso não autorizado a dados ou a uma falha de autorização. </li> <li> NetworkError: pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: todos os outros erros do lado do cliente, exceto os descritos. </li> <li> Êxito: pedido com êxito|
+| ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: todos os outros erros do lado do servidor, exceto os descritos </li> <li> ServerBusyError: pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li> AuthorizationError: pedido autenticado que falhou devido a acesso não autorizado a dados ou a uma falha de autorização. </li> <li> NetworkError: pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: todos os outros erros do lado do cliente, exceto os descritos. </li> <li> Êxito: Pedido com êxito. </li> <li> SuccessWithThrottling: Quando um cliente SMB obtém otimizado na primeira tentativa (s), mas tem êxito depois de tentativas de pedido com êxito.|
 | GeoType | Transação do cluster primária ou secundária. Os valores disponíveis incluem primária e secundária. Aplica-se para Storage(RA-GRS) redundantes de Georreplicação de acesso de leitura ao ler objetos do inquilino secundário. |
 | ApiName | O nome da operação. Por exemplo: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Tipo de autenticação utilizado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso partilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso de OAuth.</li> <li>Anónimo: A transação é solicitada anonimamente. Ele não inclui pedidos de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |

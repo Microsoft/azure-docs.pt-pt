@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471159"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495242"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a base de dados do Azure para regras de firewall da MariaDB com a CLI do Azure
 Regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma base de dados do Azure para MariaDB Server de um endereço IP específico ou um intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para MariaDB firewalls, consulte [base de dados do Azure para MariaDB regras de firewall de servidor](./concepts-firewall-rules.md).

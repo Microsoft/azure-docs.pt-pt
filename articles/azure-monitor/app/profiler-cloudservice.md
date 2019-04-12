@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470862"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492520"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil em direto serviços Cloud do Azure com o Application Insights
 
@@ -41,7 +41,7 @@ Application Insights Profiler é instalado com a extensão de diagnóstico do Az
 
     * Para funções de trabalho, [adicionar código para monitorizar os pedidos](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-1. Configure a extensão de diagnóstico do Azure para ativar o Profiler, fazendo o seguinte:
+1. Configure a extensão de diagnóstico do Azure para ativar o Profiler:
 
     a. Localize a [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* de ficheiros para a sua função de aplicação, como mostrado aqui:  
 
