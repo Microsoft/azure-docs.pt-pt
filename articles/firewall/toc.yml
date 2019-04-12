@@ -38,6 +38,8 @@ items:
     href: service-tags.md
 - name: Guias de procedimentos
   items:
+  - name: Implementar com o Azure PowerShell
+    href: deploy-ps.md
   - name: Implementar com um modelo
     href: deploy-template.md
   - name: Integrar com o balanceador de carga
@@ -74,9 +76,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 27b1a3e3b6bc0b030d1cb559dc7543edc984c191
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a5f0125020cd0ed340127bb39c727bbe070721c6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543649"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494719"

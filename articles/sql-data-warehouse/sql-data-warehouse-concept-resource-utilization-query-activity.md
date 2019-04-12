@@ -10,21 +10,18 @@ ms.subservice: manage
 ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337588"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492792"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorizar atividade de consulta e de utilização de recursos no Azure SQL Data Warehouse
 O Azure SQL Data Warehouse oferece uma Rica experiência de monitorização no portal do Azure para obter informações para a sua carga de trabalho do armazém de dados. O portal do Azure é a ferramenta recomendada quando o armazém de dados de monitorização, pois fornece períodos de retenção configurável, alertas, recomendações e personalizáveis gráficos e dashboards para métricas e registos. O portal também permite integrar com outros serviços de monitorização do Azure, como o Operations Management Suite (OMS) e o Azure Monitor (logs) para fornecer uma experiência holística de monitorização para não apenas seu armazém de dados, mas também suas análises do Azure inteiras plataforma para uma experiência de monitorização integrada. Esta documentação descreve as capacidades de monitorização estão disponíveis para otimizar e gerir a sua plataforma de análise com o SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Utilização de recursos 
 As métricas seguintes estão disponíveis no portal do Azure para o SQL Data Warehouse. Estas métricas são apresentadas [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
-
-> [!NOTE]
-> A partir de Novembro de 2018, a equipe de engenharia é resolver um problema, fazendo com que a percentagem de CPU e percentagem de es de dados para underreport. Isso faz com que DWU utilizado e a percentagem de underreport também. 
 
 | Nome da Métrica                           | Descrição     | Tipo de Agregação |
 | --------------------------------------- | ---------------- | --------------------------------------- |

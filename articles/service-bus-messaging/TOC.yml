@@ -12,38 +12,44 @@ items:
   items:
   - name: Filas do Service Bus
     items:
-    - name: Criar uma fila do Service Bus - Portal
-      href: service-bus-quickstart-portal.md
-    - name: Criar uma fila do Service Bus - PowerShell
-      href: service-bus-quickstart-powershell.md
-    - name: Criar uma fila do Service Bus - CLI
-      href: service-bus-quickstart-cli.md
-    - name: Enviar e receber mensagens – .NET
-      href: service-bus-dotnet-get-started-with-queues.md
-    - name: Enviar e receber mensagens – Java
-      href: service-bus-java-how-to-use-queues.md
-    - name: Enviar e receber mensagens – Node.js
-      href: service-bus-nodejs-how-to-use-queues.md
-    - name: Enviar e receber mensagens – PHP
-      href: service-bus-php-how-to-use-queues.md
-    - name: Enviar e receber mensagens – Python
-      href: service-bus-python-how-to-use-queues.md
-    - name: Enviar e receber mensagens – Ruby
-      href: service-bus-ruby-how-to-use-queues.md
+    - name: Criar uma fila do Service Bus
+      items:
+      - name: Portal do Azure
+        href: service-bus-quickstart-portal.md
+      - name: Azure PowerShell
+        href: service-bus-quickstart-powershell.md
+      - name: CLI do Azure
+        href: service-bus-quickstart-cli.md
+    - name: Enviar e receber mensagens
+      items:
+      - name: .NET
+        href: service-bus-dotnet-get-started-with-queues.md
+      - name: Java
+        href: service-bus-java-how-to-use-queues.md
+      - name: Node.js
+        href: service-bus-nodejs-how-to-use-queues.md
+      - name: PHP
+        href: service-bus-php-how-to-use-queues.md
+      - name: Python
+        href: service-bus-python-how-to-use-queues.md
+      - name: Ruby
+        href: service-bus-ruby-how-to-use-queues.md
   - name: Tópicos e subscrições do Service Bus
     items:
-    - name: Publicar e subscrever para mensagens – .NET
-      href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-    - name: Publicar e subscrever para mensagens – Java
-      href: service-bus-java-how-to-use-topics-subscriptions.md
-    - name: Publicar e subscrever para mensagens – Node.js
-      href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-    - name: Publicar e subscrever para mensagens – PHP
-      href: service-bus-php-how-to-use-topics-subscriptions.md
-    - name: Publicar e subscrever para mensagens – Python
-      href: service-bus-python-how-to-use-topics-subscriptions.md
-    - name: Publicar e subscrever para mensagens – Ruby
-      href: service-bus-ruby-how-to-use-topics-subscriptions.md
+    - name: Publicar e subscrever para mensagens
+      items:
+      - name: .NET
+        href: service-bus-dotnet-how-to-use-topics-subscriptions.md
+      - name: Java
+        href: service-bus-java-how-to-use-topics-subscriptions.md
+      - name: Node.js
+        href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+      - name: PHP
+        href: service-bus-php-how-to-use-topics-subscriptions.md
+      - name: Python
+        href: service-bus-python-how-to-use-topics-subscriptions.md
+      - name: Ruby
+        href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutoriais
   items:
   - name: Atualizar inventário - PowerShell
@@ -238,9 +244,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 464e19bc796e41045d0c8422718da39f2aa66a9b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: dba047983ffc8e0f32a8339c42286ba64e9ddce5
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906281"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500231"

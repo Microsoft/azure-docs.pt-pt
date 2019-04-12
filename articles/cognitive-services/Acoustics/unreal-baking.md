@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
 ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470377"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492758"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial do projeto Acoustics Unreal criar
 Este documento descreve o processo de submissão de um criar acoustics usando a extensão de Unreal editor.

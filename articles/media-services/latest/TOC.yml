@@ -134,7 +134,12 @@ items:
     - name: Media Player do Azure
       href: use-azure-media-player.md
   - name: Desenvolver com APIs v3
-    href: entities-overview.md
+    href: media-services-apis-overview.md
+    items:
+    - name: Paginar, filtrar e ordenar entidades
+      href: entities-overview.md
+    - name: RBAC
+      href: rbac-overview.md
   - name: Guia de migração de v2 para v3
     href: migrate-from-v2-to-v3.md
 - name: Guias de procedimentos
@@ -154,6 +159,8 @@ items:
     - name: Desenvolver com SDKs
       href: developers-guide.md
       items:
+      - name: Ligar com Java
+        href: configure-connect-java-howto.md
       - name: Ligar com .NET
         href: configure-connect-dotnet-howto.md
       - name: Ligar com Node.js
@@ -267,9 +274,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 10c1bf3de5de12521c865ddd7e661f5e7243bdd9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2b154c483e6c71016c023814818e35049ece59b7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259308"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494855"

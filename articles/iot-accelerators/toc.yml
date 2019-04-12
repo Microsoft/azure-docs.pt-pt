@@ -180,9 +180,9 @@ items:
       items:
       - name: Implementar o Cofre OPC num projeto existente
         items:
-        - name: Proteger a comunicação do Cliente OPC e OPC PLC
+        - name: Proteger a comunicação do cliente OPC e OPC PLC
           href: howto-opc-vault-deploy-existing-client-plc-communication.md
-        - name: Proteger o Cliente OPC UA e a Aplicação de Servidor OPC UA
+        - name: Proteger o cliente OPC UA e a aplicação de servidor OPC UA
           href: howto-opc-vault-deploy-existing-client-server-communication.md
       - name: Implementar o Cofre OPC de raiz
         href: howto-opc-vault-deploy-scratch.md
@@ -292,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Monitorização Remota V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5adec8ee936df920e2b96c38c5a2e78828af5b2e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757190"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496459"

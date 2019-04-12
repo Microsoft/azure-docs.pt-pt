@@ -224,7 +224,7 @@ items:
           href: platform/diagnostic-logs-append-blobs.md
         - name: Convidado de VM para o arquivo de métricas
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-        - name: Convidado de conjunto de dimensionamento de VM para o arquivo de métricas
+        - name: Convidado de conjunto de dimensionamento de máquinas virtuais para o arquivo de métricas
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: Convidado de VM clássica para o arquivo de métricas
           href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -581,8 +581,8 @@ items:
           href: insights/network-performance-monitor.md
         - name: Monitorização de Desempenho
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Ponto Final de Serviço
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Monitor de Conectividade do Serviço
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Preços
@@ -658,8 +658,9 @@ items:
   - name: Visualizar os dados
     items:
     - name: Vistas
-      href: platform/view-designer.md
       items:
+      - name: Estruturador de Vista
+        href: platform/view-designer.md
       - name: Referência de mosaico
         href: platform/view-designer-tiles.md
       - name: Referência de parte da visualização
@@ -864,9 +865,9 @@ items:
         href: platform/autoscale-common-scale-patterns.md
       - name: Dimensionamento automático através de uma métrica personalizada
         href: platform/autoscale-custom-metric.md
-      - name: Dimensionar automaticamente os conjuntos de dimensionamento de VMs com modelos do Resource Manager
+      - name: Dimensionar automaticamente os conjuntos de dimensionamento de máquinas virtuais com modelos do Resource Manager
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Dimensionar automaticamente máquinas num conjunto de dimensionamento de VMs
+      - name: Dimensionar automaticamente máquinas num conjunto de dimensionamento de máquinas virtuais
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configurar webhooks e notificações de e-mail no dimensionamento automático
         href: platform/autoscale-webhook-email.md
@@ -1071,9 +1072,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261161"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491105"

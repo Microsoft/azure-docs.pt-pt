@@ -132,7 +132,8 @@ items:
   - name: Automatizar a aprendizagem automática
     displayName: automl, auto ml
     items:
-    - name: Configurar a preparação automática
+    - name: Automatizar a formação no Python
+      displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Utilizar destinos de computação remota
       displayName: automl automated auto ml
@@ -211,9 +212,9 @@ items:
   - name: Comparar os nossos produtos de ML
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 597b2bb6fbd9c795245cb7cb9a6820d585c3fc47
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 6106a8ea03253b0787bb740295f839301543f9c6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426511"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495452"

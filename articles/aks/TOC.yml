@@ -310,6 +310,8 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Políticas de suporte
+    href: support-policies.md
   - name: Mapa
     href: https://azure.microsoft.com/roadmap/
   - name: Fornecer comentários sobre o produto
@@ -320,9 +322,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: bb2c3d33192fd70aebd201ece46c06b29adb28cc
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 900af8f0b09ee19b6f49cbec39bb535e9ba3b385
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846700"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489007"

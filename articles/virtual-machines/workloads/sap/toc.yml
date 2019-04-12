@@ -125,6 +125,8 @@ items:
       href: dbms_guide_oracle.md
     - name: Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
       href: dbms_guide_ibm.md
+    - name: Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no SUSE Linux Enterprise Server
+      href: dbms-guide-ha-ibm.md
     - name: Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
       href: dbms_guide_sapase.md
     - name: Implementação do SAP MaxDB, liveCache e Servidor de Conteúdos no Azure
@@ -229,9 +231,9 @@ items:
   items:
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: e366d205b3d903ad79b26798a82ee05752ac5622
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: b91931661ad91f813ca84e0c9b7bef4b22e2e975
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762961"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489041"

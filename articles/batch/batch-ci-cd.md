@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471329"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494649"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize Pipelines do Azure para criar e implementar soluções HPC
 

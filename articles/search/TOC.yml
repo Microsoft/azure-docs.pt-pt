@@ -34,7 +34,7 @@ items:
   items:
   - name: Indexar a Base de Dados SQL do Azure
     href: search-indexer-tutorial.md
-  - name: Indexar blobs do Azure
+  - name: Indexar blobs de JSON do Azure
     href: search-semi-structured-data.md
   - name: Indexar com IA (Serviços Cognitivos)
     href: cognitive-search-tutorial-blob.md
@@ -307,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: ec82dc9f36f7fb4be24d3d1e833a951f72b48f5a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4dd56447ccedca7b01022b914502d5ad76e3e6a7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651469"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492673"

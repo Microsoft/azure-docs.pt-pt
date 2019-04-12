@@ -25,6 +25,14 @@ items:
       href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
     - name: Enviar notificações push para utilizadores de aplicações Android específicas
       href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+  - name: Baidu
+    items:
+    - name: Enviar notificações push através do Baidu Cloud Push
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
+  - name: Chrome
+    items:
+    - name: Enviar notificações push para aplicações do Chrome
+      href: notification-hubs-chrome-push-notifications-get-started.md
   - name: iOS
     items:
     - name: Enviar notificações push para aplicações iOS
@@ -37,6 +45,10 @@ items:
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
     - name: Enviar notificações push para utilizadores específicos
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+  - name: Kindle
+    items:
+    - name: Enviar notificações push para uma aplicação do Kindle com o Amazon Device Messaging
+      href: notification-hubs-kindle-amazon-adm-push-notification.md
   - name: Windows Phone
     items:
     - name: Enviar notificações push para aplicações Windows Phone
@@ -55,18 +67,6 @@ items:
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
     - name: Enviar notificações push baseadas na localização
       href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
-  - name: Baidu
-    items:
-    - name: Enviar notificações push através do Baidu Cloud Push
-      href: notification-hubs-baidu-china-android-notifications-get-started.md
-  - name: Chrome
-    items:
-    - name: Enviar notificações push para aplicações do Chrome
-      href: notification-hubs-chrome-push-notifications-get-started.md
-  - name: Kindle
-    items:
-    - name: Enviar notificações push para uma aplicação do Kindle com o Amazon Device Messaging
-      href: notification-hubs-kindle-amazon-adm-push-notification.md
 - name: Amostras
   items:
   - name: Exemplos de código
@@ -140,7 +140,9 @@ items:
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
-  - name: API REST
+  - name: API REST do serviço dos Hubs de Notificação
+    href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)
+  - name: API REST de Gestão
     href: /rest/api/notificationhubs/
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.notificationhubs/allversions
@@ -148,6 +150,8 @@ items:
   items:
   - name: FAQ
     href: notification-hubs-push-notification-faq.md
+  - name: Migração de GCM para FCM da Google
+    href: notification-hubs-gcm-to-fcm.md
   - name: SDKs
     href: notification-hubs-sdks.md
   - name: Mapa do Azure
@@ -164,9 +168,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 56ac5e9c55cd483dd86b64e93777ee8bda8757e4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 0d7708a44e953659e1904fe2bc3b79364ba33926
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621469"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505334"

@@ -63,6 +63,8 @@ items:
         href: connect-f5.md
       - name: Ligar a Syslog
         href: connect-syslog.md
+      - name: Ligar Symantec ICDX
+        href: connect-symantec.md
       - name: Ligar a Cisco
         href: connect-cisco.md
     - name: Ligar às informações sobre ameaças
@@ -86,9 +88,9 @@ items:
     href: https://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: ea4ece58615b35debf083f6d888067ae9e07d809
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 886f07fa45e7795251d50880a977cfbc331dfb2b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574914"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494003"

@@ -5,6 +5,8 @@ items:
   items:
   - name: O que é a API de Análise de Texto?
     href: overview.md
+  - name: Cenários de utilizador acionáveis
+    href: text-analytics-user-scenarios.md
   expanded: true
 - name: Inícios rápidos
   items:
@@ -24,13 +26,16 @@ items:
     href: quickstarts/ruby.md
 - name: Tutoriais
   items:
-  - name: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
-    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
-    maintainContext: true
-  - name: Análise de Texto com o Power BI
+  - name: Integre o Power BI para analisar os comentários dos clientes
     href: Tutorials/tutorial-power-bi-key-phrases.md
   - name: Análise de Texto nas PowerApps
     href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+  - name: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
+    href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    maintainContext: true
+  - name: Utilize o Flask para traduzir texto, analisar sentimentos e sintetizar fala
+    href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+    maintainContext: true
 - name: Guias de procedimentos
   items:
   - name: Inscrever-se
@@ -79,6 +84,8 @@ items:
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
 - name: Recursos
   items:
+  - name: Identificar o sentimento dos comentários num grupo do Yammer com o MS Flow
+    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
   - name: Conteúdo externo e da comunidade
     href: text-analytics-resource-external-community.md
   - name: FAQ
@@ -97,9 +104,9 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555922-text-analytics
-ms.openlocfilehash: 1759bee73caeb18ac96a228bb3a81e697aa62089
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6c25fe6b6fa10c592cb9462e9fb712575f61bdd1
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475633"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500826"

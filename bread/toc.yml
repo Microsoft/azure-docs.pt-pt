@@ -461,6 +461,9 @@ items:
   - name: Cofre de Chaves
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Serviços de Laboratório
+    tocHref: /azure/lab-services/
+    topicHref: /azure/lab-services/
   - name: Load balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/
@@ -673,9 +676,9 @@ items:
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
-ms.openlocfilehash: 662f61109113c207f73a084b3e151b6eda2a605e
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1d0e0301e209c495398c18fff35042198e881527
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540640"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490589"

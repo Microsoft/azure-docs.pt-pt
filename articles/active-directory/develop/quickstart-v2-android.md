@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure AD v2 Android | Microsoft Docs
-description: Saiba como as aplicações Android podem chamar uma API que precise de tokens de acesso no ponto final v2.0 do Azure Active Directory
+title: Microsoft identity plataforma Android guia de introdução | Azure
+description: Saiba como Android aplicativos pode chamar uma API que precisam de tokens de acesso ao ponto final de plataforma de identidade Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862765"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495316"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862765"
 
 Este início rápido contém um exemplo de código que demonstra como uma aplicação Android pode iniciar sessão em contas pessoais ou contas profissionais e escolares, obter um token de acesso e chamar a Microsoft Graph API.
 
-![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-android/android-intro-updated.png)
+![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Pré-requisitos**
@@ -47,7 +47,7 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 > Para registar a sua aplicação
-> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
+> 1. Vá para a nova [portal do Azure – registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs) painel.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
@@ -58,8 +58,9 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização)** > **Novo registo**.
-> 1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
+> 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
+> 1. Selecione **novo registo**.
+> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `Android-Quickstart`.
 >      - Pressionar o `Register` botão.
 > 1. Aceda a `Authentication`  >  `Redirect URIs`  >  `Suggested Redirect URIs for public clients`e selecione o URI de redirecionamento do formato **msal {AppId} :/ / autenticação**. Guarde a alteração.
@@ -137,7 +138,7 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Substitua * pelo *ID de Aplicação da sua aplicação. Se precisar de localizar o *ID de Aplicação*, aceda à página *Descrição geral*.
+> 1. Substitua `<ENTER_THE_APPLICATION_ID_HERE>` pelo *ID de Aplicação* da sua aplicação. Se precisar de localizar o *ID de Aplicação*, aceda à página *Descrição geral*.
 
 ## <a name="more-information"></a>Mais Informações
 
@@ -145,7 +146,7 @@ Leia as secções seguintes para obter mais informações sobre este início rá
 
 ### <a name="msal"></a>MSAL
 
-A MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca utilizada para iniciar sessão dos utilizadores e solicitar tokens utilizados para aceder a uma API protegida pelo Microsoft Azure Active Directory (Azure AD). Pode utilizar o Gradle para instalá-la, adicionando o seguinte em **Gradle Scripts** > **build.gradle (Module: app)** em **Dependencies**:
+A MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca utilizada para iniciar sessão dos utilizadores e solicitar tokens utilizados para aceder a uma API protegida pela plataforma de identidade da Microsoft. Pode utilizar o Gradle para instalá-la, adicionando o seguinte em **Gradle Scripts** > **build.gradle (Module: app)** em **Dependencies**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ A MSAL tem dois métodos usados adquira tokens: `acquireToken` e `acquireTokenSi
 
 #### <a name="getting-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Algumas situações exigem forçar os utilizadores a interagir com o ponto final v2.0 do Azure AD, o que resulta numa alternância de contexto para o browser de sistema para validar as credenciais dos utilizadores ou para darem consentimento. Alguns exemplos incluem:
+Algumas situações exijam forçar os utilizadores interajam com o Microsoft identity platform ponto final, que resulta num contexto de mudar para o navegador de sistema para optar por validar as credenciais dos utilizadores ou consentimento. Alguns exemplos incluem:
 
 * A primeira vez que os utilizadores iniciam sessão na aplicação
 * Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado

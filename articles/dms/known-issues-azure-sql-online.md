@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
 ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471244"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491395"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração/problemas conhecidos com as migrações de online para a BD SQL do Azure
 
@@ -31,7 +31,7 @@ Problemas conhecidos e limitações associadas a migrações online do SQL Serve
 
 Se a sua base de dados de origem é composta por um ou mais tabelas temporais, a migração de base de dados falha durante a operação de "carregamento de dados completa" e pode ver a seguinte mensagem:
 
-{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: Mensagem 13570: [Microsoft] [SQL Server Native Client 11.0][SQL] [SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema "[aplicativo. Cidades] "linha: 1 Column: -1 "]" }
+{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: Mensagem 13570: [Microsoft] [SQL Server Native Client 11.0][SQL] SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema "[aplicativo. Cidades] "linha: 1 Column: -1 "]" }
  
  ![Exemplo de erros de tabela temporal](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
