@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107802"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526678"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -135,9 +135,9 @@ Ver [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcent
 
 ### <a name="resource-group"></a> Requisitos para o grupo de recursos
 -   O IR Azure-SSIS tem de criar determinados recursos de rede no mesmo grupo de recursos que a rede virtual. Estes recursos incluem o seguinte:
-    -   Um balanceador de carga do Azure, com o nome  *<Guid>cloudserviceloadbalancer - azurebatch*.
-    -   Um endereço público do Azure IP, com o nome  *<Guid>cloudservicepublicip - azurebatch*.
-    -   Um grupo de segurança de trabalho de rede, com o nome  *<Guid>cloudservicenetworksecuritygroup - azurebatch*. 
+    -   Um balanceador de carga do Azure, com o nome  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
+    -   Um endereço público do Azure IP, com o nome  *\<Guid > - azurebatch - cloudservicepublicip*.
+    -   Um grupo de segurança de trabalho de rede, com o nome  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Certifique-se de que não tem nenhum bloqueio de recursos no grupo de recursos ou subscrição a que pertence a rede virtual. Se configurar um bloqueio só de leitura ou de um bloqueio de eliminação, iniciar e parar o runtime de integração podem falhar ou bloqueado. 
 

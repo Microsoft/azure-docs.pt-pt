@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358301"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548838"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -173,7 +173,7 @@ Em seguida, determine onde será preparado o modelo. Uma experimentação de pre
 *   Seu computador local, como uma área de trabalho local ou computador portátil – em geral, quando tem pequeno conjunto de dados e estiver na fase de exploração.
 *   Um computador remoto na cloud – [Machine Learning geridos de computação no Azure](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) é um serviço gerido que permite a capacidade preparar modelos de machine learning em clusters de máquinas virtuais do Azure.
 
-Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) por exemplo o destinos de computação de blocos de notas com o local e remoto.
+Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) por exemplo o destinos de computação de blocos de notas com o local e remoto.
 
 <a name='configure-experiment'></a>
 
@@ -238,6 +238,9 @@ Se usar `preprocess=True`, os seguintes passos de pré-processamento de dados s�
     * Recursos de numérico com poucos valores exclusivos, transformados em funcionalidades categóricas.
     * Consoante a cardinalidade dos recursos categóricos, execute etiqueta codificação ou (hash) frequente de uma codificação.
 
+## <a name="ensemble-models"></a>Modelos de Ensemble
+Ensemble learning melhora os resultados do machine learning e o desempenho de previsão ao combinam muitos modelos em vez de utilizar os modelos de únicos. Quando usando automatizadas a aprendizagem automática, pode preparar os modelos de ensemble com o [algoritmo de seleção de ensemble Caruana com a inicialização de Ensemble classificada](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). A iteração ensemble é apresentado como a última iteração de sua execução.
+
 ## <a name="time-series-forecasting"></a>Previsão de série temporal
 Para o tipo de tarefa de previsão de série de tempo tem parâmetros adicionais para definir.
 1. time_column_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados. 
@@ -270,7 +273,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)

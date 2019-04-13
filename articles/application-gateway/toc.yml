@@ -18,8 +18,6 @@ items:
   expanded: true
 - name: Tutoriais
   items:
-  - name: Alojar um único site
-    href: quick-create-portal.md
   - name: Ativar firewall de aplicações Web
     href: application-gateway-web-application-firewall-portal.md
   - name: Proteger com SSL
@@ -32,8 +30,6 @@ items:
     href: tutorial-url-redirect-cli.md
   - name: Dimensionamento automático e redundância de zona
     href: tutorial-autoscale-ps.md
-  - name: Rescrever cabeçalhos HTTP
-    href: tutorial-http-header-rewrite-powershell.md
 - name: Amostras
   items:
   - name: Azure PowerShell
@@ -178,8 +174,10 @@ items:
         href: redirect-internal-site-cli.md
     - name: Redirecionar o tráfego da web com o Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rescrever cabeçalhos HTTP num gateway existente
+  - name: Rescrever cabeçalhos HTTP
     items:
+    - name: Portal do Azure
+      href: rewrite-http-headers-portal.md
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
   - name: Configurar Aplicação Web do serviço de aplicações e serviço multi-inquilino
@@ -240,9 +238,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 01ca52cb94059cd0281fb81f605380c8bd852704
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 26ec063b5ad05325eb654a3b112eb5dd6ef23bcc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803770"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547385"

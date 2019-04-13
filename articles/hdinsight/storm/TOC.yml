@@ -61,9 +61,6 @@ items:
     - name: Desenvolver ações de script
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: Instalar ou atualizar o Mono
-      href: ../hdinsight-hadoop-install-mono.md
-      maintainContext: true
     - name: Criar aplicações do HDInsight
       items:
       - name: Instalar aplicações personalizadas
@@ -280,9 +277,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: b8a55191f78010bab759cf90880c3b7aaddab7ba
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1719490323df6609fe400344f9c9af441d3e6625
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444965"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545480"

@@ -371,8 +371,6 @@ items:
       items:
       - name: Configurar afirmações de função
         href: active-directory-enterprise-app-role-management.md
-      - name: Personalizar afirmações - Portal
-        href: active-directory-saml-claims-customization.md
       - name: Personalizar afirmações - PowerShell
         href: active-directory-claims-mapping.md
       - name: Configurar afirmações opcionais
@@ -444,9 +442,9 @@ items:
     href: developer-support-help-options.md
   - name: Identidades geridas para os recursos do Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 9283d643717d4c516fb615a9ff5ec132a11e754c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: c927668c920302b7e2a52dc1dfd2f463ad3331b7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500435"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546153"

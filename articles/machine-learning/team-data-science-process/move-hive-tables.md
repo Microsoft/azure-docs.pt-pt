@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840652"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522508"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure
 
@@ -112,7 +112,7 @@ Se abrir o contentor predefinido do cluster de Hadoop com o Explorador de armaze
 ![Explorador de armazenamento do Azure que mostra a saída da consulta do Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Submeter consultas do Hive com o Editor do Hive
-Também pode utilizar a consola de consulta (Editor do Hive) ao introduzir um URL do formulário *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* num navegador da web. Tem de ser conectado a ver esta consola e então, precisa que as credenciais de cluster do Hadoop.
+Também pode utilizar a consola de consulta (Editor do Hive) ao introduzir um URL do formulário *https:\//\<nome do cluster de Hadoop >.azurehdinsight.net/Home/HiveEditor* num navegador da web. Tem de ser conectado a ver esta consola e então, precisa que as credenciais de cluster do Hadoop.
 
 ### <a name="ps"></a> 3. Submeter consultas do Hive com comandos do PowerShell do Azure
 Também pode utilizar o PowerShell para submeter consultas do Hive. Para obter instruções, consulte [tarefas de submeter o Hive com o PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Esta é a consulta de Hive que carrega dados para uma tabela do Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<caminho para os dados de BLOBs\>**: Se o arquivo de BLOBs para ser carregado para a tabela do Hive no contentor predefinido do cluster HDInsight Hadoop, o *\<caminho para os dados de blob\>* deve estar no formato *' wasb: / / /<directory in this container> /<blob file name>'*. O arquivo de BLOBs também pode ser num contentor adicional do cluster HDInsight Hadoop. Neste caso, *\<caminho para os dados de blob\>* deve estar no formato *' wasb: / /<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<caminho para os dados de BLOBs\>**: Se o arquivo de BLOBs para ser carregado para a tabela do Hive no contentor predefinido do cluster HDInsight Hadoop, o *\<caminho para os dados de blob\>* deve estar no formato *' wasb: / /\< diretório neste contentor > /\<nome do ficheiro blob >'*. O arquivo de BLOBs também pode ser num contentor adicional do cluster HDInsight Hadoop. Neste caso, *\<caminho para os dados de blob\>* deve estar no formato *' wasb: / /\<nome do contentor >\<nome da conta de armazenamento >.blob.core.windows.net/\<nome do ficheiro blob >'*.
 
   > [!NOTE]
   > Os dados de BLOBs para ser carregado para uma tabela do Hive tem de estar na predefinição ou adicional contentor da conta do storage para o cluster do Hadoop. Caso contrário, o *carregar dados* consulta reclamar que ele não é possível acessar os dados de falha.
