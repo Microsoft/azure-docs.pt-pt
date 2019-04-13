@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287107"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528497"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Armazenamento de BLOBs de blocos de desempenho Premium
 
@@ -25,10 +25,11 @@ Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **Fil
 
 |Área  |Destino  |
 |---------|---------|
-|Tamanho máximo     |5 TiB (pré-visualização pública), 100 TiB (pré-visualização pública limitada)     |
+|Max tamanho de aprovisionado     |5 TiB (pré-visualização pública), 100 TiB (pré-visualização pública limitada)     |
 |Partilhas   |Ilimitado  |
 |IOPS     |100 000 (pré-visualização pública limitada)    |
-|Largura de Banda|5 GB/s     |
+|Entrada|4,136 MiB/s     |
+|Saída|6,204 MiB/s |
 
  Para o ficheiro de premium, partilhar alvos de dimensionamento, consulte a [ficheiros Premium Dimensionar destinos](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) secção.
 

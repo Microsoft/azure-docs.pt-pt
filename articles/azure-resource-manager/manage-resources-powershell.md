@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 8e6c4047182901c5282f280f59fa95eca6571ecc
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 51ef6f3f8ac18b71064f73f32597c1f59ffa1d18
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417943"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525403"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Gerir recursos do Azure com o Azure PowerShell
 
@@ -96,8 +96,6 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -ResourceName $storageAccountName
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
-
-Para seguir um tutorial, veja [Tutorial: Move Azure resources to another resource group or subscription](./resource-manager-tutorial-move-resources.md) (Tutorial: Mover recursos do Azure para outro grupo de recursos ou outra subscrição). 
 
 Para obter mais informações, consulte [Mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).
 

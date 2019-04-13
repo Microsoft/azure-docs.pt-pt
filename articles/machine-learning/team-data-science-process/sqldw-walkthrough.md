@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838889"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523601"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse
 Neste tutorial, iremos guiá-lo através da criação e implementação de um modelo de aprendizagem automática com o SQL Data Warehouse (SQL DW) para um conjunto de dados publicamente disponível – a [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados. O modelo de classificação binária construído prevê se ou não uma dica é pago por uma viagem e modelos de classificação multiclasses e regressão também são discutidos que prever a distribuição para os valores de sugestão pagos.
@@ -77,7 +77,7 @@ Para configurar o ambiente de ciência de dados do Azure, siga estes passos.
 **Aprovisione a instância de armazém de dados do Azure SQL.**
 Siga a documentação em [criar um SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para Aprovisionar uma instância do SQL Data Warehouse. Certifique-se de que faça notações sobre as seguintes credenciais do SQL Data Warehouse que serão utilizadas em passos posteriores.
 
-* **Nome do servidor**: <server Name>. database.windows.net
+* **Nome do servidor**: \<server Name >. database.windows.net
 * **Nome do SQL dw (base de dados)**
 * **Nome de Utilizador**
 * **Palavra-passe**

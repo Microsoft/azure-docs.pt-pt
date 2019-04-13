@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309122"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523397"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluções de armazenamento do Azure para serviços de ML no Azure HDInsight
 
@@ -95,7 +95,7 @@ No seu código de R, aponte a referência de nó de nome para o **storage2** con
 
 Todas as referências de diretório e arquivo direcionar para a conta de armazenamento `wasb://container2@storage2.blob.core.windows.net`. Este é o **nome do nó** especificado.
 
-Tem de configurar o /user/RevoShare/<SSH username> diretório **storage2** da seguinte forma:
+Tem de configurar o `/user/RevoShare/<SSH username>` diretório **storage2** da seguinte forma:
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f749a04b569d183589fba8c788ce48f29358b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a26388de85ff6293985fe23adac8ca4d04d0de61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295560"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525794"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento 
 
@@ -111,7 +111,7 @@ Seguem-se os passos gerais para gerar chaves de conteúdo associado a recursos q
 
     Propriedade do corpo do pedido    | Descrição
     ---|---
-    Id | O ID de ContentKey é gerado com o seguinte formato, "nb:kid:UUID:<NEW GUID>".
+    Id | O ID de ContentKey é gerado com o seguinte formato, "nb:kid:UUID:\<novo GUID >".
     ContentKeyType | O tipo de chave de conteúdo é um número inteiro que define a chave. Para o formato de encriptação de armazenamento, o valor é 1.
     EncryptedContentKey | Vamos criar um novo valor de chave conteúdo que é um valor de 256 bits (32 bytes). A chave for encriptada com o certificado X.509 encriptação de armazenamento que obtemos dos serviços de multimédia do Microsoft Azure ao executar um pedido HTTP GET para os métodos de GetProtectionKey e GetProtectionKeyId. Por exemplo, consulte o seguinte código do .NET: os **EncryptSymmetricKeyData** método definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Esta é a proteção da chave ID para o certificado X.509 encriptação de armazenamento que foi utilizado para encriptar a nossa chave de conteúdo.

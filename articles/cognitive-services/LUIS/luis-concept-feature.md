@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882459"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522858"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Funcionalidades de lista de frase na sua aplicação LUIS
 
@@ -93,7 +93,7 @@ Embora uma lista de frase e entidades de lista podem afetar os discursos em toda
 ### <a name="use-a-phrase-list"></a>Utilize uma lista de frase
 Com uma lista de frase, LUIS ainda pode levar o contexto em conta e generalizar a identificar itens que são semelhantes, mas não é uma correspondência exata, como itens numa lista. Se precisar da aplicação do LUIS para poder generalizar e identificar novos itens numa categoria, utilize uma lista de frase. 
 
-Quando quer ser capaz de reconhecer novas instâncias de uma entidade, como um agendador de reunião deve reconhecer os nomes dos novos contactos ou uma aplicação de inventário que deve reconhecer a novos produtos, utilizar outro tipo de entidade aprendidas por máquina, como um simples ou entidades hierárquicas. Em seguida, crie uma lista de frase de palavras e expressões que o ajuda a encontrar outras palavras semelhante para a entidade de LUIS. Esta lista orienta o LUIS para reconhecer exemplos da entidade através da adição de significância adicional para o valor dessas palavras. 
+Quando quer ser capaz de reconhecer novas instâncias de uma entidade, como um agendador de reunião deve reconhecer os nomes dos novos contactos ou uma aplicação de inventário que deve reconhecer a novos produtos, utilize outro tipo de entidade aprendidas por máquina, como uma entidade. Em seguida, crie uma lista de frase de palavras e expressões que o ajuda a encontrar outras palavras semelhante para a entidade de LUIS. Esta lista orienta o LUIS para reconhecer exemplos da entidade através da adição de significância adicional para o valor dessas palavras. 
 
 Listas de frase são como vocabulário específicas de domínio que o ajudam a com a melhorar a qualidade da compreensão dos objetivos e entidades. Um uso comum de uma lista de frase é nomes próprios, como os nomes das cidades. Um nome de cidade pode ter várias palavras, incluindo hífenes ou apóstrofos.
  

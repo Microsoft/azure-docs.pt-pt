@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897627"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524638"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -50,7 +50,7 @@ Os Workday utilizador Aprovisiona fluxos de trabalho suportados pelo serviço de
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Quem é que esta solução de aprovisionamento de utilizador melhor adequado para?
 
-Esta solução de aprovisionamento de utilizadores de Workday estão atualmente em pré-visualização pública e é ideal para:
+Esta solução de aprovisionamento de utilizadores de dia de trabalho é ideal para:
 
 * Organizações que desejam acesso uma solução previamente criada com base na cloud para aprovisionamento de utilizadores do Workday
 
@@ -460,7 +460,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 
 2. Na **âmbito de objeto de origem** campo, pode selecionar quais conjuntos de utilizadores no Workday devem estar no âmbito de aprovisionamento para o AD, definindo um conjunto de filtros baseados em atributo. O escopo de padrão é "todos os utilizadores no Workday". Filtros de exemplo:
 
-   * Exemplo: Âmbito para utilizadores com IDs de trabalho entre 1000000 e 2000000
+   * Exemplo: Âmbito para utilizadores com IDs de trabalho entre 1000000 e 2000000 (excluindo 2000000)
 
       * Atributo: WorkerID
 
@@ -1165,7 +1165,7 @@ Esta secção abrange os erros comuns encontrados com o aprovisionamento de util
 |--|---|---|---|
 |1.| Erro ao instalar o agente de aprovisionamento com a mensagem de erro:  *Serviço "Microsoft agente Azure AD Connect de aprovisionamento" (AADConnectProvisioningAgent) falhou ao iniciar. Certifique-se de que tem privilégios suficientes para iniciar o sistema.* | Este erro, normalmente, é apresentada se estiver a tentar instalar o agente de aprovisionamento num controlador de domínio e diretiva de grupo impede que o serviço seja inicializado.  Também é apresentado se tiver uma versão anterior do agente em execução e não o desinstalou-lo antes de iniciar uma nova instalação.| Instale o agente de aprovisionamento num servidor não DC. Certifique-se de que as versões anteriores do agente são desinstaladas antes de instalar o agente de novo.|
 |2.| O serviço Windows "Agente Microsoft Azure AD Connect de aprovisionamento" está em *inicial* de estado e não mudar para *em execução* estado. | Como parte da instalação, o Assistente de agente cria uma conta local (**serviço NT\\AADConnectProvisioningAgent**) no servidor e isso é o **iniciar sessão** conta utilizada para iniciar o serviço. Se uma política de segurança no seu servidor de Windows impede que as contas locais em execução os serviços, irá encontrar este erro. | Abra o *consola de serviços*. Clique com o botão direito do rato no serviço Windows "Agente Microsoft Azure AD Connect de aprovisionamento" e no separador de iniciar sessão, especifique a conta de administrador de domínio para executar o serviço. Reinicie o serviço. |
-|3.| Quando configurar o agente de aprovisionamento com o seu domínio do AD no passo *ligar o Active Directory*, o assistente demora muito tempo tentando carregar o esquema do AD e, eventualmente, exceder o tempo limite. | Este erro, normalmente, é apresentada se o assistente não consegue contactar o servidor de controlador de domínio do AD devido a problemas de firewall. | Sobre o *ligue o Active Directory* ecrã do assistente, ao mesmo tempo, as credenciais para o seu domínio do AD, é uma opção chamada *selecione a prioridade de controlador de domínio*. Utilize esta opção para selecionar um controlador de domínio que está no mesmo site que o servidor de agente e certifique-se de que não há nenhuma regra de firewall a bloquear a comunicação. |
+|3.| Quando configurar o agente de aprovisionamento com o seu domínio do AD no passo *ligar o Active Directory*, o assistente demora muito tempo tentando carregar o esquema do AD e, eventualmente, exceder o tempo limite. | Geralmente, este erro aparece se o assistente não conseguir contactar o servidor de controlador de domínio do AD devido a problemas na firewall. | Sobre o *ligue o Active Directory* ecrã do assistente, ao mesmo tempo, as credenciais para o seu domínio do AD, é uma opção chamada *selecione a prioridade de controlador de domínio*. Utilize esta opção para selecionar um controlador de domínio que está no mesmo site que o servidor de agente e certifique-se de que não há nenhuma regra de firewall a bloquear a comunicação. |
 
 #### <a name="connectivity-errors"></a>Erros de conectividade
 
@@ -1174,14 +1174,14 @@ Se o serviço de aprovisionamento não é possível ligar ao Workday ou Active D
 |#|Cenário de erro |Causas prováveis|Resolução recomendada|
 |--|---|---|---|
 |1.| Quando clica em **Testar ligação**, obterá a mensagem de erro: *Ocorreu um erro ao ligar ao Active Directory. Certifique-se de que o agente de aprovisionamento no local está em execução e está configurado com o domínio do Active Directory correto.* | Este erro normalmente aparece se o aprovisionamento de agente não está em execução ou pode existir uma firewall a bloquear a comunicação entre o Azure AD e o agente de aprovisionamento. Também poderá ver este erro, se o domínio não está configurado no Assistente de agente. | Abra o *serviços* consola no servidor do Windows para confirmar que o agente está em execução. Abra o Assistente de aprovisionamento do agente e confirme que o domínio correto está registrado com o agente.  |
-|2.| A tarefa de aprovisionamento entra em estado de quarentena ao longo da semana (Sábado sexta-feira) e obtemos uma notificação por e-mail que existe um erro com a sincronização. | Uma das causas comuns deste erro é o tempo de inatividade planeado do Workday. Se estiver a utilizar um inquilino de implementação do Workday, tenha em atenção que o Workday tem agendadas para período de indisponibilidade para os seus inquilinos de implementação a fim de semana (normalmente, a partir de noite de sexta-feira de manhã de Sábado) e durante esse período, o Workday aprovisionamento de aplicações pode entrar no Estado de quarentena, pois não é possível estabelecer ligação com o Workday. Ele recebe de volta ao estado normal assim que o inquilino do Workday implementação esteja novamente online. Em casos raros, também poderá ver este erro, se a palavra-passe do utilizador do sistema de integração alterado devido à atualização do inquilino ou se a conta está no bloqueado ou expirado estado. | Contacte o seu parceiro de administrador ou de integração do Workday para ver quando Workday agendas de tempo de inatividade para ignorar mensagens de alerta durante o período de tempo de inatividade e confirmar a disponibilidade assim que a instância do Workday esteja novamente online.  |
+|2.| A tarefa de aprovisionamento entra em estado de quarentena ao longo da semana (Sábado sexta-feira) e obtemos uma notificação por e-mail que existe um erro com a sincronização. | Uma das causas comuns deste erro é o período de indisponibilidade planeado do Workday. Se estiver a utilizar um inquilino de implementação do Workday, tenha em conta que o Workday tem um período de indisponibilidade agendado para os inquilinos de implementação (normalmente, da noite de sexta-feira à manhã de sábado) e, durante esse período, as aplicações de aprovisionamento do Workday podem entrar em quarentena, pois não se conseguem ligar ao Workday. Regressam ao estado normal quando o inquilino de implementação do Workday estiver novamente online. Em casos raros, também poderá ver este erro se a palavra-passe de Utilizador de Sistema de Integração tiver sido alterada devido a uma atualização do inquilino ou se a conta estiver bloqueada ou expirada. | Verifique junto do seu administrador do Workday ou do seu parceiro de integração qual é o período de indisponibilidade do Workday, de modo a ignorar as mensagens de alerta durante esse período e confirmar a disponibilidade assim que a instância do Workday estiver de novo online.  |
 
 
 #### <a name="ad-user-account-creation-errors"></a>Erros de criação de conta de utilizador do AD
 
 |#|Cenário de erro |Causas prováveis|Resolução recomendada|
 |--|---|---|---|
-|1.| Exportar as falhas de operação no log de auditoria com a mensagem *erro: OperationsError-SvcErr: Ocorreu um erro de operação. Nenhuma referência superior foi configurada para o serviço de diretório. O serviço de diretório, por conseguinte, é possível ao problema de referências a objetos fora desta floresta.* | Este erro aparece, normalmente, se o *contentor do Active Directory* UO não está corretamente definido ou se existirem problemas com o mapeamento de expressão utilizada para *parentDistinguishedName*. | Verifique os *contentor do Active Directory* parâmetro de UO para erros de digitação. Se estiver a utilizar *parentDistinguishedName* o mapeamento do atributo Certifique-se de que ela sempre é avaliada como um contêiner conhecido dentro do domínio do AD. Verifique os *exportar* os logs de eventos na auditoria para ver o valor gerado. |
+|1.| Exportar as falhas de operação no log de auditoria com a mensagem *erro: OperationsError-SvcErr: An operation error occurred. No superior reference has been configured for the directory service. O serviço de diretório, por conseguinte, é possível ao problema de referências a objetos fora desta floresta.* | Este erro aparece, normalmente, se o *contentor do Active Directory* UO não está corretamente definido ou se existirem problemas com o mapeamento de expressão utilizada para *parentDistinguishedName*. | Verifique os *contentor do Active Directory* parâmetro de UO para erros de digitação. Se estiver a utilizar *parentDistinguishedName* no mapeamento de atributos, confirme que é sempre avaliado para um contentor conhecido dentro do domínio do AD. Verifique os *exportar* os logs de eventos na auditoria para ver o valor gerado. |
 |2.| Exporte falhas de operação no log de auditoria com o código de erro: *SystemForCrossDomainIdentityManagementBadResponse* e a mensagem *erro: ConstraintViolation-AtrErr: Um valor no pedido é inválido. Um valor para o atributo não estava no intervalo aceitável de valores. detalhes de \nError: CONSTRAINT_ATT_TYPE - da empresa*. | Embora este erro é específico para o *empresa* atributo, poderá ver este erro para outros atributos como *CN* também. Este erro ocorre devido a restrição de esquema do AD imposta. Por predefinição, os atributos, como *empresa* e *CN* no AD tem um limite superior de 64 carateres. Se o valor de dia de trabalho for mais de 64 carateres, em seguida, irá ver esta mensagem de erro. | Verifique os *exportar* eventos nos registos de auditoria para ver o valor do atributo reportados na mensagem de erro. Considere truncar o valor provenientes do Workday através da [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) função ou alterar os mapeamentos para um atributo de AD não tem as restrições de tamanho semelhante.  |
 
 #### <a name="ad-user-account-update-errors"></a>Erros de atualização de conta de utilizador do AD

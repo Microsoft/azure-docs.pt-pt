@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Indexar dados semiestruturados strutured em blobs JSON - Azure Search'
-description: Aprenda a indexar e pesquisar semiestruturados blobs de JSON do Azure com o Azure Search e Postman.
+description: Aprenda a indexar e pesquisar semiestruturados blobs de JSON do Azure com as APIs de REST do Azure Search e Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 146b19716c1d98a4be0cdabd23f224a88e499c62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489232"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525352"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial: Indexar e pesquisar dados semiestruturados (JSON blobs) no Azure Search
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial REST: Indexar e pesquisar dados semiestruturados (JSON blobs) no Azure Search
 
 O Azure Search pode indexar documentos JSON e matrizes no armazenamento de Blobs do Azure com um [indexador](search-indexer-overview.md) que sabe como ler dados semiestruturados. Os dados semiestruturados contêm etiquetas ou marcações que separam o conteúdo dentro dos dados. Ele divide a diferença entre dados não estruturados, o que devem ser totalmente indexadas e estruturados formalmente dados que seguem um modelo de dados, como um esquema de banco de dados relacional, que pode ser indexado numa base por campo.
 
@@ -59,9 +59,7 @@ Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviç
 
 1. [Inicie sessão no portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento do Azure, clique em **Blobs**e, em seguida, clique em **+ contentor**.
 
-1. [Criar um contentor de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Uma vez que irá utilizar um nome de conta de armazenamento e a chave para a ligação, certifique-se de que nível de acesso público do contentor está definido como "Contentor (acesso de leitura anónimo para o contentor)".
-
-   ![Definir o nível de acesso público](media/search-semi-structured-data/container-public-access-level.png "definir o nível de acesso público")
+1. [Criar um contentor de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Pode definir o nível de acesso público a qualquer um dos respetivos valores válidos.
 
 1. Depois do contentor é criado, abra-o e selecione **carregar** na barra de comandos.
 

@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853091"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526916"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -58,15 +58,15 @@ O **definições do repositório** é apresentado o painel de configuração:
 
 O painel mostra o seguinte código de repositórios do Azure, as definições de repositório:
 
-| Definição | Descrição | Value |
+| Definição | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Nota**: GitHub não é atualmente suportado. | Azure repositórios Git |
-| **Azure Active Directory** | Nome do seu inquilino do Azure AD. | <your tenant name> |
-| **Organização de repositórios do Azure** | O nome de organização de repositórios do Azure. Pode localizar o nome de organização de repositórios do Azure em `https://{organization name}.visualstudio.com`. Pode [iniciar sessão na sua organização de repositórios de Azure](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e verá os repositórios e os projetos. | <your organization name> |
-| **ProjectName** | O nome do projeto de Repos do Azure. Pode localizar o nome do projeto de Repos de Azure no `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
-| **RepositoryName** | O nome de repositório de código de repositórios do Azure. Os projetos de repositórios do Azure contêm os repositórios de Git para gerir o seu código-fonte à medida que aumenta a seu projeto. Pode criar um novo repositório ou utilizar um repositório existente que já se encontra no seu projeto. | <your Azure Repos code repository name> |
-| **Ramo de colaboração** | O ramo de colaboração de repositórios do Azure que serve para publicação. Por predefinição, é `master`. Altere esta definição caso queira publicar recursos a partir de outro ramo. | <your collaboration branch name> |
-| **Pasta raiz** | A pasta de raiz no seu ramo de colaboração de repositórios do Azure. | <your root folder name> |
+| **Azure Active Directory** | Nome do seu inquilino do Azure AD. | `<your tenant name>` |
+| **Organização de repositórios do Azure** | O nome de organização de repositórios do Azure. Pode localizar o nome de organização de repositórios do Azure em `https://{organization name}.visualstudio.com`. Pode [iniciar sessão na sua organização de repositórios de Azure](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e verá os repositórios e os projetos. | `<your organization name>` |
+| **ProjectName** | O nome do projeto de Repos do Azure. Pode localizar o nome do projeto de Repos de Azure no `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
+| **RepositoryName** | O nome de repositório de código de repositórios do Azure. Os projetos de repositórios do Azure contêm os repositórios de Git para gerir o seu código-fonte à medida que aumenta a seu projeto. Pode criar um novo repositório ou utilizar um repositório existente que já se encontra no seu projeto. | `<your Azure Repos code repository name>` |
+| **Ramo de colaboração** | O ramo de colaboração de repositórios do Azure que serve para publicação. Por predefinição, é `master`. Altere esta definição caso queira publicar recursos a partir de outro ramo. | `<your collaboration branch name>` |
+| **Pasta raiz** | A pasta de raiz no seu ramo de colaboração de repositórios do Azure. | `<your root folder name>` |
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório de Git de repositórios do Azure. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 
 #### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Git de repositórios do Azure): Experiência do Usuário baseada em telas de criação

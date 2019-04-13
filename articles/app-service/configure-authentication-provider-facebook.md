@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cc10c9be5bab3b84c8773d8a930473267db353ab
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411051"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522894"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Como configurar a sua aplicação do Serviço de Aplicações para utilizar o início de sessão do Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -48,7 +48,7 @@ Para concluir o procedimento neste tópico, tem de ter uma conta do Facebook que
    > O segredo de aplicação é uma credencial de segurança importantes. Não partilhe este segredo com qualquer pessoa ou distribuí-la dentro de um aplicativo de cliente.
    > 
    > 
-9. A conta do Facebook que foi utilizada para registar a aplicação é um administrador da aplicação. Neste momento, apenas os administradores podem iniciar sessão nesta aplicação. Para autenticar a outras contas do Facebook, clique em **revisão da aplicação** e ative **público da marca < nome da aplicação->** para ativar o acesso público geral, usando autenticação do Facebook.
+9. A conta do Facebook que foi utilizada para registar a aplicação é um administrador da aplicação. Neste momento, apenas os administradores podem iniciar sessão nesta aplicação. Para autenticar a outras contas do Facebook, clique em **revisão da aplicação** e ative **tornar \<nome da aplicação > pública** para ativar o acesso público geral, usando autenticação do Facebook.
 
 ## <a name="secrets"> </a>Adicionar informações de Facebook à sua aplicação
 1. De volta a [portal do Azure], navegue para a sua aplicação. Clique em **configurações** > **autenticação / autorização**e certifique-se de que **autenticação do serviço de aplicações** é **em**.
@@ -70,6 +70,6 @@ Agora está pronto para utilizar o Facebook para autenticação na sua aplicaç�
 
 <!-- URLs. -->
 [Desenvolvedores de Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286
-[Facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
+[facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal do Azure]: https://portal.azure.com/

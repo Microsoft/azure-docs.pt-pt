@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 766ceb0bc6f1eb3da9129f2359f6e2be7363dd23
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531135"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527324"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência de v7 de pesquisa de resposta do projeto
 
@@ -35,7 +35,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 O pedido tem de utilizar o protocolo HTTPS e incluir o parâmetro de consulta a seguir:
--  p =<URL> -a consulta que identifica o objeto de pesquisa
+-  `q=<URL>` -A consulta que identifica o objeto de pesquisa
 
 Para obter exemplos que mostram como fazer pedidos, consulte [c# início rápido](c-sharp-quickstart.md) ou [início rápido de Java](java-quickstart.md). 
 
@@ -56,7 +56,7 @@ Para obter informações sobre o uso permitido e a exibição de resultados, con
 > - Pragma – o chamador não tem controlo sobre se o URL de visualização utiliza a cache
 > - Cache-Control – o chamador não tem controlo sobre se o URL de visualização utiliza a cache
 > - Agente de utilizador
-
+> 
 > Além disso, alguns parâmetros não são atualmente significativos para a API de pré-visualização do URL, mas podem ser utilizados no futuro para a globalização melhorada. 
  
 ## <a name="headers"></a>Cabeçalhos  
@@ -83,7 +83,7 @@ Seguem-se os cabeçalhos que podem incluir uma solicitação e resposta.
 O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para parâmetros obrigatórios. Tem o URL de codificar os parâmetros de consulta.  
   
   
-|Name|Value|Type|Necessário|  
+|Name|Valor|Type|Necessário|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização do URL atualmente suporta apenas en--nos mercado e a linguagem.<br /><br />|String|Sim|  
 |<a name="query" />q|O URL para a pré-visualização|String|Sim|  
@@ -119,7 +119,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior que a resposta inclui quando o pedido falhar.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Error](#error)|  
@@ -129,7 +129,7 @@ O objeto de nível superior que a resposta inclui quando o pedido falhar.
 ### <a name="license"></a>Licença  
 Define a licença sob a qual podem ser utilizada o texto ou fotos.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |nome|O nome da licença.|String|  
 |url|O URL para um Web site em que o utilizador pode obter mais informações sobre a licença.<br /><br /> Utilize o nome e o URL para criar uma hiperligação.|String|  
@@ -138,7 +138,7 @@ Define a licença sob a qual podem ser utilizada o texto ou fotos.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Define uma regra contratual para atribuição de licença.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LicenseAttribution.|String|  
 |licença|A licença sob a qual o conteúdo pode ser utilizado.|[License](#license)|  
@@ -150,7 +150,7 @@ Define uma regra contratual para atribuição de licença.
 ### <a name="link"></a>Ligação  
 Define os componentes de um hiperlink.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |texto|O texto de exibição.|String|  
@@ -160,7 +160,7 @@ Define os componentes de um hiperlink.
 ### <a name="linkattribution"></a>LinkAttribution  
 Define uma regra contratual para atribuição de ligação.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LinkAttribution.|String|  
 |mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Booleano|  
@@ -172,7 +172,7 @@ Define uma regra contratual para atribuição de ligação.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Define uma regra contratual para atribuição de suporte de dados.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como MediaAttribution.|String|  
 |mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Booleano|  
@@ -186,7 +186,7 @@ Define um publicador.
   
 Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambos.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |nome|O nome do Editor.|String|  
 |url|O URL para o site do publicador.<br /><br /> Tenha em atenção que o publicador poderão não fornecer um Web site.|String|  
@@ -196,7 +196,7 @@ Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambo
 ### <a name="webpage"></a>Página Web  
 Define as informações sobre uma página da Web em pré-visualização.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|
 |nome|O título da página, não necessariamente o título do HTML|String|
 |url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|  
@@ -217,19 +217,22 @@ Define o contexto de consulta que Bing utilizado para o pedido.
 |originalQuery|A cadeia de consulta, conforme especificado no pedido.|String|  
 
 ### <a name="identifiable"></a>Identificação
-|Name|Value|Type|  
+
+|Name|Valor|Type|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define uma pesquisa resulta de grupo, tal como mainline.
-|Name|Value|Type|  
+
+|Name|Valor|Type|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados de pesquisa para ver o grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado de pesquisa para apresentar.
-|Name|Value|Type|  
+
+|Name|Valor|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a apresentar. Se o item não incluir este campo, apresenta todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número inteiro|
 |answerType|A resposta que contém o item para apresentar. Por exemplo, notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo de SearchResponse.<br /><br /> No entanto, utilizar o tipo de resposta apenas se este objeto inclui o campo de valor; caso contrário, ignorá-lo.|String|
@@ -239,7 +242,7 @@ Define um item de resultado de pesquisa para apresentar.
 ### <a name="rankingresponse"></a>RankingResponse  
 Define onde na pesquisa deve ser colocado o conteúdo da página de resultados e por que ordem.  
   
-|Name|Value|  
+|Name|Valor|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Os resultados da pesquisa para apresentar os principais no.|  
 |<a name="ranking-pole" />Polo|Os resultados da pesquisa que devem ser proporcionados o tratamento mais visível (por exemplo, são apresentados acima o principal e barra lateral).|  
@@ -251,7 +254,7 @@ Define o objeto de nível superior que a resposta inclui quando o pedido for con
   
 Tenha em atenção que, se o serviço suspeita de um ataque de negação de serviço, o pedido terá êxito (código de estado HTTP é 200 OK); No entanto, o corpo da resposta estará vazio.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|String|  
 |Página Web|Um objeto JSON que define a pré-visualização|string|  
@@ -260,7 +263,7 @@ Tenha em atenção que, se o serviço suspeita de um ataque de negação de serv
 ### <a name="textattribution"></a>TextAttribution  
 Define uma regra contratual para atribuição de texto sem formatação.  
   
-|Name|Value|Type|  
+|Name|Valor|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como TextAttribution.|String|  
 |texto|O texto de atribuição.<br /><br /> Atribuição de texto aplica-se para a entidade como um todo e deve ser apresentada imediatamente após a apresentação de entidade. Se existirem várias regras atribuição de texto ou de ligações que não especifique um destino, deve utilizar para concatená-los e exibi-los usando um "dados a partir de:" etiqueta.|String| 

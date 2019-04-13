@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426431"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527188"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
 
@@ -34,7 +34,7 @@ O tipo de resolução de nomes que utiliza depende de como os seus recursos prec
 > Dependendo do seu cenário, pode querer utilizar a funcionalidade zonas privadas do DNS do Azure, que está atualmente em pré-visualização pública. Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](../dns/private-dns-overview.md).
 >
 
-| **Cenário** | **Solução** | **Sufixo** |
+| **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
 | Resolução de nomes entre as VMs localizadas na mesma rede virtual ou serviços Cloud do Azure instâncias de função no mesmo serviço cloud. | [As zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou [resolução de nomes fornecida pelo Azure](#azure-provided-name-resolution) |Nome de anfitrião ou FQDN |
 | Resolução de nomes entre VMs nas redes virtuais em diferentes ou instâncias de função nos serviços cloud diferentes. |[As zonas privadas do DNS do Azure](../dns/private-dns-overview.md) ou, servidores DNS geridos pelo cliente reencaminhamento consultas entre redes virtuais para a resolução pelo Azure (proxy do DNS). Ver [resolução de nomes através de seu próprio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Apenas FQDN |
@@ -147,7 +147,7 @@ Encaminhamento de DNS também permite a resolução DNS entre redes virtuais e p
 
 > [!NOTE]
 > Uma instância de função pode efetuar a resolução de nomes de VMs dentro da mesma rede virtual. Ele faz isso usando o FQDN, que consiste em nome de anfitrião da VM e **internal.cloudapp.net** sufixo DNS. No entanto, neste caso, a resolução de nomes apenas é bem-sucedida se a instância de função tem o nome da VM definido no [esquema de função (ficheiro. cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Instâncias de função que precisam para executar a resolução de nomes de VMs em redes virtuais (FQDN, utilizando o **internal.cloudapp.net** sufixo) tem de fazer isso usando o método descrito nesta secção (servidores DNS personalizados reencaminhamento entre as duas redes virtuais).
 >

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010622"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523958"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -266,7 +266,7 @@ Em termos da API REST, existem várias opções de consulta/pontos finais que n�
 | Método (s) de REST | Opção de consulta/ponto final de REST | URLs de documento | Explicação |
 | ------------| ------------- | ---------- | ----------- |
 | OBTER, COLOCAR | /?restype=service@comp=properties| [Definir as propriedades do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter as propriedades do serviço de tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este ponto final é utilizado para definir regras CORS, configuração de análise de armazenamento e definições de registo. CORS não é atualmente suportado e o registo e análise são processadas forma diferente no Azure Cosmos DB que as tabelas de armazenamento do Azure |
-| OPÇÕES | / < nome de tabela-recursos > | [Pedido de tabela CORS de simulação](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Esta é a parte do CORS que atualmente não suporta o Azure Cosmos DB. |
+| OPÇÕES | /\<table-resource-name> | [Pedido de tabela CORS de simulação](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Esta é a parte do CORS que atualmente não suporta o Azure Cosmos DB. |
 | GET | /?restype=service@comp=stats | [Obter estatísticas do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre primárias e secundárias. Isso não é necessário no Cosmos DB como a replicação é a parte das escritas. |
 | OBTER, COLOCAR | /MyTable? comp = acl | [Obter a tabela de ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir tabela de ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Isso obtém e define as políticas de acesso armazenadas utilizadas para gerir assinaturas de acesso partilhado (SAS). Embora seja suportada SAS, eles são estabelecidos e gerenciados de forma diferente. |
 
@@ -293,7 +293,7 @@ Se qualquer uma dessas diferenças são um problema para o seu projeto, contacte
 
 Pode partilhar os seus comentários em qualquer uma das seguintes formas:
 
-* [Opinião do Utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Estouro de pilha é melhor para questões de programação. Certifique-se de que é a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecer tantos detalhes quanto possível, fazer a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
 

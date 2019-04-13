@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106938"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522355"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem expressões com
 
@@ -56,7 +56,7 @@ Uma entidade descreve um único conceito. Utilize o procedimento seguinte para c
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Adicionar entidades de expressão regular para conceitos extremamente estruturada
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Adicionar entidades de expressão regular para conceitos altamente estruturados
 
 Uma entidade de expressão regular é utilizada para extrair dados de expressão com base numa expressão regular que fornecer. 
 
@@ -135,7 +135,7 @@ Na expressão `Where is Request relocation from employee new to the company on t
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Adicionar uma função para distinguir os diferentes contextos
 
-Uma função é um subtipo com nome de uma entidade com base no contexto. É comparável para um [hierárquica](#add-hierarchical-entities) entidade, funções, mas só são utilizadas na [padrões](luis-how-to-model-intent-pattern.md). 
+Uma função é um subtipo nomeado com base no contexto. Está disponível em todas as entidades, incluindo entidades pré-criados e não aprendidas máquina. 
 
 Usando o mesmo exemplo como a entidade hierárquica de origem e as cidades de destino, a diferença é que uma função com o nome origem em vez de um filho hierárquica. 
 

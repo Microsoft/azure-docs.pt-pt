@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369144"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524377"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Associar o seu dispositivo de trabalho para a rede da sua organização
 Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -62,7 +62,7 @@ Pode tornar-se de que está associado ao observar as suas definições.
 
     ![Contas no ecrã de definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso profissional ou escolar**e certifique-se de ver o texto que diz algo como: **ligado *< your_organization >* do Azure AD**.
+2. Selecione **acesso profissional ou escolar**e certifique-se de ver o texto que diz algo como: **ligado  *\<your_organization >* do Azure AD**.
 
     ![Aceder ao ecrã escolar ou profissional com a conta de contoso ligados](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Pode tornar-se de que está associado ao observar as suas definições.
 
     ![Contas no ecrã de definições](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Selecione **acesso profissional ou escolar**e certifique-se de ver o texto que diz algo como: **ligado *< your_organization >* do Azure AD**.
+2. Selecione **acesso profissional ou escolar**e certifique-se de ver o texto que diz algo como: **ligado  *\<your_organization >* do Azure AD**.
 
     ![Aceder ao ecrã escolar ou profissional com a conta de contoso ligados](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

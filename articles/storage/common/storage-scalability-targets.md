@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267706"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521755"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage desempenho metas de escalabilidade e para contas de armazenamento
 
@@ -58,13 +58,13 @@ Por exemplo: Uma única partilha pode atingir 100 000 IOPS e um único ficheiro 
 
 |Área  |Destino  |
 |---------|---------|
-|Tamanho Mín                        |100 GiB      |
-|Tamanho máximo                        |100 TiB      |
+|Tamanho Mín aprovisionado                        |100 GiB      |
+|Max tamanho de aprovisionado                        |100 TiB      |
 |Tamanho mínimo aumentar/diminuir    |1 GiB      |
 |Linha de base de IOPS    |1 IOPS por GiB até 100.000|
 |IOPS de segurança    |3 x IOPS por GiB até 100.000|
-|Largura de banda mínima                     |100        |
-|Largura de banda |0,1 MB/s por GiB até 5 GiB/s     |
+|Taxa de saída         |60 MiB/s + 0.06 * aprovisionado GiB        |
+|Taxa de entrada| 40 MiB/s + 0.04 * aprovisionado GiB |
 |Número máximo de instantâneos        |200       |
 
 #### <a name="premium-file-limits"></a>Limites do ficheiro Premium
@@ -72,7 +72,7 @@ Por exemplo: Uma única partilha pode atingir 100 000 IOPS e um único ficheiro 
 |Área  |Destino  |
 |---------|---------|
 |Tamanho                  |1 TiB         |
-|IOPS máx por arquivo     |5,000         |
+|IOPS máx por arquivo     |5.000         |
 |Identificadores em simultâneo    |2.000         |
 
 ### <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
@@ -89,9 +89,9 @@ O Azure File Sync foi desenvolvido com o objetivo de utilização ilimitada, mas
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 
-- [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/)
+- [Os detalhes dos preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 - [Subscrição do Azure e limites do serviço, Quotas e restrições](../../azure-subscription-service-limits.md)
 - [Replicação de armazenamento do Azure](../storage-redundancy.md)
 - [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../storage-performance-checklist.md)

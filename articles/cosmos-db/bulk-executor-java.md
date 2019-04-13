@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863360"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524026"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca de Java do executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
 
@@ -118,8 +118,8 @@ O repositório clonado contém dois exemplos "bulkimport" e "bulkupdate" relativ
    |Int getNumberOfDocumentsImported()  |   O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.      |
    |getTotalRequestUnitsConsumed() duplo   |  As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.       |
    |Duração getTotalTimeTaken()   |    O tempo total que a importação em massa chamada à API para concluir a execução.     |
-   |Lista<Exception> getErrors() |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a maior parte importar chamada de API falhou a obter inserido.       |
-   |Lista<Object> getBadInputDocuments()  |    A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).     |
+   |Lista\<exceção > getErrors() |  Obtém a lista de erros se alguns documentos fora do lote fornecido para a maior parte importar chamada de API falhou a obter inserido.       |
+   |Lista\<objeto > getBadInputDocuments()  |    A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).     |
 
 5. Depois de ter a maior parte importar preparado para o aplicativo, compile a ferramenta da linha de comandos de origem com o comando "arquétipo limpa package". Este comando gera um ficheiro. jar na pasta de destino:  
 
@@ -182,7 +182,7 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
    |Int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizadas com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |getTotalRequestUnitsConsumed() duplo |  As unidades de total do pedido (RU) consumidos pela atualização em massa, chamada de API.       |
    |Duração getTotalTimeTaken()  |   O tempo total que a maior parte chamada à API para concluir a execução de atualização.      |
-   |Lista<Exception> getErrors()   |     Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada de API de atualização em massa Falha ao obter inserido.      |
+   |Lista\<exceção > getErrors()   |    Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada de API de atualização em massa Falha ao obter inserido.      |
 
 3. Depois de ter a maior parte atualizar preparado para o aplicativo, compile a ferramenta da linha de comandos de origem com o comando "arquétipo limpa package". Este comando gera um ficheiro. jar na pasta de destino:  
 

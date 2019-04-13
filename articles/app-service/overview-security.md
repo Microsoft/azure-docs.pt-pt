@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1973d7e360f77aed028d8a93a625f0f6cb7e1ab8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731233"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523448"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no serviço de aplicações do Azure
 
@@ -58,7 +58,7 @@ Serviço de aplicações suporta FTP e FTPS para implementar os seus ficheiros. 
 
 Por predefinição, o seu serviço de aplicações aceita os pedidos de todos os endereços IP da internet, mas pode limitar o que o acesso a um pequeno subconjunto de endereços IP. Serviço de aplicações no Windows permite-lhe definir uma lista de endereços IP que têm permissão para aceder à sua aplicação. Lista de permissões pode incluir os endereços IP individuais ou um intervalo de endereços IP definidos por uma máscara de sub-rede. Para obter mais informações, consulte [restrições de IP do Azure App Service estático](app-service-ip-restrictions.md).
 
-Para o serviço de aplicações no Windows, pode também restringir os endereços IP dinamicamente ao configurar o _Web. config_. Para obter mais informações, consulte [segurança de IP dinâmica <dynamicIpSecurity> ](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Para o serviço de aplicações no Windows, pode também restringir os endereços IP dinamicamente ao configurar o _Web. config_. Para obter mais informações, consulte [segurança de IP dinâmica \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autorização e autenticação de cliente
 

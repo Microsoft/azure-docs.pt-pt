@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: 48f7153dcee45a6271919ac756ad794186faaed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668449"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522392"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de coleção fiável no Azure Service Fabric
 Coleções fiáveis replicam e manter seus itens para se certificar de que eles são duráveis em falhas de máquina e falhas de energia.
@@ -96,7 +96,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-Segue-se um exemplo de implementação de IStateSerializer<OrderKey>.
+Segue-se um exemplo de implementação de IStateSerializer\<OrderKey >.
 Tenha em atenção que Leem e escrevem sobrecargas que utilizam no baseValue, chamar seus respectiva sobrecarga para reencaminhamentos de compatibilidade.
 
 ```csharp

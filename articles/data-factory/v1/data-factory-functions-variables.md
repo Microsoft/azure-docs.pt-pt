@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57976781"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523941"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de dados do Azure - funções e variáveis de sistema
 > [!NOTE]
@@ -59,7 +59,7 @@ Pode usar funções da fábrica de dados, juntamente com variáveis do sistema p
 
 1. Especificar as consultas de seleção de dados (veja os artigos de conector referenciados pela [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo.
    
-   A sintaxe para invocar uma função de fábrica de dados é: **$$ <function>** para consultas de seleção de dados e outras propriedades na atividade e conjuntos de dados.  
+   A sintaxe para invocar uma função de fábrica de dados é:  **$$ \<função >** para consultas de seleção de dados e outras propriedades na atividade e conjuntos de dados.  
 2. Especificar dependências de entrada com as funções de fábrica de dados na coleção de entradas de atividade.
    
     US $$ não é necessária para a especificação de expressões de dependência de entrada.     

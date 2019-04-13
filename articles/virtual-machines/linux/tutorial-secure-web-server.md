@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d372dfa845459a63de8ccc1b81e7b1319f47e34
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750924"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524381"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor de web numa máquina virtual Linux no Azure com certificados SSL armazenados no Key Vault
 Para proteger servidores Web, pode ser utilizado um certificado SSL (Secure Sockets Layer) para encriptar o tráfego da Web. Estes certificados SSL podem ser armazenados no Azure Key Vault e permitir implementações seguras de certificados para máquinas virtuais (VMs) com Linux no Azure. Neste tutorial, ficará a saber como:
@@ -50,7 +50,7 @@ Para poder criar um Key Vault e certificados, crie primeiro um grupo de recursos
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Em seguida, crie um Key Vault com [az keyvault create](/cli/azure/keyvault) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua *<mykeyvault>* no exemplo seguinte pelo seu próprio nome exclusivo do Key Vault:
+Em seguida, crie um Key Vault com [az keyvault create](/cli/azure/keyvault) e ative-o para utilização quando implementar uma VM. Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua  *\<mykeyvault >* no exemplo seguinte pelo seu próprio nome exclusivo do Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -137,7 +137,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testar a aplicação Web segura
-Agora, pode abrir um browser e introduzir *https://<publicIpAddress>* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. Aceite o aviso de segurança se utilizou um certificado autoassinado:
+Agora, pode abrir um browser e introduzir *https:\/\/\<publicIpAddress >* na barra de endereço. Forneça o seu próprio endereço IP público a partir do processo de criação da VM. Aceite o aviso de segurança se utilizou um certificado autoassinado:
 
 ![Aceitar o aviso de segurança do browser](./media/tutorial-secure-web-server/browser-warning.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001124"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522715"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origens de dados de registo de eventos Windows no Azure Monitor
 Registos de eventos do Windows são uma das mais comuns [origens de dados](agent-data-sources.md) para a recolha de dados através de agentes do Windows, uma vez que muitos aplicativos escrevem no registo de eventos do Windows.  Pode recolher eventos de registos standard como sistema e da aplicação, além de especificar quaisquer registos personalizados criados por aplicativos que tem de monitorizar.
@@ -54,7 +54,7 @@ Registos de eventos do Windows têm um tipo de **evento** e ter as propriedades 
 | EventLevelName |Gravidade do evento na forma de texto. |
 | EventLog |Nome do registo de eventos que o evento foi recolhido a partir de. |
 | ParameterXml |Valores de parâmetros de evento no formato XML. |
-| ManagementGroupName |Nome do grupo de gestão para agentes do System Center Operations Manager.  Para outros agentes, este valor é AOI-<workspace ID> |
+| ManagementGroupName |Nome do grupo de gestão para agentes do System Center Operations Manager.  Para outros agentes, este valor é `AOI-<workspace ID>` |
 | RenderedDescription |Descrição do evento com valores de parâmetros |
 | Origem |Origem do evento. |
 | SourceSystem |Tipo do evento foi recolhido a partir do agente. <br> Ligar OpsManager – agente de Windows, direta ou gerido do Operations Manager <br> Linux – todos os agentes do Linux  <br> AzureStorage – diagnósticos do Azure |

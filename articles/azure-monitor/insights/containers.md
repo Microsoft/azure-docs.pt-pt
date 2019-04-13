@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905760"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524281"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Azure Monitor
 
@@ -236,7 +236,7 @@ Nesta secção, vamos abordar os passos necessários para instalar o agente Log 
 Se pretender utilizar segredos para proteger o seu ID de área de trabalho do Log Analytics e a chave primária ao utilizar o ficheiro de yaml de conjunto de daemon de agente do Log Analytics, execute os seguintes passos.
 
 1. Início de sessão para o nó principal do OpenShift e copie o ficheiro yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) e o segredo gerar script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) do GitHub.  Este script irá gerar o ficheiro yaml de segredos para ID de área de trabalho do Log Analytics e a chave primária proteger a sua secrete informações.  
-2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de utilizador. O segredo de gerar o script pede-lhe para o seu ID de área de trabalho do Log Analytics <WSID> e a chave primária <KEY> e após a conclusão, ele cria o ficheiro de ocp-secret.yaml.  
+2. Execute os seguintes comandos para criar um projeto para o Azure Monitor e definir a conta de utilizador. O segredo de gerar o script pede-lhe para o seu ID de área de trabalho do Log Analytics `<WSID>` e a chave primária `<KEY>` e após a conclusão, ele cria o ficheiro de ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882755"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522309"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Início rápido: Definir e obter um segredo no Azure Key Vault ao utilizar uma aplicação web Node 
 
@@ -150,7 +150,7 @@ Navegue para a sua aplicação web recentemente criada e deverá ver que ele est
     ```
     http://<app name>.azurewebsites.net
     ```
-O comando anterior também cria uma aplicação ativada para Git que permite-lhe implementar no Azure a partir do seu repositório de Git local. O repositório de Git local está configurado com esta URL: https://<username>@< app_name >.scm.azurewebsites.net/ < app_name > projeto.
+O comando anterior também cria uma aplicação ativada para Git que permite-lhe implementar no Azure a partir do seu repositório de Git local. O repositório de Git local está configurado com esta URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 Depois de concluir o comando anterior, pode adicionar um Azure remoto para o seu repositório de Git local. Substitua `<url>` com o URL do repositório Git.
 
@@ -194,9 +194,9 @@ Execute o seguinte comando para implementar a aplicação no Azure:
 git push azure master
 ```
 
-Depois disso, ao navegar para https://<app_name>.azurewebsites.net, pode ver o valor secreto. Certifique-se de que substituiu o nome <YourKeyVaultName> com o nome do cofre.
+Depois disso, ao navegar para `https://<app_name>.azurewebsites.net`, pode ver o valor secreto. Certifique-se de que substituiu o nome `<YourKeyVaultName>` com o nome do cofre.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [SDK do Azure para Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+> [Azure SDK para o nó](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)

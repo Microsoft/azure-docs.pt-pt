@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501302"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526542"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -34,7 +34,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|cadeia de caracteres, predefinido é "None"|Estático| Isso não valida o certificado de servidor; concluída com êxito o pedido. Consulte a configuração ServiceCertificateThumbprints para obter a lista separada por vírgulas de thumbprints de certificados remotos que pode confiar o proxy inverso. Consulte a configuração ServiceCommonNameAndIssuer para o thumbprint de nome e o emissor de assunto dos certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, a predefinição é 16384 |Dinâmica| Fornece o tamanho para o segmento em bytes, usado para ler o corpo. |
@@ -57,13 +57,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| Sujeita thumbprint de nome e o emissor dos certificados remotos que pode confiar o proxy inverso. Para obter mais informações, consulte [inverter a ligação segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, a predefinição é 0|Estático|MinReplicaSetSize para BackupRestoreService |
 |PlacementConstraints|cadeia de caracteres, a predefinição é ""|Estático|  PlacementConstraints para o serviço de BackupRestore |
@@ -73,7 +73,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="clustermanager"></a>ClusterManager
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |EnableDefaultServicesUpgrade | Bool, a predefinição é falso |Dinâmica|Ative os serviços de predefinição atualizar durante a atualização da aplicação. As descrições de serviço predefinido serão substituídas após a atualização. |
 |FabricUpgradeHealthCheckInterval |Tempo em segundos, a predefinição é 60 |Dinâmica|A frequência de estado de funcionamento verificar durante uma atualização do Fabric monitorizada |
@@ -87,7 +87,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |MaxDataMigrationTimeout |Tempo em segundos, a predefinição é de 600 |Dinâmica|Especifique o período de tempo em segundos. O tempo limite máximo para operações de recuperação para migração de dados após a ocorrência de uma atualização do Fabric. |
 |MaxOperationRetryDelay |Tempo em segundos, a predefinição é 5|Dinâmica| Especifique o período de tempo em segundos. O atraso máximo de tentativas internas quando são encontradas falhas. |
 |MaxOperationTimeout |Tempo em segundos, a predefinição é MaxValue |Dinâmica| Especifique o período de tempo em segundos. O máximo tempo limite global para operações em ClusterManager de processamento internamente. |
-|MaxTimeoutRetryBuffer | Tempo em segundos, a predefinição é de 600 |Dinâmica|Especifique o período de tempo em segundos. É o tempo limite da operação máximo quando internamente repetir a operação devido a tempos limite <Original Time out>  +  <MaxTimeoutRetryBuffer>. Tempo limite adicional é adicionado em incrementos de MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Tempo em segundos, a predefinição é de 600 |Dinâmica|Especifique o período de tempo em segundos. É o tempo limite da operação máximo quando internamente repetir a operação devido a tempos limite `<Original Time out> + <MaxTimeoutRetryBuffer>`. Tempo limite adicional é adicionado em incrementos de MinOperationTimeout. |
 |MinOperationTimeout | Tempo em segundos, a predefinição é 60 |Dinâmica|Especifique o período de tempo em segundos. O mínimo tempo limite global para operações em ClusterManager de processamento internamente. |
 |MinReplicaSetSize |Int, a predefinição é 3 |Não Permitido|O MinReplicaSetSize para ClusterManager. |
 |PlacementConstraints | cadeia de caracteres, a predefinição é "" |Não Permitido|O PlacementConstraints para ClusterManager. |
@@ -102,28 +102,28 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="common"></a>Common
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PerfMonitorInterval |Tempo em segundos, a predefinição é 1 |Dinâmica|Especifique o período de tempo em segundos. Intervalo de monitorização de desempenho. A configuração para valor negativo ou 0 desativa a monitorização. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, a predefinição é nenhum|Dinâmica|Especifica que a desfragmentação de política segue quando a esvaziar nós. Para uma determinada métrica 0 indica que deve tentar SF desfragmentar nós uniformemente em UDs e FDs; 1 indica apenas que os nós têm desfragmentados |
 
 ## <a name="defragmentationmetrics"></a>DefragmentationMetrics
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, a predefinição é nenhum|Dinâmica|Determina o conjunto de métricas que devem ser utilizados para a desfragmentação e não para balanceamento de carga. |
 
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, a predefinição é nenhum|Dinâmica|Determina o número de nós livres que são necessários a serem considerados cluster desfragmentado, especificando ambos % no intervalo [0.0-1.0) ou número de nós vazios como número de > = 1,0 |
 
 ## <a name="diagnostics"></a>Diagnóstico
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, a predefinição é verdadeiro | Dinâmica |Se pretende ou não representação é necessária para aceder ao diagnóstico armazena em nome do aplicativo. |
 |AppEtwTraceDeletionAgeInDays |Int, a predefinição é 3 | Dinâmica |Número de dias após o qual podemos eliminar ficheiros ETL antigos, que contém os rastreios ETW de aplicações. |
@@ -137,7 +137,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ProducerInstances |String | Dinâmica |A lista de instâncias de produtor DCA. |
 
 ## <a name="dnsservice"></a>DnsService
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, a predefinição é falso|Estático|O sinalizador para ativar o suporte para consultas DNS para serviços particionadas. A funcionalidade está desativada por predefinição. Para obter mais informações, consulte [serviço DNS do Service Fabric.](service-fabric-dnsservice.md)|
 |InstanceCount|int, a predefinição é de -1|Estático|valor predefinido é -1, que significa que DnsService está em execução em cada nó. OneBox precisa para ser definido como 1, uma vez que DnsService utiliza a porta conhecida 53, para que ele não pode ter várias instâncias no mesmo computador.|
@@ -147,7 +147,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="eventstore"></a>EventStore
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, a predefinição é 0|Estático|MinReplicaSetSize para o serviço de EventStore |
 |PlacementConstraints|cadeia de caracteres, a predefinição é ""|Estático|  PlacementConstraints para o serviço de EventStore |
@@ -155,7 +155,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="fabricclient"></a>FabricClient
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Tempo em segundos, a predefinição é 2 |Dinâmica|Especifique o período de tempo em segundos. Intervalo de tempo limite de ligação para cada cliente de tempo tenta abrir uma ligação para o gateway.|
 |HealthOperationTimeout |Tempo em segundos, a predefinição é 120 |Dinâmica|Especifique o período de tempo em segundos. O tempo limite de uma mensagem de relatório enviado para o Gestor de estado de funcionamento. |
@@ -170,7 +170,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="fabrichost"></a>FabricHost
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Int, a predefinição é 10 |Dinâmica|Esta é a contagem máxima para o qual sistema voltará a tentar ativação com falha antes de desistir. |
 |ActivationMaxRetryInterval |Tempo em segundos, a predefinição é de 300 |Dinâmica|Especifique o período de tempo em segundos. Intervalo de repetição máximo para a ativação. Em cada caso de falha contínuo, o intervalo entre tentativas é calculado como Min (ActivationMaxRetryInterval; Número de falhas contínua * ActivationRetryBackoffInterval). |
@@ -183,7 +183,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="fabricnode"></a>FabricNode
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ClientAuthX509FindType |cadeia de caracteres, predefinido é "FindByThumbprint" |Dinâmica|Indica como procurar o certificado no arquivo especificado pelo valor ClientAuthX509StoreName suportados: FindByThumbprint; FindBySubjectName. |
 |ClientAuthX509FindValue |cadeia de caracteres, a predefinição é "" | Dinâmica|Valor de filtro de pesquisa utilizado para localizar o certificado para a função de administrador predefinida FabricClient. |
@@ -207,12 +207,12 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="failovermanager"></a>FailoverManager
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |BuildReplicaTimeLimit|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600)|Dinâmica|Especifique o período de tempo em segundos. O limite de tempo para a criação de uma réplica com monitoração de estado; após o qual será iniciado um relatório de estado de funcionamento de aviso |
-|ClusterPauseThreshold|Int, a predefinição é 1|Dinâmica|Se o número de nós no sistema de ir abaixo deste valor, em seguida, o posicionamento; carregar balanceamento; e ativação pós-falha está parado. |
+|ClusterPauseThreshold|int, a predefinição é 1|Dinâmica|Se o número de nós no sistema de ir abaixo deste valor, em seguida, o posicionamento; carregar balanceamento; e ativação pós-falha está parado. |
 |CreateInstanceTimeLimit|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(300)|Dinâmica|Especifique o período de tempo em segundos. O limite de tempo para a criação de uma instância sem monitoração de estado; após o qual será iniciado um relatório de estado de funcionamento de aviso |
-|ExpectedClusterSize|Int, a predefinição é 1|Dinâmica|Quando o cluster é inicialmente foi iniciado; o FM irá esperar, para isso, muitos de nós para comunicar-se a antes de iniciar a colocação de outros serviços; incluindo os serviços do sistema, como a atribuição de nomes. Aumento deste valor aumenta o tempo que demora um cluster para arrancar; mas impede os nós de início de ficar sobrecarregado e também as movimentações adicionais que serão necessárias à medida que mais nós fique online. Este valor em geral, deve ser definido como alguns pequena fração do tamanho do cluster inicial. |
+|ExpectedClusterSize|int, a predefinição é 1|Dinâmica|Quando o cluster é inicialmente foi iniciado; o FM irá esperar, para isso, muitos de nós para comunicar-se a antes de iniciar a colocação de outros serviços; incluindo os serviços do sistema, como a atribuição de nomes. Aumento deste valor aumenta o tempo que demora um cluster para arrancar; mas impede os nós de início de ficar sobrecarregado e também as movimentações adicionais que serão necessárias à medida que mais nós fique online. Este valor em geral, deve ser definido como alguns pequena fração do tamanho do cluster inicial. |
 |ExpectedNodeDeactivationDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para um nó concluir a desativação no. |
 |ExpectedNodeFabricUpgradeDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para um nó a ser atualizado durante a atualização do Windows Fabric. |
 |ExpectedReplicaUpgradeDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Dinâmica|Especifique o período de tempo em segundos. Esta é a duração esperada para todas as réplicas ser actualizado num nó durante a atualização da aplicação. |
@@ -231,7 +231,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int, a predefinição é 604800 |Estático| Isto é, aproximadamente quanto para manter as ações que estão num Estado terminal. Isso também depende de segurança StoredActionCleanupIntervalInSeconds; uma vez que o trabalho para a limpeza só é feito nesse intervalo. 604800 é de 7 dias. |
 |DataLossCheckPollIntervalInSeconds|int, a predefinição é 5|Estático|Este é o tempo entre as verificações do que sistema executa enquanto aguarda a perda de dados ocorrer. O número de vezes que o número de perda de dados será verificado por iteração interna é DataLossCheckWaitDurationInSeconds/este. |
@@ -248,14 +248,14 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="federation"></a>de Federação
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |LeaseDuration |Tempo em segundos, a predefinição é 30 |Dinâmica|Duração que dura de uma concessão entre um nó e de seus vizinhos. |
 |LeaseDurationAcrossFaultDomain |Tempo em segundos, a predefinição é 30 |Dinâmica|Duração que dura de uma concessão entre um nó e de seus vizinhos entre domínios de falha. |
 
 ## <a name="filestoreservice"></a>FileStoreService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AcceptChunkUpload|bool, a predefinição é TRUE|Dinâmica|Configuração para determinar se o serviço de armazenamento de ficheiros aceita o carregamento de ficheiros de segmentos com base ou não durante o pacote de aplicação de cópia. |
 |AnonymousAccessEnabled | Bool, a predefinição é verdadeiro |Estático|Ativar/desativar o acesso anónimo a partilhas de FileStoreService. |
@@ -293,14 +293,14 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="healthmanager"></a>HealthManager
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, a predefinição é falso |Estático|Política de avaliação do Estado de funcionamento do cluster: Ativar por avaliação de estado de funcionamento do tipo de aplicação. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, predefinido é 500 |Dinâmica|O número máximo de estado de funcionamento relatórios que uma entidade pode ter antes de gerar preocupações sobre o estado de funcionamento do watchdog lógica de geração de relatórios. Cada entidade de estado de funcionamento deve para ter um número relativamente pequeno de relatórios de estado de funcionamento. Se a contagem do relatório está mais este número; poderão existir problemas com a implementação de watchdog. Uma entidade com muitos relatórios é sinalizada por meio de um relatório de estado de funcionamento de aviso quando a entidade é avaliada. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool, a predefinição é falso |Estático|Política de avaliação do Estado de funcionamento do cluster: avisos são tratados como erros. |
 |MaxPercentUnhealthyApplications | int, a predefinição é 0 |Estático|Política de avaliação do Estado de funcionamento do cluster: percentagem máxima de aplicações de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento. |
@@ -308,14 +308,14 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|Int, a predefinição é 10|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima de nós delta de mau estado de funcionamento permitido para o cluster seja bom estado de funcionamento |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, a predefinição é 15|Estático|Política de avaliação de atualização do Estado de funcionamento do cluster: percentagem máxima do delta de mau estado de funcionamento nós num domínio de atualização permitidos para o cluster seja bom estado de funcionamento |
 
 ## <a name="hosting"></a>Alojamento
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |É o número inteiro, predefinição 10 |Dinâmica|Número de vezes repete o sistema falha na ativação antes de desistir |
 |ActivationMaxRetryInterval |Tempo em segundos, a predefinição é de 300 |Dinâmica|Em cada caso de falha de ativação contínua, o sistema tentará novamente a ativação de até ActivationMaxFailureCount. ActivationMaxRetryInterval Especifica o intervalo de tempo de espera antes de repetir após cada falha de ativação |
@@ -366,7 +366,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="httpgateway"></a>HttpGateway
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ActiveListeners |Uint, a predefinição é 50 |Estático| Número de leituras por oposição a publicar na fila de servidor http. Esse item controla o número de pedidos simultâneos que podem ser concluídas ao HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tempo em segundos, a predefinição é 30 |Estático|Especifique o período de tempo em segundos. O intervalo em que o Http Gateway envia o estado de funcionamento acumulado relatórios para o Gestor de estado de funcionamento. |
@@ -376,7 +376,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |Ativado |Bool, a predefinição é falso |Estático|O sinalizador ativado para ImageStoreService. Predefinição: Falso |
 |MinReplicaSetSize | Int, a predefinição é 3 |Estático|O MinReplicaSetSize para ImageStoreService. |
@@ -388,7 +388,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="ktllogger"></a>KtlLogger
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |int, a predefinição é 1 |Dinâmica|Sinalizador que indica se as definições de memória devem ser dinamicamente e automaticamente configuradas. Se a zero, em seguida, as definições de configuração de memória são usadas diretamente e não são alterados com base nas condições de sistema. Se um, em seguida, as definições de memória são configuradas automaticamente e pode ser alterada com base nas condições de sistema. |
 |MaximumDestagingWriteOutstandingInKB | int, a predefinição é 0 |Dinâmica|O número de KB para permitir o início de sessão partilhado avançar à frente de registo de dedicado. Utilize 0 para indicar sem limite.
@@ -401,7 +401,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="management"></a>Gestão
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AutomaticUnprovisionInterval|Período de tempo, a predefinição é Common::TimeSpan::FromMinutes(5)|Dinâmica|Especifique o período de tempo em segundos. O intervalo de limpeza de permissão para anular o registo do tipo de aplicação durante a limpeza do tipo de aplicação automática.|
 |AzureStorageMaxConnections | Int, a predefinição é 5000 |Dinâmica|O número máximo de ligações simultâneas para o armazenamento do azure. |
@@ -418,18 +418,18 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, a predefinição é nenhum|Dinâmica|Determina o conjunto de MetricActivityThresholds para as métricas do cluster. Balanceamento funcionará se maxNodeLoad for superior a MetricActivityThresholds. Para as métricas de desfragmentação define a quantidade de carga igual a ou abaixo do qual o Service Fabric irá considerar o nó vazio |
 
 ## <a name="metricbalancingthresholds"></a>MetricBalancingThresholds
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, a predefinição é nenhum|Dinâmica|Determina o conjunto de MetricBalancingThresholds para as métricas do cluster. Balanceamento funcionará se maxNodeLoad/minNodeLoad for superior a MetricBalancingThresholds. Desfragmentação funcionará se maxNodeLoad/minNodeLoad em, pelo menos, um FD ou UD for menor que MetricBalancingThresholds. |
 
 ## <a name="namingservice"></a>NamingService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |GatewayServiceDescriptionCacheLimit |int, a predefinição é 0 |Estático|O número máximo de entradas mantidas no cache de descrição do serviço LRU no Gateway de nomenclatura (definido como 0 para nenhum limite). |
 |MaxClientConnections |Int, a predefinição é 1000 |Dinâmica|O máximo permitido de número de ligações de cliente por gateway. |
@@ -451,38 +451,38 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |TargetReplicaSetSize |Int, o padrão é 7 |Não Permitido|Define o número de réplica para cada partição do armazenamento de serviço de nomenclatura. Aumentar o número de conjuntos de réplicas aumenta o nível de confiabilidade para obter as informações na Store de serviço de nomenclatura; diminuir a alteração que as informações serão perdidas devido a falhas de nó a um custo de aumento de carga nos recursos de infraestrutura do Windows e a quantidade de tempo que demora a executar atualizações para os dados de nomenclatura.|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, a predefinição é nenhum|Dinâmica|Percentagem de capacidade do nó por nome da métrica; utilizado como uma memória intermédia para manter algum lugar gratuito num nó para o caso de ativação pós-falha. |
 
 ## <a name="nodecapacities"></a>NodeCapacities
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeCapacityCollectionMap |Estático|Uma coleção de nó as capacidades para métricas diferentes. |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeFaultDomainIdCollection |Estático|Descreve os domínios de falha, que um nó pertence. O domínio de falhas é definido através de um URI que descreve a localização do nó no Centro de dados.  URIs de domínio de falha estão no formato fd: / fd/seguido de um segmento de caminho do URI.|
 |UpgradeDomainId |cadeia de caracteres, a predefinição é "" |Estático|Descreve um nó pertence o domínio de atualização. |
 
 ## <a name="nodeproperties"></a>NodeProperties
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodePropertyCollectionMap |Estático|Uma coleção de pares de chave-valor de cadeia de carateres para propriedades de nó. |
 
 ## <a name="paas"></a>Paas
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ClusterId |cadeia de caracteres, a predefinição é "" |Não Permitido|Arquivo utilizado por recursos de infraestrutura para proteção da configuração de certificado X509. |
 
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |Contadores |String | Dinâmica |Lista separada por vírgulas de contadores de desempenho a recolher. |
 |IsEnabled |Bool, a predefinição é verdadeiro | Dinâmica |Sinalizador indica se a recolha do contador de desempenho no nó local está ativada. |
@@ -492,7 +492,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AffinityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de afinidade: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |ApplicationCapacityConstraintPriority | int, a predefinição é 0 | Dinâmica|Determina a prioridade de restrição de capacidade: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
@@ -549,7 +549,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ApplicationUpgradeMaxReplicaCloseDuration | Tempo em segundos, a predefinição é de 900 |Dinâmica|Especifique o período de tempo em segundos. Feche a duração para o qual o sistema esperará antes de terminar os hosts de serviço com réplicas que está bloqueada no durante a atualização do aplicativo.|
 |FabricUpgradeMaxReplicaCloseDuration | Tempo em segundos, a predefinição é de 900 |Dinâmica| Especifique o período de tempo em segundos. Feche a duração para o qual o sistema esperará antes de terminar os hosts de serviço com réplicas que está bloqueada no durante a atualização do fabric. |
@@ -562,7 +562,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ServiceReconfigurationApiHealthDuration | Tempo em segundos, a predefinição é 30 |Dinâmica| Especifique o período de tempo em segundos. ServiceReconfigurationApiHealthDuration define o tempo em que podemos esperar para uma API de serviço a ser executada antes elaboramos relatórios de mau estado de funcionamento. Isto aplica-se para chamadas API que afetam a disponibilidade.|
 
 ## <a name="replication"></a>Replicação
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|Período de tempo, a predefinição é Common::TimeSpan::FromMilliseconds(15)|Estático|Especifique o período de tempo em segundos. Determina a quantidade de tempo que o replicator aguarda a após o recebimento de uma operação antes de enviar uma confirmação de volta. Outras operações recebidas durante este período de tempo terão suas confirmações enviadas novamente numa única mensagem -> reduzindo o tráfego de rede, mas potencialmente reduzindo a produtividade do replicador.|
 |MaxCopyQueueSize|uint, a predefinição é de 1024|Estático|Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se durante o tempo de execução, a fila aumenta para esta operação de tamanho ficará limitada entre os replicators primários e secundários.|
@@ -579,13 +579,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |RetryInterval|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique o período de tempo em segundos. Quando uma operação é perdida ou rejeitada este temporizador determina a frequência com que o replicator voltará a tentar enviar a operação.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, a predefinição é falso |Estático|Controla se o serviço está ativado no cluster ou não. |
 
 ## <a name="runas"></a>RunAs
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para a conta "Utilizador_do_domínio" ou "ManagedServiceAccount" tipo. Os valores válidos são "domínio \ utilizador" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer RunAs secção os valores válidos são "Utilizador_do_domínio/NetworkService/ManagedServiceAccount/LocalSystem".|
@@ -593,7 +593,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="runasdca"></a>RunAs_DCA
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para a conta "Utilizador_do_domínio" ou "ManagedServiceAccount" tipo. Os valores válidos são "domínio \ utilizador" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer RunAs secção os valores válidos são "Utilizador_local/Utilizador_do_domínio/NetworkService/ManagedServiceAccount/LocalSystem". |
@@ -601,7 +601,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="runasfabric"></a>RunAs_Fabric
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para a conta "Utilizador_do_domínio" ou "ManagedServiceAccount" tipo. Os valores válidos são "domínio \ utilizador" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer RunAs secção os valores válidos são "Utilizador_local/Utilizador_do_domínio/NetworkService/ManagedServiceAccount/LocalSystem". |
@@ -609,14 +609,14 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="runashttpgateway"></a>RunAs_HttpGateway
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |RunAsAccountName |cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o nome da conta RunAs. Isto só é necessário para a conta "Utilizador_do_domínio" ou "ManagedServiceAccount" tipo. Os valores válidos são "domínio \ utilizador" ou "user@domain". |
 |RunAsAccountType|cadeia de caracteres, a predefinição é "" |Dinâmica|Indica o tipo de conta RunAs. Isto é necessário para qualquer RunAs secção os valores válidos são "Utilizador_local/Utilizador_do_domínio/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|cadeia de caracteres, a predefinição é "" |Dinâmica|Indica a senha da conta RunAs. Isto só é necessário para o tipo de conta de "Utilizador_do_domínio". |
 
 ## <a name="security"></a>Segurança
-| **Parâmetro** | **Valores Permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AADCertEndpointFormat|cadeia de caracteres, a predefinição é ""|Estático|AAD Cert ponto final de formato, Azure Commercial, do padrão especificado para o ambiente de não-padrão, como o Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|cadeia de caracteres, a predefinição é ""|Estático|Nome da aplicação cliente nativo ou ID que representam os clientes de recursos de infraestrutura |
@@ -656,13 +656,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cliente de administrador. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cliente de administrador tem de estar na lista. |
 
 ## <a name="securityclientaccess"></a>Segurança/ClientAccess
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ActivateNode |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para a ativação de um nó. |
 |CancelTestCommand |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Cancela uma TestCommand específica - se estiver em trânsito. |
@@ -764,43 +764,43 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 arquivos de certificados de emissor de certificados de cliente Nome = clientIssuerCN; Valor = lista separada por vírgulas de lojas |
 
 ## <a name="securityclientx509names"></a>Security/ClientX509Names
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cliente. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cliente tem de estar na lista.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 issuer certificate stores for cluster certificates; Name = clusterIssuerCN; Value = comma separated list of stores |
 
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de cluster. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de cluster tem de estar na lista.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, a predefinição é nenhum |Dinâmica|X509 issuer certificate stores for server certificates; Name = serverIssuerCN; Value = comma separated list of stores |
 
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica|Esta é uma lista de par "Name" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados está autorizados para operações de servidor. Para um determinado "nome", "Value" é uma lista separada por vírgulas de thumbprints de certificado de emissor afixação, se não vazio, o emissor direto de certificados de servidor tem de estar na lista.|
 
 ## <a name="setup"></a>Configurar
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|cadeia de caracteres, a predefinição é ""| Estático |O nome de rede a utilizar quando configurar uma rede de contentor.|
 |ContainerNetworkSetup|bool, a predefinição é falso| Estático |Se configurar uma rede de contentor.|
@@ -813,19 +813,19 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |Fornecedores |cadeia de caracteres, predefinido é "DSTS" |Estático|Lista separada por vírgulas dos fornecedores de validação do token para ativar (provedores válidos são: DSTS; AAD). Atualmente apenas um único fornecedor pode ser ativado em qualquer altura. |
 
 ## <a name="traceetw"></a>Rastreio/Etw
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |Nível |Int, a predefinição é 4 | Dinâmica |Nível de rastreio de etw pode assumir valores 1, 2, 3, 4. Suporte é necessário manter o nível de rastreio em 4 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Tempo em segundos, a predefinição é 0.015 | Estático | Especifique o período de tempo em segundos. Determina a quantidade de tempo que o replicator aguarda a após o recebimento de uma operação antes de enviar uma confirmação de volta. Outras operações recebidas durante este período de tempo terão suas confirmações enviadas novamente numa única mensagem -> reduzindo o tráfego de rede, mas potencialmente reduzindo a produtividade do replicador. |
 |MaxCopyQueueSize |Uint, a predefinição é 16384 | Estático |Este é o máximo valor define o tamanho inicial para a fila que mantém as operações de replicação. Tenha em atenção que tem de ser uma potência de 2. Se durante o tempo de execução, a fila aumenta para esta operação de tamanho ficará limitada entre os replicators primários e secundários. |
@@ -837,7 +837,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ReplicatorAddress |cadeia de caracteres, predefinido é "localhost:0" | Estático | O ponto final na forma de uma cadeia de caracteres - o "IP: porta" que é utilizada pelo replicador de recursos de infraestrutura do Windows para estabelecer ligações com outras réplicas para operações de envio/receção. |
 
 ## <a name="transport"></a>Transporte
-| **Parâmetro** | **Valores Permitidos** |**Atualizar política** |**Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** |**Política de atualização** |**Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60)|Estático|Especifique o período de tempo em segundos. Tempo limite para a configuração de ligação no lado de entrada e de aceitar (incluindo a negociação de segurança em modo seguro) |
 |FrameHeaderErrorCheckingEnabled|bool, a predefinição é TRUE|Estático|Predefinição para a verificação no cabeçalho de quadro no modo de não segura; de erros definição de componente substitui isso. |
@@ -847,7 +847,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, a predefinição é verdadeiro |Estático| Consulta automática e a ação de atualização com base num arquivo de estado de objetivos. |
 |AutoupgradeInstallEnabled|bool, a predefinição é falso|Estático|Consulta automática, o aprovisionamento e a instalação de código atualizam ações com base num arquivo de estado de objetivos.|
@@ -862,7 +862,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 ## <a name="upgradeservice"></a>UpgradeService
 
-| **Parâmetro** | **Valores Permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 |BaseUrl | cadeia de caracteres, a predefinição é "" |Estático|BaseUrl para UpgradeService. |
 |ClusterId | cadeia de caracteres, a predefinição é "" |Estático|ClusterId para UpgradeService. |

@@ -1,7 +1,7 @@
 ---
 title: Funções padrão
 titleSuffix: Azure Cognitive Services
-description: Utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.
+description: Padrões de extrair dados de expressão de modelo bem formatado. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106598"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523279"
 ---
-# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair contextualmente relacionados com padrões de utilização de funções
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair contextualmente relacionados padrões de utilização de funções
 
-Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
+Neste tutorial, utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza um [entidade simple](luis-concept-entity-types.md#simple-entity) e [funções](luis-concept-roles.md) para extrair dados relacionados, tais como a localização de origem e a localização de destino.  Ao utilizar padrões, são necessárias menos expressões de exemplo para a intenção.
 
 
 **Neste tutorial, vai aprender a:**
@@ -40,7 +40,7 @@ Neste tutorial, utilize um padrão para extrair dados de uma expressão de model
 
 ## <a name="using-roles-in-patterns"></a>Utilização de funções em padrões
 
-A finalidade das funções é extrair entidades relacionadas contextualmente numa expressão. Na expressão, `Move new employee Robert Williams from Sacramento and San Francisco`, os valores da cidade de origem e da cidade de destino estão relacionados entre si e utilizam uma linguagem comum para indicar cada localização. 
+A finalidade das funções é extrair entidades contextualmente relacionadas numa expressão. Na expressão, `Move new employee Robert Williams from Sacramento and San Francisco`, os valores da cidade de origem e da cidade de destino estão relacionados entre si e utilizam uma linguagem comum para indicar cada localização. 
 
 
 O nome do novo colaborador, Billy Patterson, ainda não faz parte da entidade de lista **Colaborador**. O nome do novo colaborador é extraído em primeiro lugar, para enviar o nome para um sistema externo, de modo a criar as credenciais da empresa. Depois de as credenciais da empresa serem criadas, as credenciais do colaborador são adicionadas à entidade de lista **Colaborador**.
@@ -373,19 +373,6 @@ Tal como os nomes das pessoas, as cidades também são complicadas pois podem se
     ```
 
 A pontuação da intenção é agora muito superior e os nomes das funções fazem parte da resposta da entidade.
-
-## <a name="hierarchical-entities-versus-roles"></a>Entidades hierárquicas versus funções
-
-No [tutorial hierárquico](luis-quickstart-intent-and-hier-entity.md), a intenção **MoveEmployee** detetou quando mover um colaborador existente de um edifício e escritório para outro. As expressões de exemplo tinham as localizações de origem e destino, mas não utilizaram funções. Em vez disso, a origem e o destino eram subordinados da entidade hierárquica. 
-
-Neste tutorial, a aplicação Recursos Humanos deteta expressões sobre a transferência de novos colaboradores de uma cidade para outra. Estes dois tipos de expressões são os mesmos, mas foram resolvidos com diferentes capacidades do LUIS.
-
-|Tutorial|Expressão de exemplo|Localizações de origem e destino|
-|--|--|--|
-|[Hierárquica (sem funções)](luis-quickstart-intent-and-hier-entity.md)|transf Jill Jones de **a-2349** para **b-1298**|a-2349, b-1298|
-|Este tutorial (com funções)|Mover Billy Patterson de **Yuma** para **Denver**.|Yuma, Denver|
-
-Para obter mais informações, veja [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

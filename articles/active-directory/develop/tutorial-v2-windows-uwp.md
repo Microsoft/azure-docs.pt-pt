@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc88535b2332d4e70e383094bdf181d2836752d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490003"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522797"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar o Microsoft Graph API a partir de uma aplicação plataforma Universal do Windows (XAML)
 
@@ -173,7 +173,7 @@ Esta secção mostra como utilizar a MSAL para obter um token para a Microsoft G
 
           try
           {
-           authResult = await PublicClientApp.AcquireTokenInteractive(scopes, this)
+           authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
                                                       .ExecuteAsync()
                                                       .ConfigureAwait(false);
            }
@@ -383,7 +383,7 @@ Também ver informações básicas sobre o token adquirido através de `AcquireT
 
 |Propriedade  |Formato  |Descrição |
 |---------|---------|---------|
-|**Nome de utilizador** |<span>user@domain.com</span> |O nome de utilizador que identificam o utilizador.|
+|**Nome de Utilizador** |<span>user@domain.com</span> |O nome de utilizador que identificam o utilizador.|
 |**Token expira** |DateTime |O tempo que o token expira. A MSAL expande a data de expiração ao renovar o token, se necessário.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Obter mais informações sobre âmbitos e permissões delegadas

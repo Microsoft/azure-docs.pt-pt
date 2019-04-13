@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886728"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525641"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed no Azure Cosmos DB - descrição geral
 
@@ -58,7 +58,7 @@ Se uma propriedade de valor de TTL (Time TTL) é definida num item como -1, o fe
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed de alterações e _etag, _lsn ou TS
 
-O formato de _etag é interno e não deve demorar dependência, porque ele pode mudar em qualquer altura. TS é uma modificação ou um carimbo de criação. Pode usar TS para comparação cronológica. _lsn é um id de lote que é adicionado para apenas; feed de alterações ele representa o id de transação. Número de itens pode ter o mesmo _lsn. ETag no FeedResponse é diferente do _etag que vir no item. _etag é um identificador interno e é utilizado para a simultaneidade informa ao controle sobre a versão do item, ao passo que o ETag é utilizado para o feed de sequenciamento.
+O formato de _etag é interno e não deve demorar dependência, porque ele pode mudar em qualquer altura. TS é uma modificação ou um carimbo de criação. Pode usar TS para comparação cronológica. _lsn é um ID de lote que é adicionado para apenas; feed de alterações ele representa o ID da transação. Número de itens pode ter o mesmo _lsn. ETag no FeedResponse é diferente do _etag que vir no item. _etag é um identificador interno e é utilizado para a simultaneidade informa ao controle sobre a versão do item, ao passo que o ETag é utilizado para o feed de sequenciamento.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Cenários e casos de utilização de feed de alterações
 
@@ -84,7 +84,7 @@ Por exemplo, com o feed de alterações pode efetuar as seguintes tarefas com ef
 
 Seguem-se alguns dos cenários, que pode facilmente implementar com o feed de alterações:
 
-* Dentro de sua [sem servidor](https://azure.microsoft.com/en-us/solutions/serverless/) web ou de aplicações móveis, pode controlar eventos, como todas as alterações para o perfil do seu cliente, as preferências ou a respetiva localização e disparar certas ações, por exemplo, enviar notificações push para os dispositivos usando [as funções do Azure](change-feed-functions.md).
+* Dentro de sua [sem servidor](https://azure.microsoft.com/solutions/serverless/) web ou de aplicações móveis, pode controlar eventos, como todas as alterações para o perfil do seu cliente, as preferências ou a respetiva localização e disparar certas ações, por exemplo, enviar notificações push para os dispositivos usando [as funções do Azure](change-feed-functions.md).
 
 * Se estiver a utilizar o Azure Cosmos DB para criar um jogo, pode, por exemplo, utilize alterar feed para implementar as classificações em tempo real com base em classificações de jogos concluídos.
 

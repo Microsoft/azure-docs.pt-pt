@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
-ms.openlocfilehash: 838fc1da3e167d1df04fbb36a2fea33b8ac248a4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482611"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527171"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Como resolver problemas de Cache do Azure para Redis
 
@@ -250,6 +250,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 1. Houve um grande pedido anterior vários pequenos pedidos para a cache que excedeu o limite? O parâmetro `qs` no erro mensagem indica o número de pedidos foram enviado do cliente para o servidor, mas ainda não processou uma resposta. Este valor pode continuam a aumentar porque stackexchange. redis utiliza uma única ligação de TCP e só pode ler uma resposta ao mesmo tempo. Mesmo que a primeira operação excedeu o tempo limite, mudando mais dados sejam enviados para ou do servidor. Outros pedidos serão bloqueados até que o pedido de grandes dimensões é concluído e pode fazer com que os detalhes sobre o tempo. Uma solução é minimizar a possibilidade de tempos limite, garantindo que a cache é grande o suficiente para a sua carga de trabalho e a divisão de valores grandes em segmentos mais pequenos. Outra solução possível é utilizar um conjunto de `ConnectionMultiplexer` objetos no seu cliente e escolha menos carregado `ConnectionMultiplexer` ao enviar um pedido de novo. Carregamento em vários objetos de conexão deve impedir que um tempo limite único que faz com que outras solicitações também o tempo limite.
 1. Se estiver a utilizar `RedisSessionStateProvider`, certifique-se de que definiu o tempo limite de repetição corretamente. `retryTimeoutInMilliseconds` deve ser superior a `operationTimeoutInMilliseconds`, caso contrário, não existem repetições ocorrem. No exemplo a seguir `retryTimeoutInMilliseconds` está definido como 3000. Para obter mais informações, consulte [fornecedor de estado de sessão do ASP.NET para a Cache de Redis do Azure](cache-aspnet-session-state-provider.md) e [como utilizar os parâmetros de configuração do fornecedor de estado de sessão e o fornecedor de Cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
+    ```xml
     <add
       name="AFRedisCacheSessionStateProvider"
       type="Microsoft.Web.Redis.RedisSessionStateProvider"
@@ -262,6 +263,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
       connectionTimeoutInMilliseconds = "5000"
       operationTimeoutInMilliseconds = "1000"
       retryTimeoutInMilliseconds="3000" />
+    ```
 
 1. Verificar a utilização de memória no Cache do Azure para o servidor Redis por [monitoramento](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` e `Used Memory`. Se uma política de expulsão estiver em vigor, o Redis começa expulsar chaves quando `Used_Memory` atinge o tamanho da cache. O ideal é que `Used Memory RSS` deve ser apenas ligeiramente superior `Used memory`. Uma grande diferença significa que existe a fragmentação de memória (interno ou externo). Quando `Used Memory RSS` é inferior a `Used Memory`, significa que parte da memória cache tem sido ativado pelo sistema operativo. Se essa troca ocorrer, pode esperar algumas latências significativas. Como Redis não tem controle sobre como as respetivas alocações são mapeadas para páginas de memória elevadas `Used Memory RSS` costuma ser o resultado de um pico na utilização da memória. Quando o servidor Redis libera memória, o alocador leva a memória, mas pode ou podem não oferecer a memória novamente no sistema. Pode haver uma discrepância entre o `Used Memory` consumo de memória e de valor, conforme comunicado pelo sistema operativo. Memória pode foram utilizada e lançada pela Redis, mas não especificado de volta ao sistema. Para ajudar a atenuar os problemas de memória, pode fazer os seguintes passos:
 

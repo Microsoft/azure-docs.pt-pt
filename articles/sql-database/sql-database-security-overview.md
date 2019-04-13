@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359046"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523703"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -107,7 +107,7 @@ Como melhor prática, recomendamos que, na ligação da sua aplicação, cadeia 
 Por exemplo, ao utilizar o controlador ADO.NET Isso é feito por meio **Encrypt = True** e **TrustServerCertificate = False**. Se obter a cadeia de ligação do portal do Azure, terá as definições corretas.
 
 > [!IMPORTANT]
-> Tenha em atenção que alguns drivers não-Microsoft não podem utilizar TLS por predefinição ou contar com uma versão mais antiga do TLS (< 2.0) para funcionar. Nesse caso do SQL Server ainda permite-lhe ligar à base de dados. No entanto, recomendamos que avaliar os riscos de segurança de permitir os tais drivers e aplicativos para ligar à base de dados SQL, especialmente se armazenar dados confidenciais. 
+> Tenha em atenção que alguns drivers não-Microsoft não podem utilizar TLS por predefinição ou contar com uma versão mais antiga do TLS (< 1.2) para funcionar. Nesse caso do SQL Server ainda permite-lhe ligar à base de dados. No entanto, recomendamos que avaliar os riscos de segurança de permitir os tais drivers e aplicativos para ligar à base de dados SQL, especialmente se armazenar dados confidenciais. 
 >
 > Para obter mais informações sobre TLS e conectividade, consulte [considerações de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

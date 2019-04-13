@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65515566e5bd0701d218d993f4fe97cae08e1a75
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501183"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523465"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e de protocolo do OpenID Connect
 
@@ -215,7 +215,7 @@ Muitos aplicativos web precisam não apenas iniciar sessão do utilizador no, ma
 
 O fluxo de início de sessão e aquisição de token OpenID Connect completo é semelhante ao seguinte diagrama. Descreveremos cada etapa detalhadamente nas próximas seções deste artigo.
 
-![Protocolo do OpenID Connect: Aquisição do token](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocolo do OpenID Connect: Aquisição do token](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## <a name="get-access-tokens"></a>Obter os tokens de acesso
 Para adquirir os tokens de acesso, modifique o pedido de início de sessão:

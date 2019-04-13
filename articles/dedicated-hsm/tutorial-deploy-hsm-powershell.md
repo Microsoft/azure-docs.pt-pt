@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904853"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521667"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – implementar HSMs numa rede virtual existente com o PowerShell
 
@@ -217,7 +217,7 @@ O ssh ferramenta é utilizada para ligar à máquina virtual. O comando seria se
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 A palavra-passe a utilizar é a partir do ficheiro de parâmetro.
-Uma vez iniciada sessão na VM do Linux pode iniciar sessão para o HSM com o endereço IP privado encontrado no portal para o recurso <prefix>hsm_vnic.
+Uma vez iniciada sessão na VM do Linux pode iniciar sessão para o HSM com o endereço IP privado encontrado no portal para o recurso \<prefixo > hsm_vnic.
 
 ```powershell
 
@@ -276,8 +276,8 @@ Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGrou
 
 Depois de concluir os passos do tutorial, recursos de HSM dedicados são aprovisionado e está disponível na sua rede virtual. Agora, está numa posição para complementar esta implementação com mais recursos, conforme exigido pela sua arquitetura de implementação preferenciais. Para obter mais informações em ajudar a planear a implementação, consulte os documentos de conceitos. Recomenda-se um design com dois HSMs numa região primária endereçamento disponibilidade ao nível do rack e dois HSMs numa região secundária, disponibilidade regional de endereçamento. O ficheiro de modelo utilizado neste tutorial pode ser facilmente utilizado como base para uma implementação de HSM dois, mas tem de ter seus parâmetros modificados para satisfazer os seus requisitos.
 
-* [Elevada Disponibilidade](high-availability.md)
+* [Elevada disponibilidade](high-availability.md)
 * [Segurança física](physical-security.md)
 * [Redes](networking.md)
 * [Monitorização](monitoring.md)
-* [Suportabilidade](supportability.md)
+* [Capacidade de suporte](supportability.md)

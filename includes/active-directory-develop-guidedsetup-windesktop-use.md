@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 13497c8be578990b58cd6d6524eb0e945f8619c2
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3f72f6a5097221c904faff633b5a4ee5a6e023c1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59498431"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532968"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar a MSAL para obter um token para o Microsoft Graph API
 
@@ -74,7 +74,7 @@ Nesta secção, vai utilizar a MSAL para obter um token para o Microsoft Graph A
 
                 try
                 {
-                    authResult = await app.AcquireTokenInteractive(scopes, this)
+                    authResult = await app.AcquireTokenInteractive(scopes)
                         .WithAccount(accounts.FirstOrDefault())
                         .WithPrompt(Prompt.SelectAccount)
                         .ExecuteAsync();
@@ -174,7 +174,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
         try
         {
-            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault()); 
+            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
             this.ResultText.Text = "User has signed-out";
             this.CallGraphButton.Visibility = Visibility.Visible;
             this.SignOutButton.Visibility = Visibility.Collapsed;

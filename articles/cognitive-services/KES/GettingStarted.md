@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994943"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523329"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -252,7 +252,7 @@ Quando tiver criado o serviço cloud, pode utilizar [`kes.exe deploy_service`](C
 
 [Trocar](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) o conteúdo do bloco de teste com o bloco de produção para que o tráfego em direto seja agora direcionado para o serviço recentemente implementado. Pode repetir este processo ao implementar uma versão atualizada do serviço com novos dados. Assim como em todos os outros serviços cloud do Azure, pode utilizar, em alternativa, o portal do Azure para configurar o [dimensionamento automático](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-Neste exemplo, vai implementar o índice *Académico* no bloco de teste de um serviço cloud existente com as VMs de *< vm_size >*. Utilize o seguinte comando:
+Neste exemplo, vai implementar o *académico* índice para o bloco de teste de um serviço cloud existente com  *\<vm_size >* VMs. Utilize o seguinte comando:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

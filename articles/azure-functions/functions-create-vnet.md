@@ -6,14 +6,14 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4f27bbeb43bbf373b621d151d68583f0041378b3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894211"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523737"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrar uma aplicação de função com uma rede virtual do Azure
 
@@ -111,13 +111,14 @@ A aplicação Function App está ligada à Internet e sua VNET. O proxy é receb
 
 ## <a name="next-steps"></a>Próximos Passos
 
-As funções em execução num plano Premium partilham a mesma infra-estrutura subjacente de serviço de aplicações como aplicações Web. Isso significa que toda a documentação para aplicações Web aplica-se a suas funções de plano Premium.
+As funções em execução num plano Premium partilham a mesma infra-estrutura subjacente do serviço de aplicações como aplicações Web no PV2 planos. Isso significa que toda a documentação para aplicações Web aplica-se a suas funções de plano Premium.
 
-1. [Saiba mais sobre a integração de VNET com o serviço de aplicações / funções aqui](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Saiba mais sobre VNETs no Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [Ativar para funcionalidades de rede e controlo com ambientes de serviço de aplicações](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [Ligar a recursos locais individuais sem alterações de firewall com ligações híbridas](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [Saiba mais sobre os Proxies de funções](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [Saiba mais sobre as opções de funcionamento em rede nas funções aqui](./functions-networking-options.md)
+1. [Ler as funções de rede FAQ aqui](./functions-networking-faq.md)
+1. [Saiba mais sobre VNETs no Azure](../virtual-network/virtual-networks-overview.md)
+1. [Ativar mais recursos de rede e controlo com ambientes de serviço de aplicações](../app-service/environment/intro.md)
+1. [Ligar a recursos locais individuais sem alterações de firewall com ligações híbridas](../app-service/app-service-hybrid-connections.md)
+1. [Saiba mais sobre os Proxies de funções](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png

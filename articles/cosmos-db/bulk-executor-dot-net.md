@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258467"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523346"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize a biblioteca de .NET de executor em massa para realizar operações em massa no Azure Cosmos DB
 
@@ -115,7 +115,7 @@ O aplicativo de "BulkImportSample" gera documentos aleatórios e em massa import
    |NumberOfDocumentsImported (long)   |  O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.       |
    |TotalRequestUnitsConsumed (double)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
    |TotalTimeTaken (TimeSpan)    |   O tempo total que a importação em massa chamada à API para concluir a execução.      |
-   |BadInputDocuments (List<object>)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
+   |BadInputDocuments (lista\<objeto >)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Dados de atualização em massa no Azure Cosmos DB
 

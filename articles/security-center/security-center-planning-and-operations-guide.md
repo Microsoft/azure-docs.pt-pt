@@ -3,7 +3,7 @@ title: Guia de Operações e Planeamento do Centro de Segurança | Microsoft Doc
 description: Este documento ajuda-o a planear antes de adotar o Centro de Segurança do Azure e as considerações relativas à operações diárias.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ece396a85a817df51f650fd1c513085efa3dedf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/11/2019
+ms.author: monhaber
+ms.openlocfilehash: 3aae2d6adfd520f103ca1e1bd5e67eeb4b542a3d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842135"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523380"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança de informações e administradores de nuvem cujas organizações estejam a planear utilizar o Centro de Segurança do Azure.
@@ -82,11 +82,6 @@ O Centro de Segurança utiliza o [Controlo de Acesso Baseado em Funções (RBAC)
 - **Administrador de segurança**: igual ao leitor de segurança, mas também pode atualizar a política de segurança, bem como ignorar recomendações e alertas.
 
 As funções do Centro de Segurança descritas acima não têm acesso a outras áreas de serviço do Azure como o Armazenamento, Web e Móvel ou a Internet das Coisas.  
-
-> [!NOTE]
-> Um utilizador tem de ser, pelo menos, um contribuidor ou proprietário de uma subscrição ou grupo de recursos para conseguir ver o Centro de Segurança no Azure.
->
->
 
 Utilizando as pessoas fidedignas explicadas no diagrama anterior, é necessário o seguinte RBAC:
 

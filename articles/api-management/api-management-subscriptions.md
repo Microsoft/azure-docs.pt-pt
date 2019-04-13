@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049763"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526593"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Subscrições na gestão de API do Azure
 
@@ -50,9 +50,6 @@ Tradicionalmente, as subscrições na gestão de API sempre foram associadas um 
 > Em determinados cenários, os publicadores de APIS talvez queira publicar um produto da API para o público sem a necessidade de subscrições. Eles podem desmarcar a **requer subscrição** opção a **definições** página do produto no portal do Azure. Como resultado, todas as APIs sob o produto podem ser acedidas sem uma chave de API.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Subscrições para todas as APIs ou uma API individual
-
-> [!NOTE]
-> Atualmente, esta funcionalidade está disponível na camada de consumo de gestão de API, apenas.
 
 Quando Introduzimos o [consumo](https://aka.ms/apimconsumptionblog) camada de gestão de API, fizemos algumas alterações para simplificar a gestão de chaves:
 - Em primeiro lugar, adicionámos mais dois âmbitos de subscrição: todas as APIs e uma única API. O âmbito das subscrições já não está limitado a um produto da API. Agora é possível criar chaves que concedem acesso a uma API ou todas as APIs numa instância de gestão de API, sem a necessidade de criar um produto e adicionar-lhe as APIs do primeiro. Além disso, cada instância de gestão de API agora vem com uma assinatura imutável, todas as APIs. Esta subscrição torna mais fácil e mais simples de testar e depurar as APIs dentro da consola de teste.

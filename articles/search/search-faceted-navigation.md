@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541218"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523720"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece navegação de Detalhamento auto-direcionada em aplicativos de pesquisa. O termo 'navegação por facetas' pode estar familiarizado, mas provavelmente usou antes. Como mostra o exemplo seguinte, a navegação por facetas é nada mais do que as categorias, utilizadas para filtrar os resultados.
@@ -321,7 +321,7 @@ Em determinadas circunstâncias, poderá considerar que as contagens de faceta n
 
 Contagens de faceta podem estar incorretas devido à arquitetura de fragmentação. Todos os índices de pesquisa tem várias partições horizontais, e cada partição horizontal reporta as facetas de N principais por contagem de documentos, que, em seguida, é combinada num único resultado. Se algumas partições horizontais tem muitos valores correspondentes, enquanto outros têm menos, pode achar que alguns valores de faceta estão em falta ou em contado nos resultados.
 
-Embora esse comportamento poderia alterar em qualquer altura, se encontrar este comportamento hoje em dia, pode utilizar uma solução artificialmente inflating a contagem:<number> para um grande número de impor a geração de relatórios completa de cada partição horizontal. Se o valor da contagem: é maior que ou igual ao número de valores exclusivos no campo, existe a garantia de resultados precisos. No entanto, quando as contagens de documentos são alta, há uma penalidade de desempenho, por isso, utilize esta opção com moderação.
+Embora esse comportamento poderia alterar em qualquer altura, se encontrar este comportamento hoje em dia, pode utilizar uma solução artificialmente inflating a contagem:\<número > para um grande número de impor a geração de relatórios completa de cada partição horizontal. Se o valor da contagem: é maior que ou igual ao número de valores exclusivos no campo, existe a garantia de resultados precisos. No entanto, quando as contagens de documentos são alta, há uma penalidade de desempenho, por isso, utilize esta opção com moderação.
 
 ### <a name="user-interface-tips"></a>Dicas de interface de utilizador
 **Adicionar etiquetas para cada campo na navegação de faceta**

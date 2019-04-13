@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916891"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525566"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de serviços em nuvem com o diagnóstico do Azure
 O rastreamento é uma forma monitorizar a execução do seu aplicativo enquanto ele estiver em execução. Pode utilizar o [Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), e [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) classes para registar informações sobre erros e execução do aplicativo em registos, ficheiros de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre o rastreio, consulte [rastreamento e Instrumentar aplicativos](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Para obter mais informações sobre serviços de escuta, consulte [ouvintes de r
 Depois de concluir os passos para adicionar o serviço de escuta, pode adicionar declarações de rastreio para o seu código.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Para adicionar a declaração de rastreio para o seu código
-1. Abra um ficheiro de origem para a sua aplicação. Por exemplo, o <RoleName>arquivo. CS para a função de trabalho ou a função da web.
+1. Abra um ficheiro de origem para a sua aplicação. Por exemplo, o \<RoleName > arquivo. CS para a função de trabalho ou a função da web.
 2. Adicione o seguinte usando a instrução se já não foi adicionado:
     ```
         using System.Diagnostics;

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822826"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524945"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Descrição geral da configuração de estado da automatização do Azure
 
@@ -117,7 +117,7 @@ Prefere ver do que ler? Dê uma olhada no vídeo seguinte de Maio de 2015, quand
 > [!NOTE]
 > Embora os conceitos e o ciclo de vida descritos neste vídeo estiverem corretos, a configuração de estado de automatização do Azure tem progredido muito desde que este vídeo foi gravado. Agora está disponível em geral, tem uma interface do Usuário muito mais extensa no portal do Azure e oferece suporte a muitos recursos adicionais.
 
-<iframe src="https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

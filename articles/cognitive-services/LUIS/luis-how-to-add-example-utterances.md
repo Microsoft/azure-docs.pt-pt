@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096695"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524264"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
@@ -91,6 +91,8 @@ A expressão, partindo do princípio `Does John Smith work in Seattle?`, uma exp
 
 ## <a name="add-hierarchical-entity"></a>Adicionar entidade hierárquica
 
+**Entidades hierárquicas, eventualmente, vão ser preteridas. Uso [funções de entidade](luis-concept-roles.md) para determinar subtipos de entidade, em vez de entidades hierárquicas.**
+
 Uma entidade hierárquica é uma categoria de entidades contextualmente aprendidas e conceitualmente relacionadas. No exemplo seguinte, a entidade contém localizações de origem e de destino. 
 
 Na expressão `Move John Smith from Seattle to Cairo`, Seattle é a localização de origem e Cairo é a localização de destino. Cada localização é diferente e aprendidas contextualmente de ordem das palavras e a escolha do word na expressão.
@@ -105,6 +107,12 @@ Na expressão `Move John Smith from Seattle to Cairo`, Seattle é a localizaçã
 
     >[!CAUTION]
     >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
+
+## <a name="add-entitys-role-to-utterance"></a>Adicionar a função da entidade a expressão
+
+Uma função é um subtipo com nome de uma entidade, determinado pelo contexto da expressão. Pode marcar uma identidade dentro de uma expressão como a entidade ou selecionar uma função dentro dessa entidade. Qualquer entidade pode ter funções, incluindo entidades personalizadas que são adquiridos de máquina (entidades simples e entidades compostas), não são adquiridos de máquina (entidades previamente concebidas, entidades de expressão regular, entidades de lista). 
+
+Saiba mais [como marcar uma expressão com funções de entidade](tutorial-entity-roles.md) de um tutorial prático. 
 
 ## <a name="entity-status-predictions"></a>Previsões de estado de entidade
 
@@ -151,11 +159,11 @@ Para remover uma etiqueta de entidade aprendidas de máquina de uma expressão, 
 
 ### <a name="add-prebuilt-entity-label"></a>Adicionar etiqueta de entidade predefinidos
 
-Quando adiciona as entidades previamente concebidas para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades previamente concebidas e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-prebuilt-entity).
+Quando adiciona as entidades previamente concebidas para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades previamente concebidas e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ### <a name="add-regular-expression-entity-label"></a>Adicionar etiqueta de entidade de expressão regular
 
-Se adicionar as entidades de expressão regular para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities).
+Se adicionar as entidades de expressão regular para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Criar um padrão a partir de uma expressão

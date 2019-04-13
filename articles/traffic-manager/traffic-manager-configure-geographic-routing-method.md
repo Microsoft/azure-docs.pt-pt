@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010091"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524315"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de tráfego
 
@@ -26,7 +26,7 @@ O método de encaminhamento de tráfego geográfico permite-lhe direcionar o tr�
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/).
 2. Clique em **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
 4. Na **perfil do Gestor de tráfego criar**:
-    1. Forneça um nome para o seu perfil. Este nome tem de ser exclusivo na zona trafficmanager.net. Para acessar o perfil do Traffic Manager, utilize o nome DNS <profilename>. trafficmanager.net.
+    1. Forneça um nome para o seu perfil. Este nome tem de ser exclusivo na zona trafficmanager.net. Para acessar o perfil do Traffic Manager, utilize o nome DNS `<profilename>.trafficmanager.net`.
     2. Selecione o **Geographic** método de encaminhamento.
     3. Selecione a subscrição que pretende criar este perfil.
     4. Utilizar um grupo de recursos existente ou criar um novo grupo de recursos para colocar este perfil. Se optar por criar um novo grupo de recursos, utilize o **localização do grupo de recursos** lista pendente para especificar a localização do grupo de recursos. Esta definição refere-se para a localização do grupo de recursos e não tem impacto sobre o perfil do Gestor de tráfego que é implementado globalmente.

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918013"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527290"
 ---
 # <a name="translator-text-api-v20"></a>V2.0 de API de texto do tradutor
 
@@ -45,7 +45,7 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
 |ProfanityAction    |Ação |Origem de exemplo (japonês)  |Tradução de exemplo (em inglês)  |
 |:--|:--|:--|:--|
 |NoAction   |Predefinição. Mesmo que não definir a opção. Linguagem inapropriada passará de origem ao destino.        |彼はジャッカスです。     |Ele é um jackass.   |
-|Marcado     |Palavras profanas ficará rodeadas por marcas XML <profanity> e </profanity>.     |彼はジャッカスです。 |Ele é um <profanity>jackass</profanity>.    |
+|Marcado     |Palavras profanas ficará rodeadas por marcas XML \<linguagem inapropriada > e \</profanity >.       |彼はジャッカスです。 |Ele é um \<linguagem inapropriada > jackass\</profanity >.  |
 |Eliminada    |Palavras profanas serão removidas da saída sem substituição.     |彼はジャッカスです。 |Ele é um.   |
 
     

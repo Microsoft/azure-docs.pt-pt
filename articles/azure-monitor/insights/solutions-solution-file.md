@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776653"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526372"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -85,7 +85,7 @@ A tabela seguinte lista os parâmetros padrão para todas as soluções de gest�
 
 | Parâmetro | Type | Descrição |
 |:--- |:--- |:--- |
-| accountName |string |Nome da conta de automatização do Azure. |
+| nomeConta |string |Nome da conta de automatização do Azure. |
 | pricingTier |string |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |
 | regionId |string |Região da conta de automatização do Azure. |
 | solutionName |string |Nome da solução.  Se estiver a implementar sua solução por meio de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia de caracteres em vez disso, exigir que o utilizador especifique um. |
@@ -213,18 +213,18 @@ O recurso de solução tem as propriedades na tabela seguinte.  Isto inclui os r
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| workspaceResourceId |ID da área de trabalho do Log Analytics no formulário  *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<nome da área de trabalho\>*. |
+| workspaceResourceId |ID da área de trabalho do Log Analytics no formulário  *\<ID do grupo de recursos > /providers/Microsoft.OperationalInsights/workspaces/\<nome da área de trabalho\>*. |
 | referencedResources |Lista de recursos na solução que não devem ser removidos quando a solução é removida. |
 | containedResources |Lista de recursos na solução que devem ser removidos quando a solução é removida. |
 
 O exemplo acima é uma solução com um runbook, uma agenda e o modo de exibição.  A agenda e um runbook são *referenciado* no **propriedades** , de modo que eles não são removidos quando a solução é removida.  A visualização é *contidos* para que este é removido quando a solução é removida.
 
-### <a name="plan"></a>Plano
+### <a name="plan"></a>Planear
 O **plano** entidade do recurso de solução tem as propriedades na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| name |Nome da solução. |
+| nome |Nome da solução. |
 | versão |Versão da solução conforme determinado pelo autor. |
 | produto |Cadeia de caracteres exclusiva para identificar a solução. |
 | publicador |Editor da solução. |

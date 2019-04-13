@@ -8,29 +8,24 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291790"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532718"
 ---
-A tabela seguinte descreve os limites predefinidos para o armazenamento do Azure. O *entrada* limite refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados de respostas que são recebidas a partir de uma conta de armazenamento.
+A tabela seguinte descreve os limites predefinidos para o Azure para fins gerais v1, v2 e contas de armazenamento de Blobs. O *entrada* limite refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados de respostas que são recebidas a partir de uma conta de armazenamento.
 
 | Recurso | Limite predefinido |
 | --- | --- |
 | Número de contas de armazenamento por região por subscrição, incluindo contas standard e premium | 250 |
 | Capacidade de conta de armazenamento máximo | 2 PB para E.U.A. e Europa, 500 TB para todas as outras regiões, que inclui o Reino Unido |
 | Número máximo de contentores de BLOBs, blobs, partilhas de ficheiros, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
-| Tamanho máximo de uma conta de armazenamento FileStorage (pré-visualização) | 100.000 giB |
-| IOPS máximo para uma conta de armazenamento FileStorage (pré-visualização) | 100 000 |
-| Largura de banda máxima para uma conta de armazenamento FileStorage (pré-visualização) | 5 GB/s |
 | Taxa máxima de pedidos<sup>1</sup> por conta de armazenamento | 20 000 pedidos por segundo |
 | Máxima de entrada<sup>1</sup> por conta de armazenamento (regiões dos E.U.A.) | 10 Gbps, se o RA-GRS/GRS estiver ativado, 20 Gbps para LRS/ZRS<sup>2</sup> |
 | Máxima de entrada<sup>1</sup> por conta de armazenamento (regiões fora dos E.U.A.) | 5 Gbps, se o RA-GRS/GRS estiver ativado, 10 Gbps para LRS/ZRS<sup>2</sup> |
-| Entrada máxima por conta de armazenamento FileStorage (pré-visualização) (regiões dos E.U.A.) | 20 Gbps (apenas LRS) |
-| Entrada máxima por conta de armazenamento FileStorage (pré-visualização) (regiões fora dos E.U.A.) | 10 Gbps (apenas LRS)|
-| Contas de saída máxima para fins gerais v2, FileStorage (pré-visualização) e armazenamento de BLOBs (todas as regiões) | 50 Gbps |
+| Saída máxima para fins gerais v2 e contas de armazenamento de BLOBs (todas as regiões) | 50 Gbps |
 | Saída máxima para as contas de armazenamento para fins gerais v1 (regiões dos E.U.A.) | 20 Gbps se o RA-GRS/GRS estiver ativado, 30 Gbps para LRS/ZRS<sup>2</sup> |
 | Saída máxima para as contas de armazenamento para fins gerais v1 (regiões fora dos E.U.A.) | 10 Gbps, se o RA-GRS/GRS estiver ativado, 15 Gbps para LRS/ZRS<sup>2</sup> |
 

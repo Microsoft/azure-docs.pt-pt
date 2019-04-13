@@ -4,22 +4,24 @@ description: Esta página fornece informações sobre grupos de regras CRS do we
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279708"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523924"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de grupos de regras CRS do web application firewall e regras oferecidas
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Grupos de regras CRS do Web application firewall e regras
 
-Firewall de aplicações da web de Gateway de aplicação (WAF) protege aplicações web contra vulnerabilidades mais comuns e exploits. Isso é feito por meio de regras que estão definidas com base em conjuntos de regras do núcleo OWASP 2.2.9 ou 3.0. Estas regras podem ser desativadas numa base de regra por regra. Este artigo contém as regras atuais e os rulesets oferecidos.
+Firewall de aplicações da web de Gateway de aplicação (WAF) protege aplicações web contra vulnerabilidades mais comuns e exploits. Isso é feito por meio de regras que estão definidas com base em conjuntos de regras do núcleo OWASP 3.0 ou 2.2.9. Estas regras podem ser desativadas numa base de regra por regra. Este artigo contém as regras atuais e os rulesets oferecidos.
 
-As tabelas seguintes são os grupos de regras e regras que estão disponíveis ao utilizar o Gateway de aplicação com firewall de aplicações web.  Cada tabela representa as regras foram encontradas num grupo de regras para uma versão específica do CRS.
+Os seguintes grupos de regras e as regras estão disponíveis ao utilizar o Gateway de aplicação com firewall de aplicações web.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Conjuntos de regras
 
 ### <a name="General"></a> <p x-ms-format-detection="none">Geral</p>
 
@@ -50,7 +52,7 @@ As tabelas seguintes são os grupos de regras e regras que estão disponíveis a
 |---|---|
 |920100|Linha de solicitação de HTTP inválido|
 |920130|Falha ao analisar o corpo do pedido.|
-|920140|Validação estrita de falha de corpo do pedido com várias partes = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} QI %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} DA FINLÂNDIA %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Corpo do pedido com várias partes de falha de validação rigoroso|
 |920160|Cabeçalho de HTTP de conteúdo-comprimento não é numérico.|
 |920170|O pedido GET ou HEAD com conteúdo do corpo.|
 |920180|Pedido POST em falta o cabeçalho Content-Length.|
@@ -216,7 +218,9 @@ As tabelas seguintes são os grupos de regras e regras que estão disponíveis a
 |943110|Ataque de fixação de sessão possível = nome do parâmetro de SessionID com Referenciador de fora do domínio|
 |943120|Ataque de fixação de sessão possível = nome do parâmetro de SessionID com nenhuma Referenciador|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Conjuntos de regras
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ As tabelas seguintes são os grupos de regras e regras que estão disponíveis a
 |960911|Linha de solicitação de HTTP inválido|
 |981227|Erro de Apache = URI inválido no pedido.|
 |960912|Falha ao analisar o corpo do pedido.|
-|960914|Validação estrita de falha de corpo do pedido com várias partes = PE %@{REQBODY_PROCESSOR_ERROR} BQ %@{MULTIPART_BOUNDARY_QUOTED} BW %@{MULTIPART_BOUNDARY_WHITESPACE} DB %@{MULTIPART_DATA_BEFORE} DA %@{MULTIPART_DATA_AFTER} HF %@{MULTIPART_HEADER_FOLDING} LF % @ {MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING} QI %@{MULTIPART_INVALID_QUOTING} IH %@{MULTIPART_INVALID_HEADER_FOLDING} DA FINLÂNDIA %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Corpo do pedido com várias partes de falha de validação rigoroso|
 |960915|Com várias partes parser detetou um limite sem correspondência possível.|
 |960016|Cabeçalho de HTTP de conteúdo-comprimento não é numérico.|
 |960011|O pedido GET ou HEAD com conteúdo do corpo.|
@@ -472,6 +476,8 @@ As tabelas seguintes são os grupos de regras e regras que estão disponíveis a
 |950921|Acesso Backdoor|
 |950922|Acesso Backdoor|
 
+---
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como desativar regras WAF, visite a página: [Personalizar regras de WAF](application-gateway-customize-waf-rules-portal.md)
+Saiba como desativar regras WAF: [Personalizar regras de WAF](application-gateway-customize-waf-rules-portal.md)

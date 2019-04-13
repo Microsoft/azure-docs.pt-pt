@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295135"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523992"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução à entrega de conteúdos a pedido com REST  
 
@@ -560,7 +560,7 @@ Se tiver êxito, é devolvida a seguinte resposta:
 Existem algumas coisas importantes a ter em conta em qualquer pedido de tarefa:
 
 * Propriedades de TaskBody tem de utilizar literal XML para definir o número de entrada ou saída ativos que são utilizados pela tarefa. O artigo de tarefas contém a definição do esquema XML para o XML.
-* O valor na definição do TaskBody, para cada interna <inputAsset> e <outputAsset> tem de ser definido como JobInputAsset(value) ou JobOutputAsset(value).
+* O valor na definição do TaskBody, para cada interna `<inputAsset>` e `<outputAsset>` tem de ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 * Uma tarefa pode ter vários recursos de saída. Um JobOutputAsset(x) só pode ser utilizado uma vez como uma saída de uma tarefa numa tarefa.
 * Pode especificar JobInputAsset ou JobOutputAsset como um recurso de entrada de uma tarefa.
 * Tarefas não têm formam um ciclo.
@@ -572,7 +572,7 @@ Existem algumas coisas importantes a ter em conta em qualquer pedido de tarefa:
 >
 
 * InputMediaAssets mapeia para uma ou mais recursos que criou nos serviços de multimédia. OutputMediaAssets são criados pelo sistema. Eles não fazem referência um recurso existente.
-* OutputMediaAssets podem ser nomeados usando o atributo assetName. Se este atributo não estiver presente, o nome do OutputMediaAsset é seja qual for o valor de texto interno do <outputAsset> elemento é com um sufixo do valor do nome da tarefa ou o valor de Id da tarefa (no caso em que a propriedade de nome não está definida). Por exemplo, se definir um valor para assetName para "Exemplo", a propriedade de nome de OutputMediaAsset seria definida para "Exemplo". No entanto, se não definiu um valor para assetName, mas definir o nome da tarefa para "NewJob", em seguida, o nome de OutputMediaAsset seria "_NewJob JobOutputAsset (valor)".
+* OutputMediaAssets podem ser nomeados usando o atributo assetName. Se este atributo não estiver presente, o nome do OutputMediaAsset é seja qual for o valor de texto interno do `<outputAsset>` elemento é com um sufixo do valor do nome da tarefa ou o valor de Id da tarefa (no caso em que a propriedade de nome não está definida). Por exemplo, se definir um valor para assetName para "Exemplo", a propriedade de nome de OutputMediaAsset seria definida para "Exemplo". No entanto, se não definiu um valor para assetName, mas definir o nome da tarefa para "NewJob", em seguida, o nome de OutputMediaAsset seria "_NewJob JobOutputAsset (valor)".
 
     O exemplo seguinte mostra como definir o atributo assetName:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 70dac62e3e19ad0e9b33ea7b376a8fe479bf3131
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649655"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522989"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP para máquinas virtuais com o PowerShell
 
@@ -96,7 +96,7 @@ Os passos que se seguem explicam como criar um VM de exemplo com vários endere�
 
 6. Definir a configuração de IP primária para a NIC. Alterar 10.0.0.4 para um endereço válido na sub-rede que criou, se não utilizou o valor definido anteriormente. Antes de atribuir um endereço IP estático, recomenda-se que confirme primeiro que ainda não estiver em utilização. Introduza o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída devolve *True*. Se não estiver disponível, a saída devolve *False* e uma lista de endereços que estão disponíveis. 
 
-    Nos seguintes comandos, **substituir < replace-com o-seu--nome exclusivo > com o nome DNS exclusivo a utilizar.** O nome tem de ser exclusivo em todos os endereços IP públicos dentro de uma região do Azure. Este é um parâmetro opcional. Este pode ser removido se pretender ligar à VM com o endereço IP público.
+    Nos seguintes comandos, **substitua \<replace-com o-seu--nome exclusivo > com o nome DNS exclusivo a utilizar.** O nome tem de ser exclusivo em todos os endereços IP públicos dentro de uma região do Azure. Este é um parâmetro opcional. Este pode ser removido se pretender ligar à VM com o endereço IP público.
 
     ```powershell
     

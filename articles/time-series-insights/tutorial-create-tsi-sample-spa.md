@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312211"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521439"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Criar uma aplicação Web de página única do Azure Time Series Insights
 
@@ -179,7 +179,7 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
 Código de erro/condição | Descrição
 ---------------------| -----------
 *AADSTS50011: Nenhum endereço de resposta está registado para a aplicação.* | O registo do Azure AD tem a propriedade "URL de resposta" em falta. Vá para a página **Definições** / **URLs de Resposta** do seu registo de aplicações do Azure AD. Certifique-se de que o URL de **Início de Sessão** especificado no passo n.º 3 de [Registar a aplicação com o Azure AD](#register-the-application-with-azure-ad) está presente. 
-*AADSTS50011: A resposta do url especificado no pedido não coincide com os urls de resposta configurados para a aplicação: "<Application ID GUID>'.* | O `postLogoutRedirectUri` especificado no passo n.º 4.b de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application) tem de corresponder ao valor especificado na propriedade **Definições** / **URLs de Resposta** do seu registo de aplicação do AD. Certifique-se também de que altera o **URL de destino** para utilizar `https`, de acordo com o passo n.º 5.e de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application).
+*AADSTS50011: A resposta do url especificado no pedido não coincide com os urls de resposta configurados para a aplicação: "\<GUID de ID da aplicação >'.* | O `postLogoutRedirectUri` especificado no passo n.º 4.b de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application) tem de corresponder ao valor especificado na propriedade **Definições** / **URLs de Resposta** do seu registo de aplicação do AD. Certifique-se também de que altera o **URL de destino** para utilizar `https`, de acordo com o passo n.º 5.e de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application).
 A aplicação carrega, mas apresenta uma página de início de sessão só com texto e sem estilo, com um fundo branco. | Certifique-se de que os caminhos abordados no passo n.º 4.a de [Criar e publicar a aplicação web](#build-and-publish-the-web-application) estão corretos. Se a aplicação Web não conseguir localizar os ficheiros .css, a página não terá o estilo correto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491292"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524053"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -50,7 +50,7 @@ Antes de criar um peering, familiarize-se com os requisitos e restrições e [as
 5. <a name="add-peering"></a>Introduza ou selecione os valores para as seguintes definições:
     - **Nome:** O nome para o peering tem de ser exclusivo dentro da rede virtual.
     - **Modelo de implementação de rede virtual:** Selecione a rede virtual que pretende fazer peer foi implementada por meio de qual modelo de implementação.
-    - **Eu sei o ID de recurso:** Se tiver acesso de leitura para a rede virtual que pretende fazer peer, deixe esta caixa de verificação desmarcada. Se não tiver acesso de leitura para a rede virtual ou a subscrição que pretende configurar o peering com, esta caixa de verificação. Introduza o ID de recurso completo da rede virtual que pretende configurar o peering no **ID de recurso** caixa que apareceu quando tiver selecionado a caixa. O recurso ID introduzir tem de ser para uma rede virtual que existe no mesmo, ou [suportados diferentes](#requirements-and-constraints) Azure [região](https://azure.microsoft.com/regions) como esta rede virtual. O ID do recurso completo é semelhante a /subscriptions/<Id>/resourceGroups/ < nome de grupo de recursos > /providers/Microsoft.Network/virtualNetworks/ < virtual-network-name >. Pode obter o ID de recurso para uma rede virtual ao visualizar as propriedades de uma rede virtual. Para saber como ver as propriedades de uma rede virtual, veja [gerir redes virtuais](manage-virtual-network.md#view-virtual-networks-and-settings). Se a subscrição está associada a um inquilino do Azure Active Directory diferente do que a subscrição com a rede virtual que está a criar o peering de, primeiro adicione um utilizador de cada inquilino como um [utilizador convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no inquilino oposto.
+    - **Eu sei o ID de recurso:** Se tiver acesso de leitura para a rede virtual que pretende fazer peer, deixe esta caixa de verificação desmarcada. Se não tiver acesso de leitura para a rede virtual ou a subscrição que pretende configurar o peering com, esta caixa de verificação. Introduza o ID de recurso completo da rede virtual que pretende configurar o peering no **ID de recurso** caixa que apareceu quando tiver selecionado a caixa. O recurso ID introduzir tem de ser para uma rede virtual que existe no mesmo, ou [suportados diferentes](#requirements-and-constraints) Azure [região](https://azure.microsoft.com/regions) como esta rede virtual. O recurso completo do ID é semelhante a `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. Pode obter o ID de recurso para uma rede virtual ao visualizar as propriedades de uma rede virtual. Para saber como ver as propriedades de uma rede virtual, veja [gerir redes virtuais](manage-virtual-network.md#view-virtual-networks-and-settings). Se a subscrição está associada a um inquilino do Azure Active Directory diferente do que a subscrição com a rede virtual que está a criar o peering de, primeiro adicione um utilizador de cada inquilino como um [utilizador convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no inquilino oposto.
     - **Subscrição:** Selecione o [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) da rede virtual que pretende fazer peer. Uma ou mais subscrições estão listadas, dependendo do número de subscrições a sua conta tem acesso de leitura. Se tiver selecionado o **ID de recurso** caixa de verificação, esta definição não está disponível.
     - **Rede virtual:** Selecione a rede virtual que pretende fazer peer. Pode selecionar uma rede virtual criada através de qualquer modelo de implementação do Azure. Se pretender selecionar uma rede virtual numa região diferente, tem de selecionar uma rede virtual de um [suportada região](#cross-region). Tem de ter acesso de leitura para a rede virtual para que ele ficasse visível na lista. Se uma rede virtual está listada, mas a cinzento, poderá ser porque o espaço de endereços da rede virtual sobrepõe-se o espaço de endereços para esta rede virtual. Se a sobreposição de espaços de endereços de rede virtual, não podem ser agrupadas. Se tiver selecionado o **ID de recurso** caixa de verificação, esta definição não está disponível.
     - **Permitir o acesso de rede virtual:** Selecione **ativado** (predefinição), se pretender permitir a comunicação entre as duas redes virtuais. Ativar a comunicação entre redes virtuais permite que os recursos ligados a qualquer rede virtual para comunicar entre si com o mesmo da largura de banda e latência, como se estivessem conectados à mesma rede virtual. Todas as comunicações entre os recursos em duas redes virtuais é através da rede privada do Azure. O **VirtualNetwork** etiqueta de serviço para grupos de segurança de rede abrange a rede virtual e a rede virtual em modo de peering. Para obter mais informações sobre etiquetas de serviço de grupo de segurança de rede, consulte [descrição geral dos grupos de segurança de rede](security-overview.md#service-tags). Selecione **desativado** se não pretender que o tráfego flua para a rede virtual em modo de peering. Poderá selecionar **desativado** se tiver uma rede virtual com outra rede virtual em modo de peering, mas, ocasionalmente, pretende desativar o fluxo de tráfego entre as duas redes virtuais. Pode achar a ativação/desativação é mais conveniente para a eliminar e voltar a criar peerings. Quando esta definição estiver desativada, o tráfego não flui entre as redes virtuais em modo de peering.
@@ -156,9 +156,9 @@ Se a sua conta não está atribuída a uma das funções do anteriores, tem de s
 
   |Modelo de implementação do Azure             | Subscrição  |
   |---------                          |---------|
-  |Ambas com Resource Manager              |[Mesmo](tutorial-connect-virtual-networks-portal.md)|
+  |Ambas com Resource Manager              |[Mesma](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|
-  |Uma com Resource Manager, outra com clássica  |[Mesmo](create-peering-different-deployment-models.md)|
+  |Uma com Resource Manager, outra com clássica  |[Mesma](create-peering-different-deployment-models.md)|
   |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 - Saiba como criar uma [topologia de rede hub and spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)

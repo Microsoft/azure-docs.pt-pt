@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090980"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521480"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comuns no Stream Analytics e passos para resolver problemas
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090980"
 
 ![Entradas no mosaico no dashboard do Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Para obter mais informações, ative os registos de diagnóstico para ver os detalhes do aviso. Para eventos de entrada com formato incorreto, os registos de execução contém uma entrada com a mensagem que se assemelha: "mensagem: não foi possível anular a serialização do evento ou eventos entrado de recurso <blob URI> como json". 
+Para obter mais informações, ative os registos de diagnóstico para ver os detalhes do aviso. Para eventos de entrada com formato incorreto, os registos de execução contém uma entrada com a mensagem que é semelhante a: "Mensagem: Não foi possível anular a serialização do evento ou eventos entrado de recurso \<URI de blob > como json ". 
 
 ### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 

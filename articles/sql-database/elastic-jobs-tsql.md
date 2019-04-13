@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621503"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523771"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -193,7 +193,7 @@ O exemplo seguinte cria uma nova tarefa para recolher dados de desempenho de vá
 Por predefinição, o agente de tarefa ficará para criar a tabela para armazenar os resultados devolvidos no. Como resultado o início de sessão associado com a credencial utilizada para a credencial de saída tem de ter permissões suficientes para realizar isso. Se quiser criar manualmente a tabela antes do tempo, em seguida, tem de ter as seguintes propriedades:
 1. Colunas com o nome correto e tipos de dados para o conjunto de resultados.
 2. Coluna adicional para internal_execution_id com o tipo de dados de uniqueidentifier.
-3. Um índice não agrupado com o nome "IX_<TableName>_Internal_Execution_ID" na coluna internal_execution_id.
+3. Um índice não agrupado com o nome `IX_<TableName>_Internal_Execution_ID` na coluna internal_execution_id.
 
 Ligar para o [ *base de dados da tarefa* ](sql-database-job-automation-overview.md#job-database) e execute os seguintes comandos:
 

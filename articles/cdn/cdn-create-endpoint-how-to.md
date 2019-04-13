@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916823"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525114"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de final de CDN do Azure
 Este artigo descreve todas as definições para a criação de um [rede de entrega de conteúdos (CDN)](cdn-overview.md) ponto de extremidade num perfil CDN existente. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes. Para um início rápido sobre como criar um perfil e ponto final, consulte [início rápido: Criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
    
     ![Adicionar página de ponto final](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Para **Nome**, introduza um nome exclusivo para o novo ponto final da CDN. Este nome é utilizado para aceder aos recursos em cache no domínio _<endpointname>_. azureedge.net.
+3. Para **Nome**, introduza um nome exclusivo para o novo ponto final da CDN. Este nome é utilizado para aceder aos recursos em cache no domínio  _\<endpointname >_. azureedge.net.
 
 4. Para **tipo de origem**, escolha um dos seguintes tipos de origem: 
    - **Armazenamento** para o armazenamento do Azure
@@ -62,7 +62,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
    > Alguns tipos de origens, como o Armazenamento e as Aplicações Web do Azure, requerem que o cabeçalho de anfitrião coincida com o domínio da origem. A menos que tenha uma origem que necessite de um cabeçalho de anfitrião diferente do respetivo domínio, deve deixar o valor predefinido.
    > 
     
-8. Para **protocolo** e **porta de origem**, especifique os protocolos e portas a utilizar para aceder aos recursos do servidor de origem. Tem de ser selecionado pelo menos um protocolo (HTTP ou HTTPS). Utilizar o domínio fornecido pela CDN (_<endpointname>_. azureedge.net) para aceder a conteúdo HTTPS. 
+8. Para **protocolo** e **porta de origem**, especifique os protocolos e portas a utilizar para aceder aos recursos do servidor de origem. Tem de ser selecionado pelo menos um protocolo (HTTP ou HTTPS). Utilizar o domínio fornecido pela CDN (_\<endpointname >_. azureedge.net) para aceder a conteúdo HTTPS. 
    
    > [!NOTE]
    > O **porta de origem** valor determina apenas o ponto final que utiliza para recuperar informações a partir do servidor de origem. O próprio ponto final só está disponível para clientes finais nas portas HTTP e HTTPS predefinidas (80 e 443), independentemente do valor **Porta de origem**.  
@@ -75,17 +75,17 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
 
     São suportadas as seguintes definições de tipo de otimização, de acordo com o tipo de perfil:
     - **CDN Standard do Azure da Microsoft** perfis:
-       - [**Entrega geral Web**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Entrega geral web**](cdn-optimization-overview.md#general-web-delivery)
 
     - **CDN Standard do Azure da Verizon** e **CDN do Azure Premium da Verizon** perfis:
-       - [**Entrega geral Web**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Entrega geral web**](cdn-optimization-overview.md#general-web-delivery)
        - [**Aceleração de site dinâmico**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
     - **CDN Standard do Azure da Akamai** perfis:
-       - [**Entrega geral Web**](cdn-optimization-overview.md#general-web-delivery)
+       - [**Entrega geral web**](cdn-optimization-overview.md#general-web-delivery)
        - [**Transmissão geral de multimédia**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Transmissão de video multimédia a pedido**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**Transferência de ficheiro grande**](cdn-optimization-overview.md#large-file-download)
+       - [**Vídeo de transmissão de multimédia a pedido**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Transferência de ficheiros grandes**](cdn-optimization-overview.md#large-file-download)
        - [**Aceleração de site dinâmico**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. Selecione **Adicionar** para criar o novo ponto final.

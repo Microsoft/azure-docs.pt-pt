@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848937"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521599"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
 
@@ -56,7 +56,7 @@ Apenas os gateways mais antigos são afetados por esta alteração. Se o certifi
 
 ### <a name="classic"></a>Clássica
 
-1. Num computador cliente, navegue até ao caminho %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Na pasta do ID de Gateway, pode ver o certificado.
+1. Num computador cliente, navegue até ao caminho `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Na pasta do ID de Gateway, pode ver o certificado.
 2. Na guia Geral para o certificado, certifique-se de que a autoridade emissora é "DigiCert Global AC de raiz". Se tiver mais nada que não esta autoridade emissora, o seu certificado de gateway faz parte da atualização e será transferido.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Agenda de transição de certificado de verificação

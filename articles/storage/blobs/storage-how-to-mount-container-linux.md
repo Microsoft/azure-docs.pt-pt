@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698010"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521658"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o armazenamento de BLOBs como um sistema de ficheiros com blobfuse
 
@@ -29,7 +29,7 @@ Este guia mostra-lhe como utilizar blobfuse e montar um contentor de armazenamen
 ## <a name="install-blobfuse-on-linux"></a>Instalar blobfuse no Linux
 Binários de Blobfuse estão disponíveis na [os repositórios de software da Microsoft para Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) distribuições de Ubuntu e RHEL. Para instalar blobfuse nessas distribuições, configure um dos repositórios da lista. Também pode criar os binários do seguinte código de origem do [passos de instalação do armazenamento do Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) se não houver nenhum binários disponíveis para a sua distribuição.
 
-Blobfuse suporta a instalação no Ubuntu 14.04 e 16.04. Execute este comando para se certificar de que tem um dessas versões implementadas:
+Blobfuse suporta a instalação no Ubuntu 14.04 e 18.04 16.04. Execute este comando para se certificar de que tem um dessas versões implementadas:
 ```
 lsb_release -a
 ```
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Da mesma forma, altere o URL para `.../ubuntu/16.04/...` para apontar para uma distribuição do Ubuntu 16.04.
+Da mesma forma, altere o URL para `.../ubuntu/16.04/...` ou `.../ubuntu/18.04/...` para fazer referência a outra versão do Ubuntu.
 
 ### <a name="install-blobfuse"></a>Instalar blobfuse
 
@@ -85,7 +85,7 @@ No Azure, pode utilizar os discos efémeros (SSD) disponíveis nas suas VMs para
 
 Certifique-se de que o utilizador tem acesso ao caminho temporário:
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -97,8 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+O `accountName` é o prefixo para a sua conta de armazenamento - não é o URL completo.
 
-Depois de criar este ficheiro, certifique-se restringir o acesso para que nenhum outro utilizador pode lê-lo.
+Crie este ficheiro com:
+
+```
+touch ~/fuse_connection.cfg
+```
+
+Depois de criado e editasse este ficheiro, certifique-se restringir o acesso para que nenhum outro usuário pode lê-lo.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

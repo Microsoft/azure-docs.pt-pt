@@ -1,19 +1,18 @@
 ---
-title: Autenticação do Azure Stream Analytics tarefa à saída de geração 1 de Lake armazenamento de dados do Azure
+title: Autenticar a tarefa do Azure Stream Analytics para a saída de geração 1 de armazenamento do Azure Data Lake
 description: Este artigo descreve como utilizar identidades geridas para autenticar a sua tarefa do Azure Stream Analytics para a saída de geração 1 de armazenamento do Azure Data Lake.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257982"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522066"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar o Stream Analytics para a geração 1 de armazenamento do Azure Data Lake com identidades geridas
 
@@ -100,33 +99,37 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
    Esta propriedade diz ao Azure Resource Manager para criar e gerir a identidade para a sua tarefa do Azure Stream Analytics.
 
    **Tarefa de exemplo**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
    **Resposta de tarefa de exemplo**
@@ -145,7 +148,8 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Tome nota do ID Principal da resposta de tarefa para conceder acesso ao recurso do ADLS necessário.
@@ -169,15 +173,14 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Para saber mais sobre o comando acima do PowerShell, consulte a [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentação.
+   Para saber mais sobre o comando acima do PowerShell, consulte a [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentação.
 
 ## <a name="limitations"></a>Limitações
 Esta funcionalidade não suporta o seguinte:
 
-1.  **Acesso de multi-inquilino**: O principal de serviço criado para uma determinada tarefa do Stream Analytics irão residir no inquilino do Azure Active Directory no qual a tarefa foi criada e não pode ser utilizada em relação a um recurso que reside num inquilino do Azure Active Directory diferente. Por conseguinte, só pode utilizar o MSI nos recursos do ADLS Gen 1 que estão no mesmo inquilino do Azure Active Directory como a tarefa do Azure Stream Analytics. 
+1. **Acesso de multi-inquilino**: O principal de serviço criado para uma determinada tarefa do Stream Analytics irão residir no inquilino do Azure Active Directory no qual a tarefa foi criada e não pode ser utilizada em relação a um recurso que reside num inquilino do Azure Active Directory diferente. Por conseguinte, só pode utilizar o MSI nos recursos do ADLS Gen 1 que estão no mesmo inquilino do Azure Active Directory como a tarefa do Azure Stream Analytics. 
 
-2.  **[Identidade de utilizador atribuída](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: não é suportado isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics. 
-
+2. **[Identidade de utilizador atribuída](../active-directory/managed-identities-azure-resources/overview.md)**: não é suportada. Isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

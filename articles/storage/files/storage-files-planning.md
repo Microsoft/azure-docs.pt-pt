@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283023"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525930"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -109,9 +109,9 @@ Todas as partilhas podem ultrapassar os limites até 100, pelo menos, débito IO
 >
 > Limite de rajada = 3 * IOPS da linha de base. (Até um máximo de 100 000 IOPS).
 >
-> taxa de saída = 60 MiB/s + 0.06 GiB aprovisionado (até 6 GiB/s)
+> taxa de saída = 60 MiB/s + 0.06 * aprovisionado GiB
 >
-> taxa de entrada = 40 MiB/s + 0.04 GiB aprovisionado (até 4 GiB)
+> taxa de entrada = 40 MiB/s + 0.04 * aprovisionado GiB
 
 Tamanho da partilha pode ser aumentado mediante qualquer tempo e diminuição em qualquer altura, mas pode ser reduzido a cada 24 horas desde o último aumento. Alterações de dimensionamento IOPS/débito entrarão em vigor dentro de 24 horas após a alteração de tamanho.
 
@@ -128,9 +128,9 @@ A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de par
 |10,240 *     | 10,240  | Até 30,720  | 675 | 450   |
 |33,792 *     | 33,792  | Até 100 000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Até 100 000 | 3,132 | 2,088   |
-|100,000 *    | 100 000 | Até 100 000 | 6,204 | 4,136   |
+|102,400 *    | 100 000 | Até 100 000 | 6,204 | 4,136   |
 
-Atualmente, os tamanhos de partilha de ficheiros até 5 TiB estão em pré-visualização pública, enquanto com tamanhos até 102 TiB estão em pré-visualização pública limitada para pedir acesso para a pré-visualização pública limitada completa [este inquérito.](https://aka.ms/azurefilesatscalesurvey)
+Atualmente, os tamanhos de partilha de ficheiros até 5 TiB estão em pré-visualização pública, enquanto com tamanhos até 100 TiB estão em pré-visualização pública limitada para pedir acesso para a pré-visualização pública limitada completa [este inquérito.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Extrapolação
 

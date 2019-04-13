@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878277"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524094"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Criar clusters do HDInsight com Gen1 de armazenamento do Azure Data Lake como armazenamento predefinido com o PowerShell
 
@@ -215,7 +215,7 @@ Nesta secção, vai criar um cluster do HDInsight Hadoop Linux com a geração 1
     Depois do cmdlet foi concluído com êxito, deverá ver uma saída que lista os detalhes do cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar tarefas de teste no cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake
-Depois de configurar um cluster do HDInsight, pode executar tarefas de teste no mesmo para se certificar de que ele pode acessar Gen1 de armazenamento do Data Lake. Para tal, execute uma tarefa do Hive de exemplo para criar uma tabela que usa os dados de exemplo que já estão disponíveis no Data Lake Storage Gen1 em  *<cluster root>/example/data/sample.log*.
+Depois de configurar um cluster do HDInsight, pode executar tarefas de teste no mesmo para se certificar de que ele pode acessar Gen1 de armazenamento do Data Lake. Para tal, execute uma tarefa do Hive de exemplo para criar uma tabela que usa os dados de exemplo que já estão disponíveis no Data Lake Storage Gen1 em  *\<raiz do cluster > /example/data/sample.log*.
 
 Nesta secção, estabelecer uma ligação de Secure Shell (SSH) no cluster do Linux de HDInsight que criou e, em seguida, executar uma consulta do Hive de exemplo.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835021"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524910"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar características para dados num cluster do Hadoop com consultas do Hive
 Este documento mostra como criar características para dados armazenados num cluster do Azure HDInsight Hadoop com consultas do Hive. Estas consultas do Hive utilizam embedded Hive User-Defined funções (UDFs), os scripts para os quais são fornecidos.
@@ -89,14 +89,14 @@ Hive vem com um conjunto de UDFs para processar os campos datetime. No ramo de r
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Esta consulta do Hive parte do princípio de que o *<datetime field>* está no formato datetime padrão.
+Esta consulta do Hive parte do princípio de que o  *\<campo datetime >* está no formato datetime padrão.
 
 Se um campo datetime não estiver no formato predefinido, terá de converter o campo de datetime para o carimbo de data / hora Unix em primeiro lugar e, em seguida, converter o carimbo de data / hora Unix numa cadeia de datetime, que está no formato padrão. Quando a datetime em default é o formato, os utilizadores podem aplicar a datetime embedded UDFs para extrair recursos.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Nesta consulta, se o *<datetime field>* com o padrão, como *26/03/2015 12:04:39*, o  *<pattern of the datetime field>'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os utilizadores podem executar
+Nesta consulta, se o  *\<campo datetime >* com o padrão, como *26/03/2015 12:04:39*, o  *\<padrão do campo datetime >'* deve ser `'MM/dd/yyyy HH:mm:ss'`. Para testá-lo, os utilizadores podem executar
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

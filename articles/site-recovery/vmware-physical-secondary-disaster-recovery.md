@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 29ced587022bc15e82c756cb5f1b80554cfcceb2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009419"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527307"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
 
@@ -188,7 +188,7 @@ Transfira o [atualizar](https://aka.ms/asr-scout-update6) ficheiro. zip. O fiche
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- Bits de update4 UA para RHEL5, OL5, OL6, SUSE 10, 11 de SUSE: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- Bits de update4 UA para RHEL5, OL5, OL6, SUSE 10, 11 de SUSE: UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   1. Extraia os ficheiros. zip.
   2. **Servidor de RX**: Cópia **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
   3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011846"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525471"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Elevada disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a elevada disponibilidade no sistema operativo SUSE a utilizar o dispositivo STONITH.
@@ -258,7 +258,7 @@ Execute o comando *crm_mon* para garantir **ambos** os nós estão online. Pode 
 ```
 crm_mon
 ```
-![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) também pode iniciar sessão para hawk para verificar o estado de cluster *https://<node IP>: 7630*. O utilizador predefinido é hacluster e a palavra-passe é o linux. Se for necessário, pode alterar a palavra-passe utilizando *passwd* comando.
+![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) também pode iniciar sessão para hawk para verificar o estado de cluster *https://\<nó IP >: 7630*. O utilizador predefinido é hacluster e a palavra-passe é o linux. Se for necessário, pode alterar a palavra-passe utilizando *passwd* comando.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurar as propriedades do Cluster e recursos 
 Esta secção descreve os passos para configurar os recursos do cluster.
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 Quando executa o comando *crm_mon*, pode ver os dois recursos lá.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-Além disso, pode ver o estado no *https://<node IP address>: 7630/cib/live/Estado*
+Além disso, pode ver o estado no *https://\<endereço IP do nó >: 7630/cib/live/Estado*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

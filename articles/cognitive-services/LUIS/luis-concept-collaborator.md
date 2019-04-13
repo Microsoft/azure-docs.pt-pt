@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873568"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522750"
 ---
 # <a name="collaborating-with-other-authors"></a>Colaborar com outros autores
 
-LUIS fornece colaboração para permitir que um grupo de pessoas para criar uma aplicação.
+LUIS aplicações requerem um único proprietário e colaboradores opcionais que permite que várias pessoas criar uma única aplicação.
 
 ## <a name="luis-account"></a>Conta de LUIS
 Uma conta de LUIS está associada um único [Microsoft Live](https://login.live.com/) conta. Cada conta de LUIS é dado um livre [chave de criação](luis-concept-keys.md#authoring-key) a utilizar para a criação de todas as aplicações de LUIS a conta tem acesso a. 
@@ -30,7 +30,8 @@ Uma conta de LUIS pode ter muitos aplicativos de LUIS.
 Ver [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber mais sobre contas de utilizador do Active Directory. 
 
 ## <a name="luis-app-owner"></a>Proprietário da aplicação LUIS
-A conta que cria uma aplicação é o proprietário. Cada aplicação tem um único proprietário. O proprietário está listado na aplicação  **[configurações](luis-how-to-collaborate.md)**. Esta é a conta que pode eliminar a aplicação. Isso também é a conta que recebe o e-mail quando a quota de ponto final atinge 75% do limite mensal. 
+
+A conta que cria uma aplicação é o proprietário e cada aplicação tem um único proprietário. O proprietário está listado na aplicação **[configurações](luis-how-to-collaborate.md)** página. O proprietário pode eliminar a aplicação receber correio eletrónico quando 75% do limite mensal de atingir a quota de ponto final. 
 
 ## <a name="authorization-roles"></a>Funções de autorização
 LUIS não suporta funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode eliminar a aplicação.
@@ -61,6 +62,10 @@ Este método permite-lhe ter uma versão de Active Directory, uma versão de fas
 [Exportar](luis-how-to-manage-versions.md#export-version) a versão da base. Cada autor importa a versão. A pessoa que importa a aplicação é o proprietário da versão. Quando são feitas modificar a aplicação, exportar a versão. 
 
 As aplicações exportadas são arquivos de formato JSON, que podem ser comparados com a exportação de base para que as alterações. Combine os ficheiros para criar um único ficheiro JSON da nova versão. Alteração da **versionId** propriedade no JSON para indicar a nova versão intercalada. Importe essa versão para a aplicação original.
+
+## <a name="collaborator-roles-vs-entity-roles"></a>Funções de entidade do vs de funções do funcionário
+
+[Funções de entidade](luis-concept-roles.md) aplicam-se ao modelo de dados da aplicação LUIS. Funções do funcionário aplicam-se para níveis de acesso de criação. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

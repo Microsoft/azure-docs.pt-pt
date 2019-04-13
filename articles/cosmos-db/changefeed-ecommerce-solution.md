@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120521"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526352"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 
@@ -165,7 +165,7 @@ Para ver como feed de alterações processa novas ações num site de comércio 
 
 1. Navegue de volta para o repositório no Explorador de ficheiros e, com o botão direito **ChangeFeedFunction.sln** para abri-lo novamente numa nova janela do Visual Studio.  
 
-2. Navegue para o **App. config** ficheiro. Dentro de <appSettings> bloco, adicionar o ponto final e exclusivo **chave primária** da sua conta do Azure Cosmos DB que obteve anteriormente.  
+2. Navegue para o **App. config** ficheiro. Dentro de `<appSettings>` bloco, adicionar o ponto final e exclusivo **chave primária** da sua conta do Azure Cosmos DB que obteve anteriormente.  
 
 3. Adicione a **coleção** e **base de dados** nomes. (Esses nomes devem ser **changefeedlabcollection** e **changefeedlabdatabase** , a menos que escolher para um nome diferente.)
 

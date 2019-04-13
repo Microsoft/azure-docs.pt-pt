@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493319"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526349"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
 Esta página de índices versões de esquema de extensão de diagnóstico do Azure fornecidos como parte do SDK do Microsoft Azure.  
@@ -187,7 +187,7 @@ Existem algumas diferenças notáveis entre como a cadeia de ligação trabalhou
 
 * No Azure SDK 2.4 e anteriores, a cadeia de ligação foi utilizada no tempo de execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os registos de diagnóstico.
 * No Azure SDK 2.6 ou posterior, o Visual Studio utiliza a cadeia de ligação de diagnóstico para configurar a extensão de diagnóstico com as informações de conta de armazenamento adequado durante a publicação. A cadeia de ligação permite que defina as contas de armazenamento diferentes para as configurações de serviço diferentes que o Visual Studio irá utilizar quando publicar. No entanto, uma vez que o plug-in de diagnóstico já não está disponível (após o Azure SDK 2.5), o ficheiro. cscfg por si só, não é possível ativar a extensão de diagnóstico. Tem de ativar a extensão em separado através de ferramentas, como o Visual Studio ou o PowerShell.
-* Para simplificar o processo de configuração a extensão de diagnóstico com o PowerShell, a saída de pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. Visual Studio utiliza a cadeia de ligação de diagnóstico para preencher as informações de conta de armazenamento presentes na configuração do pública. Os ficheiros de configuração públicos são criados na pasta de extensões e seguem o padrão PaaSDiagnostics. <RoleName>. PubConfig.xml. Todas as implementações do PowerShell com base em podem utilizar este padrão para mapear cada configuração a uma função.
+* Para simplificar o processo de configuração a extensão de diagnóstico com o PowerShell, a saída de pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. Visual Studio utiliza a cadeia de ligação de diagnóstico para preencher as informações de conta de armazenamento presentes na configuração do pública. Os ficheiros de configuração públicos são criados na pasta de extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Todas as implementações do PowerShell com base em podem utilizar este padrão para mapear cada configuração a uma função.
 * A cadeia de ligação no ficheiro. cscfg também é utilizada pelo portal do Azure para acessar os dados de diagnóstico para que ele pode ser exibido no **monitorização** separador. A cadeia de ligação é necessário configurar o serviço para mostrar dados de monitorização verbosos no portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrando projetos ao Azure SDK 2.6 ou posterior

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 3d51f5328aec66eee0d8382026e8795db45a6a2c
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d227e3618c138e6661cc4be7caa2b9a3ba1af3f1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189789"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523839"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do Media Encoder Premium Workflow
 ## <a name="overview"></a>Descrição geral
@@ -760,7 +760,7 @@ Isso era feito por meio de operações de manipulação de cadeia de caracteres 
 
 *A lista resultante do clip de registo*
 
-Fazer uma execução de teste para ver como os fluxos de áudio e vídeos tem sido recortados. Como fará a execução de teste mais do que uma com diferentes valores para os pontos de remoção, observará que aqueles serão não ser levadas em conta no entanto! A razão disso é que o designer, ao contrário do tempo de execução do Azure, não substitui o xml de cliplist sempre que for executado. Isso significa que apenas na primeira vez que tiver definido a sessão e os pontos, fará com que o xml transformar, todas as outras vezes, nossa cláusula de guarda (se (clipListXML.indexOf ("<trim>") = = -1)) irá impedir que o fluxo de trabalho adicionar outro elemento corte quando existe já um presente.
+Fazer uma execução de teste para ver como os fluxos de áudio e vídeos tem sido recortados. Como fará a execução de teste mais do que uma com diferentes valores para os pontos de remoção, observará que aqueles serão não ser levadas em conta no entanto! A razão disso é que o designer, ao contrário do tempo de execução do Azure, não substitui o xml de cliplist sempre que for executado. Isso significa que apenas na primeira vez que tiver definido a sessão e os pontos, fará com que o xml transformar, todas as outras vezes, nossa cláusula de guarda (se (`clipListXML.indexOf("<trim>") == -1`)) irá impedir que o fluxo de trabalho adicionar outro elemento corte quando já existe um presente.
 
 Para tornar o nosso fluxo de trabalho conveniente para testar localmente, estamos melhor adicionar algum código de manutenção de casa que inspeciona se um elemento de compactação já estava presente. Nesse caso, estamos pode removê-lo antes de continuar, modificando o xml com os novos valores. Em vez de usar manipulações de seqüência de caracteres simples, é provavelmente mais seguro fazer isso por meio do modelo de objeto real xml de análise.
 
@@ -949,7 +949,7 @@ Com o abaixo cláusula de guarda simples, podemos verificar se é necessária a 
 
 [Ficheiros de fluxo de trabalho de exemplo](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Ferramenta do Explorador dos serviços de multimédia do Azure](https://aka.ms/amse)
+[Ferramenta Azure Media Services Explorer](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

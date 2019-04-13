@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 1cbf08cc903069f5b1cf81f57b7daa16f24c0216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cf280dfb806399a8c09838d965d71e7b18cb905f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043860"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521395"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporte os certificados de Emulador do Azure Cosmos DB para utilizar com o Java, o Python e o Node.js
 
@@ -70,7 +70,7 @@ Ambos os certificados podem ser regenerados ao clicar em **Repor Dados** conform
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Como utilizar o certificado no Java
 
-Quando executar aplicações do Java ou do MongoDB que utilizam o cliente do Java, é mais fácil instalar o certificado no arquivo de certificados predefinido do Java, do que passar os sinalizadores "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>". Por exemplo, a [aplicação de Demonstração do Java](https://localhost:8081/_explorer/index.html) incluída depende do arquivo de certificados predefinido.
+Ao executar aplicações Java ou aplicações do MongoDB que utilizam o cliente de Java é mais fácil instalar o certificado para o arquivo de certificados do padrão de Java que passar o `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` sinalizadores. Por exemplo, a [aplicação de Demonstração do Java](https://localhost:8081/_explorer/index.html) incluída depende do arquivo de certificados predefinido.
 
 Siga as instruções em [Adicionar um Certificado ao Arquivo de Certificados de AC do Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) para importar o certificado X.509 para o arquivo de certificados do Java. Tenha em conta que irá trabalhar no diretório %JAVA_HOME% ao executar o keytool.
 

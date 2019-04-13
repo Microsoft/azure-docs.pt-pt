@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855644"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Active Directory do Azure com o SAP NetWeaver
 
@@ -135,7 +135,7 @@ Para configurar o Azure AD início de sessão único com o SAP NetWeaver, execut
 6. Substitua **nome do fornecedor** partir T01122 para `http://T01122` e clique em **guardar**.
 
     > [!NOTE]
-    > Pelo nome do fornecedor predefinida ser <sid> <client> formato, do Azure AD, mas espera o nome no formato <protocol>://<name>, recomendando para manter o nome do fornecedor como https://<sid> <client> para permitir que vários SAP Mecanismos de NetWeaver ABAP configurar no Azure AD.
+    > Por nome do fornecedor predefinida ser `<sid><client>` formato, do Azure AD, mas espera o nome no formato `<protocol>://<name>`, recomendando para manter o nome do fornecedor como `https://<sid><client>` para permitir que vários mecanismos de SAP NetWeaver ABAP configurar no Azure AD.
 
     ![O link de download de certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 

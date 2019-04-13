@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802835"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526831"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Pode utilizar o [Leitor dos Serviços de Multimédia do Azure](https://amsplayer
 No passo anterior, construiu a URL que aponta para um arquivo de manifesto. O cliente precise extrair as informações necessárias dos arquivos de manifestos de transmissão em fluxo para fazer um pedido para o serviço de entrega de chave.
 
 ### <a name="manifest-files"></a>Ficheiros de manifesto
-O cliente precisa extrair o URL (que também contém conteúdo [criança] do ID da chave) valor a partir do ficheiro de manifesto. O cliente tenta, em seguida obter a chave de encriptação do serviço de entrega de chave. O cliente também precisa extrair o valor de IV e usá-la para desencriptar o fluxo. O fragmento seguinte mostra o <Protection> elemento do manifesto de transmissão em fluxo uniforme:
+O cliente precisa extrair o URL (que também contém conteúdo [criança] do ID da chave) valor a partir do ficheiro de manifesto. O cliente tenta, em seguida obter a chave de encriptação do serviço de entrega de chave. O cliente também precisa extrair o valor de IV e usá-la para desencriptar o fluxo. O fragmento seguinte mostra o `<Protection>` elemento do manifesto de transmissão em fluxo uniforme:
 
 ```xml
     <Protection>

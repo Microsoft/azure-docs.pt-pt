@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293078"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521633"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um recurso com o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -94,14 +94,14 @@ O exemplo seguinte mostra como definir o atributo assetName:
 
 ## <a name="considerations"></a>Considerações
 * Propriedades de TaskBody tem de utilizar literal XML para definir o número de entrada ou saída ativos que são utilizados pela tarefa. O artigo de tarefas contém a definição do esquema XML para o XML.
-* O valor na definição do TaskBody, para cada interna <inputAsset> e <outputAsset> tem de ser definido como JobInputAsset(value) ou JobOutputAsset(value).
+* O valor na definição do TaskBody, para cada interna `<inputAsset>` e `<outputAsset>` tem de ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 * Uma tarefa pode ter vários recursos de saída. Um JobOutputAsset(x) só pode ser utilizado uma vez como uma saída de uma tarefa numa tarefa.
 * Pode especificar JobInputAsset ou JobOutputAsset como um recurso de entrada de uma tarefa.
 * Tarefas não têm formam um ciclo.
 * O parâmetro de valor que passar para JobInputAsset ou JobOutputAsset representa o valor de índice para um recurso. Os recursos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets sobre a definição de entidade de tarefa.
 * Como os serviços de multimédia é baseado em OData v3, os recursos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um "__metadata: uri" par nome / valor.
 * InputMediaAssets mapeia para uma ou mais recursos que criou nos serviços de multimédia. OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um recurso existente.
-* OutputMediaAssets podem ser nomeados usando o atributo assetName. Se este atributo não estiver presente, o nome do OutputMediaAsset é seja qual for o valor de texto interno do <outputAsset> elemento é com um sufixo do valor do nome da tarefa ou o valor de Id da tarefa (no caso em que a propriedade de nome não está definida). Por exemplo, se definir um valor para assetName para "Exemplo", em seguida, a propriedade de nome de OutputMediaAsset é definida como "Exemplo". No entanto, se não define um valor para assetName, mas definir o nome da tarefa para "NewJob", em seguida, o nome de OutputMediaAsset seria "_NewJob JobOutputAsset (valor)."
+* OutputMediaAssets podem ser nomeados usando o atributo assetName. Se este atributo não estiver presente, o nome do OutputMediaAsset é seja qual for o valor de texto interno do `<outputAsset>` elemento é com um sufixo do valor do nome da tarefa ou o valor de Id da tarefa (no caso em que a propriedade de nome não está definida). Por exemplo, se definir um valor para assetName para "Exemplo", em seguida, a propriedade de nome de OutputMediaAsset é definida como "Exemplo". No entanto, se não define um valor para assetName, mas definir o nome da tarefa para "NewJob", em seguida, o nome de OutputMediaAsset seria "_NewJob JobOutputAsset (valor)."
 
 ## <a name="create-a-job-with-chained-tasks"></a>Criar uma tarefa com tarefas em cadeia
 Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de tarefas de processamento. Nos Media Services, pode criar uma série de tarefas em cadeia. Cada tarefa executa os passos de processamento diferente e pode utilizar processadores de multimédia diferentes. As tarefas em cadeia podem passá um elemento de uma tarefa para outro, executar uma sequência de tarefas de linear no ativo. No entanto, as tarefas executadas numa tarefa não têm de ser numa sequência. Quando cria uma tarefa em cadeia, o encadeados **ITask** objetos são criados num único **IJob** objeto.

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547423"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523108"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 
@@ -31,7 +31,7 @@ Considere uma aplicação de recursos humanos que os relatórios no organograma 
 |Quem é subordinada de José?|GetOrgChart|.30|
 |Quem é o subordinado de Tom?|GetOrgChart|.30|
 
-Se tiver uma aplicação entre 10 e 20 expressões com diferentes comprimentos de sentença, ordem das palavras diferente e até mesmo palavras (sinónimos de "subordinado", "Gerir", "relatório"), o LUIS pode devolver uma pontuação de confiança baixa. Crie um padrão para o ajudar a entender a importância da ordem das palavras do LUIS. 
+Se tiver uma aplicação entre 10 e 20 expressões com diferentes comprimentos de sentença, ordem das palavras diferente e até mesmo palavras (sinónimos de "subordinado", "Gerir", "relatório"), o LUIS pode devolver uma pontuação de confiança baixa. Crie um padrão para o ajudar a compreender a importância da ordem das palavras do LUIS. 
 
 Padrões de resolver as seguintes situações: 
 
@@ -41,7 +41,7 @@ Padrões de resolver as seguintes situações:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Padrões não são uma garantia de intenção
 Padrões de utilizam uma combinação de tecnologias de predição. A definição de um objetivo de uma expressão de modelo num padrão não é uma garantia de predição intenção, mas é um sinal forte. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Padrões não aperfeiçoar a detecção de entidade aprendidas de máquina
 
@@ -50,7 +50,7 @@ Um padrão destina-se principalmente para ajudar a predição de objetivos e as 
 Não espere ver a predição de entidade melhorado se fechar várias expressões de com num padrão único. Para obter entidades simples acionar, terá de adicionar expressões ou utilize entidades de lista mais que seu padrão de não serão acionados.
 
 ## <a name="patterns-use-entity-roles"></a>Padrões de utilizam as funções de entidade
-Se dois ou mais entidades num padrão contextualmente estejam relacionadas, padrões de utilizam entidade [funções](luis-concept-roles.md) para extrair informações contextuais sobre entidades. Isso é equivalente a crianças de entidades hierárquicas, mas é **apenas** disponíveis em padrões. 
+Se dois ou mais entidades num padrão contextualmente estejam relacionadas, padrões de utilizam entidade [funções](luis-concept-roles.md) para extrair informações contextuais sobre entidades.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Pontuações de previsão com e sem padrões
 Tendo em conta suficiente expressões de exemplo, LUIS seria capaz de aumentar a confiança da previsão sem padrões. Padrões de aumentam a pontuação de confiança, sem ter de fornecer expressões com tantos.  
@@ -83,7 +83,7 @@ O **opcional** sintaxe, com Parênteses Retos, pode ser aninhados dois níveis. 
 |é um novo formulário|corresponde à palavra opcional externa e de palavras não opcional no padrão|
 |um novo formulário|apenas palavras de correspondências necessárias|
 
-O **agrupamento** sintaxe, com parênteses, pode ser aninhadas dois níveis. Por exemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Isso permite que qualquer um dos três entidades para corresponder. 
+O **agrupamento** sintaxe, com parênteses, pode ser aninhadas dois níveis. Por exemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esta funcionalidade permite que qualquer um dos três entidades para corresponder. 
 
 Se Entity1 é uma localização com funções, tais como a origem (Seattle) e de destino (Cairo) e 2 de entidade é um nome de conhecido de construção de uma entidade de lista (RedWest-C), as seguintes expressões seriam mapeados para este padrão:
 
@@ -170,7 +170,7 @@ Marcar o texto opcional na expressão usando a sintaxe de colchete de expressão
 |Padrão com o texto opcional|Significado|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` e `from {person}` são opcionais|
-|' Pode me ajudar a [?]|A marca de pontuação é opcional|
+|' Pode me ajudar a [?] | A marca de pontuação é opcional|
 
 Marcas de pontuação (`?`, `!`, `.`) devem ser ignorados e terá de ignorá-los usando a sintaxe de colchete em padrões. 
 

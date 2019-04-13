@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917962"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525675"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerir a expiração do conteúdo da web na CDN do Azure
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ O exemplo de ficheiro de configuração XML seguinte mostra como definir o `<cli
 </configuration>
 ```
 
-Para utilizar o **cacheControlMaxAge** atributo, tem de definir o valor da **cacheControlMode** atributo para `UseMaxAge`. Esta definição causou o cabeçalho de HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, para ser adicionado à resposta. O formato do valor de intervalo de tempo para o **cacheControlMaxAge** atributo é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é utilizado como o valor do `Cache-Control` `max-age` diretiva. Para obter mais informações sobre o `<clientCache>` elemento, consulte [Cache do cliente <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para utilizar o **cacheControlMaxAge** atributo, tem de definir o valor da **cacheControlMode** atributo para `UseMaxAge`. Esta definição causou o cabeçalho de HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, para ser adicionado à resposta. O formato do valor de intervalo de tempo para o **cacheControlMaxAge** atributo é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é utilizado como o valor do `Cache-Control` `max-age` diretiva. Para obter mais informações sobre o `<clientCache>` elemento, consulte [Cache do cliente \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Definir cabeçalhos Cache-Control através de programação
 Para aplicativos ASP.NET, controla a CDN comportamento de cache por meio de programação, definindo a **HttpResponse.Cache** propriedade da .NET API. Para obter informações sobre o **HttpResponse.Cache** propriedade, veja [propriedade HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) e [HttpCachePolicy classe](/dotnet/api/system.web.httpcachepolicy).  

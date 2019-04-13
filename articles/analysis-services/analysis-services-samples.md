@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1905f6a13dcb596d60a588757c55250253a6b54
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f8bbbe00cc47cb947b65e50b96628c40b5cea5f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189070"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521242"
 ---
 # <a name="azure-analysis-services-samples"></a>Exemplos do Azure Analysis Services
 

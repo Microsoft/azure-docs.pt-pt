@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360762"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523006"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetir ações de fluxo de trabalho ou processam matrizes no Azure Logic Apps
 
@@ -181,7 +181,7 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frequência** | Dia |
-   | **A estas horas** | 8 |
+   | **At these hours** (A estas horas) | 8 |
    ||| 
 
 1. No acionador, escolha **novo passo**. 
@@ -195,8 +195,8 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    | Propriedade | Valor | Descrição |
    | -------- | ----- | ----------- |
-   | **Name** | Limite | Nome da variável | 
-   | **Type** | Número inteiro | Tipo de dados da variável | 
+   | **Nome** | Limite | Nome da variável | 
+   | **Tipo** | Número inteiro | Tipo de dados da variável | 
    | **Valor** | 0 | A variável do valor inicial | 
    |||| 
 
@@ -236,8 +236,8 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
       | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
-      | **Para** | *< endereço de e-mail\@domínio >* | endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail. | 
-      | **Requerente** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 
+      | **Para** | *\<email-address\@domain>* | endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail. | 
+      | **Assunto** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 
       | **Corpo** | <*email-content*> | Especifique o conteúdo da mensagem de e-mail que pretende enviar. Neste exemplo, introduza qualquer texto que desejar. | 
       |||| 
 
@@ -254,7 +254,7 @@ Um loop "Até" tem limites predefinidos que pare a execução se alguma das segu
 | Propriedade | Valor predefinido | Descrição | 
 | -------- | ------------- | ----------- | 
 | **Contagem** | 60 | O maior número de ciclos executados antes do loop é encerrado. A predefinição é 60 ciclos. | 
-| **Tempo Limite (excedido)** | PT1H | A maioria dos quantidade de tempo para executar um loop antes do loop é encerrado. A predefinição é de uma hora e é especificada no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demora mais tempo do que o limite de tempo limite, não para o ciclo de atual. No entanto, o próximo ciclo não iniciar porque a condição de limite não for cumprida. | 
+| **Tempo limite** | PT1H | A maioria dos quantidade de tempo para executar um loop antes do loop é encerrado. A predefinição é de uma hora e é especificada no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demora mais tempo do que o limite de tempo limite, não para o ciclo de atual. No entanto, o próximo ciclo não iniciar porque a condição de limite não for cumprida. | 
 |||| 
 
 Para alterar esses limites predefinidos, escolha **Mostrar opções avançadas** na forma da ação de loop.

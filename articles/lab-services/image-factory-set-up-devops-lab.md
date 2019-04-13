@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440041"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523023"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagem a partir do Azure DevOps
+# <a name="run-an-image-factory-from-azure-devops"></a>Executar uma fábrica de imagens a partir do Azure DevOps
 Este artigo abrange todas as preparações necessárias para executar a fábrica de imagem a partir de DevOps do Azure (anteriormente conhecido como Visual Studio Team Services).
 
 > [!NOTE]
@@ -44,12 +44,12 @@ DevOps do Azure permitem-lhe armazenar o código-fonte, execute o Azure PowerShe
 
 Se tiver uma conta existente do DevOps ou projeto que pretende utilizar em vez disso, ignore este passo.
 
-Para começar, crie uma conta gratuita em DevOps do Azure. Visite https://www.visualstudio.com/ e selecione **comece gratuitamente** imediatamente abaixo **do Azure DevOps** (anteriormente conhecido como VSTS). Terá de escolher um nome de conta exclusivo e certificar-se de que optar por gerir o código com o Git. Quando isso for criado, guarde o URL do seu projeto de equipe. Aqui está um URL de exemplo: https://<accountname>.visualstudio.com/MyFirstProject.
+Para começar, crie uma conta gratuita em DevOps do Azure. Visite https://www.visualstudio.com/ e selecione **comece gratuitamente** imediatamente abaixo **do Azure DevOps** (anteriormente conhecido como VSTS). Terá de escolher um nome de conta exclusivo e certificar-se de que optar por gerir o código com o Git. Quando isso for criado, guarde o URL do seu projeto de equipe. Aqui está um URL de exemplo: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Verifique na fábrica de imagem com o Git
 Todos os PowerShell, modelos e configuração para a fábrica de imagem estão localizados no [repositório público do GitHub de laboratórios DevTest](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). A forma mais rápida de obter o código no seu novo projeto de equipe é importar um repositório. Isso extrai o repositório de DevTest Labs inteiro (então, obterá docs Extras e exemplos). 
 
-1. Visite o projeto de DevOps do Azure que criou no passo anterior (URL aspeto **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Visite o projeto de DevOps do Azure que criou no passo anterior (URL aspeto **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Selecione **importar um repositório**.
 3. Introduza o **URL de clone** para o repositório de laboratórios DevTest: `https://github.com/Azure/azure-devtestlab`.
 4. Selecione **importação**.
@@ -78,7 +78,7 @@ Neste ponto, tem os ficheiros de origem armazenados num repositório de Git no A
 Para simplificar os parâmetros da linha de comandos, encapsula os valores de chave que orientam a fábrica de imagem a um conjunto de variáveis de compilação. Selecione o **variáveis** separador e verá uma lista de várias variáveis de predefinição. Eis a lista de variáveis de introduzir no DevOps do Azure:
 
 
-| Nome da variável | Value | Notas |
+| Nome da variável | Valor | Notas |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Este é o caminho completo no repositório para o **configuração** pasta. Se tiver importado o repositório todo acima, o valor para a esquerda está correto. Caso contrário, atualize para apontar para a localização de configuração. |
 | DevTestLabName | MyImageFactory | O nome do laboratório no Azure DevTest Labs, se for utilizado como a fábrica para produzir imagens. Se não tiver uma, crie uma. Certifique-se de que o laboratório está na mesma subscrição que o ponto final de serviço tem acesso. |

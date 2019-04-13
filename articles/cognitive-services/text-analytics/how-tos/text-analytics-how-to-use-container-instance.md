@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868349"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526508"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implementar o contentor de deteção de idioma para o Azure Kubernetes Service
 
@@ -206,7 +206,7 @@ Os seguintes passos são necessários para obter as informações necessárias p
 
     Guarde o valor total para o passo 3 nesta secção. 
 
-1. Para conceder o acesso correto para o cluster do AKS utilizar imagens armazenadas no seu registo de contentor, crie uma atribuição de função. Substitua <appId> e <acrId> com os valores recolhidos nos dois passos anteriores.
+1. Para conceder o acesso correto para o cluster do AKS utilizar imagens armazenadas no seu registo de contentor, crie uma atribuição de função. Substitua `<appId>` e `<acrId>` com os valores recolhidos nos dois passos anteriores.
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

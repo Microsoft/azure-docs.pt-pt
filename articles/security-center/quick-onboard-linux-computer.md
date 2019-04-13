@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104680"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521925"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Início rápido: Introduzir computadores Linux ao centro de segurança do Azure
 Depois de carregar as subscrições do Azure, pode ativar o Centro de Segurança para os recursos Linux em execução fora do Azure, por exemplo, no local ou noutras clouds, ao aprovisionar o Agente para Linux.
@@ -57,7 +57,7 @@ Tem de estar no escalão de preço Standard do Centro de Segurança antes de com
 
    ![Instalar o agente][5]
 
-Os registos para o Agente do Centro de Segurança para Linux podem ser encontrados em: */var/opt/microsoft/omsagent/<workspace id>/log/*
+Os registos para o agente do Centro de segurança para Linux podem ser encontrados em: */var/optar ativamente porparticipar/microsoft/omsagent/\<id da área de trabalho > /log/*
 
   ![Registos para o agente][6]
 

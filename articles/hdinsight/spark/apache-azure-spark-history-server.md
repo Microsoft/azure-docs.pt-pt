@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076807"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524179"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilizar servidor expandida de histórico do Apache Spark para depurar e diagnosticar aplicações Apache Spark
 
@@ -32,7 +32,7 @@ Servidor de histórico do Apache Spark é a IU da web para aplicações do Spark
     ![Servidor de histórico do spark](./media/apache-azure-spark-history-server/launch-history-server.png "Server do histórico do Spark")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Abrir na Web de servidor de histórico de Spark da interface do Usuário por URL
-Abra do servidor de histórico do Spark ao navegar para o URL seguinte, substitua <ClusterName> com o nome de cluster do Spark de cliente.
+Abra do servidor de histórico do Spark ao navegar para o URL seguinte, substitua `<ClusterName>` com o nome de cluster do Spark de cliente.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493217"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525427"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utilizar o emulador do Cosmos para o local de desenvolvimento e teste
 
@@ -252,7 +252,7 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 | GremlinPort | Número de porta a utilizar para o ponto final de Gremlin. Valor predefinido é 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<Porta\>: Número de porta única |
 |TablePort | Número de porta a utilizar para o ponto de final de tabela do Azure. Valor predefinido é 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<Porta\>: Número de porta única|
 | KeyFile | Chave de autorização de leitura do ficheiro especificado. Utilize a opção de /GenKeyFile para gerar um ficheiro de chave | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Caminho do ficheiro |
-| ResetDataPath | Recursivamente remove todos os ficheiros no caminho especificado. Se não especificar um caminho, é assumida como predefinição para %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: Caminho do ficheiro  |
+| ResetDataPath | Recursivamente remove todos os ficheiros no caminho especificado. Se não especificar um caminho, é assumida como predefinição para %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: Caminho do ficheiro  |
 | StartTraces  |  Iniciar a recolha de registos de rastreio de depuração. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Pare a recolha de registos de rastreio de depuração. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Permite que a API de tabela do Azure | CosmosDB.Emulator.exe /EnableTableEndpoint | |

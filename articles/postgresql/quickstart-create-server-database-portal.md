@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856214"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524213"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Início rápido: Criar uma Base de Dados do Azure para o servidor PostgreSQL no portal do Azure
 
@@ -112,7 +112,7 @@ Estão disponíveis diversas aplicações para ligar à sua Base de Dados do Azu
     psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
     ```
 
-    parâmetro psql |Value|Descrição
+    parâmetro psql |Valor|Descrição
     ---|---|---
     --host | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O servidor de exemplo mostrado é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado (**\*.postgres.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
     --port | 5432 | A porta a utilizar quando se liga à Base de Dados do Azure para o servidor PostgreSQL. 
@@ -141,7 +141,7 @@ Estão disponíveis diversas aplicações para ligar à sua Base de Dados do Azu
     > [!TIP]
     > Se a firewall não estiver configurada para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     > 
-    > "psql: FATAL: não pg_hba Conf entry for host "<IP address>", base de dados do utilizador "myadmin", "postgres", SSL on FATAL: Ligação SSL é necessária. Especifique as opções de SSL e volte a tentar.
+    > "psql: FATAL: nenhuma entrada pg_hba para anfitrião `<IP address>`, base de dados do utilizador "myadmin", "postgres", SSL on FATAL: Ligação SSL é necessária. Especifique as opções de SSL e volte a tentar.
     > 
     > Para resolver o erro, certifique-se de que a configuração do servidor corresponde aos passos na secção "Configure a server-level firewall rule" (Configurar uma regra de firewall ao nível do servidor) deste artigo.
 
@@ -176,7 +176,7 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
 
    ![Separador “Ligação”](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    parâmetro pgAdmin |Value|Descrição
+    parâmetro pgAdmin |Valor|Descrição
     ---|---|---
     Nome/endereço do anfitrião | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado (**\*.postgres.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
     Porta | 5432 | A porta a utilizar quando se liga à Base de Dados do Azure para o servidor PostgreSQL. 

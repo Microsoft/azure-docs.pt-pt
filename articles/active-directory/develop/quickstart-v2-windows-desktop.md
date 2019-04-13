@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e5124d466c4294d83bbfa0b7ca15ff6f98e9ec
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505386"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520766"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -64,14 +64,14 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a sua aplicação no portal do Azure
 > Para o código de exemplo deste início rápido funcionar, terá de adicionar um URL de resposta como **urn: ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Efetuar esta alteração para mim]()
+> > [Fazer esta alteração por mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-windows-desktop/green-check.png) seu aplicativo está configurado com esses atributos.
+> > ![Já configurada](media/quickstart-v2-windows-desktop/green-check.png) A sua aplicação está configurada com estes atributos.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Transfira o seu projeto do Visual Studio
 
-[Transfira o projeto do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Transferir o projeto do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
@@ -86,11 +86,11 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
-> - `Enter_the_Tenant_Info_Here` -está definido para uma das seguintes opções:
+> - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
+> - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
 >   - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
->   - Se a sua aplicação suportar **contas em qualquer diretório organizacional e contas Microsoft pessoais**, substitua este valor com `common`
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
@@ -128,7 +128,7 @@ PublicClientApplicationBuilder.Create(ClientId)
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 
-A MSAL tem dois métodos para comprar tokens: `AcquireToken` e `AcquireTokenSilent`.
+A MSAL tem dois métodos para comprar tokens: `AcquireTokenInteractive` e `AcquireTokenSilent`.
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
@@ -140,7 +140,7 @@ Algumas situações exijam a forçar utilizadores interagirem com o ponto de ext
 - Quando é precisa a autenticação de dois fatores
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(_scopes)
+authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
@@ -150,7 +150,7 @@ authResult = await App.PublicClientApp.AcquireToken(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-Não vai querer exigir que o utilizador valide as suas credenciais sempre que tiver de aceder a um recurso. A maioria das vezes, vai querer que as aquisições e renovação de tokens sejam feitas sem qualquer interação do utilizador. Pode utilizar o método `AcquireTokenSilentAsync` para obter tokens para aceder a recursos protegidos após o método `AcquireTokenAsync` inicial:
+Não vai querer exigir que o utilizador valide as suas credenciais sempre que tiver de aceder a um recurso. A maioria das vezes, vai querer que as aquisições e renovação de tokens sejam feitas sem qualquer interação do utilizador. Pode utilizar o método `AcquireTokenSilentAsync` para obter tokens para aceder a recursos protegidos após o método `AcquireTokenInteractive` inicial:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -171,5 +171,5 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 Experimente o tutorial do ambiente de trabalho do Windows para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 
 > [!div class="nextstepaction"]
-> [Tutorial de API de gráfico de chamada](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
+> [Chamar tutorial da Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 
