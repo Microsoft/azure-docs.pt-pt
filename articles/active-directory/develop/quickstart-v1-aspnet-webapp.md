@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007621"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548564"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -32,7 +32,7 @@ Neste início rápido, vai aprender a implementar o início de sessão com a Mic
 No final deste início rápido, a aplicação irá aceitar inícios de sessão de contas profissionais e escolares de organizações que se integraram no Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Se precisar de permitir inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o [ponto final v2.0](azure-ad-endpoint-comparison.md). Para obter mais informações, veja [este tutorial do ASP.NET para o ponto final v2.0](tutorial-v2-asp-webapp.md), bem como [este artigo](active-directory-v2-limitations.md), que explica as limitações atuais do ponto final v2.0.
+> Se precisar de ativar a inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o  *[ponto final de plataforma do Microsoft identity](azure-ad-endpoint-comparison.md)*. Para mais informações, veja [este tutorial ASP.NET](tutorial-v2-asp-webapp.md) , bem como [este artigo](active-directory-v2-limitations.md) explicando o *ponto final de plataforma do Microsoft identity*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -288,7 +288,7 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação d
 
  Deve ver uma tabela que contém as propriedades básicas do utilizador com sessão iniciada:
 
-| Propriedade | Value | Descrição |
+| Propriedade | Valor | Descrição |
 |---|---|---|
 | Name | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
 | Nome de utilizador | <span>user@domain.com</span> | O nome de utilizador utilizado para identificar o utilizador com sessão iniciada |

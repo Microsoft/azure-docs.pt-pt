@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e6a7f1758fd0a6fb4ce91c18f375dcf189becd41
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2866891bba80cbf4227907145f4f803ab123fd85
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435503"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549427"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autenticar Runbooks com Amazon Web Services
 
@@ -30,7 +30,7 @@ Para efetuar a autenticação com o AWS, tem de especificar um conjunto de crede
 
 Para a Automatização do Azure comunicar com o AWS, primeiro tem de obter as suas credenciais do AWS e armazená-las como recursos na Automatização do Azure. Execute os seguintes passos documentados no documento AWS [Gerir Chaves de Acesso para a sua Conta AWS](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) para criar uma Chave de Acesso e copiar o **ID da Chave de Acesso** e **Chave de Acesso Secreta** (opcionalmente, transfira o ficheiro de chave para o armazenar num local seguro).
 
-Depois de ter criado e copiado as chaves de segurança AWS, tem de criar um recurso de Credencial com uma conta de Automatização do Azure para as armazenar em segurança as e referenciar com os seus runbooks. Siga os passos na secção: **Para criar uma nova credencial** no [recursos de credencial na automatização do Azure](automation-credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) e introduza as seguintes informações:
+Depois de ter criado e copiado as chaves de segurança AWS, tem de criar um recurso de Credencial com uma conta de Automatização do Azure para as armazenar em segurança as e referenciar com os seus runbooks. Siga os passos na secção: **Para criar uma nova credencial** no [recursos de credencial na automatização do Azure](/shared-resources/credentials.md#to-create-a-new-credential-asset-with-the-azure-portal) e introduza as seguintes informações:
 
 1. Na caixa **Nome**, introduza **AWScred** ou um valor adequado a seguir às normas de nomenclatura.
 2. Na caixa **Nome de utilizador**, escreva o **ID de Acesso** e a **Chave de Acesso Secreta** na caixa **Palavra-passe** e **Confirmar palavra-passe**.

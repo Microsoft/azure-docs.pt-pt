@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017162"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545438"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM com o Azure Data Factory
 
@@ -70,7 +70,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para sink se associada a origem de serviço não tem um runtime de integração |
 
 >[!IMPORTANT]
->Quando copiar dados para o Dynamics, o padrão do Runtime de integração do Azure não pode ser utilizado para executar a cópia. Em outras palavras, se a sua origem associada serviço não tem um runtime de integração especificado explicitamente [criar um Runtime de integração do Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto de sua instância do Dynamics. Associe-o no serviço ligado do Dynamics, como no exemplo seguinte.
+>Quando copiar dados para o Dynamics, o padrão do Runtime de integração do Azure não pode ser utilizado para executar a cópia. Em outras palavras, se a sua origem associada serviço não tem um runtime de integração especificado explicitamente [criar um Runtime de integração do Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto de sua instância do Dynamics. Localizar onde está localizada o sua instância do Dynamics fazendo referência a [lista de região para Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Associe-o no serviço ligado do Dynamics, como no exemplo seguinte.
 
 >[!NOTE]
 >O conector do Dynamics utilizado para utilizar a propriedade de "organizationName" opcional para identificar a instância do Dynamics CRM/365 Online. Enquanto mantém trabalhar, são sugeridas para especificar a nova propriedade de "serviceUri" em vez disso, para obter um melhor desempenho por exemplo deteção.
@@ -277,7 +277,7 @@ Para copiar dados para o Dynamics, defina o tipo de sink na atividade de cópia 
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **DynamicsSink**. | Sim |
 | WriteBehavior | O comportamento da operação de escrita.<br/>Permitido é de valor **"Upsert"**. | Sim |
 | writeBatchSize | A contagem de linhas de dados escritos para o Dynamics em cada lote. | Não (a predefinição é 10) |
-| ignoreNullValues | Indica se a ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert/atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **FALSO**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert/atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
+| ignoreNullValues | Indica se a ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert/atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **False**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert/atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
 
 >[!NOTE]
 >O valor predefinido do coletor "**writeBatchSize**"e a atividade de cópia"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" para o sink de Dynamics são ambos os 10. Por conseguinte, 100 registos são submetidos ao Dynamics e ao mesmo tempo.
@@ -330,20 +330,20 @@ Configure o tipo de dados de fábrica de dados correspondente numa estrutura de 
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Longo | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Booleano | ✓ | ✓ |
-| AttributeType.Customer | GUID | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | Valor de duplo | ✓ | ✓ |
-| AttributeType.EntityName | Cadeia | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | ✓ (com o único destino associado) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (com o único destino associado) |
 | AttributeType.ManagedProperty | Booleano | ✓ | |
-| AttributeType.Memo | Cadeia | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | Cadeia | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

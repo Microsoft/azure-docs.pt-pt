@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359738"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549410"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -30,7 +30,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 
 **Novos recursos** 
 
-* O SDK suporta agora o serviço de texto para voz como uma versão beta. É suportada no Windows e Linux a área de trabalho do C++, C#e Java. Para obter mais informações, veja a [descrição geral do texto para discurso](text-to-speech.md#get-started-with-text-to-speech).
+* O SDK suporta agora o serviço de texto para voz como uma versão beta. É suportada no Windows e Linux a área de trabalho de C++ e C#. Para obter mais informações, veja a [descrição geral do texto para discurso](text-to-speech.md#get-started-with-text-to-speech).
 * O SDK suporta agora arquivos de áudio MP3 e Opus/Ogg como ficheiros de fluxo de entrada. Esta funcionalidade só está disponível no Linux a partir de C++ e C# e está atualmente na versão beta (mais detalhes [aqui](how-to-use-compressed-audio-input-streams.md)).
 * O SDK de voz para Java, .NET core, Objective-C e C++ passaram a suporte de macOS. O suporte de Objective-C para macOS está atualmente na versão beta.
 * iOS: O SDK de voz para iOS (Objective-C) agora também é publicado como um CocoaPod.
@@ -211,7 +211,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 * Suporte para Objective-C no iOS. Confira nosso [início rápido de Objective-C para iOS](quickstart-objectivec-ios.md).
 * Suporte para JavaScript no browser. Confira nosso [guia de introdução do JavaScript](quickstart-js-browser.md).
 
-**Alterações interruptivas**
+**Alterações recentes**
 
 * Com esta versão, é introduzido um número de alterações de última hora.
   Verifique se existem [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
@@ -230,7 +230,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 
 * Expor informações de detalhes de erro adicionais sobre os erros de ligação.
 
-**Alterações interruptivas**
+**Alterações recentes**
 
 * No Java (Android), o `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` função já não necessita de um parâmetro de caminho. Agora o caminho é detetado automaticamente em todas as plataformas suportadas.
 * O acessador get da propriedade `EndpointUrl` em Java e c# foi removido.
@@ -259,7 +259,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 * O resultado do reconhecimento contém mais campos. Eles estão deslocamento do início de áudio e a duração (ambos em tiques) do texto reconhecido e valores adicionais que representam o estado de reconhecimento, por exemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * AuthorizationToken de suporte para a criação de instâncias de fábrica.
 
-**Alterações interruptivas**
+**Alterações recentes**
 
 * Eventos de reconhecimento: Tipo de evento NoMatch foi mesclado no evento de erro.
 * SpeechOutputFormat na linguagem c# foi mudado para OutputFormat para permanecer alinhado com o C++.

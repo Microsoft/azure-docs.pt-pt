@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c2fc406fa864fe2f67ded4ea98ad14475944671a
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500350"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528055"
 ---
-# <a name="tutorial-in-c-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial em C#: Pesquise a uma base de dados SQL do Azure com indexadores do Azure Search
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Tutorial: Pesquise a uma base de dados SQL do Azure com indexadores do Azure Search
 
 Saiba como configurar um indexador para extrair dados pesquisáveis a partir de uma base de dados do SQL do Azure de exemplo. Os [indexadores](search-indexer-overview.md) são um componente do Azure Search que pesquisam origens de dados externas e preenchem um [índice de pesquisa](search-what-is-an-index.md) com conteúdos. De todos os indexadores, o indexador da base de dados do Azure SQL é o mais amplamente utilizadas. 
 
@@ -116,7 +116,7 @@ O exercício seguinte pressupõe que não existe nenhum servidor o base de dados
     ```sql
     SELECT HotelId, HotelName, Tags FROM Hotels
     ```
-    A consulta prototípica, `SELECT * FROM Hotels`, não funciona no Editor de Consultas. Os dados de exemplo incluem coordenadas geográficas no campo Localização, que não são processadas no editor atualmente. Para obter uma lista de outras colunas para consultar, pode executar a instrução: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    A consulta prototípica, `SELECT * FROM Hotels`, não funciona no Editor de Consultas. Os dados de exemplo incluem coordenadas geográficas no campo Localização, que não são processadas no editor atualmente. Para obter uma lista de outras colunas a consultar, pode executar a instrução `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Agora que tem um conjunto de dados externo, copie a cadeia de ligação ADO.NET para a base de dados. Na página Base de Dados SQL da sua base de dados, aceda a **Definições** > **Cadeias de Ligação** e copie a cadeia de ligação ADO.NET.
  
@@ -270,4 +270,4 @@ A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recurs
 Pode anexar algoritmos com tecnologia de IA a um pipeline de indexador. Como próximo passo, avance para o tutorial seguinte.
 
 > [!div class="nextstepaction"]
-> [Indexar documentos no armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
+> [Indexar Documentos no Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)

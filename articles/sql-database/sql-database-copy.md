@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486823"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549700"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacional consistente de uma base de dados SQL do Azure
 
@@ -90,10 +90,16 @@ Este comando copia Database1 no servidor1 para uma nova base de dados com o nome
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Firewalls de ambos os servidores tem de ser configurados para permitir a ligação de entrada de IP do cliente de emissão do comando de cópia de T-SQL.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Para mover uma base de dados entre subscrições
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar uma base de dados SQL para uma subscrição diferente
 
-Na [portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que aloja a base de dados da lista. Clique em **mover**e, em seguida, escolha os recursos para mover e a subscrição de destino.
+Pode utilizar o descrbed passos na secção anterior para copiar a base de dados para um servidor de base de dados SQL numa subscrição diferente. Certifique-se de utilizar um início de sessão que tenha o mesmo nome e palavra-passe como o proprietário da base de dados da base de dados de origem e é um membro da função dbmanager ou é o início de sessão principal ao nível do servidor. 
+
+> [!NOTE]
+> O [portal do Azure](https://portal.azure.com) não suporta copiar para uma subscrição diferente porque Portal chama a API de ARM e utiliza os certificados de assinatura para aceder a ambos os servidores envolvidos na replicação geográfica.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorizar o progresso da operação de cópia
 

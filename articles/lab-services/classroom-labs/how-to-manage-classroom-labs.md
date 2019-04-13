@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651128"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544029"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e eliminar um laboratório de sala de aula. Ele também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
@@ -28,7 +28,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). 
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Tenha em atenção que Internet Explorer 11 ainda não é suportado. 
 2. Selecione **iniciar sessão**. Selecione ou introduza um **ID de utilizador** isto é um membro da **criador do laboratório** função no laboratório de conta e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 

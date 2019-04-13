@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417521"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549493"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de cópia de segurança e restauro no [App Service do Azure](overview.md) permite-lhe facilmente criar cópias de segurança de aplicação com base numa agenda ou manualmente. Pode restaurar a aplicação para um instantâneo de um estado anterior ao substituir a aplicação existente ou restaurar para outra aplicação. 
@@ -121,6 +121,9 @@ Por vezes, não quer criar cópias de segurança tudo na sua aplicação. Eis al
 * Não deseja fazer backup dos arquivos de log.
 
 As cópias de segurança parciais permitem que escolher exatamente quais arquivos que pretende criar cópias de segurança.
+
+> [!NOTE]
+> Bases de dados individuais na cópia de segurança podem ser de 4GB no máximo, mas o tamanho máximo total da cópia de segurança é de 10GB
 
 ### <a name="exclude-files-from-your-backup"></a>Excluir ficheiros da sua cópia de segurança
 Suponha que tem uma aplicação que contém ficheiros de registo e imagens estáticas que tenham sido cópia de segurança uma vez e não será alterado. Nesses casos, pode excluir esses ficheiros e pastas de que está a ser armazenados em suas futuras cópias de segurança. Para excluir ficheiros e pastas de suas cópias de segurança, crie uma `_backup.filter` de ficheiros a `D:\home\site\wwwroot` pasta da sua aplicação. Especifique a lista de ficheiros e pastas que pretende excluir neste ficheiro. 

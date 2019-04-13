@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: beb0c1f9d6b54c029af48684fd81b38699dd2720
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630653"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527817"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limites de recursos e o objeto de serviços de análise
 
@@ -67,8 +67,8 @@ Estes limites são teóricas. Desempenho irá ser reduzido em números mais baix
 |Níveis de uma hierarquia|15,999|  
 |Relações|8,000|  
 |Colunas de chave na tabela de todos os|15,999|  
-|Medidas em tabelas|2 ^ 31-1 = 2 147 483 647|  
-|Células devolvidas por uma consulta|2 ^ 31-1 = 2 147 483 647|  
+|Medidas em tabelas|2^31-1 = 2,147,483,647|  
+|Células devolvidas por uma consulta|2^31-1 = 2,147,483,647|  
 |Tamanho de registro da consulta de origem|64 K|  
 |Comprimento dos nomes de objeto|512 carateres|  
 

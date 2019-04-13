@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a066e6b75d527dcdf1b211c0ebb76a2d4520eb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104119"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528217"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -71,7 +71,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
     - **Localização**: *E.U.A. leste*
 
 14. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetB*. Clique em **myVnetB** quando for apresentada nos resultados da pesquisa. É apresentado um painel para o **myVnetB** rede virtual.
-15. Na **myVnetB** painel que aparece, clique em **propriedades** na vertical lista de opções no lado esquerdo do painel. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
+15. Na **myVnetB** painel que aparece, clique em **propriedades** na vertical lista de opções no lado esquerdo do painel. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Conclua os passos 5 a 9 para myVnetB, introduzir **UserA** no passo 8.
 17. Terminar sessão no portal como UserB e iniciar sessão como utilizador.
 18. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Clique em **myVnetA** quando for apresentada nos resultados da pesquisa. É apresentado um painel para o **myVnet** rede virtual.

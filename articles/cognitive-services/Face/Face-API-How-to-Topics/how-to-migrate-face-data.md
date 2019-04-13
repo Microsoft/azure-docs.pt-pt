@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448786"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548409"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migre os seus dados de rostos para uma subscrição diferente de rostos
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> O processo de tirar e aplicar os instantâneos não interromperá todas as chamadas para a origem ou destino regulares **PersonGroup**s (ou **FaceList**s). No entanto, não recomendamos que faça chamadas simultâneas que alterar o objeto de origem ([chamadas de gestão da lista de rosto](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) ou o [grupo de pessoas - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) chamar, por exemplo), porque a operação de instantâneo pode executar antes ou depois dessas operações ou podem ser encontrados erros. 
+> O processo de tirar e aplicar os instantâneos não interromperá todas as chamadas para a origem ou destino regulares **PersonGroup**s (ou **FaceList**s). No entanto, não recomendamos que faça chamadas simultâneas que alterar o objeto de origem ([chamadas de gestão de FaceList](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) ou o [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) chamar, por exemplo), porque a operação de instantâneo pode executar antes ou depois dessas operações ou podem ser encontrados erros.
 
 ## <a name="retrieve-the-snapshot-id"></a>Obter o ID de instantâneo
 

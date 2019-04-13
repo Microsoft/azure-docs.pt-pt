@@ -1,6 +1,6 @@
 ---
-title: Criar aplicação PHP com MySQL – serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure.
+title: PHP (Laravel) com o MySQL – serviço de aplicações do Azure | Documentos da Microsoft
+description: Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure. Laravel é utilizado no tutorial.
 services: app-service\web
 documentationcenter: php
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c906880897b14cf999fcffd17abba0adebc1adf6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 35f9b97f7955f0ba430f94f559b0ab160cc2efcd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552134"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544624"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Criar uma aplicação de MySQL no Azure e o PHP
 
@@ -349,7 +349,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Configurar as definições de base de dados
+### <a name="configure-database-settings"></a>Configurar as definições da base de dados
 
 Conforme indicado anteriormente, pode ligar à base de dados MySQL do Azure através de variáveis de ambiente no Serviço de Aplicações.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336325"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527341"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -345,14 +345,14 @@ Crie a aplicação e os recursos relacionados com o seguinte comando e indique a
 
 No ficheiro de parâmetros, atualize os valores dos parâmetros seguintes:
 
-|Parâmetro|Value|
+|Parâmetro|Valor|
 |---|---|
 |localização|A região na qual quer implementar a aplicação.  Por exemplo, "eualeste".|
 |registryPassword|A palavra-passe que obteve anteriormente em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry). Este parâmetro no modelo é uma cadeia segura e não será apresentado no estado de implementação nem nos comandos `az mesh service show`.|
 |registryUserName|O nome de utilizador que obteve em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry).|
 |registryServer|O nome do servidor do registo que obteve em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry).|
-|frontEndImage|A imagem de contentor para o serviço de front-end.  Por exemplo, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|A imagem de contentor para o serviço de back-end.  Por exemplo, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|A imagem de contentor para o serviço de front-end.  Por exemplo, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|A imagem de contentor para o serviço de back-end.  Por exemplo, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Para implementar a aplicação, execute o seguinte:
 

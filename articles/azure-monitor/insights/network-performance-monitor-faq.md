@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496969"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546253"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
@@ -40,7 +40,7 @@ Abaixo encontram-se os requisitos de plataforma para de NPM vários recursos:
 - Apenas servidor de Windows oferece suporte a capacidade de Monitor do ExpressRoute do NPM (2008 SP1 ou posterior) sistema operacional.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Pode utilizar máquinas Linux como nós no NPM de monitorização?
-A capacidade de monitorizar redes utilizando nós baseado em Linux está atualmente em pré-visualização privada. Entrar em contacto ao seu Gestor de conta para saber mais. Depois de fornecer o ID de área de trabalho, iremos vá em frente e ativar a capacidade. Agentes do Linux fornecem a capacidade de monitorização apenas para a capacidade de Monitor de desempenho do NPM e não estão disponíveis para os recursos de Monitor de conectividade do serviço e Monitor do ExpressRoute
+A capacidade de monitorizar redes utilizando nós baseado em Linux está atualmente em pré-visualização. Entrar em contacto ao seu Gestor de conta para saber mais. Depois de fornecer o ID de área de trabalho, iremos vá em frente e ativar a capacidade. Agentes do Linux fornecem a capacidade de monitorização apenas para a capacidade de Monitor de desempenho do NPM e não estão disponíveis para os recursos de Monitor de conectividade do serviço e Monitor do ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de tamanho de nós para ser utilizada para monitorização pelo NPM?
 Para executar a solução NPM no nó VMs para monitorizar as redes, os nós devem ter pelo menos de 500 MB de memória e um núcleo. Não é necessário utilizar nós separados para a execução de NPM. A solução pode ser executado em nós que têm outras cargas de trabalho em execução no mesmo. A solução tem a capacidade de parar o processo de monitorização, no caso de ele utiliza mais do que 5% da CPU.

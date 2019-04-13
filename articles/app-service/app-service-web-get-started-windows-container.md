@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906060"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546285"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -31,7 +31,7 @@ O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplic
 
 Para concluir este tutorial:
 
-- <a href="https://hub.docker.com/" target="_blank">Inscreva-se uma conta do Docker Hub</a>
+- <a href="https://hub.docker.com/" target="_blank">Inscrever numa conta do Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Instale o Docker para Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mude o Docker para executar contentores do Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2017</a> com as cargas de trabalho **ASP.NET e de desenvolvimento na Web** e de **desenvolvimento no Azure**. Se já instalou o Visual Studio 2017:
@@ -179,7 +179,7 @@ Para dizer ao Serviço de Aplicações para obter a nova imagem do Hub do Docker
 Pode utilizar outra imagem do Docker personalizada para executar a sua aplicação. Contudo, tem de escolher a [imagem principal](https://docs.docker.com/develop/develop-images/baseimages/) certa para a arquitetura que pretende: 
 
 - Para implementar aplicações de .NET Framework, utilizar uma imagem de principal com base no núcleo de servidor Windows 2019 [canal de manutenção de longo prazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de versão. 
-- Para implementar aplicações de .NET Core, utilize uma imagem principal com base no 1809 de Nano do Windows Server [canal de manutenção de longo prazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de versão. 
+- Para implementar aplicações de .NET Core, utilize uma imagem principal com base no 1809 de Nano do Windows Server [canal semi-anual de manutenção (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de versão. 
 
 O carregamento das imagens principais durante o arranque da aplicação demora algum tempo. No entanto, pode utilizar uma das seguintes imagens principais que já estão em cache no Serviço de Aplicações do Azure para reduzir o tempo de arranque:
 

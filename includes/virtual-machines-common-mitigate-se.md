@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40105511"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551557"
 ---
 **Última atualização de documentos**: 14 de Agosto de 2018 10 4:00 PST.
 
@@ -21,7 +21,7 @@ A divulgação de um [nova classe de vulnerabilidades de CPU](https://portal.msr
 
 A Microsoft implantou o atenuações em todos os nossos serviços cloud. A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente uns dos outros está protegida. Isso significa que um potencial atacante terá usando a mesma infraestrutura não é possível atacar o seu aplicativo usando estas vulnerabilidades.
 
-Está a utilizar o Azure [memória preservação da manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) sempre que possível, para minimizar o impacto de cliente e elimina a necessidade de reinicializações. O Azure irá continuar a utilizar esses métodos quando efetuar atualizações em todo o sistema para o anfitrião e proteger os nossos clientes.
+Está a utilizar o Azure [memória preservação da manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) sempre que possível, para minimizar o impacto de cliente e elimina a necessidade de reinicializações. O Azure irá continuar a utilizar esses métodos quando efetuar atualizações em todo o sistema para o anfitrião e proteger os nossos clientes.
 
 Obter mais informações sobre como a segurança integra todos os aspectos do Azure estão disponíveis na [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/) site. 
 
@@ -70,17 +70,17 @@ Pode ativar funcionalidades de segurança adicionais dentro de sua VM ou serviç
 
 O sistema operacional de destino tem de ser atualizado para ativar estas funcionalidades de segurança adicional. Embora inúmeras atenuações de canal de lado a execução especulativa estão ativadas por predefinição, as funcionalidades adicionais descritas aqui devem ser habilitadas manualmente e podem causar um impacto no desempenho. 
 
-**Passo 1**: [contacte o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) expõem atualizado firmware (ativação do microcódigo) em suas máquinas virtuais. 
+**Passo 1**: [Contacte o suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) expõem atualizado firmware (ativação do microcódigo) em suas máquinas virtuais. 
 
-**Passo 2**: suporte para ativar o Kernel Virtual endereço sombreamento (KVAS) e SO de Injeção de destino da ramificação (BTI). Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para ativar a proteção através do `Session Manager` chaves do Registro. É necessário um reinício. 
+**Passo 2**: Ative o suporte de Kernel Virtual endereço sombreamento (KVAS) e o SO de Injeção de destino da ramificação (BTI). Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para ativar a proteção através do `Session Manager` chaves do Registro. É necessário um reinício. 
 
-**Passo 3**: para implementações que estão a utilizar [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 e apenas E3): estas instruções aplicam-se dentro da VM estiver a utilizar como um anfitrião Hyper-V. 
+**Passo 3**: Para implementações que estão a utilizar [virtualização aninhada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 e apenas E3): Estas instruções aplicam-se dentro da VM estiver a utilizar como um anfitrião Hyper-V. 
 
 1. Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para ativar a proteção através do `MinVmVersionForCpuBasedMitigations` chaves do Registro.  
  
 1. Defina o tipo de scheduler de hipervisor para **Core** ao seguir as instruções [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
 
-**Passo 4**: Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para verificar as proteções estão ativadas com o [SpeculationControl](https://aka.ms/SpeculationControlPS) módulo do PowerShell. 
+**Passo 4**: Siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para verificar as proteções estão ativadas utilizando o [SpeculationControl](https://aka.ms/SpeculationControlPS) módulo do PowerShell. 
 
 > [!NOTE]
 > Se tiver transferido anteriormente este módulo, terá de instalar a versão mais recente.
@@ -101,11 +101,11 @@ L1TFWindowsSupportEnabled: True
 
 <a name="linux"></a>Ativar o conjunto de recursos de segurança adicionais dentro requer que o sistema operacional de destino esteja totalmente atualizada. Algumas mitigações serão ativadas por predefinição. A secção seguinte descreve as funcionalidades que estão desativadas por predefinição e/ou baseia-se no suporte de hardware (ativação do microcódigo). Ativar estas funcionalidades, pode causar um impacto no desempenho. Documentação do seu fornecedor de sistema operativo para obter mais instruções de referência
  
-**Passo 1**: [contacte o suporte do Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) expõem atualizado firmware (ativação do microcódigo) em suas máquinas virtuais.
+**Passo 1**: [Contacte o suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) expõem atualizado firmware (ativação do microcódigo) em suas máquinas virtuais.
  
-**Passo 2**: suporte de ativar o ramo destino Injeção (BTI) sistema operacional para atenuar a CVE-2017-5715 (Spectre variante 2), seguindo a documentação do fornecedor do seu sistema operativo. 
+**Passo 2**: Ative o suporte de Injeção de destino da ramificação (BTI) sistema operacional atenuar a CVE-2017-5715 (Spectre variante 2), seguindo a documentação do fornecedor do seu sistema operativo. 
  
-**Passo 3**: Ativar o Kernel página tabela isolamento (KPTI) para atenuar a CVE-2017-5754 (Meltdown variante 3), seguindo a documentação do fornecedor do seu sistema operativo. 
+**Passo 3**: Ative o Kernel página tabela isolamento (KPTI) para atenuar a CVE-2017-5754 (Meltdown variante 3), seguindo a documentação do fornecedor do seu sistema operativo. 
  
 Obter mais informações estão disponíveis no fornecedor de seu sistema operativo:  
  

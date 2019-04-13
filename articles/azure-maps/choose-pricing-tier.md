@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234684"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547348"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolher o melhor de escalão de preço no Azure Maps
 
@@ -29,7 +29,7 @@ Os escalões de preços S0 e S1 lidar com diferentes quantidades de débito de d
 
 | Capacidade                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Pesquisa                                  |        ✓           |     ✓    |
+| Pesquisa (fwd/rev geocodificação, pontos de interesse)  |        ✓           |     ✓    |
 | Geocodificação de batch (pré-visualização)              |                   |     ✓    |
 | Polígonos da pesquisa          |                   |     ✓    |
 | Encaminhamento                                 |        ✓           |     ✓    |

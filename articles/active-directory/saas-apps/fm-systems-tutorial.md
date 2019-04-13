@@ -4,177 +4,192 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f78c58c5-6e98-458b-8991-78624a245665
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/17/2017
+ms.topic: tutorial
+ms.date: 04/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175b90318a3f66c1a30ee3c4002d863582767b34
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e97c97b758d514f88df0b9a7215aabca7a9c1b59
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170028"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Active Directory do Azure com FM:Systems
 
 Neste tutorial, saiba como integrar FM:Systems com o Azure Active Directory (Azure AD).
-
 Integrar FM:Systems no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao FM:Systems
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para FM:Systems (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD que tenha acesso ao FM:Systems.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para FM:Systems (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com FM:Systems, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um FM:Systems logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
+* FM:Systems logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando FM:Systems da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta FM:Systems **IDP** iniciada SSO
 
 ## <a name="adding-fmsystems-from-the-gallery"></a>Adicionando FM:Systems da Galeria
+
 Para configurar a integração do FM:Systems com o Azure AD, terá de adicionar FM:Systems a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar FM:Systems a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **FM:Systems**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/fm-systems-tutorial/tutorial_fmsystems_search.png)
+4. Na caixa de pesquisa, escreva **FM:Systems**, selecione **FM:Systems** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **FM:Systems**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![FM:Systems na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/fm-systems-tutorial/tutorial_fmsystems_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com FM:Systems com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no FM:Systems a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no FM:Systems deve ser estabelecido.
-
-FM:Systems, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com FM:Systems com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no FM:Systems deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com FM:Systems, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste FM:Systems](#creating-an-fmsystems-test-user)**  - para ter um equivalente da Eduarda Almeida na FM:Systems que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar FM:Systems Single Sign-On](#configure-fmsystems-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste FM:Systems](#create-fmsystems-test-user)**  - para ter um equivalente da Eduarda Almeida na FM:Systems que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo FM:Systems.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com FM:Systems, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com FM:Systems, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **FM:Systems** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **FM:Systems** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/fm-systems-tutorial/tutorial_fmsystems_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **FM:Systems domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/fm-systems-tutorial/tutorial_fmsystems_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    Na **URL de resposta** caixa de texto, digite seu FM:Systems **URL de resposta**, digite a URL usando o seguinte padrão: `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de resposta real. Contacte [equipa de suporte de FM:Systems](https://fmsystems.com/ask-us/) para obter este valor.
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/fm-systems-tutorial/tutorial_fmsystems_certificate.png) 
+    ![FM:Systems domínio e URLs únicas início de sessão em informações](common/both-replyurl.png)
 
-1. Clique em **guardar** botão.
+    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
+    
+    > [!NOTE]
+    > Este valor não é real. Atualize este valor com o URL de resposta real. Contacte [equipa de suporte de cliente FM:Systems](https://fmsystems.com/ask-us/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Configurar o início de sessão único](./media/fm-systems-tutorial/tutorial_general_400.png)
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Para configurar o início de sessão único num **FM:Systems** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de FM:Systems](https://fmsystems.com/ask-us/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados. Receberá uma notificação quando SSO foi ativado para a sua subscrição.
+    ![O link de download de certificado](common/metadataxml.png)
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
+6. Sobre o **configurar FM:Systems** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Identificador do Azure AD
+
+    c. URL de fim de sessão
+
+### <a name="configure-fmsystems-single-sign-on"></a>Configurar FM:Systems início de sessão único
+
+Para configurar o início de sessão único num **FM:Systems** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [FM:Systems a equipa de suporte](https://fmsystems.com/ask-us/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/fm-systems-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/fm-systems-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/fm-systems-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/fm-systems-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-an-fmsystems-test-user"></a>Criar um utilizador de teste FM:Systems
 
-1. Numa janela do browser web, inicie sessão no site da sua empresa FM:Systems como um administrador.
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-1. Aceda a **de administração do sistema \> gerir a segurança \> utilizadores \> lista de utilizadores**.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a FM:Systems.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **FM:Systems**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **FM:Systems**.
+
+    ![A ligação de FM:Systems na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-fmsystems-test-user"></a>Criar utilizador de teste FM:Systems
+
+1. Numa janela do browser web, inicie sessão no site da sua empresa FM:Systems como administrador.
+
+2. Aceda a **de administração do sistema \> gerir a segurança \> utilizadores \> lista de utilizadores**.
    
     ![Administração do sistema](./media/fm-systems-tutorial/ic795905.png "administração do sistema")
 
-1. Clique em **criar novo utilizador**.
+3. Clique em **criar novo utilizador**.
    
     ![Criar novo usuário](./media/fm-systems-tutorial/ic795906.png "criar novo utilizador")
 
-1. Na **criar utilizador** secção, execute os seguintes passos:
+4. Na **criar utilizador** secção, execute os seguintes passos:
    
     ![Criar utilizador](./media/fm-systems-tutorial/ic795907.png "criar utilizador")
    
@@ -182,61 +197,17 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
    
     b. Clique em **Seguinte**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a FM:Systems.
-
-![Atribuir utilizador][200] 
-
-**Para atribuir a Eduarda Almeida a FM:Systems, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **FM:Systems**.
-
-    ![Configurar o início de sessão único](./media/fm-systems-tutorial/tutorial_fmsystems_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico FM:Systems no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo FM:Systems.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico FM:Systems no painel de acesso, deve ser automaticamente sessão iniciada no FM:Systems para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/fm-systems-tutorial/tutorial_general_01.png
-[2]: ./media/fm-systems-tutorial/tutorial_general_02.png
-[3]: ./media/fm-systems-tutorial/tutorial_general_03.png
-[4]: ./media/fm-systems-tutorial/tutorial_general_04.png
-
-[100]: ./media/fm-systems-tutorial/tutorial_general_100.png
-
-[200]: ./media/fm-systems-tutorial/tutorial_general_200.png
-[201]: ./media/fm-systems-tutorial/tutorial_general_201.png
-[202]: ./media/fm-systems-tutorial/tutorial_general_202.png
-[203]: ./media/fm-systems-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

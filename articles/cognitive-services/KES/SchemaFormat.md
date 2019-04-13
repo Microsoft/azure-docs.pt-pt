@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860716"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549692"
 ---
 # <a name="schema-format"></a>Formato de esquema
 
@@ -43,14 +43,14 @@ Segue-se uma lista dos tipos de dados de atributo suportados:
 
 | Type | Descrição | Operações | Exemplo |
 |------|-------------|------------|---------|
-| String | A cadeia de caracteres (1 a 1024 carateres) | é igual a, starts_with | "hello world" |
-| Int32 | O número inteiro de 32 bits com sinal | é igual a, starts_with, is_between | 2016 |
-| Int64 | O número inteiro de 64 bits com sinal | é igual a, starts_with, is_between | 9876543210 |
-| Double | Valor de vírgula flutuante de dupla precisão | é igual a, starts_with, is_between | 1.602E-19 |
-| Date | Data (1400-01-01 e 9999-12-31) | é igual a, is_between | '2016-03-14' |
-| Guid | Identificador exclusivo global | é igual a | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blobs | Dados não-indexada internamente comprimidos | *Nenhum* | "Capacitar todas as pessoas e todas as organizações do mundo a irem mais" |
-| Composição | Composição de vários atributos secundárias| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | A cadeia de caracteres (1 a 1024 carateres) | é igual a, starts_with | "hello world" |
+| `Int32` | O número inteiro de 32 bits com sinal | é igual a, starts_with, is_between | 2016 |
+| `Int64` | O número inteiro de 64 bits com sinal | é igual a, starts_with, is_between | 9876543210 |
+| `Double` | Valor de vírgula flutuante de dupla precisão | é igual a, starts_with, is_between | 1.602E-19 |
+| `Date` | Data (1400-01-01 e 9999-12-31) | é igual a, is_between | '2016-03-14' |
+| `Guid` | Identificador exclusivo global | é igual a | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Dados não-indexada internamente comprimidos | *Nenhum* | "Capacitar todas as pessoas e todas as organizações do mundo a irem mais" |
+| `Composite` | Composição de vários atributos secundárias| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Atributos de cadeia são utilizados para representar os valores de cadeia de caracteres que podem aparecer como parte da consulta de utilizador.  Eles oferecem suporte a com correspondência exacta *é igual a* operação, bem como os *starts_with* operação para cenários de conclusão da consulta, como correspondência "micros" com "microsoft".  Correspondência de maiúsculas e minúsculas e difusa para lidar com erros ortográficos será suportada numa versão futura.
 

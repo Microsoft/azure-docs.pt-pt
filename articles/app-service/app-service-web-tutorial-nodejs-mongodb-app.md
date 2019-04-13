@@ -1,6 +1,6 @@
 ---
-title: Criar aplicação node. js com MongoDB - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB.
+title: NODE. js (Mean. js) com o MongoDB - serviço de aplicações do Azure | Documentos da Microsoft
+description: Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB. Mean. js é utilizado no tutorial.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891829"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548130"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar uma aplicação de MongoDB no Azure e o node. js
 

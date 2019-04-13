@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895550"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528038"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -24,7 +24,15 @@ Entidades extrair dados da expressão. Tipos de entidade dão-lhe previsível ex
 
 ## <a name="entity-compared-to-intent"></a>Em comparação comparada a intenção de entidade
 
-A entidade representa uma palavra ou frase dentro da expressão que pretende que sejam extraídos. Uma expressão pode incluir muitas entidades ou nenhum de todo. Uma entidade representa uma classe, incluindo uma coleção de objetos semelhantes (lugares, coisas, pessoas, eventos ou conceitos). Entidades descrevem informações relevantes para a intenção e, às vezes, são essenciais para a sua aplicação realizar suas tarefas. Por exemplo, uma aplicação de pesquisa de notícias pode incluir entidades como "tópico", "origem", "palavra-chave" e "data de publicação", que são dados de chave para pesquisar notícias. Num aplicativo de reservas de viagens, o "localização", "data", "companhia aérea", "viagens class" e "pedidos" são informações da chave de reservas de voo (relevantes para a intenção de "Reservar quarto de voo").
+A entidade representa uma palavra ou frase dentro da expressão que pretende que sejam extraídos. Uma expressão pode incluir muitas entidades ou nenhum de todo. Uma aplicação cliente poderá ter a entidade para executar a sua tarefa ou utilizá-lo como um guia de várias opções para apresentar ao usuário. 
+
+Uma entidade:
+
+* Representa uma classe, incluindo uma coleção de objetos semelhantes (lugares, coisas, pessoas, eventos ou conceitos). 
+* Descreve as informações relevantes para a intenção
+
+
+Por exemplo, uma aplicação de pesquisa de notícias pode incluir entidades como "tópico", "origem", "palavra-chave" e "data de publicação", que são dados de chave para pesquisar notícias. Num aplicativo de reservas de viagens, o "localização", "data", "companhia aérea", "viagens class" e "pedidos" são informações da chave de reservas de voo (relevantes para a intenção de "Reservar quarto de voo").
 
 Por comparação, a intenção representa a predição da expressão inteira. 
 
@@ -89,14 +97,14 @@ Assim que a entidade é extraída, os dados da entidade podem ser representados 
 |Ficou a saber de máquina|Pode marcar|Tutorial|Exemplo<br>Resposta|Tipo de entidade|Objetivo|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composição**](#composite-entity)|Agrupamento de entidades, independentemente do tipo de entidade.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquica**](#hierarchical-entity)|Agrupamento de entidades simples.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lista**](#list-entity)|Lista de itens e seus sinónimos extraídos com correspondência exata de texto.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquica**](#hierarchical-entity)|Agrupamento de entidades simples.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista de itens e seus sinónimos extraídos com correspondência exata de texto.|
 |Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidade em que é difícil determinar o fim da entidade.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Pré-criados**](#prebuilt-entity)|Já preparado extrair os vários tipos de dados.|
-|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expressão Regular**](#regular-expression-entity)|Usa a expressão regular para corresponder ao texto.|
-|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simples**](#simple-entity)|Contém um único conceito na palavra ou frase.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Já preparado extrair os vários tipos de dados.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expressão regular**](#regular-expression-entity)|Usa a expressão regular para corresponder ao texto.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contém um único conceito na palavra ou frase.|
 
-Apenas as entidades aprendidas por máquina tem de ser marcado como nas expressões de exemplo para cada intenção. Aprendeu máquina entidades funcionam melhor quando testado por meio [consultas de ponto final](luis-concept-test.md#endpoint-testing) e [expressões de ponto final de revisão](luis-how-to-review-endpoint-utterances.md). 
+Apenas as entidades aprendidas por máquina tem de ser marcado como nas expressões de exemplo. Aprendeu máquina entidades funcionam melhor quando testado por meio [consultas de ponto final](luis-concept-test.md#endpoint-testing) e [expressões de ponto final de revisão](luis-how-to-review-endoint-utt.md). 
 
 Pattern.any entidades precisam ser marcadas no [padrão](luis-how-to-model-intent-pattern.md) exemplos de modelo, não os exemplos da intenção do utilizador. 
 
@@ -121,29 +129,15 @@ Esta entidade é uma boa ajustar quando os dados:
 
 ## <a name="hierarchical-entity"></a>Entidade hierárquica
 
+**Entidades hierárquicas, eventualmente, vão ser preteridas. Uso [funções de entidade](luis-concept-roles.md) para determinar subtipos de entidade, em vez de entidades hierárquicas.**
+
 Uma entidade hierárquica é uma categoria de contextualmente aprendidas entidades simples chamada children.
-
-Esta entidade é uma boa ajustar quando os dados:
-
-* São entidades simples.
-* Estão relacionados entre si no contexto da expressão.
-* Utilize a opção de palavra específica para indicar cada entidade subordinada. Exemplos destas palavras: de/para, deixar/em direção a, sair de/para.
-* Crianças com frequência estão a ser a mesma expressão. 
-* Têm de ser agrupadas e processadas pela aplicação cliente como uma unidade de informações.
-
-Não utilize se:
-
-* Precisa de uma entidade que tem as correspondências de texto exato para crianças, independentemente do contexto. Utilize um [listar entidade](#list-entity) em vez disso. 
-* Precisa de uma entidade para uma relação principal-subordinado com outros tipos de entidade. Utilize o [entidade composta](#composite-entity).
 
 ![entidades hierárquicas](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
-[Resposta JSON de exemplo para a entidade](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Funções versus entidades hierárquicas
 
-[Funções](luis-concept-roles.md#roles-versus-hierarchical-entities) de um padrão de resolver o mesmo problema como entidades hierárquicas, mas aplicam a todos os tipos de entidade. Funções só estão atualmente disponíveis em padrões. Funções não estão disponíveis em expressões de exemplo dos objetivos.  
+[Funções](luis-concept-roles.md) resolver o mesmo problema como entidades hierárquicas, mas aplicam a todos os tipos de entidade.  
 
 ## <a name="list-entity"></a>Entidade de lista
 
@@ -262,24 +256,15 @@ A entidade é uma boa ajustar quando:
 
 Revisão [limites](luis-boundaries.md#model-boundaries) para compreender quantos de cada tipo de entidade é possível adicionar a um modelo.
 
-## <a name="composite-vs-hierarchical-entities"></a>Entidades hierárquica do vs compostos
-
-Entidades compostas e entidades hierárquicas tanto têm relações pai-filho e são máquina aprendida. O machine learning permite que o LUIS compreender as entidades com base em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis porque permitem que os tipos de entidade diferentes como filhos. Subordinados de uma entidade hierárquica são apenas as entidades simples. 
-
-|Tipo|Objetivo|Exemplo|
-|--|--|--|
-|Hierárquica|Principal-subordinado de entidades simples|Location.Origin=New York<br>Location.Destination=London|
-|Composição|Entidades de principal-subordinado: pré-criados, lista, simples, hierárquica| número = 3<br>lista = de primeira classe<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se precisar de mais do que o número máximo de entidades 
 
-Poderá ter de utilizar entidades hierárquicas e compostas. Entidades hierárquicas refletem a relação entre entidades que partilham características ou que são membros de uma categoria. As entidades subordinadas são todos os membros da categoria de seu pai. Por exemplo, uma entidade hierárquica PlaneTicketClass com o nome pode ter as entidades subordinadas EconomyClass e FirstClass. A hierarquia abrange apenas um nível de profundidade.  
+Poderá ter de utilizar entidades compostas em combinação com as funções de entidade.
 
-Entidades compostas representam partes de um todo. Por exemplo, uma entidade composta com o nome PlaneTicketOrder pode ter entidades subordinadas companhia aérea, destino, DepartureCity, DepartureDate e PlaneTicketClass. Criar uma entidade composta de entidades simples já existentes, filhos de entidades hierárquicas ou entidades pré-concebidas.  
+Entidades compostas representam partes de um todo. Por exemplo, uma entidade composta com o nome PlaneTicketOrder pode ter entidades subordinadas companhia aérea, destino, DepartureCity, DepartureDate e PlaneTicketClass.
 
 LUIS também fornece o tipo de entidade de lista que não é aprendidas por máquina, mas permite que a sua aplicação LUIS especificar uma lista fixa de valores. Ver [limites de LUIS](luis-boundaries.md) referência para rever os limites do tipo de entidade de lista. 
 
-Se já considerada hierárquico e compostos e lista entidades e ainda precisa de mais do que o limite, contacte o suporte. Para fazê-lo, coletar informações detalhadas sobre o seu sistema, vá para o [LUIS](luis-reference-regions.md#luis-website) Web site e, em seguida, selecione **suporte**. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
+Se tive considerado estas entidades e ainda precisa de mais do que o limite, contacte o suporte. Para fazê-lo, coletar informações detalhadas sobre o seu sistema, vá para o [LUIS](luis-reference-regions.md#luis-website) Web site e, em seguida, selecione **suporte**. Se a sua subscrição do Azure inclui os serviços de suporte, contacte [suporte técnico do Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

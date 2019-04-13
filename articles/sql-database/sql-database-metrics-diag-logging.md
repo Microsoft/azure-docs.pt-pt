@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490073"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548647"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -76,14 +76,14 @@ Pode configurar bases de dados SQL do Azure e bases de dados de instância para 
 | [SQLInsights](#intelligent-insights-dataset): Contém informações inteligentes sobre o desempenho para bases de dados. Para obter mais informações, consulte [informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
 
 > [!IMPORTANT]
-> Conjuntos elásticos e as instâncias geridas que a sua própria telemetria de diagnóstico separado dos bancos de dados que contêm. Isso é importante observar que a telemetria de diagnóstico está configurada em separado para cada um destes recursos, como documentado a seguir.
+> Conjuntos elásticos e instâncias geridas têm sua própria telemetria de diagnóstico separado dos bancos de dados contêm. Isso é importante observar que a telemetria de diagnóstico está configurada em separado para cada um destes recursos, como documentado a seguir.
 
 > [!NOTE]
 > Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados (embora a mostrar no ecrã). Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Pode usar **as definições de diagnóstico** menu para cada um único, agrupados, ou instância de base de dados no portal do Azure para configurar a transmissão em fluxo de telemetria de diagnóstico. Além disso, telemetria de diagnóstico pode também ser configurada separadamente para os contentores de base de dados: conjuntos elásticos e as instâncias geridas. Pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Registos do Azure, armazenamento, o Event Hubs do Azure e o Azure Monitor.
+Pode utilizar o **as definições de diagnóstico** menu para cada um único, agrupados, ou instância de base de dados no portal do Azure para configurar a transmissão em fluxo de telemetria de diagnóstico. Além disso, telemetria de diagnóstico pode também ser configurada separadamente para os contentores de base de dados: conjuntos elásticos e as instâncias geridas. Pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Registos do Azure, armazenamento, o Event Hubs do Azure e o Azure Monitor.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configurar a transmissão em fluxo de telemetria de diagnóstico para conjuntos elásticos
 
@@ -119,7 +119,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados dentro do conjunto elástico que pretende monitorizar ao seguir os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
-> Além de configurar a telemetria de diagnóstico de um conjunto elástico, também tem de configurar a telemetria de diagnóstico para cada base de dados num conjunto elástico, como documentado a seguir. 
+> Além de configurar a telemetria de diagnóstico de um conjunto elástico, terá também de configurar a telemetria de diagnóstico para cada base de dados no conjunto elástico, como documentado a seguir. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurar a transmissão em fluxo de telemetria de diagnóstico para a base de dados ou base de dados num conjunto elástico
 
@@ -143,7 +143,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para bases de 
 1. Repita estes passos para cada base de dados que pretende monitorizar.
 
 > [!NOTE]
-> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados (embora a mostrar no ecrã). Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Não não possível ativar os registos de auditoria de segurança e SQLSecurityAuditEvents das definições de diagnóstico da base de dados (embora aparecem no ecrã). Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Repita estes passos para cada base de dados de SQL do Azure que pretende monitorizar.
 
@@ -162,7 +162,7 @@ Para configurar a transmissão em fluxo de telemetria de diagnóstico para a ins
 - Ativar a transmissão em fluxo de telemetria de diagnóstico para a instância gerida, **e**
 - Ativar a transmissão em fluxo de telemetria de diagnóstico para cada base de dados de instância
 
-Isto acontece porque a instância gerida é um contentor de base de dados com a sua própria telemetria a ser separado da telemetria de base de dados instância individual.
+Isto acontece porque a instância gerida é um contentor de base de dados com a sua própria telemetria separado de telemetria de base de dados uma instância individual.
 
 Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurso de instância gerida, siga estes passos:
 
@@ -178,7 +178,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Selecione a caixa de verificação de telemetria de diagnóstico por exemplo: **ResourceUsageStats**.
    ![Configurar diagnósticos para a instância gerida](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Selecione **Guardar**.
-1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados de instância dentro da instância gerida que pretende monitorizar ao seguir os passos descritos na secção seguinte.
+1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados de instância dentro da instância gerida que pretende monitorizar, seguindo os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
 > Além de configurar a telemetria de diagnóstico para uma instância gerida, terá também de configurar a telemetria de diagnóstico para cada instância da base de dados, como documentado a seguir. 
@@ -340,7 +340,7 @@ Se estiver a utilizar os conjuntos elásticos ou instâncias geridas, terá tamb
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configurar bases de dados aos registos de diagnóstico e métricas de registo
 
-A forma mais fácil de configurar em que a métrica de registo de bases de dados é através do portal do Azure. Conforme descrito anteriormente, aceda ao seu recurso de base de dados SQL no portal do Azure e selecione **as definições de diagnóstico**.
+A forma mais fácil de configurar métricas de registos de bases de dados de onde é com o portal do Azure. Conforme descrito anteriormente, aceda ao seu recurso de base de dados SQL no portal do Azure e selecione **as definições de diagnóstico**.
 
 Se estiver a utilizar os conjuntos elásticos ou instâncias geridas, terá também de configurar as definições de diagnóstico nestes recursos para ativar a telemetria de diagnóstico para transmitir em fluxo para a área de trabalho.
 
@@ -429,7 +429,7 @@ Consulte as tabelas seguintes para obter detalhes sobre todas as métricas por r
 
 ## <a name="all-logs"></a>Todos os registos
 
-Detalhes de telemetria disponível para todos os registos são divulgadas em tabelas abaixo. Veja [suportado registo de diagnósticos](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) para compreender os registos que são suportados para um tipo de base de dados específica - SQL do Azure única, agrupada, ou instância de base de dados.
+Detalhes de telemetria disponível para todos os registos estão documentados nas tabelas abaixo. Veja [suportado registo de diagnósticos](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) para compreender os registos que são suportados para um tipo de base de dados específica - SQL do Azure única, agrupada, ou instância de base de dados.
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>Estatísticas de utilização de recursos para a instância gerida
 
@@ -714,7 +714,7 @@ Para saber como ativar o registo e compreender as métricas e registo categorias
 
 Para saber mais sobre os Hubs de eventos, leia:
 
-- [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Para saber mais sobre o armazenamento do Azure, veja [como transferir os registos de diagnóstico e métricas do armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

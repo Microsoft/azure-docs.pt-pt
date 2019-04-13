@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 088dcd366d526d08f236fb48340c6bbe18fe267c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501217"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528378"
 ---
-# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Chamar APIs serviços cognitivos num Azure Search, indexação do pipeline (pré-visualização)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial REST: Chamar APIs serviços cognitivos num Azure Search, indexação do pipeline (pré-visualização)
 
 Neste tutorial, vai aprender os mecanismos da programação do melhoramento de dados no Azure Search com as *competências cognitivas*. Habilidades são apoiadas por capacidades de análise de imagem nos serviços cognitivos e processamento de linguagem natural (NLP). Através do conjunto de capacidades composição e configuração, pode extrair representações de texto de uma imagem ou um ficheiro de documentos digitalizados e de texto. Também pode detetar idioma, entidades, expressões-chave e muito mais. O resultado final é o conteúdo mais avançado no índice da Azure Search, criado por um pipeline de indexação com tecnologia de IA. 
 
@@ -67,7 +67,7 @@ Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviç
 
 ## <a name="prepare-sample-data"></a>Preparar dados de exemplo
 
-O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de origem de dados suportado de um [indexador do Azure Search](search-indexer-overview.md). Tenha em atenção que o armazenamento de tabelas do Azure não é suportado para a pesquisa cognitiva. Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
+O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de origem de dados suportado de um [indexador do Azure Search](search-indexer-overview.md). Armazenamento de tabelas do Azure não é suportado para a pesquisa cognitiva. Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
 
 1. [Inicie sessão no portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento do Azure, clique em **Blobs**e, em seguida, clique em **+ contentor**.
 
@@ -554,4 +554,4 @@ A forma mais rápida de os limpar no final do tutorial passa por eliminar o grup
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu. 
 
 > [!div class="nextstepaction"]
-> [Exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md)
+> [Exemplo: criar uma competência personalizada](cognitive-search-create-custom-skill-example.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: d7363c3d1cd3aaf6aae8cadbea232c909000f214
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669607"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546918"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de hora para VMs do Windows no Azure
 
@@ -39,7 +39,7 @@ Precisão de um relógio de computador é gauged sobre como fechar o relógio do
 
 Anfitriões do Azure são sincronizadas com servidores de tempo de Microsoft internos que usam seu tempo a partir de dispositivos pertencentes à Microsoft o Stratum 1, com antenas GPS. Máquinas virtuais no Azure pode optar por confiar no host para passar o tempo preciso (*alojar tempo*) para a VM ou a VM pode diretamente obter hora de um servidor de tempo, ou uma combinação de ambos. 
 
-Interações de máquina virtual com o host também podem afetar o relógio. Durante [memória preservação da manutenção](maintenance-and-updates.md#memory-preserving-maintenance), as VMs são colocadas em pausa para até 30 segundos. Por exemplo, antes do início da manutenção o relógio VM mostra: 00 10:00 e tem uma duração de 28 segundos. Depois da VM é retomada, o relógio na VM ainda mostraria: 00 10:00, que seria 28 segundos desativado. A correta para isso, o serviço de VMICTimeSync monitoriza o que está acontecendo no host e pedidos de alterações a ocorrer nas VMs para compensar.
+Interações de máquina virtual com o host também podem afetar o relógio. Durante [memória preservação da manutenção](maintenance-and-updates.md#maintenance-not-requiring-a-reboot), as VMs são colocadas em pausa para até 30 segundos. Por exemplo, antes do início da manutenção o relógio VM mostra: 00 10:00 e tem uma duração de 28 segundos. Depois da VM é retomada, o relógio na VM ainda mostraria: 00 10:00, que seria 28 segundos desativado. A correta para isso, o serviço de VMICTimeSync monitoriza o que está acontecendo no host e pedidos de alterações a ocorrer nas VMs para compensar.
 
 O serviço de VMICTimeSync funciona em modo de exemplo ou sincronização e apenas irão influenciar o relógio para a frente. No modo de exemplo, o que requer W32time estar em execução, o serviço de VMICTimeSync consulta o anfitrião em 5 segundos e fornece exemplos de tempo para W32time. Aproximadamente a cada 30 segundos, o serviço W32time leva o exemplo de tempo mais recente e utiliza-o para influenciar o relógio do convidado. O modo de sincronização ativa se um convidado foi retomado ou se o relógio de um convidado drifts mais de 5 segundos por trás do relógio do anfitrião. Em casos em que o serviço W32time está sendo executando corretamente, o último caso deveriam ocorrer nunca.
 

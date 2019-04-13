@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: juliako
-ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316920"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544182"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Serviços de multimédia do Azure v3 perguntas mais frequentes
 
@@ -24,15 +24,19 @@ Este artigo responde às perguntas mais frequentes de v3 de serviços de multim�
 
 ## <a name="v3-apis"></a>v3 APIs
 
+### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Que funções do Azure podem executar ações nos recursos de serviços de multimédia do Azure? 
+
+Ver [controlo de acesso baseado em funções (RBAC) para contas de serviços de multimédia](rbac-overview.md).
+
 ### <a name="how-do-i-configure-media-reserved-units"></a>Como posso configurar a unidades reservadas de multimédia?
 
-Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
+Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
 
 Para obter detalhes, consulte [Dimensionar processamento de multimédia com a CLI](media-reserved-units-cli-how-to.md).
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>O que é o método recomendado para vídeos do processo?
 
-Uso [transforma](https://docs.microsoft.com/rest/api/media/transforms) para configurar as tarefas comuns de codificação ou analisar vídeos. Cada **transformar** descreve uma recipe ou um fluxo de trabalho de tarefas para processar os ficheiros de vídeos ou áudio. R [tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os serviços de multimédia para aplicar a **transformar** para um determinado conteúdo vídeo ou áudio de entrada. Quando a transformação tiver sido criada, pode submeter trabalhos com APIs de serviços de suporte de dados ou qualquer um dos SDKs publicados. Para obter mais informações, consulte [transforma e tarefas](transforms-jobs-concept.md).
+Uso [transforma](https://docs.microsoft.com/rest/api/media/transforms) para configurar as tarefas comuns de codificação ou analisar vídeos. Cada **transformar** descreve uma recipe ou um fluxo de trabalho de tarefas para processar os ficheiros de vídeos ou áudio. R [tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os serviços de multimédia para aplicar a **transformar** para um determinado conteúdo vídeo ou áudio de entrada. Quando a transformação tiver sido criada, pode submeter trabalhos com APIs de serviços de suporte de dados ou qualquer um dos SDKs publicados. Para obter mais informações, veja [Transforms and Jobs](transforms-jobs-concept.md) (Transformações e Trabalhos).
 
 ### <a name="how-does-pagination-work"></a>Como funciona a paginação?
 
@@ -67,13 +71,13 @@ Utilize APIs de serviços de suporte de dados do Azure para configurar/chave de 
 Para obter mais informações, consulte:
 
 - [Descrição geral da proteção de conteúdo](content-protection-overview.md)
-- [Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
+- [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso)
 
 ## <a name="media-services-v2-vs-v3"></a>Serviços de multimédia v2 vs v3 
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Pode utilizar o portal do Azure para gerir os recursos de v3?
 
-Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
+Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito de AssetFile na v3?
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338248"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549089"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de versão em funções duráveis (funções do Azure)
 
@@ -140,7 +140,7 @@ Todas as entidades de armazenamento do Azure são nomeadas com base no `HubName`
 Recomendamos que implemente a nova versão da aplicação de função para um novo [bloco de implementação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Blocos de implementação permitem-lhe executar várias cópias da sua função aplicação lado a lado com apenas um deles como o Active Directory *produção* ranhura. Quando estiver pronto para expor a nova lógica de orquestração para a sua infraestrutura existente, pode ser tão simples quanto a troca da nova versão para o bloco de produção.
 
 > [!NOTE]
-> Esta estratégia funciona melhor quando usa os acionadores de HTTP e webhook das funções do orchestrator. Para acionadores de não-HTTP, tais como filas ou Hubs de eventos, a definição do acionador deve derivar de uma definição de aplicação que é atualizada como parte da operação de troca.
+> Esta estratégia funciona melhor quando usa os acionadores de HTTP e webhook das funções do orchestrator. Para acionadores de não-HTTP, tais como filas ou Hubs de eventos, a definição de Acionador deve [derivam de uma definição de aplicação](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) que é atualizado como parte da operação de troca.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

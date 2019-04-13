@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847812"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528276"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de encriptação de dados transparente (TDE) com o PowerShell
 
@@ -40,6 +40,12 @@ Os procedimentos seguintes só devem ser feitos em casos extremos, ou em ambient
 Se uma chave nunca é suspeito for comprometida, de modo a que um serviço ou o utilizador tinha acesso não autorizado à chave, é melhor eliminar a chave.
 
 Lembre-se de que uma vez o protetor de TDE é eliminado no Cofre de chaves **todas as ligações às bases de dados encriptados sob o servidor são bloqueadas, e esses bancos de dados ficam offline e são removidos dentro de 24 horas**. Cópias de segurança antigas encriptadas com a chave comprometida já não estão acessíveis.
+
+Os passos seguintes descrevem como verificar os thumbprints de Protetor de TDE ainda em utilização pelo Virtual registo de ficheiros (VLF) de um determinado banco de dados. O thumbprint do protetor de TDE atual da base de dados, e o ID de base de dados pode ser encontrado ao executar: SELECIONE [database_id],       [encryption_state], [encryptor_type], /*chave assimétrica significa AKV, certificado significa chaves geridas pelo serviço*/ [encryptor_thumbprint,] de [sys]. [ dm_database_encryption_keys] 
+ 
+A seguinte consulta devolve os VLFs e o encriptador thumbprints respectivos em utilização. Cada outra impressão digital refere-se a chave diferente no Cofre de chaves do Azure (AKV): SELECT * FROM sys.dm_db_log_info (database_id) 
+
+O comando do PowerShell Get-AzureRmSqlServerKeyVaultKey fornece o thumbprint de Protetor TDE utilizado na consulta, pode ver as chaves para manter e as chaves para eliminar na AKV. Chaves só já não é utilizadas pela base de dados podem ser eliminadas em segurança do Azure Key Vault.
 
 Este guia de procedimentos é feito por duas abordagens consoante o resultado pretendido após a resposta a incidentes:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445352"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549040"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrar dados em massa para o Azure File Sync
 Pode migrar dados em massa para o Azure File Sync de duas formas:
@@ -36,13 +36,13 @@ Aqui estão os principais benefícios de usar uma ferramenta de transferência, 
 - Data Box e o Azure File Sync exigem sem períodos de indisponibilidade. Quando utilizar o Data Box para transferir dados para o Azure, vai utilizar largura de banda de rede com eficiência e preservar a fidelidade de ficheiro. Também manter seu espaço de nomes atualizados através do carregamento de apenas os ficheiros que alterar depois de mover os dados para o Azure.
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>Pré-requisitos para a transferência de dados offline
-Antes de iniciar a transferência de dados offline:
+Não deverá ativar a sincronização no servidor que está a migrar antes de concluir a transferência de dados offline. Seguem-se outros aspetos a considerar antes de começar:
 
-- Migre os seus dados em massa para uma ou várias partilhas de ficheiros do Azure antes de ativar a sincronização com o Azure File Sync.
-- Se planeia utilizar o Data Box para a sua migração em massa, reveja os [pré-requisitos de implementação para o Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planear a topologia final do Azure File Sync. Para obter mais informações, consulte [planear uma implementação do Azure File Sync](storage-sync-files-planning.md).
-- Selecione a conta de armazenamento do Azure ou a contas que irão conter as partilhas de ficheiros que pretende sincronizar com. Migre os dados em massa para partilhas de transição temporárias que estão na mesma conta de armazenamento ou contas. Pode usar apenas um compartilhamento de final e uma partilha de teste que estão na mesma conta de armazenamento.
-- Crie uma nova relação de sincronização com uma localização do servidor. Não é possível utilizar uma relação de sincronização existente para migrar dados em massa.
+- Se planeia utilizar o Data Box para a sua migração em massa: Reveja os [pré-requisitos de implementação para o Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planear a topologia final do Azure File Sync: [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- Selecione a conta (s) de armazenamento do Azure, que irá conter as partilhas de ficheiros que pretende sincronizar com. Certifique-se de que a migração em massa acontece às partilhas de transição temporárias na conta de armazenamento mesmo (s). Só pode ser ativada em massa de migração utilizando um final - e uma partilha de teste que residem na mesma conta de armazenamento.
+- Uma migração em massa só pode ser utilizada quando cria uma nova relação de sincronização com uma localização do servidor. Não é possível ativar uma migração em massa com uma relação de sincronização existente.
+
 
 ## <a name="process-for-offline-data-transfer"></a>Processo de transferência de dados offline
 Eis como configurar a sincronização de ficheiros do Azure de forma que seja compatível com ferramentas de migração em massa, como o Azure Data Box:
@@ -51,7 +51,7 @@ Eis como configurar a sincronização de ficheiros do Azure de forma que seja co
 
 | Passo | Detalhe |
 |---|---------------------------------------------------------------------------------------|
-| ![Passo 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Encomendar o Data Box](../../databox/data-box-deploy-ordered.md). As ofertas de famílias do Data Box [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Quando receber o Data Box, siga seus [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para este caminho UNC na caixa de dados: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. Aqui, *ShareName* é o nome da partilha de teste. Envie o Data Box para o Azure. |
+| ![Passo 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Encomendar o Data Box](../../databox/data-box-deploy-ordered.md). As ofertas de famílias do Data Box [vários produtos](https://azure.microsoft.com/services/storage/databox/data) para atender às suas necessidades. Quando receber o Data Box, siga seus [documentação para copiar os dados](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) para este caminho UNC no Data Box:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>*. Aqui, *ShareName* é o nome da partilha de teste. Envie o Data Box para o Azure. |
 | ![Passo 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Aguarde até que os ficheiros apresentados nas partilhas de ficheiros do Azure que escolheu como partilhas de transição temporárias. *Não ative a sincronização a esses compartilhamentos.* |
 | ![Passo 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Crie uma nova partilha vazia para cada partilha de ficheiros que o Data Box criou para. Esta nova partilha deve estar na mesma conta de armazenamento que a partilha do Data Box. [Como criar uma nova partilha de ficheiros do Azure](storage-how-to-create-file-share.md). |
 | ![Passo 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Criar um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) num serviço de sincronização de armazenamento. Referência da partilha vazia como um ponto final da cloud. Repita este passo para cada partilha de ficheiros do Data Box. [Configurar o Azure File Sync](storage-sync-files-deployment-guide.md). |

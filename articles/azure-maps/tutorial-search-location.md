@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 125e0c4331eea105ffc201bd1f5f26bdbec1c553
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260850"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549393"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -280,11 +280,11 @@ Neste tutorial, ficou a saber como:
 > * Criar uma nova página Web com a API de Controlo de Mapas
 > * Utilizar o Search Service para localizar pontos de interesse nas proximidades
 
-Pode aceder ao código de exemplo deste tutorial aqui:
+> [!div class="nextstepaction"]
+> [Ver código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
 
-> [Procurar localização com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-[Veja o exemplo registada aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+> [!div class="nextstepaction"]
+> [Ver exemplo em direto](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 O próximo tutorial demonstra como apresentar um percurso entre duas localizações.
 

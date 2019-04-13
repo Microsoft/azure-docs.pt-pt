@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282394"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547990"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adicionar uma forma para um mapa
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como processar geometrias no mapa utilizando as camadas d
 
 `LineString` e `MultiLineString` recursos são usados para representar os caminhos e os contornos no mapa.
 
-## <a name="use-a-line"></a>Utilizar uma linha
+### <a name="add-a-line"></a>Adicionar uma linha
 
 <iframe height='500' scrolling='no' title='Adicionar uma linha para um mapa' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/qomaKv/'>adicionar uma linha para um mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -53,7 +53,7 @@ Além de poder aplicar uma cor de traço único para uma linha também pode pree
 
 <br/>
 
-<iframe height="265" style="width: 100%;" scrolling="no" title="Linha de gradação do traço" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Linha de gradação do traço" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consulte a caneta <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>linha com gradiente de traço</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -171,7 +171,7 @@ O terceiro bloco de código cria uma função que usa o valor do elemento de con
 
 No quarto bloco de código, é criado um objeto de origem de dados usando o [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) classe. O ponto de, em seguida, é adicionado à origem de dados.
 
-R [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) processa os dados encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O terceiro bloco de código cria uma camada de polígonos. Ver as propriedades de uma camada de polígonos no [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A origem de dados, o hanlder de evento de clique e a camada de polígonos são criadas e adicionadas ao mapa dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para se certificar de que o ponto é apresentado depois que o mapa for totalmente carregada.
+R [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) processa os dados encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) no mapa. O terceiro bloco de código cria uma camada de polígonos. Ver as propriedades de uma camada de polígonos no [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). A origem de dados, o manipulador de eventos de clique e a camada de polígonos são criadas e adicionadas ao mapa dentro de [manipulador de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para se certificar de que o ponto é apresentado depois que o mapa for totalmente carregada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

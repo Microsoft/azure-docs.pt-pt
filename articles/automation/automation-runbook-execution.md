@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268505"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544760"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -46,7 +46,7 @@ Runbooks na automatização do Azure podem ser executados em qualquer uma uma á
 |Instalar o módulo que requer o instalador|Função de Trabalho de Runbook Híbrida|Módulos para a área de segurança tem de ser copiable|
 |Utilizar runbooks ou módulos que exigem diferente do 4.7.2 do .NET Framework|Função de Trabalho de Runbook Híbrida|Sandboxes de automatização tem 4.7.2 do .NET Framework e não é possível atualizá-lo|
 |Scripts que exigem elevação|Função de Trabalho de Runbook Híbrida|Áreas de segurança não permitem a elevação. Para resolver este problema, utilize uma função de trabalho de Runbook híbrida e pode desativar a UAC e o uso `Invoke-Command` quando executar o comando que precisa de elevação|
-|Scripts de que necessitam de acesso ao WMI|Função de Trabalho de Runbook Híbrida|Tarefas em execução em caixas de areia cloud [não tem acesso a WMI](#device-and-application-characteristics)|
+|Scripts de que necessitam de acesso ao WMI|Função de Trabalho de Runbook Híbrida|Tarefas em execução em áreas de segurança na cloud [não tem acesso para o WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamento de Runbook
 
@@ -192,7 +192,7 @@ Runbooks em execução em áreas de segurança do Azure não suportam processos 
 
 ### <a name="device-and-application-characteristics"></a>Características de aplicações e dispositivos
 
-Tarefas de Runbook são executadas em áreas de segurança do Azure não tem acesso a quaisquer características de dispositivo ou aplicação. A API mais comuns utilizada para métricas de desempenho de consulta no Windows é o WMI. Alguns destas métricas comuns são a memória e utilização da CPU. No entanto, não importa o que é utilizada a API. Tarefas em execução na nuvem não têm acesso a implementação Microsoft de Web com base em Enterprise Management (WBEM), que está incorporado no modelo CIM (Common Information), que são os padrões do setor para definir as características de aplicações e dispositivos.
+Tarefas de Runbook são executadas em áreas de segurança do Azure não tem acesso a quaisquer características de dispositivo ou aplicação. A API mais comuns utilizada para métricas de desempenho de consulta no Windows é o WMI. Alguns destas métricas comuns são a memória e utilização da CPU. No entanto, não importa o que é utilizada a API. Tarefas em execução na cloud não tem acesso para a implementação Microsoft da Web com base em Enterprise Management (WBEM), que está incorporado no modelo CIM (Common Information), que são os padrões do setor para definir as características de aplicações e dispositivos.
 
 ## <a name="job-statuses"></a>Estados das tarefas
 
@@ -206,10 +206,10 @@ A tabela seguinte descreve os diferentes estados possíveis das tarefas. PowerSh
 | Em Fila |A tarefa está a aguardar a disponibilização de recursos num trabalho de Automatização para que possa ser iniciada. |
 | A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
 | A retomar |O sistema está a retomar a tarefa depois de ter sido suspenso. |
-| Em execução |A tarefa está a ser executada. |
+| A executar |A tarefa está a ser executada. |
 | Em execução, à espera de recursos |A tarefa foi descarregada porque atingiu o [justa](#fair-share) limite. Ele retoma em breve do último ponto de verificação. |
-| Parado |A tarefa foi parada pelo utilizador antes de ser concluída. |
-| A interromper |O sistema está a parar a tarefa. |
+| Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
+| A parar |O sistema está a parar a tarefa. |
 | Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começa desde o início do runbook. Se tiver um ponto de verificação, pode começar novamente e retomar a partir do último ponto de verificação. O runbook está suspenso apenas pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, que significa que a tarefa em execução num erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende num erro. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 | A suspender |O sistema está a tentar suspender a tarefa a pedido do utilizador. O runbook tem de atingir o ponto de verificação seguinte antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, ele é concluída antes de poder ser suspenso. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 

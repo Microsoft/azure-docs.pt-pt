@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270808"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545302"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
 
@@ -569,7 +569,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
         },
 
         textOptions: {
-            textField: '{point_count_abbreviated}',
+            textField: ['get', 'point_count_abbreviated'],
             size: 12,
             font: ['StandardFont-Bold'],
             offset: [0, 0.4],
@@ -955,21 +955,21 @@ Neste tutorial, saiba como criar um localizador de arquivo básico com o Azure M
 > * Implementar o localizador de arquivo como um [aplicação de Web do serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 > * Store seus dados numa base de dados e procure locais próximos. Para obter mais informações, consulte a [descrição geral de tipos de dados geográficos do SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [consultar dados geográficos para o vizinho mais próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
-Pode aceder ao código de exemplo deste tutorial aqui:
+> [!div class="nextstepaction"]
+> [Ver código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-> [Criar um localizador de arquivo com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-[Veja o exemplo registada aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [!div class="nextstepaction"]
+> [Ver exemplo em direto](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Para saber mais sobre a cobertura e as capacidades do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Níveis de zoom e grelha de mosaico](zoom-levels-and-tile-grid.md)
+> [Zoom levels and tile grid ](zoom-levels-and-tile-grid.md) (Níveis de zoom e grelha de mosaico)
 
 Para ver mais exemplos de código e uma experiência interativa de programação:
 
 > [!div class="nextstepaction"]
-> [Como usar o controle de mapa](how-to-use-map-control.md)
+> [How to use the map control](how-to-use-map-control.md) (Como utilizar o controlo de mapa)
 
 > [!div class="nextstepaction"]
 > [Utilizar expressões de estilo condicionada por dados](data-driven-style-expressions-web-sdk.md)

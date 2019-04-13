@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 2/14/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012474"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548175"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Utilizar modelos com o Azure Machine Learning utilizando estimator
 
@@ -59,7 +59,7 @@ Este fragmento de código especifica os parâmetros seguintes para o `Estimator`
 Parâmetro | Descrição
 --|--
 `source_directory`| Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota 
-`script_params`| Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares
+`script_params`| Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares. Para especificar um sinalizador detalhado no `script_params`, utilize `<command-line argument, "">`.
 `compute_target`| Destino de computação remota que o script de treinamento serão executados no, neste caso uma computação do Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster. (Tenha em atenção, apesar do cluster de AmlCompute é o destino frequentemente utilizado, também é possível escolher outra computação tipos de destino, como as VMs do Azure ou o computador mesmo local.)
 `entry_script`| Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
 `conda_packages`| Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento.  

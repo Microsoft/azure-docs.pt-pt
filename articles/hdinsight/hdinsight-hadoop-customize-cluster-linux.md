@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885575"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545336"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight ao utilizar as ações de script
 
@@ -152,7 +152,6 @@ HDInsight fornece scripts para instalar os seguintes componentes em clusters do 
 | Instalar prontamente |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Ver [instalar e utilizar o Presto no HDInsight baseado no Hadoop clusters](hdinsight-hadoop-install-presto.md). |
 | Instalar Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Ver [instalar o Apache Giraph no Hadoop do HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Pré-carregar bibliotecas do Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Ver [adicionar bibliotecas de Apache Hive personalizadas, quando criar o cluster do HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
-| Instalar ou atualizar o Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Ver [instalar ou atualizar o Mono no HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Utilize uma ação de script durante a criação do cluster
 
@@ -210,7 +209,7 @@ Neste exemplo, a ação de script é adicionada ao utilizar o seguinte código:
 
 Obter mais informações sobre como implementar um modelo:
 
-* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
 * [Implementar recursos com modelos do Resource Manager e a CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 

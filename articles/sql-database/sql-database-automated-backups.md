@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/12/2019
+ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882716"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545829"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -72,7 +72,7 @@ Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service
 
 ### <a name="backups-for-point-in-time-restore"></a>Cópias de segurança para restauro para ponto no tempo
 
-Base de dados SQL suporta o Self-Service para o restauro de ponto no tempo (PITR) ao criar automaticamente a cópia de segurança completa, backups diferenciais e backups de log de transação. Cópias de segurança completa da base de dados são criadas semanalmente e cópias de segurança da base de dados diferenciais são geralmente criadas a cada 12 horas para backups de log de transação em geral, são criados a cada 5-10 minutos, com a frequência com base no tamanho de computação e quantidade de atividade da base de dados. A primeira cópia de segurança completa está agendada imediatamente depois de criar uma base de dados. Ela normalmente fica concluída no prazo de 30 minutos, mas pode demorar mais tempo quando a base de dados é um tamanho significativo. Por exemplo, a cópia de segurança inicial pode demorar mais tempo numa base de dados restaurada ou copiar uma base de dados. Após a primeira cópia de segurança completa, todas as cópias de segurança adicionais são agendadas automaticamente e gerenciadas automaticamente em segundo plano. O tempo certo de todas as cópias de segurança da base de dados é determinado pelo serviço de base de dados SQL, como ele faz o balanceamento de carga de trabalho geral do sistema.
+Base de dados SQL suporta o Self-Service para o restauro de ponto no tempo (PITR) ao criar automaticamente a cópia de segurança completa, backups diferenciais e backups de log de transação. Cópias de segurança completa da base de dados são criadas semanalmente e cópias de segurança da base de dados diferenciais são geralmente criadas a cada 12 horas para backups de log de transação em geral, são criados a cada 5-10 minutos, com a frequência com base no tamanho de computação e quantidade de atividade da base de dados. A primeira cópia de segurança completa está agendada imediatamente depois de criar uma base de dados. Ela normalmente fica concluída no prazo de 30 minutos, mas pode demorar mais tempo quando a base de dados é um tamanho significativo. Por exemplo, a cópia de segurança inicial pode demorar mais tempo numa base de dados restaurada ou copiar uma base de dados. Após a primeira cópia de segurança completa, todas as cópias de segurança adicionais são agendadas automaticamente e gerenciadas automaticamente em segundo plano. O tempo certo de todas as cópias de segurança da base de dados é determinado pelo serviço de base de dados SQL, como ele faz o balanceamento de carga de trabalho geral do sistema. Não é possível alterar ou desativar as tarefas de cópia de segurança. 
 
 As cópias de segurança PITR são georredundante e protegido por [replicação entre regiões de armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -107,14 +107,14 @@ Quando migra a base de dados de um escalão de serviço baseado em DTU com o per
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Como alterar o período de retenção de cópia de segurança de PITR
 
-Pode alterar o período de retenção de cópia de segurança de PITR predefinido a utilizar o Portal do Azure, PowerShell ou a API REST. Os valores suportados são: 7, 14, 21, 28 ou 35 dias. Os exemplos seguintes mostram como alterar a retenção PITR 28 dias.
+Pode alterar o período de retenção de cópia de segurança de PITR predefinido a utilizar o portal do Azure, PowerShell ou a API REST. Os valores suportados são: 7, 14, 21, 28 ou 35 dias. Os exemplos seguintes mostram como alterar a retenção PITR 28 dias.
 
 > [!NOTE]
 > Essas APIs só terá impacto sobre o período de retenção PITR. Se tiver configurado LTR da base de dados, não será afetada. Para obter mais informações sobre como alterar o period(s) de retenção LTR, consulte [retenção a longo prazo](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Alterar o período de retenção de cópia de segurança de PITR no portal do Azure
 
-Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para o objeto de servidor cujo período de retenção que deseja alterar no Portal e, em seguida, selecione a opção adequada com base em qual objeto de servidor que está modificando.
+Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para o objeto de servidor cujo período de retenção que deseja alterar no portal e, em seguida, selecione a opção adequada com base em qual objeto de servidor que está modificando.
 
 #### <a name="change-pitr-for-a-sql-database-server"></a>Alteração PITR para um servidor de base de dados SQL
 

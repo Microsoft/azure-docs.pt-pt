@@ -13,24 +13,26 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d97682de6c8eb7dd36e25cbd4b8d66d328745748
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044411"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543641"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Comece a desenvolver com os serviços de multimédia v3 API usando ferramentas/SDKs
 
 Como desenvolvedor, pode utilizar os serviços de multimédia [REST API](https://aka.ms/ams-v3-rest-ref) ou bibliotecas de cliente que permitem-lhe interagir com a API de REST para facilmente criar, gerir e manter fluxos de trabalho de suporte de dados personalizado. O [serviços de multimédia v3](https://aka.ms/ams-v3-rest-sdk) API baseia-se a especificação de OpenAPI (anteriormente conhecida como um Swagger).
 
-Este tópico fornece ligações para os SDKs, ferramentas, documentação. Ele também fornece algumas informações úteis para env de desenvolvimento diferentes.
+Antes de começar a desenvolver, reveja [desenvolver com os serviços de multimédia v3 APIs](media-services-apis-overview.md).
 
 > [!NOTE]
 > Não são garantidos que os SDKs do Media Services do Azure v3 ser thread-safe. Ao desenvolver um aplicativo multithreaded, deve adicionar a sua própria lógica de sincronização de thread para proteger o cliente ou utilize um novo objeto de AzureMediaServicesClient por thread. Também deve ter cuidado dos problemas de multithreading introduzidos por objetos opcionais fornecidos pelo seu código para o cliente (como uma instância do HttpClient no .NET).
+
+Este tópico fornece ligações para os SDKs, ferramentas, outro documentaion.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +42,7 @@ Para começar a desenvolver em relação a serviços de multimédia, terá de:
 - [Saiba mais sobre os conceitos fundamentais](concepts-overview.md)
 - [Criar uma conta de Media Services - CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>Comece a desenvolver com SDKs
+## <a name="start-developing-with-sdks"></a>Começar a desenvolver com SDKs
 
 ### <a name="net"></a>.NET
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875191"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549734"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall de base de dados SQL e o IP de armazém de dados SQL do Azure
 
@@ -249,6 +249,7 @@ Se o comportamento do acesso ao serviço Base de Dados SQL do Microsoft Azure n�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Confirme o que seu ambiente de rede Corporativo permite a comunicação de entrada dos intervalos de endereços IP de computação (incluindo intervalos SQL) utilizada pelo Datacenters do Azure da Microsoft. Poderá ser necessário à lista de permissões nestes endereços IP, consulte [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Para um início rápido sobre como criar uma regra de firewall do IP ao nível do servidor, consulte [criar uma base de dados SQL do Azure](sql-database-single-database-get-started.md).
 - Para obter ajuda para ligar a uma base de dados SQL do Azure a partir de aplicações de código aberto ou de terceiros, veja [Client quick-start code samples to SQL Database (Exemplos de código de início rápido de cliente para a Base de Dados SQL)](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Para obter informações sobre portas adicionais que poderá ter de abrir, consulte o **base de dados SQL: Fora do vs dentro** secção do [portas para além do 1433 para ADO.NET 4.5 e base de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md)

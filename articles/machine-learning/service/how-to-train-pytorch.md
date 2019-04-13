@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004067"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548556"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Utilizar modelos de PyTorch com o serviço Azure Machine Learning
 
@@ -46,7 +46,7 @@ Aqui, podemos especificar os parâmetros seguintes para o construtor de PyTorch:
 Parâmetro | Descrição
 --|--
 `source_directory` |  Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota
-`script_params` |  Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares
+`script_params` |  Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares.  Para especificar um sinalizador detalhado no `script_params`, utilize `<command-line argument, "">`.
 `compute_target` |  Destino de computação remota que o script de treinamento serão executados no, neste caso uma computação do Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` |  Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
 `conda_packages` |  Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento. O construtor tem outro parâmetro chamado `pip_packages` que pode utilizar quaisquer pacotes de pip necessário

@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918710"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543765"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plano Premium de funções do Azure (pré-visualização)
 
@@ -42,7 +42,7 @@ As seguintes funcionalidades estão disponíveis para aplicações de funções 
 
 Se não existem eventos e execuções de hoje ocorrem no plano de consumo, a aplicação pode reduzir verticalmente para zero instâncias. Quando chegarem novos eventos, uma nova instância tem de ser especializadas com a sua aplicação em execução no mesmo.  Specializace novas instâncias podem demorar algum tempo consoante a aplicação.  Esta latência adicional na primeira chamada é frequentemente designada a frio de aplicação.
 
-No plano Premium, pode ter a aplicação previamente começando num número especificado de instâncias.  Instâncias preparadas previamente também permitem-lhe pré-dimensionar uma aplicação antes de carga elevada. Como a aplicação aumenta horizontalmente, dimensiona-se em primeiro lugar para as instâncias warmed previamente. Instâncias adicionais continuam a memória intermédia de saída e quente imediatamente em preparação para a próxima operação de dimensionamento. Ao ter uma memória intermédia de instâncias preparadas previamente, pode evitar efetivamente latências de arranque a frio.  Instâncias preparadas previamente é um recurso do plano Premium e precisa ter, pelo menos, uma instância em execução e está disponível em todas as vezes que o plano ativa.
+No plano Premium, pode ter a aplicação previamente começando num número de instâncias, até o tamanho mínimo de plano especificado.  Instâncias preparadas previamente também permitem-lhe pré-dimensionar uma aplicação antes de carga elevada. Como a aplicação aumenta horizontalmente, dimensiona-se em primeiro lugar para as instâncias warmed previamente. Instâncias adicionais continuam a memória intermédia de saída e quente imediatamente em preparação para a próxima operação de dimensionamento. Ao ter uma memória intermédia de instâncias preparadas previamente, pode evitar efetivamente latências de arranque a frio.  Instâncias preparadas previamente é um recurso do plano Premium e precisa ter, pelo menos, uma instância em execução e está disponível em todas as vezes que o plano ativa.
 
 Pode configurar o número de instâncias preparadas previamente no portal do Azure, selecionando **aumentar horizontalmente** no **recursos da plataforma** separador.
 
@@ -69,6 +69,8 @@ Instâncias de computação adicionais são adicionadas automaticamente para a s
 ### <a name="unbounded-run-duration"></a>Unbounded a duração da execução
 
 As funções do Azure num plano de consumo estão limitadas a 10 minutos para uma única execução.  No plano Premium, a duração de execução padrão é 30 minutos para impedir a fuga de execuções. No entanto, pode [modificar a configuração de Host. JSON](./functions-host-json.md#functiontimeout) para que isso não vinculado para aplicações de plano Premium.
+
+Em pré-visualização, a sua duração não é garantida últimos 12 minutos e terá a melhor chance de executar para além de 30 minutos, se a sua aplicação não é dimensionada para além de sua contagem mínima de trabalho.
 
 ## <a name="plan-and-sku-settings"></a>Definições de plano e SKU
 
@@ -104,9 +106,8 @@ Seguem-se as regiões atualmente suportadas para a pré-visualização pública.
 |Região|
 |--|
 |Leste da Austrália|
-|Austrália Souteast|
+|Sudeste da Austrália|
 |Canadá Central|
-|Índia Central|
 |EUA Central|
 |Ásia Oriental|
 |EUA Leste 2|

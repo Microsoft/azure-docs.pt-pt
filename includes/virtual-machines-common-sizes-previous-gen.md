@@ -5,59 +5,25 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 04/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964255"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59550149"
 ---
-Este artigo fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Estes tamanhos ainda podem ser utilizados, mas há gerações mais recentes disponíveis.
+Esta seção fornece informações sobre as gerações anteriores de tamanhos de máquina virtual. Estes tamanhos ainda podem ser utilizados, mas há gerações mais recentes disponíveis. 
 
+## <a name="f-series"></a>Série F
 
-## <a name="ds-series"></a>Série DS
+A série F tem por base o processador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz, o qual pode atingir velocidades de relógio de 3,1 GHz com o Intel Turbo Boost Technology 2.0. Este é o mesmo desempenho de CPU da série Dv2 de VMs.  
 
-ACU: 160-250 <sup>1</sup>
+As VMs da série F são uma excelente opção para cargas de trabalho que exigem CPUs mais rápidas, mas não precisam de mais memória ou armazenamento temporário por vCPU.  As cargas de trabalho, como análise, servidores de jogos, servidores Web e processamento de lotes, beneficiarão do valor da série F.
 
-Armazenamento Premium:  Suportadas
-
-Cache de armazenamento Premium:  Suportadas
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 32 |2 / 500 |
-| Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2 / 1000 |
-| Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
-| Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
-
-<sup>1</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
-<br>
-
-## <a name="ds-series---memory-optimized"></a>Série DS - com otimização de memória
-
-ACU: 160-250 <sup>1,2</sup>
-
-Armazenamento Premium:  Suportadas
-
-Cache de armazenamento Premium:  Suportadas
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2 / 1000 |
-| Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4 / 2000 |
-| Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8 / 4000 |
-| Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
-
-<sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série DS pode estar limitado pelo número, tamanho e repartição dos discos anexados.  Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
-
-## <a name="d-series"></a>Série D 
-
-ACU: 160-250 <sup>1</sup>
+ACU: 210 - 250
 
 Armazenamento Premium:  Não suportado
 
@@ -65,101 +31,63 @@ Cache de armazenamento Premium:  Não suportado
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS / MBps de leitura / MBps de escrita | Discos de dados máximos / débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
-| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
-| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
-| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
+| Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 750                 |
+| Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
+| Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
+| Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
 
-<sup>1</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
-<br>
+## <a name="fs-series-sup1sup"></a>Série FS <sup>1</sup>
 
-## <a name="d-series---memory-optimized"></a>Série D - com otimização de memória
+A série Fs oferece todas as vantagens da série F, além do armazenamento Premium.
 
-ACU: 160-250 <sup>1</sup>
+ACU: 210 - 250
 
-Armazenamento Premium:  Não suportado
+Armazenamento Premium:  Suportadas
 
-Cache de armazenamento Premium:  Não suportado
+Cache de armazenamento Premium:  Suportadas
 
-| Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS / MBps de leitura / MBps de escrita | Discos de dados máximos / débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
-| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
-| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
-| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_F1s |1 |2 |4 |4 |4,000 / 32 (12) |3,200 / 48 |2 / 750 |
+| Standard_F2s |2 |4 |8 |8 |8,000 / 64 (24) |6,400 / 96 |2 / 1500 |
+| Standard_F4s |4 |8 |16 |16 |16,000 / 128 (48) |12,800 / 192 |4 / 3000 |
+| Standard_F8s |8 |16 |32 |32 |32,000 / 256 (96) |25,600 / 384 |8 / 6000 |
+| Standard_F16s |16 |32 |64 |64 |64,000 / 512 (192) |51,200 / 768 |8 / 12000 |
 
-<sup>1</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)
-<br>
+MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
-## <a name="a-series---compute-intensive-instances"></a>Série A – Instâncias de computação intensiva
+<sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série Fs pode estar limitado pelo número, tamanho e repartição dos discos anexados.  Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).  
 
-ACU: 225
+## <a name="ls-series"></a>Série Ls
 
-Armazenamento Premium:  Não suportado
+A série Ls oferece até 32 vCPUs, com o [processador Intel® Xeon® E5 v3 família](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls tem o mesmo desempenho de CPU que a série G/GS e dispõe de 8 GiB de memória por vCPU.
 
-Cache de armazenamento Premium:  Não suportado
+A série Ls não suporta a criação de um cache local para aumentar o IOPS alcançável por discos de dados durável. O alto débito e IOPS de disco local torna as VMs da série Ls ideal para arquivos de NoSQL, como o Apache Cassandra e MongoDB que replique dados em várias VMs para alcançar a persistência no caso de falha de uma única VM.
 
-Os tamanhos das séries A8-A11 e H também são conhecidos como *instâncias de computação intensiva*. O hardware que executa estes tamanhos foi concebido e otimizado para aplicações de computação e rede intensivas, incluindo aplicações, modelação e simulações de clusters de computação de alto desempenho (HPC). As séries A8-A11 utilizam o Intel Xeon E5-2670 @ 2,6 GHZ e a série H utiliza o Intel Xeon E5-2667 v3 @ 3,2 GHz.  
+ACU: 180-240
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Débito de disco de dados máximo: IOPS | NICs máximos|
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
-| Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
-| Standard_A10 |8 |56 |382 |32 |32x500 |2  |
-| Standard_A11 |16 |112 |382 |64 |64x500 |4 |
-
-<sup>1</sup>para aplicações de MPI, rede de back-end RDMA dedicada é ativada pela rede FDR InfiniBand, que proporciona o ultra baixa latência e alta largura de banda.
-
-<br>
-
-## <a name="a-series"></a>Série A
-
-ACU: 50-100
-
-Armazenamento Premium:  Não suportado
+Armazenamento Premium:  Suportadas
 
 Cache de armazenamento Premium:  Não suportado
+ 
+| Tamanho          | vCPU | Memória (GiB) | Armazenamento temporário (GiB) | Discos de dados máximos | Débito máximo do armazenamento temporário (IOPS / MBps) | Max não colocado em cache de débito de disco (IOPS / MBps) | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
+|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5,000 / 125  | 2 / 4,000  | 
+| Standard_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10,000 / 250 | 4 / 8,000  | 
+| Standard_L16s  | 16 | 128 | 2,807 | 64 | 80,000 / 800 | 20,000 / 500 | 8 / 16,000 | 
+| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40,000 / 1,000     | 8 / 20,000 | 
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Débito de disco de dados máximo: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps)  |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
-| Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
-| Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / 500 |
-| Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
-| Standard_A4 |8 |14 |605 |16 |16x500 |4 / 2000 |
-| Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
-| Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
-| Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+O débito máximo do disco possível com VMs da série Ls pode estar limitado pelo número, tamanho e repartição de quaisquer discos de anexados. Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-<br>
-
-<sup>1</sup> tamanho o A0 está sobre-subscrito no hardware físico. Apenas para este tamanho específico, outras implementações de cliente podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é indicado abaixo como a linha de base esperada, sujeito a uma variabilidade aproximada de 15%.
+<sup>1</sup> instância está isolada do hardware dedicado de um único cliente.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 a A4 que utiliza a CLI e o PowerShell
 
 No modelo de implementação clássica, alguns nomes de tamanhos de VMs são ligeiramente diferentes, como na CLI e no PowerShell:
 
-* Standard_A0 é ExtraSmall 
+* Standard_A0 é ExtraSmall
 * Standard_A1 é Small
 * Standard_A2 é Medium
 * Standard_A3 é Large
 * Standard_A4 é ExtraLarge
-
-## <a name="basic-a"></a>Básico A
-
-Armazenamento Premium:  Não suportado
-
-Cache de armazenamento Premium:  Não suportado
-
-Os tamanhos do escalão básico destinam-se, principalmente, ao desenvolvimento de cargas de trabalho e outras aplicações que não requerem balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória.
-
-|Tamanho – Tamanho\Nome | vCPU |Memória|NICs (Máx)|Tamanho máximo do disco temporário |Um máximo de discos de dados (1023 GB cada)|Um máximo de IOPS (300 por disco)|
-|---|---|---|---|---|---|---|
-|A0\Basic_A0|1|768 MB|2| 20 GB|1|1 x 300|
-|A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 x 300|
-|A2\Basic_A2|2|3,5 GB|2| 60 GB|4|4 x 300|
-|A3\Basic_A3|4|7 GB|2| 120 GB |8|8 x 300|
-|A4\Basic_A4|8|14 GB|2| 240 GB |16|16 x 300|
- 
-
-

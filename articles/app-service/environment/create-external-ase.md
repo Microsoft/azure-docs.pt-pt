@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105170"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545421"
 ---
+# <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo
+
+O Ambiente de Serviço de Aplicações do Azure é uma implementação do Serviço de Aplicações do Azure numa sub-rede de uma rede virtual do Azure (VNet).
+
 > [!NOTE]
 > Cada ambiente de serviço de aplicações tem um IP Virtual (VIP), que pode ser utilizado para contactar o ambiente de serviço de aplicações.
-> 
-> # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo #
 
-O Ambiente de Serviço de Aplicações do Azure é uma implementação do Serviço de Aplicações do Azure numa sub-rede de uma rede virtual do Azure (VNet). Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE):
+Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE):
 
 - Com um VIP num endereço IP externo, muitas vezes chamado ASE Externo.
 - Com o VIP num endereço IP interno, muitas vezes chamado ASE de ILB porque o ponto final interno é um balanceador de carga interno (ILB).
 
 Este artigo mostra-lhe como criar um ASE externo. Para obter uma descrição geral do ASE, veja [uma introdução ao ambiente de serviço de aplicações][Intro]. Para obter informações sobre como criar um ASE de ILB, veja [criar e utilizar um ASE de ILB][MakeILBASE].
 
-## <a name="before-you-create-your-ase"></a>Antes de criar o ASE ##
+## <a name="before-you-create-your-ase"></a>Antes de criar o ASE
 
 Depois de criar o ASE, não é possível alterar o seguinte:
 
@@ -48,7 +50,7 @@ Depois de criar o ASE, não é possível alterar o seguinte:
 > Quando escolher uma VNet e especifique uma sub-rede, certifique-se de que é suficientemente grande para acomodar o crescimento futuro e as necessidades de dimensionamento. Recomendamos um tamanho de `/24` com 256 endereços.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Três formas de criar um ASE ##
+## <a name="three-ways-to-create-an-ase"></a>Três formas de criar um ASE
 
 Existem três formas de criar um ASE:
 
@@ -58,7 +60,7 @@ Existem três formas de criar um ASE:
 
 Um ASE externo tem um VIP público, o que significa que todo o tráfego HTTP/HTTPS para as aplicações no ASE atinge um endereço IP acessível pela internet. Um ASE com um ILB tem um endereço IP na sub-rede utilizada pelo ASE. As aplicações alojadas num ASE de ILB não são expostas diretamente à internet.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Criar um ASE e um plano do serviço de aplicações em conjunto ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Criar um ASE e um plano do serviço de aplicações em conjunto
 
 O plano do serviço de aplicações é um contentor de aplicações. Quando cria uma aplicação no serviço de aplicações, escolha ou crie um plano do serviço de aplicações. Ambientes de serviço de aplicações manter planos de serviço de aplicações e planos do App Service manter aplicações.
 
@@ -142,7 +144,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 1. Selecione **criar** para criar o ASE. Este processo também cria o plano do serviço de aplicações e a aplicação. O ASE, plano do serviço de aplicações e aplicação são todos na mesma subscrição e também no mesmo grupo de recursos. Se o ASE tem um grupo de recursos separado, ou se precisar de um ASE de ILB, siga os passos para criar um ASE por si só.
 
 
-## <a name="create-an-ase-by-itself"></a>Criar um ASE por si só ##
+## <a name="create-an-ase-by-itself"></a>Criar um ASE por si só
 
 Se criar um autónomo do ASE, ele não tem nada nele. Um ASE vazio ainda incorre um encargo mensal da infraestrutura. Siga estes passos para criar um ASE com um ILB ou criar um ASE no seu próprio grupo de recursos. Depois de criar o ASE, pode criar aplicações no mesmo utilizando o processo normal. Selecione o seu ASE novo como a localização.
 
@@ -170,7 +172,7 @@ Se criar um autónomo do ASE, ele não tem nada nele. Um ASE vazio ainda incorre
     
     * Se selecionar uma VNet já existente, é criada uma nova sub-rede quando a criação do ASE. *Não é possível utilizar uma sub-rede previamente criada no portal. Pode criar um ASE com uma sub-rede existente, se utilizar um modelo do Resource Manager.* Para criar um ASE a partir de um modelo, veja [criar um ambiente de serviço de aplicações a partir de um modelo][MakeASEfromTemplate].
 
-## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1 ##
+## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1
 
 Pode ainda criar instâncias da primeira versão do ambiente de serviço de aplicações (ASEv1). Para iniciar o processo, pesquisar no Marketplace **ambiente do serviço de aplicações v1**. Criar o ASE da mesma forma que criar o ASE de autónomo. Quando estiver concluído, o seu ASEv1 tem dois front-ends e duas funções de trabalho. Com o ASEv1, tem de gerir os front-ends e trabalhos. Eles não serão adicionados automaticamente quando cria seus planos de serviço de aplicações. Os front-ends atuam como pontos finais de HTTP/HTTPS e enviar o tráfego para os operadores. As funções de trabalho são as funções que alojam as suas aplicações. Pode ajustar a quantidade de front-ends e trabalhos depois de criar o seu ASE. 
 

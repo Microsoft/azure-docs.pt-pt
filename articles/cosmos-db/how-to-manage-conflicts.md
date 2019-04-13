@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: c8dfbe7fbeacdb42fd9b96b62e7da25084c4aabe
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105744"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548830"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflito no Azure Cosmos DB
 
@@ -150,7 +150,14 @@ Depois de criar o contentor, tem de criar o `resolver` procedimento armazenado.
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK do Python
 
 ```python
-
+udp_collection = {
+  'id': self.udp_collection_name,
+  'conflictResolutionPolicy': {
+    'mode': 'Custom',
+    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    }
+}
+udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
 ```
 
 Depois de criar o contentor, tem de criar o `resolver` procedimento armazenado.

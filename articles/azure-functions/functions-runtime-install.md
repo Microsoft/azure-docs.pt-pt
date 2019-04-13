@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093673"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547563"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalar a pré-visualização do Runtime de funções do Azure 2
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Se gostaria de instalar o 2 da pré-visualização do Runtime de funções do Azure, siga estes passos:
 
@@ -102,36 +104,37 @@ Para concluir a instalação do Runtime de funções do Azure, tem de concluir a
 
 Para criar a sua primeira função em pré-visualização do Runtime de funções do Azure
 
-1. Navegue para o **Portal de tempo de execução das funções do Azure** como https://<machinename>.<domain> Por exemplo https://mycomputer.mydomain.com
+1. Navegue para o **Portal de tempo de execução de funções do Azure** como `https://<machinename>.<domain>` por exemplo `https://mycomputer.mydomain.com`.
+
 1. Deverá **iniciar sessão**, se implementada numa utilização de domínio a sua conta de domínio do nome de utilizador e palavra-passe, caso contrário, utilizam o seu nome de conta local e a palavra-passe para iniciar sessão no portal do.
 
-![Logon de portal do Azure Runtime das funções pré-visualização][14]
+    ![Logon de portal do Azure Runtime das funções pré-visualização][14]
 
-1. Para criar aplicações de funções, tem de criar uma subscrição.  No canto superior esquerdo do portal, clique nas **+** opção ao lado de subscrições
+1. Para criar aplicações de funções, tem de criar uma subscrição.  No canto superior esquerdo do portal, clique nas **+** opção ao lado de subscrições.
 
-![Subscrições de portais do Azure Runtime das funções pré-visualização][15]
+    ![Subscrições de portais do Azure Runtime das funções pré-visualização][15]
 
 1. Escolher **DefaultPlan**, introduza um nome para a sua subscrição e clique em **criar**.
 
-![O plano de subscrição de portal de pré-visualização de Runtime das funções do Azure e o nome][16]
+    ![O plano de subscrição de portal de pré-visualização de Runtime das funções do Azure e o nome][16]
 
 1. Todas as suas aplicações de função estão listadas no painel esquerdo do portal.  Para criar uma nova aplicação de função, selecione o cabeçalho **aplicações Function App** e clique nas **+** opção.
 
 1. Introduza um nome para a sua aplicação de função, selecione a subscrição correta, escolher a versão do runtime das funções do Azure que quer programar e clique em **Create**
 
-![Azure Runtime das funções pré-visualização portal nova aplicação de funções][17]
+    ![Azure Runtime das funções pré-visualização portal nova aplicação de funções][17]
 
 1. A nova aplicação de funções consta no painel esquerdo do portal.  Selecione as funções e, em seguida, clique em **nova função** na parte superior do painel central no portal.
 
-![Modelos de pré-visualização do Runtime das funções do Azure][18]
+    ![Modelos de pré-visualização do Runtime das funções do Azure][18]
 
 1. Selecione a função de Acionador de temporizador, no submenu da direita nomear sua função e alterar a agenda para `*/5 * * * * *` (esta expressão cron de menos faz com que sua função de temporizador executar a cada cinco segundos) e clique em **Create**
 
-![Azure configuração de função de temporizador novo do Runtime das funções pré-visualização][19]
+    ![Azure configuração de função de temporizador novo do Runtime das funções pré-visualização][19]
 
 1. Sua função agora foi criada.  Pode ver o registo de execução da sua aplicação de função ao expandir a **log** painel na parte inferior do portal.
 
-![Execução de função de pré-visualização de Runtime das funções do Azure][20]
+    ![Execução de função de pré-visualização de Runtime das funções do Azure][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

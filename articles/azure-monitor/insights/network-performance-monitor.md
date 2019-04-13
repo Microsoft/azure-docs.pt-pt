@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489729"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548940"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -151,8 +151,8 @@ Todos os nós que tenha um agente instalado neles são listados os **nós** sepa
 
 Configure as funcionalidades que quer:
 
-- [Monitorização de Desempenho](network-performance-monitor-performance-monitor.md#configuration)
-- [Monitor de Conectividade de Serviço](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitor de desempenho](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitor de conectividade do serviço](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitor do ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
  
@@ -251,13 +251,13 @@ Monitor de desempenho de rede utiliza as capacidades de alertas do [do Azure Mon
 
 Isso significa que todas as notificações são geridas através do [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Se for um utilizador NPM, criação de um alerta por meio de LAzure Monitor: 
-1. Verá um link que irá redirecioná-lo para o Portal do Azure. Clique nele para aceder ao portal.
+Se for um utilizador NPM, criação de um alerta através do Log Analytics: 
+1. Verá um link que irá redirecioná-lo para o portal do Azure. Clique nele para aceder ao portal.
 2. Clique no mosaico de solução de Monitor de desempenho de rede. 
 3. Navegue para o configurar.  
 4. Selecione o teste que pretende criar um alerta e siga o abaixo mencionado passos.
 
-Se for um utilizador NPM, criação de um alerta através do Portal do Azure:  
+Se for um utilizador NPM, criação de um alerta através do portal do Azure:  
 1. Pode optar por introduzir o seu e-mail diretamente ou pode optar por criar alertas através de grupos de ação.
 2. Se optar por introduzir o seu e-mail diretamente, uma ação de grupo com o nome **NPM Email ActionGroup** é criado e o id de e-mail é adicionado a esse grupo de ação.
 3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação criado anteriormente. Pode saber como criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 

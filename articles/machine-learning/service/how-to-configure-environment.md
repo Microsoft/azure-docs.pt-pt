@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489506"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548891"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -350,7 +350,7 @@ O ficheiro de configuração da área de trabalho é um ficheiro JSON que inform
 }
 ```
 
-Este ficheiro JSON tem de ser a estrutura do diretório que contém os scripts de Python ou blocos de notas do Jupyter. Pode ter o mesmo diretório, um subdiretório nomeado *aml_config*, ou num diretório principal.
+Este ficheiro JSON tem de ser a estrutura do diretório que contém os scripts de Python ou blocos de notas do Jupyter. Pode ter o mesmo diretório, um subdiretório nomeado *.azureml*, ou num diretório principal.
 
 Para utilizar este ficheiro a partir do código, utilize `ws=Workspace.from_config()`. Esse código carrega as informações do arquivo e liga-se a sua área de trabalho.
 
@@ -379,7 +379,7 @@ Pode criar o ficheiro de configuração de três formas:
         print('Workspace not found')
     ```
 
-    Esse código grava o ficheiro de configuração para o *aml_config/config.json* ficheiro.
+    Esse código grava o ficheiro de configuração para o *.azureml/config.json* ficheiro.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

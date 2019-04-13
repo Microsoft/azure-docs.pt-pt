@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 4d11af1edc13fa675bef5cf9067dbe95646abff1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091922"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546838"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Descrição geral de tempo de execução do Azure das funções (pré-visualização)
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 O tempo de execução de funções do Azure (pré-visualização) fornece uma nova forma para que possa tirar partido da simplicidade e a flexibilidade de funções do Azure no local do modelo de programação. Criado sobre as mesmas raízes de código-fonte aberto como as funções do Azure, o Runtime de funções do Azure é implementado no local para proporcionar uma experiência de desenvolvimento quase idêntico, como o serviço em nuvem.
 

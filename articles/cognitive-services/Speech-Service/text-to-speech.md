@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263116"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549510"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto para discurso?
 
@@ -56,7 +56,7 @@ Esta tabela lista os principais recursos de voz:
 \* *Esses serviços estão disponíveis com o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> O ponto final de texto para discurso implementa limitação que limita os pedidos para 25 por 5 segundos. Quando ocorre a limitação, será notificado através de cabeçalhos de mensagens.
+> Os pontos de extremidade de voz personalizada implementam a limitação que limita os pedidos para 25 por 5 segundos. Quando ocorre a limitação, será notificado através de cabeçalhos de mensagens.
 
 ## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em voz
 
@@ -87,10 +87,10 @@ Código de exemplo para voz está disponível no GitHub. Esses exemplos abrangem
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [API de Voz](speech-sdk-reference.md)
-* [SDK de Dispositivos de Voz](speech-devices-sdk.md)
-* [REST API: Conversão de voz em texto](rest-speech-to-text.md)
-* [REST API: Conversão de texto em voz](rest-text-to-speech.md)
+* [SDK de Voz](speech-sdk-reference.md)
+* [Dispositivos de voz SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
 * [REST API: Transcrição de batch e personalização](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos Seguintes

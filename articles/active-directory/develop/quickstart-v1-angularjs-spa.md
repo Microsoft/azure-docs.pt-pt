@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c508c402707663489fc383dccd958559df6b217f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194687"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544945"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início rápido: Criar uma aplicação de página única AngularJS para início de sessão e fim de sessão no Azure Active Directory
 
@@ -45,6 +45,9 @@ Para criar a aplicação funcional e completa, precisa de:
 1. Registar a aplicação com o Azure AD.
 2. Instalar a ADAL e configurar a aplicação de página única.
 3. Utilizar a ADAL para ajudar a proteger as páginas na aplicação de página única.
+
+> [!NOTE]
+> Se precisar de ativar a inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o  *[ponto final de plataforma do Microsoft identity](azure-ad-endpoint-comparison.md)*. Para mais informações, veja [este tutorial de SPA do JavaScript](tutorial-v2-javascript-spa.md) , bem como [este artigo](active-directory-v2-limitations.md) explicando o *ponto final de plataforma do Microsoft identity*. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

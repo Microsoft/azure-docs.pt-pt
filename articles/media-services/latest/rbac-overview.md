@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490780"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548530"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de serviços de multimédia
 
@@ -43,8 +43,8 @@ Veja os artigos seguintes para obter mais informações:
 - [Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [O que é o RBAC para recursos do Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Utilizar o RBAC para gerir o acesso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Obter política chave conteúda através do .NET de serviços de suporte de dados](get-content-key-policy-dotnet-howto.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Desenvolvimento com os serviços de multimédia de v3 APIs](media-services-apis-overview.md)
+- [Desenvolvimento com os serviços de multimédia de v3 APIs](media-services-apis-overview.md)
+- [Obter política chave conteúda através do .NET de serviços de suporte de dados](get-content-key-policy-dotnet-howto.md)

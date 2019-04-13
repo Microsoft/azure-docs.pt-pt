@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63827c74d584053b5131fbc602a04d4d24338f47
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500333"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547402"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação de página única (SPA) de JavaScript
 
@@ -61,7 +61,6 @@ Terá a seguinte configuração para este início rápido:
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
 > 1. Selecione **novo registo**.
-> 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 > 1. Quando o **registar uma aplicação** é apresentada a página, introduza um nome para a sua aplicação.
 > 1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
 > 1. Selecione o **Web** plataforma sob a **URI de redirecionamento** secção e defina o valor como `http://localhost:30662/`.
@@ -77,7 +76,7 @@ Terá a seguinte configuração para este início rápido:
 > > [Efetuar estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-javascript/green-check.png) seu aplicativo está configurado com esses atributos.
+> > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
 
 #### <a name="step-2-download-the-project"></a>Passo 2: Transfira o projeto
 
@@ -107,11 +106,11 @@ var applicationConfig = {
 > [!div renderon="docs"]
 >
 > Em que:
-> - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
-> - `Enter_the_Tenant_Info_Here` -está definido para uma das seguintes opções:
+> - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
+> - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
 >   - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
->   - Se a sua aplicação suportar **contas em qualquer diretório organizacional e contas Microsoft pessoais**, substitua este valor com `common`
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
@@ -137,7 +136,7 @@ Depois do navegador carrega a aplicação, clique em **sessão**.  A primeira ve
 
 ## <a name="more-information"></a>Mais Informações
 
-### *<a name="msaljs"></a>msal.js*
+### <a name="msaljs"></a>*msal.js*
 
 A MSAL é a biblioteca utilizada para iniciar sessão de utilizadores e pedir tokens utilizados para aceder a uma API protegida pela plataforma de identidade da Microsoft. O guia de introdução *Index* contém uma referência à biblioteca:
 

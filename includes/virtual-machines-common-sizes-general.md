@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ae07c29e9fcc7e498e1e39b3d4dc1d93de64e883
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763322"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551486"
 ---
 Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
 
@@ -29,7 +29,6 @@ Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ide
 
   Casos de utilização de série D de exemplo incluem aplicações de nível empresarial, bases de dados relacionais, colocação em cache na memória e análise. 
   
-
 ## <a name="b-series"></a>Série B
 
 Armazenamento Premium:  Suportadas
@@ -41,7 +40,7 @@ As VMs burstable de série B são ideais para cargas de trabalho que não necess
 Casos de utilização de exemplo incluem servidores de desenvolvimento e teste, servidores web de tráfego reduzido, bases de dados pequenas, microsserviços, servidores para prova de conceito, servidores de compilação.
 
 
-| Tamanho             | vCPU  | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de desempenho de CPU da VM | Desempenho de CPU máxima da VM | Créditos banked / hora | Máx. Banked créditos | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs máximos |          
+| Tamanho             | vCPU  | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de desempenho de CPU da VM | Desempenho de CPU máxima da VM | Créditos banked / hora | Máx. Banked créditos | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5%                   | 100%                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100%                   | 6                  | 144            | 2                                      | 400 / 10                                  | 320 / 10                                  | 2  |
@@ -64,7 +63,7 @@ Cache de armazenamento Premium:  Suportadas
 Tamanhos da série Dsv3 baseiam-se de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) processador ou de mais recente 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) processador que pode chegar aos 3,5 GHz com o Intel Turbo Boost Technology 2.0 e utilizar o armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
 
-| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / 1,000                                   |
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
@@ -99,7 +98,6 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 <sup>1</sup> as VMS da série Dv3 funcionalidade Intel® Hyper-Threading Technology
 
-
 ## <a name="dsv2-series"></a>Série DSv2
 
 ACU: 210-250
@@ -108,15 +106,13 @@ Armazenamento Premium:  Suportadas
 
 Cache de armazenamento Premium:  Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 48 |2 / 750 |
 | Standard_DS2_v2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 96 |2 / 1500 |
 | Standard_DS3_v2 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 192 |4 / 3000 |
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8 / 12000 |
-
-
 
 ## <a name="dv2-series"></a>Série Dv2
 
@@ -133,7 +129,6 @@ Cache de armazenamento Premium:  Não suportado
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
-
 
 ## <a name="av2-series"></a>Série Av2
 
@@ -154,9 +149,6 @@ Cache de armazenamento Premium:  Não suportado
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
 
-<br>
-
-
 ## <a name="dc-series"></a>Série DC
 
 Armazenamento Premium: Suportadas
@@ -165,7 +157,7 @@ Cache de armazenamento Premium: Suportadas
 
 
 
-| Tamanho          | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho          | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1500                                     |
 | Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |

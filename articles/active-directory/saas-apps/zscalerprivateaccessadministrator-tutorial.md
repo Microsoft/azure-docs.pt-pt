@@ -4,145 +4,152 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2018
+ms.topic: tutorial
+ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef5fa478eb171dc33ef2874469bc353a8561619
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894687"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integração do Active Directory do Azure com o administrador de acesso do privada Zscaler
 
 Neste tutorial, saiba como integrar o administrador de acesso do Zscaler privada com o Azure Active Directory (Azure AD).
-
 Integrar o administrador de acesso do Zscaler privado no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso para o administrador de acesso do Zscaler privada.
-- Pode permitir que os utilizadores automaticamente obter sessão iniciada em Zscaler privada o administrador de acesso (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso para o administrador de acesso do Zscaler privada.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada Zscaler privada o administrador de acesso (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o administrador de acesso do Zscaler privada, precisa do seguinte:
 
-- Uma subscrição do Azure
-- Um administrador de acesso do Zscaler privada logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
+* Administrador de acesso do Zscaler privada logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando o administrador de acesso do Zscaler privada da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Administrador de acesso do Zscaler privada suporta **SP** e **IDP** iniciada SSO
 
 ## <a name="adding-zscaler-private-access-administrator-from-the-gallery"></a>Adicionando o administrador de acesso do Zscaler privada da Galeria
+
 Para configurar a integração do administrador de acesso do Zscaler privada com o Azure AD, terá de adicionar administrador de acesso do Zscaler privada a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar administrador de acesso do Zscaler privada a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **administrador de acesso do Zscaler privada**, selecione **administrador de acesso do Zscaler privada** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Administrador de acesso do Zscaler privada na lista de resultados](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **administrador de acesso do Zscaler privada**, selecione **administrador de acesso do Zscaler privada** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+
+    ![Administrador de acesso do Zscaler privada na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o Zscaler privada administrador de acesso com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no administrador de acesso do Zscaler privada para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no administrador de acesso do Zscaler privada tem de ser estabelecida.
+Nesta secção, configure e teste do Azure AD início de sessão único com o Zscaler privada administrador de acesso com base num utilizador de teste **Eduarda Almeida**.
+Para início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no administrador de acesso do Zscaler privada tem de ser estabelecida.
 
 Para configurar e testar o Azure AD início de sessão único com o administrador de acesso do Zscaler privada, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste do administrador de acesso privado Zscaler](#create-a-zscaler-private-access-administrator-test-user)**  - para ter um equivalente da Eduarda Almeida no administrador de acesso de Zscaler privada que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar Zscaler privada acesso administrador início de sessão único](#configure-zscaler-private-access-administrator-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste do administrador de acesso privado Zscaler](#create-zscaler-private-access-administrator-test-user)**  - para ter um equivalente da Eduarda Almeida no administrador de acesso de Zscaler privada que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de administrador de acesso do Zscaler privada.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com o administrador de acesso do Zscaler privada, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com o administrador de acesso do Zscaler privada, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **administrador de acesso do Zscaler privada** página de integração de aplicativo, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **administrador de acesso do Zscaler privada** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Na **Zscaler privada ao administrador de acesso de domínio e URLs** secção se desejar configurar a aplicação na **IDP** iniciada pelo modo:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Administrador de acesso do Zscaler privada domínio e URLs únicas início de sessão em informações](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
+
+    ![Administrador de acesso do Zscaler privada domínio e URLs únicas início de sessão em informações](common/idp-relay.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/metadata`
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`
 
-    c. Verificar **Mostrar definições de URL avançadas**
+    c. Clique em **definir URLs adicionais**.
 
-    d. Na **RelayState** caixa de texto, escreva um valor: `idpadminsso`
+    d. Na **estado de reencaminhamento** caixa de texto, escreva um URL: `idpadminsso`
 
-1.  Se desejar configurar a aplicação no **SP** modo iniciado execute os seguintes passos:
+5.  Se desejar configurar a aplicação no **SP** iniciada pelo modo, executar o passo seguinte:
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`
+    ![Administrador de acesso do Zscaler privada domínio e URLs únicas início de sessão em informações](common/both-signonurl.png)
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de administrador de acesso do Zscaler privada](https://help.zscaler.com/zpa-submit-ticket) obter esses valores.
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`   
 
-    ![O link de download de certificado](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_certificate.png) 
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente de administrador de acesso do Zscaler privada](https://help.zscaler.com/zpa-submit-ticket) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-1. Clique em **guardar** botão.
+6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_400.png)
+    ![O link de download de certificado](common/metadataxml.png)
 
-1. Numa janela do browser web diferente, início de sessão privada Zscaler o administrador de acesso como administrador.
+7. Na **definir se o administrador de acesso do Zscaler privada** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-1. Na parte superior, clique em **Administration** e navegue até à **autenticação** secção clique **configuração do IdP**.
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Identificador do Azure AD
+
+    c. URL de fim de sessão
+
+### <a name="configure-zscaler-private-access-administrator-single-sign-on"></a>Configurar Zscaler privada ao administrador de acesso Single Sign-On
+
+1. Numa janela do browser web diferente, inicie sessão para o administrador de acesso do Zscaler privada como um administrador.
+
+2. Na parte superior, clique em **Administration** e navegue até à **autenticação** secção clique **configuração do IdP**.
 
     ![Administrador de administrador de acesso privado Zscaler](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-1. No canto superior direito, clique em **adicionar a configuração do IdP**. 
+3. No canto superior direito, clique em **adicionar a configuração do IdP**. 
 
     ![Administrador de acesso do Zscaler privada addidp](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
-1. Sobre o **adicionar a configuração do IdP** página execute os seguintes passos:
+4. Sobre o **adicionar a configuração do IdP** página execute os seguintes passos:
  
     ![Administrador de acesso do Zscaler privada idpselect](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
@@ -158,66 +165,81 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     e. Clique em **Guardar**.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/zscalerprivateaccessadministrator-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
-  
-### <a name="create-a-zscaler-private-access-administrator-test-user"></a>Criar um utilizador de teste do administrador de acesso privado Zscaler
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para o administrador de acesso do Zscaler privada.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **administrador de acesso do Zscaler privada**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **administrador de acesso do Zscaler privada**.
+
+    ![A ligação de administrador de acesso do Zscaler privada na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-zscaler-private-access-administrator-test-user"></a>Criar utilizador de teste do administrador de acesso privado Zscaler
 
 Para permitir que utilizadores do Azure AD iniciar sessão para o administrador de acesso do Zscaler privada, eles têm aprovisionados para o administrador de acesso do Zscaler privada. No caso do Zscaler privada ao administrador de acesso, o aprovisionamento é uma tarefa manual.
 
 **Para Aprovisionar uma conta de utilizador, execute os seguintes passos:**
 
-1. Inicie sessão no site da sua empresa Zscaler privada ao administrador de acesso como administrador.
+1. Inicie sessão no site da sua empresa administrador de acesso do Zscaler privada como um administrador.
 
-1. Na parte superior, clique em **Administration** e navegue até à **autenticação** secção clique **configuração do IdP**.
+2. Na parte superior, clique em **Administration** e navegue até à **autenticação** secção clique **configuração do IdP**.
 
     ![Administrador de administrador de acesso privado Zscaler](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-1. Clique em **administradores** do lado esquerdo do menu.
+3. Clique em **administradores** do lado esquerdo do menu.
 
     ![Administrador de administrador de acesso privado Zscaler](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_adminstrator.png)
 
-1. No canto superior direito, clique em **Adicionar administrador**:
+4. No canto superior direito, clique em **Adicionar administrador**:
 
     ![Administrador de acesso do Zscaler privada Adicionar administrador](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addadmin.png)
 
-1. Na **Adicionar administrador** página, execute os seguintes passos:
+5. Na **Adicionar administrador** página, execute os seguintes passos:
 
     ![Administrador de utilizador de administrador de acesso privado Zscaler](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. Na **nome de utilizador** caixa de texto, introduza o e-mail do utilizador, como **BrittaSimon\@contoso.com**.
+    a. Na **nome de utilizador** caixa de texto, introduza o e-mail do utilizador, como BrittaSimon@contoso.com.
 
     b. Na **palavra-passe** caixa de texto, escreva a palavra-passe.
 
@@ -225,69 +247,25 @@ Para permitir que utilizadores do Azure AD iniciar sessão para o administrador 
 
     d. Selecione **função** como **administrador de acesso do Zscaler privada**.
 
-    e. Na **E-Mail** caixa de texto, introduza o e-mail do utilizador, como **BrittaSimon\@contoso.com**.
+    e. Na **E-Mail** caixa de texto, introduza o e-mail do utilizador, como BrittaSimon@contoso.com.
 
     f. Na **Phone** caixa de texto, escreva o número de telefone.
 
     g. Na **fuso horário** caixa de texto, selecione o fuso horário.
 
-    h. Clique em **Guardar**.  
+    h. Clique em **Guardar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para o administrador de acesso do Zscaler privada.
-
-![Atribuir a função de utilizador][200] 
-
-**Para atribuir a Eduarda Almeida para o administrador de acesso do Zscaler privada, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **administrador de acesso do Zscaler privada**.
-
-    ![A ligação de administrador de acesso do Zscaler privada na lista de aplicações](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_app.png)  
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"][202]
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de administrador de acesso do Zscaler privada no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de administrador de acesso do Zscaler privada.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico de administrador de acesso do Zscaler privada no painel de acesso, deve ser automaticamente conectado para o Zscaler privada administrador de acesso para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_01.png
-[2]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_02.png
-[3]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_03.png
-[4]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_04.png
-
-[100]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_100.png
-
-[200]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_200.png
-[201]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_201.png
-[202]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_202.png
-[203]: ./media/zscalerprivateaccessadministrator-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

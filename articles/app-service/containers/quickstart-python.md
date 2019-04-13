@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285382"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547713"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux (pré-visualização)
 
@@ -109,7 +109,7 @@ Checking connectivity... done.
 
 Mude para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
 
-No exemplo seguinte, substitua < nome da aplicação > com um nome de aplicação exclusivo.
+No exemplo seguinte, substitua `<app-name>` com um nome de aplicação único.
 
 ```bash
 cd python-docs-hello-world
@@ -205,13 +205,10 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 A imagem do Python incorporada no Serviço de Aplicações do Linux encontra-se em pré-visualização, sendo que pode personalizar o comando que serve para iniciar a sua aplicação. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
 
 > [!div class="nextstepaction"]
-> [Python com PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Aplicação de Python com PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar um comando de arranque personalizado](how-to-configure-python.md#customize-startup-command)
+> [Configurar a aplicação de Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Resolução de problemas](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Utilizar imagens personalizadas](tutorial-custom-docker-image.md)
+> [Tutorial: Executar a aplicação de Python no contentor personalizado](tutorial-custom-docker-image.md)

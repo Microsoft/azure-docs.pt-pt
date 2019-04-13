@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887568"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548192"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de hora para VMs do Linux no Azure
 
@@ -40,7 +40,7 @@ Anfitriões do Azure são sincronizadas com servidores de tempo de Microsoft int
 
 Em hardware autónomo, o SO Linux só lê o hardware anfitrião relógio no arranque. Depois disso, o relógio é mantido utilizando o temporizador de interrupção no kernel do Linux. Nesta configuração, o relógio será inconsistências ao longo do tempo. Em mais recentes distribuições do Linux no Azure, as VMs podem utilizar o fornecedor de VMICTimeSync, incluído nos serviços de integração do Linux (LIS), para consultar atualizações do relógio do host com mais frequência.
 
-Interações de máquina virtual com o host também podem afetar o relógio. Durante [memória preservação da manutenção](maintenance-and-updates.md#memory-preserving-maintenance), as VMs são colocadas em pausa para até 30 segundos. Por exemplo, antes do início da manutenção o relógio VM mostra: 00 10:00 e tem uma duração de 28 segundos. Depois da VM é retomada, o relógio na VM ainda mostraria: 00 10:00, que seria 28 segundos desativado. A correta para isso, o serviço de VMICTimeSync monitoriza o que está acontecendo no host e pedidos de alterações a ocorrer nas VMs para compensar.
+Interações de máquina virtual com o host também podem afetar o relógio. Durante [memória preservação da manutenção](maintenance-and-updates.md#maintenance-not-requiring-a-reboot), as VMs são colocadas em pausa para até 30 segundos. Por exemplo, antes do início da manutenção o relógio VM mostra: 00 10:00 e tem uma duração de 28 segundos. Depois da VM é retomada, o relógio na VM ainda mostraria: 00 10:00, que seria 28 segundos desativado. A correta para isso, o serviço de VMICTimeSync monitoriza o que está acontecendo no host e pedidos de alterações a ocorrer nas VMs para compensar.
 
 Sem o trabalho de sincronização de hora, o relógio na VM seria acumular-se erros. Quando existe apenas uma VM, o efeito poderá não ser significativo, a menos que a carga de trabalho requer timekeeping altamente preciso. Mas, na maioria dos casos, podemos ter várias, interligados VMs que utilizam o tempo para controlar as transações e as necessidades de tempo para ser consistente em toda a implantação. Quando o tempo entre VMs é diferente, pode ver os seguintes efeitos:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491547"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548721"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -147,7 +147,7 @@ Nesta seção, veremos como configurar um alerta de exceção de consulta com ba
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Como anular a subscrição de notificações por e-mail de alerta clássica
 
-Esta secção aplica-se ao **alertas de disponibilidade clássica**, **alertas de métricas do Application Insights**e, a **alertas de anomalias de falha clássico**.
+Esta secção aplica-se ao **alertas de disponibilidade clássica**, **clássicos alertas de métricas do Application Insights**e, a **alertas de anomalias de falha clássico**.
 
 Está recebendo notificações de email para esses alertas clássicos se qualquer um dos seguintes se aplicar:
 
@@ -181,7 +181,7 @@ Utilize os nova experiência/perto-realtime os alertas do alerta se tiver de not
 * [Utilizar webhooks para automatizar a responder a alertas](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Consulte também
-* [Testes Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatizar a configuração de alertas](../../azure-monitor/app/powershell-alerts.md)
 * [Diagnósticos proativos](../../azure-monitor/app/proactive-diagnostics.md) 
 

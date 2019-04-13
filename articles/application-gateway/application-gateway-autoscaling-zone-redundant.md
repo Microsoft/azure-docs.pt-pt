@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010231"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548731"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)
 
@@ -31,7 +31,7 @@ Gateway de aplicação e de Firewall de aplicações Web (WAF) estão agora disp
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> O dimensionamento automático e o gateway de aplicação com redundância de zona suporta agora SKU [sonda de estado de funcionamento predefinida](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) para monitorizar o estado de funcionamento de todos os recursos no seu conjunto de back-end e remover qualquer recurso considerado em mau estado de funcionamento do agrupamento de automaticamente. Migrarmos de sonda de estado de funcionamento padrão ser configuradas automaticamente para todos os esses back-ends para o qual ainda não configurou qualquer configuração de sonda personalizada. Para obter mais informações, consulte [sondas de estado de funcionamento no gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> O dimensionamento automático e o gateway de aplicação com redundância de zona suporta agora SKU [sonda de estado de funcionamento predefinida](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) para monitorizar o estado de funcionamento de todos os recursos no seu conjunto de back-end e destacar esses membros de back-end que são considerados automaticamente mau estado de funcionamento. Migrarmos de sonda de estado de funcionamento padrão ser configuradas automaticamente para todos os esses back-ends para o qual ainda não configurou qualquer configuração de sonda personalizada. Para obter mais informações, consulte [sondas de estado de funcionamento no gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de funcionalidades entre o SKU de v1 e v2 SKU
 

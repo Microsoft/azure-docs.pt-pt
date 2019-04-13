@@ -3,19 +3,19 @@ title: Perguntas mais frequentes sobre o funcionamento em rede no funções do A
 description: Respostas a algumas das perguntas mais comuns e cenários para funcionamento em rede com as funções do Azure.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896493"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548652"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas mais frequentes sobre o funcionamento em rede no funções do Azure
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure
 
 Segue-se uma lista de perguntas mais frequentes sobre a rede. Para obter uma descrição mais abrangente, leia o [as funções de sistema de rede documento de opções](functions-networking-options.md)
 
@@ -23,7 +23,7 @@ Segue-se uma lista de perguntas mais frequentes sobre a rede. Para obter uma des
 
 Implementar uma função num ambiente de serviço de aplicações (ASE) está atualmente a única forma de ter um IP estático de entrada e saído para a função. Para obter detalhes sobre como utilizar um ASE, começar com o artigo aqui: [Criar e utilizar um ASE de ILB](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Como posso restringir o acesso à Internet para minha função?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Como posso restringir o acesso à internet para minha função?
 
 Pode restringir o acesso à internet de diversas formas, listadas abaixo.
 
@@ -54,3 +54,13 @@ Só pode acionar uma função de um recurso numa VNET ao implementar a aplicaç�
 Implantar num ambiente de serviço de aplicações é a única forma de criar uma aplicação de função que é totalmente dentro de uma VNET para obter detalhes sobre como utilizar um ASE de ILB, começar com o artigo aqui: [Criar e utilizar um ASE de ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Para cenários em que só precisa unidirecional acesso aos recursos da VNET, ou menos isolamento de rede abrangente, consulte a [descrição geral de funcionamento em rede das funções](functions-networking-options.md).
+
+## <a name="next-steps"></a>Próximos Passos
+
+Para saber mais sobre o funcionamento em rede e as funções: 
+
+* [Siga o nosso VNET integração tutorial de introdução](./functions-create-vnet.md)
+* [Saiba mais sobre as opções de funcionamento em rede nas funções aqui](./functions-networking-options.md)
+* [Saiba mais sobre a integração de VNET com o serviço de aplicações / funções aqui](../app-service/web-sites-integrate-with-vnet.md)
+* [Saiba mais sobre VNETs no Azure](../virtual-network/virtual-networks-overview.md)
+* [Ativar mais recursos de rede e controlo com ambientes de serviço de aplicações](../app-service/environment/intro.md)

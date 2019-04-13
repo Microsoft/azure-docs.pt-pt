@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729360"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547149"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desvios de esquema de fluxo de dados de mapeamento
 
@@ -26,7 +26,7 @@ Para proteger contra os Descompassos de esquema, é importante ter os recursos n
 * Definir parâmetros de transformação que podem trabalhar com padrões de dados em vez de embutidos em campos e valores
 * Definir as expressões que compreender os padrões para corresponder aos campos de entrada, em vez de usar campos nomeados
 
-No Azure Data Factory fluxo de dados, nessas instalações são apresentadas através deste fluxo de trabalho:
+## <a name="how-to-implement-schema-drift"></a>Como implementar os descompassos de esquema
 
 * Escolher "Permitir que os Descompassos de esquema" na sua transformação de origem
 
@@ -67,3 +67,10 @@ Pode testar este horizontalmente com o exemplo de fluxo de dados do Azure Data F
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Acesso novas colunas downstream
+
+Ao gerar novas colunas com padrões de coluna, pode acessar essas novas colunas mais à frente nas transformações de fluxo de dados usando a função de expressão "byName".
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md) encontrará recursos adicionais para padrões de coluna e desvios de esquema, incluindo "byName" e "byPosition".

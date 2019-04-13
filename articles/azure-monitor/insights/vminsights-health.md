@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490053"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549870"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure
 
@@ -235,7 +235,9 @@ Para ver um Estado de funcionamento atualizado, pode atualizar a página de diag
 
 ## <a name="alerts"></a>Alertas
 
-Monitor do Azure para a funcionalidade de estado de funcionamento de VMs integra [alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e emite um alerta quando os critérios de estado de funcionamento predefinido alterar de bom estado de funcionamento para um mau estado de funcionamento, quando a condição for detectada. Alertas são categorizados por gravidade - gravidade 0 a 4, com 0 representando o nível de gravidade mais elevado de gravidade.  
+Monitor do Azure para a funcionalidade de estado de funcionamento de VMs integra [alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e emite um alerta quando os critérios de estado de funcionamento predefinido alterar de bom estado de funcionamento para um mau estado de funcionamento, quando a condição for detectada. Alertas são categorizados por gravidade - gravidade 0 a 4, com 0 representando o nível de gravidade mais elevado de gravidade. 
+
+Alertas não estão associados um grupo de ação para ser notificado quando o alerta foi acionado. O proprietário da subscrição tem de configurar notificações de seguir os passos [mais adiante nesta seção](#configure-alerts).   
 
 Número total de alertas de estado de funcionamento da VM categorizados por gravidade está disponível na **estado de funcionamento** dashboard na secção **alertas**. Ao selecionar o número total de alertas ou o número correspondente a um nível de gravidade, o **alertas** página abre e apresenta uma lista de todos os alertas que correspondam a sua seleção.  Por exemplo, se tiver selecionado a linha correspondente **nível de gravidade 1**, em seguida, verá a vista seguinte:
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361985"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527684"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
@@ -136,7 +136,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Gerar o relatório
-A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório, que resume todas as recomendações de implementação. O nome do relatório é DeploymentPlannerReport_<unique numeric identifier>.xlsm, que é colocado no diretório especificado.
+A ferramenta gera um ficheiro do Microsoft Excel com permissão para macros (ficheiro XLSM) como o resultado do relatório, que resume todas as recomendações de implementação. O relatório é denominado `DeploymentPlannerReport_<unique numeric identifier>.xlsm` e colocado no diretório especificado.
 
 >[!NOTE]
 >O relatório requer símbolo decimal configurado como "." para produzir estimativas de custo no servidor onde executar o planeador de implementação. No caso de ter de configuração "," como o símbolo decimal num computador Windows,. Vá para "Alteração de data, hora ou formatos de números" no painel de controlo e aceda a "Definições adicionais" para alterar o símbolo decimal para".".
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valor de percentil utilizado para o cálculo
-**Que valor de percentil predefinido das métricas de desempenho recolhidas durante a criação de perfis é utilizado pela ferramenta ao gerar um relatório?**
+**Que valor de percentil predefinido das métricas de desempenho recolhidas durante a criação de perfis é utilizado pela ferramenta no momento em que gera relatórios?**
 
 A ferramenta é predefinida para os valores de percentil de 95 de IOPS de leitura/escrita, IOPS de escrita e alterações a dados recolhidas durante a criação de perfis para todas as VMs. Esta métrica garante que o pico de percentil 100 que as suas VMs poderão verificar devido a eventos temporários não é utilizado para determinar os requisitos de conta de armazenamento de destino e de largura de banda de origem. Por exemplo, um evento temporário pode consistir numa tarefa de cópia de segurança que é executada uma vez por dia, uma base de dados periódica a indexar ou uma atividade de geração de relatórios de atividades ou, ainda, outros eventos pontuais de curta duração semelhantes.
 
@@ -226,7 +226,7 @@ Utilizar valores de percentil 95 proporciona uma imagem verdadeira das caracter�
 ```
 
 ## <a name="growth-factor-considerations"></a>Considerações sobre o fator de crescimento
-**Por que razão devo considerar fator de crescimento quando planear implementações?**
+**Por que motivo devo ter em conta o fator de crescimento quando planear implementações?**
 
 É fundamental ter em conta o crescimento nas características da sua carga de trabalho, presumindo um potencial aumento na utilização ao longo do tempo. Depois de a proteção estar aplicada, caso as características da sua carga de trabalho sofram alterações, não pode mudar para outra conta de armazenamento para proteção sem desativar e reativar a proteção.
 
@@ -240,12 +240,12 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
-* [Resumo no local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
-* [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Colocação de armazenamento VM <> –](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [Resumo No Local](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [Recommendations (Recomendações)](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
+* [VM<->Storage Placement (VM<->Colocação de Armazenamento)](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [Compatible VMs (VMs Compatíveis)](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs (VMs Não Compatíveis)](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [Estimativa de custos](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [Estimativa de Custos](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 

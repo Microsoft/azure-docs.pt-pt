@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ffd2afd66c108f9eef690d641d9c4cbc85e9d609
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256095"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549223"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapas do Azure Maps
 
@@ -166,8 +166,7 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
 
 8. Abra o ficheiro no seu navegador da web e ver o mapa processado. Ele deve ter um aspeto semelhante ao seguinte código:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="Como usar o controle de mapa" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">Consulte a caneta <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>como usar o controle de mapa</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -180,4 +179,4 @@ Saiba como criar e interagir com um mapa:
 Saiba como um mapa de estilo:
 
 > [!div class="nextstepaction"]
-> [Escolher um estilo de mapa](choose-map-style.md)
+> [Escolha um estilo de mapa](choose-map-style.md)

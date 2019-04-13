@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1c75d781c8a83b54ac9474c83388cf02b5d03e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532087"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528123"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurar um recurso de Gateway para encaminhar os pedidos
 
@@ -228,8 +228,8 @@ Eis o aspeto de uma configuração de recursos completa do Gateway (isto é adap
 ```
 
 Este gateway está configurado para uma aplicação do Linux, "meshAppLinux", que consiste em, pelo menos, dois serviços, "helloWorldService" e "counterService", que fica à escuta na porta 80. Consoante a estrutura do URL do pedido a receber, ele irá encaminhar o pedido para um destes serviços. 
-* "<IPAddress>: 80/helloWorld/\<pedido\>" resultaria numa solicitação a ser direcionada para o "helloWorldListener" no helloWorldService. 
-* "<IPAddress>: 80/contador/\<pedido\>" resultaria numa solicitação a ser direcionada para o "counterListener" no counterService. 
+* "\<IPAddress >: 80/helloWorld/\<pedido\>" resultaria numa solicitação a ser direcionada para o "helloWorldListener" no helloWorldService. 
+* "\<IPAddress >: 80/contador/\<pedido\>" resultaria numa solicitação a ser direcionada para o "counterListener" no counterService. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Implementar o [exemplo de entrada](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) para ver gateways em ação

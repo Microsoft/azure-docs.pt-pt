@@ -11,85 +11,123 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 04/04/2019
 ms.author: celested
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9c6f197f98eda5a71cefd3f4a0c71709a4f51b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64c2d14a2aa6fc6b53260912b5bead2bd7c01e8d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203136"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547849"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para início de sessão único federado no Azure Active Directory
-Este artigo aborda as questões comuns e informações relacionadas com os certificados que cria do Azure Active Directory (Azure AD) para estabelecer único início de sessão Federado (SSO) às suas aplicações SaaS. Adicione aplicações de Galeria de aplicações do Azure AD ou utilizando um modelo de aplicativo externas à galeria. Configure a aplicação ao utilizar a opção de SSO federada.
 
-Este artigo é relevante apenas para aplicações que estão configuradas para utilizar o SSO do Azure AD através de Federação de SAML, conforme mostrado no exemplo a seguir:
+Neste artigo, vamos abordar as questões comuns e informações relacionadas com certificados que o Azure Active Directory (Azure AD) cria para estabelecer único início de sessão Federado (SSO) com o seu software como um aplicativo de serviço (SaaS). Adicione aplicações de Galeria de aplicações do Azure AD ou utilizando um modelo de aplicativo externas à galeria. Configure a aplicação ao utilizar a opção de SSO federada.
 
-![O Azure AD Single Sign-On](./media/manage-certificates-for-federated-single-sign-on/saml_sso.PNG)
+Este artigo é relevante apenas para aplicações que estão configuradas para utilizar o SSO do Azure AD através de [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) Federação (SAML).
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificado gerado automaticamente para as aplicações de galeria e externas à Galeria
-Quando adicionar um novo aplicativo a partir da Galeria e configurar um SAML com base no início de sessão, o Azure AD gera um certificado para a aplicação que é válido durante três anos. Pode transferir este certificado a partir da **certificado de assinatura SAML** secção. Para aplicações de galeria, esta secção poderá mostrar uma opção para transferir o certificado ou metadados, dependendo do requisito da aplicação.
 
-![O Azure AD início de sessão único](./media/manage-certificates-for-federated-single-sign-on/saml_certificate_download.png)
+Quando adicionar um novo aplicativo a partir da Galeria e configurar um SAML com base no início de sessão (selecionando **início de sessão único** > **SAML** da página de descrição geral da aplicação), o Azure AD gera um certificado para a aplicação que é válido durante três anos. Para transferir o certificado do Active Directory como um certificado de segurança (**. cer**) ficheiro, retorno a essa página (**baseado em SAML início de sessão**) e selecione uma ligação de transferência no **decertificadodeassinaturadeSAML** cabeçalho. Pode escolher entre o certificado não processado (binário) ou o certificado de (base 64 codificada texto) de Base64. Para aplicações de galeria, esta secção também poderá mostrar uma ligação para transferir o certificado de como metadados de Federação XML (uma **. XML** ficheiro), dependendo do requisito da aplicação.
+
+![SAML active assinatura certificado opções de transferência](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
+
+Também pode transferir um certificado ativo ou inativo, selecionando o **certificado de assinatura SAML** do cabeçalho **editar** ícone (um lápis), que exibe o **decertificadodeassinaturadeSAML** página. Selecione as reticências (**...** ) junto ao certificado que pretende transferir e, em seguida, escolha qual formato de certificado que pretende. Tem a opção adicional para transferir o certificado no formato de correio avançado de privacidade (. PEM). Este formato é idêntico para Base64, mas com uma **. pem** extensão, que não é reconhecido no Windows como um formato de certificado.
+
+![Opções de transferência do certificado (ativas e Inativas) de assinatura SAML](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
 ## <a name="customize-the-expiration-date-for-your-federation-certificate-and-roll-it-over-to-a-new-certificate"></a>Personalizar a data de expiração para o seu certificado de Federação e acumulam-lo para um novo certificado
-Por predefinição, os certificados estão definidos para expirar após três anos. Pode escolher uma data de expiração diferentes para o seu certificado, concluindo os passos seguintes.
-As capturas de ecrã utilizam o Salesforce no exemplo, mas estes passos, podem aplicar a todas as aplicações SaaS federadas.
 
-1. Na [portal do Azure](https://aad.portal.azure.com), clique em **aplicação empresarial** no painel esquerdo e clique em **novo aplicativo** no **descrição geral** página:
+Por predefinição, o Azure configura um certificado de expiração após três anos, quando é criado automaticamente durante a configuração SAML do única início de sessão. Uma vez que não é possível alterar a data de um certificado depois de o guardar, tem de:
 
-   ![Abrir o Assistente de configuração de SSO](./media/manage-certificates-for-federated-single-sign-on/enterprise_application_new_application.png)
+1. Crie um novo certificado com a data pretendida.
+2. Guarde o novo certificado.
+3. Baixe o novo certificado no formato correto.
+4. Carregar o novo certificado para a aplicação.
+5. Ativar o novo certificado no portal do Azure Active Directory.
 
-2. Procure a aplicação da Galeria e, em seguida, selecione a aplicação que pretende adicionar. Se não conseguir encontrar a aplicação necessária, adicionar a aplicação utilizando o **aplicação da Galeria não** opção. Esta funcionalidade está disponível apenas no SKU do Azure AD Premium (P1 e P2).
+As duas secções seguintes ajudam a realizar estes passos.
 
-    ![O Azure AD início de sessão único](./media/manage-certificates-for-federated-single-sign-on/add_gallery_application.png)
+### <a name="create-a-new-certificate"></a>Criar um novo certificado
 
-3. Clique nas **início de sessão único** ligação no painel esquerdo e altere **modo de início de sessão único** para **baseado em SAML início de sessão**. Este passo gera um certificado de três anos para a sua aplicação.
+Em primeiro lugar, crie e guarde o novo certificado com uma data de expiração diferentes:
 
-4. Para criar um novo certificado, clique a **criar novo certificado** ligação na **certificado de assinatura SAML** secção.
+1. Inicie sessão para o [portal do Azure Active Directory](https://aad.portal.azure.com/). O **Centro de administração do Azure Active Directory** é apresentada a página.
 
-    ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+2. No painel esquerdo, selecione **Aplicações empresariais**. É apresentada uma lista de aplicações empresariais na sua conta.
 
-5. O **criar um novo certificado** link abre o controle de calendário. Pode definir qualquer data e hora até três anos a contar da data atual. A data selecionada e a hora é a nova data de expiração e hora do seu novo certificado. Clique em **Guardar**.
+3. Selecione a aplicação afetada. É apresentada uma página de descrição geral para a aplicação.
 
-    ![Transferir, em seguida, carregue o certificado](./media/manage-certificates-for-federated-single-sign-on/certifcate_date_selection.PNG)
+4. No painel esquerdo da página de descrição geral do aplicativo, selecione **início de sessão único**.
 
-6. Agora o novo certificado está disponível para download. Clique nas **certificado** link para baixá-lo. Neste momento, o certificado não está ativo. Quando quiser acumulam para este certificado, selecione o **ativar o novo certificado** caixa de verificação e clique em **guardar**. A partir desse ponto, do Azure AD é iniciado com o novo certificado para assinar a resposta.
+5. Se o **selecionar um método de início de sessão único** for apresentada a página, selecione **SAML**.
 
-7.  Para saber como carregar o certificado para a aplicação SaaS específica, clique a **tutorial de configuração de aplicação de vista** ligação.
+6. Na **definir a segurança de início de sessão único com o SAML - pré-visualização** página, encontre o **certificado de assinatura SAML** cabeçalho e selecione o **editar** ícone (um lápis). O **certificado de assinatura SAML** é apresentada a página, que apresenta o estado (**Active** ou **Inactive**), data de expiração e thumbprint (uma cadeia de hash) de cada certificado.
 
-## <a name="certificate-expiration-notification-email"></a>E-mail de notificação de expiração do certificado
+7. Selecione **novo certificado**. Uma nova linha é apresentada abaixo da lista de certificados, em que a data de expiração padrão é exatamente três anos após a data atual. (As alterações ainda não foram guardadas, portanto, ainda é possível modificar a data de expiração.)
 
-Azure AD irá enviar um dias de 7, 30 e 60 de notificação de e-mail antes de expira o certificado SAML. Para especificar o endereço de e-mail para onde enviar a notificação:
+8. Na nova linha de certificado, coloque o cursor sobre a coluna de data de expiração e selecione o **selecionar data** ícone (calendário). É apresentada um controle de calendário, exibindo os dias de um mês da data de expiração atual a nova linha.
 
-- No Azure Active Directory página da aplicação único início de sessão, vá para o campo de E-Mail de notificação.
-- Introduza o endereço de e-mail que deve receber o e-mail de notificação de expiração do certificado. Por predefinição, este campo utiliza o endereço de e-mail do administrador que adicionaram a aplicação de.
+9. Use o controle de calendário para definir uma nova data. Pode definir qualquer data entre a data atual e a três anos após a data atual.
 
-Irá receber o e-mail de notificação da aadnotification@microsoft.com. Para evitar o seu local de spam de e-mail, certifique-se de que adicionar este e-mail aos seus contatos. 
+10. Selecione **Guardar**. O novo certificado aparece agora com o estado **Inactive**, a expiração de datas que escolha e um thumbprint.
+
+11. Selecione o **X** para voltar para o **definir a segurança de início de sessão único com o SAML - pré-visualização** página.
+
+### <a name="upload-and-activate-a-certificate"></a>Carregar e ativar um certificado
+
+Em seguida, transferir o novo certificado no formato correto, carregue-o para a aplicação e ativá-lo no Azure Active Directory:
+
+1. Veja a instruções de configuração de início de sessão SAML adicionais do aplicativo, qualquer um:
+   - Selecionar o **guia de configuração** link para exibir uma janela do browser separado ou uma guia, ou
+   - vai para o **configurar** cabeçalho e selecionando **ver instruções passo a passo** para exibir numa barra lateral.
+
+2. Nas instruções, tenha em atenção o formato de codificação necessário para o carregamento do certificado.
+
+3. Siga as instruções no [gerado automaticamente o certificado para aplicações de galeria e externas à galeria](#auto-generated-certificate-for-gallery-and-non-gallery-applications) secção anteriormente. Este passo transfere o certificado no formato de codificação necessário para carregamento para a aplicação.
+
+4. Quando quiser acumulam para o novo certificado, volte para o **certificado de assinatura SAML** página e, na linha do certificado salvo recentemente, selecione as reticências (**...** ) e selecione **ativar o certificado**. O estado do novo certificado é alterado para **Active Directory**, e o certificado anteriormente ativo é alterado para um Estado de **Inactive**.
+
+5. Continue a seguir instruções de configuração de início de sessão SAML do aplicativo que apresentado anteriormente, para que pode carregar o tipo de assinatura de SAML de certificado no formato de codificação correto.
+
+## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Adicionar endereços de notificação de e-mail de expiração do certificado
+
+Azure AD irá enviar um dias de 7, 30 e 60 de notificação de e-mail antes de expira o certificado SAML. Pode adicionar mais do que um endereço de e-mail para receber notificações. Para especificar os endereços de e-mail que pretende que as notificações para ser enviado para:
+
+1. Na **certificado de assinatura SAML** página, vá para o **endereços de e-mail de notificação** cabeçalho. Por predefinição, este título utiliza apenas o endereço de e-mail do administrador que adicionaram a aplicação.
+
+2. Abaixo o endereço de e-mail final, escreva o endereço de e-mail que deve receber o aviso de expiração do certificado e, em seguida, prima Enter.
+
+3. Repita o passo anterior para cada endereço de e-mail que pretende adicionar.
+
+4. Para cada endereço de e-mail que pretende eliminar, selecione o **eliminar** ícone (uma lata de lixo) junto ao endereço de e-mail.
+
+5. Selecione **Guardar**.
+
+Irá receber o e-mail de notificação da aadnotification@microsoft.com. Para evitar o seu local de spam de e-mail, adicione este e-mail aos seus contatos.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Renovar um certificado que irá expirar em breve
-Os seguintes passos de renovação devem resultar em sem períodos de indisponibilidade significativo para os seus utilizadores. As capturas de ecrã esta funcionalidade de secção Salesforce como um exemplo, mas estes passos, podem aplicar a todas as aplicações SaaS federadas.
 
-1. Sobre o **do Azure Active Directory** aplicativo **início de sessão único** página, gerar o novo certificado para a sua aplicação. Pode fazê-lo ao clicar o **criar novo certificado** ligação na **certificado de assinatura SAML** secção.
+Se um certificado está prestes a expirar, poderá renová-lo usando um procedimento que resulta em sem períodos de indisponibilidade significativo para os seus utilizadores. Para renovar um certificado prestes a expirar:
 
-    ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+1. Siga as instruções no [criar um novo certificado](#create-a-new-certificate) secção anteriormente, com uma data que sobrepõe-se com o certificado existente. Essa data limita a quantidade de tempo de inatividade causado pela expiração do certificado.
 
-2. Selecione a data de expiração desejada e a hora para o novo certificado e clique em **guardar**. Selecionar uma data que sobrepõe-se com o certificado existente irá garantir que qualquer período de indisponibilidade devido à expiração do certificado é limitado. 
+2. Se o aplicativo pode fazer o roll ao longo de um certificado, defina o novo certificado para o Active Directory ao seguir estes passos:
+   1. Volte para o **certificado de assinatura SAML** página.
+   2. Na linha do certificado salvo recentemente, selecione as reticências (**...** ) e, em seguida, selecione **ativar o certificado**.
+   3. Ignore os dois passos seguintes.
 
-3. Se a aplicação pode fazer o roll ao longo de um certificado, defina o novo certificado para o Active Directory.  Iniciar sessão aplicação para verificar se funciona.
+3. Se a aplicação só poderá lidar com um certificado ao mesmo tempo, escolha um intervalo de tempo de inatividade para executar o passo seguinte. (Caso contrário, se o aplicativo não obtenha automaticamente o novo certificado, mas pode lidar com mais de um certificado de assinatura, pode executar o passo seguinte em qualquer altura.)
 
-4. Se a aplicação não automaticamente recolha o novo certificado, mas pode identificador mais do que um certificado de assinatura, antes de expira o antigo, carregar o novo modelo à aplicação, em seguida, voltar para o portal e torná-lo o certificado do Active Directory. 
+4. Antes do antigo certificado expira, siga as instruções no [carregar e ativar um certificado](#upload-and-activate-a-certificate) secção anteriormente.
 
-5. Se a aplicação só poderá lidar com um certificado ao mesmo tempo, escolha uma janela de tempo de inatividade, transfira o novo certificado, carregá-lo para a aplicação, volte ao Portal do Azure e definir o novo certificado como o Active Directory. 
-   
-6. Para ativar o novo certificado no Azure AD, selecione o **ativar o novo certificado** caixa de verificação e clique nas **guardar** botão na parte superior da página. Isso é agregado ao longo do novo certificado no lado do Azure AD. O estado do certificado é alterado de **New** ao **Active Directory**. A partir desse ponto, do Azure AD é iniciado com o novo certificado para assinar a resposta. 
-   
-    ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
+5. Inicie sessão para a aplicação para se certificar de que o certificado funciona corretamente.
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Gestão de Aplicações no Azure Active Directory](what-is-application-management.md)
-* [Acesso a aplicações e início de sessão único com o Azure Active Directory](what-is-single-sign-on.md)
-* [Resolução de problemas com base em SAML início de sessão único](../develop/howto-v1-debug-saml-sso-issues.md)
+
+* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
+* [Gestão de aplicações no Azure Active Directory](what-is-application-management.md)
+* [Início de sessão único para aplicações no Azure Active Directory](what-is-single-sign-on.md)
+* [Depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

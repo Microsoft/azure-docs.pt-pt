@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f9987a4aee561340c5ebe2639626e5f66a55358e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260889"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544607"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -218,13 +218,13 @@ Neste tutorial, ficou a saber como:
 > * Definir coordenadas de endereços
 > * Consultar o serviço de trajetos para obter direções para o ponto de interesse
 
-Pode aceder ao código de exemplo deste tutorial aqui:
+> [!div class="nextstepaction"]
+> [Ver código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-> [Encontrar caminho com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-[Veja este exemplo registada aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+> [!div class="nextstepaction"]
+> [Ver exemplo em direto](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 O tutorial seguinte demonstra como criar uma consulta de trajeto com restrições, como o meio de deslocação ou o tipo de carga, e apresentar vários trajetos no mesmo mapa.
 
 > [!div class="nextstepaction"]
-> [Localizar rotas para diferentes meios de deslocação](./tutorial-prioritized-routes.md)
+> [Localizar trajetos para diferentes meios de deslocação](./tutorial-prioritized-routes.md)

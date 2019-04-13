@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281136"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549140"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 * Um servidor de bloco de notas do Python 3.6 com o SDK do Azure Machine Learning instalado
 * Uma área de trabalho do serviço do Azure Machine Learning
-* Um ficheiro de configuração da área de trabalho (**aml_config/config.json** ).
+* Um ficheiro de configuração da área de trabalho (**.azureml/config.json** ).
 
 Obter todos os estes pré-requisitos da [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#portal).
 

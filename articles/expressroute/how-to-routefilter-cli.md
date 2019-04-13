@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079301"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527970"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurar filtros de rota para peering da Microsoft: CLI do Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configure filtros de rota para peering da Microsoft: CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
@@ -109,7 +109,7 @@ Um filtro de rota pode ter apenas uma regra e, a regra tem de ser do tipo "Permi
 
 ### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
 
-Primeiro, crie o filtro de rota. O comando 'az network route-filter criar' apenas cria um recurso de filtro de rota. Depois de criar o recurso, tem, em seguida, criar uma regra e anexá-lo para o objeto de filtro de rota. Execute o seguinte comando para criar um recurso de filtro de rota:
+Primeiro, crie o filtro de rota. O comando `az network route-filter create` apenas cria um recurso de filtro de rota. Depois de criar o recurso, tem, em seguida, criar uma regra e anexá-lo para o objeto de filtro de rota. Execute o seguinte comando para criar um recurso de filtro de rota:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
@@ -123,7 +123,7 @@ Execute o seguinte comando para criar uma nova regra:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Passo 3: Ligar o filtro de rota para um circuito do ExpressRoute
+## <a name="attach"></a>Passo 3: Anexar o filtro de rota para um circuito do ExpressRoute
 
 Execute o seguinte comando para anexar o filtro de rota ao circuito do ExpressRoute:
 

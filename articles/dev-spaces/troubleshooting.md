@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357858"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548785"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -325,3 +325,35 @@ O nó a executar o pod com a aplicação node. js que está a tentar anexar a, c
 
 ### <a name="try"></a>Experimente
 Uma solução temporária para este problema é aumentar o valor de *fs.inotify.max_user_watches* em cada nó do cluster e reiniciar esse nó para que as alterações entrem em vigor.
+
+## <a name="new-pods-are-not-starting"></a>Novos pods não estão a iniciar
+
+### <a name="reason"></a>Razão
+
+O inicializador de Kubernetes não é possível aplicar o PodSpec para novos pods devido a alterações de permissão RBAC para o *administrador de cluster* função no cluster. O novo pod também pode ter um PodSpec inválido, por exemplo a conta de serviço associada com o pod já não existe. Para ver os pods que estão num *pendente* Estado devido a problema o inicializador, utilize o `kubectl get pods` comando:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+Este problema pode ser afetado pods na *todos os espaços de nomes* do cluster, incluindo espaços de nomes onde os espaços de desenvolvimento do Azure não está ativado.
+
+### <a name="try"></a>Experimente
+
+[Atualizar a CLI de espaços de desenvolvimento para a versão mais recente](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) e, em seguida, eliminar a *azds InitializerConfiguration* do controlador de espaços de desenvolvimento do Azure:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+Depois de ter removido a *azds InitializerConfiguration* a partir do controlador de espaços de desenvolvimento do Azure, utilize `kubectl delete` para remover qualquer pods numa *pendente* estado. Afinal de contas pendentes pods ter sido removido, volte a implementar seus pods.
+
+Se novos pods ainda estão com dificuldades num *pendente* Estado após uma nova implementação, utilize `kubectl delete` para remover qualquer pods numa *pendente* estado. Afinal de contas pendentes pods foram removidos, elimine o controlador do cluster e reinstalá-lo:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+Depois do controlador é reinstalado, volte a implementar seus pods.

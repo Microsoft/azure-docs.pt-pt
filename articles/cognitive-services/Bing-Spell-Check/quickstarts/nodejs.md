@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: aahi
-ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 04/02/2019
+ms.author: aahill
+ms.openlocfilehash: 0a1260de6428f6ebc70757261cdcc3002820ec7b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885912"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547769"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e o node. js
 
-Utilize este guia de introdução para efetuar a primeira chamada à API do REST Bing de verificação de ortográfica. Este Python simples aplicação envia um pedido para a API e retorna uma lista de palavras, ele não reconhece, seguido de correção sugerida. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Utilize este guia de introdução para efetuar a primeira chamada à API do REST Bing de verificação de ortográfica. Este nó simple aplicação envia um pedido para a API e retorna uma lista de palavras, ele não reconhece, seguido de correção sugerida. Embora esse aplicativo é escrito em node. js, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação. O código-fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,18 +30,18 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito. Definir o strictness e exigirem https. Em seguida, crie variáveis para anfitrião do seu ponto final de API, caminho e a chave de subscrição.
+1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito. Definir o strictness e exigir `https`. Em seguida, crie variáveis para anfitrião do seu ponto final de API, caminho e a chave de subscrição.
 
     ```javascript
     'use strict';
     let https = require ('https');
-    
+
     let host = 'api.cognitive.microsoft.com';
     let path = '/bing/v7.0/spellcheck';
-    let key = 'ENTER KEY HERE';
+    let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Crie variáveis para seu mercado, modo de verificação ortográfica e o texto que pretende verificar. Em seguida, crie uma cadeia de caracteres que acrescenta a `?mkt=` parâmetro para o mercado, e `&mode=` para o seu modo.
+2. Crie variáveis para seus parâmetros de pesquisa e o texto que pretende verificar. Acrescente o código de mercado após `mkt=`. O código de mercado é o país que fizer o pedido do. Além disso, acrescentar o modo de verificação de ortografia após `&mode=`. Modo está `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos ortografia, mas não tantos erros de gramática).
 
     ```javascript
     let mkt = "en-US";
@@ -78,7 +78,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-        console.log (body);
+        let body_ = JSON.parse (body);
+        console.log (body_);
     });
     response.on ('error', function (e) {
         console.log ('Error: ' + e.message);
@@ -98,7 +99,7 @@ req.end ();
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {

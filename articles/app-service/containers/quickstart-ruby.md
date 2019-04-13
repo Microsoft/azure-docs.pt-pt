@@ -4,8 +4,8 @@ description: Saiba como criar uma aplicação Ruby on Rails com o Serviço de Ap
 keywords: serviço de aplicações do azure, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: cfowler
+author: cephalin
+manager: jeconnoc
 editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
@@ -13,22 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/23/2019
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c5858aaf09cd832a5d60d32bb33aeeb51795b406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29126171a2d808153c7578d911e0725641ec39ff
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870440"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545150"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
 [O Serviço de Aplicações do Azure no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este início rápido mostra como criar uma aplicação básica no [Ruby on Rails](https://rubyonrails.org/) que possa ser implementada no Azure como uma Aplicação Web no Linux.
 
 > [!NOTE]
-> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se pretender utilizar uma plataforma diferente, como Sinatra, ou se pretender utilizar um [versão não suportada do Ruby](app-service-linux-intro.md), consulte o guia de introdução para [aplicação Web para contentores](https://docs.microsoft.com/azure/app-service/containers/).
+> A pilha de desenvolvimento Ruby só suporta o Ruby on Rails neste momento. Se pretender utilizar uma plataforma diferente, como Sinatra, ou se pretender utilizar um [versão não suportada do Ruby](app-service-linux-intro.md), precisa [executá-lo num contentor personalizado](quickstart-docker-go.md).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -139,4 +139,7 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails com Postgres](tutorial-ruby-postgres-app.md)
+> [Tutorial: Ruby on Rails com Postgres](tutorial-ruby-postgres-app.md)
+
+> [!div class="nextstepaction"]
+> [Configurar a aplicação Ruby](configure-language-ruby.md)

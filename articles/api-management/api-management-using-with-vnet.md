@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505673"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527953"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -106,7 +106,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 
 * **Portas necessárias para a gestão de API**: Tráfego de entrada e saída para a sub-rede na qual está implementada a gestão de API pode ser controlado através de [grupo de segurança de rede][Network Security Group]. Se qualquer uma destas portas não estão disponíveis, a gestão de API poderá não funcionar corretamente e poderá tornar-se inacessível. Ter uma ou mais destas portas bloqueadas é o outro problema de configuração incorreta comum, ao utilizar a gestão de API com uma VNET.
 
-Quando uma instância de serviço de gestão de API está alojada numa VNET, as portas na tabela seguinte são utilizadas.
+<a name="required-ports"> </a> Quando uma instância de serviço de gestão de API está alojada numa VNET, as portas na tabela seguinte são utilizadas.
 
 | Origem / porta de destino (s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem / destino   | Finalidade (*)                                                 | Tipo de rede virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|

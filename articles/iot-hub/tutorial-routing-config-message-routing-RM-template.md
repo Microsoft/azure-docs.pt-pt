@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 58b0039980f448c9bd953e9d59289c511ce95517
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663031"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543764"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Utilizar um modelo Azure Resource Manager para configurar o encaminhamento de mensagens do IoT Hub
 
@@ -54,7 +54,7 @@ A maioria desses parâmetros têm valores predefinidos. Aqueles terminando **_in
 
 **Localização**: Este campo é a região do Azure na qual estiver a implementar, por exemplo, "westus".
 
-**consumer_group**: Este campo é o grupo de consumidores definido para mensagens recebidas através do ponto de final de encaminhamento. É utilizado para filtrar os resultados no Azure Steam Analytics. Por exemplo, há o fluxo todo em que obtenha tudo o que, ou se tiver dados que com consumer_group definido como **Contoso**, em seguida, pode configurar um fluxo do Azure Stream Analytics (e relatório do Power BI) para mostrar apenas essas entradas do utilizador. Este campo é utilizado na parte 2 deste tutorial.
+**consumer_group**: Este campo é o grupo de consumidores definido para mensagens recebidas através do ponto de final de encaminhamento. É utilizado para filtrar os resultados no Azure Stream Analytics. Por exemplo, há o fluxo todo em que obtenha tudo o que, ou se tiver dados que com consumer_group definido como **Contoso**, em seguida, pode configurar um fluxo do Azure Stream Analytics (e relatório do Power BI) para mostrar apenas essas entradas do utilizador. Este campo é utilizado na parte 2 deste tutorial.
 
 **sku_name**: Este campo é o dimensionamento para o IoT Hub. Este valor tem de ser S1 ou superior; um escalão gratuito não funciona para este tutorial porque ele não permite que vários pontos de extremidade.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046995"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549376"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>Como é cobrada a análise de tráfego?
 
 Análise de tráfego é medida. A medição baseia-se no processamento de fluxo de dados de registo pelo serviço e armazenar resultante avançadas registos numa área de trabalho do Log Analytics. 
 
 Por exemplo, como pela [plano de preços](https://azure.microsoft.com/pricing/details/network-watcher/), Considerando a região e.u.a. centro-oeste, se os registos de fluxo de dados armazenados numa conta de armazenamento processada pela análise de tráfego é de 10 GB e aprimorados registos ingeridos na área de trabalho do Log Analytics é de 1 GB, em seguida, o são aplicáveis encargos: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>A frequência com que a análise de tráfego processar dados?
+
+Consulte a [secção de agregação de dados](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e o documento de agregação de dados
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como é que a análise de tráfego decidir a que um IP é malicioso? 
+
+Análise de tráfego se baseia em sistemas de inteligência de ameaças internas de Microsoft para considerar um IP como malicioso. Estes sistemas de tirar partido das origens de telemetria diversificado, como de produtos da Microsoft e serviços, a unidade Microsoft Crimes digitais (DCU), o Microsoft Security Response Center (MSRC) e feeds externos e criar muita intelligence com base no mesmo. Alguns destes dados é Mircosoft interno. Se um IP conhecido é obter sinalizado como malicios, emita um pedido de suporte para saber os detalhes.
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>Como posso definir alertas nos dados de análise de tráfego?
+
+Análise de tráfego não tem suporte incorporado para alertas. No entanto, uma vez que os dados de análise de tráfego são armazenados no Log Analytics pode escrever consultas personalizadas e definir alertas nos mesmos. Passos:
+- Pode usar o tipo de ligação para o Log Analytics na análise de tráfego. 
+- Utilize o [esquema documentadas aqui](traffic-analytics-schema.md) escrever suas consultas 
+- Clique em "Nova regra de alerta" para criar o alerta
+- Consulte a [documentação de alertas de registo](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) para criar o alerta
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como navegar usando o teclado na vista de mapa de geográfico
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477459"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545319"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>A fase de compreensão de negócios do ciclo de vida do processo de ciência de dados de equipa
 
@@ -46,7 +46,7 @@ Existem duas tarefas principais abordadas neste estágio:
 ### <a name="define-objectives"></a>Definir os objetivos
 1. Um objetivo central deste passo é identificar as variáveis de negócios essenciais que a análise tem de prever. Fazemos referência a essas variáveis como o *modelar destinos*, e podemos usar as métricas associadas a eles para determinar o sucesso do projeto. Dois exemplos de tais destinos são as previsões de vendas ou a probabilidade de um pedido que está sendo fraudulentos.
 
-2. Defina as metas do projeto ao perguntar e refinar perguntas "sharp", que são relevantes, específicas e inequívoca. Ciência de dados é um processo que utiliza nomes e números para responder a essas perguntas. Para obter mais informações sobre perguntas sharp, consulte a [como fazer ciência de dados](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. Geralmente usa ciência de dados ou de aprendizagem automática responder a cinco tipos de perguntas:
+2. Defina as metas do projeto ao perguntar e refinar perguntas "sharp", que são relevantes, específicas e inequívoca. Ciência de dados é um processo que utiliza nomes e números para responder a essas perguntas. Geralmente usa ciência de dados ou de aprendizagem automática responder a cinco tipos de perguntas:
  
    * Quantidade ou quantos? (regressão)
    * Qual categoria? (classificação)

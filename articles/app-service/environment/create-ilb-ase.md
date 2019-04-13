@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: dcb38d839017d1c4ea5b6714f7c900c476ddcd6b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494666"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546547"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -170,7 +170,7 @@ Para carregar os seus próprios certificados e testar o acesso:
 
 4. Defina o DNS para o seu domínio ASE. Pode utilizar um caráter universal com o domínio no seu DNS. Para fazer alguns testes simples, edite o ficheiro de anfitriões na sua VM para definir o nome da aplicação para o endereço IP de VIP:
 
-    a. Se o seu ASE tiver o nome de domínio _. ilbase.com_ e criar a aplicação com o nome _mytestapp_, é abordado na _mytestapp.ilbase.com_. Em seguida, defina _mytestapp.ilbase.com_ para resolver para o endereço do ILB. (No Windows, o ficheiro hosts está em _C:\Windows\System32\drivers\etc\_.)
+    a. Se o seu ASE tiver o nome de domínio _. ilbase.com_ e criar a aplicação com o nome _mytestapp_, é abordado na _mytestapp.ilbase.com_. Em seguida, defina _mytestapp.ilbase.com_ para resolver para o endereço do ILB. (No Windows, o ficheiro de anfitriões está no _C:\Windows\System32\drivers\etc\\_.)
 
     b. Para testar a publicação da implementação na Web ou o acesso à consola avançada, crie um registo para _mytestapp.scm.ilbase.com_.
 

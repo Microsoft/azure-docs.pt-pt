@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877980"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549189"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para o Azure NetApp Files
 
@@ -27,9 +27,9 @@ Cada conjunto de capacidade pode ter um máximo de 500 volumes. O consumo de cap
 
 ## <a name="before-you-begin"></a>Antes de começar 
 Tem de ter um conjunto de capacidade já configurado.   
-[Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
+[Configure um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
 Uma sub-rede tem de ser delegada a ficheiros do Azure NetApp.  
-[Delegar uma sub-rede para os Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+[Delegar uma sub-rede para ficheiros do Azure NetApp](azure-netapp-files-delegate-subnet.md)
 
 ## <a name="create-an-nfs-volume"></a>Criar um volume NFS
 
@@ -59,7 +59,7 @@ Uma sub-rede tem de ser delegada a ficheiros do Azure NetApp.
 
         A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Também pode acessar o volume a partir da sua rede no local através de Express Route.   
 
-    * **Subrede**  
+    * **Sub-rede**  
         Especifique a sub-rede que pretende utilizar para o volume.  
         A sub-rede que especificar tem de ser delegada a ficheiros do Azure NetApp. 
         
@@ -100,7 +100,7 @@ Os ficheiros NetApp do Azure suporta SMBv3 volumes. Terá de criar ligações de
         Este é o endereço IP de controlador de domínio para o preferencial Active Directory Domain Services para utilização com ficheiros de NetApp do Azure. 
     * **DNS secundário**  
         Este é o endereço IP de controlador de domínio para o secundário Active Directory Domain Services para utilização com ficheiros de NetApp do Azure. 
-    * **Domain**  
+    * **Domínio**  
         Este é o nome de domínio de seu Active Directory Domain Services que pretende associar.
     * **Prefixo do servidor (conta de computador) de SMB**  
         Este é o prefixo de nomenclatura para a conta de computador no Active Directory que o serviço ficheiros do Azure NetApp irá utilizar para a criação de novas contas.
@@ -154,7 +154,7 @@ Os ficheiros NetApp do Azure suporta SMBv3 volumes. Terá de criar ligações de
 
         A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Também pode acessar o volume a partir da sua rede no local através de Express Route.   
 
-    * **Subrede**  
+    * **Sub-rede**  
         Especifique a sub-rede que pretende utilizar para o volume.  
         A sub-rede que especificar tem de ser delegada a ficheiros do Azure NetApp. 
         

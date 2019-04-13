@@ -3,19 +3,19 @@ title: Opções de funcionamento em rede das funções do Azure
 description: Uma visão geral de todas as opções de redes disponíveis nas funções do Azure
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358151"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545510"
 ---
-# <a name="azure-functions-networking-options"></a>Opções de funcionamento em rede das funções do Azure
+# <a name="azure-functions-networking-options"></a>Funções do Azure, as opções de redes
 
 Este documento descreve o conjunto de funcionalidades de rede disponíveis entre as funções do Azure, as opções de hospedagem. Todas as seguintes opções de funcionamento em rede fornecem alguns capacidade de aceder aos recursos sem utilizar endereços encaminháveis da internet ou restringir o acesso à internet para uma aplicação de funções. Os modelos de hospedagem todos os tem diferentes níveis de isolamento de rede disponível e escolher a correta permite-lhe cumprir os requisitos de isolamento da rede.
 
@@ -27,14 +27,14 @@ Aplicações de função podem ser hospedadas de várias maneiras diferentes.
     1. O plano do serviço de aplicações, que opera numa escala fixa e oferecem isolamento de rede semelhante para o plano Premium.
 * As funções também podem ser executadas num serviço de ambiente aplicações (ASE) que implementa a sua função na sua VNet e oferece controle de rede completo e isolamento.
 
-## <a name="networking-feature-matrix"></a>Matriz de recursos de rede
+## <a name="networking-feature-matrix"></a>Matriz de recursos do sistema de rede
 
-|                |[Plano de Consumo](functions-scale.md#consumption-plan)|⚠ [Premium Plan](functions-scale.md##premium-plan-public-preview)|[Plano do Serviço de Aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
+|                |[Plano de consumo](functions-scale.md#consumption-plan)|⚠ [Premium Plan](functions-scale.md##premium-plan-public-preview)|[App Service Plan](functions-scale.md#app-service-plan) (Plano do Serviço de Aplicações)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Restrições de IP de entrada**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**Integração de VNET**](#vnet-integration)|❌No|⚠ Sim|✅Yes|✅Yes|
-|[**Integração de VNET de pré-visualização (Express Route e pontos finais de serviço)**](#preview-vnet-integration)|❌No|⚠ Sim|⚠ Sim|✅Yes|
-|[**Ligações Híbridas**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[**Integração de VNET**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Integração de VNET de pré-visualização (Express Route e pontos finais de serviço)**](#preview-vnet-integration)|❌No|⚠Sim|⚠Sim|✅Yes|
+|[**Ligações híbridas**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Acesso a sites privada**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ Funcionalidade de pré-visualização, não para uso em produção
@@ -48,7 +48,7 @@ Restrições de IP permitem-lhe definir uma prioridade ordenadas permitir/recusa
 
 [Saiba mais aqui](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## <a name="vnet-integration"></a>Integração de VNET
+## <a name="vnet-integration"></a>Integração de VNet
 
 Integração VNET permite à aplicação de função aceder aos recursos dentro de uma VNET. Integração VNET está disponível no plano Premium e no plano do serviço de aplicações. Se a sua aplicação está num ambiente de serviço de aplicações, em seguida, ele já se encontra numa VNet e não requer a utilização da funcionalidade de integração de VNet para aceder aos recursos na mesma VNet.
 
@@ -76,7 +76,7 @@ A nova versão da integração de VNet, o que está atualmente em pré-visualiza
 
 Para saber mais sobre como utilizar a integração de VNET de pré-visualização, veja [integrar uma aplicação de função com uma rede Virtual do Azure](functions-create-vnet.md).
 
-## <a name="hybrid-connections"></a>Ligações Híbridas
+## <a name="hybrid-connections"></a>Ligações híbridas
 
 [Ligações híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é uma funcionalidade do reencaminhamento do Azure que podem ser utilizadas para aceder aos recursos de aplicação nas outras redes. Ele fornece acesso a partir da sua aplicação para um ponto final da aplicação. Não pode ser utilizado para aceder à sua aplicação. As ligações híbridas são disponíveis para funções em execução num [plano do App Service](functions-scale.md#app-service-plan) e uma [ambiente de serviço de aplicações](../app-service/environment/intro.md).
 
@@ -84,8 +84,18 @@ Como o utilizado nas funções, cada ligação híbrida está correlacionada com
 
 Para obter mais informações, consulte a [documentação de serviço de aplicações para as ligações híbridas](../app-service/app-service-hybrid-connections.md), que suporta as funções e aplicações Web.
 
-## <a name="private-site-access"></a>Acesso a sites privada
+## <a name="private-site-access"></a>O acesso a sites privados
 
 Acesso a sites privada refere-se para tornar a sua aplicação apenas acessível a partir de uma rede privada, tais como a partir de dentro de uma rede virtual do Azure. Acesso de sites privados só está disponível com um ASE configurado com uma carga balanceador interno (ILB). Para obter detalhes sobre como utilizar um ASE de ILB, veja [criando e usando um ASE de ILB](../app-service/environment/create-ilb-ase.md).
 
 Existem várias formas de aceder a recursos da VNET em outras opções de hospedagem, mas um ASE é a única forma de permitir que os acionadores para uma função para ocorrem através de uma VNET.
+
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre o funcionamento em rede e as funções: 
+
+* [Siga o nosso VNET integração tutorial de introdução](./functions-create-vnet.md)
+* [Ler as funções de rede FAQ aqui](./functions-networking-faq.md)
+* [Saiba mais sobre a integração de VNET com o serviço de aplicações / funções aqui](../app-service/web-sites-integrate-with-vnet.md)
+* [Saiba mais sobre VNETs no Azure](../virtual-network/virtual-networks-overview.md)
+* [Ativar mais recursos de rede e controlo com ambientes de serviço de aplicações](../app-service/environment/intro.md)
+* [Ligar a recursos locais individuais sem alterações de firewall com ligações híbridas](../app-service/app-service-hybrid-connections.md)

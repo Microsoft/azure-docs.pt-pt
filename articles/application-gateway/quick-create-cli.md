@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4f6cc2af7b9e044e5a72767898f876932fbf973
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549430"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528305"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - CLI do Azure
 
-Este guia de introdução mostra-lhe como utilizar o portal do Azure para criar um gateway de aplicação.  Depois de criar o gateway de aplicação, teste-lo para se certificar de que está a funcionar corretamente. Com o Gateway de aplicação do Azure, direcionar o tráfego da web de aplicação a recursos específicos, a atribuição de serviços de escuta a portas, criação de regras e adicionar recursos a um agrupamento de back-end. Para simplificar, este artigo utiliza uma configuração simples com um IP público de front-end, um serviço de escuta básico para alojar um site único neste gateway de aplicação, duas máquinas virtuais utilizadas para o conjunto de back-end e uma regra de encaminhamento de pedido básico.
+Este guia de introdução mostra-lhe como utilizar a CLI do Azure para criar um gateway de aplicação.  Depois de criar o gateway de aplicação, teste-lo para se certificar de que está a funcionar corretamente. Com o Gateway de aplicação do Azure, direcionar o tráfego da web de aplicação a recursos específicos, a atribuição de serviços de escuta a portas, criação de regras e adicionar recursos a um agrupamento de back-end. Para simplificar, este artigo utiliza uma configuração simples com um IP público de front-end, um serviço de escuta básico para alojar um site único neste gateway de aplicação, duas máquinas virtuais utilizadas para o conjunto de back-end e uma regra de encaminhamento de pedido básico.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="azure-powershell-module"></a>Módulo do Azure PowerShell
+### <a name="azure-cli"></a>CLI do Azure
 
 Se optar por instalar e utilizar a CLI localmente, execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute **az - versão**. Para obter informações sobre a instalação ou atualização, consulte [instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 

@@ -8,19 +8,18 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333820"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551488"
 ---
 Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de CPU que são ótimos para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
 * A série M oferece a contagem de vCPU mais alta (até 128 vCPUs) e a maior capacidade de memória (até 3,8 TiB) de qualquer VM na cloud.  É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
 
-* Série Dv2, série G e as DSv2/GS são ideais para aplicações que exigem vCPUs mais rápidas, melhor desempenho de armazenamento temporário ou memórias.  Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
-
+* Série Dv2, série G e as DSv2/GS são ideais para aplicações que exigem vCPUs mais rápidas, melhor desempenho de armazenamento temporário ou memórias. Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
 
 * A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se a última geração 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz ou E5 2673 v4 (Broadwell) de 2.3 GHz processadores, com o Intel Turbo Boost Technology 2.0, podendo chegar aos 3,1 GHz. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 
@@ -39,7 +38,7 @@ Cache de armazenamento Premium:  Suportadas
 As instâncias da série ESv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) e podem chegar aos 3.5GHz com o Intel Turbo Boost Technology 2.0 e utilizar o armazenamento premium. As instâncias da série Ev3 são ideais para aplicações empresariais com utilização intensiva da memória.
 
 
-| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / 1,000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
@@ -99,7 +98,7 @@ Cache de armazenamento Premium:  Suportadas
 
 Acelerador de escrita:  [Suportado](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho            | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10,000 / 100 (793)  | 5,000  / 125 | 4 / 2,000 |
 | Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20,000 / 200 (1,587) | 10,000 / 250 | 8 / 4,000 |
@@ -135,7 +134,7 @@ Armazenamento Premium:  Suportadas
 
 Cache de armazenamento Premium:  Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10,000 / 100 (264) |5,000 / 125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20,000 / 200 (528) |10,000 / 250 |2 / 4000 |
@@ -170,7 +169,6 @@ Cache de armazenamento Premium:  Não suportado
 <sup>1</sup> instância está isolada do hardware dedicado de um único cliente.
 <br>
 
-
 ## <a name="dsv2-series-11-15"></a>11-15 de série DSv2
 
 ACU: 210 - 250 <sup>1</sup>
@@ -179,7 +177,7 @@ Armazenamento Premium:  Suportadas
 
 Cache de armazenamento Premium:  Suportadas
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo do disco eliminadas do cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 96 |2 / 1500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 192 |4 / 3000 |
@@ -187,14 +185,10 @@ Cache de armazenamento Premium:  Suportadas
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série DSv2 pode estar limitado pelo número, tamanho e repartição dos discos anexados.  Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> instância está isolada do hardware dedicado de um único cliente.
-
-<sup>3</sup> restrita tamanhos de núcleos disponíveis.
-
-<sup>4</sup> 25000 Mbps com redes aceleradas.
+<sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série DSv2 pode estar limitado pelo número, tamanho e repartição dos discos anexados.  Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).  
+<sup>2</sup> instância está isolada do hardware dedicado de um único cliente.  
+<sup>3</sup> restrita tamanhos de núcleos disponíveis.  
+<sup>4</sup> 25000 Mbps com redes aceleradas. 
 
 <br>
 
@@ -214,13 +208,5 @@ Cache de armazenamento Premium:  Não suportado
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> instância está isolada do hardware dedicado de um único cliente. 
-
-<sup>2</sup> 25000 Mbps com redes aceleradas.
-
-
-
-<br>
-
-
-
+<sup>1</sup> instância está isolada do hardware dedicado de um único cliente.  
+<sup>2</sup> 25000 Mbps com redes aceleradas. 

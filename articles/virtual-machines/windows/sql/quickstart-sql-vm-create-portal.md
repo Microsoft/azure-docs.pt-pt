@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bd535aeb034a17f1844c1d19379c1811b43d27e5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260243"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549274"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Crie uma máquina virtual do SQL Server 2017 Windows no portal do Azure
 
@@ -29,11 +29,10 @@ ms.locfileid: "59260243"
 
 Estes passos do guia de introdução explicam a criação de uma máquina virtual de SQL Server com o portal do Azure.
 
-> [!TIP]
-> Este início rápido proporciona um caminho para aprovisionar e ligar a uma VM do SQL de forma rápida. Para obter mais informações sobre outras opções de aprovisionamento de VMs do SQL, veja o [Guia de aprovisionamento de VMs do SQL Server do Windows no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-> [!TIP]
-> Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
+  > [!TIP]
+  > - Este início rápido proporciona um caminho para aprovisionar e ligar a uma VM do SQL de forma rápida. Para obter mais informações sobre outras opções de aprovisionamento de VMs do SQL, veja o [Guia de aprovisionamento de VMs do SQL Server do Windows no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+  > - Se tiver dúvidas sobre máquinas virtuais do SQL Server, veja as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Obter uma subscrição do Azure
 
@@ -47,12 +46,10 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. No campo de pesquisa, escreva `SQL Server 2017 Developer on Windows Server 2016`, e prima ENTER.
 
-1. Selecione o **gratuitos a licença do SQL Server: SQL Server 2017 Developer no Windows Server 2016** imagem.
+1. Selecione o **gratuitos a licença do SQL Server: SQL Server 2017 Developer no Windows Server 2016** imagem. A edição de Programador é utilizada neste tutorial porque é uma edição com todas as funcionalidades do SQL Server que é gratuita para fins de teste de programação. Apenas paga pelo custo de execução da VM. Para obter considerações mais compeltas sobre preços, consulte [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md).
 
    ![Nova janela de procura](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
-   > [!TIP]
-   > A edição de Programador é utilizada neste tutorial porque é uma edição com todas as funcionalidades do SQL Server que é gratuita para fins de teste de programação. Apenas paga pelo custo de execução da VM. Para obter considerações mais compeltas sobre preços, consulte [Pricing guidance for SQL Server Azure VMs (Documentação de orientação sobre preços de VMs do Azure do SQL Server)](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. Selecione **Criar**.
 
@@ -79,9 +76,9 @@ Sobre o **Noções básicas** separador, forneça as seguintes informações:
 
 1. Sob **regras de porta de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (. 3389)** na lista suspensa. 
 
-   ![Regras de porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
+   ![Regras da porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
-## <a name="sql-server-settings"></a>Definições de SQL Server
+## <a name="sql-server-settings"></a>Definições do SQL Server
 
 Sobre o **definições do SQL Server** separador, configure as seguintes opções:
 
@@ -99,19 +96,14 @@ Sobre o **definições do SQL Server** separador, configure as seguintes opçõe
 
 Sobre o **rever + criar** separador, reveja o resumo e selecione **criar** para criar o SQL Server, o grupo de recursos e recursos especificados para esta VM.
 
-Pode monitorizar a implementação a partir do portal do Azure. O botão **Notificações** na parte superior do ecrã mostra o estado básico da implementação.
-
-> [!TIP]
-> Implementar uma VM do SQL Server em Windows pode demorar vários minutos.
+Pode monitorizar a implementação a partir do portal do Azure. O botão **Notificações** na parte superior do ecrã mostra o estado básico da implementação. Implementação pode demorar vários minutos. 
 
 ## <a name="connect-to-sql-server"></a>Ligar ao SQL Server
 
 1. No portal, localize a **endereço IP público** da sua VM do SQL Server no **descrição geral** secção de propriedades da sua máquina virtual.
 
-1. Num computador diferente ligado à Internet, abra o SQL Server Management Studio (SSMS).
+1. Num computador diferente ligado à Internet, abra [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
-   > [!TIP]
-   > Se não tiver o SQL Server Management Studio, poderá transferi-lo partir [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Na caixa de diálogo **Ligar ao Servidor** ou **Ligar ao Motor de Base de Dados**, edite o valor **Nome do servidor**. Introduza o endereço IP público da VM. Em seguida, adicione uma vírgula e a porta personalizada, **1401**, que especificamos quando configurou a nova VM. Por exemplo, `11.22.33.444,1401`.
 
@@ -145,4 +137,4 @@ Se não precisar que a sua VM SQL execute continuamente, pode evitar despesas de
 Neste início rápido, criou uma máquina virtual do SQL Server 2017 no portal do Azure. Para saber mais sobre como migrar os seus dados para o novo SQL Server, consulte o seguinte artigo.
 
 > [!div class="nextstepaction"]
-> [Migrar uma base de dados para uma VM do SQL](virtual-machines-windows-migrate-sql.md)
+> [Migrar uma base de dados para uma VM de SQL](virtual-machines-windows-migrate-sql.md)

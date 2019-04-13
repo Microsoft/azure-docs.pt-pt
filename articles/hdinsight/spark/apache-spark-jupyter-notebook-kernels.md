@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084103"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527477"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de notas do Jupyter nos clusters do Apache Spark no Azure HDInsight 
 
@@ -69,7 +69,7 @@ Aqui estão alguns benefícios de usar os kernels novo com o bloco de notas do J
    
     Em vez disso, pode usar diretamente os contextos predefinidos em seu aplicativo.
 
-- **Magia de células**. O kernel do PySpark fornece alguns predefinidas "magia", que são comandos especiais que pode chamar com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico tem de ser a primeira palavra numa célula de código e permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar qualquer coisa antes da mágica, até mesmo comentários, causa um erro.     Para obter mais informações sobre a magia, consulte [aqui](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **Magia de células**. O kernel do PySpark fornece alguns predefinidas "magia", que são comandos especiais que pode chamar com `%%` (por exemplo, `%%MAGIC` `<args>`). O comando mágico tem de ser a primeira palavra numa célula de código e permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar qualquer coisa antes da mágica, até mesmo comentários, causa um erro.     Para obter mais informações sobre a magia, consulte [aqui](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
     A tabela seguinte lista a magia de diferentes disponíveis por meio dos kernels.
 

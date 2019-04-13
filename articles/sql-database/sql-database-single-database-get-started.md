@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
-ms.author: sachinp
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/11/2019
+ms.openlocfilehash: a5fbc58feea8779ba8a7a61dfc89158e20bd2c92
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075190"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544297"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure
 
@@ -34,51 +34,62 @@ Uma base de dados tem um conjunto definido de recursos de computação, memória
 Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT:
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-2. Selecione **bases de dados** e, em seguida, selecione **base de dados SQL**.
-3. Na **criar a base de dados do SQL** de formulário, escreva ou selecione os seguintes valores:
+2. Selecione **bases de dados** e, em seguida, selecione **base de dados SQL** para abrir o **criar a base de dados do SQL** página. 
 
-   - **Nome da base de dados**: Introduza *mySampleDatabase*.
-   - **Subscrição**: Lista pendente e selecione a subscrição correta, se não aparecer.
-   - **Grupo de recursos**: Selecione **criar novo**, tipo *myResourceGroup*e selecione **OK**.
-   - **Selecionar origem**: Lista pendente e selecione **Sample (AdventureWorksLT)**.
-
-     > [!IMPORTANT]
-     > Certifique-se de selecionar o **Sample (AdventureWorksLT)** dados, pelo que pode seguir facilmente este e outros guias de introdução do Azure SQL Database que usam esses dados.
-  
    ![Criar base de dados individual](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. Sob **servidor**, selecione **criar nova**.
-5. Na **novo servidor** de formulário, escreva ou selecione os seguintes valores:
+1. Sobre o **Noções básicas** separador a **detalhes do projeto** secção, escreva ou selecione os seguintes valores:
 
-   - **Nome do servidor**: Enter *mysqlserver*.
-   - **Início de sessão de administrador de servidor**: Type *azureuser*.
-   - **palavra-passe**: Enter *Azure1234567*.
-   - **Confirmar palavra-passe**: Escreva novamente a palavra-passe.
-   - **Localização**: Lista pendente e selecione qualquer localização válida.  
+   - **Subscrição**: Lista pendente e selecione a subscrição correta, se não aparecer.
+   - **Grupo de recursos**: Selecione **criar novo**, tipo `myResourceGroup`e selecione **OK**.
+
+   ![Nova base de dados SQL - separador básico](media/sql-database-get-started-portal/new-sql-database-basics.png)
+
+
+1. Na **detalhes de base de dados** secção, escreva ou selecione os seguintes valores: 
+
+   - **Nome da base de dados**: Introduza `mySampleDatabase`.
+   - **Servidor**: Selecione **criar novo** e introduza os valores seguintes e, em seguida, selecione **selecione**. 
+       - **Nome do servidor**: Tipo de `mysqlserver`; juntamente com alguns números de exclusividade. 
+       - **Início de sessão de administrador de servidor**: Digite `azureuser`.
+       - **palavra-passe**: Escreva uma palavra-passe complexa que cumpra os requisitos de palavra-passe. 
+       - **Localização**: Escolha uma localização a partir do menu suspenso, como `West US 2`. 
+
+       ![Novo servidor](media/sql-database-get-started-portal/new-server.png)
+
+        > [!IMPORTANT]
+        > Não se esqueça de registar o início de sessão de administrador de servidor e a palavra-passe, pelo que pode iniciar sessão para o servidor e bases de dados para esse e outros guias de introdução. Se se esquecer da sua palavra-passe ou o início de sessão, pode obter o nome de início de sessão ou redefinir a senha sobre o **do SQL server** página. Para abrir o **do SQL server** , selecione o nome do servidor na base de dados **descrição geral** página após a criação da base de dados.
+
+      ![Detalhes da base de dados SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
+   - **Pretende utilizar o agrupamento elástico de SQL**: Selecione o **não** opção. 
+   - **Computação + armazenamento**: Selecione **configurar base de dados** e para este início rápido, selecione a **padrão** camada de serviço e, em seguida, utilize o controlo de deslize para selecionar **10 DTUs (S0)** e **1** GB de armazenamento. Selecione **Aplicar**. 
+
+    ![Configurar a camada](media/sql-database-get-started-portal/create-database-s1.png) 
+
+
+      > [!NOTE]
+      > Este início rápido utiliza a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
+      > [!IMPORTANT]
+      > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
+    
+
+
+
+1. Selecione o **definições adicionais** separador. 
+1. Na **origem de dados** secção, em **utilizar dados existentes**, selecione `Sample`. 
+
+   ![Definições adicionais da BD SQL](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
-   > Não se esqueça de registar o início de sessão de administrador de servidor e a palavra-passe, pelo que pode iniciar sessão para o servidor e bases de dados para esse e outros guias de introdução. Se se esquecer da sua palavra-passe ou o início de sessão, pode obter o nome de início de sessão ou redefinir a senha sobre o **do SQL server** página. Para abrir o **do SQL server** , selecione o nome do servidor na base de dados **descrição geral** página após a criação da base de dados.
+   > Certifique-se de selecionar o **Sample (AdventureWorksLT)** dados, pelo que pode seguir facilmente este e outros guias de introdução do Azure SQL Database que usam esses dados.
 
-    ![Criar servidor](./media/sql-database-get-started-portal/create-database-server.png)
+1. Deixe o resto dos valores como padrão e selecione **rever + criar** na parte inferior do formulário. 
+1. Reveja as definições de finais e selecione **criar**. 
 
-6. Escolha **Selecionar**.
-7. Sobre o **base de dados SQL** formulário, selecione **escalão de preço**. Explore a quantidade de DTUs e de armazenamento disponível para cada camada de serviço.
+8. Sobre o **base de dados SQL** formulário, selecione **criar** para implementar e aprovisionar o grupo de recursos, o servidor e a base de dados.
 
-   > [!NOTE]
-   > Este início rápido utiliza a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
-   > [!IMPORTANT]
-   > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
-8. Neste início rápido, selecione o **padrão** camada de serviço e, em seguida, utilize o controlo de deslize para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
-9. Selecione **Aplicar**.  
-
-   ![Selecionar o preço](./media/sql-database-get-started-portal/create-database-s1.png)
-
-10. Sobre o **base de dados SQL** formulário, selecione **criar** para implementar e aprovisionar o grupo de recursos, o servidor e a base de dados.
-
-    Implementação demora alguns minutos. Pode selecionar **notificações** na barra de ferramentas para monitorizar o progresso da implementação.
-
-    ![Notificação](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Consultar a base de dados
 

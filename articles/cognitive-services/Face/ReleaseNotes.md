@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: yluiu
-ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862034"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544555"
 ---
 # <a name="face-api-release-notes"></a>Notas de versão de API de rostos
 
@@ -27,7 +27,7 @@ Este artigo diz respeito à versão do serviço de API de rostos de 1.0.
 
 ### <a name="release-changes-in-january-2019"></a>Lance as alterações de Janeiro de 2019
 
-* Funcionalidade de instantâneo foi adicionada para suportar a migração de dados entre subscrições: [Instantâneo](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). Obter mais detalhes no [como migrar os seus dados de rostos para uma subscrição diferente do rosto](Face-API-How-to-Topics/how-to-migrate-face-data.md).
+* Funcionalidade de instantâneo foi adicionada para suportar a migração de dados entre subscrições: [Instantâneo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). Obter mais detalhes no [como migrar os seus dados de rostos para uma subscrição diferente do rosto](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Alterações de lançamento em Outubro de 2018
 

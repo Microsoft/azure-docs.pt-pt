@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402155"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548046"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como aceder a um laboratório de sala de aula, ligar à VM no laboratório e parar a VM. 
@@ -36,7 +36,7 @@ Este artigo descreve como aceder a um laboratório de sala de aula, ligar à VM 
 ## <a name="view-all-the-classroom-labs"></a>Ver todos os laboratórios de sala de aula
 Depois de registar aos laboratórios, pode ver todos os laboratórios de sala de aula, efetuando os seguintes passos: 
 
-1. Navegue para [ https://labs.azure.com ](https://labs.azure.com). 
+1. Navegue para [ https://labs.azure.com ](https://labs.azure.com). Tenha em atenção que Internet Explorer 11 ainda não é suportado. 
 2. Iniciar sessão serviço utilizando a conta de utilizador que utilizou para se registrar para o laboratório. 
 3. Confirme que vê todos os laboratórios que tem acesso. 
 

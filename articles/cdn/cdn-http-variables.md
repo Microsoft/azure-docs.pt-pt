@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013555"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528174"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o motor de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais pode recuperar os metadados de solicitação e resposta HTTP. Estes metadados, em seguida, podem ser utilizado para alterar dinamicamente uma solicitação ou uma resposta. A utilização de variáveis HTTP é restrita para as seguintes funcionalidades do motor de regras:
@@ -38,7 +38,7 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 | ---- | -------- | ----------- | ------------ |
 | ASN (autor do pedido) | %{geo_asnum} | Indica o autor do pedido como número. <br /><br />**Preteridos:** % {virt_dst_asnum}. <br />Essa variável foi preterida em favor do % {geo_asnum}. Embora uma regra que utiliza esta variável preterido continuarão a funcionar, atualize-o para utilizar a nova variável. | AS15133 |
 | Cidade (autor do pedido) | %{geo_city} | Indica a cidade do autor do pedido. | Los Angeles |
-| Continente (autor do pedido) | %{geo_continent} | Indica o continente do autor do pedido através da respetiva abreviatura. <br />Valores válidos são: <br />AF: África<br />AS: Ásia<br />EU: Europa<br />NA: América do Norte<br />OC: Oceânia<br />SA: América do Sul<br /><br />**Preteridos:** % {virt_dst_continent}. <ber />Essa variável foi preterida em favor do % {geo_continent}. <br />Embora uma regra que utiliza esta variável preterido continuarão a funcionar, atualize-o para utilizar a nova variável.| N/A |
+| Continente (autor do pedido) | %{geo_continent} | Indica o continente do autor do pedido através da respetiva abreviatura. <br />Valores válidos são: <br />AF: África<br />AS: Ásia<br />EU: Europa<br />NA: América do Norte<br />OC: Oceânia<br />SA: América do Sul<br /><br />**Preteridos:** % {virt_dst_continent}. <br />Essa variável foi preterida em favor do % {geo_continent}. <br />Embora uma regra que utiliza esta variável preterido continuarão a funcionar, atualize-o para utilizar a nova variável.| N/A |
 | Valor do cookie | %{cookie_Cookie} | Devolve o valor correspondente para a chave de cookie identificada pelo termo de Cookie. | Utilização de exemplo: <br />%{cookie__utma}<br /><br />Valor de exemplo:<br />111662281.2.10.1222100123 |
 | País (autor do pedido) | %{geo_country} | Indica o país do autor do pedido de origem por meio de seu código de país. <br />**Preteridos:** % {virt_dst_country}. <br /><br />Essa variável foi preterida em favor do % {geo_country}. Embora uma regra que utiliza esta variável preterido continuarão a funcionar, atualize-o para utilizar a nova variável. | EUA |
 | Área de mercado designado (autor do pedido) | %{geo_dma_code} |Indica o mercado de mídia do autor do pedido pelo seu código de região. <br /><br />Este campo só é aplicável para pedidos provenientes dos Estados Unidos.| 745 |

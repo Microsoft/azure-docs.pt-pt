@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/16/2018
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 01a1c1fef5dd2dabf99677d59126caf41e1f6885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900612"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545133"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure com o Azure PowerShell
 
@@ -103,8 +103,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse-with-sample-data"></a>Criar um armazém de dados com dados de exemplo
-Este exemplo cria um armazém de dados com as variáveis definidas anteriormente.  Especifica o objetivo de serviço como DW400, que é um ponto de partida de custo mais baixo e para o seu armazém de dados. 
+## <a name="create-a-data-warehouse"></a>Criar um armazém de dados
+Este exemplo cria um armazém de dados com as variáveis definidas anteriormente.  Especifica o objetivo de serviço como DW100c, que é um ponto de partida de custo mais baixo e para o seu armazém de dados. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -112,7 +112,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW400" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```
@@ -128,7 +128,7 @@ Os parâmetros necessários são:
 Os parâmetros opcionais são:
 
 - **CollationName**: O agrupamento predefinido se não for especificado é SQL_Latin1_General_CP1_CI_AS. Não é possível alterar o agrupamento numa base de dados.
-- **MaxSizeBytes**: O tamanho máximo predefinido de uma base de dados é de 10 GB.
+- **MaxSizeBytes**: O tamanho máximo predefinido de uma base de dados é 240TB. O tamanho máximo limita os dados de rowstore. Não existe armazenamento ilimitado para armazenamento de dados.
 
 Para obter mais informações sobre as opções de parâmetros, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

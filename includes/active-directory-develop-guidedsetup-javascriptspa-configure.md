@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 1eaae979f030d3044b44c46bedee2bd9e3346784
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: c0dcfc4ad7edf4d9203b807aa799eb047c753bed
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503275"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551522"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) registar uma aplicação.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização) > Novo registo**.
+1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
 1. Quando o **registar uma aplicação** é apresentada a página, introduza um nome para a sua aplicação.
 1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
 1. Sob o **URI de redirecionamento** secção, selecione a **Web** plataforma e defina o valor para o URL da aplicação com base no seu servidor web. Consulte as secções abaixo para obter instruções sobre como definir e obter o URL de redirecionamento no nó e o Visual Studio.
@@ -61,8 +61,8 @@ ms.locfileid: "59503275"
     ```
 
     Em que:
-    - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
-    - `Enter_the_Tenant_Info_Here` -está definido para uma das seguintes opções:
+    - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
+    - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
        - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
-       - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
-       - Se a sua aplicação suportar **contas em qualquer diretório organizacional e contas Microsoft pessoais**, substitua este valor com `common`
+       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+       - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`

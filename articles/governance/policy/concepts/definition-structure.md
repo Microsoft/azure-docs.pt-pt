@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426465"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549359"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -487,36 +487,7 @@ Vários dos aliases que estão disponíveis possuem uma versão que é apresenta
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-O alias "normal" representa o campo como um único valor. Este campo é para cenários de comparação de correspondência exata quando todo o conjunto de valores tem de ser exatamente conforme definido, nem mais, nem menos. Usando **ipRules**, um exemplo seria a validar que um conjunto de regras existe, incluindo o número de regras e como montar cada regra. Esta regra de exemplo verifica a existência de exatamente ambos **192.168.1.1** e **10.0.4.1** com _ação_ de **permitir** na **ipRules** para aplicar a **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+O alias "normal" representa o campo como um único valor. Este campo é para cenários de comparação de correspondência exata quando todo o conjunto de valores tem de ser exatamente conforme definido, nem mais, nem menos.
 
 O **[\*]** alias torna possível a comparar com o valor de cada elemento na matriz e as propriedades específicas de cada elemento. Essa abordagem torna possível comparar as propriedades do elemento de "se nenhuma das', 'se qualquer um dos", ou "se todos os de" cenários. Usando **ipRules [\*]**, um exemplo seria possível validar que cada _ação_ é _negar_, mas não se preocupar sobre quantos regras existem ou que o IP _valor_ é. Esta regra de exemplo verifica a existência de quaisquer correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica-se a **effectType** apenas se não encontrar, pelo menos, uma correspondência:
 

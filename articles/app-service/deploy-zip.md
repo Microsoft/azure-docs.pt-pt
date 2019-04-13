@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488410"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544063"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementar a aplicação no App Service do Azure com um ficheiro ZIP ou WAR
 
@@ -73,13 +73,23 @@ Certifique-se de que a versão da CLI do Azure é 2.0.21 ou posterior. Para ver 
 
 Implementar o ficheiro ZIP carregado na sua aplicação web com o [az webapp config origem de implementação de software-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) comando.  
 
-O exemplo seguinte implementa o ficheiro ZIP carregado. Quando utilizar uma instalação local da CLI do Azure, especifique o caminho para o ficheiro ZIP local para `--src`.   
+O exemplo seguinte implementa o ficheiro ZIP carregado. Quando utilizar uma instalação local da CLI do Azure, especifique o caminho para o ficheiro ZIP local para `--src`.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação. Se estiver configurado qualquer processo de compilação personalizado adicional, este é executado corretamente. Para obter mais informações, consulte [documentação de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Este comando implementa os ficheiros e os diretórios do ficheiro ZIP na pasta de aplicações do Serviço de Aplicações predefinido (`\home\site\wwwroot`) e reinicia a aplicação.
+
+Por predefinição, o motor de implementação parte do princípio de que um ficheiro ZIP está pronto para ser executado como-é e não executa qualquer automação de compilação. Para ativar a mesma automação como de compilação uma [implementação de Git](deploy-local-git.md), defina o `SCM_DO_BUILD_DURING_DEPLOYMENT` definição da aplicação ao executar o seguinte comando no [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
+```
+
+
+
+Para obter mais informações, consulte [documentação de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 

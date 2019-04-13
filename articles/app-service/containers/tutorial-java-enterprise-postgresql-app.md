@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 472ff85adaf72f91948c4072b12cca3ff8e59f37
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772063"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545355"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Criar uma aplicação de web de Java EE e Postgres no Azure
 
-Neste tutorial mostram-lhe como criar uma aplicação web de Java Enterprise Edition (EE) no serviço de aplicações do Azure e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma [WildFly](https://www.wildfly.org/about/) aplicação armazena os dados na [base de dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no Azure [serviço de aplicações no Linux](app-service-linux-intro.md).
+Este tutorial mostra-lhe como criar uma aplicação web de Java Enterprise Edition (EE) no serviço de aplicações do Azure e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma [WildFly](https://www.wildfly.org/about/) aplicação armazena os dados na [base de dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no Azure [serviço de aplicações no Linux](app-service-linux-intro.md).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Implementar uma aplicação de Java EE para o Azure com o Maven
 > * Criar uma base de dados Postgres no Azure
@@ -158,7 +158,9 @@ Em seguida, é necessário editar nossa configuração de transação de Java AP
 
 ## <a name="configure-the-wildfly-application-server"></a>Configurar o servidor de aplicações WildFly
 
-Antes de implantar nosso aplicativo reconfigurado, podemos tem de atualizar o servidor de aplicações WildFly com o módulo de Postgres e as respetivas dependências. Para configurar o servidor, precisamos quatro arquivos no `wildfly_config/` diretório:
+Antes de implantar nosso aplicativo reconfigurado, podemos tem de atualizar o servidor de aplicações WildFly com o módulo de Postgres e as respetivas dependências. Obter mais informações de configuração podem ser encontradas em [WildFly configurar servidor](configure-language-java.md#configure-wildfly-server).
+
+Para configurar o servidor, precisamos quatro arquivos no `wildfly_config/` diretório:
 
 - **postgresql-42.2.5.jar**: Este ficheiro. JAR é o controlador JDBC para Postgres. Para obter mais informações, consulte a [site oficial](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: Esse arquivo XML declara um nome para o módulo de Postgres (org.postgres). Também especifica os recursos e as dependências necessários para o módulo a ser utilizado.
@@ -172,7 +174,6 @@ Sugerimos altamente ler o conteúdo desses arquivos, especialmente _jboss_cli_co
 Temos do conteúdo de FTP `wildfly_config/` para nossa instância de serviço de aplicações. Para obter as suas credenciais FTP, clique a **obter perfil de publicação** botão no painel do serviço de aplicações no portal do Azure. O nome de utilizador FTP e a palavra-passe será no documento XML transferido. Para obter mais informações sobre o perfil de publicação, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 Utilizar uma ferramenta FTP à sua escolha, transferir os ficheiros de quatro no `wildfly_config/` para `/home/site/deployments/tools/`. (Observe que não deve transferir o diretório, apenas os próprios arquivos.)
-
 
 ### <a name="finalize-app-service"></a>Finalizar o serviço de aplicações
 
@@ -195,9 +196,26 @@ Parabéns! A aplicação está agora a utilizar uma base de dados Postgres e qua
 Se não precisa destes recursos para outro tutorial (consulte os passos seguintes), pode eliminá-los ao executar o seguinte comando:
 
 ```bash
-az group delete --name <your_resource_group> 
+az group delete --name <your-resource-group>
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que tem uma aplicação de Java EE implementada no serviço de aplicações, consulte a [Guia do Programador de Java Enterprise](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) para obter mais informações sobre a configuração de serviços de resolução de problemas e dimensionar a sua aplicação.
+Neste tutorial, ficou a saber como:
+
+> [!div class="checklist"]
+> * Implementar uma aplicação de Java EE para o Azure com o Maven
+> * Criar uma base de dados Postgres no Azure
+> * Configurar o servidor de WildFly utilizar Postgres
+> * Atualizar e reimplementar a aplicação
+> * Executar testes de unidade no WildFly
+
+Avance para o próximo tutorial para saber como mapear um nome DNS personalizado à sua aplicação.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Mapear o nome DNS personalizado à sua aplicação](../app-service-web-tutorial-custom-domain.md)
+
+Em alternativa, consulte outros recursos:
+
+> [!div class="nextstepaction"]
+> [Configurar a aplicação de Java](configure-language-java.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667111"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549042"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Orientações e recomendações para coleções fiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para utilizar a Reliable State Manager e das Reliable Collections. O objetivo é ajudar os utilizadores a evitar as armadilhas comuns.
@@ -32,6 +32,7 @@ As diretrizes são organizadas como recomendações simples com os termos de pre
 * Não utilize uma transação depois foi consolidada, abortada ou eliminado.
 * Não utilize uma enumeração fora do escopo de transação que foi criado numa.
 * Não crie uma transação na outra transação `using` instrução porque pode causar deadlocks.
+* Não crie Estado fiável com `IReliableStateManager.GetOrAddAsync` e utilizar o estado confiável na mesma transação. Isso resulta numa InvalidOperationException.
 * Certifique-se de que sua `IComparable<TKey>` implementação está correta. O sistema demora dependência `IComparable<TKey>` para mesclar os pontos de verificação e linhas.
 * Utilize o bloqueio de atualização durante a leitura de um item com uma intenção atualizá-la para impedir que uma determinada classe de deadlocks.
 * Considere o número de manutenção de coleções fiáveis por partição seja inferior a 1000. Prefira coleções fiáveis com mais itens em mais coleções fiáveis com menos itens.

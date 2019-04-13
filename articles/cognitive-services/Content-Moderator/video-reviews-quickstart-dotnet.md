@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758244"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527375"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar as revisões de vídeo com o .NET
 
@@ -166,7 +166,7 @@ Criar uma revisão de vídeo com **ContentModeratorClient.Reviews.CreateVideoRev
 **CreateVideoReviews** tem os seguintes parâmetros obrigatórios:
 1. Uma cadeia que contém um tipo MIME, o que deve ser "application/json". 
 1. O nome de equipa do Content Moderator.
-1. Uma **IList<CreateVideoReviewsBodyItem>**  objeto. Cada **CreateVideoReviewsBodyItem** objeto representa uma revisão de vídeo. Este início rápido cria uma revisão de cada vez.
+1. Uma **IList\<CreateVideoReviewsBodyItem >** objeto. Cada **CreateVideoReviewsBodyItem** objeto representa uma revisão de vídeo. Este início rápido cria uma revisão de cada vez.
 
 **CreateVideoReviewsBodyItem** tem várias propriedades. No mínimo, defina as propriedades seguintes:
 - **Conteúdo**. O URL do vídeo para ser revisto.
@@ -224,18 +224,18 @@ Adicionar quadros de vídeo para uma revisão de vídeo com **ContentModeratorCl
 1. Uma cadeia que contém um tipo MIME, o que deve ser "application/json".
 1. O nome de equipa do Content Moderator.
 1. O ID de revisão de vídeo devolvido por **CreateVideoReviews**.
-1. Uma **IList<VideoFrameBodyItem>**  objeto. Cada **VideoFrameBodyItem** objeto representa um quadro de vídeo.
+1. Uma **IList\<VideoFrameBodyItem >** objeto. Cada **VideoFrameBodyItem** objeto representa um quadro de vídeo.
 
 **VideoFrameBodyItem** tem as seguintes propriedades:
 - **Timestamp**. Uma cadeia que contém, em segundos, o tempo em que o vídeo a partir do qual o quadro de vídeo foi tirado.
 - **FrameImage**. O URL do quadro do vídeo.
-- **Metadados**. Um IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
+- **Metadados**. Um IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
 - **reviewRecommended**. VERDADEIRO se recomenda uma revisão humana do quadro do vídeo.
 - **adultScore**. Um valor entre 0 e 1 que classifica a gravidade do conteúdo para adultos no quadro do vídeo.
 - **a**. VERDADEIRO se o vídeo contém conteúdo para adultos.
 - **racyScore**. Um valor entre 0 e 1 que classifica a gravidade do conteúdo para adultos no quadro do vídeo.
 - **r**. VERDADEIRO se o quadro de vídeo contém conteúdo para adultos.
-- **ReviewerResultTags**. Um IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Uma aplicação pode utilizar estas etiquetas para organizar os quadros de vídeo.
+- **ReviewerResultTags**. Um IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Uma aplicação pode utilizar estas etiquetas para organizar os quadros de vídeo.
 
 > [!NOTE]
 > Este guia de introdução gera valores aleatórios para o **adultScore** e **racyScore** propriedades. Num aplicativo de produção, pode obter estes valores a partir da [serviço de moderação de vídeos](video-moderation-api.md), implementado como um serviço de multimédia do Azure.
