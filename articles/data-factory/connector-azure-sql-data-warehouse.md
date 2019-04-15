@@ -58,11 +58,11 @@ As seguintes propriedades são suportadas para um serviço ligado do Azure SQL D
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureSqlDW**. | Sim |
+| type | A propriedade de tipo deve ser definida como **AzureSqlDW**. | Sim |
 | connectionString | Especifique as informações necessárias para ligar à instância do armazém de dados SQL do Azure para o **connectionString** propriedade. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a chave de principal de serviço/palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
 | servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
-| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou um runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não |
 
 Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
@@ -244,7 +244,7 @@ Para copiar dados de ou para o Azure SQL Data Warehouse, defina o **tipo** propr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **AzureSqlDWTable**. | Sim |
+| type | O **type** propriedade do conjunto de dados tem de ser definida como **AzureSqlDWTable**. | Sim |
 | tableName | O nome da tabela ou vista na instância do Azure SQL Data Warehouse que o serviço ligado refere-se a. | Não para a origem, Sim para o sink |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
@@ -276,7 +276,7 @@ Para copiar dados do Azure SQL Data Warehouse, defina o **tipo** propriedade na 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **SqlDWSource**. | Sim |
+| type | O **type** propriedade da origem de atividade de cópia tem de ser definida como **SqlDWSource**. | Sim |
 | sqlReaderQuery | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. | Não |
 | storedProcedureParameters | Parâmetros do procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
@@ -379,7 +379,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlDWSink**. | Sim |
+| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlDWSink**. | Sim |
 | allowPolyBase | Indica se deve utilizar o PolyBase, quando aplicável, em vez do mecanismo BULKINSERT. <br/><br/> Recomendamos que carrega dados para o SQL Data Warehouse com o PolyBase. Consulte a [utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) secção para as restrições e detalhes.<br/><br/>Valores permitidos são **True** e **falso** (predefinição).  | Não |
 | polyBaseSettings | Um grupo de propriedades que pode ser especificada quando o **allowPolybase** estiver definida como **verdadeiro**. | Não |
 | rejectValue | Especifica o número ou porcentagem das linhas que pode ser rejeitada antes da consulta falha.<br/><br/>Saiba mais sobre opções de rejeição do PolyBase na seção argumentos [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Valores permitidos são 0 (predefinição), 1, 2, etc. |Não |
@@ -552,9 +552,9 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON |
 | --- | --- | --- |
-| dbo | MyTable | MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
-| dbo1 | MyTable | dbo1. MyTable ou [dbo1]. [MyTable] |
-| dbo | My.Table | [My.Table] ou [dbo]. [My.Table] |
+| dbo | MyTable | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
+| dbo1 | MyTable | dbo1.MyTable ou [dbo1].[MyTable] |
+| dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
 
 Se vir o seguinte erro, o problema poderá ser o valor especificado para o **tableName** propriedade. Consulte a tabela anterior para a maneira correta de especificar valores para o **tableName** propriedade JSON.
@@ -580,36 +580,36 @@ Quando copia dados de ou para o Azure SQL Data Warehouse, os seguintes mapeament
 | Tipo de dados do armazém de dados SQL do Azure | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | bigint | Int64 |
-| binário | Byte[] |
-| bit | Booleano |
-| char | Cadeia de caracteres, Char [] |
+| binary | Byte[] |
+| bit | Boolean |
+| char | String, Char[] |
 | date | DateTime |
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| decimal | decimal |
-| Atributo FILESTREAM (varbinary(max)) | Byte[] |
-| Flutuante | Valor de duplo |
+| Decimal | Decimal |
+| FILESTREAM attribute (varbinary(max)) | Byte[] |
+| Float | Double |
 | image | Byte[] |
 | int | Int32 |
-| dinheiro | decimal |
-| nchar | Cadeia de caracteres, Char [] |
-| ntext | Cadeia de caracteres, Char [] |
-| numérico | decimal |
-| nvarchar | Cadeia de caracteres, Char [] |
-| real | Único |
-| ROWVERSION | Byte[] |
+| money | Decimal |
+| nchar | String, Char[] |
+| ntext | String, Char[] |
+| numeric | Decimal |
+| nvarchar | String, Char[] |
+| real | Single |
+| rowversion | Byte[] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | decimal |
+| smallmoney | Decimal |
 | sql_variant | Object |
-| texto | Cadeia de caracteres, Char [] |
-| hora | Período de tempo |
-| carimbo de data/hora | Byte[] |
+| text | String, Char[] |
+| time | TimeSpan |
+| timestamp | Byte[] |
 | tinyint | Byte |
-| uniqueidentifier | GUID |
+| uniqueidentifier | Guid |
 | varbinary | Byte[] |
-| varchar | Cadeia de caracteres, Char [] |
+| varchar | String, Char[] |
 | xml | Xml |
 
 ## <a name="next-steps"></a>Passos Seguintes
