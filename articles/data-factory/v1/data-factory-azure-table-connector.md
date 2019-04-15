@@ -537,8 +537,8 @@ Tendo em conta o mapeamento do tipo de tipo de OData de tabela do Azure para o t
 
 | Nome da coluna | Type |
 | --- | --- |
-| ID de utilizador |Edm.Int64 |
-| nome |Edm.String |
+| userid de utilizador |Edm.Int64 |
+| name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
 Em seguida, defina o conjunto de dados de tabelas do Azure da seguinte forma. Não é necessário especificar a seção de "estrutura" com as informações de tipo, uma vez que as informações de tipo já estão especificadas no arquivo de dados subjacente.
