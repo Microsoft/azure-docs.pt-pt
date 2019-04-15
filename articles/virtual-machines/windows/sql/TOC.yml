@@ -1,7 +1,7 @@
 items:
 - name: Descrição geral
   items:
-  - name: Sobre as VMs do SQL Server do Windows
+  - name: O que é uma VM do SQL Server?
     href: virtual-machines-windows-sql-server-iaas-overview.md
   - name: Notas de versão
     href: virtual-machines-windows-sql-server-iaas-release-notes.md
@@ -69,7 +69,7 @@ items:
       items:
       - name: CLI da VM do SQL do Azure
         href: virtual-machines-windows-sql-availability-group-cli.md
-      - name: Modelo do Portal do Azure
+      - name: Modelo do portal do Azure
         href: virtual-machines-windows-portal-sql-alwayson-availability-groups.md
       - name: Modelos de Início Rápido do Azure
         href: virtual-machines-windows-sql-availability-group-quickstart-template.md
@@ -121,9 +121,9 @@ items:
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
-ms.openlocfilehash: 4e3e565bd700bb4106028e98a2a7833707561376
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 09375cbc3ca114ea45787607e36f8fd7f87d4c92
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340630"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547419"

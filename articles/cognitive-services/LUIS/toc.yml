@@ -62,11 +62,14 @@ items:
       href: luis-quickstart-intents-regex-entity.md
     - name: Obter correspondências de texto exatas com listas
       href: luis-quickstart-intent-and-list-entity.md
-    - name: Obter dados contextualmente relacionados com entidades hierárquicas
-      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Obter dados relacionados com as funções de entidade
+      displayName: roles, geographyV2, context
+      href: tutorial-entity-roles.md
     - name: Agrupar e extrair dados relacionados com entidades compostas
+      displayName: roles
       href: luis-tutorial-composite-entity.md
     - name: Obter nomes com entidades simples
+      displayName: roles
       href: luis-quickstart-primary-and-secondary-data.md
   - name: Melhorar a aplicação
     items:
@@ -77,6 +80,7 @@ items:
     - name: Adicionar formatos de expressão comuns
       href: luis-tutorial-pattern.md
     - name: Extrair padrões relacionados contextualmente
+      displayName: roles
       href: luis-tutorial-pattern-roles.md
     - name: Extrair dados sem formulário
       href: luis-tutorial-pattern-any.md
@@ -113,7 +117,7 @@ items:
     - name: Intenções
       href: luis-concept-intent.md
     - name: Entidades
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
     - name: Expressões
       href: luis-concept-utterance.md
@@ -130,6 +134,7 @@ items:
     - name: Listas de expressões
       href: luis-concept-feature.md
     - name: Padrões
+      displayName: roles
       href: luis-concept-patterns.md
   - name: Gestão de dados
     items:
@@ -138,6 +143,7 @@ items:
     - name: Conversão de dados
       href: luis-concept-data-conversion.md
     - name: Extração de dados
+      displayName: roles
       href: luis-concept-data-extraction.md
     - name: Armazenamento de Dados
       href: luis-concept-data-storage.md
@@ -171,7 +177,7 @@ items:
     - name: Adicionar entidade à expressão
       href: luis-how-to-add-example-utterances.md
     - name: Adicionar entidade sem expressão
-      displayName: import
+      displayName: roles, import
       href: luis-how-to-add-entities.md
     - name: Utilizar modelos pré-concebidos
       items:
@@ -220,7 +226,7 @@ items:
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: Adicionar Padrões
-      displayName: syntax, template
+      displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
   - name: Preparar
     href: luis-how-to-train.md
@@ -410,9 +416,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: db4e3cf9cad70556b057645dec52c9705fb29079
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1a35c8befbffae02a169e87390677c547aec833c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896113"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523689"

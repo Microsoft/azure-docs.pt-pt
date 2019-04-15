@@ -22,19 +22,16 @@ items:
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutoriais
   items:
-  - name: 1 - Utilizar a transmissão estruturada do Apache Spark
+  - name: Utilizar a transmissão em fluxo estruturada do Apache Spark
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Escrever/ler a partir do Apache Kafka com o Apache Storm
+  - name: Escrever/ler a partir do Apache Kafka com o Apache Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Utilizar a API de Produtor e Consumidor do Apache Kafka
+  - name: Utilizar a API de Produtor e Consumidor do Apache Kafka
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Desenvolver a aplicação com a API de Transmissões do Apache Kafka
+  - name: Desenvolver uma aplicação com a API Transmissões do Apache Kafka
     href: apache-kafka-streams-api.md
-  - name: Monitorizar a disponibilidade do cluster com os registos do Ambari e do Azure Monitor
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: Conceitos
   items:
   - name: Planeamento de capacidade
@@ -159,6 +156,9 @@ items:
       - name: Utilizar a API REST do Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+      - name: Monitorizar a disponibilidade do cluster com os registos do Azure Monitor
+        href: ../hdinsight-cluster-availability.md
+        maintainContext: true
       maintainContext: true
     - name: Gerir registos de um cluster do HDInsight
       href: ../hdinsight-log-management.md
@@ -271,9 +271,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1bc035c80492c283364e5216184d2e943bacc3aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668148"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565103"

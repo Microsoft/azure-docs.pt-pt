@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: 'Saiba como codificar e criar pacotes de conteúdos, transmitir vídeos em fluxo a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores. <br/> Os SDKs são baseados na <a href="https://aka.ms/ams-v3-rest-sdk">Especificação do OpenAPI dos Serviços de Multimédia v3 (Swagger)</a>.'
@@ -26,7 +26,7 @@ sections:
           - title: Aprenda conceitos
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Carregamento e armazenamento na cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Codificação</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Monitorização</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Análise de multimédia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empacotamento</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Proteção</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Transmissão em direto</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clientes de leitores</a></p>'
           - title: Desenvolver com a API v3
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Começar a desenvolver com SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desenvolver com REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Connect with Java</a> (Ligar com Java)</p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Connect with .NET</a> (Ligar com .NET)</p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Connect with Node.js</a> (Ligar com Node.js)</p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desenvolver com REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Desenvolver com SDKs</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Connect with Java</a> (Ligar com Java)</p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Connect with .NET</a> (Ligar com .NET)</p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Connect with Node.js</a> (Ligar com Node.js)</p>'
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
