@@ -34,9 +34,9 @@ Agendas têm as propriedades na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Intervalo |A frequência com que a pesquisa é executada. Medido em minutos. |
+| Interval |A frequência com que a pesquisa é executada. Medido em minutos. |
 | QueryTimeSpan |O intervalo de tempo durante o qual os critérios é avaliada. Tem de ser igual ou maior do que o intervalo. Medido em minutos. |
-| Versão |A versão de API que está a ser utilizada.  Atualmente, isso deve ser sempre definido como 1. |
+| Version |A versão de API que está a ser utilizada.  Atualmente, isso deve ser sempre definido como 1. |
 
 Por exemplo, considere uma consulta de eventos com um intervalo de 15 minutos e um intervalo de tempo de 30 minutos. Neste caso, a consulta deve ser executada a cada 15 minutos, e seria acionado um alerta se os critérios de continuação resolver para a ativação pós-falha verdadeira um intervalo de 30 minutos.
 
@@ -359,9 +359,9 @@ Notificações por e-mail enviam um e-mail para um ou mais destinatários.  Eles
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Destinatários |Lista de endereços de correio. |
-| Requerente |O assunto da mensagem. |
-| Anexo |Anexos não são atualmente suportados, para que isso sempre terá um valor de "None". |
+| Recipients |Lista de endereços de correio. |
+| Subject |O assunto da mensagem. |
+| Attachment |Anexos não são atualmente suportados, para que isso sempre terá um valor de "None". |
 
 Segue-se uma resposta de exemplo para uma ação de notificação de e-mail com um limiar.  
 
@@ -406,7 +406,7 @@ Remediações incluem as propriedades na tabela seguinte.
 |:--- |:--- |
 | RunbookName |Nome do runbook. Isto deve corresponder ao runbook publicado na conta de automatização configurado na solução de automatização na sua área de trabalho do Log Analytics. |
 | WebhookUri |URI do webhook. |
-| Validade |A data de expiração e hora do webhook.  Se o webhook não tiver uma vencimento, em seguida, isso pode ser qualquer data futura válida. |
+| Expiry |A data de expiração e hora do webhook.  Se o webhook não tiver uma vencimento, em seguida, isso pode ser qualquer data futura válida. |
 
 Segue-se uma resposta de exemplo para uma ação de remediação com um limiar.
 
