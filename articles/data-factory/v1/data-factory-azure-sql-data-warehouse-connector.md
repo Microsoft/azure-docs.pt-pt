@@ -71,7 +71,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **AzureSqlDW** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **AzureSqlDW** |Sim |
 | connectionString |Especifique as informações necessárias para ligar à instância do armazém de dados SQL do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. |Sim |
 
 > [!IMPORTANT]
@@ -276,9 +276,9 @@ A tabela seguinte fornece exemplos sobre como especificar a **tableName** propri
 
 | Esquema da BD | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] ou [dbo]. [My.Table] |
+| dbo |MyTable |MyTable ou dbo. MyTable ou [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable ou [dbo1].[MyTable] |
+| dbo |My.Table |[My.Table] ou [dbo].[My.Table] |
 | dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se vir o seguinte erro, pode ser um problema com o valor especificado para a propriedade tableName. Consulte a tabela para a maneira correta de especificar valores para a propriedade JSON tableName.
@@ -306,26 +306,26 @@ Data Factory cria a tabela no arquivo de destino com o mesmo nome de tabela no a
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| bit | bit |
+| Bit | Bit |
 | Decimal | Decimal |
-| Numérico | Decimal |
-| Flutuante | Flutuante |
-| dinheiro | dinheiro |
+| Numeric | Decimal |
+| Float | Float |
+| Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binário | Binário |
-| varbinary | Varbinary (até 8000) |
+| Binary | Binary |
+| Varbinary | Varbinary (até 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Hora | Hora |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Texto | Varchar (até 8000) |
+| Text | Varchar (até 8000) |
 | NText | NVarChar (até 4000) |
-| Imagem | VarBinary (até 8000) |
+| Image | VarBinary (até 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| char | char |
+| Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (até 8000) |
 | NVarChar | NVarChar (até 4000) |
@@ -346,36 +346,36 @@ O mapeamento é igual a [mapeamento do tipo de dados do SQL Server para o ADO.NE
 | Tipo de motor de base de dados do SQL Server | Tipo de .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |Booleano |
-| char |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Valor de duplo |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| dinheiro |decimal |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numérico |decimal |
-| nvarchar |Cadeia de caracteres, Char [] |
-| real |Único |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Objeto * |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período de tempo |
-| carimbo de data/hora |Byte[] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Cadeia de caracteres, Char [] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink na definição da atividade de cópia. Para obter detalhes, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
