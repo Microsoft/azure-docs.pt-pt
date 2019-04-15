@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 596328c66f680226031bcabe23974b2d47964e24
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: d0dbcda886b3a44917548e19b69ced1b59df9e3e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544216"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Active Directory do Azure com o Gateway de recompensa
 
@@ -207,8 +207,8 @@ Quando clica no mosaico de recompensa Gateway no painel de acesso, deve ser auto
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

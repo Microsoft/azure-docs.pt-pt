@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261042"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565549"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -255,7 +255,7 @@ Se o seu ambiente de rede Corporativo utiliza um servidor proxy para aceder à i
 
 ![Especificar o proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-O runtime de integração autoalojado utiliza o servidor proxy para ligar ao serviço cloud. Selecione **ligação de alteração** durante a configuração inicial. Verá a caixa de diálogo de definição de proxy.
+Quando configurado, o runtime de integração autoalojado utiliza o servidor de proxy para ligar ao serviço cloud, de origem / destino (aqueles através de HTTP / protocolo HTTPS). Este é o Select **ligação de alteração** durante a configuração inicial. Verá a caixa de diálogo de definição de proxy.
 
 ![Proxy de conjunto](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

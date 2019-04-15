@@ -2,18 +2,18 @@
 title: Implementar o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery
 services: site-recovery
-author: mayurigupta13
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449219"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565129"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 

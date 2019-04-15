@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491496"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564536"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -78,6 +78,12 @@ O servidor NPS tem de conseguir comunicar com os seguintes URLs através das por
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Além disso, a conectividade com os seguintes URLs é necessário para concluir o [configuração do adaptador com o script do PowerShell fornecido](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -142,6 +148,14 @@ Os utilizadores também tem de seguir estes passos para se inscrever antes de el
 1. [Transfira a extensão NPS](https://aka.ms/npsmfa) do Centro de Download da Microsoft.
 2. Copie o binário para o servidor de políticas de rede que pretende configurar.
 3. Execute *setup.exe* e siga as instruções de instalação. Se encontrar erros, verifique novamente que as duas bibliotecas da secção de pré-requisitos foram instaladas com êxito.
+
+#### <a name="upgrade-the-nps-extension"></a>Atualizar a extensão NPS
+
+Quando instala a atualização de uma extensão NPS existente, para evitar um reinício do servidor subjacente conclua os seguintes passos:
+
+1. Desinstale a versão existente
+1. Execute o programa de instalação de novo
+1. Reinicie o serviço de servidor de política de rede (IAS)
 
 ### <a name="run-the-powershell-script"></a>Executar o script do PowerShell
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-Depois de executar este comando, vá para a unidade C, localize o ficheiro e faça duplo clique no mesmo. Ir para os detalhes e desloque-se para baixo até "thumbprint", comparar a thumbprint do certificado instalado no servidor a este. Os thumbprints de certificado devem corresponder.
+Depois de executar este comando, vá para a unidade C, localize o ficheiro e clique duas vezes nele. Ir para os detalhes e desloque-se para baixo até "thumbprint", comparar a thumbprint do certificado instalado no servidor a este. Os thumbprints de certificado devem corresponder.
 
 Válido-do e válido-até que os carimbos de data /, que são em formato legível por humanos, pode ser utilizado para filtrar os misfits óbvios, se o comando devolve mais de um certificado.
 
@@ -239,7 +253,7 @@ Válido-do e válido-até que os carimbos de data /, que são em formato legíve
 
 ### <a name="why-cant-i-sign-in"></a>Por que não pode entrar nos?
 
-Verifique se a palavra-passe ainda não tiver expirado. A extensão NPS não suporta a alteração de palavras-passe como parte do fluxo de trabalho início de sessão. Entre em contato com a equipe de TI da sua organização para obter mais assistência.
+Verifique se a palavra-passe ainda não tiver expirado. A extensão NPS não suporta a alteração de palavras-passe como parte do fluxo de trabalho início de sessão. Contactem os técnicos de TI de sua organização para obter mais assistência.
 
 -------------------------------------------------------------
 
@@ -282,4 +296,4 @@ Recomenda-se que conjuntos de cifras mais antigas e mais fraco desativados ou re
 
 - Saiba como integrar [Gateway de ambiente de trabalho remoto](howto-mfa-nps-extension-rdg.md) e [servidores VPN](howto-mfa-nps-extension-vpn.md) usando a extensão NPS
 
-- [Resolver mensagens de erro da extensão NPS para multi-factor Authentication do Azure](howto-mfa-nps-extension-errors.md)
+- [Resolver mensagens de erro da extensão NPS para Multi-Factor Authentication do Azure](howto-mfa-nps-extension-errors.md)

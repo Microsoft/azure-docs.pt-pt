@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 658c501575de70cc57650931d3167b7194f4bf9d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548768"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Active Directory do Azure com o Zscaler três
 
@@ -294,9 +294,9 @@ Quando clica no mosaico Zscaler três no painel de acesso, deve ser automaticame
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

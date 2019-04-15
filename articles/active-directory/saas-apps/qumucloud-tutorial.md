@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08899ee8e30a2809bc76968be389dc4f37f70759
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b376288bc74e6282fcc8477408ae5835c049f75e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259376"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Active Directory do Azure com a nuvem Qumu
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD início de sessão único com Qumu Cloud, execute os 
 
 6. Aplicação na Cloud de Qumu espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. Além dos acima, a aplicação na Cloud de Qumu espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
@@ -136,9 +136,9 @@ Para configurar o Azure AD início de sessão único com Qumu Cloud, execute os 
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -225,7 +225,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Qumu Cloud. Qum
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente de Cloud Qumu](mailto:support@qumu.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -233,9 +233,9 @@ Quando clica no mosaico de Qumu Cloud no painel de acesso, deve ser automaticame
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

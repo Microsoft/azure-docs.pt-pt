@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f01555933ca8b3d0c48a956d3deb4b3356b4e1a2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124189"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564963"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework de consentimento do Azure Active Directory
 
@@ -46,7 +46,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 
 1. Se o utilizador já não for autenticado, o Azure do AD `/authorize` endpoint pede ao utilizador para iniciar sessão.
 
-    [Utilizador ou administrador de início de sessão para o Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![Utilizador ou administrador de início de sessão para o Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 1. Depois do utilizador tem sessão iniciada, do Azure AD irá determinar se o utilizador tem de ser apresentada uma página de consentimento. Essa determinação baseia-se o utilizador (ou o administrador da sua organização) já concedeu o consentimento da aplicação. Se já não tiver sido concedido consentimento, o Azure AD solicita o consentimento do usuário e exibe as permissões necessárias para funcionar. O conjunto de permissões que são apresentadas na caixa de diálogo de consentimento corresponder aos perfis selecionados na **permissões delegadas** no portal do Azure.
 

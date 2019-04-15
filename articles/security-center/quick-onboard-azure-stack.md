@@ -3,7 +3,7 @@ title: Centro de segurança do Azure início rápido do-carregar suas máquinas 
 description: Este guia de introdução mostra-lhe como aprovisionar a extensão de máquina virtual do Azure Monitor, atualização e gestão de configuração em máquinas de virtuais do Azure Stack.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904020"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563799"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início rápido:  Carregar suas máquinas virtuais do Azure Stack ao centro de segurança
 Depois de carregar a subscrição do Azure, pode ativar o Centro de segurança proteger as suas máquinas virtuais em execução no Azure Stack, adicionando a **Azure Monitor, atualização e gestão de configuração** extensão da máquina virtual dos O Azure marketplace de pilha.
@@ -32,7 +32,7 @@ Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição
 
 Tem de ter uma subscrição do Azure no escalão Standard do Centro de segurança antes de iniciar este guia de introdução. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode experimentar o escalão Standard do Centro de segurança sem custos durante 30 dias. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="add-an-azure-stack-virtual-machine"></a>Adicionar uma máquina virtual do Azure Stack
+## <a name="select-your-workspace-in-azure-security-center"></a>Selecione a área de trabalho no Centro de segurança do Azure
 
 1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto. 
@@ -65,8 +65,12 @@ Agora tem de adicionar o **do Azure Monitor, atualização e gestão de configur
 3. Selecione **Extensions** (Extensões). É apresentada a lista de extensões de máquina virtual instalada nesta máquina virtual.
 4. Clique nas **adicionar** separador. O **novo recurso** painel de menu é aberto e mostra a lista de extensões de máquina virtual de disponibilidade. 
 5. Selecione o **do Azure Monitor, atualização e gestão de configuração** extensão e clique em **criar**. O **instalar a extensão** abre o painel de configuração.
+
+>[!NOTE]
+> Se não vir a **do Azure Monitor, atualização e gestão de configuração** extensão listado no seu marketplace, contacte o seu operador do Azure Stack para disponibilizá-lo.
+
 6. Na **instalar a extensão** painel de configuração, colar a **ID de área de trabalho** e **chave da área de trabalho (chave primária)** que copiou no bloco de notas no procedimento anterior.
-7.  Quando tiver de concluir a fornecer as definições de configuração necessárias, clique em **OK**.
+7.  Quando tiver terminado desde que as definições de configuração necessárias, clique em **OK**.
 8. Depois de concluída a instalação da extensão, o respetivo estado será mostrado como **aprovisionamento concluído com êxito**. Poderá demorar até uma hora para a máquina virtual para que sejam apresentadas no portal do Centro de segurança.
 
 Para obter mais informações sobre como instalar e configurar o agente para Windows, consulte [computadores Windows ligar](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).

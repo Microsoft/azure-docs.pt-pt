@@ -1,6 +1,6 @@
 ---
-title: Glossário de programador do Azure Active Directory | Documentos da Microsoft
-description: Uma lista de termos para comumente usados os conceitos de programador do Azure Active Directory e todas as funcionalidades.
+title: Glossário de programador do Microsoft identity platform | Azure
+description: Uma lista de termos de conceitos de programador do Microsoft identity platform frequentemente utilizado e as funcionalidades.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2017
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650398"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565548"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
+# <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de programador do Microsoft identity platform
 
-Este artigo contém definições para algumas dos conceitos de desenvolvedor do núcleo do Azure Active Directory (AD), que são úteis durante o aprendizado sobre o desenvolvimento de aplicativos para o Azure AD.
+Este artigo contém definições para alguns dos principais conceitos de programador e terminologia, que são úteis durante o aprendizado sobre o desenvolvimento de aplicativos com a plataforma de identidade da Microsoft.
 
 ## <a name="access-token"></a>token de acesso
 
@@ -38,11 +38,11 @@ Tokens de acesso são, às vezes, referidos como "Utilizador + aplicação" ou "
 * [Concessão de autorização de "Código de autorização"](#authorization-grant), o utilizador final autentica pela primeira vez como o proprietário do recurso, a delegação de autorização para o cliente para aceder ao recurso. O cliente é autenticado posteriormente ao obter o token de acesso. O token pode às vezes, referido mais especificamente, como um token de "Utilizador + aplicação", pois ele representa o utilizador que autorizou a aplicação de cliente e o aplicativo.
 * [Concessão de autorização de "Credenciais de cliente"](#authorization-grant), o cliente fornece a autenticação do única, a funcionar sem autenticação/autorização do-proprietário do recurso, para que o token, às vezes, pode ser referido como um token "Só de aplicação".
 
-Ver [referência de Token do Azure AD] [ AAD-Tokens-Claims] para obter mais detalhes.
+Ver [plataforma de identidade do Microsoft referência de Token] [ AAD-Tokens-Claims] para obter mais detalhes.
 
-## <a name="application-id-client-id"></a>id da aplicação (id de cliente)
+## <a name="application-id-client-id"></a>ID da aplicação (ID de cliente)
 
-Os problemas de identificador exclusivo do Azure AD para um registo de aplicação que identifica uma aplicação específica e as configurações associadas. Este id de aplicação ([id de cliente](https://tools.ietf.org/html/rfc6749#page-15)) é utilizado quando executar a autenticação de pedidos e é fornecido para as bibliotecas de autenticação no tempo de desenvolvimento. O id da aplicação (id de cliente) não é um segredo.
+Os problemas de identificador exclusivo do Azure AD para um registo de aplicação que identifica uma aplicação específica e as configurações associadas. Este ID de aplicação ([ID de cliente](https://tools.ietf.org/html/rfc6749#page-15)) é utilizado quando executar a autenticação de pedidos e é fornecido para as bibliotecas de autenticação no tempo de desenvolvimento. O ID da aplicação (ID de cliente) não é um segredo.
 
 ## <a name="application-manifest"></a>manifesto da aplicação
 
@@ -59,7 +59,7 @@ Para obter mais informações, consulte [objetos de Principal de serviço de apl
 Para permitir que um aplicativo integrar com e delegar funções de gestão de acesso e identidade para o Azure AD, tem de ser registado com um Azure AD [inquilino](#tenant). Quando registar a sua aplicação com o Azure AD, está a fornecer uma configuração de identidade para a sua aplicação, permitindo-lhe integrar com o Azure AD e usar recursos como:
 
 * Gestão robusta de início de sessão único com o Azure AD Identity Management e [OpenID Connect] [ OpenIDConnect] implementação de protocolo
-* Mediadas acesso ao [recursos protegidos](#resource-server) por [aplicativos cliente](#client-application), através OAuth 2.0 do Azure AD [servidor de autorização](#authorization-server) implementação
+* Mediadas acesso ao [recursos protegidos](#resource-server) por [aplicativos cliente](#client-application), através do OAuth 2.0 [servidor de autorização](#authorization-server)
 * [Estrutura do consentimento](#consent) para gerir o acesso de cliente para recursos protegidos, com base na autorização de proprietário do recurso.
 
 Ver [integrar aplicações com o Azure Active Directory] [ AAD-Integrating-Apps] para obter mais detalhes.
@@ -93,13 +93,13 @@ Uma credencial que representa a [do proprietário do recurso](#resource-owner) [
 
 Conforme definido pela [Framework de autorização de OAuth2][OAuth2-Role-Def], o servidor responsável pela emissão acesso tokens para o [cliente](#client-application) após a autenticação bem-sucedida a [proprietário do recurso](#resource-owner) e obter a respetiva autorização. Uma [aplicação de cliente](#client-application) interage com o servidor de autorização em tempo de execução por meio de seu [autorização](#authorization-endpoint) e [token](#token-endpoint) pontos finais, de acordo com o OAuth2 definido [concessões de autorização](#authorization-grant).
 
-No caso de integração de aplicações do Azure AD, do Azure AD implementa a função de servidor de autorização para aplicações do Azure AD e o serviço Microsoft APIs, por exemplo [APIs do Microsoft Graph][Microsoft-Graph].
+No caso de integração de aplicações do Microsoft identity platform, plataforma de identidade da Microsoft implementa a função de servidor de autorização para aplicações do Azure AD e o serviço Microsoft APIs, por exemplo [Microsoft Graph APIs] [Microsoft-Graph].
 
 ## <a name="claim"></a>afirmação
 
 Uma [token de segurança](#security-token) contém afirmações, que fornecem asserções cerca de uma entidade (como um [aplicação de cliente](#client-application) ou [proprietário do recurso](#resource-owner)) a outra entidade (como o [servidor do recurso](#resource-server)). As declarações são pares nome/valor que fatos sobre o assunto do token de reencaminhamento (por exemplo, a entidade de segurança que foi autenticada pela [servidor de autorização](#authorization-server)). As ações presentes num determinado token dependem de várias variáveis, incluindo o tipo de token, o tipo de credencial utilizada para autenticar o assunto, a configuração da aplicação, etc.
 
-Ver [referência de token do Azure AD] [ AAD-Tokens-Claims] para obter mais detalhes.
+Ver [referência de token de plataforma do Microsoft identity] [ AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="client-application"></a>Aplicação de cliente
 
@@ -117,7 +117,7 @@ Ver [consentimento framework](consent-framework.md) para obter mais informaçõe
 
 Uma [OpenID Connect] [ OpenIDConnect-ID-Token] [token de segurança](#security-token) fornecida por um [do servidor de autorização](#authorization-server) [dopontofinaldeautorização](#authorization-endpoint), que contém [afirmações](#claim) relativas para a autenticação de um utilizador final [proprietário do recurso](#resource-owner). Como um token de acesso, os tokens de ID também são representados como uma assinado digitalmente [JSON Web Token (JWT)][JWT]. Ao contrário de um token de acesso no entanto, afirmações um token de ID não é utilizado para fins relacionados com o acesso a recursos e controlo de acesso especificamente.
 
-Ver [referência de token do Azure AD] [ AAD-Tokens-Claims] para obter mais detalhes.
+Ver [referência de token de plataforma do Microsoft identity] [ AAD-Tokens-Claims] para obter mais detalhes.
 
 ## <a name="microsoft-identity-platform"></a>Plataforma de identidade da Microsoft
 
@@ -220,14 +220,14 @@ Um tipo de [aplicação de cliente](#client-application) que executa o código t
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os tópicos do Azure AD relacionados ao desenvolvimento, incluindo uma descrição geral das [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de códigos e tutoriais sobre como obter a trabalhar rapidamente diante [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do programador do Microsoft identity platform] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os Microsoft plataforma relacionados ao desenvolvimento tópicos de identidade, incluindo uma descrição geral de [aplicação integração] [ AAD-How-To-Integrate] e as noções básicas de [autenticação de plataforma de identidade do Microsoft e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de códigos e tutoriais sobre como obter a trabalhar rapidamente diante [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Utilize a seguinte secção de comentários para fornecer comentários e ajudar a refinar e moldar este conteúdo, incluindo pedidos de existência de novas definições ou atualizar os existentes!
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

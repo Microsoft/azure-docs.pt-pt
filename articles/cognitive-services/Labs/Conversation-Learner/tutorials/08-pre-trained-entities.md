@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163791"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565415"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Como adicionar entidades de Pre-trained
 Este tutorial mostra como adicionar entidades de Pre-Trained ao seu modelo de aprendiz de conversação.
@@ -62,7 +62,7 @@ Comece na home page na IU da Web.
 
 1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
 2. Introduza **o que é a data?** para **de resposta do Bot...** . Não podem ser entidades com formação prévia **necessárias entidades** conforme eles são reconhecidos por predefinição para todas as expressões.
-3. Introduza **builtin datetimev2** para **Disqualifying dá direito**.
+3. Introduza **builtin datetimev2** para **Disqualifying entidades**.
 4. Selecione **Criar**.
 
 ![](../media/T08_action_create_2.png)

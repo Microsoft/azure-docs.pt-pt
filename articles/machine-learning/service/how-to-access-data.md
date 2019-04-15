@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85910e2f422ea45b2468f20b4ff9425f64ca3cbe
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793419"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563539"
 ---
 # <a name="access-data-from-your-datastores"></a>Aceder a dados a partir de seus arquivos de dados
 
@@ -78,7 +78,7 @@ Os exemplos seguintes mostram-lhe para registar um contentor de Blobs do Azure o
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
-                                           container_name='your file share name',
+                                           file_share_name='your file share name',
                                            account_name='your storage account name', 
                                            account_key='your storage account key',
                                            create_if_not_exists=True)

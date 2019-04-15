@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 269a66441529efee358cea22bb4f98b81a4b2f23
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586329"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565066"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>o Azure Cosmos DB: Criar uma aplicação Python utilizando a conta do Azure Cosmos DB SQL API
 
@@ -26,15 +26,15 @@ ms.locfileid: "56586329"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Rapidamente, pode criar e consultar documentos, chaves/valores e bases de dados do gráfico. Todas essas operações a beneficiar da distribuição e dimensionamento do Azure Cosmos DB.
 
-Este guia de início rápido demonstra como criar uma conta [API SQL](sql-api-introduction.md) do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o SDK de Python para a [API SQL](sql-api-sdk-python.md). Este guia de início rápido utiliza a versão 3.0 do [Python SDK].(https://pypi.org/project/azure-cosmos)
+Este início rápido demonstra como criar uma conta [API SQL](sql-api-introduction.md) do Azure Cosmos DB, bases de dados de documentos e contentores com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o SDK de Python para a [API SQL](sql-api-sdk-python.md). Este guia de início rápido utiliza a versão 3.0 do [Python SDK].(https://pypi.org/project/azure-cosmos)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 3.6](https://www.python.org/downloads/) com \<localização de instalação\>\Python36 e \<localização de instalação>\Python36\Scripts adicionados ao CAMINHO. 
+* [Python 3.6](https://www.python.org/downloads/), com o `python` executável disponível no seu `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Extensão do Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -98,7 +98,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
+Este passo é opcional. Saiba mais sobre os recursos de base de dados criados no código ou avançar diretamente para [atualizar a cadeia de ligação](#update-your-connection-string).
 
 Tenha em conta que, se estiver familiarizado com a versão anterior do SDK de Python, poderá estar habituado a ver os termos "coleção" e "documento". Uma vez que o Azure Cosmos DB suporta múltiplos modelos de API, a versão 3.0+ do SDK de Python utiliza os termos genéricos "contentor", que pode ser uma coleção, um grafo ou uma tabela, e "item" para descrever os conteúdos do contentor.
 

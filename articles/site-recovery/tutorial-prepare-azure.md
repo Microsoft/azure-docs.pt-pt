@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 412dfd690ea4ab33f249af78d4ef94c5ae5ccad2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358483"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565840"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
 
@@ -70,10 +70,10 @@ Para concluir estas tarefas, a conta deve estar atribuída à função incorpora
 As máquinas são replicadas para o Azure no local discos geridos. Quando ocorre a ativação pós-falha, as VMs do Azure são criadas a partir destes discos geridos e associadas à rede do Azure que especificar neste procedimento.
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Redes** > **Rede virtual**.
-2. Deixe o **Resource Manager** selecionado como o modelo de implementação.
+2. Manter **Resource Manager** selecionado como o modelo de implementação.
 3. Em **Nome**, introduza um nome de rede. O nome tem de ser exclusivo dentro do grupo de recursos do Azure. Estamos a utilizar **ContosoASRnet** neste tutorial.
 4. Especifique o grupo de recursos no qual será criada a rede. Estamos a utilizar o grupo de recursos **contosoRG** existente.
-5. Na **intervalo de endereços**, introduza o intervalo para a rede. Estamos a utilizar **10.0.0.0/24**e não a utilizar uma sub-rede.
+5. Na **intervalo de endereços**, introduza o intervalo para a rede. Estamos a utilizar **10.1.0.0/24**e não a utilizar uma sub-rede.
 6. Em **Subscrição**, selecione a subscrição na qual vai criar a rede.
 7. Na **localização**, selecione a mesma região que em que o Cofre dos serviços de recuperação foi criado. No nosso tutorial tem **Europa Ocidental**. A rede tem de estar na mesma região que o cofre.
 8. Estamos a deixar as opções predefinidas da proteção DDoS básica, sem nenhum ponto final de serviço na rede.

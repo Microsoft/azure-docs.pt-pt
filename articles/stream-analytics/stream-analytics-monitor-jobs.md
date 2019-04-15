@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: be86287f8341b6b86064e51f8a26a8c7f97e867e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eaeb2b4decc7da4caa75cb2af68829b4bf7ce64d
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100807"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563851"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programaticamente um monitor de tarefa do Stream Analytics
 
@@ -22,7 +22,7 @@ Este artigo demonstra como ativar a monitorização de uma tarefa do Stream Anal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este processo, tem de ter o seguinte:
+Antes de começar este processo, tem de ter os seguintes pré-requisitos:
 
 * Visual Studio 2017 ou 2015
 * [Azure SDK de .NET](https://azure.microsoft.com/downloads/) baixado e instalado
@@ -75,50 +75,47 @@ Antes de começar este processo, tem de ter o seguinte:
    ```
 5. Adicione um método de programa auxiliar de autenticação.
 
-```csharp   
-     public static string GetAuthorizationHeader()
-   
+   ```csharp   
+   public static string GetAuthorizationHeader()
+   {
+      AuthenticationResult result = null;
+      var thread = new Thread(() =>
+      {
+         try
          {
-             AuthenticationResult result = null;
-             var thread = new Thread(() =>
-             {
-                 try
-                 {
-                     var context = new AuthenticationContext(
-                         ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                         ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+             var context = new AuthenticationContext(
+                ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+             result = context.AcquireToken(
+                 resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                 clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                 redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                 promptBehavior: PromptBehavior.Always);
+         }
+         catch (Exception threadEx)
+         {
+             Console.WriteLine(threadEx.Message);
+         }
+     });
+
+     thread.SetApartmentState(ApartmentState.STA);
+     thread.Name = "AcquireTokenThread";
+     thread.Start();
+     thread.Join();
    
-                     result = context.AcquireToken(
-                         resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                         clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                         redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                         promptBehavior: PromptBehavior.Always);
-                 }
-                 catch (Exception threadEx)
-                 {
-                     Console.WriteLine(threadEx.Message);
-                 }
-             });
-   
-             thread.SetApartmentState(ApartmentState.STA);
-             thread.Name = "AcquireTokenThread";
-             thread.Start();
-             thread.Join();
-   
-             if (result != null)
-             {
-                 return result.AccessToken;
-             }
-   
-             throw new InvalidOperationException("Failed to acquire token");
+     if (result != null)
+     {
+         return result.AccessToken;
      }
-```
+         throw new InvalidOperationException("Failed to acquire token");
+   }
+   ```
 
 ## <a name="create-management-clients"></a>Criar clientes de gestão
 
 O código a seguir configurar os clientes de gestão e as variáveis necessárias.
 
-```csharp
+   ```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -136,11 +133,11 @@ O código a seguir configurar os clientes de gestão e as variáveis necessária
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
-```
+   ```
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Ative a monitorização para uma tarefa do Stream Analytics existente
 
-O código a seguir ativa a monitorização para um **existente** tarefa do Stream Analytics. A primeira parte do código realiza um pedido GET para o serviço do Stream Analytics para obter informações sobre a tarefa de Stream Analytics específica. Ele usa o *Id* propriedade (obtida a partir do pedido de obtenção) como um parâmetro para o método Put na segunda metade do código, que envia um PUT do pedido para o serviço de informações para ativar a monitorização para a tarefa do Stream Analytics.
+O código a seguir ativa a monitorização para um **existente** tarefa do Stream Analytics. A primeira parte do código realiza um pedido GET para o serviço do Stream Analytics para obter informações sobre a tarefa de Stream Analytics específica. Ele usa o *ID* propriedade (obtida a partir do pedido de obtenção) como um parâmetro para o método Put na segunda metade do código, que envia um PUT do pedido para o serviço de informações para ativar a monitorização para a tarefa do Stream Analytics.
 
 > [!WARNING]
 > Se ativou anteriormente para uma tarefa de Stream Analytics diferente, através do portal do Azure ou através de programação através de monitorização a abaixo o código, **, recomendamos que forneça o mesmo nome de conta de armazenamento que utilizou quando anteriormente Ativar a monitorização.**
@@ -152,35 +149,34 @@ O código a seguir ativa a monitorização para um **existente** tarefa do Strea
 > O nome da conta de armazenamento que utilizar para substituir `<YOUR STORAGE ACCOUNT NAME>` no código a seguir deve ser uma conta de armazenamento que está na mesma subscrição que a tarefa de Stream Analytics que pretende ativar a monitorização para.
 > 
 > 
-> ```csharp
->     // Get an existing Stream Analytics job
+>    ```csharp
+>    // Get an existing Stream Analytics job
 >     JobGetParameters jobGetParameters = new JobGetParameters()
 >     {
 >         PropertiesToExpand = "inputs,transformation,outputs"
 >     };
 >     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+>
+>    // Enable monitoring
+>    ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
+>    {
+>            Properties = new ServiceDiagnosticSettings()
+>           {
+>               StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
+>           }
+>    };
+>   insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
+>   ```
 
-    // Enable monitoring
-    ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
-    {
-            Properties = new ServiceDiagnosticSettings()
-            {
-                StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
-            }
-    };
-    insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-```
 
+## <a name="get-support"></a>Obter suporte
 
-## Get support
+Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="next-steps"></a>Passos Seguintes
 
-## Next steps
-
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
+* [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

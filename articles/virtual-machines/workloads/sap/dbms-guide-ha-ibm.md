@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502132"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565806"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -538,7 +538,7 @@ O estado original num sistema SAP está documentado na transação DBACOCKPIT-->
 
 
 > [!IMPORTANT] 
-> Antes de começar o teste, certifique-se de que Pacemaker não tem quaisquer ações falhadas (status de crm) e não há nenhuma restrição de localização (sobras do teste de migração) e a sincronização do IBM Db2 HADR está a funcionar. Verifique junto com o utilizador db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Antes de começar o teste, certifique-se de que Pacemaker não tem quaisquer ações falhadas (status de crm) e não há nenhuma restrição de localização (sobras do teste de migração) e a sincronização do IBM Db2 HADR está a funcionar. Contacte o utilizador db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre o nó a executar a base de dados de Db2 primário executando o seguinte comando:

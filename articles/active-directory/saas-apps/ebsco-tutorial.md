@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 5f5f83aa7885db4bb0d2f33f45fdf6a057b7673b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2753daf225016d3bd8e07383193a1260b40a36d5
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547901"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Active Directory do Azure com EBSCO
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD início de sessão único com EBSCO, execute os segui
 
     s **perfil** = clientes podem personalizar a ligação para direcionar os utilizadores a um perfil específico (consoante o que eles comprar de EBSCO). Eles podem digitar um ID de perfil específico. Os IDs principais são eds (serviço de deteção de EBSCO) e ehost (EBSOCOhost bases de dados). Instruções para a mesma recebem [aqui](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-6. Aplicativo EBSCO espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+6. Aplicação de EBSCO espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
@@ -253,9 +253,9 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 
 ## <a name="additional-sesources"></a>Sesources adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

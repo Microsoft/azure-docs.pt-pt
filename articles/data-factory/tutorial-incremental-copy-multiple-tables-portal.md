@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257438"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566010"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -491,11 +491,12 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 1. Mude para o separador **Sink** e selecione **SinkDataset** em **Conjunto de Dados de Sink**. 
         
     ![Atividade Copy - definições do sink](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Mude para o separador **Parâmetros** e siga os passos seguintes:
+1. Siga os passos abaixo:
 
-    1. Na propriedade **Nome do Procedimento de Sink Armazenado**, introduza `@{item().StoredProcedureNameForMergeOperation}`.
-    1. Na propriedade **Tipo de Tabela do Sink**, introduza `@{item().TableType}`.
-    1. Na secção **Conjunto de Dados de Sink**, no parâmetro **SinkTableName**, introduza `@{item().TABLE_NAME}`.
+    1. Na **conjunto de dados** propriedade, para **SinkTableName** parâmetro, introduza `@{item().TABLE_NAME}`.
+    1. Para **nome do procedimento armazenado** propriedade, introduza `@{item().StoredProcedureNameForMergeOperation}`.
+    1. Para **tipo de tabela** propriedade, introduza `@{item().TableType}`.
+
 
         ![Atividade Copiar - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. Ligue a atividade **Copiar** à atividade **Procedimento Armazenado**. 
@@ -743,6 +744,6 @@ Neste tutorial, executou os passos seguintes:
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 
 > [!div class="nextstepaction"]
->[Incrementalmente carregar dados do SQL Database do Azure para o armazenamento de Blobs do Azure, utilizando a tecnologia de controlo de alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Carregar dados de forma incremental da Base de Dados SQL do Azure para o armazenamento de Blobs do Azure com a tecnologia de Controlo de Alterações](tutorial-incremental-copy-change-tracking-feature-portal.md)
 
 

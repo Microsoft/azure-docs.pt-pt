@@ -1,6 +1,6 @@
 ---
-title: Referência de token de ID do Active Directory do Azure | Documentos da Microsoft
-description: Saiba como utilizar id_tokens emitida pelos pontos finais v1.0 e v2.0 do Azure AD.
+title: Referência de ID de plataforma identidade do Microsoft token | Documentos da Microsoft
+description: Saiba como utilizar id_tokens emitidos pela versão 1.0 do Azure AD e pontos de extremidade do Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,26 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad1b686152101cbeaddc29974a2a1c5f13a7712
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500551"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563834"
 ---
-# <a name="id-tokens"></a>Tokens de ID
+# <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID de plataforma de identidade do Microsoft
 
 `id_tokens` são enviados para a aplicação de cliente como parte de um [OpenID Connect](v1-protocols-openid-connect-code.md) fluxo. Eles podem ser enviados no lado ou em vez de um token de acesso e são utilizados pelo cliente para autenticar o utilizador.
 
 ## <a name="using-the-idtoken"></a>Usando o id_token
 
-Tokens de ID deve ser usado para validar que um usuário é quem eles alegam ser e obter informações adicionais úteis sobre os mesmos – não deve ser utilizado para autorização em vez de um [token de acesso](access-tokens.md). As declarações fornece podem ser utilizadas para a experiência do Usuário dentro do seu aplicativo, uma base de dados de keying e o fornecimento de acesso à aplicação cliente.
+Tokens de ID deve ser usado para validar que um usuário é quem eles alegam ser e obter informações adicionais úteis sobre os mesmos – ele não deve ser usado para autorização em vez de um [token de acesso](access-tokens.md). As declarações fornece podem ser utilizadas para a experiência do Usuário dentro do seu aplicativo, uma base de dados de keying e o fornecimento de acesso à aplicação cliente.
 
 ## <a name="claims-in-an-idtoken"></a>Afirmações num id_token
 
@@ -64,7 +64,7 @@ Ver este token de v2.0 de exemplo na [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiO
 
 ### <a name="payload-claims"></a>Afirmações de payload
 
-Esta lista mostra as afirmações que são, na maioria dos id_tokens por predefinição (exceto onde indicado).  No entanto, a sua aplicação pode utilizar [afirmações opcionais](active-directory-optional-claims.md) para pedir afirmações adicionais no id_token.  Isso pode variar do `groups` de afirmação para obter informações sobre o nome de utilizadores.
+Esta lista mostra as afirmações que são, na maioria dos id_tokens por predefinição (exceto onde indicado).  No entanto, a sua aplicação pode utilizar [afirmações opcionais](active-directory-optional-claims.md) para pedir afirmações adicionais no id_token.  Isso pode variar do `groups` de afirmação para obter informações sobre o nome do utilizador.
 
 |Afirmação | Formato | Descrição |
 |-----|--------|-------------|
@@ -73,18 +73,18 @@ Esta lista mostra as afirmações que são, na maioria dos id_tokens por predefi
 |`iat` |  int, um carimbo de UNIX | "Emitidos em" indica quando ocorreu a autenticação para este token.  |
 |`idp`|Cadeia de caracteres, normalmente, um URI de STS | Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor de afirmação do emissor, a menos que a conta de utilizador não está no mesmo inquilino, como o emissor - os convidados, por exemplo. Se a declaração não estiver presente, significa que o valor de `iss` pode ser utilizado em vez disso.  Para contas pessoais que está a ser utilizadas num contexto organizacional (por exemplo, uma conta pessoal convidado para um inquilino do Azure AD), o `idp` afirmação pode ser 'live.com' ou um URI de STS, que contém o inquilino da conta Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, um carimbo de UNIX | A afirmação "nbf" (não antes) identifica o tempo antes do qual o JWT não deve ser aceite para processamento.|
-|`exp` |  int, um carimbo de UNIX | A afirmação "exp" (hora de expiração) identifica a hora de expiração em ou depois que o JWT não deve ser aceite para processamento.  É importante observar que um recurso pode rejeitar o token antes desta data também - se por exemplo, é necessária uma alteração na autenticação ou foi detetado um token revogado. |
+|`exp` |  int, um carimbo de UNIX | A afirmação "exp" (hora de expiração) identifica a hora de expiração em ou depois que o JWT não deve ser aceite para processamento.  É importante observar que um recurso pode rejeitar o token antes desta data também - se, por exemplo, é necessária uma alteração na autenticação ou foi detetado um token revogado. |
 | `c_hash`| String |O hash de código está incluído nos tokens de ID apenas quando o token de ID é emitido com um código de autorização de OAuth 2.0. Ele pode ser usado para validar a autenticidade de um código de autorização. Para obter detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`at_hash`| String |O hash de token está incluído no ID de acesso tokens apenas quando o token de ID é emitido com um token de acesso de OAuth 2.0. Ele pode ser usado para validar a autenticidade de um token de acesso. Para obter detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure AD para registar dados para reutilização de token. Devem ser ignorados.|
 |`preferred_username` | String | O nome de utilizador principal que represente o usuário. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérica sem um formato especificado. Seu valor é mutável e podem ser alterados ao longo do tempo. Uma vez que é mutável, este valor não pode ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta afirmação.|
 |`email` | String | O `email` declaração estiver presente, por predefinição, para contas de convidado que têm um endereço de e-mail.  A aplicação pode pedir a afirmação de e-mail para utilizadores geridos (os partir do mesmo inquilino, como o recurso) utilizando o `email` [afirmação opcional](active-directory-optional-claims.md).  No ponto final v2.0, a sua aplicação também pode solicitar o `email` âmbito OpenID Connect - não precisa de pedir a afirmação opcional e o âmbito para obter a afirmação.  A afirmação de e-mail só suporta endereçável correio a partir das informações de perfil do usuário. |
-|`name` | String | O `name` afirmação fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido para que seja exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
+|`name` | String | O `name` afirmação fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido de ser exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
 |`nonce`| String | O valor de uso único corresponde ao parâmetro incluído no original / autorizar a solicitação para o IDP. Se não houver, seu aplicativo deve rejeitar o token. |
-|`oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto no Microsoft identity system, neste caso, uma conta de utilizador. Este ID identifica exclusivamente o utilizador em todas as aplicações – dois aplicativos diferentes, iniciar sessão no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. O Microsoft Graph irá devolver este ID como o `id` propriedade para uma determinada conta de utilizador. Uma vez que o `oid` permite que várias aplicações correlacionar os utilizadores, o `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador em vários inquilinos, o utilizador irá conter um ID de objeto diferentes em cada inquilino - que são consideradas diferentes contas, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
-|`roles`| matriz de cadeias de caracteres | O conjunto de funções que foram atribuídos ao utilizador que está a iniciar sessão. |
+|`oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto no Microsoft identity system, neste caso, uma conta de utilizador. Este ID identifica exclusivamente o utilizador em todas as aplicações – dois aplicativos diferentes, iniciar sessão no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. O Microsoft Graph irá devolver este ID como o `id` propriedade para uma determinada conta de utilizador. Uma vez que o `oid` permite que várias aplicações correlacionar os utilizadores, o `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador em vários inquilinos, o utilizador irá conter um ID de objeto diferentes em cada inquilino - que sejam considerados diferentes contas, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
+|`roles`| matriz de cadeias de caracteres | O conjunto de funções que foram atribuídas ao utilizador que está a iniciar sessão. |
 |`rh` | Cadeia opaca |Uma afirmação interna utilizada pelo Azure para revalide tokens. Devem ser ignorados. |
-|`sub` | Cadeia de caracteres, um GUID | O principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O assunto é um identificador de pairwise - é exclusivo para um ID de aplicação em particular. Por conseguinte, se um único utilizador se inscreve para duas aplicações diferentes com dois IDs de cliente diferentes, essas aplicações irão receber dois valores diferentes para a afirmação do requerente. Isto pode ou não pode ser desejável dependendo dos requisitos de arquitetura e a privacidade. |
+|`sub` | Cadeia de caracteres, um GUID | O principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. O assunto é um identificador de pairwise - é exclusivo para um ID de aplicação em particular. Se um único utilizador se inscreve para duas aplicações diferentes com dois IDs de cliente diferentes, estas aplicações receberão dois valores diferentes para a afirmação do requerente. Isto pode ou não pode ser queria dependendo dos requisitos de arquitetura e a privacidade. |
 |`tid` | Cadeia de caracteres, um GUID | Um GUID que representa o que o utilizador é de inquilino do Azure AD. Para contas profissionais e escolares, o GUID é o ID de inquilino imutável da organização que o utilizador pertence. Contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` âmbito é necessário para receber esta afirmação. |
 |`unique_name` | String | Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e deve ser utilizado apenas para fins de exibição. Apenas são emitidas em v1.0 `id_tokens`. |
 |`uti` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure para revalide tokens. Devem ser ignorados. |
@@ -92,7 +92,7 @@ Esta lista mostra as afirmações que são, na maioria dos id_tokens por predefi
 
 ## <a name="validating-an-idtoken"></a>A validar um id_token
 
-A validar um `id_token` é muito parecido com a primeira etapa da [validar um token de acesso](access-tokens.md#validating-tokens) - o cliente deve validar que o emissor correto foi enviada de volta o token e não foi adulterada. Uma vez que `id_tokens` são sempre um JWT, muitas bibliotecas existem para validar esses tokens –, recomendamos que utilize um destes em vez de fazê-lo por conta própria.
+A validar um `id_token` é semelhante para o primeiro passo do [validar um token de acesso](access-tokens.md#validating-tokens) - o cliente deve validar que o emissor correto foi enviada de volta o token e não foi adulterada. Uma vez que `id_tokens` são sempre um JWT, muitas bibliotecas existem para validar esses tokens –, recomendamos que utilize um destes em vez de fazê-lo por conta própria.
 
 Para validar manualmente o token, consulte os detalhes de passos no [validar um token de acesso](access-tokens.md#validating-tokens). Após validar a assinatura no token, as seguintes declarações devem ser validadas na id_token (eles podem também ser feitos por sua biblioteca de validação do token):
 
@@ -102,5 +102,5 @@ Para validar manualmente o token, consulte os detalhes de passos no [validar um 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [tokens de acesso do Azure AD](access-tokens.md)
+* Saiba mais sobre [tokens de acesso](access-tokens.md)
 * Personalizar afirmações no seu utilizando id_token [afirmações opcionais](active-directory-optional-claims.md).

@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361309"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565687"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurar para ligar a VMs do Azure após a ativação pós-falha de endereçamento IP
 
@@ -62,7 +62,7 @@ O Woodgrove precisasse ser capaz de replicar respetivas VMs para o Azure, manten
 
 1. Crie rede virtual do Azure na qual as VMs do Azure serão criadas após a ativação pós-falha de máquinas no local. Deve ser uma extensão da rede no local, para que os aplicativos podem efetuar a ativação pós-falha totalmente integrada.
 2. Antes da ativação pós-falha, no Site Recovery, que atribuir o mesmo endereço IP nas propriedades da máquina. Após a ativação pós-falha, o Site Recovery atribui este endereço à VM do Azure.
-3. Depois de ativação pós-falha é executado e as VMs do Azure são criadas com o mesmo endereço IP, se ligam à rede, com um [ligação Vnet a Vnet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Esta ação pode ser colocado em script.
+3. Depois de ativação pós-falha é executado e as VMs do Azure são criadas com o mesmo endereço IP, se ligam à rede, com um [ligação Vnet a Vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Esta ação pode ser colocado em script.
 4. É necessário modificar as rotas, para refletir que essa 192.168.1.0/24 agora foi movido para o Azure.
 
 

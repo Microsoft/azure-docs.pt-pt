@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed1c201831b1edf4f5c267d2093ada4ba91d7df
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263320"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Active Directory do Azure com Velpic SAML
 
@@ -225,7 +225,7 @@ Inicie sessão no site da sua empresa Velpic SAML como administrador e execute o
 
 2. Sobre o **"Criar o novo usuário"** caixa de diálogo página, execute os seguintes passos.
 
-    ![utilizador](./media/velpicsaml-tutorial/velpic_8.png)
+    ![Utilizador](./media/velpicsaml-tutorial/velpic_8.png)
     
     a. Na **nome próprio** caixa de texto, nome do tipo o primeiro da Eduarda.
 
@@ -239,7 +239,7 @@ Inicie sessão no site da sua empresa Velpic SAML como administrador e execute o
     
     f. Clique em **GUARDAR**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -251,9 +251,9 @@ Nesta secção, vai testar a configuração do Azure AD única início de sessã
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 04/11/2019
 ms.author: celested
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dd3bd1f3f9f175ba7bf841b1fce45bb7938c02b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4daab0255e739e011dca3ae0a016e3a15c7213b0
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209511"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565789"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory
 Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.
@@ -31,33 +31,28 @@ Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter a
 
 ## <a name="assign-a-user-to-an-app---portal"></a>Atribuir um utilizador a uma aplicação - portal
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
-3. Selecione **aplicações empresariais**.
-
-    ![Aplicações empresariais de abertura](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
-4. Sobre o **aplicações empresariais** painel, selecione **todos os aplicativos**. Isto apresenta uma lista de aplicações que pode gerir.
-5. Sobre o **aplicações empresariais - todas as aplicações** painel, selecione uma aplicação.
-6. Sobre o ***appname*** painel (ou seja, o painel com o nome da aplicação selecionada no título), selecione **utilizadores e grupos**.
-
-    ![Selecionar o todos os comandos de aplicativos](./media/assign-user-or-group-access-portal/select-app-users.png)
-7. Sobre o ***appname*** **-atribuição de grupos de & utilizador** painel, selecione o **adicionar** comando.
-8. Sobre o **adicionar atribuição** painel, selecione **utilizadores e grupos**.
+1. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
+1. Selecione **aplicações empresariais**.
+1. Sobre o **aplicações empresariais - todas as aplicações** painel, verá uma lista de aplicações pode gerir. Selecione uma aplicação.
+1. Sobre o ***appname*** painel (ou seja, o painel com o nome da aplicação selecionada no título), selecione **utilizadores e grupos**.
+1. Sobre o ***appname*** **-utilizador e grupos** painel, selecione **adicionar utilizador**.
+1. Sobre o **adicionar atribuição** painel, selecione **utilizadores e grupos**.
 
     ![Atribuir um utilizador ou grupo à aplicação](./media/assign-user-or-group-access-portal/assign-users.png)
-9. Sobre o **utilizadores e grupos** painel, selecione um ou mais utilizadores ou grupos a partir da lista e, em seguida, selecione a **selecione** na parte inferior do painel.
-10. Sobre o **adicionar atribuição** painel, selecione **função**. Em seguida, no **selecionar função** painel, selecione uma função para aplicar a utilizadores ou grupos selecionados e, em seguida, selecione a **OK** na parte inferior do painel.
-11. Sobre o **adicionar atribuição** painel, selecione a **atribuir** na parte inferior do painel. Os utilizadores atribuídos ou grupos têm as permissões definidas pela função selecionada para esta aplicação empresarial.
+1. Na **utilizadores e grupos** painel, selecione um ou mais utilizadores ou grupos da lista e, em seguida, escolha a **selecione** na parte inferior do painel.
+1. Sobre o **adicionar atribuição** painel, selecione **função**. Em seguida, no **selecionar função** painel, selecione uma função para aplicar a utilizadores ou grupos selecionados, em seguida, selecione **OK** na parte inferior do painel.
+1. Sobre o **adicionar atribuição** painel, selecione a **atribuir** na parte inferior do painel. Os utilizadores atribuídos ou grupos têm as permissões definidas pela função selecionada para esta aplicação empresarial.
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir que todos os utilizadores acedam uma aplicação - portal
 Para permitir que todos os utilizadores acedam uma aplicação:
 
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
-3. Selecione **aplicações empresariais**.
-4. Sobre o **aplicações empresariais** painel, selecione **todos os aplicativos**. Isto apresenta uma lista de aplicações que pode gerir.
-5. Sobre o **aplicações empresariais - todas as aplicações** painel, selecione uma aplicação.
-6. Sobre o ***appname*** painel, selecione **propriedades**.
-7. Sobre o  ***appname* -propriedades** painel, defina o **atribuição utiliz. necessária?** na definição de **não**. 
+1. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
+1. Selecione **aplicações empresariais**.
+1. Sobre o **aplicações empresariais** painel, selecione **todos os aplicativos**. Isto apresenta uma lista de aplicações que pode gerir.
+1. Sobre o **aplicações empresariais - todas as aplicações** painel, selecione uma aplicação.
+1. Sobre o ***appname*** painel, selecione **propriedades**.
+1. Sobre o  ***appname* -propriedades** painel, defina o **atribuição utiliz. necessária?** na definição de **não**. 
 
 O **atribuição utiliz. necessária?** opção:
 
@@ -73,8 +68,8 @@ O **atribuição utiliz. necessária?** opção:
     >[!NOTE] 
     > Tem de instalar o módulo AzureAD (utilize o comando `Install-Module -Name AzureAD`). Se lhe for pedido para instalar um módulo de NuGet ou o novo módulo do Azure Active Directory V2 PowerShell, digite s e pressione ENTER.
 
-2. Executar `Connect-AzureAD` e inicie sessão com uma conta de utilizador de Administrador Global.
-3. Utilize o seguinte script para atribuir um utilizador e a função a uma aplicação:
+1. Executar `Connect-AzureAD` e inicie sessão com uma conta de utilizador de Administrador Global.
+1. Utilize o seguinte script para atribuir um utilizador e a função a uma aplicação:
 
     ```powershell
     # Assign the values to the variables
@@ -107,7 +102,7 @@ Este exemplo atribui ao utilizador Eduarda Almeida para o [Microsoft Workplace A
     $app_name = "Workplace Analytics"
     ```
 
-2. Neste exemplo, não sabemos o que é o nome exato da função de aplicação que pretende atribuir a Eduarda Almeida. Execute os seguintes comandos para obter o utilizador ($user) e o principal de serviço ($sp) com o UPN do utilizador e o principal de serviço nomes a apresentar.
+1. Neste exemplo, não sabemos o que é o nome exato da função de aplicação que pretende atribuir a Eduarda Almeida. Execute os seguintes comandos para obter o utilizador ($user) e o principal de serviço ($sp) com o UPN do utilizador e o principal de serviço nomes a apresentar.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
@@ -115,11 +110,11 @@ Este exemplo atribui ao utilizador Eduarda Almeida para o [Microsoft Workplace A
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
         
-3. Execute o comando `$sp.AppRoles` para apresentar as funções disponíveis para a aplicação de análise de área de trabalho. Neste exemplo, queremos atribuir a Eduarda Almeida a função de analista (acesso limitado).
+1. Execute o comando `$sp.AppRoles` para apresentar as funções disponíveis para a aplicação de análise de área de trabalho. Neste exemplo, queremos atribuir a Eduarda Almeida a função de analista (acesso limitado).
     
     ![Função de análise de área de trabalho](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
-4. Atribuir o nome de função para o `$app_role_name` variável.
+1. Atribuir o nome de função para o `$app_role_name` variável.
         
     ```powershell
     # Assign the values to the variables
@@ -127,7 +122,7 @@ Este exemplo atribui ao utilizador Eduarda Almeida para o [Microsoft Workplace A
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
-5. Execute o seguinte comando para atribuir o utilizador à função de aplicação:
+1. Execute o seguinte comando para atribuir o utilizador à função de aplicação:
 
     ```powershell
     # Assign the user to the app role

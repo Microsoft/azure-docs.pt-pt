@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 7cc051697f3928e360ec0b3c6647a3a718315c18
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d216313ae88837df395c64a3ba9e707a5bca06a5
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477272"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565339"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure com Java
 
@@ -78,7 +78,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 </tr>
 <tr> 
 <td>SAS</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/SasTests.java">Exemplo de testes SAS</a></td>
+<td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">Exemplo de testes SAS</a></td>
 </tr>   
 <tr> 
 <td>Propriedades do Serviço</td>

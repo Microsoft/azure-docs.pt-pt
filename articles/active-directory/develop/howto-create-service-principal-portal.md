@@ -16,19 +16,19 @@ ms.author: celested
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee12cb2a0fdd4547ffae8dfce4fddee03167e539
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257421"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565925"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos
 
-Este artigo mostra-lhe como criar uma nova aplicação do Azure Active Directory e o serviço principal que pode ser utilizado com o controlo de acesso baseado em funções. Quando tiver o código que precisa de aceder ou modificar os recursos, pode criar uma identidade para a aplicação. Esta identidade é conhecida como um principal de serviço. Em seguida, pode atribuir as permissões necessárias para o principal de serviço. Este artigo mostra-lhe como utilizar o portal para criar o principal de serviço. Ele se concentra num aplicativo de inquilino único onde o aplicativo destina-se para ser executada dentro da organização apenas um. Geralmente usa aplicações de inquilino único para aplicações de linha de negócio que são executados dentro da sua organização.
+Este artigo mostra-lhe como criar uma nova aplicação do Azure Active Directory (Azure AD) e o principal de serviço que pode ser utilizado com o controlo de acesso baseado em funções. Quando tiver o código que precisa de aceder ou modificar os recursos, pode criar uma identidade para a aplicação. Esta identidade é conhecida como um principal de serviço. Em seguida, pode atribuir as permissões necessárias para o principal de serviço. Este artigo mostra-lhe como utilizar o portal para criar o principal de serviço. Ele se concentra num aplicativo de inquilino único onde o aplicativo destina-se para ser executada dentro da organização apenas um. Geralmente usa aplicações de inquilino único para aplicações de linha de negócio que são executados dentro da sua organização.
 
 > [!IMPORTANT]
-> Em vez de criar um principal de serviço, considere a utilização de identidades geridas para recursos do Azure para a sua identidade da aplicação. Se o seu código é executado num serviço que suporta recursos de acessos que suportem a autenticação do Azure Active Directory (Azure AD) e de identidades geridas, identidades geridas são uma opção melhor para. Para saber mais sobre identidades geridas para recursos do Azure, incluindo os serviços atualmente suportam, consulte [o que há de identidades geridas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
+> Em vez de criar um principal de serviço, considere a utilização de identidades geridas para recursos do Azure para a sua identidade da aplicação. Se o seu código é executado num serviço que oferece suporte a identidades geridas e recursos de acessos que suportam a autenticação do Azure AD, identidades geridas são uma opção melhor para. Para saber mais sobre identidades geridas para recursos do Azure, incluindo os serviços atualmente suportam, consulte [o que há de identidades geridas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação do Azure Active Directory
 
@@ -92,7 +92,7 @@ Quando iniciar sessão programaticamente, tem de passar o ID do inquilino com o 
 
 1. Copiar o **ID de diretório** para obter sua ID do inquilino.
 
-   ![ID do Inquilino](./media/howto-create-service-principal-portal/copy-directory-id.png)
+   ![ID do inquilino](./media/howto-create-service-principal-portal/copy-directory-id.png)
 
 ### <a name="get-application-id-and-authentication-key"></a>Obter a chave de ID e a autenticação da aplicação
 
@@ -104,7 +104,7 @@ Também precisa do ID da sua aplicação e uma chave de autenticação. Para obt
 
 1. Copie o **ID da Aplicação** e armazene-o no código da aplicação.
 
-   ![ID de cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![ID de Cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 1. Selecione **definições**.
 
