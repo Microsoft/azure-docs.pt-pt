@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3fcc2e31431f0deb15332aec7636e2bfefeffe9b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317549"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528412"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -460,7 +460,7 @@ Para definir um conjunto de dados de Blobs do Azure, defina o **tipo** do conjun
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Caminho para o contentor e a pasta no armazenamento de Blobs. Exemplo: myblobcontainer\myblobfolder\ |Sim |
-| fileName |Nome do blob. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no Blob específico.<br/><br/>Quando o nome de ficheiro não for especificada, a cópia inclui todos os Blobs no folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Nome do blob. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no Blob específico.<br/><br/>Quando o nome de ficheiro não for especificada, a cópia inclui todos os Blobs no folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: `Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy propriedade é opcional. Pode usá-lo para especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo. Por exemplo, pode ser parametrizado folderPath por cada hora de dados. |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -643,7 +643,7 @@ Para definir um conjunto de dados do Azure Data Lake Store, defina o **tipo** do
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | folderPath |Caminho para o contentor e a pasta no Azure Data Lake armazenar. |Sim |
-| fileName |Nome do ficheiro no armazenamento do Azure Data Lake. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando o nome de ficheiro não for especificada, cópia inclui todos os ficheiros em folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Nome do ficheiro no armazenamento do Azure Data Lake. nome de ficheiro é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar um nome de ficheiro, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando o nome de ficheiro não for especificada, cópia inclui todos os ficheiros em folderPath para conjunto de dados de entrada.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: `Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy propriedade é opcional. Pode usá-lo para especificar um folderPath dinâmico e o nome do ficheiro de dados de séries de tempo. Por exemplo, pode ser parametrizado folderPath por cada hora de dados. |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -3781,7 +3781,7 @@ Para definir um conjunto de dados do HDFS, defina o **tipo** do conjunto de dado
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Por exemplo: para folder\subfolder, especifique a pasta\\\\subpasta e para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
-| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>`Data.<Guid>.txt` (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Exemplo: folderPath parametrizado por cada hora de dados. |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -4910,7 +4910,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade de tipo deve ser definida como **AzureBatch**. |Sim |
-| accountName |Nome da conta do Azure Batch. |Sim |
+| nomeConta |Nome da conta do Azure Batch. |Sim |
 | accessKey |Chave de acesso para a conta do Azure Batch. |Sim |
 | poolName |Nome do conjunto de máquinas virtuais. |Sim |
 | linkedServiceName |Nome de armazenamento do Azure vinculada serviço associado este serviço ligado do Azure Batch. Este serviço ligado é utilizado para os ficheiros de testes necessários para executar a atividade e armazenar os registos de execução de atividade. |Sim |
@@ -4970,7 +4970,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | Type |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
-| accountName |Nome da conta do Azure Data Lake Analytics. |Sim |
+| nomeConta |Nome da conta do Azure Data Lake Analytics. |Sim |
 | dataLakeAnalyticsUri |URI do Azure Data Lake Analytics. |Não |
 | Autorização |Código de autorização é obtido automaticamente depois de clicar em **autorizar** botão no Editor do Data Factory e concluir o início de sessão OAuth. |Sim |
 | subscriptionId |Id de subscrição do Azure |Não (se não for especificado, a subscrição do data factory é utilizada). |

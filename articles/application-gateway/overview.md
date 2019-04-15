@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225540"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546855"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -118,9 +118,12 @@ Para obter mais informações, consulte [suporte de WebSocket](https://docs.micr
 
 ## <a name="rewrite-http-headers-public-preview"></a>Reescreva os cabeçalhos HTTP (pré-visualização pública)
 
-Cabeçalhos HTTP permitem que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever essas ajuda de cabeçalhos HTTP é realizar vários cenários importantes, como adicionar cabeçalho relacionadas à segurança campos como HSTS / X-XSS-proteção ou remover o cabeçalho de resposta de campos que pode revelar informações confidenciais, como o nome do servidor de back-end. 
+Cabeçalhos HTTP que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever desses cabeçalhos HTTP ajuda-o a realizar vários cenários importantes, tais como:
+- Adição de campos de cabeçalho relacionadas à segurança, como HSTS / X-XSS-proteção.
+- A remover os campos de cabeçalho de resposta que podem revelar informações confidenciais.
+- Remoção de informações da porta de X-reencaminhados-para cabeçalhos.
 
-Gateway de aplicação suporta agora a capacidade de reescrita de cabeçalhos de pedidos HTTP recebidos, bem como as respostas HTTP de saída. Será capaz de adicionar, remover ou atualizar cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação/resposta mover entre os conjuntos de cliente e o back-end. Pode reescrever as duas standard (definidos na [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), bem como campos de cabeçalho não padrão.  
+Gateway de aplicação suporta a capacidade de adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP, enquanto os pacotes de solicitação e resposta mover entre o cliente e os conjuntos de back-end. Ele também fornece a capacidade de adicionar condições para garantir que os cabeçalhos especificados foram reescritos apenas quando forem cumpridas determinadas condições.
 
 Para obter mais informações sobre esta funcionalidade de pré-visualização pública, consulte [cabeçalhos HTTP reescrever](rewrite-http-headers.md).
 

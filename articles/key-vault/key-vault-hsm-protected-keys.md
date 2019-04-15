@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630617"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522733"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
 
@@ -228,7 +228,7 @@ O conjunto de ferramentas inclui:
 * Um pacote de universo de segurança que tem um nome que começa com **BYOK-SecurityWorld - pkg-.**
 * Um script de python com o nome **verifykeypackage.py.**
 * Um ficheiro executável da linha de comandos com o nome **KeyTransferRemote.exe** e DLLs associados.
-* Um Visual C++ Redistributable Package, com o nome **vcredist_x64.exe.**
+* Um elemento Visual C++ pacote redistribuível, com o nome **vcredist_x64.exe.**
 
 Copie o pacote para uma unidade USB ou outro armazenamento portátil.
 
@@ -445,7 +445,7 @@ Quando executar este comando, substitua *contosokey* com o mesmo valor que espec
 
 É-lhe perguntado para conectar seus cartões de administrador do mundo de segurança.
 
-Quando o comando estiver concluído, verá **resultado: SUCESSO** e a cópia da sua chave com permissões reduzidas estão no ficheiro denominado key_xferacid _<contosokey>.
+Quando o comando estiver concluído, verá **resultado: SUCESSO** e a cópia da sua chave com permissões reduzidas estão no ficheiro denominado key_xferacid _\<contosokey >.
 
 Pode inspeciona a através de ACLS seguintes comandos usando os utilitários da Thales:
 

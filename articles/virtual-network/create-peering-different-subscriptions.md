@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492299"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528267"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um peering de rede virtual - Gestor de recursos, subscrições diferentes
 
@@ -61,7 +61,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
 7. Selecione **contribuinte de rede** no **função** caixa.
 8. Na **selecionar** caixa, selecione *UserB*, ou escreva o endereço de e-mail do User-b para pesquisá-la.
 9. Selecione **Guardar**.
-10. Sob **myVnetA - controlo de acesso (IAM)**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+10. Sob **myVnetA - controlo de acesso (IAM)**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Terminar sessão no portal como UserA, em seguida, inicie sessão como utilizador b.
 12. Conclua os passos 2 a 3, introduzir ou selecionar os seguintes valores no passo 3:
 
@@ -74,7 +74,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Localização**: *E.U.A. leste*
 
 13. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetB*. Selecione **myVnetB** quando for apresentada nos resultados da pesquisa.
-14. Sob **myVnetB**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Sob **myVnetB**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
 15. Selecione **controlo de acesso (IAM)** sob **myVnetB**e, em seguida, conclua os passos 5 a 10 para myVnetB, introduzir **UserA** no passo 8.
 16. Terminar sessão no portal como UserB e iniciar sessão como utilizador.
 17. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Selecione **myVnetA** quando for apresentada nos resultados da pesquisa.
@@ -111,7 +111,7 @@ Os seguintes scripts:
 Em vez de instalar a CLI e as respetivas dependências, pode utilizar o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. Tem a CLI do Azure pré-instalada e configurada para ser utilizada com a sua conta. Selecione o **experimente** botão no script que se segue, que invoca um Shell de Cloud que pode iniciar sessão sua conta do Azure com.
 
 1. Abra uma sessão CLI e inicie sessão no Azure como UserA usando o `azure login` comando. A conta, que inicie sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [permissões de peering de rede Virtual](virtual-network-manage-peering.md#permissions).
-2. Copie o seguinte script para um editor de texto no seu PC, substitua `<SubscriptionA-Id>` com o ID de SubscriptionA, em seguida, copie o script modificado, cole-o na sua sessão da CLI e prima `Enter`. Se não souber o Id de subscrição, introduza o comando de 'az account show'. O valor para **id** no resultado é o seu ID de subscrição.
+2. Copie o seguinte script para um editor de texto no seu PC, substitua `<SubscriptionA-Id>` com o ID de SubscriptionA, em seguida, copie o script modificado, cole-o na sua sessão da CLI e prima `Enter`. Se não souber o Id de subscrição, introduza o `az account show` comando. O valor para **id** no resultado é o seu ID de subscrição.
 
     ```azurecli-interactive
     # Create a resource group.

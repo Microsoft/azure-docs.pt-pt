@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619520"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547044"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início rápido: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias e Java
 
@@ -82,7 +82,7 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
 3. Ler o arquivo de dados JSON.
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar pedidos
@@ -93,9 +93,9 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
 
 3. Utilizar a solicitação `setHeader()` função para definir o `Content-Type` cabeçalho para `application/json`e adicione a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
 
-4. Utilize o pedido `setEntity()` função para os dados a serem enviados.   
+4. Utilize o pedido `setEntity()` função para os dados a serem enviados.
 
-5. Utilizar o cliente `execute()` funcionar para enviar o pedido e guardá-lo para um `CloseableHttpResponse` objeto. 
+5. Utilizar o cliente `execute()` funcionar para enviar o pedido e guardá-lo para um `CloseableHttpResponse` objeto.
 
 6. Criar um `HttpEntity` objeto para armazenar o conteúdo de resposta. Obter o conteúdo com `getEntity()`. Se a resposta não estiver vazia, retorná-lo.
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. Criar um método chamado `detectAnomaliesBatch()` para detetar anomalias em todo os dados como um lote. Chamar o `sendRequest()` método criado acima com o seu ponto final, o url, a chave de subscrição e a dados json. Obter o resultado e imprimi-lo na consola.
 
-2. Encontre as posições de anomalias no conjunto de dados. A resposta `isAnomaly` campo contém um valor booleano relacionados ao se um ponto de dados fornecida é uma anomalia. Obter a matriz JSON e iterar através do mesmo, para imprimir o índice de qualquer `true` valores. Esses valores correspondem ao índice de pontos de dados anómalas, se for detetada qualquer.
+2. Se a resposta contém `code` campo, o código de erro e a mensagem de erro de impressão.
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. Caso contrário, encontre as posições de anomalias no conjunto de dados. A resposta `isAnomaly` campo contém um valor booleano relacionados ao se um ponto de dados fornecida é uma anomalia. Obter a matriz JSON e iterar através do mesmo, para imprimir o índice de qualquer `true` valores. Esses valores correspondem ao índice de pontos de dados anómalas, se for detetada qualquer.
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do ponto de dados mais recentes
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. No método principal do seu aplicativo, o ficheiro JSON que contém os dados que serão adicionados aos pedidos de leitura.
 
 2. Chame as funções de deteção de dois anomalias criadas acima.
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>Resposta de exemplo
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106904"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548751"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se
 
@@ -44,14 +44,15 @@ Antes de copiar os dados para os discos, reveja as seguintes considerações:
 - Ao copiar os dados, certifique-se de que o respetivo tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box Disk](data-box-disk-limits.md).
 - Se os dados, que estão a ser carregados pelo Data Box Disk, forem carregados em simultâneo por outras aplicações fora do Data Box Disk, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
 
-Se tiver especificado os discos geridos na ordem, reveja as seguintes considerações adicionais:
+   > [!IMPORTANT]
+   >  Se tiver especificado os discos geridos como um dos destinos de armazenamento durante a criação de ordem, a seguinte secção é aplicável.
 
 - Só pode ter um disco gerido com um determinado nome num grupo de recursos em todas as pastas pré-criada e em todo o disco de caixa de dados. Isso implica que os VHDs carregados para as pastas pré-criada devem ter nomes exclusivos. Certifique-se de que o nome fornecido não corresponde a um disco gerido já existente num grupo de recursos. Se os VHDs têm os mesmos nomes, em seguida, apenas um VHD é convertido para disco gerido com esse nome. Os outros VHDs são carregados como blobs de páginas a conta de armazenamento de teste.
 - Copie sempre os VHDs a uma das pastas pré-criada. Se copiar os VHDs fora essas pastas ou numa pasta que criou, os VHDs são carregados para a conta de armazenamento do Azure, como blobs de páginas e discos não geridos.
 - Apenas os VHDs fixos podem ser carregados para criar discos geridos. VHDs dinâmicos, VHDs diferenciais ou VHDX não são suportados ficheiros.
 
 
-Execute os seguintes passos para ligar e copiar dados do seu computador para o Data Box Disk.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Execute os seguintes passos para ligar e copiar dados do seu computador para o Data Box Disk.
 
 1. Veja o conteúdo da unidade desbloqueada. A lista de pré-criada pastas e subpastas na unidade é diferente de acordo com as opções selecionadas ao colocar a ordem de disco Data Box.
 
@@ -91,12 +92,12 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
     |Destino       | Especifica o caminho para o diretório de destino.        |
     |/E                  | Copia os subdiretórios, incluindo diretórios vazios. |
     |/MT[:N]             | Cria cópias com múltiplos threads com N threads, em que N é um número inteiro entre 1 e 128. <br>O valor predefinido para N é 8.        |
-    |/R: <N>             | Especifica o número de repetições nas cópias falhadas. O valor predefinido de N é 1.000.000 (um milhão de repetições).        |
-    |/W: <N>             | Especifica o tempo de espera entre as repetições, em segundos. O valor predefinido de N é 30 (30 segundos de tempo de espera).        |
+    |/R: \<N>             | Especifica o número de repetições nas cópias falhadas. O valor predefinido de N é 1.000.000 (um milhão de repetições).        |
+    |/W: \<N>             | Especifica o tempo de espera entre as repetições, em segundos. O valor predefinido de N é 30 (30 segundos de tempo de espera).        |
     |/NFL                | Especifica que os nomes de ficheiro não se destinam a ser registados.        |
     |/NDL                | Especifica que os nomes de diretório não se destinam a ser registados.        |
     |/FFT                | Assume as horas dos ficheiros FAT (precisão de dois segundos).        |
-    |/Log:<Log File>     | Escreve a saída do estado no ficheiro de registo (substitui o ficheiro de registo existente).         |
+    |/Log:\<Log File>     | Escreve a saída do estado no ficheiro de registo (substitui o ficheiro de registo existente).         |
 
     É possível utilizar vários discos em paralelo com várias tarefas em execução em cada disco.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495690"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565973"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -99,11 +99,11 @@ As seguintes áreas do Application Insights podem ser útil ao avaliar o comport
 
 | Tab | Descrição |
 | ---- | ----------- |
-| **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções de servidor. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas, a menos que implementar telemetria personalizada para as dependências. |
+| **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e exceções de servidor. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas, a menos que implementar telemetria personalizada para as dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Analise problemas de desempenho. |
 | **Servidores** | Ver utilização de recursos e o débito por servidor. Estes dados podem ser útil na depuração de cenários em que as funções são sobrecarregar os recursos subjacentes. Servidores são denominados **instâncias de função da Cloud**. |
 | **[Métricas](../azure-monitor/app/metrics-explorer.md)** | Crie gráficos e alertas que são baseadas em métricas. Métricas incluem o número de chamadas de função, tempo de execução e taxas de êxito. |
-| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Ver dados de métricas, já que é criado em tempo real. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** (Fluxo de Métricas em Direto) | Ver dados de métricas, já que é criado em tempo real. |
 
 ## <a name="query-telemetry-data"></a>Consultar dados de telemetria
 
@@ -126,9 +126,9 @@ As tabelas que estão disponíveis são mostradas na **esquema** separador no la
 
 | Tabela | Descrição |
 | ----- | ----------- |
-| **rastreios** | Logs criados pelo tempo de execução e por código de função. |
-| **pedidos** | Uma solicitação para cada invocação de função. |
-| **exceções** | Todas as exceções lançadas pelo tempo de execução. |
+| **traces** | Logs criados pelo tempo de execução e por código de função. |
+| **Pedidos** | Uma solicitação para cada invocação de função. |
+| **Exceções** | Todas as exceções lançadas pelo tempo de execução. |
 | **customMetrics** | Contagem de invocações de êxito e a falhar, a taxa de êxito e a duração. |
 | **customEvents** | Eventos controlados pelo tempo de execução, por exemplo: Pedidos HTTP que acionam uma função. |
 | **performanceCounters** | Informações sobre o desempenho dos servidores que executem as funções. |
@@ -595,7 +595,9 @@ O `tagOverrides` conjuntos de parâmetros a `operation_Id` para ID de invocaçã
 
 ## <a name="dependencies"></a>Dependências
 
-Dependências de que a função tem a outros serviços não aparecem automaticamente. Pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo da [ C# secção de telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta numa *mapa da aplicação* no Application Insights que se parece com a imagem seguinte:
+As funções v2 recolhe automaticamente as dependências de pedidos de HTTP, ServiceBus e SQL.
+
+Pode escrever código personalizado para mostrar as dependências. Para obter exemplos, consulte o código de exemplo da [ C# secção de telemetria personalizada](#log-custom-telemetry-in-c-functions). O código de exemplo resulta numa *mapa da aplicação* no Application Insights que se parece com a imagem seguinte:
 
 ![Mapeamento de aplicações](./media/functions-monitoring/app-map.png)
 
@@ -657,4 +659,4 @@ Para obter mais informações, consulte os seguintes recursos:
 * [Application Insights](/azure/application-insights/)
 * [O registo do ASP.NET Core](/aspnet/core/fundamentals/logging/)
 
-[host.json]: functions-host-json.md
+[Host. JSON]: functions-host-json.md
