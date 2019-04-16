@@ -77,7 +77,7 @@ No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre po
     }
     ```
 
-    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista de permissões] [ 1] na sua aplicação.
 
     Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
@@ -163,7 +163,7 @@ No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre po
     }
     ```
 
-    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista de permissões] [ 1] na sua aplicação.
 
     Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
