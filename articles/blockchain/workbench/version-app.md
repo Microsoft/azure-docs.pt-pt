@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: c4c5dcf9c83b79158e3459e79db6dd066d982fc8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 63f18e3ee316b9791bb62bfcd20c07a30cbebb5e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108259"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579221"
 ---
 # <a name="azure-blockchain-workbench-application-versioning"></a>Controlo de versões de aplicações do Azure Blockchain Workbench
 

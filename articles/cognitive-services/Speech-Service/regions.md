@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 90fa56bb0e2044d24533c35a051d3f4b644e05b5
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349642"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578193"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões suportadas do serviço de voz
 
@@ -38,10 +38,10 @@ O SDK de voz está disponível nestas regiões para **reconhecimento de fala** e
  E.U.A. Oeste 2 | `westus2` | https://westus2.cris.ai
  EUA Leste | `eastus` | https://eastus.cris.ai
  E.U.A. Leste 2 | `eastus2` | https://eastus2.cris.ai
- EUA Central | 'centralus' | https://centralus.cris.ai
- EUA Centro-Norte | 'northcentralus' | https://northcentralus.cris.ai
- EUA Centro-Sul | 'southcentralus' | https://southcentralus.cris.ai
- Índia Central | 'centralindia' | https://centralindia.cris.ai
+ EUA Central | `centralus` | https://centralus.cris.ai
+ EUA Centro-Norte | `northcentralus` | https://northcentralus.cris.ai
+ EUA Centro-Sul | `southcentralus` | https://southcentralus.cris.ai
+ Índia Central | `centralindia` | https://centralindia.cris.ai
  Ásia Oriental | `eastasia` | https://eastasia.cris.ai
  Sudeste Asiático | `southeastasia` | https://southeastasia.cris.ai
  Leste do Japão | `japaneast` | https://japaneast.cris.ai

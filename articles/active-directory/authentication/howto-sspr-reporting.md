@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493064"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577972"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -50,15 +50,14 @@ A experiência do portal do Azure, melhorámos a maneira que pode ver a reposiç
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no painel esquerdo.
 3. Procure **do Azure Active Directory** na lista de serviços e selecioná-lo.
-4. Selecionar **Utilizadores e grupos**.
-5. Selecione **registos de auditoria** partir do **utilizadores e grupos** menu. Isso mostra todos os eventos de auditoria que ocorreram em relação a todos os utilizadores no seu diretório. Pode filtrar esta vista para ver todos os eventos relacionados com a palavra-passe.
-6. Para filtrar esta vista para ver apenas os eventos relacionados à reposição de palavra-passe, selecione o **filtro** botão na parte superior do painel.
-7. Do **filtro** menu, selecione a **categoria** pendente lista e altere-o para o **gestão de palavras-passe Self-Service** tipo de categoria.
-8. Opcionalmente, continuar a filtrar a lista ao escolher as específicas **atividade** que está interessado.
+4. Selecione **utilizadores** da seção gerenciar.
+5. Selecione **registos de auditoria** partir do **utilizadores** painel. Isso mostra todos os eventos de auditoria que ocorreram em relação a todos os utilizadores no seu diretório. Pode filtrar esta vista para ver todos os eventos relacionados com a palavra-passe.
+6. Do **filtro** menu na parte superior do painel, selecione a **Service** pendente lista e altere-o para o **gestão de palavras-passe Self-Service** do tipo de serviço.
+7. Opcionalmente, continuar a filtrar a lista ao escolher as específicas **atividade** que está interessado.
 
 ### <a name="converged-registration-preview"></a>Registo convergido (pré-visualização)
 
-Se estão a participar na pré-visualização pública do Registro convergida, irão encontrar informações sobre a atividade do utilizador nos registos de auditoria na categoria **métodos de autenticação**.
+Se estão a participar na pré-visualização pública do Registro convergida, informações sobre a atividade do utilizador nos registos de auditoria serão encontradas no serviço **métodos de autenticação**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 
@@ -180,12 +179,12 @@ A lista a seguir explica esta atividade detalhadamente:
 * [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registe-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md).
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Os dados que são utilizados pela SSPR e quais dados devem ser preenchidos para os seus utilizadores?](howto-sspr-authenticationdata.md)
-* [Os métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
-* [Quais são as opções de política com SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavra-passe e por que me importo-lo?](howto-sspr-writeback.md)
-* [Quais são todas as opções na SSPR e o que fazer que significam?](concept-sspr-howitworks.md)
-* [Eu acho que algo está quebrado. Como posso resolver SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tenho uma pergunta que não foi abordada](active-directory-passwords-faq.md)
+* [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
+* [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
+* [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
+* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
+* [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
+* [Creio que algo está a funcionar incorretamente. Como posso resolver problemas da SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Registos de exemplo de auditoria de atividade da SSPR no Azure AD"

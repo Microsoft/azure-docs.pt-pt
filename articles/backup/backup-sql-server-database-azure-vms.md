@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849303"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578829"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -113,7 +113,7 @@ Detete as bases de dados em execução na VM.
     - O Azure Backup cria a conta de serviço **NT Service\AzureWLBackupPluginSvc** na VM.
       - Todas as operações de cópia de segurança e restauro, utilize a conta de serviço.
       - **NT Service\AzureWLBackupPluginSvc** necessita de permissões de administrador do sistema do SQL. Todas as VMs do SQL Server criado no Azure Marketplace são fornecidos com o **SqlIaaSExtension** instalado. O **AzureBackupWindowsWorkload** extensão utiliza o **SQLIaaSExtension** para obter automaticamente as permissões necessárias.
-    - Se não criar a VM no marketplace, a VM não tem o **SqlIaaSExtension** instalado, e a operação de deteção falha com a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Siga as instruções no [#fix-sql--permissões sysadmin] para corrigir este problema.
+    - Se não criar a VM no marketplace, a VM não tem o **SqlIaaSExtension** instalado, e a operação de deteção falha com a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Siga os [instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) para corrigir este problema.
 
         ![Selecione a VM e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501967"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571176"
 ---
-# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
+# <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
 Pode utilizar a capacidade de Monitor de conectividade do serviço no [Monitor de desempenho de rede](network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que tem uma porta TCP aberta. Esses pontos de extremidade incluem Web sites, aplicações SaaS, PaaS aplicações e bases de dados SQL. 
 
@@ -33,7 +33,7 @@ Pode executar as seguintes funções com o Monitor de conectividade do serviço:
 - Identifica pontos de acesso na rede que podem estar provocando o desempenho da aplicação insatisfatório visualizando a latência contribuída cada salto num mapa de topologia.
 
 
-![Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
+![Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -68,7 +68,7 @@ Comece a criar seus testes para monitorizar a conectividade de rede para os pont
 5. Na **destino**, introduza o endereço URL/FQDN/IP ao qual pretende monitorizar a conectividade de rede.
 6. Na **número de porta**, introduza o número de porta de serviço de destino. 
 7. Na **frequência de teste**, introduza um valor para a frequência com que pretende que o teste para ser executado. 
-8. Selecione os nós partir do qual pretende monitorizar a conectividade de rede ao serviço. 
+8. Selecione os nós partir do qual pretende monitorizar a conectividade de rede ao serviço. Certifique-se de que o número de agentes adicionados por teste é menos de 150. Qualquer agente pode testar o máximos de pontos de extremidade 150/agentes.
 
     >[!NOTE]
     > Para nós baseado no servidor do Windows, o recurso utiliza solicitações com base em TCP para efetuar as medições de rede. Para nós baseada no cliente do Windows, o recurso utiliza solicitações com base em ICMP para executar as medições de rede. Em alguns casos, o aplicativo de destino bloqueia as solicitações de entrada com base em ICMP quando os nós são baseados no cliente do Windows. A solução é não é possível executar medições de rede. Recomendamos que utilize nós baseado no servidor do Windows em tais casos. 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918625"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577847"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Texto do Translator API 3.0: Transliterate
 
@@ -60,8 +60,8 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_cabeçalho_</td>
-    <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>Excederam de autenticação</td>
+    <td><em>Cabeçalho do pedido necessário</em>.<br/>Ver <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -165,7 +165,7 @@ Se ocorrer um erro, o pedido também irá devolver uma resposta de erro do JSON.
 
 O exemplo seguinte mostra como converter duas cadeias de caracteres japoneses em Romanized japonês.
 
-# [<a name="curl"></a>Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 O payload JSON para o pedido neste exemplo:
 

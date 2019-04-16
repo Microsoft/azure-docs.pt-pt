@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189143"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571100"
 ---
 # <a name="virtual-network-tap"></a>TAP de rede virtual
 
@@ -36,17 +36,18 @@ TOQUE (ponto de acesso de Terminal) de rede virtual do Azure permite-lhe para o 
 - [Grande comutador de grandes volumes de monitorização de recursos de infraestrutura](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Análise de segurança, gestão de desempenho de rede/aplicação
 
 - [Segurança ativo](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cibersegurança](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [Plataforma de NetWitness® RSA](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
@@ -56,7 +57,7 @@ A seguinte imagem mostra como virtual de rede funciona de TOQUE. Pode adicionar 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de criar um teste de rede virtual, deve receber um e-mail de confirmação que estão inscritos na pré-visualização e ter um ou mais máquinas virtuais criadas com [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implementação e de um parceiro solução para agregar o tráfego de TOQUE na região EUA. Se não tiver uma solução de parceiro na sua rede virtual, veja [soluções de parceiros](#virtual-network-tap-partner-solutions) para implementar uma. Pode utilizar a mesma rede virtual recursos de TOQUE para agregar o tráfego de várias interfaces de rede nas subscrições idêntica ou diferentes. Se as interfaces de rede monitorizada estão em subscrições diferentes, as subscrições têm de estar associadas ao mesmo inquilino do Azure Active Directory. Além disso, as interfaces de rede monitorizada e o ponto de extremidade de destino para agregar o tráfego de TOQUE podem ser em redes virtuais em modo de peering na mesma região. Se estiver a utilizar este modelo de implementação Certifique-se de que o [peering de rede virtual](virtual-network-peering-overview.md) está ativada antes de configurar o teste de rede virtual.
+Antes de criar um teste de rede virtual, deve receber um e-mail de confirmação que estão inscritos na pré-visualização e ter um ou mais máquinas virtuais criadas com [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implementação e de um parceiro solução para agregar o tráfego de TOQUE na mesma região do azure. Se não tiver uma solução de parceiro na sua rede virtual, veja [soluções de parceiros](#virtual-network-tap-partner-solutions) para implementar uma. Pode utilizar a mesma rede virtual recursos de TOQUE para agregar o tráfego de várias interfaces de rede nas subscrições idêntica ou diferentes. Se as interfaces de rede monitorizada estão em subscrições diferentes, as subscrições têm de estar associadas ao mesmo inquilino do Azure Active Directory. Além disso, as interfaces de rede monitorizada e o ponto de extremidade de destino para agregar o tráfego de TOQUE podem ser em redes virtuais em modo de peering na mesma região. Se estiver a utilizar este modelo de implementação Certifique-se de que o [peering de rede virtual](virtual-network-peering-overview.md) está ativada antes de configurar o teste de rede virtual.
 
 ## <a name="permissions"></a>Permissões
 

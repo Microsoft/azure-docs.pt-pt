@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549510"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578789"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto para discurso?
 
@@ -53,10 +53,7 @@ Esta tabela lista os principais recursos de voz:
 | Criar e gerir os testes de tipo de letra de voz. | Não | Sim\* |
 | Gerir subscrições. | Não | Sim\* |
 
-\* *Esses serviços estão disponíveis com o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Os pontos de extremidade de voz personalizada implementam a limitação que limita os pedidos para 25 por 5 segundos. Quando ocorre a limitação, será notificado através de cabeçalhos de mensagens.
+\* *Esses serviços estão disponíveis com o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index). Estes formação de voz personalizada e APIs de gestão de implementam a limitação de que os pedidos de limites para 25 por 5 segundos, enquanto a síntese de fala API propriamente dita implementa limitação que permite 200 pedidos por segundo, como a mais alta. Quando ocorre a limitação, será notificado através de cabeçalhos de mensagens.*
 
 ## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em voz
 

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: xshi
-ms.openlocfilehash: bc955db4e851c1f59012dc1375170850e1b0604c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108399"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571316"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utilizar o Cloud Explorer para Visual Studio para enviar e receber mensagens entre o seu dispositivo e o IoT Hub
 
-![Diagrama de ponto a ponto](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama de ponto a ponto](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) é uma extensão do Visual Studio útil que permite-lhe ver os recursos do Azure, Inspecione as respetivas propriedades e executar ações de chave do desenvolvedor do Visual Studio. Este artigo se concentra em como utilizar o Cloud Explorer para enviar e receber mensagens entre o seu dispositivo e o seu IoT Hub.
 
@@ -48,10 +48,14 @@ O componente de Cloud Explorer do Visual Studio Installer apenas suporta a monit
 
     ![Clique em gestão de contas](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Clique em **gerir contas** no Cloud Explorer.
-1. Clique em **adicionar uma conta...**  na janela de novo para iniciar sessão no Azure pela primeira vez.
-1. Depois de iniciar sessão, será apresentada a lista de subscrição do Azure. Selecione as subscrições do Azure que pretende visualizar e clique em **aplicar**.
-1. Expanda **sua assinatura** > **IoT Hubs** > **Your IoT Hub**, será apresentada a lista de dispositivos no seu nó do IoT Hub.
+
+2. Clique em **gerir contas** no Cloud Explorer.
+
+3. Clique em **adicionar uma conta...**  na janela de novo para iniciar sessão no Azure pela primeira vez.
+
+4. Depois de iniciar sessão, será apresentada a lista de subscrição do Azure. Selecione as subscrições do Azure que pretende visualizar e clique em **aplicar**.
+
+5. Expanda **sua assinatura** > **IoT Hubs** > **Your IoT Hub**, será apresentada a lista de dispositivos no seu nó do IoT Hub.
 
     ![Lista de Dispositivos](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -63,11 +67,11 @@ Para monitorizar mensagens que são enviadas a partir do seu dispositivo ao seu 
 
     ![Comece a monitorizar mensagens D2C](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. As mensagens monitorizadas serão mostradas na **IoT Hub** painel de resultados.
+2. As mensagens monitorizadas serão mostradas na **IoT Hub** painel de resultados.
 
     ![Monitoring D2C Message resultado](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. Para parar a monitorização, clique com o botão direito em qualquer dispositivo ou o IoT Hub e selecione **parar mensagens D2C monitorização**.
+3. Para parar a monitorização, clique com o botão direito em qualquer dispositivo ou o IoT Hub e selecione **parar mensagens D2C monitorização**.
 
 ## <a name="send-cloud-to-device-messages"></a>Enviar mensagens da cloud para o dispositivo
 
@@ -77,8 +81,9 @@ Para enviar uma mensagem do seu IoT Hub para o seu dispositivo, siga estes passo
 
     ![Enviar mensagem de C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. Introduza a mensagem na caixa de entrada.
-1. Os resultados serão mostrados na **IoT Hub** painel de resultados.
+2. Introduza a mensagem na caixa de entrada.
+
+3. Os resultados serão mostrados na **IoT Hub** painel de resultados.
 
     ![Enviar o resultado de mensagem C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

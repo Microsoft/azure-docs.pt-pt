@@ -4,21 +4,19 @@ description: Este artigo apresenta uma lista de especificações das origens de 
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410192"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579398"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
 
 Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta ou ao introduzir manualmente as informações diretamente para o catálogo de dados do Azure portal web. A tabela seguinte resume todas as origens de dados que são suportadas pela hoje o catálogo e as capacidades de publicação para cada um. Também encontram-se as ferramentas de dados externos que cada origem de dados pode iniciar a nossa experiência de portal "open-in". A segunda tabela contém uma especificação de mais técnica de cada propriedade de ligação de origem de dados.
-
 
 ## <a name="list-of-supported-data-sources"></a>Lista de origens de dados suportadas
 
@@ -32,7 +30,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
        <td><b>Notas</b></td>
     </tr>
     <tr>
-      <td>Diretório do Azure Data Lake Store</td>
+      <td>Diretório do Azure Data Lake Store (apenas Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Ficheiros do Azure Data Lake Store</td>
+      <td>Ficheiros do Azure Data Lake Store (apenas Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -52,7 +50,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>O ambiente de trabalho do Power BI</td>
+      <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
@@ -60,7 +58,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>O ambiente de trabalho do Power BI</td>
+      <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>
@@ -240,7 +238,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>O ambiente de trabalho do Power BI</td>
+      <td>Power BI Desktop</td>
       <td></td>
     </tr>
     <tr>

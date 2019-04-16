@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: b45d64f56653ad6d0baabef4a63351ef14f24c42
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 601ee706adedf522890acc3f3996a7d36b349348
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58861960"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577846"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implementar um centro de segurança do Azure para IoT C#-com base em agente de segurança para Windows
 
@@ -86,7 +86,7 @@ Para obter ajuda adicional, utilize o comando Get-Help no PowerShell <br>Exemplo
 ### <a name="verify-deployment-status"></a>Verificar o estado de implementação
 
 - Verificar o estado de implementação de agente ao executar:<br>
-    ```sc.exe query "ASC IoT Agent" ```
+    ```sc.exe query "ASC IoT Agent"```
 
 ### <a name="uninstall-the-agent"></a>Desinstalar o agente
 

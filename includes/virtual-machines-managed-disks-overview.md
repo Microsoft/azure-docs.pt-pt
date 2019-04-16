@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291844"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566568"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 
@@ -31,7 +31,7 @@ Utilizar discos geridos, pode criar até 50 000 VM **discos** de um tipo de uma 
 
 Discos geridos estão integrados com conjuntos de disponibilidade para garantir que os discos da [VMs num conjunto de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) são suficientemente isolados uns dos outros para evitar um ponto único de falha. Discos são colocados automaticamente em unidades de escala de armazenamento diferente (carimbos de data /). Se um carimbo de data / falhar devido uma falha de hardware ou software, apenas as instâncias VM com discos nesses carimbos falharem. Por exemplo, digamos que tenha um aplicativo em execução em VMs de cinco, e as VMs estão num conjunto de disponibilidade. Os discos para essas VMs não ser armazenadas no carimbo a mesmo, portanto, se um carimbo ficar inativo, as outras instâncias do aplicativo continuam a executar.
 
-## <a name="integration-with-availability-zones"></a>Integração com zonas de disponibilidade
+### <a name="integration-with-availability-zones"></a>Integração com zonas de disponibilidade
 
 Gerida suporta discos [zonas de disponibilidade](../articles/availability-zones/az-overview.md), que é uma oferta de elevada disponibilidade que protege as suas aplicações contra falhas de datacenter. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%.
 
@@ -70,7 +70,7 @@ Um instantâneo do disco gerido é uma cópia completa só de leitura de um disc
 Para saber mais sobre como criar instantâneos com discos geridos, consulte os seguintes recursos:
 
 * [Criar cópia de VHD armazenado como um disco gerido com os instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenado como um disco gerido com os instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a managed disk using snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md) (Criar uma cópia de um VHD armazenado como disco gerido com os instantâneos no Linux)
 
 ### <a name="images"></a>Imagens
 
@@ -79,7 +79,7 @@ Discos geridos também suportam a criação de uma imagem personalizada gerida. 
 Para obter informações sobre a criação de imagens, consulte os artigos seguintes:
 
 * [Como capturar uma imagem gerida de uma VM generalizada no Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Como generalizar e capturar uma máquina virtual do Linux com a CLI do Azure](../articles/virtual-machines/linux/capture-image.md)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI](../articles/virtual-machines/linux/capture-image.md) (Como generalizar e capturar uma máquina virtual do Linux com a CLI do Azure)
 
 #### <a name="images-versus-snapshots"></a>Imagens com instantâneos
 

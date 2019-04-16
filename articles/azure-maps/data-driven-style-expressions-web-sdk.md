@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288100"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579500"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo condicionada por dados (Web SDK)
 
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 A `coalesce` expressão passos através de um conjunto de expressões até que o primeiro valor não null é obtido e devolve esse valor. 
 
-O pseudocódigo seguinte define a estrutura do ` coalesce` expressão. 
+O pseudocódigo seguinte define a estrutura do `coalesce` expressão. 
 
 ```javascript
 [
@@ -792,7 +792,7 @@ Veja os artigos seguintes para obter mais amostras de código que implementam ex
 > [Adicionar uma camada de símbolo](map-add-pin.md)
 
 > [!div class="nextstepaction"] 
-> [Adicionar uma camada de bolha](map-add-bubble-layer.md)
+> [Adicionar uma camada de bolhas](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"] 
 > [Adicionar formas](map-add-shape.md)

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916296"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578211"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Texto do Translator API 3.0: BreakSentence
 
@@ -56,8 +56,8 @@ Cabeçalhos de pedido incluem:
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>_Uma autorização_<br/>_cabeçalho_</td>
-    <td>*Cabeçalho do pedido necessário*.<br/>Ver [as opções disponíveis para autenticação](./v3-0-reference.md#authentication).</td>
+    <td>Excederam de autenticação</td>
+    <td><em>Cabeçalho do pedido necessário</em>.<br/>Ver <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -172,7 +172,7 @@ Se ocorrer um erro, o pedido também irá devolver uma resposta de erro do JSON.
 
 O exemplo seguinte mostra como obter os limites de frase para uma única frase. O idioma da sentença é detetado automaticamente pelo serviço.
 
-# [<a name="curl"></a>Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

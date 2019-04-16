@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcfd8c581ad1707a996ae5bd0c3706179ddb0e4
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505352"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579466"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 
@@ -55,9 +55,9 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
 > 1. Selecione **novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `AspNetCore-Quickstart`.
->    - Na **URL de resposta**, adicione `https://localhost:44321/`e selecione **registar**.
+>    - Na **URI de redirecionamento**, adicione `https://localhost:44321/`e selecione **registar**.
 > 1. Selecione o **autenticação** menu e, em seguida, adicione as seguintes informações:
->    - Na **URL de resposta**, adicione `https://localhost:44321/signin-oidc`e selecione **registar**.
+>    - Na **URIs de redirecionamento**, adicione `https://localhost:44321/signin-oidc`e selecione **guardar**.
 >    - Na **definições avançadas** secção, defina **URL de fim de sessão** para `https://localhost:44321/signout-oidc`.
 >    - Sob **concessão implícita**, verifique **tokens de ID**.
 >    - Selecione **Guardar**.
@@ -66,14 +66,14 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passo 1: Configurar a sua aplicação no portal do Azure
 > Para o código de exemplo para este início rápido funcionar, terá de adicionar URLs de resposta como `https://localhost:44321/` e `https://localhost:44321/signin-oidc`, adicione o URL de fim de sessão como `https://localhost:44321/signout-oidc`e solicitar tokens de ID para ser emitidos pelo ponto final de autorização.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Efetuar esta alteração para mim]()
+> > [Fazer esta alteração por mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) seu aplicativo está configurado com esses atributos.
+> > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com estes atributos.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Passo 2: Transfira o seu projeto ASP.NET Core
 
-- [Transferir a solução do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Transfira a solução do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
@@ -91,8 +91,8 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
 > - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou no portal do Azure. Pode encontrar **ID da aplicação (cliente)** da aplicação **descrição geral** página.
 > - `Enter_the_Tenant_Info_Here` -é uma das seguintes opções:
 >   - Se a sua aplicação suportar **contas apenas neste diretório organizacional**, substitua este valor com o **ID do inquilino** ou **nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
->   - Se a sua aplicação suportar **utilizadores com contas Microsoft todos os**, substitua este valor com `common`
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
@@ -148,7 +148,8 @@ A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de ide
 
 
 > [!NOTE]
-> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. No real aplicativos necessários para validar o emissor, consulte os exemplos para compreender como fazê-lo.
+> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. Em aplicativos reais terá de validar o emissor.
+> Veja os exemplos para compreender como fazê-lo.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteger um controlador ou o método de um controlador
 

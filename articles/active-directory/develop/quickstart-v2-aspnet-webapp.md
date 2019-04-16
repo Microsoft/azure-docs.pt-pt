@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b11f49d788dd3c16c0cb8dd47cc59848b607ed
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505403"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579483"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -54,21 +54,21 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 > 1. Selecione **novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Quickstart`.
->      - Adicione `https://localhost:44368/` no **URL de Resposta** e clique em **Registar**.
+>      - Adicione `https://localhost:44368/` no **URI de redirecionamento**e clique em **registar**.
 Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão Implícita** e, em seguida, selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a sua aplicação no portal do Azure
 > Para o código de exemplo deste início rápido funcionar, terá de adicionar um URL de resposta como `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Efetuar esta alteração para mim]()
+> > [Fazer esta alteração por mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-aspnet-webapp/green-check.png) seu aplicativo está configurado com esse atributo
+> > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com este atributo
 
 #### <a name="step-2-download-your-project"></a>Passo 2: Transfira o seu projeto
 
-[Transferir a solução do Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Transfira a solução do Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
@@ -83,11 +83,11 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 
 > [!div renderon="docs"]
 > Em que:
-> - `Enter_the_Application_Id_here` -é o Id da aplicação que registou.
-> - `Enter_the_Tenant_Info_Here` -é uma das opções abaixo:
+> - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
 >   - Se a sua aplicação suportar **Apenas a minha organização**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
->   - Se a sua aplicação suportar **contas em qualquer diretório organizacional**, substitua este valor com `organizations`
->   - Se a sua aplicação suportar **utilizadores com contas Microsoft todos os**, substitua este valor com `common`
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
 > > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
@@ -158,7 +158,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. No real aplicativos necessários para validar o emissor, consulte os exemplos para compreender como fazê-lo.
+> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. Em aplicativos reais terá de validar o emissor.
+> Veja os exemplos para compreender como fazê-lo.
 
 ### <a name="initiate-an-authentication-challenge"></a>Iniciar um desafio de autenticação
 

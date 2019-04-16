@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 82836c7686d9b0f376268ef7919a188a8f78944e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548784"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579126"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Ativar contentores para utilizar as capacidades da Rede Virtual do Azure
 
@@ -60,8 +60,8 @@ O plug-in suporta até 250 Pods por máquina virtual e até 16 000 Pods numa red
 O plug-in pode ser utilizado das seguintes formas, para fornecer a ligação à rede virtual básica para Pods ou contentores de Docker:
 
 - **Serviço Kubernetes do Azure**: O plug-in está integrado no Azure Kubernetes Service (AKS) e pode ser utilizado ao escolher o *Advanced Networking* opção. As Redes Avançadas permitem implementar um cluster do Kubernetes numa rede virtual existente ou nova. Para saber mais sobre as Redes Avançadas e os passos para configurá-las, veja [Configuração de redes no AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **Motor de ACS**: Motor de ACS é uma ferramenta que gera um modelo do Azure Resource Manager para a implementação de um cluster de Kubernetes no Azure. Para obter instruções detalhadas, veja [Implementar o plug-in para clusters de Kubernetes do ACS-Engine](deploy-container-networking.md#deploy-plug-in-for-acs-engine-kubernetes-cluster).
-- **Criar seu próprio cluster do Kubernetes no Azure**: O plug-in pode ser utilizado para fornecer a rede básica para Pods em clusters do Kubernetes que implemente por conta própria, sem depender do AKS, ou ferramentas como o motor de ACS. Neste caso, o plug-in é instalado e ativado em todas as máquinas virtuais num cluster. Para obter instruções detalhadas, veja [Implementar o plug-in para um cluster do Kubernetes que implementar por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+- **Motor de AKS**: Motor de AKS é uma ferramenta que gera um modelo do Azure Resource Manager para a implementação de um cluster de Kubernetes no Azure. Para obter instruções detalhadas, consulte [implementar o plug-in para clusters de Kubernetes do AKS-mecanismo](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
+- **Criar seu próprio cluster do Kubernetes no Azure**: O plug-in pode ser utilizado para fornecer a rede básica para Pods em clusters do Kubernetes que implemente por conta própria, sem depender do AKS, ou ferramentas como o mecanismo de AKS. Neste caso, o plug-in é instalado e ativado em todas as máquinas virtuais num cluster. Para obter instruções detalhadas, veja [Implementar o plug-in para um cluster do Kubernetes que implementar por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Rede virtual, anexar para contentores do Docker no Azure**: O plug-in pode ser utilizado em casos em que não quiser criar um cluster do Kubernetes e gostaria de criar o Docker, contentores com a rede virtual anexar, nas máquinas virtuais. Para obter instruções detalhadas, veja [Implementar o plug-in para o Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 
 ## <a name="next-steps"></a>Passos Seguintes

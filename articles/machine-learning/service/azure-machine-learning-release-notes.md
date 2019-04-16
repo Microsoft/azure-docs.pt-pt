@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528140"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579160"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter uma descrição completa de cada SDK, visite os documentos de referência para:
 + O Azure Machine Learning [ **principal SDK para Python**](https://aka.ms/aml-sdk)
 + O Azure Machine Learning [ **SDK de preparação de dados**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Portal do Azure
+  + Agora pode submeter novamente um Script existente ser executado num cluster de computação remota existente. 
+  + Agora, pode executar um pipeline publicado com novos parâmetros na guia Pipelines. 
+  + Detalhes da execução agora oferece suporte a um novo Visualizador de arquivos de instantâneo. Pode ver um instantâneo do diretório quando é submetida uma execução específica. Também pode transferir o bloco de notas que foi submetido para iniciar a execução.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
   + Deteção do tipo de coluna agora oferece suporte a colunas do tipo de tempo.
   + Foi corrigido um erro em que alguns valores de data estavam a ser apresentados como carimbos de data / em vez de objetos de datetime de Python.
   + Foi corrigido um erro em que alguns contagens de tipo foram a ser apresentadas como duplicatas em vez de números inteiros.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

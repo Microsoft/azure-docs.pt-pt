@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261547"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571125"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -69,7 +69,7 @@ Todas as políticas são impostas em duas fases:
 
 - Na **segundo** fase, lhe for pedido para satisfazer os requisitos que ainda não a cumpriu. Se uma das políticas bloqueia o acesso, são bloqueados e não lhe for pedido para satisfazer outros Controles de política. Se nenhuma das políticas bloquear, lhe for pedido para atender a outros controlos de política na seguinte ordem:
 
-    ![Ordenar](./media/best-practices/06.png)
+    ![Encomenda](./media/best-practices/06.png)
     
     Externo fornecedores MFA e os termos de utilização vêm seguintes.
 
@@ -109,7 +109,7 @@ Para cada início de sessão, o Azure Active Directory avalia todas as política
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Acesso condicional funciona com o Exchange ActiveSync?
 
-Sim, pode utilizar o Exchange ActiveSync numa política de acesso condicional.
+Sim, pode utilizar o Exchange ActiveSync numa política de acesso condicional com algumas [limitações](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como configurar o acesso condicional com aplicações do Office 365?
 

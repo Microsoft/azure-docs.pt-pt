@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958053"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579415"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
 
@@ -74,7 +74,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Cabeçalho|Content-Type|string|O tipo de suporte do corpo enviado para a API. Valor predefinido é: '|
 |Cabeçalho|Autorização|string|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da mensagem|Objeto JSON|JSON|A pergunta com as definições|
-|Parâmetro de cadeia de caracteres de consulta (opcional)|`isTest`|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
+
 
 O corpo JSON tem várias definições:
 
@@ -83,6 +83,7 @@ O corpo JSON tem várias definições:
 |`question`|obrigatório|string|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
 |`top`|opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
 |`userId`|opcional|string|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
+|`isTest`|opcional|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
 |`strictFilters`|opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados.|
 
 Um exemplo de corpo JSON é semelhante a:
@@ -91,6 +92,7 @@ Um exemplo de corpo JSON é semelhante a:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

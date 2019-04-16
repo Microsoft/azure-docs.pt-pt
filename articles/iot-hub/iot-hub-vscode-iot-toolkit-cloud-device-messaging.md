@@ -8,22 +8,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: dd56db628dd8a25ab2664f8f1c16b8ac45996549
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443565"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571108"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utilizar ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o IoT Hub
 
-![Diagrama de ponto a ponto](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama de ponto a ponto](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
 [Ferramentas de IoT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) é uma extensão do Visual Studio Code útil que facilita o IoT Hub gestão e desenvolvimento de aplicações de IoT. Este artigo se concentra em como usar ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o seu hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-you-will-learn"></a>O que aprenderá
 
@@ -31,42 +29,54 @@ Saiba como utilizar ferramentas de IoT do Azure para Visual Studio Code para mon
 
 ## <a name="what-you-will-do"></a>O que fará
 
-- Utilize ferramentas de IoT do Azure para Visual Studio Code para monitorizar mensagens do dispositivo para a cloud.
-- Utilize ferramentas de IoT do Azure para Visual Studio Code para enviar mensagens de cloud-para-dispositivo.
+* Utilize ferramentas de IoT do Azure para Visual Studio Code para monitorizar mensagens do dispositivo para a cloud.
+
+* Utilize ferramentas de IoT do Azure para Visual Studio Code para enviar mensagens de cloud-para-dispositivo.
 
 ## <a name="what-you-need"></a>Do que precisa
 
-- Uma subscrição ativa do Azure.
-- Um hub IoT do Azure com a sua subscrição.
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Ferramentas de IoT do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abrir esta ligação no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* Uma subscrição ativa do Azure.
+
+* Um hub IoT do Azure com a sua subscrição.
+
+* [Visual Studio Code](https://code.visualstudio.com/)
+
+* [Ferramentas de IoT do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [abrir esta ligação no Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o seu hub IoT
 
 1. Na **Explorer** ver do VS Code, expanda **dispositivos do Azure IoT Hub** secção no canto inferior esquerdo.
-1. Clique em **selecione o IoT Hub** no menu de contexto.
-1. Mostra um pop-up no canto inferior direito para permitem-lhe iniciar sessão no Azure pela primeira vez.
-1. Depois de iniciar sessão, sua lista de subscrições do Azure serão apresentados, em seguida, selecione a subscrição do Azure e o IoT Hub.
-1. A lista de dispositivos será mostrada na **dispositivos do Azure IoT Hub** guia em poucos segundos.
+
+2. Clique em **selecione o IoT Hub** no menu de contexto.
+
+3. Mostra um pop-up no canto inferior direito para permitem-lhe iniciar sessão no Azure pela primeira vez.
+
+4. Depois de iniciar sessão, sua lista de subscrições do Azure serão apresentados, em seguida, selecione a subscrição do Azure e o IoT Hub.
+
+5. A lista de dispositivos será mostrada na **dispositivos do Azure IoT Hub** guia em poucos segundos.
 
    > [!Note]
    > Também pode concluir a configuração ao escolher **Definir Cadeia de Ligação do Hub IoT**. Introduza a cadeia de ligação do hub IoT que se liga o dispositivo de IoT na janela de pop-up.
-   
+
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorizar mensagens do dispositivo para a cloud
 
 Para monitorizar mensagens que são enviadas a partir do seu dispositivo ao seu hub IoT, siga estes passos:
 
 1. O dispositivo com o botão direito e selecione **iniciar mensagens D2C monitorização**.
-1. As mensagens monitorizadas serão mostradas na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
-1. Para parar a monitorização, clique com botão direito a **saída** ver e selecionar **parar mensagens D2C monitorização**.
+
+2. As mensagens monitorizadas serão mostradas na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
+
+3. Para parar a monitorização, clique com botão direito a **saída** ver e selecionar **parar mensagens D2C monitorização**.
 
 ## <a name="send-cloud-to-device-messages"></a>Enviar mensagens da cloud para o dispositivo
 
 Para enviar uma mensagem do seu hub IoT para o seu dispositivo, siga estes passos:
 
-1. O dispositivo com o botão direito e selecione **enviar mensagem de C2D para dispositivos**. 
-1. Introduza a mensagem na caixa de entrada.
-1. Os resultados serão mostrados na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
+1. O dispositivo com o botão direito e selecione **enviar mensagem de C2D para dispositivos**.
+
+2. Introduza a mensagem na caixa de entrada.
+
+3. Os resultados serão mostrados na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

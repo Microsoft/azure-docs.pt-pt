@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672fd4d54e9e89854a3973ae7d0a5f90cd0130a8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 36d4bb38d7a12edddac9d64ecc1ed3ee5a34456c
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835391"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Active Directory do Azure com Signagelive
 
@@ -28,105 +28,106 @@ Neste tutorial, saiba como integrar Signagelive com o Azure Active Directory (Az
 Integrar Signagelive no Azure AD fornece as seguintes vantagens:
 
 * Pode controlar no Azure AD que tenha acesso ao Signagelive.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Signagelive (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode permitir que os utilizadores ter automaticamente sessão iniciada no Signagelive (início de sessão único) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central: portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para obter mais informações sobre a integração de aplicações SaaS com o Azure AD, consulte [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Signagelive, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Signagelive logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição única com início de sessão no-ativado Signagelive.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* Suporta Signagelive **SP** iniciada SSO
+* Signagelive suporta SSO iniciado por SP.
 
-## <a name="adding-signagelive-from-the-gallery"></a>Adicionando Signagelive da Galeria
+## <a name="add-signagelive-from-the-gallery"></a>Adicionar Signagelive a partir da Galeria
 
-Para configurar a integração do Signagelive com o Azure AD, terá de adicionar Signagelive a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Signagelive com o Azure AD, primeiro adicione Signagelive partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Signagelive a partir da galeria, execute os seguintes passos:**
+Para adicionar Signagelive a partir da galeria, siga os passos seguintes:
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione a **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Aceda a **aplicações empresariais**e, em seguida, selecione a **todos os aplicativos** opção.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar uma nova aplicação, selecione o **nova aplicação** botão na parte superior da caixa de diálogo.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Signagelive**, selecione **Signagelive** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, introduza **Signagelive**. 
 
      ![Signagelive na lista de resultados](common/search-new-app.png)
+
+5. Selecione **Signagelive** no painel de resultados e, em seguida, selecione a **Add** botão para adicionar a aplicação.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
 Nesta secção, configure e teste do Azure AD início de sessão único com Signagelive com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Signagelive deve ser estabelecido.
+Para o início de sessão único funcione, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado Signagelive.
 
-Para configurar e testar o Azure AD início de sessão único com Signagelive, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com Signagelive, primeiro conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Signagelive Single Sign-On](#configure-signagelive-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Signagelive](#create-signagelive-test-user)**  - para ter um equivalente da Eduarda Almeida na Signagelive que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. [Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) para permitir aos utilizadores utilizar esta funcionalidade.
+2. [Configurar Signagelive início de sessão único](#configure-signagelive-single-sign-on) para configurar as definições de início de sessão únicas no lado do aplicativo.
+3. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. [Criar um utilizador de teste Signagelive](#create-a-signagelive-test-user) ter um equivalente da Eduarda Almeida na Signagelive que está ligado a representação do Azure AD do utilizador.
+6. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
 Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Signagelive, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com Signagelive, siga os passos seguintes:
 
 1. Na [portal do Azure](https://portal.azure.com/), na **Signagelive** página de integração de aplicações, selecione **início de sessão único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML** para ativar o início de sessão único.
 
     ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Sobre o **configurar início de sessão único com o SAML** página, selecione **editar** para abrir o **configuração básica de SAML** caixa de diálogo.
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na **configuração básica de SAML** secção, siga os passos seguintes:
 
     ![Signagelive domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
+    Na **URL de início de sessão** , introduza um URL que utiliza o seguinte padrão:  `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Signagelive](mailto:support@signagelive.com) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com o URL de início de sessão real. Para obter o valor, entre em contato com o [equipa de suporte de cliente Signagelive](mailto:support@signagelive.com) . Também pode consultar os padrões que são mostrados na **configuração básica de SAML** secção no portal do Azure.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (bruto)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, selecione **transferir** para transferir o **certificado (bruto)** entre as opções de determinado por seus requisitos. Em seguida, guarde-o no seu computador.
 
     ![O link de download de certificado](common/certificateraw.png)
 
-6. Sobre o **configurar Signagelive** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na **configurar Signagelive** secção, copie os URLs que precisa.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
-### <a name="configure-signagelive-single-sign-on"></a>Configurar Signagelive Single Sign-On
+### <a name="configure-signagelive-single-sign-on"></a>Configurar Signagelive início de sessão único
 
-Para configurar o início de sessão único num **Signagelive** lado, terá de enviar o transferido **certificado (bruto)** e adequadas copiados URLs a partir do portal do Azure para [Signagelive a equipa de suporte](mailto:support@signagelive.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único no lado do Signagelive, envie o transferido **certificado (bruto)** e copiados URLs a partir do portal do Azure para o [equipa de suporte de Signagelive](mailto:support@signagelive.com). Eles garantem que a ligação de SAML SSO está definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -138,26 +139,25 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Botão de novo utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Na **utilizador** diálogo caixa, siga os passos seguintes.
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** , insira "brittasimon@yourcompanydomain.extension". Por exemplo, neste caso, poderá introduzir "BrittaSimon@contoso.com".
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Signagelive.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Signagelive**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Signagelive**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
@@ -169,29 +169,29 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione o **adicionar utilizador** botão. Em seguida, na **adicionar atribuição** caixa de diálogo, selecione **utilizadores e grupos**.
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** caixa de diálogo a **utilizadores** lista, selecione **Eduarda Almeida**. Em seguida, clique nas **selecione** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se está esperando um valor de função na asserção de SAML, em seguida, no **selecionar função** diálogo caixa, selecione a função adequada para o utilizador a partir da lista. Em seguida, clique a **selecione** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+7. Na **adicionar atribuição** caixa de diálogo, selecione a **atribuir** botão.
 
-### <a name="create-signagelive-test-user"></a>Criar utilizador de teste Signagelive
+### <a name="create-a-signagelive-test-user"></a>Criar um utilizador de teste Signagelive
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Signagelive. Trabalhar com [equipa de suporte de Signagelive](mailto:support@signagelive.com) para adicionar os utilizadores na plataforma Signagelive. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Signagelive. Trabalhar com o [equipa de suporte de Signagelive](mailto:support@signagelive.com) para adicionar os utilizadores na plataforma Signagelive. Tem de criar e ativar os utilizadores antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal MyApps.
 
-Quando clica no mosaico Signagelive no painel de acesso, deve ser automaticamente sessão iniciada no Signagelive para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando seleciona a **Signagelive** mosaico no MyApps portal, deve estar automaticamente conectado. Para obter mais informações sobre o portal MyApps, consulte [o que é o portal MyApps?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

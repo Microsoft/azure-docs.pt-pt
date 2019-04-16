@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121354"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577903"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Documentação de orientação para os dados pessoais armazenados no Log Analytics e Application Insights
 
@@ -86,6 +86,9 @@ Conforme mencionado na [estratégia para a manipulação de dados pessoais](#str
 ### <a name="view-and-export"></a>Ver e exportar
 
 Para ambos ver e exportar pedidos de dados, o [API de consulta do Log Analytics](https://dev.loganalytics.io/) ou o [API de consulta do Application Insights](https://dev.applicationinsights.io/quickstart) deve ser utilizado. Lógica para converter a forma dos dados a um adequado para fornecer aos seus utilizadores será deve implementar. [As funções do Azure](https://azure.microsoft.com/services/functions/) faz um excelente local para alojar essa lógica.
+
+> [!IMPORTANT]
+>  Embora a grande maioria das operações de remoção pode ser concluída muito mais rápida do que o SLA **o formal SLA para a conclusão de operações de remoção está definido em 30 dias** devido a seu impacto pesado na plataforma de dados utilizado. Este é um processo automatizado; Não é possível solicitar que uma operação ser processadas mais depressa.
 
 ### <a name="delete"></a>Eliminar
 

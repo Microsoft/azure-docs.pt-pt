@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098115"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579534"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
 
