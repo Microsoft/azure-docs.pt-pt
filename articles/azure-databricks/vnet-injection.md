@@ -131,7 +131,7 @@ Se não utilizar o [portal do Azure](https://docs.azuredatabricks.net/administra
 |Saída|\*|\*|\*|Armazenamento (etiqueta de serviço)|\*|
 |Saída|\*|\*|\*|VirtualNetwork|\*|
 
-Tráfego de sub-rede de lista branca com o IP seguinte endereços. Para SQL (metastore) e armazenamento (armazenamento de artefactos e de log), deve usar o Sql e o armazenamento [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Tráfego de sub-rede de lista de permissões com o IP seguinte endereços. Para SQL (metastore) e armazenamento (armazenamento de artefactos e de log), deve usar o Sql e o armazenamento [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 |Região do Azure Databricks|Serviço|IP público|
 |-----------------------|-------|---------|

@@ -11,7 +11,7 @@ ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 96ec1f3ecdca6437e1d25eca433d385573f6c659
 ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57220530"
@@ -98,7 +98,7 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
 | R.A.E. de Macau                           | MO        | USD          |
-| Macedónia (ARJM)                      | MK        | USD          |
+| Macedónia do Norte                      | MK        | USD          |
 | Malásia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Maurícia                           | MU        | USD          |
@@ -117,7 +117,7 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Noruega                              | NO        | NOK          |
 | Omã                                | OM        | USD          |
 | Paquistão                            | PK        | USD          |
-| Palestina                           | PS        | USD          |
+| Autoridade Palestiniana                           | PS        | USD          |
 | Panamá                              | PA        | USD          |
 | Paraguai                            | PY        | USD          |
 | Peru                                | PE        | USD          |

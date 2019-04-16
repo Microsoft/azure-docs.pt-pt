@@ -16,7 +16,7 @@ ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
 ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48810531"
@@ -149,7 +149,7 @@ A tabela seguinte mostra as diferentes regiões que pode especificar para preço
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituânia            | EUR               |
 | LU         | Luxemburgo           | EUR               |
-| MK         | Macedónia (ARJM)       | MKD QUE               |
+| MK         | Macedónia do Norte       | MKD QUE               |
 | MEU         | Malásia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | México               | MXN               |

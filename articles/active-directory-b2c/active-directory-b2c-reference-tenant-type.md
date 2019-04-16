@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57452118"
@@ -45,7 +45,7 @@ Os dados residem nos Estados Unidos para os países/regiões seguintes:
 
 Os dados residem na Europa para os países/regiões seguintes:
 
-> Argélia, Áustria, Azerbaijão, Barém, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egipto, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordan, Cazaquistão, Quénia, Kuwait, Lativa, Líbano, Listenstaine, Lituania, Luxemburgo, Macedónia (ARJM), Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Catar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Reino Árabes Unidos e o Reino Unido.
+> Argélia, Áustria, Azerbaijão, Barém, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egipto, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordan, Cazaquistão, Quénia, Kuwait, Lativa, Líbano, Listenstaine, Lituania, Luxemburgo, Macedónia do Norte, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Catar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Reino Árabes Unidos e o Reino Unido.
 
 Os restantes países/regiões estão a ser adicionado à lista.  Por agora, pode continuar a utilizar do Azure AD B2C ao selecionar qualquer um dos países/regiões acima.
 

@@ -51,7 +51,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Cabo Verde                     |        ✓       |                       |             |
 | Congo - Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo - Kinshasa                |        ✓       |                       |             |
-| Costa do Marfim                  |        ✓       |                       |             |
+| Costa do Marfim (Côte d’Ivoire)                  |        ✓       |                       |             |
 | Egito                          |        ✓       |         ✓            |             |
 | Gabão                          |        ✓       |                       |             |
 | Gâmbia                         |        ✓       |                       |             |
@@ -141,7 +141,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Indonésia                      |        ✓       |         ✓            |             |
 | Coreia                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macau                          |        ✓       |         ✓            |             |
+| RAE de Macau                          |        ✓       |         ✓            |             |
 | Malásia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | Nova Zelândia                    |        ✓       |         ✓            |     ✓       | 
@@ -190,7 +190,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Listenstaine                  |        ✓       |         ✓            |             |
 | Lituânia                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
-| Macedónia (ARJM)                      |        ✓       |                      |             |
+| Macedónia do Norte                      |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldávia                        |        ✓       |                      |             |
 | Mónaco                         |        ✓       |         ✓            |             |

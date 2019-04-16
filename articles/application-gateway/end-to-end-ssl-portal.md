@@ -32,7 +32,7 @@ Para obter mais informações, consulte [SSL terminação e o SSL ponto a ponto]
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Criar um novo gateway de aplicação com SSL de ponta a ponta
 
-Para criar um novo gateway de aplicação com a encriptação SSL ponto a ponto, terá de ativar primeiro a terminação de SSL ao criar um novo gateway de aplicação. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista branca certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, portanto, ao realizar a encriptação SSL ponto a ponto.
+Para criar um novo gateway de aplicação com a encriptação SSL ponto a ponto, terá de ativar primeiro a terminação de SSL ao criar um novo gateway de aplicação. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista de permissões certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, portanto, ao realizar a encriptação SSL ponto a ponto.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Ativar a terminação de SSL ao criar um novo gateway de aplicação
 
@@ -61,9 +61,9 @@ Consulte este artigo para compreender como [ativar a terminação de SSL ao cria
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Ativar o SSL de ponta a ponta para o gateway de aplicação existente
 
-Para configurar um gateway de aplicação existente com a encriptação SSL ponto a ponto, precisará a terminação de SSL de ativar primeiro no serviço de escuta. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista branca certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, portanto, ao realizar a encriptação SSL ponto a ponto.
+Para configurar um gateway de aplicação existente com a encriptação SSL ponto a ponto, precisará a terminação de SSL de ativar primeiro no serviço de escuta. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista de permissões certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, portanto, ao realizar a encriptação SSL ponto a ponto.
 
-Terá de utilizar um serviço de escuta com o protocolo HTTPS e o certificado para ativar a terminação de SSL. Não é possível alterar o protocolo de um serviço de escuta. Por conseguinte, pode optar por utilizar um serviço de escuta com o protocolo HTTPS e o certificado ou criar um novo serviço de escuta. No caso de escolher o primeiro, pode ignorar o abaixo mencionado passos para **terminação de ativar o SSL no gateway de aplicação existente** e mova diretamente para **lista branca certificados para servidores de back-end** secção. Se escolher o último, efetue estes passos. 
+Terá de utilizar um serviço de escuta com o protocolo HTTPS e o certificado para ativar a terminação de SSL. Não é possível alterar o protocolo de um serviço de escuta. Por conseguinte, pode optar por utilizar um serviço de escuta com o protocolo HTTPS e o certificado ou criar um novo serviço de escuta. No caso de escolher o primeiro, pode ignorar o abaixo mencionado passos para **terminação de ativar o SSL no gateway de aplicação existente** e mova diretamente para **lista de permissões certificados para servidores de back-end** secção. Se escolher o último, efetue estes passos. 
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Ativar a terminação de SSL no gateway de aplicação existente
 

@@ -63,7 +63,7 @@ Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber c
 >[!NOTE]
 >Firewall do Azure tem de ter conectividade à internet direta. Por predefinição, AzureFirewallSubnet só deve permitir um 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**.
 >
->Se ativar o protocolo de túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, poderá ter de configurar explicitamente uma 0.0.0.0/0 UDR com o valor de NextHopType definido como **Internet** e associá-lo a seu AzureFirewallSubnet. Se a sua organização precisar de túnel forçado para o tráfego de Firewall do Azure, contacte o suporte para que possamos lista branca de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
+>Se ativar o protocolo de túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, poderá ter de configurar explicitamente uma 0.0.0.0/0 UDR com o valor de NextHopType definido como **Internet** e associá-lo a seu AzureFirewallSubnet. Se a sua organização precisar de túnel forçado para o tráfego de Firewall do Azure, contacte o suporte para que possamos lista de permissões de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
 
 >[!NOTE]
 >Tráfego entre VNets diretamente em modo de peering é encaminhado diretamente, mesmo se um UDR aponta para o Firewall do Azure como o gateway predefinido. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, um UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.

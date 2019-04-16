@@ -136,7 +136,7 @@ Pode configurar uma política de filtragem geográfica para a porta de entrada p
 | MA | Marrocos|
 | MD | Moldova, República da|
 | MG | Madagáscar|
-| MK | Macedónia (ARJM)|
+| MK | Macedónia do Norte|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongólia|

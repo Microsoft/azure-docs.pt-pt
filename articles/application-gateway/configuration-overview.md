@@ -57,7 +57,7 @@ Grupos de segurança de rede (NSGs) são suportados no Gateway de aplicação. N
 
 - Tráfego a partir da **AzureLoadBalancer** etiqueta tem de ter permissão.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Acesso de Gateway de aplicação de lista branca de IPs de origem alguns
+##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Acesso de Gateway de aplicação de lista de permissões de IPs de origem alguns
 
 Para este cenário, utilize NSGs na sub-rede de Gateway de aplicação. Coloca as seguintes restrições na sub-rede por esta ordem de prioridade:
 
