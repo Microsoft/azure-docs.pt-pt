@@ -248,6 +248,9 @@ items:
     - name: Aplicação de patches de SO para o cluster do HDInsight
       href: ../hdinsight-os-patching.md
       maintainContext: true
+    - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
   - name: Resolução de problemas
     href: ../hdinsight-troubleshoot-guide.md
     items:
@@ -357,12 +360,15 @@ items:
 - name: Recursos
   items:
   - name: Notas de versão
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Notas de versão atual
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Notas de versão arquivadas
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Alterações ao acesso à configuração do cluster
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obter ajuda no fórum
@@ -376,9 +382,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9aac9dcaa0e7a853b3cedf88a7666f789dbf558f
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 2f9952a95da9a47448d54ba5b48be033fb5707cc
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579075"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615728"
