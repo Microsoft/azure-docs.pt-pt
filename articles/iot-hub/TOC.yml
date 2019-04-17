@@ -277,6 +277,7 @@ items:
       - name: Utilizar a API REST
         href: iot-hub-rm-rest.md
       - name: Utilizar um modelo do Azure PowerShell
+        displayName: Azure Resource Manager, ARM
         href: iot-hub-rm-template-powershell.md
       - name: Utilizar um modelo do .NET
         href: iot-hub-rm-template.md
@@ -459,9 +460,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: bd2ac9a20e4797f9f25ffbd3ed4d369da1c3e469
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: a649c65286557c58d02aa5ba3425f3e49e79392a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263796"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606961"

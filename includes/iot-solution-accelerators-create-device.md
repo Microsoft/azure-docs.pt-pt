@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435117"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630550"
 ---
 No primeiro cenário, vai adicionar um novo tipo de telemetria para a Contoso existentes **Chiller** tipo de dispositivo.
 
@@ -21,7 +21,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 *Propriedades*
 
-| Nome                     | Valores                      |
+| Name                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Cor                    | White, vermelho, azul            |
 | Brilho               | 0 a 100                    |
@@ -31,11 +31,11 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 A tabela seguinte mostra os dados que na lâmpada relatórios para a cloud como um fluxo de dados:
 
-| Nome   | Valores      |
+| Name   | Valores      |
 | ------ | ----------- |
-| Estado | "on", "desativado" |
+| Estado | "on", "off" |
 | Temperatura | Graus F |
-| Online | VERDADEIRO, FALSO |
+| online | VERDADEIRO, FALSO |
 
 > [!NOTE]
 > O **online** valor de telemetria é obrigatório para tipos de todos os simulado.
@@ -44,7 +44,7 @@ A tabela seguinte mostra os dados que na lâmpada relatórios para a cloud como 
 
 A tabela seguinte mostra as ações que suporta o novo dispositivo:
 
-| Nome        |
+| Name        |
 | ----------- |
 | Mudar de   |
 | Optar por desativar  |
@@ -53,7 +53,7 @@ A tabela seguinte mostra as ações que suporta o novo dispositivo:
 
 A tabela seguinte mostra o estado inicial do dispositivo:
 
-| Nome                     | Valores |
+| Name                     | Valores |
 | ------------------------ | -------|
 | Cor inicial            | Branco  |
 | Brilho inicial       | 75     |
@@ -72,7 +72,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para seguir este guia de procedimentos, terá de:
 
 * Visual Studio Code. Pode [transferir o Visual Studio Code para Mac, Linux e Windows](https://code.visualstudio.com/download).
-* .NET core. Pode baixar [.NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
+* .NET Core. Pode baixar [.NET Core para Mac, Linux e Windows](https://www.microsoft.com/net/download).
 * [C# para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. Pode baixar [Postman para Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Uma [hub IoT implementado na sua subscrição do Azure](../articles/iot-hub/iot-hub-create-through-portal.md). Terá de cadeia de ligação do hub IoT para concluir os passos neste guia. Pode obter a cadeia de ligação do portal do Azure.
@@ -98,13 +98,11 @@ Transfira e deszipe o [microsserviços de simulação de dispositivo](https://gi
 
 Abra o **remote-monitoring-services-dotnet-master\storage-adapter** pasta no Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
 
-Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do Cosmos DB para o **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** variável de ambiente.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Abra o **storage-adapter/WebService/appsettings.ini** do ficheiro e atribuir a cadeia de ligação do Cosmos DB para o **documentDBConnectionString** variável.
 
 Para executar os microsserviços localmente, clique em **depurar > Iniciar depuração**.
 
-O **Terminal** janela no Visual Studio Code mostra a saída dos microsserviços em execução, incluindo um URL para a verificação de estado de funcionamento do serviço web: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). Ao navegar para este endereço, o estado deve ser "OK: ativo e bem".
+O **Terminal** janela no Visual Studio Code mostra a saída dos microsserviços em execução, incluindo um URL para a verificação de estado de funcionamento do serviço web: [ http://127.0.0.1:9022/v1/status ](http://127.0.0.1:9022/v1/status). Ao navegar para este endereço, o estado deve ser "OK: Ativo e bem".
 
 Deixe os microsserviços de placa de armazenamento em execução nesta instância do Visual Studio Code enquanto efetua os passos seguintes.
 
@@ -118,12 +116,12 @@ Nesta secção, adiciona um novo **temperatura interna** tipo de telemetria para
 
     | Origem | Destino |
     | ------ | ----------- |
-    | Services\data\devicemodels\chiller-01.JSON | C:\temp\devicemodels\chiller-01.JSON |
-    | Services\data\devicemodels\scripts\chiller-01-State.js | C:\temp\devicemodels\scripts\chiller-01-State.js |
-    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-Method.js |
-    | Services\data\devicemodels\scripts\FirmwareUpdate-Method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-Method.js |
-    | Services\data\devicemodels\scripts\EmergencyValveRelease-Method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-Method.js |
-    | Services\data\devicemodels\scripts\IncreasePressure-Method.js | C:\temp\devicemodels\scripts\IncreasePressure-Method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-Method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. Abra o **C:\temp\devicemodels\chiller-01.json** ficheiro.
 
@@ -417,11 +415,7 @@ Nesta secção, vai testar os tipos de dispositivo que criou nas secções anter
 
 Abra o **dispositivo-simulação-dotnet-mestre** pasta transferiu a partir do GitHub numa nova instância do Visual Studio Code. Clique em qualquer **restaurar** botões para corrigir quaisquer não resolvido dependências.
 
-Abra o **.vscode/launch.json** do ficheiro e atribuir a cadeia de ligação do IoT Hub para o **PCS_IOTHUB_CONNSTRING** variável de ambiente. No mesmo ficheiro, adicione a **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** variável de ambiente e atribuir a cadeia de ligação da base de dados do Cosmos DB.
-
-Abra o **WebService/Properties/launchSettings.json** do ficheiro e atribuir a cadeia de ligação do IoT Hub para o **PCS_IOTHUB_CONNSTRING** variável de ambiente.
-
-Abra o **WebService/appsettings.ini** de ficheiros e modifique as definições da seguinte forma:
+Abra o **WebService/appsettings.ini** do ficheiro e atribuir a cadeia de ligação do Cosmos DB para o **documentdb_connstring** variável bem como modificar as definições da seguinte forma:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

@@ -43,7 +43,7 @@ items:
       - name: Através do PowerShell
         href: data-box-gateway-connect-powershell-interface.md
     - name: Monitorizar
-      href: data-box-edge-monitor.md
+      href: data-box-gateway-monitor.md
     - name: Resolução de problemas
       href: data-box-gateway-troubleshoot.md
   - name: Notas de versão
@@ -96,6 +96,8 @@ items:
       href: data-box-edge-connect-powershell-interface.md
     - name: Resolução de problemas
       href: data-box-edge-troubleshoot.md
+    - name: Monitorizar
+      href: data-box-edge-monitor.md
   - name: Notas de versão
     items:
     - name: Disponibilidade geral
@@ -108,9 +110,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: aafd361432d17e8a147847b1271ed4b86c6c4cf9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: d72b7b227142ad62c4c87fb8f06ef84ceef57826
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578577"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615936"
