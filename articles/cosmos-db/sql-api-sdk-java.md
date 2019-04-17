@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648561"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617137"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * Foi adicionado suporte para o feed de alterações.
 * Foi adicionado suporte para obter informações de quota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o registo de script do procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
-* Foi corrigido um erro em que a consulta no modo de DirectHttps pode travar quando se deparar com falhas de limitação.
+* Foi corrigido um erro em que a consulta no modo de DirectHttps pode parar de responder quando se deparar com falhas de limitação.
 * Foi corrigido um erro no modo de consistência da sessão.
 * Foi corrigido um erro que pode causar NullReferenceException no HttpContext, quando a taxa de pedidos é elevada.
 * Desempenho aprimorado do modo de DirectHttps.

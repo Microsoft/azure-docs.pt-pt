@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: d2905d05dce48b705de44780425ed2b55b02555c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: a139d0558565114725c6198f64e139e5a5019c75
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888989"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616700"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e o Java
 
@@ -23,18 +23,20 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Kit(JDK) de desenvolvimento Java 7 ou posterior.
+* Kit(JDK) de desenvolvimento Java 7 ou posterior.
+
+* Importar os [gson 2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) ou mais recente [Gson](https://github.com/google/gson) versão. Para execução de linha de comandos, adicione o `.jar` para a pasta de Java com a classe principal.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-
 ## <a name="create-and-initialize-an-application"></a>Criar e inicializar uma aplicação
 
-1. Criar um novo projeto de Java no seu IDE ou editor favorito e importe os seguintes pacotes.
+1. Criar um novo projeto de Java no seu IDE favorito ou no editor com um nome de classe à sua escolha e, em seguida, importe os seguintes pacotes.
 
     ```java
     import java.io.*;
     import java.net.*;
+    import com.google.gson.*;
     import javax.net.ssl.HttpsURLConnection;
     ```
 
@@ -44,7 +46,7 @@ Kit(JDK) de desenvolvimento Java 7 ou posterior.
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    static String key = "ENTER YOUR KEY HERE";
+    static String key = "<ENTER-KEY-HERE>";
 
     static String mkt = "en-US";
     static String mode = "proof";
@@ -58,21 +60,20 @@ Kit(JDK) de desenvolvimento Java 7 ou posterior.
    ```java
    public static void check () throws Exception {
        String params = "?mkt=" + mkt + "&mode=" + mode;
-   //...
+      // add the rest of the code snippets here (except prettify() and main())...
    }
    ```
 
-2. Crie um URL ao combinar a cadeia de anfitrião, caminho e parâmetros do ponto final. Criar um novo `HttpsURLConnection` obejct.
+2. Crie um URL ao combinar a cadeia de anfitrião, caminho e parâmetros do ponto final. Criar um novo `HttpsURLConnection` objeto.
 
     ```java
     URL url = new URL(host + path + params);
-    HttpsURLConnection connection = (HttpsURLConnection) 
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Abra uma ligação para o URL. Definir o método de pedido como `POST`. Adicione os parâmetros do pedido. Certifique-se de adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho. 
+3. Abra uma ligação para o URL. Definir o método de pedido como `POST`. Adicione os parâmetros do pedido. Certifique-se de adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```java
-    url.openConnection();
     connection.setRequestMethod("POST");
     connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
     connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
@@ -88,21 +89,34 @@ Kit(JDK) de desenvolvimento Java 7 ou posterior.
         wr.close();
     ```
 
-## <a name="read-the-response"></a>Ler a resposta
+## <a name="format-and-read-the-api-response"></a>Formatar e ler a resposta de API
 
-1. Criar um `BufferedReader` e ler a resposta da API. Imprimi-lo na consola.
+1. Adicione este método à sua classe. Formata o JSON para uma saída mais legível.
+
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
     ```java
     BufferedReader in = new BufferedReader(
     new InputStreamReader(connection.getInputStream()));
     String line;
     while ((line = in.readLine()) != null) {
-        System.out.println(line);
+        System.out.println(prettify(line);
     }
     in.close();
     ```
 
-2. A função main de seu aplicativo, chame a função criada acima. 
+## <a name="call-the-api"></a>Chamar a API
+
+A função main de seu aplicativo, chame seu método check() criado acima.
 
     ```java
     public static void main(String[] args) {
@@ -114,10 +128,26 @@ Kit(JDK) de desenvolvimento Java 7 ou posterior.
         }
     }
     ```
-    
+
+## <a name="run-the-application"></a>Executar a aplicação
+
+Crie e execute seu projeto.
+
+Se estiver a utilizar a linha de comandos, utilize os seguintes comandos para criar e executar a aplicação.
+
+**Compilação:**
+```bash
+javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+```
+
+**Execute:**
+```bash
+java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+```
+
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 
-É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {

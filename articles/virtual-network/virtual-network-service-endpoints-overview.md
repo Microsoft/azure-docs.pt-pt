@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45ac09b84aca44f6739a0e29994986200424fc5c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669338"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618163"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -33,6 +33,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
 - **[Base de dados do Azure para o servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
 - **[Base de dados do Azure para o servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
+- **[Base de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
 - **[Cofre de chaves do Azure](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Disponível em geral em todas as regiões do Azure.
 - **[O Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
@@ -41,7 +42,6 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 
 **Pré-visualização pública**
 
-- **[Base de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: A pré-visualização está disponível em todas as regiões do Azure onde a base de dados do Azure para MariaDB está disponível.
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: A pré-visualização está disponível em todas as regiões do Azure onde o Azure Container Registry está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).

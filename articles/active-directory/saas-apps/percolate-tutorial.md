@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275849"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Active Directory do Azure com Percolate
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD início de sessão único com Percolate, execute os s
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Na **configuração básica de SAML** secção, se desejar configurar a aplicação na **IDP** modo iniciado, o utilizador não tem de efetuar qualquer passo dado que a aplicação já está pré-integrada com o Azure.
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação na **IDP** modo iniciado, o utilizador não tem de realizar qualquer passo dado que a aplicação já está pré-integrado com o Azure.
 
     ![Percolate domínio e URLs únicas início de sessão em informações](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Para configurar o Azure AD início de sessão único com Percolate, execute os s
 
     b. Na **ID de entidade** caixa de texto, cole o valor de **do Azure AD identificador** que copiou do portal do Azure.
 
-    c. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **x509 certificados** caixa.
+    c. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **x509 certificados** caixa.
 
     d. Na **atributo de correio eletrónico** caixa de texto, tipo **emailaddress**.
 
@@ -219,13 +219,13 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Percolate, tem de ser 
 
     ![Configurar o início de sessão único](./media/percolate-tutorial/configure04.png)
 
-    a. Na **E-Mail** texto, introduza o e-mail do utilizador, como brittasimon@contoso.com.
+    a. Na **E-Mail** texto, introduza o e-mail do utilizador, como brittasimon@contoso.com.
 
-    b. Na **Fullname** texto, introduza o nome de utilizador, como **Brittasimon**.
+    b. Na **Fullname** texto, introduza o nome de utilizador, como **Brittasimon**.
 
     c. Clique em **criar utilizadores**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -235,7 +235,7 @@ Quando clica no mosaico Percolate no painel de acesso, deve ser automaticamente 
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
