@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257013"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608015"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Sua conta de utilizador para blocos de notas do Azure
 
@@ -41,6 +41,9 @@ Contas da Microsoft são utilizadas para iniciar sessão em qualquer número de 
 Se tiver certeza, selecione o **criar um** comando na linha de comandos de conta. Pode criar uma nova conta Microsoft com qualquer endereço de e-mail a partir de qualquer fornecedor de serviços.
 
 ![Comando para criar uma nova conta Microsoft](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Se tentar criar uma nova conta com um endereço de e-mail que já tem uma conta associada à mesma, pode ver a mensagem "não é possível inscrever-se aqui com um profissional ou escolar endereço de e-mail. Utilize um endereço pessoal, como o Gmail ou Yahoo!, ou obtenha um novo e-mail do Outlook." Nesse caso, tente iniciar sessão com o endereço de e-mail profissional sem criar uma nova conta.
 
 Para contas de criança, o acesso aos blocos de notas do Azure é bloqueado por predefinição. Iniciar sessão com uma conta de menor apresenta o erro mostrado abaixo:
 

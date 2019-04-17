@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3b2df5b24a12f3d2ea5d8a03721c08f8d2a742ad
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539996"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607097"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -47,7 +47,7 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Nome do controlo de origem     | Um nome amigável para o controle de origem        |
+|Nome do controlo de origem     | Um nome amigável para o controlo de origem. *Este nome tem de conter apenas letras e números.*        |
 |Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> GitHub</br>Repositórios do Azure (Git)</br> Azure Repos (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Os primeiras 200 repositórios são devolvidos. Para procurar um repositório, escreva o nome no campo e clique em **pesquisa no GitHub**.|
 |Branch     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |

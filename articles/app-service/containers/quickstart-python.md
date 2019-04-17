@@ -15,22 +15,18 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8621ebf474591c253dbd9ca24b36a36287ca8cf7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547713"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607777"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux (pré-visualização)
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de início rápido mostra como implementar uma aplicação Python sobre a imagem incorporada do Python (pré-visualização) no Serviço de Aplicações no Linux com a [CLI do Azure](/cli/azure/install-azure-cli).
-
-Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
+Neste início rápido, vai implementar uma aplicação de Python simples no [serviço de aplicações no Linux](app-service-linux-intro.md), que fornece um serviço de alojamento na web altamente dimensionável e com correção automática. Utilizar a interface de linha de comandos do Azure (a [CLI do Azure](/cli/azure/install-azure-cli)) através do interativo, baseada no browser e do Azure Cloud Shell, pelo que pode seguir os passos utilizam um computador Mac, Linux ou Windows.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,6 +34,7 @@ Para concluir este guia de início rápido:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Instale o Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* Uma subscrição do Azure. Se ainda não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 ## <a name="download-the-sample-locally"></a>Transferir o exemplo localmente
 
@@ -174,10 +171,10 @@ return "Hello Azure!"
 
 Guardar as alterações e sair do editor. Utilize o comando `^S` para guardar e `^Q` para sair.
 
-Agora vai reimplementar a aplicação. Substitute `<app-name>` com a sua aplicação.
+Voltar a implementar a aplicação com o [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) comando. Substitua o nome da sua aplicação para `<app-name>`e especificar uma localização para `<location-name>` (através de um dos valores mostrados a partir do [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) comando).
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 Depois de concluída a implementação, volte para a janela do browser aberta que abriu no passo **Navegar para a aplicação** e atualize a página.

@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548530"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617721"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de serviços de multimédia
 
-Atualmente, os serviços de multimédia do Azure não definida qualquer específicas de funções personalizadas para o serviço. Os clientes podem utilizar as funções incorporadas de **proprietário** ou **contribuinte** para obter acesso completo para uma conta de Media Services. A principal diferença entre estas funções é: o **proprietário** pode controlar quem tem acesso a um recurso e o **contribuinte** não é possível. A conta do leitor incorporado só tem acesso de leitura à conta de Media Services. 
+Atualmente, os serviços de multimédia do Azure não define quaisquer funções personalizadas específicas para o serviço. Para obter acesso total à conta de Media Services, os clientes podem utilizar as funções incorporadas de **proprietário** ou **contribuinte**. A principal diferença entre estas funções é: o **proprietário** pode controlar quem tem acesso a um recurso e o **contribuinte** não é possível. O incorporado **leitor** também pode ser utilizada a função, mas o utilizador ou a aplicação apenas terá acesso de leitura para as APIs de serviços de multimédia. 
 
 ## <a name="design-principles"></a>Princípios de conceção
 
-Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolverem segredos ou as credenciais no **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou saneadas da resposta. O utilizador precisa para chamar um método de ação separada para obter segredos ou as credenciais. O **leitor** função não é possível chamar operações para que ele não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite-lhe definir permissões de segurança mais granulares do RBAC numa função personalizada, se assim o desejar.
+Um dos principais princípios de design da API v3 é tornar a API mais segura. v3 APIs não devolverem segredos ou as credenciais no **Obtenha** ou **lista** operações. As chaves são sempre nulas, vazias ou saneadas da resposta. O utilizador precisa para chamar um método de ação separada para obter segredos ou as credenciais. O **leitor** função não é possível chamar operações como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Ter ações separadas permite-lhe definir permissões de segurança mais granulares do RBAC numa função personalizada, se assim o desejar.
 
 Para listar as operações dos serviços de multimédia suporta, fazer:
 

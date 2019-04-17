@@ -9,29 +9,28 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b24c8fa76e5bb3f8cdf7d246f7f7aa0f1a62258a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051517"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606791"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT com o fornecedor de recursos REST API (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Pode utilizar o [REST API do fornecedor de recursos de IoT Hub] [ lnk-rest-api] para criar e gerir hubs IoT do Azure através de programação. Este tutorial mostra-lhe como utilizar a API de REST do fornecedor de recursos de IoT Hub para criar um hub IoT a partir de um programa c#.
-
-> [!NOTE]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [O Azure Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo explica como utilizar o modelo de implementação Azure Resource Manager.
+Pode utilizar o [REST API do fornecedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para criar e gerir hubs IoT do Azure através de programação. Este tutorial mostra-lhe como utilizar a API de REST do fornecedor de recursos de IoT Hub para criar um hub IoT a partir de um programa c#.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para concluir este tutorial, precisa do seguinte:
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* [O Azure PowerShell 1.0] [ lnk-powershell-install] ou posterior.
+
+* Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
+
+* [O Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou posterior.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -72,13 +71,14 @@ Para concluir este tutorial, precisa do seguinte:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>Utilize a API de REST do fornecedor de recursos para criar um hub IoT
 
-Utilize o [REST API do fornecedor de recursos de IoT Hub] [ lnk-rest-api] para criar um hub IoT no seu grupo de recursos. Também pode utilizar a API de REST do fornecedor de recursos para fazer alterações para um hub IoT.
+Utilize o [REST API do fornecedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource) para criar um hub IoT no seu grupo de recursos. Também pode utilizar a API de REST do fornecedor de recursos para fazer alterações para um hub IoT.
 
 1. Adicione o seguinte método à Program.cs:
 
@@ -96,7 +96,7 @@ Utilize o [REST API do fornecedor de recursos de IoT Hub] [ lnk-rest-api] para c
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Adicione o seguinte código para o **CreateIoTHub** método. Esse código descreve o hub IoT para criar e gera uma representação JSON. Para obter a lista atual de localizações que suportam o IoT Hub, veja [estado do Azure][lnk-status]:
+3. Adicione o seguinte código para o **CreateIoTHub** método. Esse código descreve o hub IoT para criar e gera uma representação JSON. Para obter a lista atual de localizações que suportam o IoT Hub, veja [estado do Azure](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -166,35 +166,25 @@ Pode concluir a aplicação ao chamar o **CreateIoTHub** método antes da compil
 
 3. Clique em **depurar** e, em seguida **iniciar depuração** para executar a aplicação. Pode demorar alguns minutos até que a implementação para execução.
 
-4. Para verificar se seu aplicativo adicionado o novo hub IoT, visite o [portal do Azure] [ lnk-azure-portal] e ver a sua lista de recursos. Em alternativa, utilize o **Get-AzResource** cmdlet do PowerShell.
+4. Para verificar se seu aplicativo adicionado o novo hub IoT, visite o [portal do Azure](https://portal.azure.com/) e ver a sua lista de recursos. Em alternativa, utilize o **Get-AzResource** cmdlet do PowerShell.
 
 > [!NOTE]
-> Esta aplicação de exemplo adiciona uma S1 Standard do IoT Hub que lhe é cobrada. Quando tiver terminado, pode eliminar o hub IoT através do [portal do Azure] [ lnk-azure-portal] ou utilizando o **Remove-AzResource** cmdlet do PowerShell quando tiver terminado.
+> Esta aplicação de exemplo adiciona uma S1 Standard do IoT Hub que lhe é cobrada. Quando tiver terminado, pode eliminar o hub IoT através do [portal do Azure](https://portal.azure.com/) ou utilizando o **Remove-AzResource** cmdlet do PowerShell quando tiver terminado.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que implementou um hub IoT com a API de REST do fornecedor de recursos, pode querer explorar ainda mais:
 
-* Leia sobre as capacidades do [REST API do fornecedor de recursos de IoT Hub][lnk-rest-api].
-* Leia [descrição geral do Azure Resource Manager] [ lnk-azure-rm-overview] para saber mais sobre as capacidades do Azure Resource Manager.
+* Leia sobre as capacidades do [REST API do fornecedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+
+* Leia [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para saber mais sobre as capacidades do Azure Resource Manager.
 
 Para saber mais sobre o desenvolvimento para o IoT Hub, veja os artigos seguintes:
 
-* [Introdução ao C SDK][lnk-c-sdk]
-* [SDKs do Azure IoT][lnk-sdks]
+* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

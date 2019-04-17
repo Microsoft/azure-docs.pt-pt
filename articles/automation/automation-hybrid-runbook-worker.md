@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545846"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608559"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 
@@ -27,6 +27,9 @@ A imagem seguinte ilustra esta funcionalidade:
 Cada função de trabalho de Runbook híbrida é um membro de um grupo de trabalho de Runbook híbrida que forem especificados durante a instalação do agente. Um grupo pode conter um único agente, mas é possível instalar vários agentes num grupo para elevada disponibilidade.
 
 Quando inicia um runbook numa função de trabalho de Runbook híbrida, especifique o grupo que é executado. Cada função de trabalho no grupo de consulta de automatização do Azure para ver se todas as tarefas estão disponíveis. Se uma tarefa estiver disponível, a primeira função de trabalho para obter a tarefa demora-lo. O tempo de processamento da fila de tarefas depende o perfil de hardware de trabalho híbrida e a carga. Não é possível especificar uma função de trabalho específica. Os Runbook Workers híbridos não partilham muitos dos limites que tenham de áreas de segurança do Azure. Não têm os mesmos limites de espaço em disco, memória ou de soquetes de rede. Os Runbook Workers híbridos são apenas limitados pelos recursos na função de trabalho de Runbook híbrida em si. Além disso, os Runbook Workers híbridos não partilham o minuto 180 [justa](automation-runbook-execution.md#fair-share) limite de tempo que fazer de áreas de segurança do Azure. Para saber mais sobre os limites de serviço para áreas de segurança do Azure e os Runbook Workers híbridos, consulte a tarefa [limites](../azure-subscription-service-limits.md#automation-limits) página.
+
+> [!NOTE]
+> Os Runbook Workers híbridos não são suportados no Azure China.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalar uma função de trabalho de Runbook híbrida
 

@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351667"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607080"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como utilizar tópicos do Service Bus e as subscrições com Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como utilizar os tópicos e as subscrições do Service Bus. Os exemplos são escritos em Python e utilize o [pacote Azure Python SDK][Azure Python package]. Os cenários abrangidos incluem **criar tópicos e subscrições**, **criar filtros de subscrição**, **enviar mensagens para um tópico**, **a receber mensagens de uma subscrição**, e **eliminar tópicos e subscrições**. Para obter mais informações sobre tópicos e subscrições, veja a [passos seguintes](#next-steps) secção.
+Este artigo descreve como utilizar os tópicos e as subscrições do Service Bus. Os exemplos são escritos em Python e utilize o [pacote Azure Python SDK][Azure Python package]. Os cenários abrangidos incluem:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Criação de tópicos e subscrições 
+- Criar filtros de subscrição 
+- Enviar mensagens para um tópico 
+- Receber mensagens de uma subscrição
+- A eliminar tópicos e subscrições
 
-> [!NOTE] 
-> Se precisar de instalar o Python ou o [pacote de Python do Azure][Azure Python package], consulte a [guia de instalação do Python](../python-how-to-install.md).
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **espaço de nomes** e obtenha o **cadeia de ligação**.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > Irá criar um **tópico** e uma **subscrição** para o tópico utilizando **Python** neste início rápido. 
+3. Instale [pacote de Python do Azure][Azure Python package]. Consulte a [guia de instalação do Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Criar um tópico
 

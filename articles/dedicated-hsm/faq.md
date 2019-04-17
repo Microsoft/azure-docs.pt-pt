@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540827"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608871"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -155,6 +155,10 @@ Sim. Cada aplicação de HSM está totalmente dedicada de um único cliente, e n
 
 Microsoft não tem qualquer controlo administrativo ou criptografia sobre o HSM. A Microsoft ter acesso de nível de monitor através de ligação de porta serial para obter telemetria básica, tais como o estado de funcionamento do componente e de temperatura. Isso permite que a Microsoft fornece notificação proativa de problemas de estado de funcionamento. Se for necessário, o cliente pode desativar esta conta.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>P. O que é a conta de "tenantadmin" Microsoft usa, estou acostumado ao utilizador de administrador que está a ser "administrador" nos SafeNet HSMs?
+
+O dispositivo HSM é fornecido com um utilizador padrão do Centro de administração com a respetiva palavra-passe do padrão habitual. Microsoft não queria ter palavras-passe predefinidas em uso, enquanto qualquer dispositivo estiver num pool aguardando para ser aprovisionado pelos clientes. Isso não atendem aos nossos requisitos de segurança restritos. Por esse motivo, definimos uma palavra-passe forte que é descartada em tempo de aprovisionamento. Além disso, no tempo de aprovisionamento criamos um novo utilizador na função de administrador de chamado "tenantadmin". Este utilizador tem a palavra-passe predefinida e os clientes mudar isso como a primeira ação ao primeiro iniciar sessão no dispositivo recentemente aprovisionado. Este processo garante elevadas graus de segurança e mantém a nossa promessa de controle administrativo único para os nossos clientes. É importante observar que o utilizador de "tenantadmin" pode ser utilizado para repor a palavra-passe de utilizador do administrador se um cliente prefere utilizar essa conta. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>P. Pode a Microsoft ou para alguém da chaves de acesso da Microsoft no meu HSM dedicados?
 
 Não. Microsoft não tem qualquer acesso às chaves armazenadas no cliente alocado HSM dedicados.
@@ -201,7 +205,7 @@ Não.
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P. O que é o SLA para o serviço HSM dedicados?
 
-Não há nenhum guarentee de tempo de atividade específica fornecido para o serviço de HSM dedicados. Microsoft irá garantir o acesso de nível de rede para o dispositivo e, por conseguinte, aplicam o padrão SLAs de rede do Azure.
+Não há nenhuma garantia de tempo de atividade específica fornecida para o serviço de HSM dedicados. Microsoft irá garantir o acesso de nível de rede para o dispositivo e, por conseguinte, aplicam o padrão SLAs de rede do Azure.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>P. Como os HSMs são usados no Azure dedicado protegidas por HSM?
 
@@ -217,7 +221,7 @@ Serviço HSM dedicado utiliza aplicações de 7 de HSM de rede SafeNet. Estas ap
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>P. Como posso obter suporte para o HSM dedicados?
 
-O suporte é fornecido pela Microsoft e da Gemalto.  Se tiver um problema com o hardware ou acesso de rede, faça um pedido de suporte com a Microsoft e caso tenha um problema com o desenvolvimento de aplicações, software e configuração de HSM entre rasie pedido de suporte com Gemalto. Se tiver um problema indeterminado, emitir um withg de pedido de suporte Microsoft e, em seguida, Gemalto pode ser combinada como necessário. 
+O suporte é fornecido pela Microsoft e da Gemalto.  Se tiver um problema com o acesso de rede ou de hardware, faça um pedido de suporte com a Microsoft e se tem um problema com a configuração HSM, software e desenvolvimento de aplicativos, emita um pedido de suporte com Gemalto. Se tiver um problema indeterminado, faça um pedido de suporte com a Microsoft e, em seguida, Gemalto pode ser combinada como necessário. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P. Como obtenho o cliente de software, documentação e acesso a orientação de integração para o HSM do SafeNet Luna 7?
 

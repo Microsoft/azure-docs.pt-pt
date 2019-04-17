@@ -1,7 +1,7 @@
 ---
 title: Métricas de registo durante as execuções de preparações
 titleSuffix: Azure Machine Learning service
-description: Pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Saiba como adicionar registos ao seu script de treinamento, como submeter a experimentação, como verificar o progresso de uma tarefa em execução e como visualizar os resultados de uma execução.
+description: Saiba como adicionar registos ao seu script de treinamento, como submeter a experimentação, como verificar o progresso de uma tarefa em execução e como visualizar os resultados de uma execução. Pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494632"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609472"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de registo durante o treinamento é executado no Azure Machine Learning
 
-No serviço do Azure Machine Learning, pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Neste artigo, saiba como adicionar registos ao seu script de treinamento, submeter uma execução de experimentação, monitorizar a execução e ver os resultados de uma execução.
+Neste artigo, saiba como adicionar registos ao seu script de treinamento, submeter uma execução de experimentação, monitorizar a execução e ver os resultados de uma execução no serviço Azure Machine Learning. Aprimore o processo de criação de modelo, ao controlar suas experimentações e métricas de monitorização. 
 
 ## <a name="list-of-training-metrics"></a>Lista de métricas de treinamento 
 
@@ -389,7 +389,7 @@ Exemplo 2: Um modelo de confident excessiva ![um modelo de confident excessiva](
 
 ### <a name="regression"></a>Regressão
 Para cada modelo de regressão, será criado usando a automatizada capacidades de machine learning do Azure Machine Learning, pode ver os gráficos seguintes: 
-+ [Vs previstas. Verdadeiro](#pvt)
++ [Vs previstas. VERDADEIRO](#pvt)
 + [Histograma da residuals](#histo)
 
 <a name="pvt"></a>
@@ -424,7 +424,7 @@ Importância da funcionalidade dá uma pontuação que indica o quão valiosa fo
 Os seguintes blocos de notas demonstram os conceitos deste artigo:
 * [How-to-use-azureml/Training/Train-within-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [How-to-use-azureml/Training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
+* [How-to-use-azureml/Training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
