@@ -124,6 +124,8 @@ items:
       href: directory-assign-admin-roles.md
     - name: Ver e atribuir funções
       href: directory-manage-roles-portal.md
+    - name: Atribuir funções com o PowerShell
+      href: roles-assign-powershell.md
     - name: Delegar funções de administrador de aplicações
       href: roles-delegate-app-roles.md
     - name: Funções com menores privilégios por função
@@ -171,9 +173,9 @@ items:
     href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
   - name: Limites do serviço do Azure AD
     href: directory-service-limits-restrictions.md
-ms.openlocfilehash: dc0d3340fd855bfd3cddf5eed0f4011e48071e41
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 97c2ebbe65f3382ee59d8c3bdb9dad9060cf31b6
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256027"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577668"

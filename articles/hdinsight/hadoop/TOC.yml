@@ -491,15 +491,12 @@ items:
 - name: Recursos
   items:
   - name: Notas de versão
+    href: ../hdinsight-release-notes.md
     items:
-    - name: Notas de versão atual
-      href: ../hdinsight-release-notes.md
-      maintainContext: true
     - name: Notas de versão arquivadas
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-  - name: Alterações ao acesso à configuração do cluster
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    maintainContext: true
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obter ajuda no fórum
@@ -513,9 +510,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 5c414ef4d9726f44ea3642a93035364dec304fa0
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 3a83ed5b9f3a1015c93f14ccb4be5bd2852b146a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616888"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578886"

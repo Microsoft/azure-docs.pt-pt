@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734543"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609426"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Como utilizar tópicos do Service Bus e as subscrições com Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como utilizar tópicos do Service Bus e as subscrições de aplicações Ruby. Os cenários abrangidos incluem **criação de tópicos e subscrições, criar filtros de subscrição, envio de mensagens** para um tópico **receber mensagens de uma subscrição**, e **a eliminar tópicos e subscrições**. Para obter mais informações sobre tópicos e subscrições, veja a [passos seguintes](#next-steps) secção.
+Este artigo descreve como utilizar tópicos do Service Bus e as subscrições de aplicações Ruby. Os cenários abrangidos incluem:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Criação de tópicos e subscrições 
+- Criar filtros de subscrição 
+- Enviar mensagens para um tópico 
+- Receber mensagens de uma subscrição
+- A eliminar tópicos e subscrições
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se de um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **espaço de nomes** e obtenha o **cadeia de ligação**. 
+
+    > [!NOTE]
+    > Irá criar um **tópico** e uma **subscrição** para o tópico utilizando **Ruby** neste início rápido. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 

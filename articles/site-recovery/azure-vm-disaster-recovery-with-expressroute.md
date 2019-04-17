@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272772"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618104"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 
@@ -93,7 +93,7 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 - **VNet do hub**. Existe uma vNet do hub **vNet do Hub de origem**: 10.10.10.0/24.
   - Esta vNet do hub atua como o controlador de chamadas.
   - Todas as comunicações entre sub-redes percorrer este hub.
-    - Hub vNet sub-redes * *. A vNet do hub tiver duas sub-redes:
+    - **As sub-redes de vNet do hub**. A vNet do hub tiver duas sub-redes:
     - **Sub-rede da NVA**: 10.10.10.0/25. Esta sub-rede contém uma NVA (10.10.10.10).
     - **A sub-rede de gateway**: 10.10.10.128/25. Esta sub-rede contém um gateway do ExpressRoute ligado a uma ligação do ExpressRoute que encaminha para o site no local através de um domínio de encaminhamento de peering privado.
 - O Centro de dados no local tem uma ligação de circuito do ExpressRoute através de um limite de parceiro em RAE de Hong Kong.
@@ -106,10 +106,10 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 
 **Direção** | **Definição** | **Estado**
 --- | --- | ---
-Spoke para hub | Permitir o endereço de rede virtual | Activado
-Spoke para hub | Permitir tráfego reencaminhado | Activado
-Spoke para hub | Permitir trânsito de gateway | Desactivado
-Spoke para hub | Utilizar gateways de remover | Activado
+Spoke para hub | Permitir o endereço de rede virtual | Ativado
+Spoke para hub | Permitir tráfego reencaminhado | Ativado
+Spoke para hub | Permitir trânsito de gateway | Desativado
+Spoke para hub | Utilizar gateways de remover | Ativado
 
  ![-Spoke para configuração de peering do hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,10 +117,10 @@ Spoke para hub | Utilizar gateways de remover | Activado
 
 **Direção** | **Definição** | **Estado**
 --- | --- | ---
-Hub para spoke | Permitir o endereço de rede virtual | Activado
-Hub para spoke | Permitir tráfego reencaminhado | Activado
-Hub para spoke | Permitir trânsito de gateway | Activado
-Hub para spoke | Utilizar gateways de remover | Desactivado
+Hub para spoke | Permitir o endereço de rede virtual | Ativado
+Hub para spoke | Permitir tráfego reencaminhado | Ativado
+Hub para spoke | Permitir trânsito de gateway | Ativado
+Hub para spoke | Utilizar gateways de remover | Desativado
 
  ![Hub para falava configuração de peering](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 

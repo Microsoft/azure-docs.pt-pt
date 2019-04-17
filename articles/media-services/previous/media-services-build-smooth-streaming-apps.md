@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882731"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524774"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como criar um Smooth Streaming de aplicativos da Windows Store  
 
@@ -60,41 +60,42 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 3. Modificar o código por trás do ficheiro
 4. Compilar e testar a aplicação
 
-**Para criar um projeto da Windows Store**
+### <a name="to-create-a-windows-store-project"></a>Para criar um projeto da Windows Store
 
 1. Executar o Visual Studio; são suportadas versões 2012 até 2015.
-2. No menu **FICHEIRO**, clique em **Novo** e, em seguida, clique em **Projeto**.
-3. Na caixa de diálogo novo projeto, escreva ou selecione os seguintes valores:
+1. No menu **FICHEIRO**, clique em **Novo** e, em seguida, clique em **Projeto**.
+1. Na caixa de diálogo novo projeto, escreva ou selecione os seguintes valores:
 
-| Name | Value |
-| --- | --- |
-| Grupo de modelo |Instalado/modelos/Visual C#Windows Store |
-| Modelo |Aplicação em branco (XAML) |
-| Name |SSPlayer |
-| Localização |C:\SSTutorials |
-| Nome da solução |SSPlayer |
-| Criar diretório para a solução |(selecionado) |
+    | Name | Valor |
+    | --- | --- |
+    | Grupo de modelo |Instalado/modelos/Visual C#Windows Store |
+    | Modelo |Aplicação em branco (XAML) |
+    | Name |SSPlayer |
+    | Localização |C:\SSTutorials |
+    | Nome da solução |SSPlayer |
+    | Criar diretório para a solução |(selecionado) |
 
 1. Clique em **OK**.
 
-**Adicionar uma referência para o SDK do cliente de transmissão em fluxo uniforme**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Adicionar uma referência para o SDK do cliente de transmissão em fluxo uniforme
 
 1. No Explorador de soluções, clique com botão direito **SSPlayer**e, em seguida, clique em **Add Reference**.
-2. Escreva ou selecione os seguintes valores:
+1. Escreva ou selecione os seguintes valores:
 
-| Name | Value |
-| --- | --- |
-| Grupo de referência |Windows/extensões |
-| Referência |Selecione Smooth Streaming SDK de cliente para o Windows 8 e o pacote do Microsoft Visual C++ Runtime da Microsoft |
+    | Name | Valor |
+    | --- | --- |
+    | Grupo de referência |Windows/extensões |
+    | Referência |Selecione Smooth Streaming SDK de cliente para o Windows 8 e o pacote do Microsoft Visual C++ Runtime da Microsoft |
 
 1. Clique em **OK**. 
 
 Depois de adicionar as referências, tem de selecionar a plataforma de destino (x64 ou x86), a adição de referências não funcionará para configuração de plataforma de qualquer CPU.  No solution explorer, verá adicionado de marca de aviso amarelo para estas referências.
 
-**Para o design da interface do usuário player**
+### <a name="to-design-the-player-user-interface"></a>Para o design da interface do usuário player
 
 1. No Explorador de soluções, faça duplo clique em **mainpage. XAML** abri-la no modo de exibição design.
 2. Localize a **&lt;grelha&gt;** e **&lt;/Grid&gt;** com as etiquetas, o arquivo XAML e cole o seguinte código entre as duas etiquetas:
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -146,7 +147,7 @@ O controle MediaElement não suporta a transmissão em fluxo uniforme conteúdo 
 
 Nesse arquivo XAML, alguns manipuladores de eventos estão associados com os controles.  Deve definir esses manipuladores de eventos.
 
-**Para modificar o código por trás do ficheiro**
+### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
 1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. Na parte superior do ficheiro, adicione o seguinte usando a instrução:
@@ -210,7 +211,7 @@ A concluir que o código por trás do ficheiro deve ter o seguinte aspeto:
 
 ![Codeview no aplicativo do Visual Studio de Smooth Streaming Windows Store][CodeViewPic]
 
-**Para compilar e testar a aplicação**
+### <a name="to-compile-and-test-the-application"></a>Para compilar e testar a aplicação
 
 1. Do **CRIE** menu, clique em **Configuration Manager**.
 2. Alteração **plataforma de solução Active Directory** para corresponder à sua plataforma de desenvolvimento.
@@ -238,7 +239,7 @@ Nesta lição contém os seguintes procedimentos:
 5. Adicionar controlo de deslize de barra código relacionadas
 6. Compilar e testar a aplicação
 
-**Para se registrar o manipulador de fluxo de bytes de transmissão em fluxo uniforme e passar o propertyset**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para se registrar o manipulador de fluxo de bytes de transmissão em fluxo uniforme e passar o propertyset
 
 1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. No início do ficheiro, adicione o seguinte usando a instrução:
@@ -283,7 +284,7 @@ Nesta lição contém os seguintes procedimentos:
    ```
 6. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para adicionar o manipulador de eventos ao nível do Gestor de origem adaptável**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para adicionar o manipulador de eventos ao nível do Gestor de origem adaptável
 
 1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. Dentro de **MainPage** de classe, adicione o seguinte membro de dados:
@@ -311,7 +312,7 @@ Nesta lição contém os seguintes procedimentos:
    ```
 5. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para adicionar manipuladores de eventos de nível de origem adaptável**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Para adicionar manipuladores de eventos de nível de origem adaptável
 
 1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. Dentro de **MainPage** de classe, adicione o seguinte membro de dados:
@@ -362,7 +363,7 @@ Nesta lição contém os seguintes procedimentos:
 
 Os mesmos eventos estão disponíveis na origem adaptável Manager nível, que pode ser usado para lidar com a funcionalidade comum a todos os elementos de multimédia na aplicação. Cada AdaptiveSource inclui seus próprios eventos e todos os eventos de AdaptiveSource irão ser cascaded em AdaptiveSourceManager.
 
-**Para adicionar manipuladores de eventos de elemento de multimédia**
+### <a name="to-add-media-element-event-handlers"></a>Para adicionar manipuladores de eventos de elemento de multimédia
 
 1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. No final da **MainPage** de classe, adicione os manipuladores de eventos seguintes:
@@ -398,7 +399,7 @@ Os mesmos eventos estão disponíveis na origem adaptável Manager nível, que p
    ```
 4. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para adicionar a barra de controlo de deslize relacionados com o código**
+### <a name="to-add-slider-bar-related-code"></a>Para adicionar a barra de controlo de deslize relacionados com o código
 
 1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. No início do ficheiro, adicione o seguinte usando a instrução:
@@ -531,7 +532,7 @@ Os mesmos eventos estão disponíveis na origem adaptável Manager nível, que p
    ```
 8. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para compilar e testar a aplicação**
+### <a name="to-compile-and-test-the-application"></a>Para compilar e testar a aplicação
 
 1. Prima **F6** para compilar o projeto. 
 2. Prima **F5** para executar a aplicação.
@@ -548,7 +549,7 @@ A transmissão em fluxo uniforme é capaz de transmitir conteúdo com várias fa
 2. Modificar o código por trás do ficheiro
 3. Compilar e testar a aplicação
 
-**Para modificar o arquivo XAML.**
+### <a name="to-modify-the-xaml-file"></a>Para modificar o arquivo XAML.
 
 1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **estruturador de vistas**.
 2. Localize &lt;Grid.RowDefinitions&gt;e modificar o RowDefinitions, para que eles se parece com:
@@ -591,7 +592,7 @@ A transmissão em fluxo uniforme é capaz de transmitir conteúdo com várias fa
    ```
 4. Prima **CTRL + S** para guardar as alterações.
 
-**Para modificar o código por trás do ficheiro**
+### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
 1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. Dentro do espaço de nomes SSPlayer, adicione uma nova classe:
@@ -807,7 +808,8 @@ A transmissão em fluxo uniforme é capaz de transmitir conteúdo com várias fa
             changeStreams(selectedStreams);
         }
    ```
-   **Para compilar e testar a aplicação**
+
+### <a name="to-compile-and-test-the-application"></a>Para compilar e testar a aplicação
 
 1. Prima **F6** para compilar o projeto. 
 2. Prima **F5** para executar a aplicação.
@@ -818,13 +820,14 @@ A transmissão em fluxo uniforme é capaz de transmitir conteúdo com várias fa
 Ter concluído a lição 3.  Nesta lição, adicionar a funcionalidade para escolher fluxos.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lição 4: Selecione as faixas de transmissão em fluxo uniforme
+
 Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheiros de vídeo codificados com níveis de qualidade diferente (taxas de bits) e as resoluções. Nesta lição, irá permitir aos usuários selecionar roteiros. Nesta lição contém os seguintes procedimentos:
 
 1. Modifique o arquivo XAML.
 2. Modificar o código por trás do ficheiro
 3. Compilar e testar a aplicação
 
-**Para modificar o arquivo XAML.**
+### <a name="to-modify-the-xaml-file"></a>Para modificar o arquivo XAML.
 
 1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **estruturador de vistas**.
 2. Localize a &lt;grade&gt; etiqueta com o nome **gridStreamAndBitrateSelection**, acrescente o seguinte código no final da etiqueta:
@@ -846,7 +849,7 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
    ```
 3. Prima **CTRL + S** para guardar as alterações de he
 
-**Para modificar o código por trás do ficheiro**
+### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
 1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **View Code**.
 2. Dentro do espaço de nomes SSPlayer, adicione uma nova classe:
@@ -1009,7 +1012,8 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
             changeStreams(selectedStreams);
          }
    ```
-   **Para compilar e testar a aplicação**
+   
+### <a name="to-compile-and-test-the-application"></a>Para compilar e testar a aplicação
 
 1. Prima **F6** para compilar o projeto. 
 2. Prima **F5** para executar a aplicação.
@@ -1020,6 +1024,7 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
 Ter concluído a Lição 4.  Nesta lição, adicionar a funcionalidade para escolher os roteiros.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários

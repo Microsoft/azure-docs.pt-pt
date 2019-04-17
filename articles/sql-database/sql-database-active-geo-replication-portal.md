@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001363"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608610"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar georreplicação ativa para o Azure SQL Database no portal do Azure e iniciar ativação pós-falha
 
@@ -73,7 +73,7 @@ A base de dados secundária pode ser mudado para primária.
     ![ativação pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Clique em **Sim** para iniciar a ativação pós-falha.
 
-O comando muda imediatamente a base de dados secundária para a função primária.
+O comando muda imediatamente a base de dados secundária para a função primária. Esse processo normalmente deverá ser concluída em 30 segundos ou menos.
 
 Existe um curto período de tempo durante o qual as bases de dados estão disponíveis (na ordem de 0 a 25 segundos), enquanto as funções são mudadas. Se a base de dados principal tiver várias bases de dados secundários, o comando reconfigura automaticamente as outras bases de dados secundárias para ligar para a nova principal. Toda a operação deve demorar menos de um minuto para concluir em circunstâncias normais.
 
