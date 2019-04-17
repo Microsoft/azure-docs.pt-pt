@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317141"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615919"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure 
 
 
-Utilize este artigo se tiver [migrar máquinas no local para VMs do Azure](tutorial-migrate-on-premises-to-azure.md) utilizando o [Site Recovery](site-recovery-overview.md) serviço e agora pretende obter as VMs que configurar para recuperação após desastre para uma região secundária do Azure. O artigo descreve como garantir que o agente de VM do Azure está instalado em VMs migradas e como remover o serviço de mobilidade de recuperação de Site que já não é necessário após a migração.
+Siga este artigo se já [migrar máquinas no local para VMs do Azure](tutorial-migrate-on-premises-to-azure.md) usando o [Site Recovery](site-recovery-overview.md) serviço e agora pretende obter as VMs que configurar para recuperação após desastre para uma região secundária do Azure. O artigo descreve como garantir que o agente de VM do Azure está instalado em VMs migradas e como remover o serviço de mobilidade de recuperação de Site que já não é necessário após a migração.
 
 
 
@@ -77,7 +77,7 @@ Instalar o [VM Linux do Azure](../virtual-machines/extensions/agent-linux.md) ag
         ```
     - Para o Linux, inicie sessão como utilizador raiz. Num terminal, aceda a **/user/local/ASR**, e execute o seguinte comando:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Reinicie a VM antes de configurar a replicação.
 

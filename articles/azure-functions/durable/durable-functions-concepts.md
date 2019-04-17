@@ -2,7 +2,7 @@
 title: Padrões de funções duráveis e conceitos técnicos nas funções do Azure
 description: Saiba como a extensão de funções duráveis nas funções do Azure dá-lhe os benefícios da execução de código com monitoração de estado na cloud.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892760"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608736"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Padrões de funções duráveis e conceitos técnicos (funções do Azure)
 

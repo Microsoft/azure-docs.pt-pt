@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b859c64c61264f43a88c158dc10ba6f2b2e56ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e90c4e1f39deffea8a7dd7b2c0dbfdcf5e0b3555
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495127"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609511"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
@@ -34,7 +34,7 @@ Quando gerir licenças na [do portal do Azure](https://portal.azure.com/#blade/M
 - **Planos incluídos (nomes amigáveis) do serviço**: Uma lista de planos de serviço (nomes amigáveis) no produto que correspondem para o ID de cadeia de caracteres e o GUID
 
 >[!NOTE]
->Estas informações são precisas a 17 de Agosto de 2018.
+>Estas informações são precisas a 15 de Abril de 2019.
 
 | Nome do produto | ID da cadeia de caracteres | GUID | Planos de serviço incluídos | Planos de serviço incluídos (nomes amigáveis) |
 | --- | --- | --- |--- |
@@ -214,10 +214,10 @@ Não não possível atribuir o seguintes planos de serviço em conjunto:
 
 Para saber mais sobre o conjunto para gestão de licenças por meio dos grupos de recursos, consulte o seguinte:
 
-* [O que é o licenciamento baseado em grupos no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Como migrar utilizadores licenciados individuais para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
 * [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-change-licenses.md)
-* [O Azure Active Directory cenários adicionais de licenciamento baseado no grupo](licensing-group-advanced.md)
+* [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
 * [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure AD](licensing-ps-examples.md)

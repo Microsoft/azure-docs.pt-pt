@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996720"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607403"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Início rápido: Carregar, transferir e listar os blobs com o Python
 
-Neste início rápido, vai aprender a utilizar o Python para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
+Neste início rápido, verá como utilizar Python para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. Os BLOBs são simplesmente os objetos que podem conter qualquer quantidade de dados de texto ou binários (por exemplo, imagens, documentos, mídia de streaming, dados de arquivo, etc.) e são diferentes no armazenamento do Azure a partir de partilhas de ficheiros, sem esquemas tabelas e filas de mensagens. (Para obter mais informações, consulte [introdução ao armazenamento do Azure](/azure/storage/common/storage-introduction.md).)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

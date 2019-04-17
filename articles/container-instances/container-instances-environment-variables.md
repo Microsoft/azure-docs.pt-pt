@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904904"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606893"
 ---
-# <a name="set-environment-variables"></a>Definir variáveis de ambiente
+# <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente no container instances
 
-Definir variáveis de ambiente nas instâncias de contentor permite-lhe fornecer configuração dinâmica da aplicação ou o contentor de execução do script. Para definir as variáveis de ambiente num contentor, especificá-los quando cria uma instância de contentor. Pode definir variáveis de ambiente quando inicia um contentor com o [CLI do Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e o [portal do Azure](#azure-portal-example).
+Definir variáveis de ambiente nas instâncias de contentor permite-lhe fornecer configuração dinâmica da aplicação ou o contentor de execução do script. Isso é semelhante a `--env` argumento da linha de comandos para `docker run`. 
+
+Para definir as variáveis de ambiente num contentor, especificá-los quando cria uma instância de contentor. Este artigo mostra exemplos de configuração de variáveis de ambiente quando inicia um contentor com o [CLI do Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)e o [portal do Azure](#azure-portal-example). 
 
 Por exemplo, se executar o Microsoft [aci-wordcount] [ aci-wordcount] imagem de contentor, pode modificar seu comportamento ao especificar as seguintes variáveis de ambiente:
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Cenários de baseado em tarefas, como um grande conjunto de dados com vários contentores, de processamento em lote podem beneficiar de variáveis de ambiente personalizadas em tempo de execução. Para obter mais informações sobre a execução de contentores com base em tarefas, consulte [executar tarefas em contentores no Azure Container Instances](container-instances-restart-policy.md).
+Cenários de baseado em tarefas, como um grande conjunto de dados com vários contentores, de processamento em lote podem beneficiar de variáveis de ambiente personalizadas em tempo de execução. Para obter mais informações sobre a execução de contentores com base em tarefas, consulte [executar tarefas em contentores com políticas de reinício](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

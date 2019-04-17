@@ -288,11 +288,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-  - name: Alterações ao acesso à configuração do cluster
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
-ms.openlocfilehash: 760f7c94a101d7c4a8374d3a0b256da3af35bd8b
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: c3cb2f274c2d2cbd76cffb31cf0421093eea232f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607517"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578378"
