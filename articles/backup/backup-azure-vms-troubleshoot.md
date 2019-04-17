@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
-ms.openlocfilehash: e8b739c7b4dee67273e2f5c500c6d3b05190b3a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361512"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618197"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -170,7 +170,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | O agente da VM não estiver presente na máquina virtual: <br>Instale quaisquer pré-requisitos e o agente da VM. Em seguida, reinicie a operação. |Leia mais sobre [instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent). |
 | Cópia de segurança falhou ao fixar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de ficheiros. | Execute os seguintes passos: <ul><li>Verificar o estado do sistema de ficheiros de todos os dispositivos montados com o **'tune2fs'** comando. Um exemplo é **tune2fs -l/desenvolvimento/sdb1 \\** .\| grep **estado do sistema de ficheiros**. <li>Desmonte os dispositivos para o qual o estado do sistema de ficheiros não é limpo, utilizando o **'umount'** comando. <li> Execute uma verificação de consistência do sistema de ficheiros nestes dispositivos com o **'fsck'** comando. <li> Os dispositivos de montagem novamente e repita a cópia de segurança.</ol> |
 | A operação de instantâneo falhou devido a falha para criar um canal de comunicação de rede segura. | <ol><li> Abra o Editor de registo, executando **regedit.exe** num modo elevado. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Eles estão presentes na hierarquia de chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presentes na chave do registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
-| A operação de instantâneo falhou devido a falha para instalar o Visual C++ Redistributable para Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instalar vcredist2012_x64. Certifique-se de que o valor de chave de registo que permite que esta instalação do serviço está definido para o valor correto. Ou seja, o valor da chave do registo **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** está definida como **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação, executando **MSIEXEC /UNREGISTER** seguido **MSIEXEC /REGISTER** num prompt de comando elevado.  |
+| A operação de instantâneo falhou devido a falha para instalar o Visual C++ Redistributable para Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instalar vcredist2012_x64.<br/>Certifique-se de que o valor de chave de registo que permite a instalação do serviço está definido para o valor correto. Ou seja, definir o **começar** valor no **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação, executando **MSIEXEC /UNREGISTER** seguido **MSIEXEC /REGISTER** num prompt de comando elevado.  |
 
 
 ## <a name="jobs"></a>Tarefas

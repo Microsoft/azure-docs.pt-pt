@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3a5e8d15d9a705892fe54c50e9b79e6d42af78d9
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426737"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615766"
 ---
 # <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Gerar uma cadeia de ligação do dispositivo para ligar a uma aplicação do Azure IoT Central
 
-Este artigo descreve como, como um desenvolvedor de dispositivo, para gerar uma cadeia de ligação para o dispositivo que necessita para ligar a uma aplicação IoT Central. O procedimento descrito neste artigo mostram como ligar-se rapidamente um único dispositivo com uma assinatura de acesso partilhado (SAS). Essa abordagem é útil quando está experimentando o Centro de IoT ou dispositivos de teste. Para obter abordagens alternativas para usar num ambiente de produção, consulte [conectividade do dispositivo no Azure IoT Central](concepts-connectivity.md).
+Este artigo descreve como, como um desenvolvedor de dispositivo, para gerar uma cadeia de ligação para o dispositivo que necessita para ligar a uma aplicação IoT Central. O procedimento descrito neste artigo mostra-lhe como ligar-se rapidamente um único dispositivo com uma assinatura de acesso partilhado (SAS). Essa abordagem é útil quando está experimentando o Centro de IoT ou dispositivos de teste. Para obter abordagens alternativas para usar num ambiente de produção, consulte [conectividade do dispositivo no Azure IoT Central](concepts-connectivity.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-1. Uma aplicação do Azure IoT Central. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-1. Uma máquina de desenvolvimento com [node. js](https://nodejs.org/) versão 8.0.0 ou posterior instalado. Pode executar `node --version` na linha de comandos para verificar a sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos.
+- Uma aplicação do Azure IoT Central. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
+- Uma máquina de desenvolvimento com [node. js](https://nodejs.org/) versão 8.0.0 ou posterior instalado. Pode executar `node --version` na linha de comandos para verificar a sua versão. O Node.js está disponível para uma grande variedade de sistemas operativos.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 
 Os passos seguintes descrevem como obter as informações necessárias gerar uma cadeia de ligação SAS para um dispositivo:
 
-1. Na **Explorer**, encontrar o dispositivo real que pretende ligar à sua aplicação:
+1. Na **Device Explorer**, encontrar o dispositivo real que pretende ligar à sua aplicação:
 
     ![Selecione um dispositivo real](media/howto-generate-connection-string/real-devices.png)
 
@@ -53,7 +53,7 @@ Os passos seguintes descrevem como obter as informações necessárias gerar uma
 Agora que tiver gerado uma cadeia de ligação para um dispositivo real ligar à sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
 
 * [Preparar e ligar um dispositivo de DevKit (C)](howto-connect-devkit.md)
-* [Preparar e ligar um Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
-* [Preparar e ligar um Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Preparar e ligue-se um Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Preparar e ligue-se um Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
 * [Preparar e ligar um dispositivo do Windows 10 IoT core (C#)](howto-connect-windowsiotcore.md)
-* [Ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central](howto-connect-nodejs.md)
+* [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs.md)

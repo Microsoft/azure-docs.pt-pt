@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546324"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616293"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início rápido: Verifique a ortografia com a API de REST de verificação do Bing ortográfica eC#
 
@@ -24,14 +24,17 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
+* Para instalar `Newtonsoft.Json` como um pacote de NuGet no Visual studio:
+    1. No Explorador de soluções, clique com botão direito no arquivo de solução.
+    1. Selecione **gerir pacotes NuGet para solução**.
+    1. Procure `Newtonsoft.Json` e instalar o pacote.
 * Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie uma nova solução de consola com o nome `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. criar uma nova solução de consola com o nome `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
     
     ```csharp
     using System;
@@ -52,14 +55,14 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Crie uma variável para seus parâmetros de pesquisa. acrescente o código de mercado `mkt=` e o modo de verificação ortográfica para `&mode=`.
+3. Crie uma variável para seus parâmetros de pesquisa. Acrescente o código de mercado após `mkt=`. O código de mercado é o país que fizer o pedido do. Além disso, acrescentar o modo de verificação de ortografia após `&mode=`. Modo está `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos ortografia, mas não tantos erros de gramática).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;
@@ -181,7 +184,7 @@ static void Main(string[] args)
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
+> [Criar uma aplicação Web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de verificação de ortografia do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

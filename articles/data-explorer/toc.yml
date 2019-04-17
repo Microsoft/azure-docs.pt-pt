@@ -95,6 +95,8 @@ items:
       href: connect-from-databricks.md
     - name: Analisar dados no Jupyter Notebook e Kqlmagic
       href: kqlmagic.md
+    - name: Copiar dados no Azure Data Factory
+      href: data-factory-load-data.md
     - name: Visualizar dados no Grafana
       href: grafana.md
     - name: Entrar em contacto com o ODBC
@@ -139,9 +141,9 @@ items:
     href: https://aka.ms/adecostestimator
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 7b525558fd22b2d2f61f3cc901938c449f53fb72
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: c582b82f4b4caf0ee3bb007934cc4d50163fe139
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847078"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616820"

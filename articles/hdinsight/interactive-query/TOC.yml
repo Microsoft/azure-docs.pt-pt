@@ -58,7 +58,7 @@ items:
       - name: Utilizar o Azure PowerShell
         href: ../hadoop/apache-hadoop-use-hive-powershell.md
         maintainContext: true
-      - name: Utilizar o .NET SDK
+      - name: Utilizar o SDK para .NET
         href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md
         maintainContext: true
       - name: Utilizar as ferramentas do HDInsight para o Visual Studio
@@ -155,21 +155,9 @@ items:
       maintainContext: true
   - name: Gerir
     items:
-    - name: Criar clusters
+    - name: Criar clusters do HDInsight
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Utilizar o Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: Utilizar cURL e a API REST do Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: Utilizar o .NET SDK
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Utilizar a CLI Clássica do Azure
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Utilizar o portal do Azure
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -177,16 +165,39 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: Utilizar o SDK para .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Utilizar o SDK para Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Utilizar o SDK para Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: Utilizar o Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Utilizar cURL e a API REST do Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Utilizar a CLI Clássica do Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Criar clusters a pedido
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
       maintainContext: true
     - name: Criar clusters a pedido
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Gerir clusters do Apache Hadoop
+    - name: Gerir clusters do HDInsight
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Utilizar o .NET SDK
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: Utilizar o SDK para .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: Utilizar o SDK para Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: Utilizar o SDK para Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+      - name: Utilizar o SDK para Go (Pré-visualização)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Utilizar o Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
@@ -236,6 +247,9 @@ items:
       maintainContext: true
     - name: Aplicação de patches de SO para o cluster do HDInsight
       href: ../hdinsight-os-patching.md
+      maintainContext: true
+    - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
       maintainContext: true
   - name: Resolução de problemas
     href: ../hdinsight-troubleshoot-guide.md
@@ -326,13 +340,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: SDK .NET
+  - name: SDK para .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: SDK Python
+  - name: SDK para Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: SDK Java
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: SDK Go
+  - name: SDK para Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK para Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -346,12 +360,15 @@ items:
 - name: Recursos
   items:
   - name: Notas de versão
-    href: ../hdinsight-release-notes.md
     items:
+    - name: Notas de versão atual
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Notas de versão arquivadas
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
+  - name: Alterações ao acesso à configuração do cluster
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Obter ajuda no fórum
@@ -365,9 +382,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 4ff59bd9aeb59ad3dd835edaff3d1e5048f2e58e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2f9952a95da9a47448d54ba5b48be033fb5707cc
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444129"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615728"

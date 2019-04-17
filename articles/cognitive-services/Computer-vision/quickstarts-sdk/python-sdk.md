@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: pafarley
-ms.openlocfilehash: fbdc6ca8a9d93c090c1cfda9dec41b948d95c6af
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c9b30eb89080137e17042feb4458f2601bf48a05
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495350"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617976"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Visão do computador de serviços cognitivos do Azure SDK para Python
 
@@ -47,7 +47,7 @@ Criar uma chave gratuita válido durante sete dias com o **[experimente] [ compu
 Tenha o seguinte depois da chave é criada:
 
 * Valor da chave: uma cadeia de 32 carateres com o formato de `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* Ponto final de chave: o URL de ponto final de base, https://westcentralus.api.cognitive.microsoft.com
+* Ponto final de chave: o URL de ponto final de base, https\://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>Se tiver uma subscrição do Azure
 

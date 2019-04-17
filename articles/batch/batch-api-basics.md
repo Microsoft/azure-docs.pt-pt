@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3839a1a457af1549a82b7607310a619911c78591
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761876"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617488"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -471,7 +471,7 @@ As falhas de tarefas enquadram-se nestas categorias:
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Explicação de falhas ou interrupções de tarefas
 Por vezes, as tarefas podem falhar ou ser interrompidas. A própria aplicação da tarefa pode falhar, o nó no qual a tarefa está a ser executada pode ser reiniciado ou o nó pode ser removido do conjunto durante uma operação de redimensionamento se política de desalocação do conjunto estiver definida para remover nós imediatamente sem aguardar que as tarefas estejam concluídas. Em todos os casos, o Batch pode recolocar automaticamente a tarefa na fila para execução noutro nó.
 
-Também é possível que um problema intermitente faça com que uma tarefa fique suspensa ou demore demasiado tempo a ser executada. Pode definir o intervalo de execução máxima de uma tarefa. Se o intervalo de execução máxima for excedido, o serviço de Batch interrompe a aplicação de tarefas.
+Também é possível que um problema intermitente fazer com que uma tarefa para parar de responder ou demorar demasiado tempo a executar. Pode definir o intervalo de execução máxima de uma tarefa. Se o intervalo de execução máxima for excedido, o serviço de Batch interrompe a aplicação de tarefas.
 
 ### <a name="connecting-to-compute-nodes"></a>Ligar a nós de computação
 Pode iniciar sessão remotamente num nó de computação para realizar depurações e resolução de problemas adicionais. Pode utilizar o portal do Azure para transferir um ficheiro do protocolo RDP (Remote Desktop Protocol) para nós do Windows e obter informações de ligação Secure Shell (SSH) para nós do Linux. Também o pode fazer com as APIs do Batch, como, por exemplo, [.NET do Batch][net_rdpfile] ou [Python do Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).

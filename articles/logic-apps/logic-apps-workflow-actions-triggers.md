@@ -1,6 +1,6 @@
 ---
-title: Acionador e ação de tipos de referência - Azure Logic Apps | Documentos da Microsoft
-description: Saiba mais sobre os tipos de Acionador e ação no Azure Logic Apps, conforme descrito pelo esquema de linguagem de definição de fluxo de trabalho
+title: Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho - Azure Logic Apps
+description: Guia de referência para os tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,22 +9,23 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: c817f017c7394943864e7f20a130c90d3f8485d9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885983"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617924"
 ---
-# <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de Acionador e ação para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
+# <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
-Na [do Azure Logic Apps](../logic-apps/logic-apps-overview.md), todos os fluxos de trabalho de aplicações lógicas começam com acionadores seguidos de ações. Este artigo descreve os tipos de Acionador e ação, que pode usar ao criar aplicações lógicas para automatizar tarefas, processos e fluxos de trabalho. É possível criar lógica fluxos de trabalho de aplicação com o estruturador de aplicações lógicas, visualmente ou criando as definições de fluxo de trabalho subjacente com o [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md). Pode criar aplicações lógicas no portal do Azure ou do Visual Studio. A definição subjacente para o fluxo de trabalho completo, incluindo o acionador e ações, utiliza Javascript Object Notation (JSON).
+Esta referência descreve os tipos gerais utilizados para identificar o acionadores e ações na definição de fluxo de trabalho subjacentes da sua aplicação lógica, que é descrito e validadas pelos [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
+Para localizar os acionadores de conector específico e as ações que pode utilizar nas suas aplicações lógicas, consulte a lista sob a [descrição geral dos conectores](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
 
 ## <a name="triggers-overview"></a>Descrição geral de acionadores
 
-Todas as aplicações lógicas começam com um acionador, que define as chamadas de instanciar e iniciar um fluxo de trabalho de aplicação lógica. Estas são as categorias de Acionador gerais:
+Cada fluxo de trabalho inclui um acionador, que define as chamadas de instanciar e iniciar o fluxo de trabalho. Estas são as categorias de Acionador gerais:
 
 * R *consulta* acionador, que verifica o ponto final de um serviço em intervalos regulares
 
@@ -78,8 +79,8 @@ Cada tipo de Acionador tem uma interface diferente e entradas que definem o comp
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Verifica ou *inquéritos* qualquer ponto final. Este ponto final deve estar em conformidade com um contrato de Acionador específico usando um padrão assíncrono "202" ou retornando uma matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto final que pode ser chamado para a aplicação lógica, mas chama o URL especificado para registar ou anular o registo. |
-| [**Recorrência**](#recurrence-trigger) | É acionado com base numa agenda definida. Pode definir uma data futura e a hora para trabalharem este acionador. Com base na frequência, também pode especificar tempos e dias para a execução de seu fluxo de trabalho. | 
-| [**Pedir**](#request-trigger)  | Cria um ponto final que pode ser chamado para a aplicação lógica e também é conhecido como um acionador "manual". Por exemplo, veja [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Periodicidade**](#recurrence-trigger) | É acionado com base numa agenda definida. Pode definir uma data futura e a hora para trabalharem este acionador. Com base na frequência, também pode especificar tempos e dias para a execução de seu fluxo de trabalho. | 
+| [**Pedido**](#request-trigger)  | Cria um ponto final que pode ser chamado para a aplicação lógica e também é conhecido como um acionador "manual". Por exemplo, veja [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Acionadores de API geridos
@@ -145,8 +146,8 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a API de chamam. Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
+| <*max-runs*> | Número inteiro | Por predefinição, as instâncias de fluxo de trabalho são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "for each". <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). |
 ||||
@@ -235,8 +236,8 @@ Este acionador envia um pedido de subscrição para um ponto de extremidade atra
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a chamada de API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
+| <*max-runs*> | Número inteiro | Por predefinição, as instâncias de fluxo de trabalho são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "for each". <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
 |||| 
@@ -319,8 +320,8 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 | <*método de autenticação*> | Objeto JSON | O método o pedido utiliza para autenticação. Para obter mais informações, consulte [autenticação de saída do Scheduler](../scheduler/scheduler-outbound-authentication.md). Além do Scheduler, o `authority` propriedade é suportada. Quando não especificado, o valor predefinido é `https://login.windows.net`, mas pode usar um valor diferente, como`https://login.windows\-ppe.net`. |
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com o pedido <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` ao pedido. | 
-| <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
+| <*max-runs*> | Número inteiro | Por predefinição, as instâncias de fluxo de trabalho são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
 |||| 
 
@@ -340,7 +341,7 @@ Para funcionar bem com a sua aplicação lógica, o ponto final tem de estar em 
 | Resposta | Necessário | Descrição | 
 |----------|----------|-------------| 
 | Código de estado | Sim | O "200 OK" código de estado inicia a execução. Qualquer outro código de estado não iniciar uma execução. | 
-| Cabeçalho retry-after | Não | O número de segundos até que a aplicação lógica consulta o ponto final novamente | 
+| Cabeçalho retry-after | Não | O número de segundos até que a sua aplicação lógica consulta o ponto final novamente | 
 | Cabeçalho de localização | Não | O URL em que o intervalo de consulta seguinte. Se não for especificado, o URL original é utilizado. | 
 |||| 
 
@@ -414,8 +415,8 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 | <*body-content*> | String | Qualquer conteúda enviar o pedido de subscrição ou cancelamento de mensagem | 
 | <*método de autenticação*> | Objeto JSON | O método o pedido utiliza para autenticação. Para obter mais informações, consulte [autenticação de saída do Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
+| <*max-runs*> | Número inteiro | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
 |||| 
 
@@ -508,8 +509,8 @@ Este acionador é executado com base na agenda de periodicidade especificados e 
 | <*one-or-more-hour-marks*> | Número inteiro ou matriz de números inteiros | Se especificar "Dia" ou "Week" para `frequency`, pode especificar um ou mais números inteiros de 0 a 23, separados por vírgulas, como as horas do dia que deseja executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", obter 10 AM e PM 2 como as marcas de hora 12 PM. | 
 | <*one-or-more-minute-marks*> | Número inteiro ou matriz de números inteiros | Se especificar "Day" ou "Week" para `frequency`, pode especificar um ou mais números inteiros de 0 a 59, separados por vírgulas, como os minutos da hora quando quiser executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e usando o exemplo anterior de horas do dia, obtém 10:30, 12 17:30 e 2 17:30. | 
 | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se especificar "Week" para `frequency`, pode especificar um ou mais dias, separados por vírgulas, quando deseja executar o fluxo de trabalho: "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado" e "Domingo" | 
-| <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
+| <*max-runs*> | Número inteiro | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
 |||| 
 
@@ -615,8 +616,8 @@ Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está d
 | <*method-type*> | String | O método que solicitações de entrada tem de utilizar para chamar a sua aplicação lógica: "GET", "COLOCAR", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | O caminho relativo para o parâmetro que pode aceitar o URL do ponto de extremidade | 
 | <*required-properties*> | Array | Uma ou mais propriedades que necessitam de valores | 
-| <*max-runs*> | Número inteiro | Por predefinição, instâncias de fluxo de trabalho de aplicação lógica são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Número inteiro | Quando a aplicação lógica já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
+| <*max-runs*> | Número inteiro | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
 |||| 
 
@@ -657,7 +658,7 @@ Este acionador Especifica que uma solicitação de entrada tem de utilizar o mé
 
 ## <a name="trigger-conditions"></a>Condições de acionamento
 
-Para qualquer acionador e apenas acionadores, pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar o `conditions` propriedade a um acionador na sua aplicação lógica, abrir a aplicação lógica no editor de vista de código.
+Para qualquer acionador e apenas acionadores, pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar o `conditions` propriedade para um acionador de fluxo de trabalho, abra a aplicação lógica no editor de vista de código.
 
 Por exemplo, pode especificar que um acionador é acionado quando um Web site retorna apenas um erro de servidor interno referenciando o código de estado do acionador no `conditions` propriedade:
 
@@ -682,7 +683,7 @@ Por predefinição, um acionador é acionado apenas depois de obter um "200 OK" 
 
 ## <a name="trigger-multiple-runs"></a>Acionar várias execuções
 
-Se o acionador retorna uma matriz para a sua aplicação lógica processar, às vezes, um loop "for each" poderá demorar demasiado tempo a processar cada item da matriz. Em vez disso, pode utilizar o **SplitOn** propriedade no seu acionador para *debatch* a matriz. Divisões, divida os itens de matriz e inicia uma nova instância de aplicação lógica que é executada para cada item da matriz. Essa abordagem é útil, por exemplo, quando quer consultar um ponto de extremidade que pode devolver vários itens novos entre intervalos de consulta.
+Se o acionador retorna uma matriz para a sua aplicação lógica processar, às vezes, um loop "for each" poderá demorar demasiado tempo a processar cada item da matriz. Em vez disso, pode utilizar o **SplitOn** propriedade no seu acionador para *debatch* a matriz. Divisões, divida os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item da matriz. Essa abordagem é útil, por exemplo, quando quer consultar um ponto de extremidade que pode devolver vários itens novos entre intervalos de consulta.
 Para o número máximo de matriz de itens que **SplitOn** pode processar numa execução de aplicação lógica única, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
@@ -822,13 +823,13 @@ Seguem-se alguns tipos de ação frequentemente utilizadas:
 | [**Compor**](#compose-action) | Cria uma única saída a partir de entradas, que podem ter vários tipos. | 
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto final HTTP. | 
-| [**Associar**](#join-action) | Cria uma cadeia de caracteres a partir de todos os itens numa matriz e separa esses itens com um caráter delimitador especificado. | 
-| [**Analisar JSON**](#parse-json-action) | Cria conteúdo tokens amigável de utilizador a partir das propriedades em JSON. Em seguida, pode referenciar essas propriedades, incluindo os tokens na sua aplicação lógica. | 
-| [**Consulta**](#query-action) | Cria uma matriz de itens na outra matriz com base numa condição ou filtro. | 
+| [**Join**](#join-action) | Cria uma cadeia de caracteres a partir de todos os itens numa matriz e separa esses itens com um caráter delimitador especificado. | 
+| [**Parse JSON**](#parse-json-action) | Cria conteúdo tokens amigável de utilizador a partir das propriedades em JSON. Em seguida, pode referenciar essas propriedades, incluindo os tokens na sua aplicação lógica. | 
+| [**Query**](#query-action) | Cria uma matriz de itens na outra matriz com base numa condição ou filtro. | 
 | [**Resposta**](#response-action) | Cria uma resposta a uma chamada de entrada ou a pedido. | 
-| [**Selecione**](#select-action) | Cria uma matriz com objetos JSON, transformando os itens a partir de outra matriz com base no mapa especificado. | 
-| [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
-| [**Terminar**](#terminate-action) | Interrompe um fluxo de trabalho ativamente em execução. | 
+| [**Select**](#select-action) | Cria uma matriz com objetos JSON, transformando os itens a partir de outra matriz com base no mapa especificado. | 
+| [**Table**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
+| [**Terminate**](#terminate-action) | Interrompe um fluxo de trabalho ativamente em execução. | 
 | [**Wait**](#wait-action) | Interrompe o fluxo de trabalho durante um período de tempo especificado ou até a data e hora especificadas. | 
 | [**Fluxo de trabalho**](#workflow-action) | Aninha um fluxo de trabalho dentro de outro fluxo de trabalho. | 
 ||| 
@@ -852,10 +853,10 @@ Estas ações ajudam a controlar a execução de fluxo de trabalho e incluir out
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Execute as mesmas ações num loop para cada item numa matriz. | 
-| [**IF**](#if-action) | Executadas ações com base em se a condição especificada é true ou false. | 
+| [**If**](#if-action) | Executadas ações com base em se a condição especificada é true ou false. | 
 | [**Âmbito**](#scope-action) | Execute ações com base no estado do grupo de um conjunto de ações. | 
-| [**Comutador**](#switch-action) | Execute ações organizadas em casos quando valores de expressões, objetos ou tokens correspondem aos valores especificados por cada caso. | 
-| [**Até**](#until-action) | Execute ações num loop até que a condição especificada for verdadeira. | 
+| [**Switch**](#switch-action) | Execute ações organizadas em casos quando valores de expressões, objetos ou tokens correspondem aos valores especificados por cada caso. | 
+| [**Until**](#until-action) | Execute ações num loop até que a condição especificada for verdadeira. | 
 |||  
 
 ## <a name="actions---detailed-reference"></a>Ações - referência detalhada
@@ -1245,7 +1246,7 @@ Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 
 *Exemplo*
 
-Esta definição de ação cria estes tokens que pode utilizar em seu fluxo de trabalho de aplicação lógica, mas apenas em ações essa execução seguinte a **Parse JSON** ação: 
+Esta definição de ação cria estes tokens que pode utilizar em seu fluxo de trabalho, mas apenas em ações essa execução seguinte a **Parse JSON** ação: 
 
 `FirstName`, `LastName`, e `Email`
 
@@ -1648,7 +1649,7 @@ Segue-se a tabela HTML que esta ação cria:
 
 ### <a name="terminate-action"></a>Terminar a ação
 
-Esta ação impede a execução para a instância de fluxo de trabalho da aplicação de lógica, cancela todas as ações em curso, ignora todas as restantes ações e devolve o estado especificado. Por exemplo, pode utilizar o **Terminate** ação quando a aplicação lógica deve sair completamente de um Estado de erro. Esta ação não afeta a ações já concluídas e não pode aparecer dentro **Foreach** e **até que** loops, incluindo loops seqüenciais. 
+Esta ação impede a execução de uma instância de fluxo de trabalho, cancela todas as ações em curso, ignora todas as restantes ações e devolve o estado especificado. Por exemplo, pode utilizar o **Terminate** ação quando a aplicação lógica deve sair completamente de um Estado de erro. Esta ação não afeta a ações já concluídas e não pode aparecer dentro **Foreach** e **até que** loops, incluindo loops seqüenciais. 
 
 ```json
 "Terminate": {
@@ -2297,8 +2298,8 @@ Pode alterar o comportamento de tempo de execução padrão para acionadores e a
 
 | Propriedade | Tipo | Descrição | Ação ou acionador | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de aplicações lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. Este valor pode ajudar a limitar o número de pedidos a receber de sistemas back-end. <p>Definir o `runs` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [simultaneidade de Acionador de alteração](#change-trigger-concurrency) ou [acionar instâncias sequencialmente](#sequential-trigger). | Todos os acionadores | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de aplicações lógicas, que pode aguardar para ser executada quando a aplicação lógica já está a executar o número máximo de instâncias em simultâneo. Pode alterar o limite de simultaneidade no `concurrency.runs` propriedade. <p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | Todos os acionadores | 
+| `runtimeConfiguration.concurrency.runs` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo, ou em paralelo. Este valor pode ajudar a limitar o número de pedidos a receber de sistemas back-end. <p>Definir o `runs` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [simultaneidade de Acionador de alteração](#change-trigger-concurrency) ou [acionar instâncias sequencialmente](#sequential-trigger). | Todos os acionadores | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que pode aguardar para ser executada quando o fluxo de trabalho já está a executar o número máximo de instâncias em simultâneo. Pode alterar o limite de simultaneidade no `concurrency.runs` propriedade. <p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | Todos os acionadores | 
 | `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p>Definir o `repetitions` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [alterar "for each" simultaneidade](#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
 ||||| 
 
@@ -2320,9 +2321,9 @@ Pode alterar o comportamento predefinido para acionadores e ações com o `opera
 
 ### <a name="change-trigger-concurrency"></a>Simultaneidade de Acionador de alteração
 
-Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de Acionador é acionado antes da instância anterior da aplicação lógica termina a respetiva execução. Este limite ajuda a controlar o número de pedidos a receber de sistemas back-end. 
+Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de Acionador é acionado antes da instância de fluxo de trabalho anterior termina a respetiva execução. Este limite ajuda a controlar o número de pedidos a receber de sistemas back-end. 
 
-Para alterar o limite predefinido, pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas como alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. Esta propriedade controla o número máximo de instâncias de aplicações lógicas que podem ser executadas em paralelo. 
+Para alterar o limite predefinido, pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas como alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. Esta propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. 
 
 > [!NOTE] 
 > Se definir o acionador para ser executado em seqüência usando o designer ou o editor de vista de código, não define o acionador `operationOptions` propriedade `SingleInstance` no editor de vista de código. Caso contrário, receberá um erro de validação. Para obter mais informações, consulte [acionar instâncias sequencialmente](#sequential-trigger).
@@ -2397,7 +2398,7 @@ Eis um exemplo que limita as execuções simultâneas para 10 iterações:
 
 ### <a name="change-waiting-runs-limit"></a>Alterar a aguardar o limite de execuções
 
-Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cada instância de Acionador é acionado antes da instância da aplicação lógica anteriormente ativo termina a respetiva execução. Embora possa [alterar este limite predefinido](#change-trigger-concurrency), quando o número de instâncias de aplicação lógica atinge o limite de simultaneidade novo, quaisquer outras novas instâncias têm de aguardar para ser executado. 
+Por predefinição, instâncias de fluxo de trabalho de aplicação lógica todas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cada instância de Acionador é acionado antes da instância de fluxo de trabalho anteriormente ativo termina a respetiva execução. Embora possa [alterar este limite predefinido](#change-trigger-concurrency), quando o número de instâncias de fluxo de trabalho atinge o limite de simultaneidade novo, quaisquer outras novas instâncias têm de aguardar para ser executado. 
 
 O número de execuções que pode aguardar também tem um [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que pode alterar. No entanto, depois que a aplicação lógica atinge o limite de execuções de espera, o motor do Logic Apps aceita já não novas execuções. Os acionadores de pedido e webhook devolvem 429 erros e acionadores recorrentes começar a ignorar tentativas de consulta.
 
@@ -2422,7 +2423,7 @@ Para alterar o limite predefinido no execuções de espera, em subjacentes defin
 
 ### <a name="trigger-instances-sequentially"></a>Acionar instâncias sequencialmente
 
-Para executar a lógica de cada instância da aplicação apenas após a conclusão da instância anterior em execução, defina o gatilho para são executados sequencialmente. Pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas, porque também alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. 
+Para executar a lógica de cada instância de fluxo de trabalho de aplicação apenas após a conclusão da instância anterior em execução, defina o gatilho para são executados sequencialmente. Pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas, porque também alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. 
 
 > [!NOTE] 
 > Ao definir um acionador para ser executado em seqüência usando o designer ou o editor de vista de código, não define o acionador `operationOptions` propriedade `Sequential` no editor de vista de código. Caso contrário, receberá um erro de validação. 
@@ -2448,7 +2449,7 @@ Definir o `runtimeConfiguration.concurrency.runs` propriedade `1`:
 }
 ```
 
-*-ou-*
+*- ou -*
 
 Definir o `operationOptions` propriedade `SingleInstance`:
 
@@ -2500,7 +2501,7 @@ Definir o `runtimeConfiguration.concurrency.repetitions` propriedade `1`:
 }
 ```
 
-*-ou-*
+*- ou -*
 
 Definir o `operationOptions` propriedade `Sequential`:
 
@@ -2570,7 +2571,7 @@ Pontos de extremidade HTTP suportam diferentes tipos de autenticação. Pode con
 Aqui estão os tipos de autenticação, que pode configurar:
 
 * [Autenticação básica](#basic-authentication)
-* [Autenticação de certificados de cliente](#client-certificate-authentication)
+* [Autenticação de certificado de cliente](#client-certificate-authentication)
 * [Autenticação do Active Directory (Azure AD) OAuth do Azure](#azure-active-directory-oauth-authentication)
 
 > [!IMPORTANT]
@@ -2585,8 +2586,8 @@ Para [autenticação básica](../active-directory-b2c/active-directory-b2c-custo
 | Propriedade | Necessário | Value | Descrição | 
 |----------|----------|-------|-------------| 
 | **tipo** | Sim | "Básico" | O tipo de autenticação a utilizar, que é "Básico" aqui | 
-| **o nome de utilizador** | Sim | "@parameters('userNameParam')" | O nome de utilizador para autenticar o acesso para o ponto de extremidade do serviço de destino |
-| **palavra-passe** | Sim | "@parameters('passwordParam')" | A palavra-passe para autenticar o acesso para o ponto de extremidade do serviço de destino |
+| **username** | Sim | "@parameters('userNameParam')" | O nome de utilizador para autenticar o acesso para o ponto de extremidade do serviço de destino |
+| **password** | Sim | "@parameters('passwordParam')" | A palavra-passe para autenticar o acesso para o ponto de extremidade do serviço de destino |
 ||||| 
 
 Neste exemplo de definição da ação de HTTP, o `authentication` secção especifica `Basic` autenticação. Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2620,7 +2621,7 @@ Para [autenticação baseada em certificado](../active-directory/authentication/
 |----------|----------|-------|-------------|
 | **tipo** | Sim | "ClientCertificate" | O tipo de autenticação a utilizar Secure Sockets Layer (SSL) para certificados de cliente. Embora sejam suportados certificados autoassinados, não são suportados certificados autoassinados para SSL. |
 | **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
-| **palavra-passe** | Sim | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
+| **password** | Sim | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
 ||||| 
 
 Neste exemplo de definição da ação de HTTP, o `authentication` secção especifica `ClientCertificate` autenticação. Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2653,14 +2654,14 @@ Para [autenticação de OAuth do Azure AD](../active-directory/develop/authentic
 | Propriedade | Necessário | Value | Descrição |
 |----------|----------|-------|-------------|
 | **tipo** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a utilizar, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
-| **autoridade** | Não | <*URL-for-authority-token-issuer*> | O URL para a autoridade que fornece o token de autenticação |
-| **inquilino** | Sim | <*tenant-ID*> | O ID de inquilino para o inquilino do Azure AD |
+| **authority** | Não | <*URL-for-authority-token-issuer*> | O URL para a autoridade que fornece o token de autenticação |
+| **tenant** | Sim | <*tenant-ID*> | O ID de inquilino para o inquilino do Azure AD |
 | **Público-alvo** | Sim | <*resource-to-authorize*> | O recurso que pretende utilizar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **clientId** | Sim | <*client-ID*> | O ID de cliente para a aplicação a solicitar autorização |
 | **credentialType** | Sim | "Certificate" ou "Segredo" | Utiliza o tipo de credencial do cliente para solicitar autorização. Esta propriedade e valor não aparecem na sua definição subjacente, mas determina os parâmetros necessários para o tipo de credencial. |
 | **pfx** | Sim, apenas para o tipo de credencial "Certificate" | "@parameters('pfxParam') | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
-| **palavra-passe** | Sim, apenas para o tipo de credencial "Certificate" | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
-| **segredo** | Sim, apenas para o "Segredo" tipo de credencial | "@parameters('secretParam')" | O segredo do cliente para solicitar autorização |
+| **password** | Sim, apenas para o tipo de credencial "Certificate" | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
+| **secret** | Sim, apenas para o "Segredo" tipo de credencial | "@parameters('secretParam')" | O segredo do cliente para solicitar autorização |
 |||||
 
 Neste exemplo de definição da ação de HTTP, o `authentication` secção especifica `ActiveDirectoryOAuth` tipo de credencial de autenticação e o "segredo". Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).

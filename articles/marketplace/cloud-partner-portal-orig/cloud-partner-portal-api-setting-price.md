@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810531"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607800"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Preços de ofertas de máquina virtual
+<a name="pricing-for-virtual-machine-offers"></a>Preços das ofertas de máquina virtual
 ==================================
 
 Existem três formas para especificar a preços de ofertas de máquina virtual: personalizado core preços, os preços por núcleo e preços de folha de cálculo.
@@ -108,33 +108,33 @@ A tabela seguinte mostra as diferentes regiões que pode especificar para preço
 | AR         | Argentina            | ARS               |
 | AU         | Austrália            | AUD               |
 | AT         | Áustria              | EUR               |
-| BH         | Bahrain              | BHD               |
-| POR         | Bielorrússia              | RUB               |
-| SER         | Bélgica              | EUR               |
+| BH         | Barém              | BHD               |
+| BY         | Bielorrússia              | RUB               |
+| BE         | Bélgica              | EUR               |
 | BR         | Brasil               | USD               |
 | BG         | Bulgária             | BGN               |
-| AC         | Canadá               | CAD               |
+| CA         | Canadá               | CAD               |
 | CL         | Chile                | CLP               |
 | CO         | Colômbia             | COP               |
 | CR         | Costa Rica           | CRC               |
-| RH         | Croácia              | HRK               |
+| HR         | Croácia              | HRK               |
 | CY         | Chipre               | EUR               |
 | CZ         | República Checa       | CZK               |
 | DK         | Dinamarca              | DKK               |
-| FAZER         | República Dominicana   | USD               |
+| DO         | República Dominicana   | USD               |
 | EC         | Equador              | USD               |
-| POR EXEMPLO         | Egito                | EGP               |
+| EG         | Egito                | EGP               |
 | SV         | El Salvador          | USD               |
 | EE         | Estónia              | EUR               |
 | FI         | Finlândia              | EUR               |
 | FR         | França               | EUR               |
-| ALEMANHA         | Alemanha              | EUR               |
+| DE         | Alemanha              | EUR               |
 | GR         | Grécia               | EUR               |
 | GT         | Guatemala            | GTQ               |
-| HK         | R.A.E. Hong Kong        | HKD               |
+| HK         | RAE de Hong Kong        | HKD               |
 | HU         | Hungria              | HUF               |
-| É         | Islândia              | ISCO               |
-| ÍNDIA         | Índia                | INR               |
+| IS         | Islândia              | ISCO               |
+| IN         | Índia                | INR               |
 | ID         | Indonésia            | IDR               |
 | IE         | Irlanda              | EUR               |
 | IL         | Israel               | ILS               |
@@ -143,22 +143,22 @@ A tabela seguinte mostra as diferentes regiões que pode especificar para preço
 | JO         | Jordânia               | JOD               |
 | KZ         | Cazaquistão           | KZT               |
 | KE         | Quénia                | KES               |
-| COREIA         | Coreia                | KRW               |
+| KR         | Coreia                | KRW               |
 | KW         | Kuwait               | KWD               |
 | LV         | Letónia               | EUR               |
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituânia            | EUR               |
 | LU         | Luxemburgo           | EUR               |
-| MK         | Macedónia do Norte       | MKD QUE               |
-| MEU         | Malásia             | MYR               |
+| MK         | Macedónia do Norte      | MKD               |
+| MY         | Malásia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | México               | MXN               |
-| -ME         | Montenegro           | EUR               |
-| MA         | Marrocos              | ZANGADO               |
+| ME         | Montenegro           | EUR               |
+| MA         | Marrocos              | MAD               |
 | NL         | Países Baixos          | EUR               |
 | NZ         | Nova Zelândia          | NZD               |
 | NG         | Nigéria              | NGN               |
-| NÃO         | Noruega               | NOK               |
+| NO         | Noruega               | NOK               |
 | OM         | Omã                 | OMR               |
 | PK         | Paquistão             | PKR               |
 | PA         | Panamá               | USD               |
@@ -166,9 +166,9 @@ A tabela seguinte mostra as diferentes regiões que pode especificar para preço
 | PE         | Peru                 | CANETA               |
 | PH         | Filipinas          | PHP               |
 | PL         | Polónia               | PLN               |
-| HORA DO PACÍFICO         | Portugal             | EUR               |
+| PT         | Portugal             | EUR               |
 | PR         | Porto Rico          | USD               |
-| CONTROLE DE QUALIDADE         | Catar                | QAR               |
+| QA         | Catar                | QAR               |
 | RO         | Roménia              | RON               |
 | RU         | Rússia               | RUB               |
 | SA         | Arábia Saudita         | SAR               |
@@ -183,7 +183,7 @@ A tabela seguinte mostra as diferentes regiões que pode especificar para preço
 | CH         | Suíça          | CHF               |
 | TW         | Taiwan               | TWD               |
 | TH         | Tailândia             | THB               |
-| TT         | Trinidad e Tobago  | TTD               |
+| TT         | Trindade e Tobago  | TTD               |
 | TN         | Tunísia              | TND               |
 | TR         | Turquia               | TRY               |
 | UA         | Ucrânia              | UAH               |

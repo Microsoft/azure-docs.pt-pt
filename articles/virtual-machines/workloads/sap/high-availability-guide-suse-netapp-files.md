@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662375"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617772"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com o NetApp serviço ficheiros do Azure para aplicações SAP
 
@@ -166,14 +166,11 @@ Ao considerar os ficheiros de NetApp do Azure para o SAP Netweaver em arquitetur
 
 - O agrupamento de capacidade mínima é 4 TiB. O tamanho do conjunto de capacidade tem de ser em múltiplos de 4 TiB.
 - O volume mínimo é 100 GiB
-- Os ficheiros NetApp do Azure e todas as máquinas virtuais, em que os volumes de ficheiros de NetApp do Azure serão montados têm de estar na mesma rede Virtual do Azure. [Peering de rede virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) ainda não é suportado pelos ficheiros do Azure NetApp.
+- Os ficheiros NetApp do Azure e todas as máquinas virtuais, em que os volumes de ficheiros de NetApp do Azure serão montados, tem de estar na mesma rede Virtual do Azure ou no [redes virtuais em modo de peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) na mesma região. Acesso de ficheiros NetApp do Azure através de VNET peering na mesma região é suportado agora. Acesso de NetApp do Azure através do global peering ainda não é suportado.
 - A rede virtual selecionada tem de ter uma sub-rede, delegada aos ficheiros do Azure NetApp.
 - Os ficheiros do Azure NetApp atualmente suporta apenas NFSv3 
 - Os ficheiros NetApp do Azure oferece [Exportar política](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): pode controlar os clientes permitidos, o tipo de acesso (ler e escrever, só de leitura, etc.). 
 - Funcionalidade de ficheiros NetApp do Azure ainda não está ciente de zona. A funcionalidade de ficheiros do Azure NetApp não está implementada em todas as zonas de disponibilidade numa região do Azure. Esteja ciente das implicações de latência de potenciais em algumas regiões do Azure. 
-
-   > [!NOTE]
-   > Lembre-se de que o serviço ficheiros do Azure NetApp não suporta ainda a peering da rede Virtual. Implemente as VMs e os volumes de ficheiros do Azure NetApp na mesma rede virtual.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Implementar VMs do Linux manualmente através do portal do Azure
 
@@ -574,6 +571,8 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 9. **[1]**  Criam os recursos de cluster SAP
 
+Se utilizar a arquitetura de servidor de 1 de colocar em fila (ENSA1), defina os recursos da seguinte forma:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   Suporte SAP introduzida para colocar em fila servidor 2, incluindo a replicação, a partir do SAP NW 7.52. A partir do ABAP plataforma 1809, colocar em fila servidor 2 está instalado por predefinição. Consulte SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) para suporte para colocar em fila o servidor 2.
+Se utilizar a arquitetura de servidor 2 de colocar em fila ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), defina os recursos da seguinte forma:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Se estiver a atualizar a partir de uma versão mais antiga e mudar para o servidor de colocar em fila 2, consulte a nota sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante no nó que os recursos estão em execução.
 
@@ -1051,7 +1079,7 @@ Os seguintes testes são uma cópia dos casos de teste nos [melhores guias de pr
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Crie um bloqueio de colocar em fila, para a edição de exemplo num utilizador su01 de transação. Execute os seguintes comandos como < sapsid\>adm no nó onde a instância do ASCS está em execução. Os comandos irão parar a instância do ASCS e iniciá-lo novamente. O bloqueio de colocar em fila é esperado que sejam perdidos nesse teste.
+   Crie um bloqueio de colocar em fila, para a edição de exemplo num utilizador su01 de transação. Execute os seguintes comandos como < sapsid\>adm no nó onde a instância do ASCS está em execução. Os comandos irão parar a instância do ASCS e iniciá-lo novamente. Se utilizar a arquitetura de servidor de 1 de colocar em fila, o bloqueio de colocar em fila é esperado que sejam perdidos nesse teste. Se utilizar a arquitetura de servidor 2 de colocar em fila, a colocar em fila será mantida. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ Os seguintes testes são uma cópia dos casos de teste nos [melhores guias de pr
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   O bloqueio de colocar em fila de transação su01 deve ser perdido e o back-end deve ter sido redefinido. Estado do recurso depois do teste:
+   O bloqueio de colocar em fila de transação su01 deve ser perdido, se utilizar a arquitetura de replicação 1 do servidor de colocar em fila e o back-end deve ter sido redefinido. Estado do recurso depois do teste:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

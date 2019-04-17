@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526678"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618146"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -139,7 +139,7 @@ Ver [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcent
     -   Um endereço público do Azure IP, com o nome  *\<Guid > - azurebatch - cloudservicepublicip*.
     -   Um grupo de segurança de trabalho de rede, com o nome  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
--   Certifique-se de que não tem nenhum bloqueio de recursos no grupo de recursos ou subscrição a que pertence a rede virtual. Se configurar um bloqueio só de leitura ou de um bloqueio de eliminação, iniciar e parar o runtime de integração podem falhar ou bloqueado. 
+-   Certifique-se de que não tem nenhum bloqueio de recursos no grupo de recursos ou subscrição a que pertence a rede virtual. Se configurar um bloqueio só de leitura ou de um bloqueio de eliminação, iniciar e parar o runtime de integração podem falhar ou parar de responder. 
 
 -   Certifique-se de que não tem uma política do Azure que impede que os seguintes recursos de que está sendo criado sob o grupo de recursos ou subscrição a que pertence a rede virtual: 
     -   Microsoft.Network/LoadBalancers 

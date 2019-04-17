@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dadeda8bb270689530a34c3e36d33e439ea9e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180390"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616599"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação pass-through do Azure Active Directory: Perguntas mais frequentes
 
@@ -50,6 +50,10 @@ Sim, suporta a autenticação pass-through `Alternate ID` como o nome de utiliza
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Sincronização de hash de palavra-passe atuar como contingência para autenticação pass-through?
 
 Não. Autenticação pass-through _não_ automaticamente a ativação pós-falha para a sincronização de hash de palavra-passe. Para evitar falhas de início de sessão de utilizador, deve configurar a autenticação pass-through para [elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>O que acontece quando eu mude de sincronização de hash de palavra-passe para autenticação pass-through?
+
+Quando utiliza o Azure AD Connect para mudar o método início de sessão de sincronização de hash de palavra-passe para autenticação pass-through, autenticação pass-through torna-se o método primário início de sessão para os utilizadores em domínios geridos. Tenha em atenção que os hashes de palavra-passe de todos os utilizadores que anteriormente foram sincronizados com a sincronização de hash de palavra-passe permanecem armazenados no Azure AD.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Pode instalar um [Proxy de aplicações do Azure AD](../manage-apps/application-proxy.md) conector no mesmo servidor como um agente de autenticação pass-through?
 

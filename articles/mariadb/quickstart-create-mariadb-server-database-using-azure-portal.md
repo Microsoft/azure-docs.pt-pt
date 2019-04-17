@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/15/2019
+ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880828"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618027"
 ---
-# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Início rápido: Criar um Azure Database for MariaDB Server com o portal do Azure
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Criar um Azure Database for MariaDB Server com o portal do Azure
 
 O Azure Database for MariaDB é um serviço gerido que pode utilizar para executar, gerir e dimensionar as bases de dados MariaDB de elevada disponibilidade na cloud. Este início rápido mostra-lhe como criar um Azure Database for MariaDB Server em cerca de cinco minutos com o portal do Azure.  
 
@@ -32,7 +32,7 @@ Para criar um Azure Database for MariaDB Server:
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-2. Na caixa de pesquisa, introduza **Azure Database for MariaDB** para encontrar o serviço.
+2. Selecione **bases de dados** > **base de dados do Azure para MariaDB**. Também pode escrever **MariaDB** na caixa de pesquisa para encontrar o serviço.
 
    ![Opção Azure Database for MariaDB](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -51,7 +51,7 @@ Para criar um Azure Database for MariaDB Server:
     Confirmar palavra-passe | *a sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *a região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
-    Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço** > **Fins Gerais**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (2 vCores)</li><li>**Armazenamento** (5 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço** > **Fins Gerais**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
   
    > [!NOTE]
    > Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/mariadb/) para obter mais informações.

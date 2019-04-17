@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278110"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Online
 
@@ -144,7 +144,7 @@ Para configurar o Azure AD início de sessão único com o Tableau Online, execu
   
     a. No portal do Azure, avance os **Tableau Online** página de integração de aplicativo.
 
-    b. Na * * os atributos de utilizador e afirmações *** secção, clique no ícone de edição.
+    b. Na **atributos de utilizador e afirmações** secção, clique no ícone de edição.
 
    ![Configurar o início de sessão único](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
     a. Na **Name** campo introduza **BrittaSimon**.
   
     b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    Por exemplo, BrittaSimon\@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -245,6 +245,6 @@ Quando clica no mosaico Tableau Online no painel de acesso, deve iniciar sessão
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

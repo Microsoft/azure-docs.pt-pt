@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 9476713bdca185fd84289fca3cf7aa304ad3f9fb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 99aec3be893693e523dffefbb3c422222ac19a2e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311429"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616871"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Servidor físico para a arquitetura da recuperação após desastre do Azure
 
@@ -25,7 +25,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
-**Azure** | Uma subscrição do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados de VMs no local são armazenados na conta de armazenamento. VMs do Azure são criadas com os dados replicados quando executa uma ativação pós-falha do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
+**Azure** | Uma subscrição do Azure e uma rede do Azure. | Os dados replicados no local máquinas físicas são armazenados no Azure discos geridos. VMs do Azure são criadas com os dados replicados quando executa uma ativação pós-falha do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
 **Servidor de configuração** | Uma única máquina no local física ou VM do VMware é implementada para executar todos os locais componentes do Site Recovery. A VM executa o servidor de configuração, o servidor de processos e o servidor de destino mestre. | O servidor de configuração coordena as comunicações entre o local e o Azure, e gere a replicação de dados.
  **Servidor de processos**:  | Instalado por predefinição, juntamente com o servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com a colocação em cache, compressão e encriptação, e envia-os para o armazenamento do Azure.<br/><br/> O servidor de processos também instala o serviço de mobilidade em servidores que pretende replicar.<br/><br/> À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.
  **Servidor de destino mestre** | Instalado por predefinição, juntamente com o servidor de configuração. | Processa dados de replicação durante a reativação pós-falha a partir do Azure.<br/><br/> Para implementações maiores, pode adicionar um servidor de destino mestre adicionais, em separado para a reativação pós-falha.

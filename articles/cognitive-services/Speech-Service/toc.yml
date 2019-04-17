@@ -207,6 +207,11 @@ items:
     - name: Transcrição em lote e personalização
       displayName: Batch transcription, transcription, custom models, customization, model management
       href: https://westus.cris.ai/swagger/ui/index
+    - name: Webhooks
+      displayName: Webhooks
+      href: webhooks.md
+  - name: Documentação do Swagger
+    href: swagger-documentation.md
   - name: Speech Synthesis Markup Language (SSML)
     href: speech-synthesis-markup.md
   - name: PowerShell
@@ -257,9 +262,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacidade e cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 51897312688183e8b60619210b5be5789c026b81
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 8718764805e5f21327971485eaa50dde0cf34403
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010795"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578956"

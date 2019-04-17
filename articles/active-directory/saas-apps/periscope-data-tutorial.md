@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275543"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617891"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Active Directory do Azure com dados de Periscope
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD início de sessão único com dados de Periscope, exe
 
     d. Localize a marca **SingleLogoutService** e cole o **localização** valor no **SLO URL** caixa de texto.
 
-    e. Copiar o **identificador** para a sua instância de valor e cole-o na **identificador (ID de entidade)** caixa de texto de **configuração básica de SAML** secção no portal do Azure.
+    e. Copiar o **identificador** para a sua instância de valor e cole-o na **identificador (ID de entidade)** caixa de texto de **configuração básica de SAML** secção no portal do Azure.
 
     f. Localizar a primeira etiqueta do ficheiro XML, copie o valor da **entityID** e cole-a no **emissor** caixa de texto.
 
@@ -223,7 +223,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Periscope dados, tem d
 
     d. Clique em **adicionar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -233,7 +233,7 @@ Quando clica no mosaico de dados de Periscope no painel de acesso, deve ser auto
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

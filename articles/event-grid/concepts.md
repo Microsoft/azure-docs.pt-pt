@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474358"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617602"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos no Azure Event Grid
 
@@ -40,7 +40,7 @@ Para obter informações sobre a implementação de qualquer uma das origens de 
 
 O tópico do event grid fornece um ponto de extremidade em que a origem envia eventos. O publicador cria o tópico do event grid e decide se uma origem de evento precisa de um tópico ou mais de um tópico. Um tópico é utilizado para uma coleção de eventos relacionados. Para responder a determinados tipos de eventos, os assinantes decidir quais tópicos para subscrever.
 
-Tópicos de sistema são tópicos de incorporada fornecidos pelos serviços do Azure. Não vê a tópicos de sistema na sua subscrição do Azure, porque o publicador detém os tópicos, mas pode subscrevê-los. Para subscrever, fornecem informações sobre o recurso que pretende receber eventos a partir de. Desde que tenha de aceder ao recurso, pode subscrever para seus eventos.
+Tópicos de sistema são tópicos de incorporada fornecidos pelos serviços do Azure. Não vê a tópicos de sistema na sua subscrição do Azure, porque o publicador detém os tópicos, mas pode subscrevê-los. Para subscrever, fornecem informações sobre o recurso que pretende receber eventos a partir de. Desde que tenham acesso ao recurso, pode subscrever para seus eventos.
 
 Tópicos personalizados são tópicos de terceiros e de aplicação. Quando criar ou recebem acesso a um tópico personalizado, verá esse tópico personalizado na sua subscrição.
 

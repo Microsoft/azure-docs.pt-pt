@@ -60,6 +60,8 @@ items:
       href: container-instances-restart-policy.md
     - name: Definir variáveis de ambiente (env)
       href: container-instances-environment-variables.md
+    - name: Substituir o ponto de entrada do contentor
+      href: container-instances-start-command.md
     - name: Executar um comando (exec)
       href: container-instances-exec.md
     - name: Executar tarefa de compilação do Jenkins
@@ -82,6 +84,8 @@ items:
     items:
     - name: Configurar as pesquisas liveness
       href: container-instances-liveness-probe.md
+    - name: Parar e iniciar contentores
+      href: container-instances-stop-start.md
     - name: Atualizar contentores em execução
       href: container-instances-update.md
   - name: Monitorizar e registar
@@ -130,9 +134,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 4a2f2f48232bc78aa636934b0ac3a38bec2c1a23
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 5a95264c8fc909e58a2db0f423ded86225d5a71c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006048"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608423"

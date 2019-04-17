@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546403"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617401"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvimento com os serviços de multimédia de v3 APIs
 
@@ -25,7 +25,8 @@ Este artigo discute as regras que se aplicam às entidades e APIs ao desenvolver
 
 ## <a name="accessing-the-azure-media-services-api"></a>Acessar a API dos serviços de multimédia do Azure
 
-Para acessar os recursos de serviços de multimédia do Azure, deve utilizar a autenticação do principal de serviço do Azure Active Directory (AD). API de serviços de multimédia do Azure requer que a aplicação que faz com que a API REST ou o utilizador solicita a ter acesso ao recurso de conta de Media Services do Azure (normalmente, um a **contribuinte** ou **proprietário** função). Para obter mais informações, consulte [controlo de acesso baseado em funções para contas de serviços de multimédia](rbac-overview.md).
+Para acessar os recursos de serviços de multimédia do Azure, pode utilizar a autenticação do principal de serviço do Azure Active Directory (AD).
+A API de serviços de suporte de dados requer que o utilizador ou aplicação que faz a API REST solicita tem acesso ao recurso de conta dos serviços de multimédia e utilizar um **contribuinte** ou **proprietário** função. A API pode ser acessada com o **leitor** função, mas apenas **obter** ou **lista**   operações estarão disponíveis. Para obter mais informações, consulte [controlo de acesso baseado em funções para contas de serviços de multimédia](rbac-overview.md).
 
 Em vez de criar um principal de serviço, considere a utilização de identidades geridas para recursos do Azure para aceder à API de serviços de multimédia através do Gestor de recursos do Azure. Para saber mais sobre identidades geridas para recursos do Azure, veja [o que há de identidades geridas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

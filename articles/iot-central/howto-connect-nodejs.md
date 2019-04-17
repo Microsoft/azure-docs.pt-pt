@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259971"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617942"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -36,7 +36,7 @@ Adicione a seguinte telemetria sobre o **medidas** página:
 
 | Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatura  | temperatura | S     | 60  | 110 | 0              |
+| Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Humidade     | humidade    | %     | 0   | 100 | 0              |
 | Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
@@ -51,7 +51,7 @@ Adicione o seguinte estado no **medidas** página:
 
 | Nome a Apresentar | Nome do Campo  | Valor 1 | Nome a Apresentar | Valor 2 | Nome a Apresentar |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Modo da Ventoinha     | fanmode     | 1       | Em execução      | 0       | Parado      |
+| Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
 
 > [!NOTE]
 > O tipo de dados da medição de estado é a cadeia de caracteres.
@@ -75,7 +75,7 @@ Adicione as seguintes propriedades do dispositivo na **propriedades** página:
 
 | Nome a Apresentar        | Nome do Campo        | Tipo de dados |
 | ------------------- | ----------------- | --------- |
-| Número de Série       | serialNumber      | texto      |
+| Número de série       | serialNumber      | texto      |
 | Fabricante do dispositivo | fabricante      | texto      |
 
 Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, não não possível apresentar as propriedades da aplicação.
@@ -87,7 +87,7 @@ Adicione as seguintes **número** definições a **definições** página:
 | Nome a Apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx.  | Inicial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Ventoinha velocidade       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
-| Definir Temperatura | setTemperature | S     | 0        | 20  | 200  | 80      |
+| Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
 
 Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não pode receber o valor de definição.
 
@@ -97,13 +97,13 @@ Adicione o seguinte comando no **comandos** página:
 
 | Nome a Apresentar    | Nome do Campo     | Tempo Limite Predefinido | Tipo de Dados |
 | --------------- | -------------- | --------------- | --------- |
-| Contagem decrescente       | Contagem decrescente      | 30              | number    |
+| contagem decrescente       | Contagem decrescente      | 30              | número    |
 
 Adicione o seguinte campo de entrada para o comando de contagem regressiva:
 
 | Nome a Apresentar    | Nome do Campo     | Tipo de Dados | Valor |
 | --------------- | -------------- | --------- | ----- |
-| Contar de      | countFrom      | number    | 10    |
+| Contar de      | countFrom      | número    | 10    |
 
 Introduza os nomes de campos exatamente como mostrados nas tabelas no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não é possível processar o comando.
 
@@ -335,4 +335,4 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central, a próxima etapa sugerida é saber como [preparar e ligue-se um Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Agora que aprendeu como ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central, a próxima etapa sugerida é saber como [configurar um modelo de dispositivo personalizado](howto-set-up-template.md) para o seu próprio dispositivo IoT.

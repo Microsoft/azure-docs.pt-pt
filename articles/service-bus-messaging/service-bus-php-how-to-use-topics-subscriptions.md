@@ -12,24 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857968"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607539"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como utilizar tópicos do Service Bus e as subscrições com PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo mostra-lhe como utilizar tópicos do Service Bus e as subscrições. Os exemplos são escritos em PHP e a utilização a [Azure SDK para PHP](../php-download-sdk.md). Os cenários abrangidos incluem **criar tópicos e subscrições**, **criar filtros de subscrição**, **enviar mensagens para um tópico**, **a receber mensagens de uma subscrição**, e **eliminar tópicos e subscrições**.
+Este artigo mostra-lhe como utilizar tópicos do Service Bus e as subscrições. Os exemplos são escritos em PHP e a utilização a [Azure SDK para PHP](../php-download-sdk.md). Os cenários abrangidos incluem:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Criação de tópicos e subscrições 
+- Criar filtros de subscrição 
+- Enviar mensagens para um tópico 
+- Receber mensagens de uma subscrição
+- A eliminar tópicos e subscrições
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **espaço de nomes** e obtenha o **cadeia de ligação**.
+
+    > [!NOTE]
+    > Irá criar um **tópico** e uma **subscrição** para o tópico utilizando **PHP** neste início rápido. 
 
 ## <a name="create-a-php-application"></a>Criar uma aplicação PHP
 O único requisito para criar uma aplicação PHP que acede ao serviço de Blobs do Azure é fazer referência a classes no [Azure SDK para PHP](../php-download-sdk.md) de dentro de seu código. Pode utilizar quaisquer ferramentas de desenvolvimento para criar a sua aplicação ou o bloco de notas.
@@ -131,7 +140,7 @@ catch(ServiceException $e){
 Subscrições de tópicos também são criadas com o `ServiceBusRestProxy->createSubscription` método. As subscrições têm um nome e podem ter um filtro opcional que restringe o conjunto de mensagens transmitidas para a fila virtual da subscrição.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
-Se for especificado nenhum filtro quando é criada uma nova subscrição, o **MatchAll** filtro (predefinição) é usado. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome "mysubscription" e utiliza a predefinição **MatchAll** filtro.
+Se for especificado nenhum filtro quando é criada uma nova subscrição, o **MatchAll** filtro (predefinição) é usado. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome `mysubscription` e utiliza a predefinição **MatchAll** filtro.
 
 ```php
 require_once 'vendor/autoload.php';

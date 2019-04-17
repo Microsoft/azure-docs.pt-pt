@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 04/15/2019
+ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895793"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616276"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na base de dados do Azure para MariaDB
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados.
@@ -28,10 +28,12 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Fins Gerais| 8| 1250|
 |Fins Gerais| 16| 2500|
 |Fins Gerais| 32| 5000|
+|Fins Gerais| 64| 10000|
 |Memória Otimizada| 2| 600|
 |Memória Otimizada| 4| 1250|
 |Memória Otimizada| 8| 2500|
 |Memória Otimizada| 16| 5000|
+|Memória Otimizada| 32| 10000|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
 > ERROR 1040 (08004): Demasiadas ligações

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905006"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609409"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -99,7 +99,7 @@ Ubuntu 14.04 LTS Server | [Versões de kernel suportada](#supported-ubuntu-kerne
 Ubuntu 16.04 LTS Server | [Versão de kernel suportada](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Servidores de Ubuntu usando a autenticação baseada em palavra-passe e início de sessão e o pacote de cloud-init para configurar VMs, na cloud podem ter início de sessão baseada em palavra-passe desativado na ativação pós-falha (dependendo da configuração de cloudinit). Início de sessão baseada em palavra-passe pode ser novamente ativado na máquina virtual ao repor a palavra-passe do suporte da > Resolução de problemas > menu de definições (da VM no portal do Azure.
 Debian 7 | [Versões de kernel suportada](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versões de kernel suportada](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3. [(Versões de kernel suportada)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Versões de kernel suportada)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Não é suportada a atualização de replicar máquinas a partir do SP3 para SP4. Se uma máquina replicada tiver sido atualizada, terá de desativar a replicação e volte a ativar a replicação após a atualização.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> A executar o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3).
@@ -107,7 +107,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel de Ubuntu para máquinas virtuais do Azure
 
-**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 14.04 LTS | 9.23 | 3.13.0-24-Generic para 3.13.0-165-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-142-generic,<br/>4.15.0-1023-Azure para 4.15.0-1037-azure |
 14.04 LTS | 9.22 | 3.13.0-24-Generic para 3.13.0-164-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-140-generic,<br/>4.15.0-1023-Azure para 4.15.0-1036-azure |
@@ -121,7 +121,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões do Debian kernel com suporte para máquinas virtuais do Azure
 
-**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 Debian 7 | 9.19,9.20,9.21,9.22,9.23 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -130,9 +130,9 @@ Debian 8 | 9.19 | 3.16.0-4-amd64 to 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel de 12 do SUSE Linux Enterprise Server para máquinas virtuais do Azure
 
-**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.23 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.79-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.23 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.20 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.69-default |
@@ -217,7 +217,7 @@ A tabela seguinte resume os limites de Site Recovery.
 - Existem dois limites a ter em consideração, por disco de dados de alterações e por dados da máquina virtual de abandono.
 - Por exemplo, se usarmos um disco Premium P20, conforme descrito na tabela abaixo, Site Recovery pode processar 5 MB de alterações por disco, no máximo de cinco esses discos por VM, devido ao limite de 25 MB/s total de alterações por VM.
 
-**Destino de armazenamento** | **E/s de disco de média de origem** |**Alterações de dados do disco de origem médio** | **Alterações a dados de disco de origem total por dia**
+**Destino de armazenamento** | **E/s de disco de média de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco

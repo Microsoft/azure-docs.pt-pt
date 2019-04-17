@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0593faaf8b68c793a65312b208fe858804db53
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496286"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609528"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -71,17 +71,17 @@ As seguintes funções de administrador estão disponíveis:
 
   Em | Pode fazer
   ----- | ----------
-  [Centro de conformidade do Microsoft 365](https://protection.microsoft.com) | Proteger e gerir os dados da sua organização em todos os serviços do Microsoft 365<br>Gerir alertas de conformidade
+  [Centro de conformidade do Microsoft 365](https://protection.office.com) | Proteger e gerir os dados da sua organização em todos os serviços do Microsoft 365<br>Gerir alertas de conformidade
   [Gestor de conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Controlar, atribuir e verificar suas atividades da organização a conformidade a normas
-  [Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir a governação de dados<br>Executar dados de e legais da investigação<br>Gerir pedido do requerente de dados
+  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir a governação de dados<br>Executar dados de e legais da investigação<br>Gerir pedido do requerente de dados
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Ver todos os dados de auditoria do Intune
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas<br>Pode criar e modificar as políticas de ficheiros e permitir ações de governação de ficheiros<br> Pode ver todos os relatórios incorporados sob a gestão de dados
+  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas<br>Pode criar e modificar as políticas de ficheiros e permitir ações de governação de ficheiros<br> Pode ver todos os relatórios incorporados sob a gestão de dados
 
 <!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
 
   In | Can do
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.microsoft.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
+  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
@@ -170,14 +170,14 @@ As seguintes funções de administrador estão disponíveis:
   
   Em | Pode fazer
   --- | ---
-  [Centro de segurança do Microsoft 365](https://protection.microsoft.com) | Monitorizar políticas relacionadas com segurança em todos os serviços do Microsoft 365<br>Gerir ameaças de segurança e alertas<br>Ver relatórios
+  [Centro de segurança do Microsoft 365](https://protection.office.com) | Monitorizar políticas relacionadas com segurança em todos os serviços do Microsoft 365<br>Gerir ameaças de segurança e alertas<br>Ver relatórios
   Identity Protection Center | Todas as permissões da função do leitor de segurança<br>Além disso, a capacidade de executar todas as operações do Centro de proteção de identidade, exceto para repor palavras-passe
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função do leitor de segurança<br>**Não é possível** gerir atribuições de funções do Azure AD ou definições
-  [Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir políticas de segurança<br>Ver, investigar e responder a ameaças de segurança<br>Ver relatórios
+  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir políticas de segurança<br>Ver, investigar e responder a ameaças de segurança<br>Ver relatórios
   Proteção Avançada Contra Ameaças do Azure | Monitorizar e responder à atividade suspeita de segurança
   Windows Defender ATP e EDR | Atribuir funções<br>Gerir grupos de máquinas<br>Configurar a deteção de ameaças do ponto final e a remediação automática<br>Ver, investigar e responder a alertas
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Utilizador de vistas, dispositivo, inscrição, configuração e informações sobre a aplicação<br>Não é possível efetuar alterações ao Intune
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e definições, carregar registos e desempenhar ações de governação
+  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e definições, carregar registos e desempenhar ações de governação
   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações
   [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
 
@@ -185,7 +185,7 @@ As seguintes funções de administrador estão disponíveis:
 
   In | Can do
   --- | ---
-  [Microsoft 365 security center](https://protection.microsoft.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
+  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
   Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
@@ -198,13 +198,13 @@ As seguintes funções de administrador estão disponíveis:
 
   Em | Pode fazer
   --- | ---
-  [Centro de segurança do Microsoft 365](https://protection.microsoft.com) | Ver políticas relacionadas com segurança em todos os serviços do Microsoft 365<br>Ameaças de segurança de View e alertas<br>Ver relatórios
+  [Centro de segurança do Microsoft 365](https://protection.office.com) | Ver políticas relacionadas com segurança em todos os serviços do Microsoft 365<br>Ameaças de segurança de View e alertas<br>Ver relatórios
   Identity Protection Center | Ler todos os relatórios de segurança e informações das definições de funcionalidades de segurança<br><ul><li>Anti-spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Anti-phishing<li>Regras de fluxo de mensagens
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tem acesso só de leitura para todas as informações apresentadas no PIM do Azure AD: As políticas e relatórios para atribuições de funções do Azure AD, o security analisa e acesso aos dados de política e relatórios para cenários, além de atribuição de função do Azure AD de leitura no futuro.<br>**Não é possível** inscrever-se no PIM do Azure AD ou fazer alterações ao mesmo. No portal do PIM ou através do PowerShell, alguém nesta função pode ativar as funções adicionais (por exemplo, Administrador Global ou administrador com função privilegiada), se o utilizador é elegível para eles.
-  [Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Ver as políticas de segurança<br>Ver e investigar ameaças de segurança<br>Ver relatórios
+  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Ver as políticas de segurança<br>Ver e investigar ameaças de segurança<br>Ver relatórios
   Windows Defender ATP e EDR | Ver e investigar alertas
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Utilizador de vistas, dispositivo, inscrição, configuração e informações sobre a aplicação. Não é possível efetuar alterações ao Intune.
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas
+  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas
   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista
   [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
 

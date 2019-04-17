@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500911"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608219"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções de migração de dados do StorSimple 5000-7000 série 
 
 > [!IMPORTANT]
-> 31 de Julho de 2019 a série StorSimple 5000/7000 chegará ao fim de estado do suporte (término do suporte ao). Recomendamos que os clientes de série StorSimple 5000/7000 migrem para uma das alternativas descritas no documento.
+> 9 de Julho de 2019 a série StorSimple 5000/7000 chegará ao fim de estado do suporte (término do suporte ao). Recomendamos que os clientes de série StorSimple 5000/7000 migrem para uma das alternativas descritas no documento.
 
 StorSimple 5000-7000 série está a atingir [fim do suporte](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) em Julho de 2019. Os clientes que tenham o StorSimple 5000-7000 série tem uma opção para atualizar para o outro Azure primeiro os serviços híbridos de terceiros. Este artigo descreve as opções de híbrido do Azure disponíveis para migrar os dados. 
 

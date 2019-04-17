@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184895"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616216"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas de autenticação de pass-through do Azure Active Directory
 
@@ -71,6 +71,9 @@ Navegue para **do Azure Active Directory** -> **inícios de sessão** no [Centro
 | 80007 | O Agente de Autenticação não se consegue ligar ao Active Directory. | Verifique se o Active Directory está acessível a partir do agente de autenticação.
 | 80010 | O Agente de Autenticação não conseguiu desencriptar a palavra-passe. | Se o problema for consistentemente reproduzível, instalar e registar um novo agente de autenticação. E desinstalar atual. 
 | 80011 | O Agente de Autenticação não conseguiu obter a chave de desencriptação. | Se o problema for consistentemente reproduzível, instalar e registar um novo agente de autenticação. E desinstalar atual.
+
+>[!IMPORTANT]
+>Agentes de autenticação pass-through autenticar utilizadores do Azure AD, validando seus nomes de utilizador e palavras-passe no Active Directory ao chamar o [API do Win32 LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se tiver definido a definição de "Início de sessão para" no Active Directory para limitar o acesso de início de sessão da estação de trabalho, terá de adicionar servidores que alojam os agentes de autenticação pass-through para a lista de "Início de sessão para" servidores também. Isso não for feito irá bloquear os utilizadores de iniciar sessão no Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do agente de autenticação
 

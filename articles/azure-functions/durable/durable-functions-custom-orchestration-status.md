@@ -2,7 +2,7 @@
 title: Estado de orquestração personalizado nas funções duráveis - Azure
 description: Saiba como configurar e utilizar o estado de orquestração personalizado para funções duráveis.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8487eb9009529e023e06bf6a717fcb142f50305f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342804"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608049"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestração personalizado nas funções durável (funções do Azure)
 

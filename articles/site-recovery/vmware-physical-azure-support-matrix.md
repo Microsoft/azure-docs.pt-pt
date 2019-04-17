@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 4e5a785d219e1b776a1d512512d0a2a74532c550
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 94fd70dccf367d43b1caaa9f3a11ed934f9950ea
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282734"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618061"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -21,12 +21,12 @@ Este artigo resume os componentes suportados e configurações para recuperaçã
 
 Para começar a utilizar o Azure Site Recovery com o cenário de implementação mais simples, visite nosso [tutoriais](tutorial-prepare-azure.md). Pode saber mais sobre a arquitetura do Azure Site Recovery [aqui](vmware-azure-architecture.md).
 
-## <a name="replication-scenario"></a>Cenário de replicação
+## <a name="deployment-scenario"></a>Cenário de implementação
 
 **Cenário** | **Detalhes**
 --- | ---
-VMs VMware | Replicação de VMs de VMware no local para o Azure. Pode implementar este cenário no portal do Azure ou utilizando [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Servidores físicos | Replicação de servidores físicos de Windows/Linux no local para o Azure. Pode implementar este cenário no portal do Azure.
+Recuperação após desastre de VMs de VMware | Replicação de VMs de VMware no local para o Azure. Pode implementar este cenário no portal do Azure ou utilizando [PowerShell](vmware-azure-disaster-recovery-powershell.md).
+Recuperação após desastre de servidores físicos | Replicação de servidores físicos de Windows/Linux no local para o Azure. Pode implementar este cenário no portal do Azure.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
 
@@ -96,16 +96,16 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>Versões de kernel de suporte de 12 do SUSE Linux Enterprise Server
 
-**Libertar** | **Versão do serviço de mobilidade** | **Versão de kernel** |
+**Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.23][9.23 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.79-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.79-default</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.156-94.64-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Armazenamento de convidado/sistemas de ficheiros do Linux
 
-**Componente** | **Suportadas**
+**Componente** | **Suportado**
 --- | ---
 Sistemas de ficheiros | ext3, ext4, XFS
 Gestor de volumes | Antes de [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM é suportada. <br/> 2. /boot no volume LVM não é suportada. <br/> 3. Vários discos de SO não são suportados.<br/><br/>Partir [versão 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) e posteriores, /boot no LVM é suportada. Vários discos de SO não são suportados.
@@ -127,7 +127,7 @@ Adicionar o disco na VM replicada | Desative a replicação para a VM, adicione 
 
 ## <a name="network"></a>Rede
 
-**Componente** | **Suportadas**
+**Componente** | **Suportado**
 --- | ---
 Rede de anfitrião, o agrupamento NIC | Suportada para VMs de VMware. <br/><br/>Não é suportada para a replicação da máquina física.
 Rede de anfitrião VLAN | Sim.
@@ -143,7 +143,7 @@ Várias NICs de rede de convidado/servidor | Sim.
 
 ## <a name="azure-vm-network-after-failover"></a>Rede VM do Azure (após a ativação pós-falha)
 
-**Componente** | **Suportadas**
+**Componente** | **Suportado**
 --- | ---
 Azure ExpressRoute | Sim
 ILB | Sim
@@ -157,7 +157,7 @@ Pontos finais de serviço de rede Virtual do Azure<br/> | Sim
 Redes Aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
-**Componente** | **Suportadas**
+**Componente** | **Suportado**
 --- | ---
 Disco dinâmico | Disco do sistema de operação tem de ser um disco básico. <br/><br/>Discos de dados podem ter discos dinâmicos
 Configuração do disco de docker | Não
@@ -167,7 +167,6 @@ Host vSAN | Sim para VMware<br/><br/> N/d para servidores físicos
 Multipath i de anfitrião (MPIO) | Sim, testado com o Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Volumes virtuais do anfitrião (VVols) | Sim para VMware<br/><br/> N/d para servidores físicos
 VMDK/servidor convidado | Sim
-Servidor de convidado/EFI/UEFI| Parcial (migração para o Azure para o Windows Server 2012 e posterior) <br/><br/> Consulte a nota no final da tabela
 Disco de cluster partilhado do servidor/convidado | Não
 Disco de convidado/servidor encriptado | Não
 Convidado/servidor NFS | Não
@@ -181,18 +180,12 @@ Servidor/convidado - espaços de armazenamento | Não
 Disco de acesso frequente Adicionar/Remover/servidor de convidado | Não
 Servidor/convidado - excluir o disco | Sim
 Multipath i de convidado/servidor (o MPIO) | Não
+Inicialização EFI/UEFI do servidor/convidado | Suportada ao migrar VMs de VMware ou servidores físicos com o Windows Server 2012 ou posterior para o Azure.<br/><br/> Apenas pode replicar VMs para a migração. Não é suportada a reativação pós-falha para o local.<br/><br/> O servidor não deve ter mais de quatro partições no disco do SO.<br/><br/> Requer a versão de serviço de mobilidade 9.13 ou posterior.<br/><br/> NTFS apenas é suportado.
 
-> [!NOTE]
-> UEFI de arranque máquinas de virtuais de VMware com o Windows Server 2012 ou posterior podem ser migrados para o Azure. As seguintes restrições aplicam-se:
->
-> - Apenas uma migração para o Azure é suportada. Não é suportada a reativação pós-falha para o site de VMware no local.
-> - O servidor não deve ter mais de quatro partições no disco do SO.
-> - NTFS apenas é suportado
-> - Requer a versão de serviço de mobilidade 9.13 ou posterior.
 
 ## <a name="azure-storage"></a>Storage do Azure
 
-**Componente** | **Suportadas**
+**Componente** | **Suportado**
 --- | ---
 Armazenamento localmente redundante | Sim
 Armazenamento georredundante | Sim
@@ -208,7 +201,7 @@ Contas de armazenamento para fins gerais v2 (escalões esporádico e frequentes)
 
 ## <a name="azure-compute"></a>Computação do Azure
 
-**Funcionalidade** | **Suportadas**
+**Funcionalidade** | **Suportado**
 --- | ---
 Conjuntos de disponibilidade | Sim
 Zonas de disponibilidade | Não
@@ -237,7 +230,7 @@ o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e h
 
 A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não abrangem todas as combinações de E/S de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. Para obter melhores resultados, recomendamos vivamente a [execute a ferramenta Planeador de implementações](site-recovery-deployment-planner.md) e realizar testes exaustivos às aplicações através da emissão de uma ativação pós-falha de teste para obter a imagem de VERDADEIRO de desempenho do aplicativo.
 
-**Destino de armazenamento de replicação** | **Tamanho de e/s de disco de origem de média** |**Alterações de dados do disco de origem médio** | **Alterações a dados de disco de origem total por dia**
+**Destino do armazenamento da replicação** | **Tamanho médio de E/S do disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
@@ -246,7 +239,7 @@ Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB por disco
 
-**Alterações de dados de origem** | **Limite Máximo**
+**Alterações a dados de origem** | **Limite Máximo**
 ---|---
 Média de alterações a dados por VM| 25 MB/s
 Alterações a dados de pico em todos os discos numa VM | 54 MB/s
@@ -256,7 +249,7 @@ Estes são números médios, que pressupõem uma sobreposição de 30 por cento 
 
 ## <a name="vault-tasks"></a>Tarefas de cofre
 
-**Ação** | **Suportadas**
+**Ação** | **Suportado**
 --- | ---
 Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
@@ -264,7 +257,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Transferir componentes mais recentes do Azure Site Recovery
 
-**Name** | **Descrição** | **Instruções de transferência de versão mais recente**
+**Nome** | **Descrição** | **Instruções de transferência de versão mais recente**
 --- | --- | ---
 Servidor de configuração | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | Para obter mais informações, visite a nossa documentação de orientação sobre [instalação de raiz](vmware-azure-deploy-configuration-server.md) e [atualização de um componente existente para a versão mais recente](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Servidor de processos|Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.| Para obter mais informações, visite a nossa documentação de orientação sobre [instalação de raiz](vmware-azure-set-up-process-server-scale.md) e [atualização de um componente existente para a versão mais recente](vmware-azure-manage-process-server.md#upgrade-a-process-server).

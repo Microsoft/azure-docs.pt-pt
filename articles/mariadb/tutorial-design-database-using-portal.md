@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852556"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617704"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MariaDB base de dados com o portal do Azure
 
@@ -41,7 +41,7 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-2. Na caixa de pesquisa, introduza **Azure Database for MariaDB** para encontrar o serviço.
+2. Selecione **bases de dados** > **base de dados do Azure para MariaDB**. Também pode escrever **MariaDB** na caixa de pesquisa para encontrar o serviço.
    
    ![Aceder ao MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
@@ -60,7 +60,7 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
     Confirmar palavra-passe | *a sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *a região mais próxima dos seus utilizadores*| Selecione a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *a versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam uma versão diferente).
-    Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço** > **Fins Gerais**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (2 vCores)</li><li>**Armazenamento** (5 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço** > **Fins Gerais**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 

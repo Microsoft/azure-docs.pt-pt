@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 0aaa88e1ebe1c8cefadbe55a8348d730ae04bb56
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/16/2019
+ms.openlocfilehash: b39ce138677fc8933b62bd999f20abc21c0ae690
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883061"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617959"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do MySQL no local para a [Base de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Colaboradores** de uma instância no local do MySQL 5.7 para a Base de Dados do Azure para MySQL através de uma atividade de migração online no Azure Database Migration Service.
@@ -120,6 +120,9 @@ SET group_concat_max_len = 8192;
  ```
         
 Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta para remover a chave externa.
+
+> [!IMPORTANT]
+> Também não se esqueça de remover quaisquer instruções DEFINER do esquema para impedir que uma falha de migração.
 
 Se tiver o acionador nos dados (acionador de inserção ou adição), irá impor a integridade dos dados no destino antes dos dados replicados da origem. A recomendação é desativar os acionadores em todas as tabelas no destino durante a migração e, em seguida, ativar os acionadores após a conclusão da migração.
 

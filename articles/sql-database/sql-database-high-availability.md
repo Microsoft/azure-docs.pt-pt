@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892835"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616854"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -43,7 +43,7 @@ A figura seguinte mostra os quatro nós no modelo de arquitetura de padrão com 
 No modelo padrão de disponibilidade, existem duas camadas:
 
 - Uma camada de computação sem monitoração de estado que está a executar o `sqlserver.exe` processar e contém apenas transitórios e em cache os dados (por exemplo – cache de planos, conjunto de memória intermédia, agrupamento de armazenamento de coluna). Este nó do SQL Server sem monitoração de estado é operada por recursos de infraestrutura do serviço do Azure que inicializa o processo, controla o estado de funcionamento do nó e efetua a ativação pós-falha para outro lugar, se necessário.
-- Uma camada de dados com monitoração de estado com ficheiros de base de dados (.mdf/.ldf) que estão armazenados no armazenamento de Blobs do Azure. Armazenamento de Blobs do Azure garante que haverá sem perda de dados de qualquer registo que é colocado em qualquer arquivo de banco de dados. O armazenamento do blogue do Azure tem disponibilidade/redundância de dados incorporada que garante que todos os registos no ficheiro de registo ou a página no arquivo de dados será preservada mesmo no caso de falha de processo do SQL Server.
+- Uma camada de dados com monitoração de estado com ficheiros de base de dados (.mdf/.ldf) que estão armazenados no armazenamento de Blobs do Azure. Armazenamento de Blobs do Azure garante que haverá sem perda de dados de qualquer registo que é colocado em qualquer arquivo de banco de dados. Armazenamento de Blobs do Azure tem disponibilidade/redundância de dados incorporada que garante que todos os registos no ficheiro de registo ou a página no arquivo de dados será preservada mesmo no caso de falha de processo do SQL Server.
 
 Sempre que a atualização do motor de base de dados ou o sistema operativo, alguma parte da infraestrutura subjacente falha ou se detetar algum problema crítico no processo do Sql Server, o Azure Service Fabric moverá o processo do SQL Server sem monitoração de estado para outro nó de computação sem monitoração de estado. Existe um conjunto de nós de reserva que está à espera de executar o novo serviço de computação em caso de ativação pós-falha para minimizar o tempo de ativação pós-falha. Os dados no armazenamento de Blobs do Azure não são afetados e arquivos de dados/do registo são anexados ao processo do SQL Server recentemente inicializado. Este processo garante 99,99% de disponibilidade, mas ele pode ter alguns impactos no desempenho na carga de trabalho pesada, que está a executar devido ao tempo de transição e o fato do novo nó do SQL Server é iniciado com a cache de frio.
 

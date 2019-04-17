@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360289"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526712"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -76,7 +76,7 @@ Pode seguir [deste tutorial](tutorial-data-prep.md) para saber mais sobre como u
 
 Não irá perder qualquer código ou trabalho. Na versão mais antiga, os projetos são entidades na cloud com um diretório local. A versão mais recente, anexar diretórios locais para o área de trabalho de serviço do Azure Machine Learning, utilizando um ficheiro de configuração locais. Veja uma [diagrama da arquitetura do mais recente](concept-azure-machine-learning-architecture.md).
 
-Grande parte do conteúdo do projeto já foi no seu computador local. Então, só precisa criar um ficheiro de configuração nesse diretório e referenciá-lo em seu código para ligar à sua área de trabalho. Para continuar a utilizar o diretório de local que contém os ficheiros e os scripts, especifique o nome do diretório no ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) comando do Python ou com o comando da CLI "anexar de projeto de ml az".  Por exemplo:
+Grande parte do conteúdo do projeto já foi no seu computador local. Então, só precisa criar um ficheiro de configuração nesse diretório e referenciá-lo em seu código para ligar à sua área de trabalho. Para continuar a utilizar o diretório de local que contém os ficheiros e os scripts, especifique o nome do diretório no ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) comando do Python ou usando o `az ml project attach` comando da CLI.  Por exemplo:
 ```python
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
