@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002153"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606927"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar tarefas para controlar alterações de arquivo numa máquina local de um observador de automatização do Azure
 
@@ -36,6 +36,9 @@ Para concluir este tutorial, é necessário o seguinte:
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automatização](automation-offering-get-started.md) para reter os runbooks de observador e ação e a tarefa de observador.
 * R [runbook worker híbrido](automation-hybrid-runbook-worker.md) onde é executada a tarefa de observador.
+
+> [!NOTE]
+> Tarefas de observador não são suportadas no Azure China.
 
 ## <a name="import-a-watcher-runbook"></a>Importar um runbook de observador
 

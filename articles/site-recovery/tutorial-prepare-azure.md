@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 412dfd690ea4ab33f249af78d4ef94c5ae5ccad2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565840"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617419"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
 
@@ -54,7 +54,7 @@ Para concluir estas tarefas, a conta deve estar atribuída à função incorpora
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
-1. No portal do Azure, clique em **+ criar um recurso**e pesquisar no Marketplace **dos serviços de recuperação**.
+1. No portal do Azure, clique em **+ criar um recurso**e pesquisar no Marketplace **recuperação**.
 2. Clique em **cópia de segurança e Site Recovery (OMS)** e na página de cópia de segurança e recuperação de Site, clique em **criar**. 
 1. Na **cofre dos serviços de recuperação** > **nome**, introduza um nome amigável para identificar o cofre. Neste conjunto de tutoriais, estamos a utilizar **ContosoVMVault**.
 2. Na **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Para este tutorial vamos utilizar **contosoRG**.

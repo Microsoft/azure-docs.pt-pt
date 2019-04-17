@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9065c6bc71a153ae94ddc20d5b41a152094fc111
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492180"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608917"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
 Resource Manager fornece várias funções para fazer comparações nos seus modelos.
 
-* [e](#and)
-* [booleano](#bool)
-* [IF](#if)
-* [não](#not)
+* [and](#and)
+* [bool](#bool)
+* [if](#if)
+* [not](#not)
 * [ou](#or)
 
 ## <a name="and"></a>e
@@ -212,7 +212,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/krnese/AzureDeplo
     },
     "resources": [
         {
-            "condition": "[greaterOrEquals(parameters('logAnalytics'), '0')]",
+            "condition": "[not(empty(parameters('logAnalytics')))]",
             "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "location": "[parameters('location')]",
@@ -223,10 +223,10 @@ O seguinte procedimento [modelo de exemplo](https://github.com/krnese/AzureDeplo
                 "typeHandlerVersion": "1.0",
                 "autoUpgradeMinorVersion": true,
                 "settings": {
-                    "workspaceId": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
                 },
                 "protectedSettings": {
-                    "workspaceKey": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
                 }
             }
         }
@@ -234,7 +234,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/krnese/AzureDeplo
     "outputs": {
         "mgmtStatus": {
             "type": "string",
-            "value": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
         }
     }
 }

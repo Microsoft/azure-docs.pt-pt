@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392265"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616157"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de ativação pós-falha de recuperação após desastre
 
@@ -87,7 +87,7 @@ A seguinte seqüência de etapas envolve a recuperar a instância de produção 
 1. Altere a localização de cópia de segurança para **/hana/logbackups** com o SAP HANA Studio.
    ![Alterar a localização de cópia de segurança para a recuperação de DR](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. Examina as localizações de ficheiros de cópia de segurança e sugere o backup de log de transação mais recente para restaurar para o SAP HANA. A análise pode demorar alguns minutos até que uma tela, como aparece o seguinte: ![lista de backups de log de transação para a recuperação de DR](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. Examina as localizações de ficheiros de cópia de segurança e sugere o backup de log de transação mais recente para restaurar para o SAP HANA. A análise pode demorar alguns minutos até que uma tela, como aparece o seguinte: ![Lista de backups de log de transação para a recuperação de DR](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Ajuste algumas das configurações padrão:
 
@@ -104,7 +104,7 @@ Uma janela de progresso, como mostrado aqui, deve aparecer. Tenha em atenção q
 
 ![Progresso de restauro](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Se o restauro parece suspender no **concluir** ecrã e não mostrar a tela de progresso, confirme que todas as instâncias do SAP HANA em nós de trabalho estão em execução. Se necessário, inicie manualmente o SAP HANA nas instâncias.
+Se o restauro parece deixe de responder com o **concluir** ecrã e não mostrar a tela de progresso, confirme que todas as instâncias do SAP HANA em nós de trabalho estão em execução. Se necessário, inicie manualmente o SAP HANA nas instâncias.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>Reativação pós-falha a partir de um DR para um site de produção

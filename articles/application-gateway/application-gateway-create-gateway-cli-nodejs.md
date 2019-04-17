@@ -1,40 +1,22 @@
 ---
-title: Criar um Gateway de aplicação do Azure - CLI clássica do Azure | Documentos da Microsoft
+title: Criar um Gateway de aplicação do Azure - CLI clássica do Azure
 description: Saiba como criar um Gateway de aplicação com a CLI clássica do Azure no Resource Manager
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974430"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608477"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicação com a CLI do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Modelo do Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [CLI clássica do Azure](application-gateway-create-gateway-cli.md)
-> * [CLI do Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
-
-O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local. Gateway de aplicação tem as seguintes funcionalidades de entrega de aplicações: balanceamento, afinidade por sessões com base no cookie e descarga de Secure Sockets Layer (SSL), sondas de estado de funcionamento personalizados de carga HTTP e suporte para múltiplos sites.
+O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entre diversos servidores, quer estejam na nuvem ou no local. Gateway de aplicação tem as seguintes funcionalidades de entrega de aplicação: Balanceamento de carga HTTP, afinidade por sessões com base no cookie e descarga de Secure Sockets Layer (SSL), sondas de estado de funcionamento personalizados e suporte para múltiplos sites.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: Instalar a CLI do Azure
 
@@ -60,15 +42,15 @@ Neste cenário irão:
 
 O Gateway de aplicação do Azure requer a sua própria sub-rede. Ao criar uma rede virtual, certifique-se de que deixe espaço suficiente no endereço ter várias sub-redes. Depois de implementar um gateway de aplicação a uma sub-rede, gateways de aplicação apenas adicionais podem ser adicionados à sub-rede.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Abra o **linha de comandos do Microsoft Azure**e iniciar sessão. 
+Abra o **linha de comandos do Microsoft Azure**e iniciar sessão.
 
 ```azurecli-interactive
-azure login
+az login
 ```
 
-Depois de digitar o exemplo anterior, é fornecido um código. Navegue para https://aka.ms/devicelogin num browser para continuar o processo de início de sessão.
+Depois de digitar o exemplo anterior, é fornecido um código. Navegue para https://aka.ms/devicelogin num browser para continuar o início de sessão no processo.
 
 ![o início de sessão do cmd que mostra dispositivos][1]
 
@@ -122,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Assim que a rede virtual e sub-rede são criados, os pré-requisitos para o gateway de aplicação estão completos. Além de um certificado. pfx exportado anteriormente e a palavra-passe para o certificado são necessários para o seguinte passo: endereços IP a utilizados para o back-end são os endereços IP para o seu servidor de back-end. Estes valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio completamente qualificado para os servidores de back-end.
+Assim que a rede virtual e sub-rede são criados, os pré-requisitos para o gateway de aplicação estão completos. Além de um certificado. pfx exportado anteriormente e a palavra-passe para o certificado são necessários para o passo seguinte: Os endereços IP utilizados para o back-end são os endereços IP para o seu servidor de back-end. Estes valores podem ser IPs privados na rede virtual, ips públicos ou nomes de domínio completamente qualificado para os servidores de back-end.
 
 ```azurecli-interactive
 azure network application-gateway create \

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280864"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608198"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e definir um ID de utilizador
 
@@ -33,6 +33,9 @@ Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem d
 1. Quando lhe for pedido, introduza o endereço de e-mail de uma Account Microsoft ou um trabalho ou conta da instituição de ensino e selecione **seguinte**. Tipos de conta estão descritos no [sua conta de utilizador para blocos de notas do Azure](azure-notebooks-user-account.md). Se não tiver uma Account Microsoft ou pretende efetuar um para utilização especificamente com blocos de notas do Azure, selecione **criá-lo**:
 
     ![Criar novo comando de conta da Microsoft no início de sessão de linha de comandos](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Se tentar criar uma nova conta com um endereço de e-mail que já tem uma conta associada à mesma, pode ver a mensagem "não é possível inscrever-se aqui com um profissional ou escolar endereço de e-mail. Utilize um endereço pessoal, como o Gmail ou Yahoo!, ou obtenha um novo e-mail do Outlook." Nesse caso, tente iniciar sessão com o endereço de e-mail profissional sem criar uma nova conta.
 
 1. Introduza a palavra-passe quando lhe for pedido.
 
@@ -64,4 +67,4 @@ Para terminar sessão, selecione o seu nome de utilizador no canto superior dire
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)
+> [Quickstart: Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)

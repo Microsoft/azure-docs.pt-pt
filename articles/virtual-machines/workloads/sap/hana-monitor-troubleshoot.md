@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014395"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616361"
 ---
-# <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorando e solucionando problemas do lado do HANA
+# <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorizar e resolver problemas do lado do HANA
 
 Para analisar efetivamente os problemas relacionados com o SAP HANA no Azure (instâncias grandes), é útil restringir as causas de raiz de um problema. SAP publicou uma grande quantidade de documentação para ajudá-lo.
 
@@ -108,7 +108,7 @@ Consulte o [SAP HANA de resolução de problemas: Desempenho de rede e problemas
 
 ## <a name="storage"></a>Armazenamento
 
-Da perspectiva do usuário final, um aplicativo (ou o sistema como um todo) é executado lentamente, não está a responder ou pode até mesmo parecer suspender se existirem problemas com o desempenho de e/s. Na **Volumes** separador no SAP HANA Studio, pode ver os volumes anexados e os volumes são utilizados por cada serviço.
+Da perspectiva do usuário final, um aplicativo (ou o sistema como um todo) é executado lentamente, não está a responder ou pode até mesmo parecer deixe de responder se existirem problemas com o desempenho de e/s. Na **Volumes** separador no SAP HANA Studio, pode ver os volumes anexados e os volumes são utilizados por cada serviço.
 
 ![No separador de Volumes no SAP HANA Studio, pode ver os volumes anexados e os volumes são utilizados por cada serviço](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

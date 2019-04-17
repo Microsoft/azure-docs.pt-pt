@@ -1,18 +1,18 @@
 ---
 title: Suporte de WebSocket no Gateway de aplicação do Azure | Documentos da Microsoft
 description: Esta página fornece uma descrição geral do suporte de WebSocket de Gateway de aplicação.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168124"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606910"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Descrição geral do suporte de WebSocket no Gateway de aplicação
 
@@ -32,7 +32,7 @@ Para estabelecer uma conexão WebSocket, um handshake baseado em HTTP específic
 
 ### <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
 
-Um serviço de escuta HTTP pode ser utilizado para suportar o tráfego do WebSocket. Segue-se um fragmento de um elemento httpListeners de um ficheiro de modelo de exemplo. Precisaria de serviços de escuta HTTP e HTTPS para suportar o WebSocket e proteger o tráfego do WebSocket. Da mesma forma, pode utilizar o [portal](application-gateway-create-gateway-portal.md) ou [PowerShell](application-gateway-create-gateway-arm.md) para criar um gateway de aplicação com serviços de escuta na porta 80/443 para suportar o tráfego do WebSocket.
+Um serviço de escuta HTTP pode ser utilizado para suportar o tráfego do WebSocket. Segue-se um fragmento de um elemento httpListeners de um ficheiro de modelo de exemplo. Precisaria de serviços de escuta HTTP e HTTPS para suportar o WebSocket e proteger o tráfego do WebSocket. Da mesma forma pode utilizar o portal ou o Azure PowerShell para criar um gateway de aplicação com serviços de escuta na porta 80/443 para suportar o tráfego do WebSocket.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ Outro motivo para isso é que sonda de estado de funcionamento de back-end de ga
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Após saber mais sobre o suporte de WebSocket, aceda a [criar um gateway de aplicação](application-gateway-create-gateway.md) começar com um WebSocket aplicação web com suporte.
-
+Após saber mais sobre o suporte de WebSocket, aceda a [criar um gateway de aplicação](quick-create-powershell.md) começar com um WebSocket aplicação web com suporte.
