@@ -78,8 +78,8 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | --- | --- | --- |
 | ResourceId |Sim |ID de recurso do recurso no qual pretende definir uma definição de diagnóstico. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual os registos de diagnóstico deverá ser guardados. |
-| Categorias |Não |Lista separada por vírgulas de categorias de registo para ativar. |
-| Ativado |Sim |Booleano indicando se o diagnóstico está ativado ou desativado neste recurso. |
+| Categories |Não |Lista separada por vírgulas de categorias de registo para ativar. |
+| Enabled |Sim |Booleano indicando se o diagnóstico está ativado ou desativado neste recurso. |
 | RetentionEnabled |Não |Booleano indicando se uma política de retenção estão ativadas neste recurso. |
 | RetentionInDays |Não |Número de dias para as quais eventos devem ser mantidos entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente. |
 
@@ -152,11 +152,11 @@ No ficheiro PT1H.json cada evento é armazenado na matriz "registos", seguindo e
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| hora |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
+| time |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
 | resourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
-| categoria |Categoria de registo do evento. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
+| category |Categoria de registo do evento. |
+| properties |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
 
 > [!NOTE]
 > As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
