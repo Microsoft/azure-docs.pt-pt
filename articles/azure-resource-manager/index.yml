@@ -69,7 +69,7 @@ sections:
         className: cardsD
         items:
           - title: Modelos
-            html: <p><a href="/azure/templates/">Referência de modelo</a></p><p><a href="/azure/resource-group-template-functions">Funções de modelos</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções de definição de IU</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definição de IU</a></p>
+            html: <p><a href="/azure/templates/">Referência de modelo</a></p><p><a href="/azure/resource-group-template-functions">Funções de modelos</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funções da definição de IU</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Elementos de definição de IU</a></p>
           - title: Linha de Comandos
             html: <p><a href="/cli/azure/resource">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
           - title: Linguagens
