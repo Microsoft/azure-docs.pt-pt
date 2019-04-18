@@ -55,10 +55,10 @@ As seguintes propriedades são suportadas para o serviço ligado do SQL Server:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SqlServer** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **SqlServer** | Sim |
 | connectionString |Especifique as informações de connectionString necessárias para ligar à base de dados do SQL Server com a autenticação SQL ou autenticação do Windows. Consulte os exemplos seguintes.<br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. |Sim |
 | userName |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
+| password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!TIP]
@@ -148,7 +148,7 @@ Para copiar dados de/para a base de dados do SQL Server, defina a propriedade de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
 | tableName |Nome da tabela ou vista de instância de base de dados do SQL Server pelo serviço ligado refere-se. | Não para a origem, Sim para o sink |
 
 **Exemplo:**
@@ -180,7 +180,7 @@ Para copiar dados do SQL Server, defina o tipo de origem na atividade copy na at
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SqlSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SqlSource** | Sim |
 | sqlReaderQuery |Utilize a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não |
 | storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Valores permitidos são: pares nome/valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
@@ -283,7 +283,7 @@ Para copiar dados para o SQL Server, defina o tipo de sink na atividade de cópi
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **SqlSink** | Sim |
+| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **SqlSink** | Sim |
 | writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (predefinição: 10000) |
 | writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera.<br/>Valores permitidos são: intervalo de tempo. Exemplo: "00: 30:00" (30 minutos). |Não |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados no SQL Server. Apenas ser invocado uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados carregados previamente. |Não |
@@ -512,36 +512,36 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | Tipo de dados do SQL Server | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |Booleano |
-| char |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Valor de duplo |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| dinheiro |decimal |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numérico |decimal |
-| nvarchar |Cadeia de caracteres, Char [] |
-| real |Único |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
+| smallmoney |Decimal |
 | sql_variant |Object |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período de tempo |
-| carimbo de data/hora |Byte[] |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Cadeia de caracteres, Char [] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]
