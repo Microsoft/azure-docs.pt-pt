@@ -65,7 +65,7 @@ Um SQL do Azure ligado serviço liga a uma base de dados SQL do Azure à fábric
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **AzureSqlDatabase** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **AzureSqlDatabase** |Sim |
 | connectionString |Especifique as informações necessárias para ligar à instância do SQL Database do Azure para a propriedade connectionString. Apenas autenticação básica é suportada. |Sim |
 
 > [!IMPORTANT]
@@ -638,36 +638,36 @@ Ao mover dados de e para a base de dados do Azure SQL, são utilizados os seguin
 | Tipo de motor de base de dados do SQL Server | Tipo de .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |Booleano |
-| char |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Valor de duplo |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| dinheiro |decimal |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numérico |decimal |
-| nvarchar |Cadeia de caracteres, Char [] |
-| real |Único |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Objeto * |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período de tempo |
-| carimbo de data/hora |Byte[] |
+| smallmoney |Decimal |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Cadeia de caracteres, Char [] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
