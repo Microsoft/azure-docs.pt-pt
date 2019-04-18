@@ -43,7 +43,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Azure Search
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **AzureSearch** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **AzureSearch** | Sim |
 | url | URL para o serviço Azure Search. | Sim |
 | key | Chave de administrador para o serviço Azure Search. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
@@ -81,7 +81,7 @@ Para copiar dados para o Azure Search, defina a propriedade de tipo de conjunto 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
 | indexName | Nome do índice da Azure Search. Fábrica de dados não cria o índice. O índice tem de existir no Azure Search. | Sim |
 
 **Exemplo:**
@@ -112,8 +112,8 @@ Para copiar dados para o Azure Search, defina o tipo de origem na atividade de c
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzureSearchIndexSink** | Sim |
-| WriteBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).<br/><br/>Valores permitidos são: **Intercalar** (predefinição), e **carregar**. | Não |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzureSearchIndexSink** | Sim |
+| writeBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).<br/><br/>Valores permitidos são: **Intercalar** (predefinição), e **carregar**. | Não |
 | writeBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho do buffer atinge writeBatchSize. Consulte a [WriteBatchSize propriedade](#writebatchsize-property) para obter detalhes.<br/><br/>Valores permitidos são: número inteiro de 1 a 1000; a predefinição é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade de WriteBehavior
@@ -173,9 +173,9 @@ A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou
 | Int32 | S |
 | Int64 | S |
 | Double | S |
-| Booleano | S |
+| Boolean | S |
 | DataTimeOffset | S |
-| Matriz de cadeia de caracteres | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Passos Seguintes
