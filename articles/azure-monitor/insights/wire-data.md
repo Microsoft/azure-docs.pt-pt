@@ -397,9 +397,9 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 | ReceivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede utilizado |
 | IPVersion | Versão do IP |
-| Direção | Entrada ou saída |
+| Direction | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma origem maliciosa conhecida |
-| Gravidade | Gravidade do potencial malware |
+| Severity | Gravidade do potencial malware |
 | RemoteIPCountry | País do endereço IP remoto |
 | ManagementGroupName | Nome do grupo de gestão do Operations Manager |
 | SourceSystem | Origem onde os dados foram recolhidos |
