@@ -54,11 +54,11 @@ Estas propriedades são suportadas para um serviço de base de dados do SQL do A
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **AzureSqlDatabase**. | Sim |
+| type | O **tipo** propriedade tem de ser definida como **AzureSqlDatabase**. | Sim |
 | connectionString | Especificar as informações necessárias para ligar à instância de SQL Database do Azure para o **connectionString** propriedade. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a chave de principal de serviço/palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
 | servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
-| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou um runtime de integração autoalojado se seu arquivo de dados está localizado numa rede privada. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não |
 
 Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
@@ -237,7 +237,7 @@ Para copiar dados de ou para a base de dados do Azure SQL, defina o **tipo** pro
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **AzureSqlTable**. | Sim |
+| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **AzureSqlTable**. | Sim |
 | tableName | O nome da tabela ou vista na instância da base de dados do Azure SQL que o serviço ligado refere-se a. | Não para a origem, Sim para o sink |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
@@ -269,7 +269,7 @@ Para copiar dados de base de dados do Azure SQL, defina o **tipo** propriedade n
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **SqlSource**. | Sim |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **SqlSource**. | Sim |
 | sqlReaderQuery | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. | Não |
 | storedProcedureParameters | Parâmetros do procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
@@ -372,7 +372,7 @@ Para copiar dados para a base de dados do Azure SQL, defina o **tipo** proprieda
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlSink**. | Sim |
+| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlSink**. | Sim |
 | writeBatchSize | Número de linhas para inserções na tabela de SQL **por lote**.<br/> O valor permitido é **número inteiro** (número de linhas). | Não. A predefinição é 10000. |
 | writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite.<br/> O valor permitido é **timespan**. Exemplo: "00: 30:00" (30 minutos). | Não |
 | preCopyScript | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados na base de dados do Azure SQL. Só é invocado uma vez por cópia executar. Use essa propriedade para limpar os dados pré-carregado. | Não |
@@ -605,36 +605,36 @@ Quando copia dados de ou para a base de dados do Azure SQL, os seguintes mapeame
 | Tipo de dados de base de dados SQL do Azure | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |Booleano |
-| char |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Valor de duplo |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| dinheiro |decimal |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numérico |decimal |
-| nvarchar |Cadeia de caracteres, Char [] |
-| real |Único |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
-| sql_variant |Objeto |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período de tempo |
-| carimbo de data/hora |Byte[] |
+| smallmoney |Decimal |
+| sql_variant |Object |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Cadeia de caracteres, Char [] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]
