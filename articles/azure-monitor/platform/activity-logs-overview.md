@@ -143,9 +143,9 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | Name |Sim |Nome do seu perfil de registo. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual deverá ser guardado o registo de atividades. |
 | serviceBusRuleId |Não |ID de regra de barramento de serviço para o espaço de nomes do Service Bus que deseja que os hubs de eventos criados no. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Localização |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. |
+| Location |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. |
 | RetentionInDays |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente (Eterno). |
-| Categoria |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação. |
+| Category |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de registo
 
