@@ -53,10 +53,10 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **SqlServer**. | Sim. |
+| type | A propriedade de tipo deve ser definida como **SqlServer**. | Sim. |
 | connectionString |Esta propriedade especifica as informações de connectionString, que é necessário para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Para obter mais informações, consulte os exemplos seguintes. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. |Sim. |
 | userName |Esta propriedade especifica um nome de utilizador, se utilizar a autenticação do Windows. Um exemplo é **domainname\\nome de utilizador**. |Não. |
-| palavra-passe |Esta propriedade especifica uma palavra-passe da conta de utilizador que especificou para o nome de utilizador. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não. |
+| password |Esta propriedade especifica uma palavra-passe da conta de utilizador que especificou para o nome de utilizador. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não. |
 | connectVia | Isso [runtime de integração](concepts-integration-runtime.md) é utilizada para ligar ao arquivo de dados. Aprovisione o runtime de integração autoalojado na mesma rede virtual que sua instância gerida. |Sim. |
 
 >[!TIP]
@@ -146,7 +146,7 @@ Para copiar dados de e para instância gerida da base de dados SQL do Azure, def
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **SqlServerTable**. | Sim. |
+| type | A propriedade de tipo do conjunto de dados tem de ser definida **SqlServerTable**. | Sim. |
 | tableName |Esta propriedade é o nome da tabela ou vista na instância da base de dados que o serviço ligado refere-se a. | Não para a origem. Sim para o sink. |
 
 **Exemplo**
@@ -178,7 +178,7 @@ Para copiar dados de instância gerida da base de dados SQL do Azure, definir o 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **SqlSource**. | Sim. |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **SqlSource**. | Sim. |
 | sqlReaderQuery |Esta propriedade usa a consulta SQL personalizada para ler dados. Um exemplo é `select * from MyTable`. |Não. |
 | sqlReaderStoredProcedureName |Esta propriedade é o nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. |Não. |
 | storedProcedureParameters |Esses parâmetros são para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e as letras maiúsculas e minúsculas os parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não. |
@@ -281,7 +281,7 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SqlSink**. | Sim. |
+| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SqlSink**. | Sim. |
 | writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são números inteiros para o número de linhas. |Não (predefinição: 10,000). |
 | writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00," que é 30 minutos. |Não. |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados para a instância gerida. Ele é invocado apenas uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados pré-carregado. |Não. |
@@ -510,36 +510,36 @@ Quando os dados são copiados de e para instância gerida da base de dados SQL d
 | Tipo de dados do Azure SQL Database Managed Instance | Tipo de dados intermediárias do Azure Data Factory |
 |:--- |:--- |
 | bigint |Int64 |
-| binário |Byte[] |
-| bit |Booleano |
-| char |Cadeia de caracteres, Char [] |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
 | date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
-| decimal |decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Valor de duplo |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
 | image |Byte[] |
 | int |Int32 |
-| dinheiro |decimal |
-| nchar |Cadeia de caracteres, Char [] |
-| ntext |Cadeia de caracteres, Char [] |
-| numérico |decimal |
-| nvarchar |Cadeia de caracteres, Char [] |
-| real |Único |
-| ROWVERSION |Byte[] |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |decimal |
+| smallmoney |Decimal |
 | sql_variant |Object |
-| texto |Cadeia de caracteres, Char [] |
-| hora |Período de tempo |
-| carimbo de data/hora |Byte[] |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Int16 |
-| uniqueidentifier |GUID |
+| uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |Cadeia de caracteres, Char [] |
+| varchar |String, Char[] |
 | xml |Xml |
 
 >[!NOTE]
