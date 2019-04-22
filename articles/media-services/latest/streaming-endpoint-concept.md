@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881023"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
@@ -42,7 +42,7 @@ A tabela descreve os tipos:
 |Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Ponto Final de Transmissão em Fluxo Standard** (recomendado)|0|A predefinição é o ponto final de transmissão em fluxo uma **padrão** tipo, mas pode ser alterada para o tipo Premium.<br/> O tipo de padrão é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O tipo **Standard** dimensiona a largura de banda de saída automaticamente. O débito deste tipo de ponto final de transmissão em fluxo é até 600 Mbps. Fragmentos de vídeo colocado em cache no CDN, não utilize a largura de banda do ponto final de transmissão em fluxo.<br/>Para clientes com requisitos extremamente exigentes, os Serviços de Multimédia oferecem pontos finais de transmissão em fluxo **Premium**, que podem ser utilizados para ampliar a capacidade para as maiores audiências de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos em amsstreaming\@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
-|**Ponto final de transmissão em fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium**, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
+|**Ponto Final de Transmissão em Fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium**, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
  
 ## <a name="comparing-streaming-types"></a>Comparar tipos de transmissão em fluxo
 

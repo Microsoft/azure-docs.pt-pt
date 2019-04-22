@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
 ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893746"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação de cache-aside no ASP.NET
@@ -688,8 +688,8 @@ Nesta secção, vai aprovisionar uma nova base de dados SQL Azure para a aplica�
 
     | Marcador de posição | Valor sugerido |
     | --- | --- |
-    | *{your_username}* | Utilize o **início de sessão de administrador do servidor** do servidor da base de dados que acabou de criar. |
-    | *{your_password}* | Utilize a palavra-passe do servidor da base de dados que acabou de criar. |
+    | *{o_seu_nome_de_utilizador}* | Utilize o **início de sessão de administrador do servidor** do servidor da base de dados que acabou de criar. |
+    | *{a_sua_palavra-passe}* | Utilize a palavra-passe do servidor da base de dados que acabou de criar. |
 
     Ao adicionar o nome de utilizador e a palavra-passe como uma Definição da Aplicação, o nome de utilizador e a palavra-passe não são incluídos no código. Esta abordagem ajuda a proteger essas credenciais.
 

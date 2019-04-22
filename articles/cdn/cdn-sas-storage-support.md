@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
 ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918557"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
@@ -86,11 +86,10 @@ Esta opção só está disponível para **CDN do Azure Premium da Verizon** perf
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL Rewrite regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL Rewrite regra - à esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![regra reescrita de URLs de CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Depois da nova regra é ativada, qualquer pessoa pode aceder a ficheiros no contentor especificado no ponto final da CDN, independentemente de se estiver usando um token SAS no URL. Este é o formato:
-   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Depois da nova regra é ativada, qualquer pessoa pode aceder a ficheiros no contentor especificado no ponto final da CDN, independentemente de se estiver usando um token SAS no URL. Este é o formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por exemplo:   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -125,7 +124,7 @@ Para utilizar a autenticação de token de segurança de CDN do Azure, tem de te
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL Rewrite regra - esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL Rewrite regra - à esquerda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
    ![regra reescrita de URLs de CDN - direita](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Se renovar a SAS, certifique-se de que atualizar a regra de reescrita de URLs com o novo token SAS. 

@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891689"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
@@ -45,7 +45,7 @@ Ao criar um projeto de modelo em tabela, pode criar funções e adicionar utiliz
   
     |Permissão|Descrição|  
     |----------------|-----------------|  
-    |**Nenhuma**|Os membros não é possível modificar o esquema do modelo e não é possível consultar dados.|  
+    |**Nenhum**|Os membros não é possível modificar o esquema do modelo e não é possível consultar dados.|  
     |**Leitura**|Membros podem consultar os dados (com base nos filtros de linha), mas não é possível modificar o esquema do modelo.|  
     |**Ler e processar**|Os membros podem consultar dados (com base nos filtros de nível de linha) e executadas operações de processo e processar tudo, mas não é possível modificar o esquema do modelo.|  
     |**Processo**|Os membros podem executar operações de processo e processar tudo. Não é possível modificar o esquema do modelo e não é possível consultar dados.|  

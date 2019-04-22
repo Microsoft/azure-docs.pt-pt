@@ -16,10 +16,10 @@ ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
 ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918251"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
@@ -89,7 +89,7 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
 | Power BI Desktop | S | N |
 | SDKs para aceder aos serviços do Azure e do Cortana Intelligence Suite | S | S |
-| **Movimento de dados e ferramentas de gestão** | | |
+| **Ferramentas de movimento e gestão de dados** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Explorador de Armazenamento do Azure | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CLI do Azure](https://docs.microsoft.com/cli/azure) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | S | N |
@@ -109,7 +109,7 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (apenas Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (apenas Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [o Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (apenas Ubuntu) |
-| **Ferramentas de aprendizagem profunda** <br>Todas as ferramentas funcionarão num GPU ou CPU |  |  |
+| **Ferramentas de Aprendizagem Aprofundada** <br>Todas as ferramentas funcionarão num GPU ou CPU |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
@@ -125,7 +125,7 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Controlador CUDA, cuDNN, NVIDIA](https://developer.nvidia.com/cuda-toolkit) | S | S |
-| **Plataforma de macrodados (apenas Dev/Test)**|||
+| **Plataforma de Macrodados (apenas Dev/test)**|||
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](https://spark.apache.org/) local autónomo | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](https://hadoop.apache.org/) local (HDFS, YARN) | N | S |
 
@@ -139,4 +139,4 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 * Para obter instruções que lhe mostram como fazer várias tarefas de ciência de dados comuns com a VM do Linux, tanto para CentOS, como para Ubuntu, veja [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) (Ciência de dados na Máquina Virtual de Ciência de Dados do Linux).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Guia do programador de R para o Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+[Guia do programador em R para o Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

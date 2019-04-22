@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895888"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
@@ -77,7 +77,7 @@ Seguem-se as ações incorporadas para trabalhar com dados saídas e seus format
 |   |   | 
 |---|---| 
 | [![Ícone interno][data-operations-icon]<br/>**operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: Crie uma única saída a partir de várias entradas com vários tipos. <br>- **Criar tabela CSV**: Crie uma tabela do separados por vírgulas (CSV) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Crie uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz de itens na outra matriz que satisfazem os critérios. <br>- **Junte-se a**: Criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigável de utilizador de propriedades e os respetivos valores no conteúdo JSON, pelo que pode utilizar essas propriedades no fluxo de trabalho. <br>- **Selecione**: Crie uma matriz com objetos JSON ao transformar itens ou valores na outra matriz e mapear esses itens para propriedades especificadas. | 
-| ![Ícone interno][date-time-icon]<br/>**Data e Hora** | Realizar operações de carimbos de data: <p>- **Adicionar ao tempo**: Adicione o número de unidades especificado a um carimbo. <br>- **Converter fuso horário**: Converta um carimbo de fuso horário de origem para o fuso horário de destino. <br>- **Hora atual**: Devolva o timestamp atual como uma cadeia de caracteres. <br>- **Obter tempo futuro**: Devolva o timestamp atual, bem como as unidades de tempo especificado. <br>- **Obter tempo passado**: Devolva o carimbo de hora atual menos as unidades de tempo especificado. <br>- **Subtrair a partir da hora**: Subtrai um número de unidades de tempo de um carimbo. |
+| ![Ícone interno][date-time-icon]<br/>**Data hora** | Realizar operações de carimbos de data: <p>- **Adicionar ao tempo**: Adicione o número de unidades especificado a um carimbo. <br>- **Converter fuso horário**: Converta um carimbo de fuso horário de origem para o fuso horário de destino. <br>- **Hora atual**: Devolva o timestamp atual como uma cadeia de caracteres. <br>- **Obter tempo futuro**: Devolva o timestamp atual, bem como as unidades de tempo especificado. <br>- **Obter tempo passado**: Devolva o carimbo de hora atual menos as unidades de tempo especificado. <br>- **Subtrair a partir da hora**: Subtrai um número de unidades de tempo de um carimbo. |
 | [![Ícone interno][variables-icon]<br/>**variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: Inserir um valor como o último item numa matriz armazenado por uma variável. <br>- **Acrescentar à variável da cadeia de caracteres**: Inserir um valor como o último caráter numa cadeia armazenado por uma variável. <br>- **Variável de diminuição**: Diminua a uma variável um valor constante. <br>- **Variável de incremento**: Aumente a uma variável um valor constante. <br>- **Inicializar variável**: Crie uma variável e declarar o tipo de dados e o valor inicial. <br>- **Definir variável**: Atribua um valor diferente para uma variável existente. |
 |  |  | 
 

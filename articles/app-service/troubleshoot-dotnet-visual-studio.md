@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895018"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação no serviço de aplicações do Azure com o Visual Studio
@@ -259,7 +259,7 @@ Um aplicativo ASP.NET que é executado num aplicativo de serviço de aplicaçõe
 
 * **Registos de rastreio de aplicação**<br/>
   O aplicativo cria estes registos ao chamar métodos para o [Trace](/dotnet/api/system.diagnostics.trace) classe.
-* **Registos de servidores Web**<br/>
+* **Registos do servidor Web**<br/>
   O servidor web cria uma entrada de registo para cada solicitação HTTP para a aplicação.
 * **Registos de mensagem de erro detalhadas**<br/>
   O servidor web cria uma página HTML com algumas informações adicionais para pedidos HTTP falhados (pedidos que resultam num código de estado 400 ou superior).
@@ -654,7 +654,7 @@ Não há nenhum introduções completas e atualizadas para rastreamento do ASP.N
   Velha, mas ainda um bom recurso para uma introdução básica para o assunto.
 * [Ouvintes de rastreamento](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informações sobre ouvintes de rastreamento, mas não mencionar a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Descrição Passo a Passo: Integração de rastreamento do ASP.NET com o rastreamento de System. Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
+* [Passo a passo: Integração de rastreamento do ASP.NET com o rastreamento de System. Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Este artigo também é antigo, mas inclui algumas informações adicionais que não abrange o artigo introdutório.
 * [Rastreio em modos de exibição do ASP.NET MVC Razor](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Além de rastreamento em modos de exibição do Razor, a mensagem também explica como criar um filtro de erro para iniciar a sessão de todas as exceções sem tratamento num aplicativo MVC. Para obter informações sobre como registrar exceções, tudo sem tratamento num aplicativo Web Forms, consulte o exemplo de global. asax na [um exemplo completo para manipuladores de erro](/previous-versions/bb397417(v=vs.140)) no MSDN. No MVC ou Web Forms, se quiser registrar determinadas exceções, mas permitir que a estrutura padrão manipulação vigor para os mesmos, pode ser capturado e gerar novamente como no exemplo seguinte:

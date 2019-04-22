@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862918"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
@@ -63,7 +63,7 @@ Estes argumentos estão documentados na tabela seguinte.
 
 |Parâmetro|Descrição|Opções|
 |---------|---------------|---------------|
-|**identidade**|Modo de autenticação| **Módulo** ou **dispositivo**|
+|**identity**|Modo de autenticação| **Módulo** ou **dispositivo**|
 |**tipo**|Tipo de autenticação|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Caminho completo do absoluto para o ficheiro que contém o certificado ou a chave simétrica| |
 |**gatewayHostname**|FQDN do IoT Hub|Exemplo: ContosoIotHub.azure-devices.net|
@@ -114,4 +114,4 @@ Editar _LocalConfiguration.json_ com os seguintes parâmetros:
 ## <a name="see-also"></a>Consulte também
 - [Descrição geral de agentes de segurança](security-agent-architecture.md)
 - [Implementar o agente de segurança](how-to-deploy-agent.md)
-- [Aceder a dados de segurança não processados](how-to-security-data-access.md)
+- [Aceder a dados não processados de segurança](how-to-security-data-access.md)

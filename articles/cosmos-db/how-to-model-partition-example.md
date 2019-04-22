@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919617"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como a partição e o modelo de dados no Azure Cosmos DB com um exemplo real
@@ -124,7 +124,7 @@ Este pedido é simples de implementar, podemos simplesmente criar ou atualizar u
 
 ![Escrever um único item para o contentor de utilizadores](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 7 ms | 5.71 RU | ✅ |
 
@@ -134,7 +134,7 @@ Obter um utilizador é feito, lendo o item correspondente do `users` contentor.
 
 ![Obter um único item do contentor de utilizadores](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
@@ -144,7 +144,7 @@ Tal **[C1]**, basta que escrever o `posts` contentor.
 
 ![Escrever um único item para o contentor de mensagens](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 9 ms | 8.76 RU | ✅ |
 
@@ -156,7 +156,7 @@ Vamos começar por obter o documento correspondente a partir do `posts` contento
 
 Cada um dos filtros de consultas adicionais na chave de partição do respetivo contentor respectivo, que é exatamente o que queremos maximizar o desempenho e escalabilidade. Mas, por fim, temos de executar operações de quatro para retornar uma única postagem, portanto, podemos irá melhorar que numa iteração seguinte.
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 9 ms | 19.54 RU | ⚠ |
 
@@ -171,7 +171,7 @@ Essa implementação apresenta várias desvantagens:
 - as consultas ao agregar as contagens de comentários e gostos tem de ser emitidos para cada mensagem devolvida pela primeira consulta,
 - a consulta principal não filtra a chave de partição do `posts` contentor, que leva a um fan-out e uma análise de partição entre o contentor.
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 130 ms | 619.41 RU | ⚠ |
 
@@ -181,7 +181,7 @@ Um comentário é criado ao escrever o item correspondente `posts` contentor.
 
 ![Escrever um único item para o contentor de mensagens](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 7 ms | 8.57 RU | ✅ |
 
@@ -193,7 +193,7 @@ Vamos começar com uma consulta que obtém todos os comentários para essa publi
 
 Embora a consulta principal filtrar numa chave de partição do contentor, agregar os nomes de utilizador em separado penalizes o desempenho geral. Podemos irá melhorar que mais tarde.
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 23 ms | 27.72 RU | ⚠ |
 
@@ -203,7 +203,7 @@ Tal como **[C3]**, podemos criar o item correspondente no `posts` contentor.
 
 ![Escrever um único item para o contentor de mensagens](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 6 ms | 7.05 RU | ✅ |
 
@@ -213,7 +213,7 @@ Tal como **[P4]**, podemos consultar o "gostos" para essa mensagem, em seguida, 
 
 ![Recuperar todos gosta para um post e agregar os dados adicionais](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 59 ms | 58.92 RU | ⚠ |
 
@@ -225,7 +225,7 @@ Podemos obter as postagens mais recentes, consultando o `posts` contentor ordena
 
 Mais uma vez, nossa consulta inicial não filtra a chave de partição do `posts` contentor, o que aciona um fan-out dispendiosa. Esse é ainda pior, como um conjunto de resultados muito maior de destino e ordenar os resultados com um `ORDER BY` cláusula, o que torna mais caro em termos de unidades de pedido.
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 306 ms | 2063.54 RU | ⚠ |
 
@@ -370,7 +370,7 @@ Agora que nossos desnormalização está no lugar, temos apenas para obtenção 
 
 ![A obter um único item do contêiner postagens](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
@@ -380,7 +380,7 @@ Aqui, novamente, podemos pode poupá-os pedidos adicionais que obtido os nomes d
 
 ![Obter todos os comentários para um post](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 4 ms | 7.72 RU | ✅ |
 
@@ -390,7 +390,7 @@ Situação mesmo exata quando lista os gostos.
 
 ![Recuperar todos gosta para um post](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 4 ms | 8.92 RU | ✅ |
 
@@ -450,7 +450,7 @@ Agora podemos encaminhar nossa consulta para o `users` contentor, filtragem na c
 
 ![Obter todas as mensagens para um utilizador](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 4 ms | 6.46 RU | ✅ |
 
@@ -534,7 +534,7 @@ A etapa final é redirecionar a nossa consulta para nossa nova `feed` contentor:
 
 ![Postagens mais recentes a obter](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Latência** | **Taxa de RU** | **Desempenho** |
+| **Latência** | **Taxa de RU** | **Performance** (Desempenho) |
 | --- | --- | --- |
 | 9 ms | 16.97 RU | ✅ |
 
@@ -573,6 +573,6 @@ A alteração do feed que utilizamos para distribuir atualizações para outro a
 
 Depois desta introdução a práticas dados de modelagem e criação de partições, talvez queira verificar os seguintes artigos para rever os conceitos abrangemos:
 
-- [Trabalhar com bases de dados, contentores e itens](databases-containers-items.md)
+- [Trabalhar com bancos de dados, contentores e itens](databases-containers-items.md)
 - [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 - [Alterar feed no Azure Cosmos DB](change-feed.md)

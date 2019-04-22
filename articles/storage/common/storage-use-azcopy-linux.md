@@ -9,10 +9,10 @@ ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882230"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com AzCopy no Linux
@@ -705,12 +705,12 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, veja os
 ### <a name="azure-storage-documentation"></a>Documentação do armazenamento do Azure:
 * [Introdução ao Armazenamento do Azure](../storage-introduction.md)
 * [Criar uma conta de armazenamento](../storage-create-storage-account.md)
-* [Gerir blobs com o Explorador do Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Utilizar a CLI do Azure com o Storage do Azure](../storage-azure-cli.md)
+* [Gerir blobs com o Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
+* [Using the Azure CLI with Azure Storage (Utilizar a CLI do Azure com o Armazenamento do Azure)](../storage-azure-cli.md)
 * [Como utilizar o armazenamento de Blobs do C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Como utilizar o Blob Storage do Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Como utilizar o Blob Storage do Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Como utilizar o Blob Storage do Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Como utilizar o Armazenamento de blobs do Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Como utilizar o Armazenamento de blobs do Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Como utilizar o Armazenamento de blobs do Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
 * [Apresentamos o AzCopy no Linux pré-visualização](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)

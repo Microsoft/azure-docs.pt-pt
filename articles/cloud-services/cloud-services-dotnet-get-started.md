@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917481"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
@@ -776,6 +776,6 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Parte de serviços Cloud do Azure 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Como gerir Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Storage do Azure](https://docs.microsoft.com/azure/storage/)
-* [Como escolher um fornecedor de serviços de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+* [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
+* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
+* [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

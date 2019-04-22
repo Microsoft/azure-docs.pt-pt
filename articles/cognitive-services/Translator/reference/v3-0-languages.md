@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915769"
 ---
 # <a name="translator-text-api-30-languages"></a>Texto do Translator API 3.0: Languages
@@ -93,7 +93,7 @@ Uma resposta com êxito é um objeto JSON com uma propriedade para cada grupo pe
 
 Segue-se o valor para cada propriedade.
 
-* `translation` propriedade
+* `translation` Propriedade
 
   O valor da `translation` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. Uma chave identifica um idioma para o qual texto pode ser convertido para ou convertido do. O valor associado à chave é um objeto JSON com propriedades que descrevem o idioma:
 
@@ -119,7 +119,7 @@ Segue-se o valor para cada propriedade.
   }
   ```
 
-* `transliteration` propriedade
+* `transliteration` Propriedade
 
   O valor da `transliteration` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. Uma chave identifica um idioma para o qual pode ser convertido texto a partir de um script para outro script. O valor associado à chave é um objeto JSON com propriedades que descrevem a linguagem e seus scripts com suporte:
 
@@ -184,7 +184,7 @@ Segue-se o valor para cada propriedade.
   }
   ```
 
-* `dictionary` propriedade
+* `dictionary` Propriedade
 
   O valor da `dictionary` propriedade é um dicionário de valor (chave) pares. Cada chave é uma etiqueta de idioma de BCP 47. A chave identifica um idioma para o qual traduções alternativas e back-traduções estão disponíveis. O valor é um objeto JSON que descreve a linguagem de código e os idiomas de destino com traduções disponíveis:
 
@@ -281,7 +281,7 @@ Se ocorrer um erro, o pedido também irá devolver uma resposta de erro do JSON.
 
 O exemplo seguinte mostra como obter os idiomas suportados para a tradução de texto.
 
-# [<a name="curl"></a>Curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

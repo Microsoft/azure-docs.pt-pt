@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883552"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o SDK de Java
 > [!div class="op_single_selector"]
-> * [SDK .NET](data-lake-store-data-operations-net-sdk.md)
+> * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -209,7 +209,7 @@ O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do D
 2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom. XML no [código de fonte de exemplo no GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Explorar JavaDoc para o Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
+* [Explorar JavaDoc para o SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 
 

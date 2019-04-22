@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
 ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904446"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
@@ -56,7 +56,7 @@ Para delegar a gestão de acesso para uma reserva:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reserva** para reservas de lista que tem acesso a.
 3. Selecione a reserva que pretende delegar acesso a outros utilizadores.
-4. Selecione **controlo de acesso (IAM)**.
+4. Selecione **Controlo de acesso (IAM)**.
 5. Selecione **adicionar atribuição de função** > **função** > **proprietário**. Se preferir dar acesso limitado, selecione uma função diferente.
 6. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário.
 7. Selecione o utilizador e, em seguida, selecione **Guardar**.
@@ -98,9 +98,9 @@ Para delegar a gestão de acesso para uma reserva:
 
 Dependendo do tipo de reserva, poderá cancelar ou trocar uma reserva. Para obter mais informações, consulte o cancelamento e trocas secções nos seguintes tópicos:
 
-- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Efetue o pré-pagamento do planos de software SUSE das reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Efetuar o pré-pagamento de planos de software SUSE das Reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Alteração de otimizar a definição para instâncias de VM reservadas
 
@@ -129,13 +129,13 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
 
 Compre um plano do serviço:
-- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)
+- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Efetue o pré-pagamento do recursos do Azure Cosmos DB com capacidade de reservada do Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Compre um plano de software:
 - [Efetue o pré-pagamento do planos de software do Red Hat do Azure reservas](../virtual-machines/linux/prepay-rhel-software-charges.md)
-- [Efetue o pré-pagamento do planos de software SUSE das reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Efetuar o pré-pagamento de planos de software SUSE das Reservas do Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Compreenda a utilização e desconto:
 - [Compreender a forma como o desconto de reserva de VM é aplicado](billing-understand-vm-reservation-charges.md)

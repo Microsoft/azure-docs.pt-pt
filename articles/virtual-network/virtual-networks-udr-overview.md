@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878507"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
@@ -98,7 +98,7 @@ Ao criar uma rota definida pelo utilizador, pode especificar os tipos de próxim
 
 Não pode especificar **VNet peering** nem **VirtualNetworkServiceEndpoint** como o tipo de próximo salto em rotas definidas pelo utilizador. As rotas que tenham o tipo de próximo salto **VNet peering** ou **VirtualNetworkServiceEndpoint** só são criadas pelo Azure, quando configura um peering de rede virtual ou um ponto final de serviço.
 
-**Tipos de salto seguinte entre as ferramentas do Azure**
+**Tipos de próximo salto transversais às ferramentas do Azure**
 
 O nome apresentado e referenciado para os tipos de próximo salto são diferentes no portal do Azure e nas ferramentas de linha de comandos e nos modelos de implementação do Azure Resource Manager e clássica. A tabela seguinte mostra os nomes utilizados para fazer referência a cada tipo de próximo salto com as diferentes ferramentas e [modelos de implementação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -181,7 +181,7 @@ Para ilustrar os conceitos deste artigo, as secções que se seguem descrevem:
 ### <a name="requirements"></a>Requisitos
 
 1. Implemente duas redes virtuais na mesma região do Azure e ative os recursos para comunicarem entre as redes virtuais.
-2. Ative uma rede no local para comunicar em segurança com ambas as redes virtuais através de um túnel de VPN na Internet. *Em alternativa, pode ser utilizada uma ligação do ExpressRoute, mas neste exemplo, é utilizada uma ligação VPN.*
+2. Ative uma rede no local para comunicar em segurança com ambas as redes virtuais através de um túnel de VPN na Internet. *Em alternativa, pode ser utilizada uma ligação do ExpressRoute, mas neste exemplo é utilizada uma ligação VPN.*
 3. Para uma sub-rede numa rede virtual:
  
     - Force todo o tráfego de saída da sub-rede, exceto para o Armazenamento do Azure e dentro da sub-rede, para fluir através de uma aplicação de rede virtual, para fins de inspeção e registo.
@@ -255,8 +255,8 @@ A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pel
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação virtual de rede](tutorial-create-route-table-portal.md)
-- [Configurar o BGP para um Gateway VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](tutorial-create-route-table-portal.md)
+- [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Utilizar o BGP com o ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Ver todas as rotas de uma sub-rede](diagnose-network-routing-problem.md). As tabelas de rotas definidas pelo utilizador só lhe mostram este tipo de rotas e não as rotas predefinidas nem do BGP relativas às sub-redes. Ver todas as rotas mostra as rotas predefinidas, do BGP e definidas pelo utilizador relativas à sub-rede na qual a interface de rede se encontra.
 - [Determinar o tipo de próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre uma máquina virtual e um endereço IP de destino. A funcionalidade de próximo salto do Observador de Rede do Azure permite-lhe ver se o tráfego está a sair de uma sub-rede e a ser encaminhado para onde é suposto.

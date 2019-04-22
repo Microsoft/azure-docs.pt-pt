@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878116"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Orientações sobre a recuperação após desastre para dados na geração 1 de armazenamento do Azure Data Lake
@@ -43,5 +43,5 @@ Também podem ativar a organizações [registo de diagnósticos](data-lake-store
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
+* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 

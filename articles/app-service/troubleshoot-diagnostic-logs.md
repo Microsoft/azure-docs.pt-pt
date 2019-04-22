@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894923"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar registo de diagnósticos para aplicações no serviço de aplicações do Azure
@@ -58,10 +58,10 @@ Quando ativa **diagnóstico de aplicação**, também é escolher o **nível**. 
 | Nível| Categorias de registo incluídos |
 |-|-|
 |**Desativado** | Nenhuma |
-|**Erro** | Erro, crítico |
+|**Error** | Erro, crítico |
 |**Aviso** | Aviso, erro, críticos|
 |**Informações** | Informação, aviso, erro, críticos|
-|**Verboso** | Rastreio, Debug, Info, aviso, erro, crítico (todas as categorias) |
+|**Verbose** | Rastreio, Debug, Info, aviso, erro, crítico (todas as categorias) |
 |-|-|
 
 Para **registo de aplicações**, pode ativar a opção de sistema de ficheiros temporariamente para fins de depuração. Esta opção se desligar automaticamente em 12 horas. Pode também ativar a opção de armazenamento de BLOBs para selecionar um contentor de BLOBs para escrever os registos.
@@ -171,7 +171,7 @@ Diagnóstico de aplicação armazena informações num formato específico para 
 
 O conjunto base de dados armazenados é a mesma em ambos os tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento. Utilizar o sistema de ficheiros para o armazenamento de registo é útil quando precisa ter acesso imediato ao solucionar um problema porque os ficheiros de registo são atualizados quase instantaneamente. Armazenamento de BLOBs é utilizado para fins de arquivamento, porque os ficheiros são colocados em cache e, em seguida, libertados para o contentor de armazenamento com base numa agenda.
 
-**Sistema de ficheiros**
+**Sistema de Ficheiros**
 
 Cada linha com sessão iniciada no sistema de arquivos ou recebidas usando a transmissão em fluxo é o seguinte formato:
 

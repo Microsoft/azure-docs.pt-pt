@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862221"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início rápido: Criar um módulo duplo de azureiotsecurity
@@ -67,7 +67,7 @@ Para verificar se um duplo do módulo de segurança existe para um dispositivo e
 
 1. No seu IoT Hub do Azure, selecione **dispositivos IoT** partir a **exploradores** menu.    
 1. Introduza o ID de dispositivo ou selecione uma opção no **campo de dispositivo de consulta** e clique em **consultar dispositivos**. 
-    ![Consultar dispositivos](./media/quickstart/verify-security-module-twin.png)
+    ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
 1. Selecione o dispositivo ou faça duplo clique para abrir a página de detalhes do dispositivo. 
 1. Selecione o **identidades de módulo** menu e confirme a existência da **azureiotsecurity** módulo na lista de identidades de módulo associados ao dispositivo. 
     ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)

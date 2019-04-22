@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885949"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
@@ -150,19 +150,19 @@ O plano gráfico inclui um amplo conjunto de registos médicos anónimos para de
 
 **Administrador do site – Alex**
 
-*Correio Eletrónico: Alex\_SiteAdmin*
+*E-mail: Alex\_SiteAdmin*
 
 Tarefa de Alex é avaliar as tecnologias que podem reduzir a carga de gerenciamento de uma rede no local e reduzir os custos de gestão. Alex tem sido avaliar o Azure há algum tempo, mas tiver dificuldade configurar os serviços que ele tem de cumprir os requisitos de conformidade de HiTrust para armazenar os dados dos doentes na cloud. Alex selecionou ia de estado de funcionamento do Azure para implementar uma solução de estado de funcionamento de conformidade prontas, o que ainda tratada os requisitos para cumprir os requisitos de cliente para HiTrust.
 
 **Cientista de dados – Debra**
 
-*Correio Eletrónico: Debra\_DataScientist*
+*E-mail: Debra\_DataScientist*
 
 Debra é responsável por uso e a criação de modelos que analisam os registos médicos proporcionar informações sobre o cuidado de pacientes. Debra utiliza o SQL e a linguagem de programação estatística R para criar seus modelos.
 
 **Analista de banco de dados – Danny**
 
-*Correio Eletrónico: Danny\_DBAnalyst*
+*E-mail: Danny\_DBAnalyst*
 
 Danny é o contacto principal para qualquer coisa sobre o Microsoft SQL Server que armazena todos os dados dos pacientes para Contosoclinic. Danny é um administrador experiente do SQL Server, que recentemente tornou-se familiarizado com a base de dados do Azure SQL.
 
@@ -173,13 +173,13 @@ Caroline utiliza as previsões de solução de (LOS) a duração da estadia para
 
 **Se importa com o Gestor de linha – Chris**
 
-*Correio Eletrónico: Chris\_CareLineManager*
+*E-mail: Chris\_CareLineManager*
 
 Como a pessoa diretamente responsável por gerenciar a admissão do doente e as altas em Contosoclinic, Chris utiliza as previsões geradas pela solução LOS para se certificar de que o pessoal suficiente está disponíveis para fornecer cuidado aos pacientes, enquanto eles estão mantendo-se na recurso.
 
 **Auditor – Han**
 
-*Correio Eletrónico: Han\_Auditor*
+*E-mail: Han\_Auditor*
 
 Han é um auditor de certificado que tenha a experiência de auditoria para ISO, SOC e HiTrust. Han foi contratado para rever a rede do Contosoclinc. Han pode rever o cliente responsabilidade matriz fornecida com a solução para garantir que o esquema e a solução de LOS podem ser usados para armazenam, processam e exibir os dados pessoais confidenciais.
 

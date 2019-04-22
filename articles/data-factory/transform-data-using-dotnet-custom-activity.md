@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904581"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
@@ -382,8 +382,8 @@ Se o conjunto está a utilizar a predefinição [autoScaleEvaluationInterval](ht
 Consulte os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)
-* [Atividade do ramo de registo](transform-data-using-hadoop-hive.md)
-* [Atividade Pig](transform-data-using-hadoop-pig.md)
+* [Atividade do Hive](transform-data-using-hadoop-hive.md)
+* [Atividade PIg](transform-data-using-hadoop-pig.md)
 * [Atividade MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Atividade de transmissão em fluxo do Hadoop](transform-data-using-hadoop-streaming.md)
 * [Atividade do Spark](transform-data-using-spark.md)

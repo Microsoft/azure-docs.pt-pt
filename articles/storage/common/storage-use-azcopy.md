@@ -9,10 +9,10 @@ ms.date: 01/03/2019
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881737"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com o AzCopy no Windows
@@ -993,7 +993,7 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, veja os
 * [Como utilizar o armazenamento de ficheiros do .NET](../storage-dotnet-how-to-use-files.md)
 * [Como utilizar o armazenamento de tabelas do .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Como criar, gerir ou eliminar uma conta de armazenamento](../storage-create-storage-account.md)
-* [Transferir dados com AzCopy no Linux](storage-use-azcopy-linux.md)
+* [Transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
 * [Introdução ao pré-visualização de biblioteca do movimento de dados de armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)

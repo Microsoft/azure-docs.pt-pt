@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58804535"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de funções para recursos do Azure
@@ -232,5 +232,5 @@ Para obter informações sobre `AssignableScopes` para funções personalizadas,
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas para recursos do Azure)
-* [Funções personalizadas para recursos do Azure](custom-roles.md)
+* [Custom roles for Azure resources](custom-roles.md) (Funções personalizadas para recursos do Azure)
 * [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

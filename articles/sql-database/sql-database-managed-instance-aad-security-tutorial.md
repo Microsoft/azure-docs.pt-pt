@@ -11,10 +11,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882060"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na base de dados do SQL Azure utilização de principais de servidor do Azure AD (inícios de sessão)
@@ -65,8 +65,8 @@ Instâncias geridas só podem ser acedidas através de um endereço IP privado. 
 
 O primeiro principal do servidor do Azure AD (início de sessão) tem de ser criado pela conta do SQL Server standard (não pertencente ao azure AD) é um `sysadmin`. Veja os artigos seguintes para obter exemplos de ligar à sua instância gerida:
 
-- [Início rápido: Configurar a VM do Azure para ligar a uma instância gerida](sql-database-managed-instance-configure-vm.md)
-- [Início rápido: Configurar uma ligação de ponto a site para uma instância gerida do local](sql-database-managed-instance-configure-p2s.md)
+- [Quickstart: Configurar a VM do Azure para ligar a uma instância gerida](sql-database-managed-instance-configure-vm.md)
+- [Quickstart: Configurar uma ligação de ponto a site para uma instância gerida do local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
 > O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um Azure AD principal do servidor (início de sessão) dentro da instância gerida. Tem de criar o primeiro Azure principal do servidor AD (início de sessão) a utilizar uma conta do SQL Server que é um `sysadmin`. Esta é uma limitação temporária que será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
@@ -442,10 +442,10 @@ Consultas entre bases de dados são suportadas para contas do Azure AD com entid
 Consulte o seguinte [geridos recursos de segurança de recursos de instância](sql-database-managed-instance.md#azure-sql-database-security-features) artigo para obter uma lista abrangente de formas de proteger a sua base de dados. As seguintes funcionalidades de segurança são discutidas:
 
 - [Auditoria de instância gerida](sql-database-managed-instance-auditing.md) 
-- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
+- [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](sql-database-managed-instance-threat-detection.md) 
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
-- [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security) 
+- [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security) 
 - [Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="managed-instance-capabilities"></a>Funcionalidades de instância gerida
@@ -453,4 +453,4 @@ Consulte o seguinte [geridos recursos de segurança de recursos de instância](s
 Para uma visão geral das funcionalidades de instância gerida, consulte:
 
 > [!div class="nextstepaction"]
-> [Funcionalidades de instância gerida](sql-database-managed-instance.md)
+> [Capacidades de instância gerida](sql-database-managed-instance.md)

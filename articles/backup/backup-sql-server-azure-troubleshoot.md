@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: db204c0e881200f667484daf4348c336f94a0ce7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916692"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
@@ -169,8 +169,7 @@ Esses sintomas podem surgir devido a um ou mais dos seguintes motivos:
   * VM foi encerrada durante um período prolongado devido a que a configuração da extensão na mesma expirou
   * A VM foi eliminada e a outra VM foi criada com o mesmo nome e no mesmo grupo de recursos da VM eliminada
   * Um de nós AG não recebeu a configuração de cópia de segurança completa, isto pode acontecer uma no momento do registo de grupo de disponibilidade para o cofre ou quando é adicionado um novo nó  <br>
-   
-Nos cenários acima, é recomendado para acionar a operação de voltar a registar na VM. Esta opção só está disponível através do PowerShell e estará brevemente disponível no portal do Azure também.
+    Nos cenários acima, é recomendado para acionar a operação de voltar a registar na VM. Esta opção só está disponível através do PowerShell e estará brevemente disponível no portal do Azure também.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

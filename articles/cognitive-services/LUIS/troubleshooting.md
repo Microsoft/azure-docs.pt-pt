@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894462"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
@@ -296,9 +296,9 @@ As seguintes funcionalidades foram lançadas na conferência Build 2018:
 Criação adicionais [as rotas API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) foram incluídos.
 
 Vídeos:
-* [Azure Friday At Build 2018: Serviços cognitivos - idiomas (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday na compilação 2018: Serviços cognitivos - idiomas (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Compilação de 2018 IA Mostrar - o que há de novo com o serviço de compreensão de idiomas](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Melhores práticas de sessão do Build 2018 - intelligence, as capacidades de voz e NLU Bot](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Sessão do Build 2018 - Inteligência de bots, Capacidades de Voz e melhores práticas do NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Compilação de 2018 - atualizações de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projetos:

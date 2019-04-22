@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2eb480e10ca3b674895d2d22cc44fb52f305f988
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007624"
 ---
 # <a name="common-security-attributes-for-azure-services"></a>Atributos comuns de segurança para serviços do Azure
@@ -23,7 +23,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo reco
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-## [<a name="azure-backup"></a>Azure Backup](../backup/backup-security-attributes.md)
+## <a name="azure-backupbackupbackup-security-attributesmd"></a>[Azure Backup](../backup/backup-security-attributes.md)
 
 ### <a name="preventative"></a>Preventivas
 
@@ -71,7 +71,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo reco
 |---|---|--|
 | Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim|  |
 
-## [<a name="azure-key-vault"></a>Azure Key Vault](../key-vault/key-vault-security-attributes.md)
+## <a name="azure-key-vaultkey-vaultkey-vault-security-attributesmd"></a>[Cofre de Chaves do Azure](../key-vault/key-vault-security-attributes.md)
 
 ### <a name="preventative"></a>Preventivas
 
@@ -120,7 +120,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo reco
 | Controlos de acesso do plano de gestão/controlo | Sim | Controlo de Acesso Baseado em Funções (RBAC) do Azure Resource Manager |
 | Controlos de acesso do plano de dados (em todos os níveis de serviço) | Sim | Política de acesso do Cofre de chaves |
 
-## [<a name="azure-service-fabric"></a>Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
+## <a name="azure-service-fabricservice-fabricservice-fabric-security-attributesmd"></a>[Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
 ### <a name="preventative"></a>Preventivas
 

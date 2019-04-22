@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916976"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
@@ -220,7 +220,7 @@ Como um auxiliar, se tiver de transformar as coordenadas normalizadas para o esp
 ## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analisar a habilidade de imagem](cognitive-search-skill-image-analysis.md)
-+ [Habilidade de OCR](cognitive-search-skill-ocr.md)
++ [OCR skill](cognitive-search-skill-ocr.md)
 + [Habilidade de intercalação de texto](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Como mapear campos plena](cognitive-search-output-field-mapping.md)

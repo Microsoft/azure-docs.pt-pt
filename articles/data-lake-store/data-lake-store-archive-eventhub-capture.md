@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884516"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Utilize a geração 1 de armazenamento do Azure Data Lake para capturar dados dos Hubs de eventos
@@ -123,5 +123,5 @@ Quando os dados estiverem na geração 1 de armazenamento do Data Lake, pode exe
   
 
 ## <a name="see-also"></a>Consulte também
-* [Proteger os dados na geração 1 de armazenamento do Data Lake](data-lake-store-secure-data.md)
+* [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 * [Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Data Lake](data-lake-store-copy-data-azure-storage-blob.md)

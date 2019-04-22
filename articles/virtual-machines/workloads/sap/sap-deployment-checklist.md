@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878728"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure 
@@ -60,7 +60,7 @@ Nesta fase, estiver planeada uma migração da carga de trabalho SAP na cloud p�
         2.  Para elevada disponibilidade na mesma zona, verifique que o DBMS pretendido tem a oferecer no Azure. A maioria dos DBMS oferecer métodos síncronos, de um síncrono modo de espera ativo, que recomendamos para sistemas de produção. Também verificação do SAP relacionados com a documentação para as diferentes bases de dados a partir [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) e relacionados a documentos
             1.  Utilizar o serviço de Cluster de ativação pós-falha do Windows com a configuração de disco partilhado para a camada do DBMS como, por exemplo, descrito para o SQL Server [aqui](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) é **não** suportado. Em vez disso, soluções como:
                 1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
-                2.  [Proteção de Dados Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                2.  [Proteção de dados Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
                 3.  [Replicação do sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  Recuperação de desastres em diferentes regiões do Azure, verifique as possibilidades são oferecidas por fornecedores diferentes DBMS. A maioria dos editores suporta replicação assíncrona ou envio de log
         4.  Para a camada de aplicação SAP, defina se, deverá executar seu regressão comerciais a sistemas de teste, que são o ideal é que as réplicas das suas implementações de produção, na mesma região do Azure ou sua região de DR. No último caso, pode direcionar desse sistema de regressão de negócio como destino de DR para a produção

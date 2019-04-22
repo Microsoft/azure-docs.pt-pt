@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58887104"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Início rápido: Obter a lista de texto para discurso vozes com node. js
@@ -27,7 +27,7 @@ Este início rápido requer uma [conta dos serviços cognitivos do Azure](https:
 
 Este início rápido requer:
 
-* [Nó 8.12.x ou posterior](https://nodejs.org/en/)
+* [Node 8.12.x ou posterior](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
 * Uma chave de subscrição do Azure para os serviços de voz. [Obter uma gratuitamente! ](get-started.md).
 

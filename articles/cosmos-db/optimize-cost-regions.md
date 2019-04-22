@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876745"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Otimizar o custo de várias regiões do Azure Cosmos DB
@@ -31,7 +31,7 @@ Num sistema de vários mestre, o net RUs disponível para escrever os aumentos d
 
 Considere tem um contentor em E.U.A. oeste aprovisionado com um débito de 10 mil RU/s e armazena 1 TB de dados deste mês. Suponhamos que adiciona três regiões - E.U.A. leste, Europa do Norte e Ásia Oriental, cada um com o mesmo armazenamento e débito e quiser ter a capacidade para escrever os contentores em todas as quatro regiões da sua aplicação distribuída globalmente. A fatura de mensal total (assumindo 31 dias) num mês é o seguinte:
 
-|**Item**|**Utilização (mensal)**|**Tarifa**|**Custo Mensal**|
+|**Item**|**Utilização (mensal)**|**Taxa de**|**Custo mensal**|
 |----|----|----|----|
 |Conta de débito para o contentor em E.U.A. oeste (várias regiões de escrita) |10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$1,190.40 |
 |Conta de débito para 3 regiões adicionais – E.U. a leste, Europa do Norte e Ásia Oriental (várias regiões de escrita) |(3 + 1) * 10K RU/s * 24 * 31 |US $0.016 por 100 RU/s por hora |$4,761.60 |

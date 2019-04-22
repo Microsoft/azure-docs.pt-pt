@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58863207"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -166,7 +166,7 @@ Monitorizar as suas recomendações e continuar a aplicá-las para refinar o des
 * Ver [informações de desempenho de consulta](sql-database-query-performance.md) para saber mais sobre como ver o impacto de desempenho de suas consultas principais.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Arquivo de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) (Arquivo de Consultas)
 * [CRIAR ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controlo de acesso baseado em funções](../role-based-access-control/overview.md)
 

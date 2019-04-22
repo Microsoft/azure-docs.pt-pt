@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918642"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
@@ -295,6 +295,6 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 ## <a name="next-steps"></a>Passos Seguintes
 * [Considere as definições de proxy e firewall](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
-* [Implementar os Ficheiros do Azure](storage-files-deployment-guide.md)
+* [Implementar os ficheiros do Azure](storage-files-deployment-guide.md)
 * [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
-* [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
+* [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)

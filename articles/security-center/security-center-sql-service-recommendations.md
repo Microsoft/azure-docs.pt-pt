@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880785"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure
@@ -70,9 +70,9 @@ Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
-* [Proteger as máquinas virtuais no Centro de segurança do Azure](security-center-virtual-machine-recommendations.md)
-* [Proteger as aplicações no Centro de segurança do Azure](security-center-application-recommendations.md)
-* [Protegendo sua rede no Centro de segurança do Azure](security-center-network-recommendations.md)
+* [Proteger as máquinas virtuais no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md)
+* [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
+* [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 

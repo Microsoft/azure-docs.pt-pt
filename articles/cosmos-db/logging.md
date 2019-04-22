@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904870"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
@@ -440,11 +440,11 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 
 | Campo de armazenamento do Azure ou a propriedade | Propriedade de registos de Monitor do Azure | Descrição |
 | --- | --- | --- |
-| **hora** | **TimeGenerated** | A data e hora (UTC) em que ocorreu a operação. |
+| **tempo** | **TimeGenerated** | A data e hora (UTC) em que ocorreu a operação. |
 | **resourceId** | **Recurso** | A conta do Azure Cosmos DB para o qual os registos estão ativados.|
-| **categoria** | **Categoria** | Para os registos do Azure Cosmos DB, **DataPlaneRequests** é o valor só estão disponível. |
+| **category** | **Categoria** | Para os registos do Azure Cosmos DB, **DataPlaneRequests** é o valor só estão disponível. |
 | **operationName** | **OperationName** | Nome da operação. Este valor pode ser qualquer uma das seguintes operações: Criar, atualizar, ler, ReadFeed, eliminação, substituição, executar, SqlQuery, consulta, JSQuery, Head, HeadFeed ou Upsert.   |
-| **propriedades** | n/d | O conteúdo deste campo é descrito nas linhas que se seguem. |
+| **Propriedades** | n/d | O conteúdo deste campo é descrito nas linhas que se seguem. |
 | **activityId** | **activityId_g** | O GUID exclusivo para a operação com sessão iniciada. |
 | **userAgent** | **userAgent_s** | Uma cadeia de caracteres que especifica o agente de utilizador do cliente que está a efetuar o pedido. O formato é {nome do agente de utilizador} / {version}.|
 | **requestResourceType** | **requestResourceType_s** | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recurso: Base de dados, contentores, documentos, anexo, utilizador, permissão, StoredProcedure, acionador, UserDefinedFunction ou oferta. |
@@ -453,7 +453,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | **clientIpAddress** | **clientIpAddress_s** | Endereço IP do cliente. |
 | **requestCharge** | **requestCharge_s** | O número de RUs que são utilizados pela operação |
 | **collectionRid** | **collectionId_s** | O ID exclusivo para a coleção.|
-| **duração** | **duration_s** | A duração da operação, em tiques. |
+| **Duração** | **duration_s** | A duração da operação, em tiques. |
 | **requestLength** | **requestLength_s** | O comprimento do pedido, em bytes. |
 | **responseLength** | **responseLength_s** | O comprimento da resposta, em bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor é não vazia quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para autenticação. O valor aponta para o ID de recurso do utilizador. |
@@ -462,7 +462,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 
 - Para compreender como ativar o registo e também as categorias de métricas e registos que são suportadas por vários serviços do Azure, leia ambos os [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure os registos de diagnóstico ](../azure-monitor/platform/diagnostic-logs-overview.md) artigos.
 - Leia os seguintes artigos para saber mais sobre os hubs de eventos:
-   - [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+   - [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Leia [transferir registos de diagnóstico e métricas do armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Leia [pesquisas de registos de compreender nos registos do Azure Monitor](../log-analytics/log-analytics-log-search-new.md).

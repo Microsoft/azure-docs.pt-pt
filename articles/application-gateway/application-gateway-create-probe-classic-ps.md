@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861884"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma sonda personalizada para o Gateway de aplicação do Azure (clássico) com o PowerShell
@@ -150,11 +150,11 @@ Os parâmetros de configuração são:
 
 |Parâmetro|Descrição|
 |---|---|
-|**Name** |Nome de referência para a sonda personalizada. |
+|**Nome** |Nome de referência para a sonda personalizada. |
 | **Protocolo** | Protocolo utilizado (os valores possíveis são HTTP ou HTTPS).|
 | **Host** e **caminho** | Caminho do URL completo que é invocado por gateway de aplicação para determinar o estado de funcionamento da instância. Por exemplo, se tiver um pedido de http do Web site:\//contoso.com/, em seguida, a sonda personalizada pode ser configurado para "http:\//contoso.com/path/custompath.htm" para a sonda verifica para ter uma resposta HTTP com êxito.|
 | **Intervalo** | Configura as verificações de intervalo de sonda em segundos.|
-| **Tempo Limite (excedido)** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
+| **Tempo limite** | Define o limite de tempo de pesquisa para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP falhados necessários para sinalizar a instância de back-end como *mau estado de funcionamento*.|
 
 O nome da sonda é referenciado no \<BackendHttpSettings\> configuração para atribuir o conjunto de back-end utiliza as definições de sonda personalizada.

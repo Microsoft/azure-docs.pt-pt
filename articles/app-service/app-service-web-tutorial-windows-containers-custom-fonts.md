@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904071"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
@@ -31,7 +31,7 @@ O [Serviço de Aplicações do Azure](overview.md) disponibiliza pilhas de aplic
 
 Para concluir este tutorial:
 
-- <a href="https://hub.docker.com/" target="_blank">Inscreva-se uma conta do Docker Hub</a>
+- <a href="https://hub.docker.com/" target="_blank">Inscrever numa conta do Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Instale o Docker para Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mude o Docker para executar contentores do Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2017</a> com as cargas de trabalho **ASP.NET e de desenvolvimento na Web** e de **desenvolvimento no Azure**. Se já instalou o Visual Studio 2017:
@@ -121,7 +121,7 @@ Configure o novo registo de contentor com base nos valores sugeridos na tabela s
 | ----------------- | ------------ | ----|
 |**Prefixo DNS**| Mantenha o nome do registo gerado ou altere-o para outro nome exclusivo. |  |
 |**Grupo de Recursos**| Clique em **Novo**, escreva **myResourceGroup** e clique em **OK**. |  |
-|**SKU**| Básica | [Escalões de preço](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Básica | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Localização do registo**| Europa Ocidental | |
 
 ![Configurar o registo de contentor do Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
@@ -144,7 +144,7 @@ Na interface de criação, configure as definições de acordo com a tabela segu
 | ----------------- | ------------ | ----|
 |**Nome da Aplicação**| Escreva um nome exclusivo. | O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação. |
 |**Grupo de Recursos**| Selecione **Utilizar existente** e escreva **myResourceGroup**. |  |
-|**SO**| Windows (Pré-visualização) | |
+|**OS**| Windows (Pré-visualização) | |
 
 ### <a name="configure-app-service-plan"></a>Configurar plano do Serviço de Aplicações
 

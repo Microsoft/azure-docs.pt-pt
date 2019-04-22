@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878575"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
@@ -62,7 +62,7 @@ Partir do **formato de identificador de nome de escolha** lista pendente, pode s
 | Formato NameID | Descrição |
 |---------------|-------------|
 | **Predefinição** | Azure AD irá utilizar o formato de origem do padrão. |
-| **Persistente** | Azure AD irá utilizar persistente, como o formato NameID. |
+| **Persistent** | Azure AD irá utilizar persistente, como o formato NameID. |
 | **EmailAddress** | Azure AD irá utilizar o endereço de correio eletrónico como o formato NameID. |
 | **Não especificado** | Azure AD irá utilizar não especificado como o formato NameID. |
 | **Transitório** | Azure AD irá utilizar transitório como o formato NameID. |
@@ -120,10 +120,10 @@ Também pode utilizar as funções de transformações de afirmações.
 | **Extract() - depois de correspondência** | Devolve a subcadeia após ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon", o valor correspondente é "Finance_", em seguida, é de saída da afirmação "BSimon". |
 | **Extract() - antes de correspondência** | Devolve a subcadeia até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "BSimon_US", o valor correspondente é "_US", em seguida, é de saída da afirmação "BSimon". |
 | **Extract() - entre correspondentes** | Devolve a subcadeia até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon_US", o primeiro valor correspondente é "Finance_", o segundo valor correspondente é "_US", então é de saída da afirmação "BSimon". |
-| **ExtractAlpha() - prefixo** | Devolve a parte alfabética de prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, devolve "BSimon". |
-| **ExtractAlpha() - sufixo** | Devolve a parte alfabética de sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_Simon", em seguida, devolve "BSimon". |
-| **ExtractNumeric() - prefixo** | Devolve a parte numérica de prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_BSimon", em seguida, devolve "123". |
-| **ExtractNumeric() - sufixo** | Devolve a parte numérica de sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, devolve "123". |
+| **ExtractAlpha() - Prefix** | Devolve a parte alfabética de prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, devolve "BSimon". |
+| **ExtractAlpha() - Suffix** | Devolve a parte alfabética de sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_Simon", em seguida, devolve "BSimon". |
+| **ExtractNumeric() - Prefix** | Devolve a parte numérica de prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "123_BSimon", em seguida, devolve "123". |
+| **ExtractNumeric() - Suffix** | Devolve a parte numérica de sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada é "BSimon_123", em seguida, devolve "123". |
 | **IfEmpty()** | Produz um atributo ou constante se a entrada é nulo ou estar vazio.<br/>Por exemplo, se queira produzir um atributo armazenado num extensionattribute se o campo IDdeEmpregado para um determinado usuário está vazio. Para fazer isso, poderia configurar os seguintes valores:<br/>Parâmetro 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.employeeid |
 | **IfNotEmpty()** | Produz um atributo ou constante se a entrada não é nulo ou estar vazio.<br/>Por exemplo, se queira produzir um atributo armazenado num extensionattribute se o campo IDdeEmpregado para um determinado usuário não está vazio. Para fazer isso, poderia configurar os seguintes valores:<br/>Parâmetro 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
 

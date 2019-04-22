@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917231"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço em nuvem
@@ -187,6 +187,6 @@ O diagrama seguinte ilustra como um serviço que contém duas funções são dis
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Como gerir serviços Cloud](cloud-services-how-to-manage-portal.md)  
-[Como Monitorizar os Serviços Cloud](cloud-services-how-to-monitor.md)  
-[Como configurar os serviços Cloud](cloud-services-how-to-configure-portal.md)  
+[Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
+[Como monitorizar serviços Cloud](cloud-services-how-to-monitor.md)  
+[Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)  

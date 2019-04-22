@@ -12,10 +12,10 @@ ms.date: 03/25/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: a5a679c7a81fe7ac5fbe53fc56fe7cf63fb16976
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885286"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar a firewall de aplicações Web com o Azure PowerShell
@@ -323,4 +323,4 @@ Neste tutorial, ficou a saber como:
 > * Criar uma conta de armazenamento e configurar o diagnóstico
 
 > [!div class="nextstepaction"]
-> [Criar um gateway de aplicação com a terminação de SSL](./tutorial-ssl-powershell.md)
+> [Criar um gateway de aplicação com a terminação SSL](./tutorial-ssl-powershell.md)

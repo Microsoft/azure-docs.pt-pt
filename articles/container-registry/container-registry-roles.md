@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894273"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Permissões e funções de registo de contentor do Azure
 
 O serviço do Azure Container Registry suporta um conjunto de funções do Azure que fornecer diferentes níveis de permissões para um Azure container registry. Utilizar o Azure [controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para atribuir permissões específicas para os utilizadores ou principais que precisam para interagir com um registo de serviço.
 
-| / Permissões da função       | [Gestor de recursos de acesso](#access-resource-manager) | [Criar/eliminar registo](#create-and-delete-registry) | [Enviar imagem](#push-image) | [Imagem de extração](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Alterar as políticas](#change-policies) |   [Imagens de início de sessão](#sign-images)  |
+| / Permissões da função       | [Access Resource Manager](#access-resource-manager) | [Criar/eliminar registo](#create-and-delete-registry) | [Enviar imagem](#push-image) | [Imagem de extração](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Alterar as políticas](#change-policies) |   [Imagens de início de sessão](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Proprietário | X | X | X | X | X | X |  |  
 | Contribuinte | X | X | X |  X | X | X |  |  

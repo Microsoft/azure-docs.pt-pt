@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916721"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
@@ -43,10 +43,10 @@ A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a func
 
 | V2 o método API   | V3 Compatibilidade da API |
 |:----------- |:-------------|
-| `Translate`     | [Translate](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
+| `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
@@ -65,7 +65,7 @@ Esta alteração irá afetar vários aspectos de um aplicativo escrito para a AP
 
 O método de idiomas não necessita de autenticação; ao clicar na ligação seguinte, pode ver todas as informações de idioma para V3 no JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, dicionário, Transliteração](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Chave de Autenticação
 
@@ -141,7 +141,7 @@ Nenhuma versão de API do Translator cria um registo das suas traduções. Suas 
 ## <a name="links"></a>Ligações
 
 * [Política de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement)
-* [Informação legal sobre o Microsoft Azure](https://azure.microsoft.com/support/legal)
+* [Informação Legal sobre o Microsoft Azure](https://azure.microsoft.com/support/legal)
 * [Termos dos Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Passos Seguintes

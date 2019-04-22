@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893457"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
@@ -85,9 +85,9 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
 
 Utilize este parâmetro se as gravações não processadas ou externas contiverem ruído de fundo. Este parâmetro é utilizado para configurar o processo de indexação. Pode especificar os seguintes valores:
 
-- `Default` – De índice e extrair informações com áudio e vídeo
-- `AudioOnly` – De índice e extrair informações usando apenas áudio (vídeo ignorar)
-- `DefaultWithNoiseReduction` – De índice e extrair informações de áudio e vídeo, ao aplicar algoritmos de redução de ruído no fluxo de áudio
+- `Default` – indexe e extraia informações com áudio e vídeo
+- `AudioOnly` – indexe e extraia informações apenas com áudio (ignorar vídeo)
+- `DefaultWithNoiseReduction` – indexe e extraia informações de áudio e vídeo, enquanto aplica algoritmos de redução de ruído na transmissão de áudio
 
 O preço varia consoante a opção de indexação selecionada.  
 

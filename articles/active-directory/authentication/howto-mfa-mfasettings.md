@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886000"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
@@ -34,9 +34,9 @@ Algumas destas definições aplicam-se para o servidor de MFA, MFA do Azure ou a
 | ------- | ----------- |
 | Bloqueio de conta | Temporariamente bloquear contas no serviço de autenticação multifator se existirem demasiados negado tentativas de autenticação numa linha. Esta funcionalidade aplica-se apenas a utilizadores que introduziram um PIN para autenticar. (Servidor MFA) |
 | [Bloquear/desbloquear utilizadores](#block-and-unblock-users) | Utilizado para bloquear utilizadores específicos no servidor de MFA (no local) a capacidade receber pedidos de multi-factor Authentication. Qualquer tentativa de autenticação aos utilizadores bloqueados é rejeitada automaticamente. Os utilizadores ficam bloqueados durante 90 dias a partir do momento em que são bloqueados. |
-| [Alerta de fraudes](#fraud-alert) | Configurar definições relacionadas com a capacidade dos utilizadores de pedidos de verificação fraudulenta de relatório |
+| [Alerta de fraude](#fraud-alert) | Configurar definições relacionadas com a capacidade dos utilizadores de pedidos de verificação fraudulenta de relatório |
 | Notificações | Ative as notificações de eventos do servidor MFA. |
-| [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilizado em ambientes de MFA do Azure baseado na nuvem para gerir os tokens OATH para os utilizadores. |
+| [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilizado em ambientes de MFA do Azure baseado na nuvem para gerir os tokens OATH para os utilizadores. |
 | [Definições de chamada telefónica](#phone-call-settings) | Configure definições relacionadas com chamadas telefónicas e saudações para ambientes de cloud e no local. |
 | Fornecedores | Isto irá mostrar quaisquer fornecedores de autenticação existentes que podem ter associado sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de Setembro de 2018 |
 

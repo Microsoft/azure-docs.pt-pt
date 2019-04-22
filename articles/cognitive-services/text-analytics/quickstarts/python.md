@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: aahi
 ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893083"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Python para chamar o serviço cognitivos de análise de texto 
@@ -422,9 +422,9 @@ Resposta JSON com êxito:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Análise de texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Consulte também 
 
- [Descrição geral da análise de texto](../overview.md)  
+ [Descrição Geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

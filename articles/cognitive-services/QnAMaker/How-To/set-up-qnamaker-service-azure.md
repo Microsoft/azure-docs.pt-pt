@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 90e7abf229e0ee1ca396150fee0c1f0970d257aa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876406"
 ---
 # <a name="create-a-qna-maker-service"></a>Criar um serviço QnA Maker

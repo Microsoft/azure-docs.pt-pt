@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879969"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação iOS
@@ -112,7 +112,7 @@ Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o
 
 1. No projeto QuickStart, abra o ficheiro plist `settings.plist`.
 1. Substitua os valores dos elementos na secção para utilizar os mesmos valores que introduziu no portal do Azure. O seu código faz referência a estes valores sempre que utilizar a ADAL.
-    * `tenant` é o domínio de inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com.
+    * `tenant` é o domínio do inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com.
     * `clientId` é o ID de cliente da sua aplicação que copiou do portal.
     * `redirectUri` é o URL de redirecionamento que registou no portal.
 
@@ -259,5 +259,5 @@ Para sua referência, o exemplo concluído (sem os valores de configuração) é
 
 Agora, pode avançar para cenários adicionais. Sugerimos que experimente estes em seguida:
 
-* [Proteger uma API com o Azure AD da Web de node. js](quickstart-v1-nodejs-webapi.md)
+* [Proteger uma API Web Node.JS com o Azure AD](quickstart-v1-nodejs-webapi.md)
 * Saiba [como ativar o SSO entre várias aplicações em iOS com a ADAL](howto-v1-enable-sso-ios.md)  

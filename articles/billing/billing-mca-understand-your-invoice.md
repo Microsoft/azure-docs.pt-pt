@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883014"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Compreender os termos na sua fatura de contrato de cliente da Microsoft
@@ -110,6 +110,6 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Compreender os encargos na fatura de seu perfil de faturação](billing-mca-understand-your-bill.md)
-- [Como obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md)
+- [Como obter a faturação e os dados de utilização diária do Azure](billing-download-azure-invoice-daily-usage-date.md)
 - [Veja os preços do Azure da sua organização](billing-ea-pricing.md)
 - [Ver documentos de imposto para o seu perfil de faturação](billing-mca-download-tax-document.md)

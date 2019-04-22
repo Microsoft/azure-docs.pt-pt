@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903765"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil do usuário na gestão de API do Azure
@@ -318,7 +318,7 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
 ### <a name="controls"></a>Controlos  
  Este modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [Cancelar subscrição](api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de dados  
   

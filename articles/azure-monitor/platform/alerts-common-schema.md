@@ -9,13 +9,13 @@ ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 8f8dcff0b72ea92e835c0702113a9cb6a7678e86
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58851927"
 ---
-# <a name="common-alert-schema"></a>Esquema comum do alerta
+# <a name="common-alert-schema"></a>Esquema de alertas comuns
 
 Este artigo descreve o que é o esquema comum do alerta, as vantagens da utilização que e como ativá-lo.
 

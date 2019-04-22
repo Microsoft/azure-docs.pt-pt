@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916041"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
@@ -67,9 +67,9 @@ Ao utilizar a codificação em direto com os Serviços de Multimédia, configura
 
 Para compreender o fluxo de trabalho de transmissão em fluxo em direto em serviços de multimédia v3, tem de primeira revisão e compreender os seguintes conceitos: 
 
-- [Pontos Finais de Transmissão em fluxo](streaming-endpoint-concept.md)
-- [Eventos em Direto e Saídas em Direto](live-events-outputs-concept.md)
-- [Localizadores de Transmissão em Fluxo](streaming-locators-concept.md)
+- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
+- [Live Events and Live Outputs](live-events-outputs-concept.md) (Eventos em Direto e Saídas em Direto)
+- [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
 
 ### <a name="general-steps"></a>Passos gerais
 
@@ -87,10 +87,10 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 
 ## <a name="other-important-articles"></a>Outros artigos importantes
 
-- [Codificadores em direto recomendados](recommended-on-premises-live-encoders.md)
-- [Utilizar um DVR na cloud](live-event-cloud-dvr.md)
+- [Recomendado codificadores em direto](recommended-on-premises-live-encoders.md)
+- [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)
 - [Comparação de recursos de tipos de evento em direto](live-event-types-comparison.md)
-- [Estados e faturação](live-event-states-billing.md)
+- [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
 
 ## <a name="next-steps"></a>Passos Seguintes

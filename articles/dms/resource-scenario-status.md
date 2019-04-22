@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915480"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo Azure Database Migration Service
@@ -47,9 +47,9 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 | **MI de BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
 |   | Oracle |  |   |
-| **VM do Azure SQL** | SQL Server | ✔ | GA |
+| **VM do SQL do Azure** | SQL Server | ✔ | GA |
 |   | Oracle |   |   |
-| **Azure Cosmos DB** | MongoDB | ✔ | Pré-visualização pública |
+| **BD do Cosmos para o Azure** | MongoDB | ✔ | Pré-visualização pública |
 | **BD do Azure para MySQL** | MySQL |   |   |
 |   | RDS MySQL |   |   |
 | **BD do Azure para PostgreSQL** | PostgreSQL |  |
@@ -66,9 +66,9 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 | **MI de BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle | ✔ | Pré-visualização privada |
-| **VM do Azure SQL** | SQL Server |   |   |
+| **VM do SQL do Azure** | SQL Server |   |   |
 |   | Oracle  |  |  |
-| **Azure Cosmos DB** | MongoDB | ✔ | Pré-visualização pública |
+| **BD do Cosmos para o Azure** | MongoDB | ✔ | Pré-visualização pública |
 | **BD do Azure para MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **BD do Azure para PostgreSQL** | PostgreSQL | ✔ | GA |

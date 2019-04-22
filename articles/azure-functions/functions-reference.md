@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891894"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores do funções do Azure
@@ -105,7 +105,7 @@ Está a ter problemas com erros proveniente de associações? Reveja os [código
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
-* [Codificar e testar as funções do Azure localmente](./functions-develop-local.md)
-* [Melhores práticas para as funções do Azure](functions-best-practices.md)
+* [Criar código e testar as Funções do Azure localmente](./functions-develop-local.md)
+* [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Referência do Azure funções c# para programadores](functions-reference-csharp.md)
 * [Referência do desenvolvedor do NodeJS de funções do Azure](functions-reference-node.md)

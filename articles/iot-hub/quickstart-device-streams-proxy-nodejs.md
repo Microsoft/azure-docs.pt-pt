@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005443"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Início rápido: SSH/RDP sobre fluxos de dispositivo do IoT Hub com node. js do proxy de aplicações (pré-visualização)
@@ -35,8 +35,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 A pré-visualização de fluxos de dispositivo é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
 
-  - **EUA Central**
-  - **E.U.A. Central EUAP**
+  - **E.U.A. central**
+  - **E.U.A. central EUAP**
 
 Para executar a aplicação de serviço local neste guia de introdução tem de node. js v4.x.x ou posterior no seu computador de desenvolvimento.
 

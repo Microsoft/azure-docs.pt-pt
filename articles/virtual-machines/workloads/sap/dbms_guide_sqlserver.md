@@ -17,10 +17,10 @@ ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881091"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do SQL Server do Azure para SAP NetWeaver
@@ -315,7 +315,7 @@ Este documento aborda várias áreas diferentes a serem considerados ao implemen
 
 
 > [!IMPORTANT]
-> O âmbito deste documento é a versão do Windows no SQL Server. SAP não está a suportar a versão do Linux do SQL Server com qualquer uma do software SAP. O documento não ensina base de dados do SQL do Azure de Microsoft, que é uma plataforma como uma oferta de serviço da plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server que é conhecido por implementações no local nas máquinas virtuais do Azure, tirando partido da infraestrutura como um recurso de serviço do Azure. Capacidades de base de dados e de funcionalidades entre estas duas ofertas são diferentes e não devem misturar entre si. Veja também: <https://azure.microsoft.com/services/sql-database/>
+> O âmbito deste documento é a versão do Windows no SQL Server. SAP não está a suportar a versão do Linux do SQL Server com qualquer uma do software SAP. O documento não ensina base de dados do SQL do Azure de Microsoft, que é uma plataforma como uma oferta de serviço da plataforma Microsoft Azure. A discussão neste artigo é sobre a execução do produto SQL Server que é conhecido por implementações no local nas máquinas virtuais do Azure, tirando partido da infraestrutura como um recurso de serviço do Azure. Capacidades de base de dados e de funcionalidades entre estas duas ofertas são diferentes e não devem misturar entre si. Consulte também: <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 

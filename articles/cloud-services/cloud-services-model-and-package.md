@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917316"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como empacotá-lo?
@@ -143,7 +143,7 @@ O ficheiro de configuração de serviço não é empacotado com o aplicativo, ma
 
 Pode consultar o [esquema de configuração do serviço](/previous-versions/azure/reference/ee758710(v=azure.100)) para melhor compreender o esquema XML utilizado aqui, no entanto, aqui está uma explicação rápida dos elementos:
 
-**Instâncias**  
+**instâncias**  
 Configura o número de instâncias para a função em execução. Para impedir que o seu serviço cloud potencialmente ficarem indisponíveis durante as atualizações, recomenda-se que implemente mais de uma instância de suas funções com acesso à web. Ao implementar mais de uma instância, é a cumprir as diretrizes a [do Azure de computação ao nível do contrato serviço (SLA)](https://azure.microsoft.com/support/legal/sla/), que garante a conectividade externa de 99,95% para as funções de acesso à Internet quando dois ou mais instâncias de função são implementada para um serviço.
 
 **ConfigurationSettings**  

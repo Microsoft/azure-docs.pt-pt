@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
 ms.openlocfilehash: ef5ab3d4fe71f688a0b4f3879248ea1715874a0b
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58793735"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure

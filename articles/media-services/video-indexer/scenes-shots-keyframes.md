@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896557"
 ---
-# <a name="scenes-shots-and-keyframes"></a>Nos bastidores, capturas e quadros-chave
+# <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e keyframes
 
 O Video Indexer suporta segmentar vídeos em unidades temporais com base nas propriedades de estruturais e semânticas. Esta capacidade permite aos clientes procurar, gerir e editar o conteúdo de vídeo com base nas granularidades variadas facilmente. Por exemplo, com base em segundo plano, capturas e quadros-chave, descritas neste tópico. O **deteção de cena** funcionalidade está atualmente em pré-visualização.   
 
-![Nos bastidores, capturas e quadros-chave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![Cenas, capturas e keyframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>Deteção de cena (pré-visualização)
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876893"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar os comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
@@ -43,7 +43,7 @@ O comando de extensão de base de dados create Cria uma nova base de dados do Mo
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 | customAction   |  string  |   Nome do comando personalizado, tem de ser "CreateDatabase".      |
 | offerThroughput | int  | Débito aprovisionado que definiu na base de dados. Este parâmetro é opcional. |
@@ -85,7 +85,7 @@ O comando de extensão de base de dados de atualização atualiza as propriedade
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 | customAction    |    string     |   Nome do comando personalizado. Tem de ser "UpdateDatabase".      |
 |  offerThroughput   |  int       |     Débito aprovisionado novos que queira definir na base de dados.    |
@@ -118,7 +118,7 @@ O comando de extensão de base de dados de get retorna o objeto de base de dados
 A tabela seguinte descreve os parâmetros no comando:
 
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 |  customAction   |   string      |   Nome do comando personalizado. Tem de ser "GetDatabase"|
         
@@ -126,7 +126,7 @@ A tabela seguinte descreve os parâmetros no comando:
 
 Se o comando for bem-sucedida, a resposta contém um documento com os seguintes campos:
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
 | `database`    |    `string`        |   Nome da base de dados.      |
@@ -160,7 +160,7 @@ O comando de extensão de coleção de criar cria uma nova coleção MongoDB. O 
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 | customAction    | string | Nome do comando personalizado. Tem de ser "CreateDatabase"     |
 | coleção      | string | Nome da coleção                                   |
@@ -205,7 +205,7 @@ O comando de extensão de coleção de atualização atualiza as propriedades as
 
 A tabela seguinte descreve os parâmetros no comando:
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 |  customAction   |   string      |   Nome do comando personalizado. Tem de ser "UpdateCollection".      |
 |  coleção   |   string      |   Nome da coleção.       |
@@ -240,7 +240,7 @@ O comando personalizado da coleção de get retorna o objeto de coleção.
 A tabela seguinte descreve os parâmetros no comando:
 
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 | customAction    |   string      |   Nome do comando personalizado. Tem de ser "GetCollection".      |
 | coleção    |    string     |    Nome da coleção.     |
@@ -250,7 +250,7 @@ A tabela seguinte descreve os parâmetros no comando:
 Se o comando for bem-sucedida, a resposta contém um documento com os seguintes campos
 
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
 | `database`    |    `string`     |   Nome da base de dados.      |
@@ -275,7 +275,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 
 Se não for especificado, uma resposta personalizada contém um documento com os seguintes campos:
 
-|**Campo**|**Type** |**Descrição** |
+|**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 |  `ok`   |    `int`     |   Estado da resposta. 1 = = êxito. 0 = = falha.      |
 | `code`    |   `int`      |   Só devolvido quando a falha do comando (ou seja, ok = = 0). Contém o código de erro do MongoDB. Este é um parâmetro opcional de resposta.      |

@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894411"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
@@ -277,9 +277,9 @@ Como solução, deve atribuir explicitamente (ou, caso contrário [definir o âm
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)
+- [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
 - [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](customize-application-attributes.md)
-- [Escrever Expressões para Mapeamentos de Atributos](functions-for-customizing-application-data.md)
+- [Escrever expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)
 - [Filtros de âmbito para o aprovisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
 - [Descrição geral de API de sincronização do Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

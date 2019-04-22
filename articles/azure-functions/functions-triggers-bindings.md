@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58889843"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
@@ -33,10 +33,10 @@ Considere os seguintes exemplos de como pode implementar funções diferentes.
 
 | Cenário de exemplo | Acionador | Enlace de entrada | Enlace de saída |
 |-------------|---------|---------------|----------------|
-| Uma nova mensagem de fila chegar que executa uma função para gravar em outra fila. | fila<sup>*</sup> | *Nenhuma* | fila<sup>*</sup> |
+| Uma nova mensagem de fila chegar que executa uma função para gravar em outra fila. | fila<sup>*</sup> | *Nenhum* | fila<sup>*</sup> |
 |Uma tarefa agendada lê o conteúdo do armazenamento de BLOBs e cria um novo documento do Cosmos DB. | Temporizador | Blob Storage | BD do Cosmos |
 |O Event Grid é usado para ler uma imagem a partir do armazenamento de BLOBs e um documento do Cosmos DB para enviar um e-mail. | Event Grid | Armazenamento de BLOBs e o Cosmos DB | SendGrid |
-| Um webhook que utiliza o Microsoft Graph para atualizar uma folha do Excel. | HTTP | *Nenhuma* | Microsoft Graph |
+| Um webhook que utiliza o Microsoft Graph para atualizar uma folha do Excel. | HTTP | *Nenhum* | Microsoft Graph |
 
 <sup>\*</sup> Representa a filas diferentes
 

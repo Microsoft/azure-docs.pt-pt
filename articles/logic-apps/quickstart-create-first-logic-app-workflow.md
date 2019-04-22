@@ -12,10 +12,10 @@ ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884244"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Criar seu primeiro fluxo de trabalho automatizado com o Azure Logic Apps - portal do Azure
@@ -44,7 +44,7 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
 
    | Propriedade | Valor | Descrição | 
    |----------|-------|-------------| 
-   | **Name** | MyFirstLogicApp | O nome para a aplicação lógica | 
+   | **Nome** | MyFirstLogicApp | O nome para a aplicação lógica | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
    | **Grupo de recursos** | My-First-LA-RG | O nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar os recursos relacionados | 
    | **Localização** | EUA Oeste | A região onde pretende armazenar as informações da aplicação lógica | 
@@ -138,9 +138,9 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
       | Propriedade | Descrição | 
       |----------|-------------| 
-      | **Título de feed** | O título do item | 
+      | **Título do feed** | O título do item | 
       | **Feed publicado em** | A data e hora de publicação do item | 
-      | **Ligação de feed primário** | O URL do item | 
+      | **Ligação principal do feed** | O URL do item | 
       ||| 
    
 5. Guarde a aplicação lógica.
@@ -185,4 +185,4 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 Neste início rápido, criou a sua primeira aplicação lógica que verifica a existência de atualizações RSS com base no seu agendamento especificado (a cada minuto) e realiza uma ação (envia e-mail) quando existem atualizações. Para saber mais, continue com este tutorial que cria fluxos de trabalho mais avançados com base num agendamento:
 
 > [!div class="nextstepaction"]
-> [Verificar o tráfego com uma aplicação lógica baseada em agendada](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+> [Verificar o tráfego com uma aplicação lógica baseada num agendamento](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

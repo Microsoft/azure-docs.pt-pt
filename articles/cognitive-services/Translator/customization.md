@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918234"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
@@ -47,14 +47,14 @@ Podem encontrar mais detalhes sobre os diversos níveis de personalização com 
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor personalizado em comparação com o Hub
 
-|   | **Hub** | **Custom Translator**|
+|   | **Hub** | **Tradutor personalizado**|
 |:-----|:----:|:----:|
 |Estado da funcionalidade de personalização   | Disponibilidade Geral  | Disponibilidade Geral |
 | Versão de API de texto  | Apenas v2   | Apenas v3 |
 | Personalização de SMT | Sim   | Não |
 | Personalização de NMT | Não    | Sim |
 | Nova personalização de serviços de voz unificada | Não    | Sim |
-| [Sem Rastreio](https://www.aka.ms/notrace) | Sim  | Sim |
+| [Sem rastreio](https://www.aka.ms/notrace) | Sim  | Sim |
 
 ## <a name="collaborative-translations-framework"></a>Framework de traduções de colaboração
 

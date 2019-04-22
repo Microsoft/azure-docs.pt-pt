@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904632"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
@@ -45,7 +45,7 @@ Após a funcionalidade de execução no modo de auditoria durante um período ra
 * Conectividade de rede tem de existir entre, pelo menos, um controlador de domínio em cada domínio e pelo menos um servidor que aloja o serviço de proxy para a proteção de palavra-passe. Essa conectividade tem de permitir o controlador de domínio aceder a porta de mapeador de ponto final do RPC 135 e a porta do servidor RPC no serviço de proxy. Por predefinição, a porta do servidor RPC é uma porta dinâmica da RPC, mas pode ser configurado para [utilizar uma porta estática](#static).
 * Todos os computadores que alojam o serviço de proxy tem de ter acesso à rede para os seguintes pontos finais:
 
-    |**Ponto Final**|**Objetivo**|
+    |**Endpoint**|**Objetivo**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Pedidos de autenticação|
     |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de palavra-passe do Azure AD|
