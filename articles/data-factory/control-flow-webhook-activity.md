@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495913"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de Webhook no Azure Data Factory
@@ -75,9 +75,9 @@ A atividade de hook de web em si falhar apenas quando a chamada para o ponto fin
 Consulte outras atividades de fluxo de controle suportadas pelo Data Factory:
 
 - [Atividade Se Condição](control-flow-if-condition-activity.md)
-- [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)
-- [Para Cada Atividade](control-flow-for-each-activity.md)
-- [Obter Atividade de Metadados](control-flow-get-metadata-activity.md)
+- [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
+- [Para cada atividade](control-flow-for-each-activity.md)
+- [Atividade Obter Metadados](control-flow-get-metadata-activity.md)
 - [Atividade de Pesquisa](control-flow-lookup-activity.md)
 - [Atividade Web](control-flow-web-activity.md)
-- [Até a Atividade](control-flow-until-activity.md)
+- [Atividade Until](control-flow-until-activity.md)

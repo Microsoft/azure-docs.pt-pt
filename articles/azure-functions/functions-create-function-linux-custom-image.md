@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
 ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491462"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux com uma imagem personalizada
@@ -65,8 +65,8 @@ Quando inclui a opção `--docker`, é gerado um dockerfile para o projeto. Este
 
 Quando lhe for pedido, escolha um runtime do trabalho entre os seguintes idiomas:
 
-* `dotnet`: cria um projeto de biblioteca de classes do .NET (arquivo. csproj).
-* `node`: cria um projeto de JavaScript.
+* `dotnet`: cria um projeto de biblioteca de classes .NET (.csproj).
+* `node`: cria um projeto do JavaScript.
 * `python`: cria um projeto de Python.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
@@ -302,4 +302,4 @@ Neste tutorial, ficou a saber como:
 Saiba como ativar a funcionalidade de integração contínua integrada na plataforma principal do Serviço de Aplicações. Pode configurar a sua aplicação de funções para que o contentor seja novamente implementado ao atualizar a imagem no Hub do Docker.
 
 > [!div class="nextstepaction"] 
-> [Implementação contínua com a aplicação Web para contentores](../app-service/containers/app-service-linux-ci-cd.md)
+> [Implementação contínua com a Aplicação Web para Contentores](../app-service/containers/app-service-linux-ci-cd.md)

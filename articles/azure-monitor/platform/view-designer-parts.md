@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493030"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência a partes de visualização do estruturador de vistas no Azure Monitor
@@ -76,7 +76,7 @@ O cabeçalho apresenta um único número, que mostra uma contagem de registos de
 | Novo Grupo |Selecione esta ligação para criar um novo grupo na exibição, começando a exibição atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | Utilizar Ícone |Selecione esta ligação para ver o ícone. |
-| **Título** | |
+| **Title** (Título) | |
 | Legenda |O texto que é apresentado na parte superior do cabeçalho. |
 | Consulta |A consulta seja executada para o cabeçalho. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
@@ -107,7 +107,7 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 | Utilizar Ícone |Selecione esta ligação para ver o ícone. |
 | **Navegação de título** | |
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
-| **Título** | |
+| **Title** (Título) | |
 | Legenda |O texto que é apresentado na parte superior do cabeçalho. |
 | Consulta |A consulta seja executada para o cabeçalho. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | **Lista** | |
@@ -179,7 +179,7 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Utilizar Ícone |Selecione esta ligação para ver o ícone. |
 | **Navegação de título** | |
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
-| **Primeiro gráfico<br>Segundo gráfico** | |
+| **Primeiro gráfico<br>segundo gráfico** | |
 | Legenda |O texto que é apresentado em nota de aviso para a primeira série. |
 | Cor |A cor a utilizar para as colunas da série. |
 | Consulta |A consulta seja executada para a primeira série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
@@ -211,7 +211,7 @@ O cabeçalho exibe texto estático e uma ligação opcional. A lista apresenta u
 | **Cabeçalho** | |
 | Imagem |O ficheiro de imagem que é apresentado no cabeçalho. |
 | Label |O texto que é apresentado no cabeçalho. |
-| **Cabeçalho** |**> Ligação** |
+| **Cabeçalho** |**> Link** |
 | Label |O texto da ligação. |
 | Url |O Url para a ligação. |
 | **Itens de informações** | |
@@ -305,13 +305,13 @@ A pilha do gráfico de linhas apresenta três gráficos de linha separado, com v
 | Título do grupo |O texto que é apresentado na parte superior do mosaico. |
 | Novo Grupo |Selecione esta ligação para criar um novo grupo na exibição, começando a exibição atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
-| **Gráfico 1<br>Gráfico 2<br>Gráfico de 3** |**> Cabeçalho** |
+| **1 de gráfico<br>gráfico 2<br>3 do gráfico** |**> Cabeçalho** |
 | Título |O texto que é apresentado na parte superior do gráfico. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do gráfico. |
-| **Gráfico 1<br>Gráfico 2<br>Gráfico de 3** |**Gráfico de linhas** |
+| **1 de gráfico<br>gráfico 2<br>3 do gráfico** |**Gráfico de linhas** |
 | Consulta |A consulta seja executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
-| **Gráfico** |**> Eixo y** |
+| **Chart** |**> Eixo y** |
 | Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Estas informações são utilizadas para rótulos de gráficos de apresentação que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define o disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos da *unidade atual* escreva para o *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |

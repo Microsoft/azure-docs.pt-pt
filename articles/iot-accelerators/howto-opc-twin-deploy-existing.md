@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493251"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar duplo de OPC para um projeto existente
@@ -140,4 +140,4 @@ Inquilino do AAD para utilizar.
 Agora que sabe como implementar duplo de OPC para um projeto existente, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Proteger a comunicação do Cliente OPC e OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Proteger a comunicação de cliente de OPC e OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

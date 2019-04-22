@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491753"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IoT industrial (IIoT)
@@ -50,4 +50,4 @@ Cofre de OPC é uma implementação de OPC UA Global deteção de servidor (GDS)
 Agora que teve uma introdução ao industrial IoT e os respetivos componentes, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [O que é o Duplo OPC](overview-opc-twin.md)
+> [O que é duplo de OPC](overview-opc-twin.md)

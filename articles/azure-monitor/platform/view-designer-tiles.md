@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495333"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para mosaicos do estruturador de vistas no Azure Monitor
@@ -33,7 +33,7 @@ Os mosaicos do estruturador de vistas disponíveis são descritos na tabela a se
 
 | Dispor em Mosaico | Descrição |
 |:--- |:--- |
-| [Number](#number-tile) |A contagem de registos de uma consulta. |
+| [Número](#number-tile) |A contagem de registos de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
 | [Anel](#donut-tile) | Um gráfico que se baseia numa consulta, com um valor de resumo no Centro de mensagens em fila. |
 | Gráfico de linhas e nota de aviso | Um gráfico de linhas que se baseia numa consulta e uma nota de aviso com um valor de resumo. |
@@ -54,10 +54,10 @@ O **número** mosaico mostra ambas as a contagem de registos a partir de uma con
 |:--- |:--- |
 | Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
-| **Dispor em Mosaico** | |
+| **mosaico** | |
 | Legenda |O texto que é apresentado no valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
-| **Avançado** |**> Verificação de fluxo de dados** |
+| **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
 | Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
@@ -72,13 +72,13 @@ Este mosaico apresenta a contagem de registos de duas consultas de registo difer
 |:--- |:--- |
 | Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
-| **Primeiro Mosaico** | |
+| **Primeiro mosaico** | |
 | Legenda |O texto que é apresentado no valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
-| **Segundo Mosaico** | |
+| **Segundo mosaico** | |
 | Legenda |O texto que é apresentado no valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
-| **Avançado** |**> Verificação de fluxo de dados** |
+| **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
 | Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
@@ -102,7 +102,7 @@ O **anel** mosaico apresenta um único número que resume uma coluna de valor nu
 | **Anel** |**> Opções adicionais** |
 | Cores |A cor que é apresentada para cada uma das três propriedades principais. Para especificar alternativas cores dos valores de propriedade específica, utilize *Advanced mapeamento de cor*. |
 | Mapeamento de Cores Avançadas |Apresenta uma cor que representa valores de propriedade específicos. Se o valor que especificar nas três principais, a cor alternativa é apresentada em vez da cor padrão. Se a propriedade não estiver a ser os três principais, a cor não é apresentada. |
-| **Avançado** |**> Verificação de fluxo de dados** |
+| **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
 | Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
@@ -123,7 +123,7 @@ Este mosaico é um gráfico de linhas que exibe várias séries de uma consulta 
 | Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devolvidos pela consulta. Estas informações são utilizadas para apresentar as etiquetas no gráfico que indica os tipos de valor e, opcionalmente, para converter os valores. O **tipo de unidade** Especifica a categoria da unidade e define a **tipo de unidade atual** valores que estão disponíveis. Se selecionar um valor na **converter** , em seguida, os valores numéricos são convertidos da **unidade atual** escreva para o **converter** tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
-| **Avançado** |**> Verificação de fluxo de dados** |
+| **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
 | Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
@@ -148,7 +148,7 @@ Este mosaico tem tanto de uma linha do gráfico que apresenta várias séries de
 | Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Estas informações são utilizadas para rótulos de gráficos de apresentação que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define o disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos da *unidade atual* escreva para o *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
-| **Avançado** |**> Verificação de fluxo de dados** |
+| **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
 | Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |
@@ -173,7 +173,7 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 | Cor |A cor utilizada para as colunas na segunda série. |
 | Consulta do Gráfico |A consulta que está a ser executada para a segunda série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
 | Operação |A operação é executada na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem de: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Último exemplo: O valor do último intervalo que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico. |
-| **Avançado** |**> Verificação de fluxo de dados** |
+| **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
 | Mensagem |A mensagem é apresentada se a consulta de verificação de fluxo de dados não retornará nenhum dado. Se não fornecer nenhuma mensagem, uma *a executar avaliação* é apresentada a mensagem de estado. |

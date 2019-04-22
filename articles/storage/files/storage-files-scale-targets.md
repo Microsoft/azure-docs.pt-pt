@@ -9,10 +9,10 @@ ms.date: 7/19/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494974"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
@@ -105,5 +105,5 @@ Como um guia Geral para a sua implementação, deve manter algumas coisas em men
 ## <a name="see-also"></a>Consulte também
 
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Metas de escalabilidade e desempenho para outros serviços de armazenamento](../common/storage-scalability-targets.md)

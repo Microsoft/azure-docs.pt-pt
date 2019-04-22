@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497105"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
@@ -47,7 +47,7 @@ Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
-[As ferramentas de núcleo das funções do Azure] inclui uma versão do runtime mesmo que alimenta o tempo de execução de funções do Azure que pode executar no seu computador de desenvolvimento local. Ele também fornece comandos para criar funções, ligar para o Azure e implementar projetos de função.
+[Ferramentas de núcleo das funções do Azure] inclui uma versão do runtime mesmo que alimenta o tempo de execução de funções do Azure que pode executar no seu computador de desenvolvimento local. Ele também fornece comandos para criar funções, ligar para o Azure e implementar projetos de função.
 
 ### <a name="v2"></a>Versão 2.x
 
@@ -59,7 +59,7 @@ Os seguintes passos utilizam npm para instalar as ferramentas de núcleo no Wind
 
 1. Instale [2.x SDK para .NET Core para Windows](https://www.microsoft.com/net/download/windows).
 
-2. Instale [node. js], que inclui o npm. Para a versão 2.x das ferramentas, apenas 8.5 de node. js e versões posteriores são suportados.
+2. Instale [Node.js], que inclui o npm. Para a versão 2.x das ferramentas, apenas 8.5 de node. js e versões posteriores são suportados.
 
 3. Instale o pacote de ferramentas de núcleo:
 
@@ -204,7 +204,7 @@ O ficheiro Settings armazena as definições da aplicação, as cadeias de liga�
 Os valores de definições de aplicação de função também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte a secção de variáveis de ambiente destes tópicos de referência de idioma específico:
 
 * [C# pré-compiladas](functions-dotnet-class-library.md#environment-variables)
-* [Script C# (.csx)](functions-reference-csharp.md#environment-variables)
+* [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
 * [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)

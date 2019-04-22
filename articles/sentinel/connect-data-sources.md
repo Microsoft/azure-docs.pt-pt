@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492367"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
@@ -45,8 +45,8 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure sentinela
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Centro de Segurança do Azure](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Proteção Avançada Contra Ameaças do Azure](connect-azure-atp.md)
-    - [Cloud App Security](connect-cloud-app-security.md)
+    - [Proteção contra ameaças avançada do Azure](connect-azure-atp.md)
+    - [O cloud App Security](connect-cloud-app-security.md)
     - [Eventos de segurança do Windows](connect-windows-security-events.md) 
     - [Firewall do Windows](connect-windows-firewall.md)
 

@@ -18,10 +18,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59491326"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
@@ -78,7 +78,7 @@ Este início rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downlo
 > > [Efetuar estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-windows-desktop/green-check.png) seu aplicativo está configurado com esses atributos.
+> > ![Já configurada](media/quickstart-v2-windows-desktop/green-check.png) A sua aplicação está configurada com estes atributos.
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Passo 2: Transfira o seu projeto do Visual Studio
 
@@ -100,7 +100,7 @@ Este início rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downlo
     
     > [!div renderon="docs"]
     >> Em que:
-    >> * `Enter_the_Application_Id_Here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
+    >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
     >> * `Enter_the_Tenant_Id_Here` -substituir este valor com o **Id do inquilino** ou **nome do inquilino** (por exemplo, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` -substituir este valor com o segredo de cliente criado no passo 1.
 
@@ -133,7 +133,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 >> Em que:
 >> * `Enter_the_Tenant_Id_Here` -substituir este valor com o **Id do inquilino** ou **nome do inquilino** (por exemplo, contoso.microsoft.com)
->> * `Enter_the_Application_Id_Here` -é o **ID da aplicação (cliente)** para a aplicação que registou.
+>> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
 > [!NOTE]
 > Poderá ver o erro *' AADSTS50011: Nenhum endereço de resposta está registado para a aplicação '* depois de conceder permissão à aplicação com o URL anterior. Isso acontecer porque esta aplicação e o URL não têm um redirecionamento URI - ignore o erro.
@@ -225,7 +225,7 @@ Para obter mais informações, consulte o [documentação de referência `Acquir
 Saiba mais sobre permissões e consentimento:
 
 > [!div class="nextstepaction"]
-> [Permissões e Consentimento](v2-permissions-and-consent.md)
+> [Permissões e consentimento](v2-permissions-and-consent.md)
 
 Para saber mais sobre o fluxo de autenticação para este cenário, consulte o fluxo de credenciais de cliente Oauth 2.0:
 

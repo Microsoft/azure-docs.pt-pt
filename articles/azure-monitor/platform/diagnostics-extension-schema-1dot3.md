@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497088"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 de diagnóstico do Azure e o esquema de configuração posterior
@@ -408,7 +408,7 @@ O PublicConfig e PrivateConfig estão separadas porque, na maioria dos casos de 
 
 
 ## <a name="diagnosticsconfiguration-element"></a>Elemento de DiagnosticsConfiguration  
- *Árvore: Raiz - DiagnosticsConfiguration*
+ *Árvore: Root - DiagnosticsConfiguration*
 
 Adicionado na versão 1.3.  
 
@@ -451,7 +451,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |----------------|-----------------|  
 | **overallQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser utilizada por vários tipos de dados de diagnóstico recolhidos pelo diagnóstico do Azure. A configuração padrão é 4096 MB.<br />
 |**useProxyServer** | Configure o diagnóstico do Azure para utilizar as definições do servidor proxy, conforme definido nas definições do IE.|
-|**Coletores de** | Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico para todos os elementos filho que suportam sinks. Exemplo de sink é o Application Insights ou Hubs de eventos.|  
+|**sinks** | Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico para todos os elementos filho que suportam sinks. Exemplo de sink é o Application Insights ou Hubs de eventos.|  
 
 
 <br /> <br />
@@ -584,7 +584,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Elemento subordinado|Descrição|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Os seguintes atributos são necessários:<br /><br /> - **counterSpecifier** -o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu anfitrião, execute o comando `typeperf`.<br /><br /> - **SampleRate como sendo** -a frequência com que o contador de amostragem.<br /><br /> Atributo opcional:<br /><br /> **unidade** -a unidade de medida do contador.|
-|**Coletores de** | Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico. Por exemplo, do Azure Monitor ou Hubs de eventos.|    
+|**sinks** | Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico. Por exemplo, do Azure Monitor ou Hubs de eventos.|    
 
 
 
@@ -598,7 +598,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento subordinado|Descrição|  
 |-------------------|-----------------|  
-|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especificar "*"|  
+|**DataSource**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especificar "*"|  
 
 
 
@@ -614,8 +614,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
 |**scheduledTransferLogLevelFilter**|**string**|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**, que transfere todos os registos. Outros valores possíveis (na ordem da maioria às informações do menor) são **verboso**, **informações**, **aviso**, **erro**e o **Críticos**.|  
-|**scheduledTransferPeriod**|**duração**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
-|**Coletores de** |**string**| Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de eventos.|  
+|**scheduledTransferPeriod**|**Duração**|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**sinks** |**string**| Adicionado 1.5. Opcional. Aponta para uma localização de sink para também enviar dados de diagnóstico. Por exemplo, Application Insights ou Hubs de eventos.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: -DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources de raiz*
@@ -633,7 +633,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Sink**|Ver descrição noutro local nesta página.|  
+|**sink**|Ver descrição noutro local nesta página.|  
 
 ## <a name="sink-element"></a>Elemento de sink
  *Árvore: SinksConfig raiz - WadCFG DiagnosticsConfiguration - PublicConfig - - - Sink*
@@ -644,12 +644,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**nome**|string|Uma cadeia de identificação a sinkname.|  
+|**name**|string|Uma cadeia de identificação a sinkname.|  
 
 |Elemento|Type|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights tem acesso.|  
-|**Canais**|string|Um para cada adicional de filtragem que do stream|  
+|**canais**|string|Um para cada adicional de filtragem que do stream|  
 
 ## <a name="channels-element"></a>Elemento de canais  
  *Árvore: Canais de SinksConfig - Sink - raiz - WadCFG DiagnosticsConfiguration - PublicConfig-*
@@ -672,7 +672,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Atributos|Type|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**, que transfere todos os registos. Outros valores possíveis (na ordem da maioria às informações do menor) são **verboso**, **informações**, **aviso**, **erro**e o **Críticos**.|  
-|**nome**|**string**|Um nome exclusivo do canal para fazer referência a|  
+|**name**|**string**|Um nome exclusivo do canal para fazer referência a|  
 
 
 ## <a name="privateconfig-element"></a>Elemento de PrivateConfig

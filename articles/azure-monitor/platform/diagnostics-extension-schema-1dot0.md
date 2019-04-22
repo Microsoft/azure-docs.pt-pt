@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492724"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuração de diagnósticos do Azure 1.0
@@ -154,7 +154,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento de FailedRequestLogs  
@@ -166,7 +166,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento de IISLogs  
@@ -178,7 +178,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="datasources-element"></a>Elemento de origens de dados  
@@ -195,7 +195,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**contentor**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
+|**container**|string|O nome do contentor onde o conteúdo do diretório está a ser transferidos.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> A predefinição é 0.|  
 
 ## <a name="absolute-element"></a>Elemento absoluto  
@@ -207,7 +207,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**caminho**|string|Necessário. O caminho absoluto para o diretório a monitorizar.|  
+|**path**|string|Necessário. O caminho absoluto para o diretório a monitorizar.|  
 |**expandEnvironment**|boolean|Necessário. Se definido como **true**, variáveis de ambiente no caminho são expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento de LocalResource  
@@ -219,7 +219,7 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**nome**|string|Necessário. O nome do recurso local que contém o diretório para monitorizar.|  
+|**name**|string|Necessário. O nome do recurso local que contém o diretório para monitorizar.|  
 |**relativePath**|string|Necessário. O caminho relativo para o recurso local para monitorizar.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters elemento  
@@ -269,5 +269,5 @@ Atributos:
 
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
-|**nome**|string|Necessário. Uma expressão XPath especificando o registo para recolher.|  
+|**name**|string|Necessário. Uma expressão XPath especificando o registo para recolher.|  
 

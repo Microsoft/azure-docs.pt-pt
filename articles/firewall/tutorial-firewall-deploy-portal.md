@@ -9,10 +9,10 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492319"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure
@@ -104,7 +104,7 @@ Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque
 
    |Definição  |Valor  |
    |---------|---------|
-   |Grupo de recursos     |**Teste-FW-RG**|
+   |Grupo de recursos     |**Test-FW-RG**|
    |Nome da máquina virtual     |**Srv-Jump**|
    |Região     |Mesmo que a anterior|
    |Nome de utilizador de administrador     |**azureuser**|
@@ -125,9 +125,9 @@ Utilize as informações na tabela seguinte para configurar outra máquina virtu
 
 |Definição  |Valor  |
 |---------|---------|
-|Subrede|**Workload-SN**|
-|IP público|**Nenhuma**|
-|Portas de entrada públicas|**Nenhuma**|
+|Subrede|**SN da carga de trabalho**|
+|IP público|**Nenhum**|
+|Portas de entrada públicas|**Nenhum**|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 
@@ -141,7 +141,7 @@ Implemente a firewall na VNet.
    |Definição  |Valor  |
    |---------|---------|
    |Subscrição     |\<a sua subscrição\>|
-   |Grupo de recursos     |**Teste-FW-RG** |
+   |Grupo de recursos     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilizar existente**: **Test-FW-VN**|

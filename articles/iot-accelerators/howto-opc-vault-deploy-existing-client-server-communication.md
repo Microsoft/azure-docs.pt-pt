@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495299"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger o OPC UA cliente e a aplicação de servidor OPC UA 
@@ -34,7 +34,7 @@ Scripts de OPC cofre:
 - Defina a variável de ambiente `$env:_OPCVAULTID` para uma cadeia de caracteres que permite que encontre novamente os seus dados no Cofre de OPC. É recomendável defini-la como um número de 6 dígitos. No nosso exemplo, "123456" foi utilizado como valor para a variável.
 - Certifique-se de que não existe nenhum volume do docker `opcclient` ou `opcplc`. Verifique com `docker volume ls` e removê-los com `docker volume rm <volumename>`. Poderá ter de remover também a contentores com `docker rm <containerid>` se os volumes ainda são utilizados por um contentor.
 
-**Início Rápido**
+**Início rápido**
 1. Vá para o [Web site do Cofre de OPC](https://opcvault.azurewebsites.net/)
 
 1. Selecione `Register New`
@@ -75,7 +75,7 @@ Scripts de OPC cofre:
     > [!NOTE] 
     > Ao trabalhar com este cenário, pode ter reconheceu que o `<addissuercertbase64-string>` e `<updatecrlbase64-string>` valores são idênticos para `opcplc` e `opcclient`. Isso é verdadeiro para nosso caso de utilização e pode economizar tempo ao realizar os passos.
 
-**Início Rápido**
+**Início rápido**
 
 Execute o seguinte comando do PowerShell na raiz do repositório:
 
@@ -136,7 +136,7 @@ Se vir esta saída, em seguida, o PLC OPC é agora confiar a OPC cliente e vice-
 
 ### <a name="a-testbed-for-opc-publisher"></a>Um testbed para o publicador OPC ###
 
-**Início Rápido**
+**Início rápido**
 
 Execute o seguinte comando do PowerShell na raiz do repositório:
 ```

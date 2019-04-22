@@ -18,10 +18,10 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496134"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação nativa do iOS
@@ -46,14 +46,14 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
 > Para o código de exemplo para este início rápido funcionar, terá de adicionar um URL de resposta como `msal<AppId>://auth` (onde msal\<AppId > é o Id de aplicação).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Efetuar esta alteração para mim]()
+> > [Fazer esta alteração por mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-ios/green-check.png) seu aplicativo está configurado com esse atributo
+> > ![Já configurada](media/quickstart-v2-ios/green-check.png) A sua aplicação está configurada com este atributo
 
 #### <a name="step-2-download-your-web-server-or-project"></a>Passo 2: Transfira o seu servidor web ou projeto
 
-- [Transfira o projeto XCode](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
+- [Transfira o Projeto XCode](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 
 #### <a name="step-3-configure-your-project"></a>Passo 3: Configurar o seu projeto
 
@@ -190,6 +190,6 @@ Experimente o tutorial para iOS para obter um guia passo a passo completo sobre 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Conheça os passos para criar a aplicação utilizada neste início rápido
 
 > [!div class="nextstepaction"]
-> [Tutorial de iOS chamada Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Chamar tutorial da Graph API iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

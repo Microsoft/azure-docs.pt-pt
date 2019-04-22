@@ -11,10 +11,10 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495741"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicionar preenchimento automático ou sugestões para a sua aplicação do Azure Search
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-O código acima é executado no navegador no carregamento da página para configurar o preenchimento automático de interface do Usuário do jQuery para a caixa de entrada "example1a".  `minLength: 3` garante que as recomendações só serão apresentadas quando existe, pelo menos, três carateres na caixa de pesquisa.  O valor de origem é importante:
+O código acima é executado no navegador no carregamento da página para configurar o preenchimento automático de interface do Usuário do jQuery para a caixa de entrada "example1a".  `minLength: 3` garante que as recomendações apenas serão apresentadas quando existe, pelo menos, três carateres na caixa de pesquisa.  O valor de origem é importante:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",

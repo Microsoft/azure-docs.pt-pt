@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 4/8/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495486"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerir recursos do Cosmos do Azure com a CLI do Azure
@@ -117,5 +117,5 @@ az cosmosdb regenerate-key \
 Para obter mais informações sobre a CLI do Azure, consulte:
 
 - [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
-- [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
+- [Referência do CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb)
 - [Exemplos da CLI do Azure adicionais para o Azure Cosmos DB](cli-samples.md)

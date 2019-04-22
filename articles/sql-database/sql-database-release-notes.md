@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: carlrab
 ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495110"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão da base de dados SQL
@@ -26,7 +26,7 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 | Funcionalidade | Detalhes |
 | ---| --- |
 | Tarefas de base de dados elástica | Para obter informações, consulte [criar, configurar e gerir conjuntos elásticos](elastic-jobs-overview.md) |
-| Transações elásticas | [Transações distribuídas entre bases de dados de nuvem](sql-database-elastic-transactions-overview.md) |
+| Transações elásticas | [Transações distribuídas entre bases de dados de cloud](sql-database-elastic-transactions-overview.md) |
 | Consultas elásticas | Para obter informações, consulte [descrição geral das consultas elásticas](sql-database-elastic-query-overview.md) |
 | Replicação com instâncias geridas |Para obter informações, consulte [configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL](replication-with-sql-database-managed-instance.md)|
 | Agrupamento de instância com instâncias geridas |Para obter informações, consulte [utilize o PowerShell com o modelo Azure Resource Manager para criar uma instância gerida na base de dados do Azure SQL](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|

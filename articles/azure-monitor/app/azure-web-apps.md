@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489627"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
@@ -101,7 +101,7 @@ Monitorização do lado do cliente é uma opção para o ASP.NET. Para ativar a 
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valor: `true`
+     Valor:`true`
 
    * **Guarde** as definições e **reinicie** a aplicação.
 
@@ -120,7 +120,7 @@ Se por algum motivo desejar desativar a monitorização do lado do cliente:
 
      name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     Valor: `false`
+     Valor:`false`
 
    * **Guarde** as definições e **reinicie** a aplicação.
 
@@ -137,7 +137,7 @@ Para ativar a recolha de telemetria com o Application Insights, apenas as defini
 |Nome da definição de aplicação |  Definição | Valor |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Extensão principal, que controla a monitorização do tempo de execução. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  Em default funcionalidades em modo apenas, essencial estão ativadas e assim garantir um desempenho ideal. | `default` Ou `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  Em default funcionalidades em modo apenas, essencial estão ativadas e assim garantir um desempenho ideal. | `default` ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla se o motor de reescrita de binário `InstrumentationEngine` será ativado. Esta definição tem implicações de desempenho e tem impacto sobre a hora de início/inicialização a frio. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controles se o texto de tabela SQL e no Azure serão capturados, juntamente com as chamadas de dependência. Aviso de desempenho: esta definição exige que o `InstrumentationEngine`. | `~1` |
 
@@ -326,7 +326,7 @@ Segue-se nosso guia de resolução de problemas passo a passo para monitorizar/a
 1. Verifique se a aplicação é monitorizada por meio de `ApplicationInsightsAgent`.
     * Verifique se `ApplicationInsightsAgent_EXTENSION_VERSION` definição de aplicação está definida como um valor de "~ 2".
 2. Certifique-se de que a aplicação cumpre os requisitos a serem monitoradas.
-    * Navegar para `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Navegue para `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Captura de ecrã do https://yoursitename.scm.azurewebsites/applicationinsights página de resultados](./media/azure-web-apps/app-insights-sdk-status.png)
 

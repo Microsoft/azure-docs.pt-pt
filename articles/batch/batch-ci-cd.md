@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494649"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize Pipelines do Azure para criar e implementar soluções HPC
@@ -51,7 +51,7 @@ A estrutura de base de código usada neste exemplo é semelhante ao seguinte;
 Esta secção pressupõe que esteja familiarizado com os modelos de Gestor de recursos de controle e design de versão. Se não estiver familiarizado com esses conceitos, consulte as seguintes páginas para obter mais informações.
 
 * [O que é o controlo de origem?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 
 #### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 

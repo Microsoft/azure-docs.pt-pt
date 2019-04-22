@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
 ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496100"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
@@ -28,7 +28,7 @@ Outras matrizes de suporte:
 
 Eis como pode criar cópias de segurança e restaurar VMs do Azure com o serviço de cópia de segurança do Azure.
 
-**Cenário** | **Cópia de segurança** | **Agente** |**Restauro**
+**Cenário** | **Cópia de segurança** | **Agente** |**Restaurar**
 --- | --- | --- | ---
 Cópia de segurança direta de VMs do Azure  | Fazer backup de toda a VM.  | Nenhum agente é necessária na VM do Azure. O Azure Backup instala e usa uma extensão para o [agente de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que está em execução na VM. | Restaure da seguinte forma:<br/><br/> - **Criar uma VM básica**. Isto é útil se a VM não tem nenhuma configuração especial, como vários endereços IP.<br/><br/> - **Restaurar o disco da VM**. Restaure o disco. Em seguida, anexá-lo a uma VM existente ou criar uma nova VM a partir do disco com o PowerShell.<br/><br/> - **Substituir o disco da VM**. Se existe uma VM e utiliza discos geridos (sem criptografia), pode restaurar um disco e utilizá-lo para substituir um disco existente na VM.<br/><br/> - **Restaurar ficheiros/pastas específicas**. Pode restaurar ficheiros/pastas a partir de uma VM, em vez de partir toda a VM.
 Cópia de segurança direta de VMs do Azure (apenas Windows)  | Cópia de segurança de ficheiros/pastas/volume do específico. | Instalar o [agente dos serviços de recuperação do Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> Pode executar o agente de MARS juntamente com a extensão de cópia de segurança para o agente de VM do Azure criar cópias de segurança a VM ao nível do ficheiro/pasta. | Restaure ficheiros/pastas específicos.
@@ -109,7 +109,7 @@ Restaurar ficheiros | Pode recuperar ficheiros a partir de um ponto de recupera�
 
 ## <a name="support-for-file-level-restore"></a>Suporte para o restauro ao nível do ficheiro
 
-**Restauro** | **Suportadas**
+**Restaurar** | **Suportado**
 --- | ---
 Restaurar ficheiros em sistemas operativos | Pode restaurar ficheiros em qualquer máquina que tenha o mesmo (ou compatível) o SO da VM de cópia de segurança. consulte a [tabela de sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar ficheiros em VMs clássicas | Não suportado.
@@ -123,7 +123,7 @@ Restaurar ficheiros com as definições de rede especiais | Restauro não são s
 
 A tabela seguinte resume o suporte para cópia de segurança durante as tarefas de gestão da VM, como adição ou substituição de discos VM.
 
-**Restauro** | **Suportadas**
+**Restaurar** | **Suportado**
 --- | ---
 Restaure em subscrição/região/zona. | Não suportado.
 Restaurar para uma VM existente | Utilize a opção de disco de substituição.
@@ -212,7 +212,7 @@ Segurança de dados:
 - No back-end, o Azure Backup utiliza a [encriptação do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md), que protege os dados inativos.
 
 
-**Máquina** | **Em trânsito** | **Em repouso**
+**Machine** | **Em trânsito** | **Em repouso**
 --- | --- | ---
 Máquinas do Windows sem DPM/MABS no local | ![Sim][green] | ![Sim][green]
 VMs do Azure | ![Sim][green] | ![Sim][green]
@@ -228,7 +228,7 @@ Cópia de segurança suporta a compactação do tráfego de cópia de segurança
 - Para VMs do Azure, a extensão da VM lê os dados diretamente a partir da conta de armazenamento do Azure através da rede de armazenamento. Não é necessário comprimir este tráfego.
 - Se estiver a utilizar o DPM ou MABS, pode poupar largura de banda ao comprimir os dados antes de ele cópia de segurança para DPM/MABS.
 
-**Máquina** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
+**Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
 --- | --- | ---
 Máquinas do Windows sem DPM/MABS no local | ND | ![Sim][green]
 VMs do Azure | ND | ND

@@ -31,7 +31,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="front-door-custom-domain.md">Adicionar um domínio personalizado ao seu Front Door</a>
+          - html: <a href="front-door-custom-domain.md">Adicionar um domínio personalizado para o seu Front Door</a>
           - html: <a href="front-door-custom-domain-https.md">Ativar HTTPS para um domínio personalizado</a>
   - title: Referência
     items:

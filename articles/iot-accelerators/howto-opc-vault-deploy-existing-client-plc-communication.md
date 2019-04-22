@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494018"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>Proteger a comunicação de cliente OPC e OPC PLC
@@ -39,7 +39,7 @@ Scripts de OPC cofre:
 
 - Certifique-se de que existem não existem volumes do docker `opcclient` ou `opcplc`. Verifique com `docker volume ls` e removê-los com `docker volume rm <volumename>`. Poderá ter de remover também a contentores com `docker rm <containerid>` se os volumes ainda são utilizados por um contentor.
 
-**Início Rápido**
+**Início rápido**
 
 Execute o seguinte comando do PowerShell na raiz do repositório:
 
@@ -130,7 +130,7 @@ Repita o processo completo, começando com `Register New` (passo 3 acima) para o
 > [!NOTE]
 > Ao trabalhar com este cenário, pode ter reconheceu que o `<addissuercertbase64-string>` e `<updatecrlbase64-string>` valores são idênticos para `opcplc` e `opcclient`. Isso é verdadeiro para nosso caso de utilização e pode economizar tempo ao realizar os passos.
 
-**Início Rápido**
+**Início rápido**
 
 Execute o seguinte comando do PowerShell na raiz do repositório:
 

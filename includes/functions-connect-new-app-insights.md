@@ -9,10 +9,10 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497357"
 ---
 Funções torna simples para adicionar a integração do Application Insights para uma aplicação de funções a partir da [portal do Azure].
@@ -27,7 +27,7 @@ Funções torna simples para adicionar a integração do Application Insights pa
 
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | Nome exclusivo da aplicação | É mais fácil de utilizar o mesmo nome que a sua aplicação de função, que tem de ser exclusiva na sua subscrição. | 
+    | **Nome** | Nome exclusivo da aplicação | É mais fácil de utilizar o mesmo nome que a sua aplicação de função, que tem de ser exclusiva na sua subscrição. | 
     | **Localização** | Europa Ocidental | Se possível, utilize o mesmo [região](https://azure.microsoft.com/regions/) que a sua aplicação de função ou próximo-lo. |
 
 1. Escolha **OK**. O recurso do Application Insights é criado no mesmo grupo de recursos e subscrição que a sua aplicação de função. Depois de concluída a criação, feche a janela do Application Insights.

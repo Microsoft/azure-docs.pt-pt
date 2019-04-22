@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496408"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
@@ -289,10 +289,10 @@ Os seguintes artigos fornecem informações adicionais sobre a palavra-passe, re
 * [Repor ou alterar a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](../user-help/active-directory-passwords-reset-register.md)
 * [Tem alguma pergunta sobre licenciamento?](concept-sspr-licensing.md)
-* [Os dados que são utilizados pela SSPR e quais dados devem ser preenchidos para os seus utilizadores?](howto-sspr-authenticationdata.md)
-* [Os métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
-* [Quais são as opções de política com SSPR?](concept-sspr-policy.md)
-* [O que é a repetição de escrita de palavra-passe e por que me importo-lo?](howto-sspr-writeback.md)
+* [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](howto-sspr-authenticationdata.md)
+* [Que métodos de autenticação estão disponíveis para os utilizadores?](concept-sspr-howitworks.md#authentication-methods)
+* [Quais são as opções de política da SSPR?](concept-sspr-policy.md)
+* [O que é a repetição de escrita de palavras-passe e por que me deve interessar?](howto-sspr-writeback.md)
 * [Como posso comunicar a atividade da SSPR?](howto-sspr-reporting.md)
-* [Quais são todas as opções na SSPR e o que fazer que significam?](concept-sspr-howitworks.md)
-* [Tenho uma pergunta que não foi abordada](active-directory-passwords-faq.md)
+* [Quais são todas as opções na SSPR e o que significam?](concept-sspr-howitworks.md)
+* [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)

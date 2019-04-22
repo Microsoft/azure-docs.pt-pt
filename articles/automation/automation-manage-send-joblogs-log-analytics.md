@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496595"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
@@ -68,8 +68,7 @@ Se precisa localizar o *Name* da sua conta de automatização no portal do Azure
 
 Depois de executar este script, pode demorar uma hora antes de começar a ver registos nos registos do Azure Monitor do novo JobLogs ou JobStreams que estão sendo gravados.
 
-Para ver os registos, execute a seguinte consulta na pesquisa de registos do log analytics:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta na pesquisa de registos do log analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificar configuração
 
@@ -137,8 +136,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 
 Agora que iniciou a enviar os registos da tarefa de automatização para registos do Azure Monitor, vejamos o que pode fazer com estes registos no interior de registos do Azure Monitor.
 
-Para ver os registos, execute a seguinte consulta:
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Enviar um e-mail quando uma tarefa de runbook falha ou suspende
 Um dos principais clientes pede destina-se a capacidade de enviar um e-mail ou uma mensagem de texto quando algo dá errado com uma tarefa de runbook.   
