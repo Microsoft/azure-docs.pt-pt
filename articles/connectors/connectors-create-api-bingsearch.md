@@ -55,11 +55,11 @@ Em alternativa, se a ligação já existir, fornecer as informações necessári
 
    | Propriedade | Necessário | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*search-words*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
-   | Comercializar | Sim | <*locale*> | A localidade de pesquisa. A predefinição é "en-US", mas pode selecionar outro valor. |
-   | Pesquisa segura | Sim | <*search-level*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderado", mas seleciona outro nível. |
-   | Contagem | Não | <*results-count*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
-   | Desvio | Não | <*skip-value*> | O número de resultados a ignorar antes de retornar resultados |
+   | Search Query | Sim | <*search-words*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
+   | Market | Sim | <*locale*> | A localidade de pesquisa. A predefinição é "en-US", mas pode selecionar outro valor. |
+   | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderado", mas seleciona outro nível. |
+   | Count | Não | <*results-count*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | Offset | Não | <*skip-value*> | O número de resultados a ignorar antes de retornar resultados |
    |||||
 
    Por exemplo:
@@ -106,11 +106,11 @@ Na lista de ações, selecione a ação que pretende.
 
    | Propriedade | Necessário | Value | Descrição |
    |----------|----------|-------|-------------|
-   | Consulta de Pesquisa | Sim | <*search-expression*> | Introduza uma expressão de consulta de resultados de Acionador. Pode selecionar a partir de campos na lista de conteúdo dinâmico ou crie uma expressão com o construtor de expressões. |
-   | Comercializar | Sim | <*locale*> | A localidade de pesquisa. A predefinição é "en-US", mas pode selecionar outro valor. |
-   | Pesquisa segura | Sim | <*search-level*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderado", mas seleciona outro nível. |
-   | Contagem | Não | <*results-count*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
-   | Desvio | Não | <*skip-value*> | O número de resultados a ignorar antes de retornar resultados |
+   | Search Query | Sim | <*search-expression*> | Introduza uma expressão de consulta de resultados de Acionador. Pode selecionar a partir de campos na lista de conteúdo dinâmico ou crie uma expressão com o construtor de expressões. |
+   | Market | Sim | <*locale*> | A localidade de pesquisa. A predefinição é "en-US", mas pode selecionar outro valor. |
+   | Safe Search | Sim | <*search-level*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderado", mas seleciona outro nível. |
+   | Count | Não | <*results-count*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | Offset | Não | <*skip-value*> | O número de resultados a ignorar antes de retornar resultados |
    |||||
 
    Por exemplo, suponha que pretende que esses resultados cujo nome de categoria inclui a palavra "técnico".
