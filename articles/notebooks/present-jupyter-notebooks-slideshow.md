@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280473"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides do bloco de notas
@@ -102,7 +102,7 @@ Uma vez que a apresentação de slides renderiza fragmentos com mais vertical es
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: Trabalhar com ficheiros de dados](work-with-project-data-files.md)
-- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270987"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação após desastre para SQL Server
@@ -45,7 +45,7 @@ Recuperação de sites pode proteger o SQL Server conforme resumido na tabela.
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
-**Azure** |N/D| Sim
+**Azure** |ND| Sim
 
 ### <a name="supported-sql-server-versions"></a>Versões suportadas do SQL Server
 Estas versões do SQL Server são suportados para os cenários suportados:
@@ -72,15 +72,15 @@ A tabela seguinte resume as nossas recomendações para a integração de tecnol
 
 | **Versão** | **Edição** | **Implementação** | **Local para a no local** | **No local para o Azure** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2012, 2014 ou 2016 |Empresa |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
-|| Empresa |Always On grupos de disponibilidade para elevada disponibilidade |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
+| SQL Server 2012, 2014 ou 2016 |Enterprise |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
+|| Enterprise |Always On grupos de disponibilidade para elevada disponibilidade |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
 || Standard |Instância de cluster de ativação pós-falha (FCI) |Replicação do site Recovery com espelhamento local |Replicação do site Recovery com espelhamento local |
 || Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery |
 | SQL Server 2008 R2 ou 2008 |Enterprise ou Standard |Instância de cluster de ativação pós-falha (FCI) |Replicação do site Recovery com espelhamento local |Replicação do site Recovery com espelhamento local |
 || Enterprise ou Standard |Autónomo |Replicação do site Recovery |Replicação do site Recovery |
 | SQL Server (qualquer versão) |Enterprise ou Standard |Instância de cluster de ativação pós-falha - aplicação de DTC |Replicação do site Recovery |Não suportado |
 
-## <a name="deployment-prerequisites"></a>Pré-requisitos de implementação
+## <a name="deployment-prerequisites"></a>Pré-requisitos da implementação
 
 * Uma implementação no local do SQL Server, executar uma versão suportada do SQL Server. Normalmente, também precisa do Active Directory para o SQL server.
 * Os requisitos para o cenário de que pretende implementar. Saiba mais sobre os requisitos de suporte para [replicação para o Azure](site-recovery-support-matrix-to-azure.md) e [no local](site-recovery-support-matrix.md), e [pré-requisitos de implementação](site-recovery-prereq.md).
@@ -101,7 +101,7 @@ Eis o que precisa fazer:
 
 1. Importar scripts para a sua conta de automatização do Azure. Contém os scripts para ativação pós-falha o grupo de disponibilidade SQL num [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) e uma [máquinas virtuais clássicas](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Deploy para o Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Adicione o ASR-SQL-FailoverAG como uma ação de pré-instalação do primeiro grupo de plano de recuperação.

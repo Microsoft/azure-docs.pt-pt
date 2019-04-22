@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282326"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
@@ -30,7 +30,7 @@ Um projeto também mantém metadados e outras definições de configuração que
 
 Sua **meus projetos** dashboard em `https://notebooks.azure.com/<userID>/projects` é onde pode ver, gere e criar projetos:
 
-[![Mdashboard de projetos de y em blocos de notas do Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![O meu dashboard de projetos em blocos de notas do Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 O que pode fazer no dashboard depende se iniciou sessão com a conta que possui o ID de utilizador:
 
@@ -38,7 +38,7 @@ O que pode fazer no dashboard depende se iniciou sessão com a conta que possui 
 | --- | --- | --- |
 | **Executar** | Proprietário | Inicia o servidor de projeto e abre a pasta de projeto no Jupyter. (Mais comum, que navegue primeiro para uma pasta do projeto, em seguida, iniciar um bloco de notas a partir daí.) |
 | **Transferência** | Qualquer pessoa | Transfere uma cópia do projeto selecionado como um ficheiro ZIP. |
-| **Partilhar** | Qualquer pessoa | Apresenta o popup partilha através do qual pode obter um URL para um projeto selecionado, partilhe a mídia social, enviar um e-mail com o URL e obter o código HTML ou Markdown para com um destaque de "Bloco de notas de lançamento" (consulte [obter um destaque de lançamento](#obtain-a-launch-badge)) com o URL. |
+| **Partilha** | Qualquer pessoa | Apresenta o popup partilha através do qual pode obter um URL para um projeto selecionado, partilhe a mídia social, enviar um e-mail com o URL e obter o código HTML ou Markdown para com um destaque de "Bloco de notas de lançamento" (consulte [obter um destaque de lançamento](#obtain-a-launch-badge)) com o URL. |
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
 | **Terminal** | Proprietário | Inicia o servidor de projeto, em seguida, abre-se de uma nova janela do browser com o bash para esse servidor de terminal. |
 | **+ Novo projeto** | Proprietário | Cria um novo projeto. Ver [criar um novo projeto](#create-a-new-project). |
@@ -121,9 +121,9 @@ Para clonar um projeto:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
-- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
-- [Como: Trabalhar com ficheiros de dados](work-with-project-data-files.md)
-- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Utilizar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [How to: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [How to: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

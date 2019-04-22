@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273163"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
@@ -71,7 +71,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
 - `{YourMG}` -Substituir com o ID do seu grupo de gestão
-- `{subscriptionId}` -Substituir pelo seu ID de subscrição
+- `{subscriptionId}` - substituir pelo ID da subscrição
 
 > [!NOTE]
 > Esquemas também podem ser criadas ao nível da subscrição. Para ver um exemplo, consulte [criar o esquema no exemplo de subscrição](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -338,7 +338,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 
 - `{tenantId}` -Substituir pelo seu ID de inquilino
 - `{YourMG}` -Substituir com o ID do seu grupo de gestão
-- `{subscriptionId}` -Substituir pelo seu ID de subscrição
+- `{subscriptionId}` - substituir pelo ID da subscrição
 
 1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas o ID de principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359707"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como utilizar a base de dados do Azure SQL
@@ -27,26 +27,26 @@ Nesta seção encontrará várias guias, scripts e explicações que podem ajuda
 
 - [Copiar uma base de dados individual ou bases de dados agrupadas no Azure](sql-database-copy.md)
 - [Importar uma BD de um BACPAC](sql-database-import.md)
-- [Exportar uma BD de um BACPAC](sql-database-export.md)
+- [Exportar uma BD para BACPAC](sql-database-export.md)
 - [Carregar dados com o BCP](sql-database-load-from-csv-with-bcp.md)
 - [Carregar dados com o ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronização de dados
 
-- [Sincronização de Dados SQL](sql-database-sync-data.md)
-- [Agente de Sincronização de Dados](sql-database-data-sync-agent.md)
-- [Replicar as alterações do esquema](sql-database-update-sync-schema.md)
+- [Sincronização de dados SQL](sql-database-sync-data.md)
+- [Agente de sincronização de dados](sql-database-data-sync-agent.md)
+- [Replicar as alterações de esquema](sql-database-update-sync-schema.md)
 - [Monitorizar com o OMS](sql-database-sync-monitor-oms.md)
-- [Melhores práticas para a Sincronização de Dados](sql-database-best-practices-data-sync.md)
-- [Resolver problemas de Sincronização de Dados](sql-database-troubleshoot-data-sync.md)
+- [Melhores práticas para a sincronização de dados](sql-database-best-practices-data-sync.md)
+- [Resolver problemas da sincronização de dados](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>Monitorização e otimização
 
 - [Ajuste manual](sql-database-performance-guidance.md)
 - [Utilizar DMVs para monitorizar o desempenho](sql-database-monitoring-with-dmvs.md)
-- [Utilizar o Arquivo de consultas para monitorizar o desempenho](sql-database-operate-query-store.md)
-- [Resolução de problemas de desempenho com o Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
-- [Utilizar registo de diagnóstico do Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
+- [Utilizar o arquivo de consultas para monitorizar o desempenho](sql-database-operate-query-store.md)
+- [Resolver problemas de desempenho com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md)
+- [Utilizar o registo de diagnóstico de informações inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Monitorizar o espaço OLTP dentro da memória](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Eventos expandidos
@@ -59,34 +59,34 @@ Nesta seção encontrará várias guias, scripts e explicações que podem ajuda
 
 - [Configurar a autenticação do Azure AD](sql-database-aad-authentication-configure.md)
 - [Configurar o acesso condicional](sql-database-conditional-access.md)
-- [Autenticação multifator do AAD](sql-database-ssms-mfa-authentication.md)
+- [Multi-factor Authentication do AAD](sql-database-ssms-mfa-authentication.md)
 - [Configurar a autenticação multifator](sql-database-ssms-mfa-authentication-configure.md)
 - [Configurar a política de retenção temporal](sql-database-temporal-tables-retention-policy.md)
 - [Configurar o TDE com o BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
-- [Rodar chaves BYOK de TDE](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- [Rodar chaves de TDE BYOK](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Remover o protetor de TDE](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Configurar o OLTP dentro da memória](sql-database-in-memory-oltp-migration.md)
-- [Configurar a Automatização do Azure](sql-database-manage-automation.md)
+- [Configurar a automatização do Azure](sql-database-manage-automation.md)
 
 ## <a name="develop-applications"></a>Programar aplicações
 
-- [Conectividade](sql-database-libraries.md)
-- [Utilizar o Conector do Spark](sql-database-spark-connector.md)
+- [Conetividade](sql-database-libraries.md)
+- [Utilizar o conector do Spark](sql-database-spark-connector.md)
 - [Autenticar aplicação](sql-database-client-id-keys.md)
 - [Mensagens de erro](sql-database-develop-error-messages.md)
 - [Utilize a criação de batches para um melhor desempenho](sql-database-use-batching-to-improve-performance.md)
 - [Orientações para conectividade](sql-database-connectivity-issues.md)
-- [Aliases DNS](dns-alias-overview.md)
+- [Aliases de DNS](dns-alias-overview.md)
 - [Configurar o alias PowerShell de DNS](dns-alias-powershell.md)
 - [Portas - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
-- [C e C ++](sql-database-develop-cplusplus-simple.md)
+- [C e C++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
 
 ## <a name="design-applications"></a>Conceber aplicações
 
 - [Conceber para a recuperação após desastre](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- [Conceção para conjuntos elásticos](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
-- [Conceber para atualizações da aplicação](sql-database-manage-application-rolling-upgrade.md)
+- [Design para conjuntos elásticos](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [Design para atualizações de aplicações](sql-database-manage-application-rolling-upgrade.md)
 
 ### <a name="design-multi-tenant-saas-applications"></a>Criar aplicações SaaS de multi-inquilino
 

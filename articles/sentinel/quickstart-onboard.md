@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276648"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Pré-visualização de acumular Sentinel do Azure
@@ -49,7 +49,7 @@ Depois de ligar as origens de dados, escolha a partir de uma galeria de criado c
 1. Ir para o portal do Azure.
 2. Certifique-se de que a subscrição na qual o Azure sentinela é criado, está selecionado. 
 3. Procure Sentinel do Azure. 
-   ![procurar](./media/quickstart-onboard/search-product.png)
+   ![search](./media/quickstart-onboard/search-product.png)
 
 1. Clique em **+ adicionar**.
 1. Selecione a área de trabalho que pretende utilizar ou criar um novo. É possível executar o Azure sentinela em mais do que uma área de trabalho, mas os dados são isolados para um único espaço de trabalho.

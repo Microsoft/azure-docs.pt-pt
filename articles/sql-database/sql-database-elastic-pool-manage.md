@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267587"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir conjuntos elásticos na base de dados do Azure SQL
@@ -75,11 +75,11 @@ Para criar e gerir conjuntos elásticos da base de dados SQL com o [CLI do Azure
 | Cmdlet | Descrição |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Cria um conjunto elástico.|
-|[lista do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devolve uma lista de conjuntos elásticos num servidor.|
-|[lista-bds do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Devolve uma lista de bases de dados num conjunto elástico.|
-|[AZ sql elastic-pool listar-edições](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Também inclui definições de DTU do conjunto disponível, limites de armazenamento e por definições de base de dados. Para reduzir a verbosidade, limites de armazenamento adicional e por base de dados, as definições são ocultadas por predefinição.|
-|[atualização do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um conjunto elástico.|
-|[eliminação do AZ sql elastic-pool](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina o conjunto elástico.|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devolve uma lista de conjuntos elásticos num servidor.|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|Devolve uma lista de bases de dados num conjunto elástico.|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list-editions)|Também inclui definições de DTU do conjunto disponível, limites de armazenamento e por definições de base de dados. Para reduzir a verbosidade, limites de armazenamento adicional e por base de dados, as definições são ocultadas por predefinição.|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um conjunto elástico.|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Elimina o conjunto elástico.|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Gerir bases de dados agrupadas
 
@@ -89,7 +89,7 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 > Não é possível criar, atualizar ou eliminar um conjunto elástico de SQL Database do Azure com o Transact-SQL. Pode adicionar ou remover bases de dados de um conjunto elástico, e pode usar DMVs para devolver informações sobre conjuntos elásticos existentes.
 >
 
-| Command | Descrição |
+| Comando | Descrição |
 | --- | --- |
 |[Criar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
 | [Alterar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mova uma base de dados para, de ou entre conjuntos elásticos.|
@@ -101,7 +101,7 @@ Para criar e mover bases de dados dentro de conjuntos elásticos existentes ou p
 
 Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas, utilize estes pedidos de REST API.
 
-| Command | Descrição |
+| Comando | Descrição |
 | --- | --- |
 |[Conjuntos elásticos - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Cria um novo conjunto elástico ou atualiza um conjunto elástico existente.|
 |[Conjuntos elásticos - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina o conjunto elástico.|

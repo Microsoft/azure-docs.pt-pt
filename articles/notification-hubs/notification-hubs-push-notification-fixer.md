@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281646"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Os Hubs de notificação do Azure - diagnosticar notificações removidas
@@ -111,7 +111,7 @@ Como os serviços de notificação de plataforma são robustos, notificações t
 
 Se um serviço de notificações push tenta enviar uma notificação, mas o dispositivo estiver offline, a notificação é armazenada pelo serviço de notificação push para um período de tempo limitado. A notificação é entregue no dispositivo quando o dispositivo fica disponível.
 
-Para cada aplicação, apenas uma notificação recente é armazenada. Se várias notificações são enviadas enquanto um dispositivo estiver offline, cada nova notificação faz com que a notificação anterior que serão ignorados. Manter apenas a notificação mais recente é referida como *notificações agregação* no APN, e *recolhimento* no FCM (que utiliza uma chave de recolhimento). Se o dispositivo pode permanecer offline por muito tempo, são eliminadas quaisquer notificações que estavam sendo armazenadas para o dispositivo. Para obter mais informações, consulte [descrição geral do APN] e [mensagens sobre FCM].
+Para cada aplicação, apenas uma notificação recente é armazenada. Se várias notificações são enviadas enquanto um dispositivo estiver offline, cada nova notificação faz com que a notificação anterior que serão ignorados. Manter apenas a notificação mais recente é referida como *notificações agregação* no APN, e *recolhimento* no FCM (que utiliza uma chave de recolhimento). Se o dispositivo pode permanecer offline por muito tempo, são eliminadas quaisquer notificações que estavam sendo armazenadas para o dispositivo. Para obter mais informações, consulte [descrição geral do APN] e [Acerca das mensagens do FCM].
 
 Com os Hubs de notificação do Azure, pode transmitir uma chave de agregação através de um cabeçalho HTTP com a API de SendNotification genérico. Por exemplo, para o SDK de .NET, usaria `SendNotificationAsync`. A API de SendNotification também usa cabeçalhos HTTP que são transmitidos como-é o serviço de notificação push respectivos.
 
@@ -227,7 +227,7 @@ Em seguida, pode usar o `EnableTestSend` propriedade booleana. Utilize o `Enable
     }
 ```
 
-**Resultado da amostra**
+**Saída de exemplo**
 
 ```text
 DetailedStateAvailable
@@ -281,7 +281,7 @@ Para obter mais informações sobre o acesso programático, consulte [acesso pro
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
 
 <!-- LINKS -->
-[Descrição Geral dos Hubs de Notificação]: notification-hubs-push-notification-overview.md
+[Descrição geral dos Hubs de notificação]: notification-hubs-push-notification-overview.md
 [Introdução aos Hubs de notificação do Azure]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Modelos]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html

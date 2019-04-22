@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: cd20fc6ae71a0dd96a0006de8c81050bb0646905
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59287435"
 ---
 # <a name="what-is-azure-data-catalog"></a>O que é o Catálogo de Dados do Azure?
@@ -64,7 +64,7 @@ Para saber mais sobre as funcionalidades do Catálogo de Dados, veja:
 * [Como documentar origens de dados](data-catalog-how-to-documentation.md)
 * [Como ligar a origens de dados](data-catalog-how-to-connect.md)
 * [Como trabalhar com macrodados](data-catalog-how-to-big-data.md)
-* [Como gerir recursos de dados](data-catalog-how-to-manage.md)
+* [How to manage data assets (Como gerir recursos de dados)](data-catalog-how-to-manage.md)
 * [Como configurar o Glossário Comercial](data-catalog-how-to-business-glossary.md)
 * [Perguntas mais frequentes](data-catalog-frequently-asked-questions.md)
 
@@ -72,5 +72,5 @@ Para saber mais sobre as funcionalidades do Catálogo de Dados, veja:
 
 Para começar a utilizar com o catálogo de dados:
 
-* [Início rápido: Criar um catálogo de dados do Azure](data-catalog-get-started.md)
+* [Quickstart: Criar um catálogo de dados do Azure](data-catalog-get-started.md)
 * [Abra o seu catálogo de dados do Azure](https://www.azuredatacatalog.com)

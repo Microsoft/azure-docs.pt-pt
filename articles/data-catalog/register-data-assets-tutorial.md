@@ -1,5 +1,5 @@
 ---
-title: Registar recursos de dados no catálogo de dados do Azure
+title: Registar recursos de dados no Catálogo de Dados do Azure
 description: Como registar recursos de dados no seu catálogo de dados do Azure
 author: markingmyname
 ms.author: maghan
@@ -7,13 +7,13 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.openlocfilehash: e89bd4806e2bb2369c100e948be51dcf32f2e123
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362505"
 ---
-# <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar recursos de dados no catálogo de dados do Azure
+# <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar recursos de dados no Catálogo de Dados do Azure
 
 Neste tutorial, utilize a ferramenta de registo para registar recursos de dados do exemplo de base de dados SQL do Azure com o catálogo. O registo é o processo de extrair metadados estruturais chave, por exemplo, nomes, tipos e localizações, a partir da origem de dados e dos recursos que contém e copiar esses metadados para o catálogo. A origem de dados e os recursos de dados permanecem onde estão, mas os metadados são utilizados pelo catálogo para os tornar mais facilmente detetáveis e compreensíveis.
 

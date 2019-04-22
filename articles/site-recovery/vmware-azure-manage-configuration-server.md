@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
 ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049702"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
@@ -68,7 +68,7 @@ Se não adicionar credenciais durante a implementação de OVF do servidor de co
 
 1. Após [início de sessão](#access-configuration-server), selecione **gerir as credenciais da máquina virtual**.
 2. Clique em **adicionar credenciais de máquina virtual**.
-    ![Adicionar-mobilidade-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Introduza as credenciais de novo e clique em **adicionar**.
 
 Também pode adicionar as credenciais através da CSPSConfigtool.exe.
@@ -151,7 +151,7 @@ Atualize o servidor da seguinte forma:
 
 1. No cofre, aceda ao **Manage** > **infraestrutura do Site Recovery** > **Configuration Servers**.
 2. Se está disponível uma atualização, um link será exibido na **versão do agente** > coluna.
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update2.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Transfira o ficheiro de instalador de atualização para o servidor de configuração.
 
     ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)

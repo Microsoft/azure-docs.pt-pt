@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 5c879b050fad0ac8c6467ffa29d9aee398f57aa2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276862"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
@@ -338,10 +338,10 @@ Para saber mais sobre o planeamento da implementação do IoT Hub, veja:
 
 * [Catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
 * [Suporte para protocolos adicionais](iot-hub-protocol-gateway.md)
-* [Compare com os Hubs de Eventos](iot-hub-compare-event-hubs.md)
+* [Comparar com os Hubs de eventos](iot-hub-compare-event-hubs.md)
 * [Dimensionamento, HA e DR](iot-hub-scaling.md)
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Guia do programador do IoT Hub](iot-hub-devguide.md)
+* [guia para programadores do IoT Hub](iot-hub-devguide.md)
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

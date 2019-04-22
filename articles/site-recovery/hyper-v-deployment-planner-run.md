@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361350"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementação do Azure Site Recovery para recuperação após desastre de Hyper-V para o Azure
@@ -255,12 +255,12 @@ Recomendamos vivamente que considere o crescimento durante o planeamento da impl
 O relatório do Microsoft Excel gerado contém as seguintes informações:
 
 * [Resumo no local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Recomendações](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [Colocação do armazenamento de VMs](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [Recommendations (Recomendações)](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [VM-colocação em armazenamento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [Compatible VMs (VMs Compatíveis)](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs (VMs Não Compatíveis)](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [Requisito de armazenamento no local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [Criação de batches na IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Lotes de IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimativa de custos](hyper-v-deployment-planner-cost-estimation.md)
 
 ![Relatório do planeador de implementação](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)

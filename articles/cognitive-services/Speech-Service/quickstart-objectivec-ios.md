@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009276"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
@@ -52,16 +52,16 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
     1. Introduza um nome de organização adequado e o identificador da organização, se já tiver uma conta de programador da Apple. Para fins de teste, pode escolher qualquer nome, como `testorg`. Para assinar a aplicação, terá de um perfil de aprovisionamento correto. Consulte a [site do desenvolvedor Apple](https://developer.apple.com/) para obter detalhes.
     1. Certifique-se de que escolhe Objective-C como linguagem para o projeto.
     1. Desative todas as caixas de verificação para testes e dados principais.
-    ![Definições do projeto](media/sdk/qs-objectivec-project-settings.png)
+    ![Project Settings](media/sdk/qs-objectivec-project-settings.png) (Definições do Projeto)
 1. Selecionar o diretório do projeto
     1. Escolha o diretório raiz onde colocar o projeto. Esta ação cria um `helloworld` diretório no seu diretório de raiz que contém todos os ficheiros para o projeto Xcode.
     1. Desative a criação de um repositório Git para este projeto de exemplo.
     1. Ajuste os caminhos para o SDK em *Project Settings* (Definições do Projeto).
         1. Na **gerais** separador sob a **binários incorporados** cabeçalho, adicionar a biblioteca do SDK como uma estrutura: **Adicionar binários incorporados** > **adicionar outro...**  > Navegar para o diretório raiz e escolha o ficheiro `MicrosoftCognitiveServicesSpeech.framework`. Esta ação adiciona a biblioteca do SDK para o cabeçalho **ligado Framework e bibliotecas** automaticamente.
-        ![Framework foi adicionado](media/sdk/qs-objectivec-framework.png)
+        ![Added Framework](media/sdk/qs-objectivec-framework.png) (Arquitetura Adicionada)
         1. Vá para o separador **Build Settings** (Definições de Compilação) e ative a definição **All** (Tudo).
         1. Adicione o diretório `$(SRCROOT)/..` a *Framework Search Paths* (Caminhos de Pesquisa da Arquitetura) no cabeçalho **Search Paths** (Caminhos de Pesquisa).
-        ![Definição do caminho de pesquisa de estrutura](media/sdk/qs-objectivec-framework-search-paths.png)
+        ![Definição Framework Search Path](media/sdk/qs-objectivec-framework-search-paths.png) (Caminho de Pesquisa da Arquitetura)
 
 ## <a name="set-up-the-ui"></a>Configurar a IU
 

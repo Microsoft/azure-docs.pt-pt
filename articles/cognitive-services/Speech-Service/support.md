@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358062"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
@@ -66,7 +66,7 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 
 |Componente/área  |Etiquetas  |
 |---------|---------|
-|Reconhecimento de Voz |[[microsoft-cognitivos + voz em texto]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Reconhecimento de Voz |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Síntese de fala |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Tradução de Voz |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intenção de voz |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
@@ -81,8 +81,8 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 
 Exemplos, muitas vezes, são lançados como código-fonte aberto. Para perguntas e questões, crie uma *problema* no respetivo repositório do GitHub. Pode submeter um pedido pull, demasiado. A lista seguinte contém ligações para os repositórios de exemplo:
 
-* [API de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK de Dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Pode criar um relatório de erros, o pedido de funcionalidade, ou fazer uma pergunta geral e partilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
 

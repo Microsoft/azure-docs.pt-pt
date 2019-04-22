@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358329"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL
@@ -256,8 +256,8 @@ Os clientes da base de dados SQL terão os seguintes direitos associados com o b
 
   - [Criar uma base de dados SQL no portal do Azure](sql-database-single-database-get-started.md)  
   - [Criar uma base de dados SQL com a CLI do Azure](sql-database-get-started-cli.md)
-  - [Criar uma base de dados SQL com o PowerShell](sql-database-get-started-powershell.md)
+  - [Criar uma base de dados SQL utilizando o PowerShell](sql-database-get-started-powershell.md)
 
 - Para um conjunto de amostras de CLI do Azure e PowerShell, veja:
-  - [Exemplos da CLI do Azure para a base de dados SQL](sql-database-cli-samples.md)
-  - [Exemplos do Azure PowerShell para a base de dados SQL](sql-database-powershell-samples.md)
+  - [Exemplos da CLI do Azure para a Base de Dados SQL (Azure CLI samples for SQL Database)](sql-database-cli-samples.md)
+  - [Exemplos do Azure PowerShell para a Base de Dados SQL (Azure PowerShell samples for SQL Database)](sql-database-powershell-samples.md)

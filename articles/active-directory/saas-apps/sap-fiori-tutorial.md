@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Tutorial: Integração do Azure Active Directory com SAP Fiori
@@ -135,7 +135,7 @@ Para configurar o Azure AD início de sessão único no SAP Fiori, execute os se
 6. Substitua **nome do fornecedor** partir T01122 para `http://T01122` e clique em **guardar**.
 
     > [!NOTE]
-    > Por nome do fornecedor predefinida ser <sid><client> formato, do Azure AD, mas espera o nome no formato <protocol>://<name>, recomendando para manter o nome do fornecedor como https://<sid><client> para permitir que vários mecanismos de SAP Fiori ABAP configurar no Azure AD .
+    > Por nome do fornecedor predefinida ser <sid> <client> formato, do Azure AD, mas espera o nome no formato <protocol>://<name>, recomendando para manter o nome do fornecedor como https://<sid> <client> para permitir que vários no SAP Fiori Mecanismos ABAP configurar no Azure AD.
 
     ![O link de download de certificado](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -175,8 +175,7 @@ Para configurar o Azure AD início de sessão único no SAP Fiori, execute os se
 
     ![SAP Fiori domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
 
-    d. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
-    `https://<your company instance of SAP Fiori>`
+    d. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Vimos alguns clientes reportar um erro do URL de resposta incorreto configurado às respetivas instâncias. Se receber qualquer erro desse tipo, pode utilizar após o script do PowerShell como um trabalho em torno para definir o URL de resposta correta para a sua instância.:
@@ -187,15 +186,15 @@ Para configurar o Azure AD início de sessão único no SAP Fiori, execute os se
 
 12. Aplicação do SAP Fiori espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 13. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
     a. Clique em **ícone de edição** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](./media/sapfiori-tutorial/nameidattribute.png)
+    ![image](./media/sapfiori-tutorial/nameidattribute.png)
 
-    ![imagem](./media/sapfiori-tutorial/nameidattribute1.png)
+    ![image](./media/sapfiori-tutorial/nameidattribute1.png)
 
     b. Partir do **transformação** lista, selecione **ExtractMailPrefix()**.
 
@@ -353,7 +352,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAP Fiori. Inicie funcionam à sua equipa de especialistas de SAP internamente ou trabalhar com o seu parceiro SAP da organização para adicionar os utilizadores na plataforma no SAP Fiori.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 1. Assim que o fornecedor de identidade do Azure AD foi ativado, tente aceder ao URL para verificar o SSO abaixo (não haverá nenhuma linha de comandos para o nome de utilizador e palavra-passe)
 
@@ -378,6 +377,6 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAP Fiori. Inic
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

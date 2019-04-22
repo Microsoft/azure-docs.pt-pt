@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 0f18467bfefdb27f2cb9c2c3f56942f679673c16
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048451"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gerir servidores registados com o Azure File Sync
@@ -193,7 +193,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Quando o Azure File Sync está alojado numa máquina virtual em execução num anfitrião de Virtualização do Windows Server, pode utilizar o QoS de armazenamento (qualidade de serviço de armazenamento) de regular o consumo de e/s de armazenamento. A política de QoS de armazenamento pode ser definida como um máximo (ou limite, como a forma como o limite de StorageSyncNetwork é imposta acima) ou como um mínimo (ou reserva). Definir um mínimo, em vez de um máximo permite que o Azure File Sync expandir para utilizar a largura de banda de armazenamento disponível se outras cargas de trabalho não estão a utilizá-la. Para obter mais informações, consulte [qualidade de serviço de armazenamento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Consulte também
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
-- [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)
-- [Resolver problemas da Sincronização de Ficheiros do Azure](storage-sync-files-troubleshoot.md)
+- [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)
+- [Resolver problemas da sincronização de ficheiros do Azure](storage-sync-files-troubleshoot.md)

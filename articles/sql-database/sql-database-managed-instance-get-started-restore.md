@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
 ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356835"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar uma base de dados para uma instância gerida
@@ -36,7 +36,7 @@ Este guia de início rápido:
 - Utiliza os recursos a partir da [criar uma instância gerida](sql-database-managed-instance-get-started.md) início rápido.
 - Requer o computador tenha a versão mais recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) instalado.
 - Requer a utilização do SSMS para ligar à sua instância gerida. Consulte estes guias de introdução sobre como ligar:
-  - [Ligar a uma instância gerida de base de dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
+  - [Ligar a uma Instância Gerida da Base de Dados SQL do Azure a partir de uma VM do Azure](sql-database-managed-instance-configure-vm.md)
   - [Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279895"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detetar e utilizar blocos de notas de exemplo
@@ -41,7 +41,7 @@ Depois de identificar um bloco de notas que gostaria de explorar, aqui estão al
 
 ## <a name="next-steps"></a>Passos Seguintes  
 
-- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Trabalhar com ficheiros de dados](work-with-project-data-files.md)
-- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Utilizar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [How to: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

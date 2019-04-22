@@ -39,6 +39,6 @@ sections:
           - title: Linha de Comandos
             html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
           - title: Linguagens
-            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">SDK do Azure para .NET</a></p>
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
           - title: REST
             html: <p><a href="/rest/api/blueprints/">Referência da API</a></p>

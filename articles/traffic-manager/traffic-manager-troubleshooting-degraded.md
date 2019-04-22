@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050650"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do Estado no Gestor de tráfego do Azure degradado
@@ -42,7 +42,7 @@ Se o estado de funcionamento do Gestor de tráfego apresenta uma **Inactive** Es
 Para resolver uma falha de pesquisa, precisa de uma ferramenta que mostra o código de estado HTTP devolvido do URL da sonda. Existem muitas ferramentas disponíveis que lhe mostram a resposta HTTP não processada.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [Curl](https://curl.haxx.se/)
+* [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 Além disso, pode utilizar o separador rede as ferramentas de depuração de F12 no Internet Explorer para ver as respostas HTTP.
@@ -88,7 +88,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Serviço de Aplicações do Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operações do Traffic Manager (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets do Gestor de tráfego do Azure][1]
 

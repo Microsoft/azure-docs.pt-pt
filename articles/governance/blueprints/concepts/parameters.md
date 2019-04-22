@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279980"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
@@ -76,8 +76,8 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado u
 
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
-- `{YourMG}` -Substituir pelo nome do seu grupo de gestão
-- `{subscriptionId}` -Substituir pelo seu ID de subscrição
+- `{YourMG}` - substituir pelo nome do seu grupo de gestão
+- `{subscriptionId}` - substituir pelo ID da subscrição
 
 ##### <a name="blueprint-level-parameter"></a>Parâmetro de nível de esquema
 

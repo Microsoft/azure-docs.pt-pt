@@ -18,10 +18,10 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271803"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
@@ -153,7 +153,7 @@ ms.locfileid: "59271803"
 | AADSTS70007 | UnsupportedResponseMode - a aplicação devolveu um valor não suportado de `response_mode` quando solicitar um token.  |
 | AADSTS70008 | O token de atualização expirou ExpiredOrRevokedGrant - devido a inatividade. O token foi emitido em XXX e estivesse inativo para um determinado período de tempo. |
 | AADSTS70011 | InvalidScope - âmbito pedido pela aplicação é inválido. |
-| AADSTS70012 | MsaServerError - Ocorreu um erro de servidor ao autenticar um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - Ocorreu um erro de servidor ao autenticar um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abrir um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending - erro de fluxo de dispositivo do OAuth 2.0. Autorização está pendente. O dispositivo tentará novamente o pedido de consulta. |
 | AADSTS70018 | BadVerificationCode - código de verificação inválida devido ao usuário digitando-se no código do usuário errado para o fluxo de código de dispositivo. Autorização não está aprovada. |
 | AADSTS70019 | CodeExpired - código de verificação expirou. Peça ao utilizador repita o início de sessão. |

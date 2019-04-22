@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362118"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Reposição de uma senha de autoatendimento do Azure AD completa implementação piloto
@@ -60,7 +60,7 @@ A reposição personalizada de palavra-passe está agora configurada para utiliz
 
 ## <a name="test-sspr-as-a-user"></a>Testar a SSPR como utilizador
 
-Teste a reposição personalizada de palavra-passe com um utilizador de teste não administrador que seja membro do seu grupo piloto. **Lembre-se de que, se usar uma conta que tenha quaisquer funções de administrador atribuído a ele os métodos de autenticação e número pode ser diferente da selecionada como a Microsoft gere a política de administrador.**
+Teste a reposição personalizada de palavra-passe com um utilizador de teste não administrador que seja membro do seu grupo piloto. **Tenha em atenção que, se utilizar uma conta que tenha quaisquer funções de administrador atribuídas à mesma, os métodos e o número de autenticação podem ser diferentes daqueles que selecionou, pois a Microsoft gere a política de administrador.**
 
 1. Abra uma nova janela de browser no modo InPrivate ou anónimo.
 1. Com um registo de utilizador de teste para a reposição personalizada de palavra-passe através do portal de registo localizado em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
@@ -81,4 +81,4 @@ Se decidir que já não quer utilizar a funcionalidade que configurou como parte
 Neste tutorial, ativou a reposição personalizada de palavra-passe do Azure AD. Avance para o próximo tutorial para ver como uma infraestrutura do Active Directory Domain Services no local pode ser integrada na experiência de reposição personalizada de palavra-passe.
 
 > [!div class="nextstepaction"]
-> [Ativar a integração de repetição de escrita SSPR no local](tutorial-enable-writeback.md)
+> [Ativar a integração de repetição de escrita local de SSPR](tutorial-enable-writeback.md)

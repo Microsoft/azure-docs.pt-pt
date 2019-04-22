@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360437"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos pode prevenir alterações inesperadas 
@@ -70,12 +70,12 @@ Ao utilizar um modelo do Resource Manager para implementar um bloqueio, utilizar
 
 Ao aplicar um bloqueio para um **recursos**, utilize os seguintes formatos:
 
-* nome: `{resourceName}/Microsoft.Authorization/{lockName}`
+* name - `{resourceName}/Microsoft.Authorization/{lockName}`
 * tipo de- `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
 Ao aplicar um bloqueio para um **grupo de recursos** ou **subscrição**, utilize os seguintes formatos:
 
-* nome: `{lockName}`
+* name - `{lockName}`
 * tipo de- `Microsoft.Authorization/locks`
 
 O exemplo seguinte mostra um modelo que cria um plano do serviço de aplicações, um web site e um bloqueio no web site. O tipo de recurso do bloqueio é o tipo de recurso do recurso para bloquear e **/fornecedores/bloqueios**. O nome do bloqueio é criado pela concatenação com o nome do recurso **/Microsoft.Authorization/** e o nome do bloqueio.

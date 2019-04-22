@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360156"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para um site secundário
@@ -55,7 +55,7 @@ Apenas as máquinas do Linux com o armazenamento seguinte podem ser replicadas:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - Host/convidado de VM
 
-**Configuração** | **Suportadas**  
+**Configuração** | **Suportado**  
 --- | --- 
 Anfitrião - agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -72,7 +72,7 @@ VM do convidado - Multi-NIC | Sim
 
 ### <a name="host-storage"></a>Armazenamento de anfitrião
 
-**Armazenamento (anfitrião)** | **Suportadas** 
+**Armazenamento (anfitrião)** | **Suportado** 
 --- | --- 
 NFS | Sim 
 SMB 3.0 | N/A 
@@ -81,7 +81,7 @@ Múltiplos caminhos (o MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidor físico ou de convidado
 
-**Configuração** | **Suportadas** 
+**Configuração** | **Suportado** 
 --- | --- 
 VMDK | Sim 
 VHD/VHDX | N/A 
@@ -101,7 +101,7 @@ Múltiplos caminhos (o MPIO) | N/A
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportadas** 
+**Ação** | **Suportado** 
 --- | --- 
 Cofres de movimentação entre grupos de recursos (dentro ou entre subscrições) | Não 
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou entre subscrições) | Não 
@@ -110,7 +110,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou
 
 O serviço de mobilidade coordena a replicação entre servidores de VMware no local ou servidores físicos e o site secundário. Quando configurar a replicação, certifique-se de que tem a versão mais recente do serviço de mobilidade e de outros componentes.
 
-| **Atualizar** | **Detalhes** |
+| **Atualização** | **Detalhes** |
 | --- | --- |
 |Atualizações do Scout | Scout atualizações são cumulativas. <br/><br/> [Conheça e baixe](vmware-physical-secondary-disaster-recovery.md#updates) as atualizações mais recentes do Scout |
 |Atualizações de componentes | Scout atualizações incluem atualizações para todos os componentes, incluindo o servidor do RX, servidor de configuração, processo e servidores de destino mestre, servidores de vContinuum e servidores de origem que pretende proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
@@ -121,4 +121,4 @@ O serviço de mobilidade coordena a replicação entre servidores de VMware no l
 Transferir o [Guia do usuário do InMage Scout](https://aka.ms/asr-scout-user-guide)
 
 - [Replicar VMs de Hyper-V em clouds do VMM para um site secundário](tutorial-vmm-to-vmm.md)
-- [Replicar VMs do VMware e servidores físicos para um site secundário](tutorial-vmware-to-vmware.md)
+- [Replicar VMs VMware e servidores físicos para um site secundário](tutorial-vmware-to-vmware.md)

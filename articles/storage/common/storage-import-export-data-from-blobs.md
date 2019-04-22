@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263843"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
@@ -55,7 +55,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     - Selecione uma subscrição.
     - Introduza ou selecione um grupo de recursos.
 
-        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. Na **detalhes da tarefa**:
 

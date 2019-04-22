@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426618"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
@@ -112,6 +112,6 @@ Quando é aplicada uma política nova a uma ou mais partilhas de ficheiros, a ag
 
 ## <a name="see-also"></a>Consulte também
 Esta informação é apenas sobre a cópia de segurança de Ficheiros do Azure. Para obter mais informações sobre outras áreas do Azure Backup, veja algumas destas outras FAQs sobre Cópias de Segurança:
--  [FAQ do cofre dos serviços de recuperação](backup-azure-backup-faq.md)
--  [FAQ de cópia de segurança de VM do Azure](backup-azure-vm-backup-faq.md)
--  [Agente de cópia de segurança do Azure FAQ](backup-azure-file-folder-backup-faq.md)
+-  [FAQ sobre o cofre dos Serviços de Recuperação](backup-azure-backup-faq.md)
+-  [FAQ sobre as cópias de segurança de VMs do Azure](backup-azure-vm-backup-faq.md)
+-  [FAQ sobre o agente do Azure Backup](backup-azure-file-folder-backup-faq.md)

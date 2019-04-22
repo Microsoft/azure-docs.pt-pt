@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258747"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory?
@@ -60,11 +60,11 @@ Com controlos de concessão, pode bloquear totalmente o acesso ou permitir o ace
 
 ![Controlo](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Autenticação multifator
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Pode utilizar este controlo para exigir autenticação multifator para aceder à aplicação em nuvem especificado. Esse controle suporta os seguintes fornecedores de multi-factor:
 
-- Azure Multi-Factor Authentication
+- Multi-Factor Authentication do Azure
 
 - Um fornecedor de autenticação multifator no local, combinados com serviços de Federação do Active Directory (AD FS).
 
@@ -76,9 +76,9 @@ Pode configurar políticas de acesso condicional com base no dispositivo. O obje
 
 O dispositivo tem de ser registado para o Azure AD antes de poder ser marcado como compatível. Para registar um dispositivo, tem três opções: 
 
-- [Dispositivos registados no Azure AD](../devices/overview.md#azure-ad-registered-devices)
+- [Dispositivos do Azure AD registado](../devices/overview.md#azure-ad-registered-devices)
 - [Dispositivos associados ao Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivos híbridos associados ao Azure AD](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivos associados ao Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Para obter mais informações, consulte [como exigir que os dispositivos geridos para aceder à aplicação de cloud com o acesso condicional](require-managed-devices.md).
 
@@ -125,7 +125,7 @@ Fornecedores atualmente fornecem um serviço de compatível incluem:
 
 - [Segurança de Duo](https://duo.com/docs/azure-ca)
 - [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [A ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)

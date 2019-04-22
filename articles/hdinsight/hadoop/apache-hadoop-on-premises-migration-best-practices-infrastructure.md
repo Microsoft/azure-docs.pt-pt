@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274694"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de infraestrutura
@@ -83,7 +83,7 @@ O script pode ser persistente ou executado uma vez. Os scripts persistentes são
 HDInsight fornece pré-escritos scripts para instalar os seguintes componentes em clusters do HDInsight:
 
 - Adicionar uma conta de Armazenamento do Azure
-- Instalar Hue
+- Instalar o Hue
 - Instalar prontamente
 - Instalar Solr
 - Instalar Giraph
@@ -169,7 +169,7 @@ HDInsight também pode ser adicionados a uma rede de Virtual de Azure nova ou ex
 Para obter mais informações, veja os artigos seguintes:
 
 - [Virtual-redes-descrição geral do Azure](../../virtual-network/virtual-networks-overview.md)
-- [Expandir HDInsight do Azure com uma rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md)
+- [Expandir o Azure HDInsight utilizando uma rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Ligar de forma segura aos serviços do Azure com pontos finais de serviço de rede Virtual do Azure
 
@@ -177,7 +177,7 @@ HDInsight suporta [pontos finais de serviço de rede virtual](../../virtual-netw
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Pontos finais do serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Melhorar a segurança do HDInsight com pontos finais de serviço](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Ligar o HDInsight à rede no local

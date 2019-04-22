@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010577"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versão de APIs de preenchimento do SaaS 2 
@@ -37,7 +37,7 @@ Microsoft SaaS Service gerencia todo o ciclo de vida de uma compra de subscriç�
 
 A tabela seguinte lista os Estados de aprovisionamento de uma subscrição de SaaS, incluindo um diagrama de descrição e a sequência para cada (se aplicável). 
 
-#### <a name="provisioning"></a>A aprovisionar
+#### <a name="provisioning"></a>Aprovisionamento
 
 Quando um cliente inicia uma compra, o ISV recebe essas informações num AuthCode numa página da web interativas ao cliente com um parâmetro de URL. O AuthCode pode ser validado e trocado para obter os detalhes sobre o que tem de ser aprovisionado.  Quando o serviço SaaS concluir o aprovisionamento, envia uma chamada de ativar para sinalizar que o preenchimento estiver concluído e o cliente pode ser faturado.  O diagrama seguinte mostra a sequência de chamadas de API para um cenário de aprovisionamento.  
 
@@ -106,7 +106,7 @@ A API de subscrição suporta as seguintes operações de HTTPS: **Obtenha**, **
 
 Apresenta uma lista de todas as subscrições de SaaS para um publicador.
 
-**Obter:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
+**Get:<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -176,7 +176,7 @@ Código: 500 Erro de Servidor Interno
 
 Obtém a subscrição especificada de SaaS. Utilize esta chamada para obter informações de licença e informações do plano.
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -241,7 +241,7 @@ Erro Interno do Servidor<br>
 
 Utilize esta chamada para saber se existem quaisquer ofertas de pública/privada para o utilizador atual.
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -478,7 +478,7 @@ Erro Interno do Servidor
 
 Anular a subscrição e eliminar a subscrição especificada.
 
-**Elimine:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
+**Delete:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -593,7 +593,7 @@ Código: 500<br> Erro Interno do Servidor
 
 Lista as operações pendentes para o utilizador atual. 
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 
@@ -657,7 +657,7 @@ Erro Interno do Servidor
 
 Permite ao utilizador controlar o estado da operação assíncrona acionadas especificado (subscrever/anular a subscrição/alterar plano).
 
-**Obter:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+**Get:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *Parâmetros de consulta:*
 

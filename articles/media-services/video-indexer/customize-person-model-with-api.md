@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360521"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalizar um modelo de pessoa com a API do Video Indexer
@@ -54,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 
-|**Name**|**Type**|**Necessário**|**Descrição**|
+|**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
 |localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
@@ -99,7 +99,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
 
-|**Name**|**Type**|**Necessário**|**Descrição**|
+|**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
 |localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
@@ -136,7 +136,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
 
-|**Name**|**Type**|**Necessário**|**Descrição**|
+|**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
 |localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
@@ -191,7 +191,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
 
-|**Name**|**Type**|**Necessário**|**Descrição**|
+|**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
 |localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|

@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: raynew
 ms.openlocfilehash: ce4a6ab24aaa5ed693f8d64782fb025a2ca9ce30
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357987"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
@@ -33,9 +33,9 @@ Durante a replicação, os dados são replicados para o armazenamento do Azure e
 
 Para o servidor de anfitrião Hyper-V, o que precisa depende do cenário de implementação. Confira os pré-requisitos do Hyper-V para:
 
-* [Replicar VMs Hyper-V (sem o VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replicar VMs Hyper-V (com o VMM) para o Azure](site-recovery-vmm-to-azure.md)
-* [Replicar VMs Hyper-V para um datacenter secundário](site-recovery-vmm-to-vmm.md)
+* [Replicar VMs de Hyper-V (sem VMM) para o Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replicar VMs de Hyper-V (com VMM) para o Azure](site-recovery-vmm-to-azure.md)
+* [Replicar VMs de Hyper-V para um datacenter secundário](site-recovery-vmm-to-vmm.md)
 * Se estiver a replicar para um datacenter secundário, leia sobre [sistemas operativos convidados suportados para VMs de Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
 * Se estiver a replicar para o Azure, o Site Recovery suporta todos os sistemas operativos convidados que são [suportado pelo Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 

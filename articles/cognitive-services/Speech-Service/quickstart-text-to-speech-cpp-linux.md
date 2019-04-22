@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012235"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Linux com o SDK de voz
@@ -136,5 +136,5 @@ Transfira e instale o SDK da seguinte forma:
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar tipos de voz](how-to-customize-voice-font.md)
-- [Gravar amostras de voz](record-custom-voice-samples.md)
+- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
+- [Exemplos de voz de registo](record-custom-voice-samples.md)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052841"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Ver recomendações do Assistente do Azure é que são importantes para si
@@ -91,7 +91,7 @@ Pode ativar uma recomendação que foi adiada ou dispensada. Esta ação pode se
 
 Este artigo explica como pode ver recomendações importantes para si no Assistente do Azure. Para saber mais sobre o Advisor, consulte: 
 
-- [O que é o Assistente do Azure?](advisor-overview.md)
+- [O que é o Azure Advisor?](advisor-overview.md)
 - [Introdução ao Advisor](advisor-get-started.md)
 - [Permissões no Assistente do Azure](permissions.md)
 

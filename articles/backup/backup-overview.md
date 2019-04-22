@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361798"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
@@ -68,7 +68,7 @@ Utilize os pontos de tabela para ajudar a descobrir as suas necessidades BCDR.
 
 Cópia de segurança do Azure pode fazer uma cópia de segurança de máquinas no local e VMs do Azure.
 
-**Máquina** | **Criar cópias de segurança cenário**
+**Machine** | **Criar cópias de segurança cenário**
 --- | ---
 **Cópia de segurança no local** |  1) execute o agente de cópia de segurança Microsoft Azure Recovery dos serviços Azure (MARS) no local máquinas do Windows para fazer backup de arquivos individuais e o estado do sistema. <br/><br/>2) cópia de segurança de máquinas no local para um servidor de cópia de segurança (System Center Data Protection Manager (DPM) ou Microsoft Azure Backup Server (MABS)) e, em seguida, configure o servidor de backup para cópia de segurança para um cofre de serviços de recuperação de cópia de segurança do Azure no Azure.
 **VMs do Azure** | 1) ative cópia de segurança para VMs do Azure individuais. Quando ativa a cópia de segurança, o Azure Backup instala uma extensão para o agente de VM do Azure que está em execução na VM. O agente faz o backup de toda a VM.<br/><br/> 2) execute o agente de MARS numa VM do Azure. Isto é útil se pretender efetuar cópias de segurança de ficheiros e pastas individuais na VM.<br/><br/> 3) cópia de segurança de uma VM do Azure para um servidor DPM ou MABS em execução no Azure. Em seguida, criar cópias de segurança do servidor DPM/MABS para um cofre de cópia de segurança do Azure a utilizar.
@@ -86,7 +86,7 @@ Saiba mais sobre [funciona como cópia de segurança](backup-architecture.md#arc
 
 ## <a name="what-can-i-back-up"></a>O que posso criar cópias de segurança?
 
-**Máquina** | **Método de cópia de segurança** | **Fazer cópia de segurança**
+**Machine** | **Método de cópia de segurança** | **Fazer cópia de segurança**
 --- | --- | ---
 **VMs do Windows no local** | Execute o agente MARS | Cópia de segurança de ficheiros, pastas, estado do sistema.<br/><br/> Máquinas do Linux não suportadas.
 **Máquinas no local** | Cópia de segurança para DPM/MABS | Cópia de segurança tudo o que é protegido pelo [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) ou [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), incluindo ficheiros/pastas/partilhas/volumes e dados específicos da aplicação.
@@ -98,7 +98,7 @@ Saiba mais sobre [funciona como cópia de segurança](backup-architecture.md#arc
 
 **Cenário** | **Agente**
 --- | ---
-**Fazer uma cópia de segurança de VMs do Azure** | Nenhum agente necessário. Extensão VM do Azure para cópia de segurança está instalado na VM do Azure ao executar a primeira cópia de segurança de VM do Azure.<br/><br/> Suporte para o suporte do Windows e Linux.
+**Fazer cópia de segurança de VMs do Azure** | Nenhum agente necessário. Extensão VM do Azure para cópia de segurança está instalado na VM do Azure ao executar a primeira cópia de segurança de VM do Azure.<br/><br/> Suporte para o suporte do Windows e Linux.
 **Cópia de segurança de máquinas do Windows no local** | Transferir, instalar e executar o agente de MARS diretamente na máquina.
 **VMs de cópia de segurança do Azure com o agente MARS** | Transferir, instalar e executar o agente de MARS diretamente na máquina. O agente de MARS pode ser executado em conjunto com a extensão de cópia de segurança.
 **Cópia de segurança de máquinas no local e VMs do Azure para o DPM/MABS** | O agente de proteção do DPM ou MABS é executado nas máquinas que pretende proteger. O agente de MARS é executado no servidor do DPM/MABS para criar cópias de segurança para o Azure.

@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271599"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
@@ -72,7 +72,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Veja os artigos seguintes para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Obter informações a partir de uma coordenada](./map-get-information-from-coordinate.md)
+> [Obtenha informações a partir de uma coordenada](./map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Mostrar as direções de A para B](./map-route.md)
+> [Mostrar as direções da para B](./map-route.md)

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282564"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Utilize o Data Box para importar dados como managed disks no Azure
@@ -143,7 +143,7 @@ Reveja as seguintes considerações antes de iniciar a cópia de dados:
 Dependendo se está a ligar através de SMB ou NFS, pode usar:
 
 - [Copiar dados através de SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
-- [Copiar dados através de NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
+- [Copiar dados por meio de NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
 Aguarde que as tarefas de cópia concluir. Certifique-se de que as tarefas de cópia tem concluído sem erros antes de ir para o passo seguinte.
 
@@ -179,5 +179,5 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 Avance para o próximo tutorial para saber como enviar o Data Box para a Microsoft.
 
 > [!div class="nextstepaction"]
-> [Envie o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
+> [Enviar o Azure Data Box para a Microsoft](./data-box-deploy-picked-up.md)
 

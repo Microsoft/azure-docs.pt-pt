@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426448"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
@@ -140,7 +140,7 @@ Latência de rede é regida pela velocidade da luz através de uma rede óptica 
 
 | | | | |
 |-|-|-|-|
-|**Encaminhar**|**Distância**|**Tempo unidirecional**|**RTT**|
+|**rota**|**distância**|**Tempo unidirecional**|**RTT**|
 |Nova Iorque a San Francisco|4,148 km de distância|21 ms|42 ms|
 |Nova York para Londres|5,585 km de distância|28 ms|56 ms|
 |Nova Iorque, para que Sydney|15,993 km de distância|80 ms|160 ms|
@@ -376,7 +376,7 @@ Para obter mais informações, veja estes artigos:
 
 - [Resolução de problemas de desempenho de rede do Expressroute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
-- [Como validar o débito de VPN para uma rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [How to validate VPN throughput to a virtual network](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet) (Como validar o débito da VPN para uma rede virtual)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Detetar comportamentos TCP ineficientes
 

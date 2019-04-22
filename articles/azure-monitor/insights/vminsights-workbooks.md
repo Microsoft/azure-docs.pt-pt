@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288715"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com pastas de trabalho do Azure Monitor
@@ -120,8 +120,8 @@ Cada secção tem suas próprias definições avançadas, que podem ser acedidas
 | **Largura personalizada**    | Faz com que um item um tamanho arbitrário, pelo que pode ajustar o número de itens numa única linha, permitindo-lhe organizar melhor seus gráficos e tabelas em relatórios interativos avançados.  |
 | **Condicionalmente visível** | Especifique para ocultar os passos com base num parâmetro quando no modo de leitura. |
 | **Exportar um parâmetro**| Permitir que uma linha selecionada na grelha ou gráfico para fazer com que os passos posteriores alterar os valores ou fiquem visíveis.  |
-| **Mostrar a consulta quando não estiver a editar** | Apresenta a consulta acima do gráfico ou na tabela, mesmo quando no modo de leitura.
-| **Mostrar o botão Abrir no Analaytics quando não estiver a editar** | Adiciona o ícone de análise azul para o canto direito do gráfico para permitir o acesso de um clique.|
+| **Mostrar a consulta durante a edição não** | Apresenta a consulta acima do gráfico ou na tabela, mesmo quando no modo de leitura.
+| **Mostrar abrir no botão análise quando não a editar** | Adiciona o ícone de análise azul para o canto direito do gráfico para permitir o acesso de um clique.|
 
 A maioria destas definições são bastante intuitiva, mas entender **exportar um parâmetro** é melhor examinar uma pasta de trabalho que utiliza essa funcionalidade.
 
@@ -166,10 +166,10 @@ Existem quatro tipos diferentes de parâmetros, que são atualmente suportados:
 
 |                  |      |
 | ---------------- |:-----|
-| **Texto**    | Permite ao utilizador editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
+| **Text** (Texto)    | Permite ao utilizador editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
 | **Lista pendente** | Permite ao utilizador escolher a partir de um conjunto de valores. |
 | **Seletor de intervalo de tempo**| Permite ao utilizador escolher a partir de um conjunto predefinido de valores de intervalo de tempo ou escolha entre mais de um intervalo de tempo personalizado.|
-| **Selecionador de recursos** | Permite ao utilizador escolher entre os recursos selecionados para a pasta de trabalho.|
+| **Seleccionador de recursos** | Permite ao utilizador escolher entre os recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Com um parâmetro de texto
 

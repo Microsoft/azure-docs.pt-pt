@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256061"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações a partir de uma coordenada
@@ -67,7 +67,7 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 Veja os artigos seguintes para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Mostrar as direções de A para B](./map-route.md)
+> [Mostrar as direções da para B](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Mostrar trânsito](./map-show-traffic.md)

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264068"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
@@ -55,7 +55,7 @@ Para obter mais informações sobre a sua fatura, consulte [compreender a sua fa
 Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#understand-billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Selecione **Faturas**.
 1. Na grelha de nota fiscal, localize a linha da nota fiscal que pretende transferir.
@@ -98,7 +98,7 @@ Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em
 Se tiver um contrato de cliente da Microsoft, pode optar por obter a fatura numa mensagem de e-mail. Todos os faturação perfil proprietários, contribuidores, os leitores e notas fiscais gerentes obterá a nota fiscal por e-mail. Os leitores não é possível atualizar a preferência de nota fiscal de e-mail.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Sob **configurações**, selecione **propriedades**.
 1. Sob **fatura por E-Mail**, selecione **preferência de nota fiscal de e-mail de atualização**.
@@ -135,8 +135,8 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 
 Para saber mais sobre a sua fatura e os custos, veja:
 
-- [Ver e transferir a utilização e as cobranças do Microsoft Azure](billing-download-azure-daily-usage.md)
-- [Compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md)
+- [Ver e transferir a sua utilização do Microsoft Azure e a cobrança](billing-download-azure-daily-usage.md)
+- [Understand your bill for Microsoft Azure](billing-understand-your-bill.md) (Compreender a sua fatura do Microsoft Azure)
 - [Compreender os termos na sua fatura do Azure](billing-understand-your-invoice.md)
 - [Compreender os termos na utilização de detalhadas do Microsoft Azure](billing-understand-your-usage.md)
 - [Veja os preços do Azure da sua organização](billing-ea-pricing.md)

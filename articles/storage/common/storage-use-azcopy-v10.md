@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: seguler
 ms.subservice: common
 ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278433"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Transferir dados com AzCopy v10 (pré-visualização)
@@ -102,7 +102,7 @@ Para ver a página de ajuda e exemplos para um comando específico, execute o se
 
 ## <a name="create-a-blob-container-or-file-share"></a>Criar uma partilha de ficheiro ou de contentor do blob 
 
-**Criar um contentor de blobs**
+**Criar um contentor de BLOBs**
 
 ```azcopy
 .\azcopy make "https://account.blob.core.windows.net/container-name"

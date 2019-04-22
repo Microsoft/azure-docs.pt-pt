@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360495"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
@@ -47,7 +47,7 @@ Os passos seguintes criam uma nova sub-rede na VNet de instância gerida para qu
 
    | Definição| Valor sugerido | Descrição |
    | ---------------- | ----------------- | ----------- |
-   | **Name** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Intervalo de endereços (bloco CIDR)** | Um intervalo válido | O valor predefinido é boa para este início rápido.|
    | **Grupo de segurança de rede** | Nenhuma | O valor predefinido é boa para este início rápido.|
    | **Tabela de rotas** | Nenhuma | O valor predefinido é boa para este início rápido.|
@@ -80,9 +80,9 @@ Uma vez que a instância gerida SQL é colocada na sua rede Virtual privada, tem
    | **Grupo de Recursos** |O grupo de recursos que especificou na [criar instância gerida](sql-database-managed-instance-get-started.md) início rápido.|Este grupo de recursos tem de ser aquele no qual existe a VNet.|
    | **Localização** | A localização para o grupo de recursos | Este valor é preenchido com base no grupo de recursos selecionado. |
    | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Nome de Utilizador de Administrador**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize "serveradmin", que é uma função ao nível do servidor reservada.<br>Utilizar este nome de utilizador sempre que [ligar à VM](#connect-to-virtual-machine).|
+   |**Nome de utilizador administrador**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize "serveradmin", que é uma função ao nível do servidor reservada.<br>Utilizar este nome de utilizador sempre que [ligar à VM](#connect-to-virtual-machine).|
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Utilizar esta palavra-passe sempre que [ligar à VM](#connect-to-virtual-machine).|
-   | **Tamanho de Máquina Virtual** | Qualquer tamanho válido | A predefinição neste modelo de **Standard_B2s** é suficiente para este início rápido. |
+   | **Tamanho da máquina virtual** | Qualquer tamanho válido | A predefinição neste modelo de **Standard_B2s** é suficiente para este início rápido. |
    | **Localização**|[resourceGroup (). location].| Não altere este valor. |
    | **Nome da rede virtual**|A rede virtual em que criou a instância gerida.|
    | **Nome da sub-rede**|O nome da sub-rede que criou no procedimento anterior| Não escolha a sub-rede na qual criou a instância gerida.|

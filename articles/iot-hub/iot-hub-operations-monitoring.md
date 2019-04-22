@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258118"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Operações do IoT Hub monitorização (preterido)
@@ -268,6 +268,6 @@ class Program
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Guia do programador do IoT Hub](iot-hub-devguide.md)
+* [guia para programadores do IoT Hub](iot-hub-devguide.md)
 
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

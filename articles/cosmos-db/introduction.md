@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280949"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
@@ -22,7 +22,7 @@ O Azure Cosmos DB é um serviço da base de dados de vários modelos distribuíd
 Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos nem compromissos.
 
 > [!div class="nextstepaction"]
-> [Experimente o Azure Cosmos DB Gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
+> [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)
 
 ![O Azure Cosmos DB é um serviço de base de dados de distribuição global da Microsoft com aumento horizontal elástico, baixa latência garantida, cinco modelos de consistência e SLAs abrangentes garantidos](./media/introduction/azure-cosmos-db.png)
 
@@ -97,11 +97,11 @@ Leia mais sobre o Cosmos DB principais conceitos [distribuição global chave na
 
 Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 
-* [Introdução ao Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
+* [Introdução à API SQL do Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Introdução à API do Azure Cosmos DB para MongoDB](create-mongodb-nodejs.md)
-* [Introdução à API de Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
-* [Introdução à API de Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
-* [Introdução à API de tabela do Azure Cosmos DB](create-table-dotnet.md)
+* [Introdução à API Cassandra do Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Introdução à API do Gremlin do Azure Cosmos DB](create-graph-dotnet.md)
+* [Introdução à API de Tabela do Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/)

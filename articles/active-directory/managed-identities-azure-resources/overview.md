@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261467"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
@@ -118,17 +118,17 @@ Saiba como utilizar uma identidade gerida com uma VM do Windows:
 * [Aceder ao Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
 * [Aceder ao Azure Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Aceder ao SQL do Azure](tutorial-windows-vm-access-sql.md)
-* [Armazenamento do Azure de acesso com uma chave de acesso](tutorial-windows-vm-access-storage.md)
-* [Armazenamento do Azure de acesso através da utilização de assinaturas de acesso partilhado](tutorial-windows-vm-access-storage-sas.md)
-* [Aceder a um recurso de AD não pertencente ao Azure com o Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
+* [Aceder ao Armazenamento do Azure com uma chave de acesso](tutorial-windows-vm-access-storage.md)
+* [Access Azure Storage by using shared access signatures](tutorial-windows-vm-access-storage-sas.md) (Aceder ao Armazenamento do Azure com assinaturas de acesso partilhado)
+* [Aceder a um recurso não Azure com o Azure Key Vault](tutorial-windows-vm-access-nonaad.md)
 
 Saiba como utilizar uma identidade gerida com uma VM do Linux:
 
 * [Aceder ao Azure Data Lake Store](tutorial-linux-vm-access-datalake.md)
 * [Aceder ao Azure Resource Manager](tutorial-linux-vm-access-arm.md)
-* [Armazenamento do Azure de acesso com uma chave de acesso](tutorial-linux-vm-access-storage.md)
-* [Armazenamento do Azure de acesso através da utilização de assinaturas de acesso partilhado](tutorial-linux-vm-access-storage-sas.md)
-* [Aceder a um recurso de AD não pertencente ao Azure com o Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+* [Aceder ao Armazenamento do Azure com uma chave de acesso](tutorial-linux-vm-access-storage.md)
+* [Access Azure Storage by using shared access signatures](tutorial-linux-vm-access-storage-sas.md) (Aceder ao Armazenamento do Azure com assinaturas de acesso partilhado)
+* [Aceder a um recurso não Azure com o Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
 
 Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 
@@ -136,7 +136,7 @@ Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 * [Funções do Azure](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Hubs de Eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gestão de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
@@ -149,4 +149,4 @@ As identidades geridas para recurso do Azure podem ser utilizadas para autentica
 Comece a utilizar a funcionalidade de identidades geridas para recursos do Azure com os inícios rápidos seguintes:
 
 * [Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Resource Manager](tutorial-windows-vm-access-arm.md)
-* [Utilizar uma VM do Linux atribuído de sistema identidade gerida para aceder a Resource Manager](tutorial-linux-vm-access-arm.md)
+* [Utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Resource Manager](tutorial-linux-vm-access-arm.md)

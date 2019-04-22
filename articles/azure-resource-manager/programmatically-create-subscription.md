@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256928"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente as subscrições do Azure Enterprise (pré-visualização)
@@ -40,7 +40,7 @@ Depois de serão adicionados a uma inscrição EA do Azure como proprietário da
 
 Para executar os comandos seguintes, deve ter sessão iniciada proprietário da conta *diretório raiz*, que é o diretório de subscrições criadas por predefinição.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Pedido para listar todas as contas de inscrição:
 
@@ -73,7 +73,7 @@ Azure responde com uma lista de todas as contas de inscrição que tem acesso a:
 }
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilize o [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet para listar todas as contas de inscrição que tem acesso.
 
@@ -89,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# [<a name="azure-cli"></a>CLI do Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o [lista de conta de inscrição de faturação az](https://aka.ms/EASubCreationPublicPreviewCLI) comando para listar todas as contas de inscrição que tem acesso.
 
@@ -130,7 +130,7 @@ Utilize o `principalName` propriedade para identificar a conta que pretende que 
 
 O exemplo seguinte cria um pedido para criar a subscrição com o nome *subscrição da equipe de desenvolvimento* e é a oferta de subscrição *MS-AZR - 0017P* (regular EA). A conta de inscrição é `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (valor de marcador de posição, este valor é um GUID), que é a conta de inscrição para SignUpEngineering@contoso.com. Opcionalmente, também adiciona dois usuários como proprietários do RBAC para a subscrição.
 
-# [<a name="rest"></a>REST](#tab/rest)
+# <a name="resttabrest"></a>[REST](#tab/rest)
 
 Utilize o `id` do `enrollmentAccount` no caminho do pedido para criar a subscrição.
 
@@ -159,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 Em resposta, recebe um `subscriptionOperation` objeto para monitorização. Quando a criação de subscrição estiver concluída, o `subscriptionOperation` objeto retornaria um `subscriptionLink` objeto, que tem o ID de subscrição.
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para utilizar este módulo de pré-visualização, instale-o executando `Install-Module Az.Subscription -AllowPrerelease` primeiro. Para se certificar `-AllowPrerelease` funciona, instalar uma versão recente do PowerShellGet partir [obter o módulo PowerShellGet](/powershell/gallery/installing-psget).
 
@@ -180,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscription](/powershell/module/az.subscription.preview).
 
-# [<a name="azure-cli"></a>CLI do Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para utilizar esta extensão de pré-visualização, instale-o executando `az extension add --name subscription` primeiro.
 

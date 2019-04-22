@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010197"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
@@ -28,10 +28,10 @@ Esses recursos constituem os serviços de voz do Azure. Utilize as ligações ne
 
 | Serviço | Funcionalidade | Descrição | SDK | REST |
 |---------|---------|-------------|-----|------|
-| [Voz em Texto](speech-to-text.md) | Conversão de voz em texto | Conversão de voz em texto converte os fluxos de áudio em texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou apresentar. Utilize a voz para texto com [compreensão de idiomas (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) derivar intenções de utilizador de fala transcrita e tomar medidas relacionadas com comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Conversão de voz em texto](speech-to-text.md) | Conversão de voz em texto | Conversão de voz em texto converte os fluxos de áudio em texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou apresentar. Utilize a voz para texto com [compreensão de idiomas (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) derivar intenções de utilizador de fala transcrita e tomar medidas relacionadas com comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Transcrição de batch](batch-transcription.md) | Transcrição de batch permite assíncrona transcrição de voz em texto de grandes volumes de dados. Este é um serviço baseado em REST, que utiliza o mesmo ponto final como a personalização e a gestão de modelos. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
 | | [Personalização](#customize-your-speech-experience) | Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
-| [Texto em Voz](text-to-speech.md) | Conversão de texto em voz | Voz converte a entrada de texto em fala sintetizada de semelhante à humana. Escolha entre vozes padrão e vozes neurais (consulte [suporte de idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Voz](text-to-speech.md) | Conversão de texto em voz | Voz converte a entrada de texto em fala sintetizada de semelhante à humana. Escolha entre vozes padrão e vozes neurais (consulte [suporte de idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Personalização](#customize-your-speech-experience) | Crie tipos de voz personalizada exclusivo para a sua marca ou o produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Voz](speech-translation.md) | Tradução de voz | Tradução de voz permite a tradução em tempo real, vários idioma de voz às suas aplicações, ferramentas e dispositivos. Utilize este serviço para a tradução de voz para voz e conversão de voz em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 
@@ -50,9 +50,9 @@ Oferecemos inícios rápidos em linguagens de programação mais populares, cada
 
 | Conversão de voz em texto (SDK) | Tradução (SDK) | Voz (REST) | Voz (SDK) |
 |-------------------|-------------------|-----------------------|-----------------------|
-| [C#, .NET core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (Browser)](quickstart-js-browser.md) | [C#, .NET core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
-| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
+| [C#, .NET core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
+| [JavaScript (navegador)](quickstart-js-browser.md) | [C#, .NET core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
 Depois de teve a oportunidade de se usar os serviços de voz, experimente o nosso tutorial que ensina a reconhecer intenções de voz com o SDK de voz e o LUIS.
@@ -74,16 +74,16 @@ Serviços de voz do Azure funciona bem com modelos incorporados, no entanto, pod
 | Serviço de Voz | Modelo | Descrição |
 |----------------|-------|-------------|
 | Voz em Texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Criar um modelo acústico personalizado para aplicações, ferramentas, ou dispositivos que são utilizados em particular ambientes, como num carro ou num chão de fábrica, cada um com condições de gravação específico. Os exemplos incluem voz acentuado, ruídos de fundo específico ou usando um microfone específico para gravação. |
-| | [Modelo de idioma](how-to-customize-language-model.md) | Crie um modelo de idioma personalizado para melhorar a transcrição de vocabulário específico de campo e de gramática, como a terminologia médica ou gíria, IT. |
+| | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de idioma personalizado para melhorar a transcrição de vocabulário específico de campo e de gramática, como a terminologia médica ou gíria, IT. |
 | | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizado, pode definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa para começar a utilizar é um ficheiro de pronúncia – um arquivo. txt simples. |
 | Texto em Voz | [Tipo de voz](how-to-customize-voice-font.md) | Tipos de voz personalizadas permitem-lhe criar uma voz reconhecível, um do-única para sua marca. Leva apenas uma pequena quantidade de dados para começar a utilizar. Quanto mais dados que fornecer, o mais natural e semelhante à humana soará seu tipo de voz. |
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [API de Voz](speech-sdk-reference.md)
-* [SDK de Dispositivos de Voz](speech-devices-sdk.md)
-* [REST API: Conversão de voz em texto](rest-speech-to-text.md)
-* [REST API: Conversão de texto em voz](rest-text-to-speech.md)
+* [SDK de Voz](speech-sdk-reference.md)
+* [Dispositivos de voz SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
 * [REST API: Transcrição de batch e personalização](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos Seguintes

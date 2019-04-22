@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280541"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer intenções de voz com o SDK de voz paraC#
@@ -133,7 +133,7 @@ Agora, utilize `LanguageUnderstandingModel.FromAppId()` para importar o modelo d
 
 Adicionar intenções requer três argumentos: o modelo do LUIS (que foi criado e tem o nome `model`), o nome da intenção e um ID de intenção. A diferença entre o ID e o nome da intenção é a seguinte.
 
-|`AddIntent()` Argumento|Objetivo|
+|Argumento `AddIntent()`|Objetivo|
 |--------|-------|
 |intentName |O nome da intenção, conforme definido na aplicação LUIS. Tem de corresponder exatamente ao nome da intenção do LUIS.|
 |intentID    |Um ID que o SDK de Voz atribui a uma intenção reconhecida. Pode ser o que quiser e não tem de corresponder ao nome da intenção definido na aplicação LUIS. Se o mesmo código processar várias intenções, pode, por exemplo, utilizar o mesmo ID para essas intenções.|
@@ -188,4 +188,4 @@ Procure o código deste artigo na pasta samples/csharp/sharedcontent/console.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Como reconhecer a conversão de voz](how-to-recognize-speech-csharp.md)
+> [How to recognize speech](how-to-recognize-speech-csharp.md) (Como reconhecer voz)

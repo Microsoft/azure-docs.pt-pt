@@ -9,10 +9,10 @@ ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051704"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
@@ -63,7 +63,7 @@ Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber c
 >[!NOTE]
 >Firewall do Azure tem de ter conectividade à internet direta. Por predefinição, AzureFirewallSubnet só deve permitir um 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**.
 >
->Se ativar o protocolo de túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, poderá ter de configurar explicitamente uma 0.0.0.0/0 UDR com o valor de NextHopType definido como **Internet** e associá-lo a seu AzureFirewallSubnet. Se a sua organização precisar de túnel forçado para o tráfego de Firewall do Azure, contacte o suporte para que possamos lista de permissões de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
+>Se ativar o protocolo de túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, poderá ter de configurar explicitamente uma 0.0.0.0/0 UDR com o valor de NextHopType definido como **Internet** e associá-lo a seu AzureFirewallSubnet. Se a sua organização precisar de túnel forçado para o tráfego de Firewall do Azure, contacte o suporte para que possamos lista branca de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
 
 >[!NOTE]
 >Tráfego entre VNets diretamente em modo de peering é encaminhado diretamente, mesmo se um UDR aponta para o Firewall do Azure como o gateway predefinido. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, um UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.

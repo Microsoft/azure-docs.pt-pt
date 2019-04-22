@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
 ms.openlocfilehash: adec7b90d5c38ed85f4b6f9ada8a530eff3846b9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272517"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
@@ -66,7 +66,7 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
 
 1. Na vista de árvore, clique com o botão direito do rato na base de dados que criou e selecione **Nova Consulta**.
 
-### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
+### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
 Neste tutorial, vai utilizar uma Conta de Armazenamento do Azure de fins gerais (mais concretamente, o Armazenamento de Blobs do Azure) como arquivo de dados de destino/sink. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). O pipeline da fábrica de dados que vai criar neste tutorial copia dados da base de dados do SQL Server no local (origem) para este armazenamento de Blobs do Azure (sink). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obter o nome e a chave da conta de armazenamento
@@ -99,7 +99,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na janela **Novo Contentor**, na caixa **Nome**, introduza **adftutorial** e selecione **OK**. 
 
-    ![Introduzir nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+    ![Introduzir o nome do contentor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
 1. Na lista de contentores, clique em **adftutorial**.  
 
@@ -365,7 +365,7 @@ Neste passo, vai ligar a instância do SQL Server no local à fábrica de dados.
     > [!IMPORTANT]
     > Selecione a secção que tem como base a autenticação que utiliza para se ligar ao SQL Server.
 
-    **Utilizar a autenticação do SQL (sa):**
+    **Ligar com a Autenticação SQL (sa):**
 
     ```json
     {

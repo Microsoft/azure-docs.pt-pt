@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257234"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
@@ -74,4 +74,4 @@ A arquitetura do Criador de FAQ é composta pelos dois seguintes componentes:
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar um serviço QnA Maker](../how-to/set-up-qnamaker-service-azure.md)
+> [Criar o serviço Criador de FAQ](../how-to/set-up-qnamaker-service-azure.md)

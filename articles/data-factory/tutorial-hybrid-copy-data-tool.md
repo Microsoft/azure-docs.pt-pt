@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/09/2018
 ms.author: abnarain
 ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261530"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiar dados de uma base de dados do SQL Server no local para o Armazenamento de blobs do Azure com a ferramenta Copiar Dados
@@ -175,7 +175,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na caixa de diálogo **Configurar Integration Runtime**, em **Nome**, introduza **TutorialIntegrationRuntime**. Em seguida, selecione **Seguinte**. 
 
-   ![Nome do runtime de integração](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
+   ![Nome do runtime de Integração](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
 
 1. Selecione **Clique aqui para iniciar a configuração rápida neste computador**. Esta ação instala o runtime de integração no seu computador e regista-o no Data Factory. Em alternativa, pode utilizar a opção de configuração manual para transferir o ficheiro de instalação, executá-lo e utilizar a chave para registar o runtime de integração. 
 

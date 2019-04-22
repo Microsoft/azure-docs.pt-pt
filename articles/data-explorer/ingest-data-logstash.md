@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/14/2019
 ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046415"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: Ingestão de dados do Logstash para o Explorador de dados do Azure
@@ -108,12 +108,12 @@ output {
 
 | Nome do Parâmetro | Descrição |
 | --- | --- |
-| **caminho** | O plug-in do Logstash grava eventos em ficheiros temporários antes de os enviar para o Explorador de dados do Azure. Este parâmetro inclui um caminho onde os ficheiros devem ser escritos e uma expressão de tempo para a rotação de ficheiro acionar um carregamento para o serviço do Explorador de dados do Azure.|
+| **path** | O plug-in do Logstash grava eventos em ficheiros temporários antes de os enviar para o Explorador de dados do Azure. Este parâmetro inclui um caminho onde os ficheiros devem ser escritos e uma expressão de tempo para a rotação de ficheiro acionar um carregamento para o serviço do Explorador de dados do Azure.|
 | **ingest_url** | O ponto final de Kusto para relacionados com a ingestão de comunicação.|
 | **app_id**,  **app_key**, and **app_tenant**| Credenciais necessárias para ligar ao Explorador de dados do Azure. Certifique-se de que usar um aplicativo com privilégios de ingestão. |
-| **base de dados**| Nome de base de dados a colocar eventos. |
-| **tabela** | Nome da tabela de destino para colocar os eventos. |
-| **Mapeamento** | Mapeamento é usado para mapear uma cadeia de json de eventos recebida para o formato de linha correto (define qual propriedade entra em qual coluna). |
+| **database**| Nome de base de dados a colocar eventos. |
+| **table** | Nome da tabela de destino para colocar os eventos. |
+| **mapping** | Mapeamento é usado para mapear uma cadeia de json de eventos recebida para o formato de linha correto (define qual propriedade entra em qual coluna). |
 
 ## <a name="run-logstash"></a>Execute o Logstash
 

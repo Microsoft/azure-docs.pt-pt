@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425853"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorizar o estado de replicação do Active Directory com o Azure Monitor
@@ -119,32 +119,32 @@ Também pode clicar **exportar** para exportar os resultados para o Excel. Expor
 ![exportado erros de estado de replicação de AD no Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>FAQ de estado de replicação do AD
-**P. São a frequência com que dados de estado de replicação de AD atualizados?**
+**P: São a frequência com que dados de estado de replicação de AD atualizados?**
 R: As informações são atualizadas a cada cinco dias.
 
-**P. Existe uma forma de configurar a frequência com que estes dados são atualizados?**
+**P: Existe uma forma de configurar a frequência com que estes dados são atualizados?**
 R: Neste momento, não.
 
-**P. É necessário adicionar todos meus controladores de domínio para a minha área de trabalho do Log Analytics para ver o estado de replicação?**
+**P: É necessário adicionar todos meus controladores de domínio para a minha área de trabalho do Log Analytics para ver o estado de replicação?**
 R: Não, apenas um único controlador de domínio tem de ser adicionado. Se tiver vários controladores de domínio na sua área de trabalho do Log Analytics, os dados de todos eles são enviados para o Azure Monitor.
 
-**P. Não quero adicionar quaisquer controladores de domínio a minha área de trabalho do Log Analytics. Posso continuar a utilizar a solução de estado de replicação do AD?**
+**P: Não quero adicionar quaisquer controladores de domínio a minha área de trabalho do Log Analytics. Posso continuar a utilizar a solução de estado de replicação do AD?**
 
 R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Ver [controlador de domínio não ativar](#enable-non-domain-controller).
 
-**P. O que é o nome do processo que faz a recolha de dados?**
+**P: O que é o nome do processo que faz a recolha de dados?**
 R: AdvisorAssessment.exe
 
-**P. Quanto tempo demora para recolher dados?**
+**P: Quanto tempo demora para recolher dados?**
 R: Hora de recolha de dados depende do tamanho do ambiente do Active Directory, mas, normalmente, demora menos de 15 minutos.
 
-**P. Que tipo de dados é recolhido?**
+**P: Que tipo de dados é recolhido?**
 R: Informações de replicação são recolhidas através de LDAP.
 
-**P. Existe uma forma de configurar quando os dados são recolhidos?**
+**P: Existe uma forma de configurar quando os dados são recolhidos?**
 R: Neste momento, não.
 
-**P. Que permissões preciso recolher dados?**
+**P: Que permissões preciso recolher dados?**
 R: Permissões de usuário normal para o Active Directory são suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Resolução de problemas de recolha de dados

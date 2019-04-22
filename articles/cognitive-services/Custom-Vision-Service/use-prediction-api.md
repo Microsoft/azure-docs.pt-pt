@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046075"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utilizar o seu modelo com a API de predição
@@ -137,7 +137,7 @@ Quando o aplicativo é executado, lhe for pedido para introduzir um caminho para
 Neste guia, aprendeu a enviar imagens para sua personalizado/detetor de classificador de imagem e recebem uma resposta por meio de programação com o C# SDK. Em seguida, aprenda como concluir cenários ponto a ponto com o C#, ou começar a utilizar um idioma diferente do SDK.
 
 * [Início rápido: .NET SDK](csharp-tutorial.md)
-* [Início rápido: SDK Python](python-tutorial.md)
-* [Início rápido: SDK Java](java-tutorial.md)
-* [Início rápido: SDK de Node](node-tutorial.md)
-* [Início rápido: SDK Go](go-tutorial.md)
+* [Quickstart: SDK Python](python-tutorial.md)
+* [Quickstart: Java SDK](java-tutorial.md)
+* [Quickstart: Nó de SDK](node-tutorial.md)
+* [Quickstart: SDK de ir](go-tutorial.md)

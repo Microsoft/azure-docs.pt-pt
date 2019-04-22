@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266431"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
@@ -50,7 +50,7 @@ Dentro de um ambiente de base de dados globalmente distribuída existe uma rela�
 
 A tabela a seguir define a relação entre a durabilidade de dados e o modelo de consistência na presença de indisponibilidade ampla de região. É importante observar que, num sistema distribuído, mesmo com consistência forte, é impossível ter uma base de dados distribuída com um RPO e RTO de zero devido a Teorema CAP. Para saber mais sobre as razões, veja [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
 
-|**Regiões**|**Modo de replicação**|**Nível de consistência**|**RPO:**|**RTO**|
+|**Regiões**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< A 240 minutos|< 1 semana|
 |>1|Único do controlador|Sessão, prefixo consistente, Eventual|< a 15 minutos|< a 15 minutos|

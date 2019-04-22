@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357065"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Implementar aplicações lógicas com modelos Azure Resource Manager
@@ -33,7 +33,7 @@ Depois de criar um modelo do Azure Resource Manager para implementar a aplicaç�
 
 Para implementar automaticamente um modelo de aplicação lógica no Azure, pode escolher as seguintes **implementar no Azure** botão, que inicia sessão no portal do Azure e pede-lhe informações sobre a sua aplicação lógica. Pode, em seguida, faça as alterações necessárias para o modelo de aplicação lógica ou parâmetros.
 
-[![Deploy para o Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Implementar no Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Por exemplo, a lhe for pedido para obter estas informações depois de iniciar sessão portal do Azure:
 
@@ -66,7 +66,7 @@ Para implementar para uma subscrição do Azure específica, utilize este comand
 New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json 
 ```
 
-* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
 * [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
@@ -88,7 +88,7 @@ az deployment create --location <location> --template-uri https://raw.githubuser
 
 Para obter mais informações, veja estes tópicos: 
 
-* [Implementar recursos com modelos do Resource Manager e do CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 * [`az deployment create`](https://docs.microsoft.com/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)
 

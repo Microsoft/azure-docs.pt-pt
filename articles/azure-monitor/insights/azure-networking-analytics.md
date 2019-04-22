@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.openlocfilehash: 0a5d886558e72ef24b03a49750ed75cf7130bf08
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006398"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Monitorização de soluções no Azure Monitor da rede do Azure
@@ -31,7 +31,7 @@ Monitor do Azure oferece as seguintes soluções para monitorização de suas re
     * Registos do Gateway de aplicação do Azure
     * Métricas de Gateway de aplicação do Azure
 * Soluções para monitorizar e auditar a atividade na sua rede de nuvem de rede
-    * [Análise de Tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [Análise de tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
     * Análise do Grupo de Segurança de Rede do Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de desempenho de rede (NPM)

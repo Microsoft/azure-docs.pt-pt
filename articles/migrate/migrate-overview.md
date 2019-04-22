@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275458"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
@@ -39,10 +39,10 @@ O Azure Migrate ajuda-o a:
 
     **Geografia** | **Localização de armazenamento**
     --- | ---
-    Azure Government | US Gov - Virginia
+    Azure Government | Gov (US) - Virginia
     Ásia | Sudeste asiático ou Ásia Oriental
     Europa | Europa do Norte ou da Europa Ocidental
-    Estados Unidos da América | E.U.A. Leste ou oeste dos E.U.A.
+    Estados Unidos | E.U.A. Leste ou oeste dos E.U.A.
 
     A geografia associada ao projeto de migração é utilizada para armazenar os metadados detetados a partir do ambiente no local. Metadados são armazenados em uma das regiões com base na geografia especificada para o projeto de migração. Se utilizar a visualização de dependências através da criação de uma nova área de trabalho do Log Analytics, a área de trabalho é criada na mesma região que o projeto.
 - A funcionalidade de visualização de dependência não está disponível no Azure Government.
@@ -62,10 +62,10 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 **Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>O Azure Migrate suporta atualmente 33 regiões como localizações dos destinos de migração. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida para E.U.A. Leste.
 **Tipo de armazenamento** | O tipo de discos geridos que pretende alocar para todas as VMs que fazem parte da avaliação. Se o critério de dimensionamento for *no local dimensionamento* pode especificar o tipo de disco de destino como os discos premium (predefinição), os discos standard SSD ou discos HDD standard. Para *dimensionamento com base no desempenho*, juntamente com as opções acima, também tem a opção de selecionar automático que irá garantir que o disco a recomendação do tamanho é automaticamente feito com base nos dados de desempenho das VMs. Por exemplo, se quer atingir um [única instância de VM SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), talvez queira especificar o tipo de armazenamento como discos geridos Premium, que irão garantir que todos os discos na avaliação irão ser recomendados como discos geridos Premium. Note que o Azure Migrate só suporta discos geridos para avaliação de migrações.
 **Instâncias Reservadas** |  Se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. O Azure Migrate calcula o custo em conformidade.
-**Critério de dimensionamento** | Dimensionamento pode basear-se no **histórico de desempenho** das VMs no local (predefinição) ou **como no local**, sem considerar o histórico de desempenho.
+**Critérios de dimensionamento** | Dimensionamento pode basear-se no **histórico de desempenho** das VMs no local (predefinição) ou **como no local**, sem considerar o histórico de desempenho.
 **Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%.
 **Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. A definição de conforto predefinida é 1,3x.
-**Série de VM** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
+**Série das VMs** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
 **Moeda** | A moeda de faturação. Predefinição é não utilizados no compromisso E.U.A.
 **Desconto (%)** | Eventuais descontos para uma subscrição específica que receba sobre a oferta do Azure. A predefinição é 0%.
 **Tempo de atividade de VM** | Se não se pretender que as VMs em execução 24x7 no Azure, pode especificar a duração (número de dias por mês) e o número de horas por dia para que eles estariam em execução e as estimativas de custos serão efetuadas em conformidade. O valor predefinido é 31 dias por mês e 24 horas por dia.

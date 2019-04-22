@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045489"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governação de identidade do Azure AD?
@@ -69,19 +69,19 @@ O Azure AD Privileged Identity Management (PIM) fornece controlos adicionais ada
 Embora não haja nenhuma recomendação para cada cliente ou a solução perfeita, as seguintes configurações fornecem um guia para que políticas de linha de base, a Microsoft recomenda para garantir uma força de trabalho mais segura e produtiva.
 
 - [Configurações de acesso de dispositivos e identidade](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Proteger o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
+- [A proteger o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>Revisões de acesso
 
 - [O que é uma revisão de acesso?](access-reviews-overview.md)
 - [Gerir o acesso de utilizador com as revisões de acesso](manage-user-access-with-access-reviews.md)
-- [Gerir o acesso de convidado com revisões de acesso](manage-guest-access-with-access-reviews.md)
+- [Gerir o acesso de convidado com as revisões de acesso](manage-guest-access-with-access-reviews.md)
 - [Iniciar uma revisão de acesso de funções do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Termos de utilização
 
-- [O que posso fazer com os Termos de utilização?](../conditional-access/terms-of-use.md)
+- [O que posso fazer com os Termos de Utilização?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

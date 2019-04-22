@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012939"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
@@ -77,13 +77,13 @@ Método HTTP
 
 `GET`
 
-*URL do Pedido*
+*Request URL* (URL do pedido)
 
 **https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
 
 *Parâmetro URI*
 
-|  **Nome do parâmetro**  | **Necessário**  | **Descrição**                               |
+|  **Parameter name** (Nome do parâmetro)  | **Necessário**  | **Descrição**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
 | tenantId             | Verdadeiro          | ID do inquilino da aplicação registada do AAD   |
 |  |  |  |
@@ -110,7 +110,7 @@ Método HTTP
 
 *Resposta*
 
-|  **Name**  | **Tipo**       |  **Descrição**    |
+|  **Nome**  | **Tipo**       |  **Descrição**    |
 | ---------- | -------------  | ------------------- |
 | 200 OK    | TokenResponse  | Pedido efetuado com êxito   |
 |  |  |  |

@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361140"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
@@ -101,47 +101,47 @@ Para obter mais informações, consulte [atualizar para ger2](upgrade-to-latest-
 
 ## <a name="migration-frequently-asked-questions"></a>Perguntas freqüentes de migração
 
-**P. Geração 2 custa o mesmo que a geração 1?**
+**P: Geração 2 custa o mesmo que a geração 1?**
 
 - R: Sim.
 
-**P. Como é que as atualizações afeta os meus scripts de automatização?**
+**P: Como é que as atualizações afeta os meus scripts de automatização?**
 
 - R: Qualquer script de automação que faz referência a um objetivo de nível de serviço deve ser alterada para corresponder ao equivalente de geração 2.  Ver detalhes [aqui](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
-**P. O tempo que uma atualização automática normalmente demora?**
+**P: O tempo que uma atualização automática normalmente demora?**
 
 - R: Pode atualizar no local ou atualizar a partir de um ponto de restauro.  
    - Atualização in-loco fará com que o seu armazém de dados em instantes, colocar em pausa e retomar.  Um processo em segundo plano continuará enquanto o armazém de dados está online.  
    - Demora mais tempo se estiver a atualizar um ponto de restauro, porque a atualização irá passar pelo processo de restauro completa.
 
-**P. Quanto tempo demorará a atualização automática?**
+**P: Quanto tempo demorará a atualização automática?**
 
 - R: O tempo de inatividade atual para a atualização é apenas o tempo que demora a colocar em pausa e retomar o serviço, o que é entre 5 a 10 minutos. Após o período de indisponibilidade breve, um processo em segundo plano será executado uma migração de armazenamento. O período de tempo para o processo em segundo plano é depende do tamanho do seu armazém de dados.
 
-**P. Quando a atualização automática terá lugar?**
+**P: Quando a atualização automática terá lugar?**
 
 - R: Durante a sua agenda de manutenção. Tirar partido da sua agenda de manutenção escolhido irá minimizar a interrupção para o seu negócio.
 
-**P. O que devo fazer se o meu processo de atualização em segundo plano parece estar bloqueada?**
+**P: O que devo fazer se o meu processo de atualização em segundo plano parece estar bloqueada?**
 
  - R: Inicie um reindex das tabelas Columnstore. Tenha em atenção que reindexação da tabela estarão offline durante esta operação.
 
-**P. E se a geração 2 não tem o objetivo de nível de serviço tem na geração 1?**
+**P: E se a geração 2 não tem o objetivo de nível de serviço tem na geração 1?**
 - R: Se estiver a executar um DW600 ou DW1200 na geração 1, recomenda-se para utilizar DW500c ou DW1000c respectivamente, uma vez que a geração 2 fornece mais memória, recursos e um desempenho mais elevado de geração 1.
 
-**P. Pode desativar cópia de segurança geo?**
+**P: Pode desativar cópia de segurança geo?**
 - R: Não. Cópia de segurança GEO é uma funcionalidade empresarial para preservar seus dados do armazém de disponibilidade no caso de uma região fica indisponível. Abra um [pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) caso tenha outras preocupações.
 
-**P. Existe uma diferença na sintaxe de T-SQL entre a geração 1 e geração 2?**
+**P: Existe uma diferença na sintaxe de T-SQL entre a geração 1 e geração 2?**
 
 - R: Não há nenhuma alteração na sintaxe de linguagem T-SQL de geração 1, a geração 2.
 
-**P. Geração 2 suporta o Windows de manutenção?**
+**P: Geração 2 suporta o Windows de manutenção?**
 
 - R: Sim.
 
-**P. Será capaz de criar uma nova instância de geração 1 depois de atualizar minha região?**
+**P: Será capaz de criar uma nova instância de geração 1 depois de atualizar minha região?**
 
 - R: Não. Depois de atualizar uma região, a criação de novas instâncias de geração 1 será desativada.
 

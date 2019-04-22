@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265836"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn Noções básicas sobre relatórios de gestão de custos
@@ -29,7 +29,7 @@ Aqui está uma olhada num exemplo do relatório de custo ao longo do tempo. A ma
 
 Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes informações:
 
-1. **Intervalo de Datas**
+1. **Intervalo de datas**
 
     Utilize a lista de intervalo de datas para definir um intervalo de tempo de relatório através de uma configuração predefinida ou personalizada.
 2. **Filtro guardado**
@@ -87,7 +87,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Custo de utilização
      - **Cliente**
        - Selecione um cliente específico, vários clientes, ou todos os clientes.
-     - **Nome da Conta**
+     - **Nome da conta**
        - O nome de conta ou a subscrição. No Azure, é o nome da subscrição do Azure.
      - **Conta não**
        - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da subscrição do Azure.
@@ -99,7 +99,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - O fornecedor de cloud em que estão associadas ativos e as despesas.
      - **Região**
        - Região onde está alojado o recurso.
-     - **Zona de Disponibilidade**
+     - **Zona de disponibilidade**
        - Localizações do AWS isolados numa região.
      - **Tipo de Recurso**
        - O tipo de recurso em uso.
@@ -118,7 +118,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
        - Selecione o tipo de custo negativos ou positivos ou ambos.
      - **Inquilinos**
        - Se uma máquina está em execução como uma máquina dedicada.
-     - **Tipo de Utilização**
+     - **Tipo de utilização**
        - Tipo de utilização pode ser as tarifas únicas ou taxas recorrentes.
 
 5. **Filtros**
@@ -154,7 +154,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Utilize regras de alocação para aplicar ou desativar o recálculo de custo de alocação de custos. Pode ativar ou desativar o recálculo de alocação de custo para dados de faturação. O recálculo aplica-se para as categorias selecionadas no relatório. Permite-lhe avaliar o impacto de recálculo de alocação de custos em relação a dados não processados de faturas.
 
-10. **Não Categorizado**
+10. **Não categorizado**
 
     Utilize não categorizado para incluir ou excluir os custos sem categoria no relatório.
 

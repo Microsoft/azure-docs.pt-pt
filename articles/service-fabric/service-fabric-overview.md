@@ -16,10 +16,10 @@ ms.date: 09/20/2017
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: cd2895378f713749b3a1d0ac01986b728ceafd2b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009008"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Descrição Geral do Azure Service Fabric
@@ -91,8 +91,8 @@ Ao utilizar o Service Fabric, pode:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações:
-  * [Por que um microsserviços aborda a criação de aplicações?](service-fabric-overview-microservices.md)
-  * [Descrição geral da terminologia](service-fabric-technical-overview.md)
+  * [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Porquê seguir a abordagem de microsserviços para criar aplicações?)
+  * [Terminology overview](service-fabric-technical-overview.md) (Descrição geral da terminologia)
 * Preparar o [ambiente de desenvolvimento no Windows](service-fabric-get-started.md)  
 * Preparar o [ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

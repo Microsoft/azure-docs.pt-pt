@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264425"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerir conjuntos elásticos
@@ -96,7 +96,7 @@ Da mesma forma, um script tem de poder ser executado com êxito ao testar logica
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar e gerir conjuntos elásticos com o PowerShell](elastic-jobs-powershell.md)
-- [Criar e gerir conjuntos elásticos com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell.md)
+- [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360805"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V para um site secundário
@@ -53,7 +53,7 @@ Apenas as máquinas do Linux com o armazenamento seguinte podem ser replicadas:
 
 ## <a name="network-configuration---hostguest-vm"></a>Configuração de rede - Host/convidado de VM
 
-**Configuração** | **Suportadas**  
+**Configuração** | **Suportado**  
 --- | --- 
 Anfitrião - agrupamento NIC | Sim 
 Host - VLAN | Sim 
@@ -70,7 +70,7 @@ VM do convidado - Multi-NIC | Sim
 
 ### <a name="host-storage"></a>Armazenamento de anfitrião
 
-**Armazenamento (anfitrião)** | **Suportadas**
+**Armazenamento (anfitrião)** | **Suportado**
 --- | --- 
 NFS | N/A
 SMB 3.0 |  Sim
@@ -79,7 +79,7 @@ Múltiplos caminhos (o MPIO) | Sim
 
 ### <a name="guest-or-physical-server-storage"></a>Armazenamento de servidor físico ou de convidado
 
-**Configuração** | **Suportadas**
+**Configuração** | **Suportado**
 --- | --- | 
 VMDK |  N/A
 VHD/VHDX | Sim (até 16 discos)
@@ -99,7 +99,7 @@ Múltiplos caminhos (o MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportadas**
+**Ação** | **Suportado**
 --- | --- 
 Cofres de movimentação entre grupos de recursos (dentro ou entre subscrições) |  Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou entre subscrições) | Não
@@ -108,7 +108,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou
 
 O fornecedor coordena as comunicações entre servidores do VMM. 
 
-**Mais Recente** | **Atualizações**
+**Latest** | **Atualizações**
 --- | --- 
 5.1.19 ([disponível no portal](https://aka.ms/downloaddra) | [Funcionalidades e correções mais recentes](https://support.microsoft.com/kb/3155002)
 

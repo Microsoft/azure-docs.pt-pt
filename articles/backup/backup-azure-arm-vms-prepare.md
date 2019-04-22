@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264561"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer cópias de segurança de VMs do Azure num cofre dos serviços de recuperação
@@ -227,7 +227,7 @@ Se não tiver um proxy de conta de sistema, configure um da seguinte forma:
 4. Defina as definições de proxy.
    - Nas máquinas do Linux:
      - Adicionar esta linha para o **/etc/ambiente** ficheiro:
-       - **http_proxy = http:\/porta de proxy: endereço IP /proxy**
+       - **http_proxy=http:\//proxy IP address:proxy port**
      - Adicionar estas linhas para o **/etc/waagent.Conf.** ficheiro:
          - **HttpProxy.Host=proxy IP address**
          - **HttpProxy.Port=proxy port**

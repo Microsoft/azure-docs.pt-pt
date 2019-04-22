@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283006"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Cosmos do Azure
@@ -285,9 +285,9 @@ Leia os artigos seguintes:
 
 * [Gerir a consistência](how-to-manage-consistency.md)
 * [Gerir conflitos entre regiões](how-to-manage-conflicts.md)
-* [Distribuição global - em segundo plano](global-dist-under-the-hood.md)
+* [Distribuição global - sob definições avançadas](global-dist-under-the-hood.md)
 * [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
 * [Configurar os clientes de multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Adicionar ou remover regiões a partir da sua conta do Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Criar uma política de resolução de conflitos personalizada](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Criar uma política de resolução de conflito personalizado](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

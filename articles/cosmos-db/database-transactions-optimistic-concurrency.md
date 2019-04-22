@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279515"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
@@ -20,7 +20,7 @@ Transações da base de dados fornecem um modelo de programação seguro e previ
 
 O motor de base de dados do Azure Cosmos DB suporta completas de transações em conformidade de ACID (atomicidade, consistência, isolamento, durabilidade) com o isolamento do instantâneo. Todas as bases de dados operações dentro do escopo de um contentor [partição lógica](partition-data.md) ao nível das transações são executados dentro do motor de base de dados que é alojado pela réplica da partição. Estas operações incluem ambos escrever (atualizar um ou mais itens dentro da partição lógica) e operações de leitura. A tabela seguinte ilustra as operações diferentes e tipos de relatada:
 
-| **Operação**  | **Tipo de Operação** | **Único ou a transação de Item de múltiplas** |
+| **Operação**  | **Tipo de operação** | **Único ou a transação de Item de múltiplas** |
 |---------|---------|---------|
 | Inserir (sem um acionador de pré/pós) | Escrita | Transação de item único |
 | Inserir (com um acionador de pré/pós) | Escrever e ler | Transação de item multi |
@@ -34,7 +34,7 @@ O motor de base de dados do Azure Cosmos DB suporta completas de transações em
 | Sistema iniciou a execução de um procedimento de intercalação | Escrita | Transação de item multi |
 | Sistema iniciou a execução da eliminação de itens com base em expiração (TTL) de um item | Escrita | Transação de item multi |
 | Leitura | Leitura | Transação de item único |
-| Feed de alterações | Leitura | Transação de item multi |
+| Feed de Alterações | Leitura | Transação de item multi |
 | Leitura paginada | Leitura | Transação de item multi |
 | Consulta paginada | Leitura | Transação de item multi |
 | Executar UDF como parte da consulta paginada | Leitura | Transação de item multi |
@@ -63,5 +63,5 @@ Saiba mais sobre transações de base de dados e o controlo de simultaneidade ot
 
 - [Trabalhar com bases de dados do Cosmos do Azure, contentores e itens](databases-containers-items.md)
 - [Níveis de consistência](consistency-levels.md)
-- [Tipos de conflito e políticas de resolução](conflict-resolution-policies.md)
+- [Tipos de conflito e diretivas de resolução](conflict-resolution-policies.md)
 - [Procedimentos armazenados, acionadores e funções definidas pelo utilizador](stored-procedures-triggers-udfs.md)

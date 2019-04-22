@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265003"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Início rápido: Criar uma sala de bate-papo com as funções do Azure e o serviço SignalR com C\#
@@ -76,4 +76,4 @@ Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta
 Neste início rápido, criou e executou uma aplicação sem servidor em tempo real no Visual Studio. Em seguida, saiba mais sobre como desenvolver e implementar as Funções do Azure com o Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Desenvolver as funções do Azure com o Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Desenvolver as Funções do Azure com o Visual Studio](../azure-functions/functions-develop-vs.md)

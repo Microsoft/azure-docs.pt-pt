@@ -11,10 +11,10 @@ description: Desenvolvimento rápido da Kubernetes com contentores e microsservi
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: mmontwil
 ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426312"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com Java
@@ -108,7 +108,7 @@ Neste momento, tem uma aplicação Web básica que pode ser executada localmente
     ```
 
 O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com as predefinições:
-* `./Dockerfile` Descreve a aplicação imagem de contentor e como o código-fonte é criado e é executado dentro do contentor.
+* `./Dockerfile` descreve a imagem de contentor da aplicação e como o código-fonte é construído e executado no contentor.
 * Um [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
 
 Por enquanto, não é necessário entender o conteúdo completo desses ficheiros. No entanto, importa realçar que **os mesmos recursos de configuração como código do Kubernetes e do Docker podem ser utilizados do desenvolvimento à produção, dando maior consistência em diferentes ambientes.**
@@ -148,7 +148,7 @@ Abra este URL numa janela do browser e deve ver o carregamento da aplicação We
 > O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
 
 1. Na janela de terminal, prima `Ctrl+C` (para parar `azds up`).
-1. Abra o ficheiro de código com o nome `src/main/java/com/ms/sample/webfrontend/Application.java`e editar a mensagem de saudação: `return "Hello from webfrontend in Azure!";`
+1. Abra o ficheiro de código com o nome `src/main/java/com/ms/sample/webfrontend/Application.java` e edite a mensagem de saudação: `return "Hello from webfrontend in Azure!";`
 1. Guarde o ficheiro.
 1. Execute `azds up` na janela de terminal.
 
@@ -215,7 +215,7 @@ Em vez de reconstruir e reimplementar uma imagem de contentor nova sempre que fo
 
 Atualize a aplicação Web no browser. Deverá ver a mensagem personalizada apresentada na IU.
 
-**Agora tem um método para iteração no código e depuração diretamente no Kubernetes rapidamente!** Em seguida, irá ver como pode criar e chamar um segundo contentor.
+**Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.** Em seguida, irá ver como pode criar e chamar um segundo contentor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

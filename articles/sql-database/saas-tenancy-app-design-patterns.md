@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260549"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de bases de dados de SaaS de multi-inquilino
@@ -130,7 +130,7 @@ Outro padrão disponível é armazenar muitos inquilinos numa base de dados do m
 
 *Processamento:*&nbsp; Uma base de dados do multi-inquilino partilha os recursos de computação e armazenamento em todos os seus inquilinos.  A base de dados como um todo pode ser monitorado para garantir que está a funcionar de forma aceitável.  No entanto, o sistema do Azure tem uma maneira interna para monitorar ou gerenciar o uso desses recursos por um inquilino individual.  Por conseguinte, a base de dados do multi-inquilino acarreta um risco maior de encontrar vizinhos ruidosos, em que a carga de trabalho de um inquilino overactive tem impacto sobre a experiência de desempenho de outros inquilinos na mesma base de dados.  Monitorização de nível de aplicativo adicional pode monitorizar o desempenho de nível de inquilino.
 
-#### <a name="lower-cost"></a>Custo mais baixo
+#### <a name="lower-cost"></a>Custo mais reduzido
 
 Em geral, bases de dados do multi-inquilinos tem o mais baixo por inquilino de custos.  Os custos de recursos para uma base de dados são mais baixos do que de um conjunto elástico dimensionado de maneira equivalente.  Além disso, para cenários em que os inquilinos precisam apenas armazenamento limitada, potencialmente milhões de inquilinos poderiam ser armazenados num único banco de dados.  Nenhum conjunto elástico pode conter milhões de bases de dados.  No entanto, uma solução que contém as bases de dados de 1000 por conjunto, com os conjuntos de 1000, foi possível alcançar a escala dos milhões sob a tornar-se complicadas de gerenciar.
 
@@ -184,10 +184,10 @@ Nesse modelo híbrido, as bases de dados de inquilino único para os inquilinos 
 
 A tabela seguinte resume as diferenças entre os modelos de inquilinos principal.
 
-| Medição | Aplicação autónoma | Base de dados por inquilino | Em partição horizontal multi-inquilino |
+| Medida | Aplicação autónoma | Base de dados por inquilino | Em partição horizontal multi-inquilino |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Dimensionamento | Média<br />1-100s | Muito alta<br />1-100,000s | Sem limite<br />1-1,000,000s |
-| Isolamento de inquilino | Muito alta | Elevada | Baixa; exceto para qualquer inquilino individual (ou seja, num db de MT). |
+| Escala | Médio<br />1-100s | Muito alta<br />1-100,000s | Ilimitado<br />1-1,000,000s |
+| Isolamento de inquilino | Muito alta | Elevado | Baixa; exceto para qualquer inquilino individual (ou seja, num db de MT). |
 | Custo de base de dados por inquilino | Alta; é dimensionado para picos. | Baixa; conjuntos utilizados. | Mais baixo, para inquilinos pequenos no bds de MT. |
 | Gestão e monitorização de desempenho | Por inquilino apenas | Agregado + por inquilino | Agregar; Embora é por inquilino apenas para singles. |
 | Complexidade de desenvolvimento | Baixa | Baixa | Médio; devido à fragmentação. |

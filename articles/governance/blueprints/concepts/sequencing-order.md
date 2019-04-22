@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266193"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreender a sequência de implementação no Azure esquemas
@@ -25,7 +25,7 @@ O Azure utiliza esquemas uma **ordem de sequenciamento** para determinar a ordem
 
 Existem variáveis nos exemplos JSON que é necessário substituir com seus próprios valores:
 
-- `{YourMG}` -Substituir pelo nome do seu grupo de gestão
+- `{YourMG}` - substituir pelo nome do seu grupo de gestão
 
 ## <a name="default-sequencing-order"></a>Ordem de sequenciamento do padrão
 

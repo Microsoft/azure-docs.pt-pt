@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012249"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início rápido: Sintetizar fala com o SDK de voz para .NET Framework (Windows)
@@ -70,5 +70,5 @@ Para concluir este projeto, precisa de:
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar tipos de voz](how-to-customize-voice-font.md)
-- [Gravar amostras de voz](record-custom-voice-samples.md)
+- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
+- [Exemplos de voz de registo](record-custom-voice-samples.md)

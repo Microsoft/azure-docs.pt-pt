@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
 ms.openlocfilehash: 558f8845f5469bf157188e20f1ec65a07ff8355f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59363144"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Configuração de políticas do Azure Active Directory
@@ -29,4 +29,4 @@ Para obter mais informações, veja [Configuring authentication policies (Config
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar um Catálogo de Dados do Azure](data-catalog-get-started.md)
+* [Criar um catálogo de dados do Azure](data-catalog-get-started.md)

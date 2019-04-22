@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010554"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
@@ -38,7 +38,7 @@ Para aceder a recursos em outros inquilinos do Azure Active Directory (Azure AD)
 Para identidades geridas atribuído de sistema, não é necessário que criar manualmente essa identidade. Para configurar uma identidade gerida atribuído de sistema para a aplicação lógica, pode usar essas formas: 
 
 * [Portal do Azure](#azure-portal) 
-* [Modelos do Azure Resource Manager](#template) 
+* [Modelos Azure Resource Manager](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
 <a name="azure-portal"></a>

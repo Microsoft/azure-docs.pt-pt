@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/05/2019
 ms.openlocfilehash: 7ecb2269243ae96b629a20a26956e6220a2e616c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280847"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de web do .NET com a conta de API de SQL no Azure Cosmos DB
@@ -62,8 +62,8 @@ Pode utilizar o Data Explorer no portal do Azure para criar uma base de dados e 
     
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**Id da base de dados**|ToDoList|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita.|
-    |**ID da coleção**|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos como nomes de base de dados.|
+    |**Id de base de dados**|ToDoList|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita.|
+    |**Id da coleção**|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos como nomes de base de dados.|
     |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */category* como a chave de partição.|
     |**Débito**|400|Deixe o débito com 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
     
@@ -229,5 +229,5 @@ Este passo é opcional. Neste início rápido, criou uma base de dados e uma col
 Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB, criar uma base de dados e uma coleção com o Data Explorer e executar uma aplicação web do .NET para atualizar os seus dados. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados para o Azure Cosmos DB](import-data.md)
+> [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).
 

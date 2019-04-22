@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051175"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
@@ -277,7 +277,7 @@ Um modelo do Resource Manager consiste em quatro seções:
 
 - **Variáveis**: Estes são utilizados para armazenar os valores que são utilizados em toda a implementação. Ao contrário de parâmetros, um valor da variável não é fornecido no momento da implementação. Em vez disso, é difícil codificado ou gerado dinamicamente.
 
-- **recursos**: Esta secção do modelo define os recursos a serem implantados, como máquinas virtuais, contas de armazenamento e redes virtuais.
+- **Recursos**: Esta secção do modelo define os recursos a serem implantados, como máquinas virtuais, contas de armazenamento e redes virtuais.
 
 - **Saída**: Depois de concluir uma implementação, o Gestor de recursos pode retornar dados como cadeias de ligação geradas dinamicamente.
 
@@ -477,7 +477,7 @@ Existem várias opções para implementar uma rede virtual.
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
-- [Interface de Linha de Comandos (CLI)](../../virtual-network/quick-create-cli.md)
+- [Interface de linha de comandos (CLI)](../../virtual-network/quick-create-cli.md)
 
 - Modelos Azure Resource Manager
 
@@ -491,5 +491,5 @@ Pode ajudar a proteger redes virtuais do Azure através de um grupo de seguranç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
-- [Criar uma VM do Linux](../../virtual-machines/linux/quick-create-portal.md)
+- [Criar um VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
+- [Criar uma VM de Linux](../../virtual-machines/linux/quick-create-portal.md)

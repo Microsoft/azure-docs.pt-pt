@@ -12,10 +12,10 @@ author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
 ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259189"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e do Azure Machine Learning: Criar e implementar modelos de IA interoperáveis
@@ -37,7 +37,7 @@ Também existe um ecossistema de ferramentas para a visualização e acelerando 
 
 [Podem ser implementados modelos ONNX](#deploy) na cloud com o Azure Machine Learning e o tempo de execução ONNX. Eles também podem ser implementados para dispositivos Windows 10 com [Windows ML](https://docs.microsoft.com/windows/ai/). Pode até mesmo ser implementados para outras plataformas usando conversores que estão disponíveis da Comunidade ONNX. 
 
-[![ODiagrama de fluxo NNX mostrando treinamento, conversores e implementação](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![Diagrama de fluxo ONNX mostrando treinamento, conversores e implementação](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obter modelos ONNX
 
@@ -53,12 +53,12 @@ Pode converter modelos existentes para ONNX ou salvá-los como ONNX no final do 
 
 |Estrutura para o modelo|Exemplo de conversão ou ferramenta|
 |-----|-------|
-|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|PyTorch|[Bloco de notas do Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
 |TensorFlow|[Conversor de tensorflow onnx](https://github.com/onnx/tensorflow-onnx)|
-|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
-|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Chainer|[Bloco de notas do Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Bloco de notas do Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, saiba ScitKit CoreML<br/>XGBoost e libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
-|Microsoft&nbsp;cognitivos&nbsp;Toolkit|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|Microsoft&nbsp;cognitivos&nbsp;Toolkit|[Bloco de notas do Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 Pode encontrar a lista mais recente de arquiteturas suportadas e conversores no [site de tutoriais ONNX](https://github.com/onnx/tutorials).
 
@@ -211,6 +211,6 @@ Saiba mais sobre ONNX ou contribuir para o projeto:
 + [Código ONNX no GitHub](https://github.com/onnx/onnx)
 
 Saiba mais sobre o tempo de execução ONNX ou contribuir para o projeto:
-+ [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
++ [Repositório do GitHub de tempo de execução ONNX](https://github.com/Microsoft/onnxruntime)
 
 

@@ -35,10 +35,10 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-search-location">Procurar pontos de interesse</a>
-          - html: <a href="/azure/azure-maps/tutorial-route-location">Rota para um ponto de interesse</a>
-          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Rotas por modo de viagem</a>
-          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Criar um localizador de loja</a>
-      - html: <b>Tutoriais da API REST</b>
+          - html: <a href="/azure/azure-maps/tutorial-route-location">Encaminhar para um ponto de interesse</a>
+          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Encaminhamento pelo modo de viagem</a>
+          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Criar um localizador de arquivo</a>
+      - html: <b>Tutoriais de API REST</b>
       - type: paragraph
         text: Crie aplicações geoespaciais que chamam os serviços REST do Azure Maps.
       - type: list
@@ -54,4 +54,4 @@ sections:
           - title: JavaScript
             html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Controlo de mapa</a></p>'
           - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Serviço de dados</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Serviço de localização geográfica</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Serviço de composição</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Serviço de encaminhamento</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Serviço de pesquisa</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Serviço espacial</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Serviço de fuso horário</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Serviço de tráfego</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Serviço de dados</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Serviço de geolocalização</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Serviço de composição</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Serviço de encaminhamento</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Serviço de pesquisa</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Serviço espacial</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Serviço de fuso horário</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Serviço de tráfego</a></p>'

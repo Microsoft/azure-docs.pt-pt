@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359025"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
@@ -111,13 +111,13 @@ Para adicionar VMs manualmente:
 
     b. **Tamanho de IaaS (a sua seleção)**
 
-    c. **Tipo de armazenamento Standard/Premium**
+    c. **Tipo de armazenamento (Standard/Premium)**
 
     d. **Tamanho de armazenamento total da VM (GB)**
 
     e. **Número de explorações de DR num ano**
 
-    f. **Duração de cada exploração de DR (dias)**
+    f. **Duração de cada exploração de DR (Dias)**
 
     g. **Tipo de SO**
 

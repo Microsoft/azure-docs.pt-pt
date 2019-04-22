@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269304"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
@@ -165,10 +165,10 @@ Por último, o modelo torna-se parte do código fonte da sua aplicação. Pode v
 
 Após definir o seu modelo, está pronto para implementar os recursos para o Azure. Para implementar os recursos, veja:
 
-* [Implementar recursos com modelos do Resource Manager e do Azure PowerShell](resource-group-template-deploy.md)
-* [Implementar recursos com modelos do Resource Manager e do CLI do Azure](resource-group-template-deploy-cli.md)
-* [Implementar recursos com modelos do Resource Manager e do Portal do Azure](resource-group-template-deploy-portal.md)
-* [Implementar recursos com modelos do Resource Manager e API REST do Resource Manager](resource-group-template-deploy-rest.md)
+* [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](resource-group-template-deploy.md)
+* [Implementar recursos com modelos do Resource Manager e a CLI do Azure](resource-group-template-deploy-cli.md)
+* [Implementar recursos com modelos do Resource Manager e o Portal do Azure](resource-group-template-deploy-portal.md)
+* [Implementar recursos com modelos do Resource Manager e a API REST do Resource Manager](resource-group-template-deploy-rest.md)
 
 ## <a name="safe-deployment-practices"></a>Práticas de implementação segura
 
@@ -183,4 +183,4 @@ O Gestor de Implementação está atualmente em pré-visualização privada.
 Neste artigo, aprendeu a utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure. Avance para o artigo seguinte para aprender a criar o seu primeiro modelo do Azure Resource Manager.
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Quickstart: Criar e implementar modelos Azure Resource Manager com o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)

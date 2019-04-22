@@ -11,10 +11,10 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269117"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Início rápido: Explorar as APIs REST de pesquisa do Azure com o Postman
@@ -270,11 +270,11 @@ Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os 
 
 A consulta de exemplo seguinte é retirada do artigo [Search Index operation (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Operação de Pesquisa no Índice [API do Azure Search]). Muitas das consultas de exemplo neste artigo incluem espaços, algo não permitido no Fiddler. Substitua cada espaço por um caráter de + antes de colar a cadeia de consulta, antes de tentar a consulta no Fiddler.
 
-**Os espaços anteriores são substituídos (em lastRenovationDate desc):**
+**Antes de os espaços serem substituídos (em lastRenovationDate desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**Depois dos espaços serem substituídos por + (em lastRenovationDate + desc):**
+**Depois de os espaços serem substituídos por + (em lastRenovationDate+desc):**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
@@ -286,8 +286,8 @@ No Fiddler, clique no separador **Inspectors** (Inspetores), clique no separador
 
 Os clientes REST são indispensáveis para explorações improvisadas, mas agora que já sabe como é que as APIs REST funcionam, pode avançar com código. Para os passos seguintes, veja as ligações abaixo:
 
-+ [Início rápido: Criar um índice com o .NET SDK](search-create-index-dotnet.md)
-+ [Início rápido: Criar um índice (REST) com o PowerShell](search-create-index-rest-api.md)
++ [Quickstart: Criar um índice com o .NET SDK](search-create-index-dotnet.md)
++ [Quickstart: Criar um índice (REST) com o PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

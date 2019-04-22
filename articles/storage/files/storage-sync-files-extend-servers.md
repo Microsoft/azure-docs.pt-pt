@@ -9,10 +9,10 @@ ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049154"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir servidores de ficheiros do Windows com o Azure File Sync
@@ -220,7 +220,7 @@ Para implementar o Azure File Sync, primeiro a colocar uma **serviço de sincron
 
    | Valor | Descrição |
    | ----- | ----- |
-   | **Name** | Um nome exclusivo (por subscrição) para o Serviço de Sincronização de Armazenamento.<br><br>Uso _afssyncservice02_ para este tutorial. |
+   | **Nome** | Um nome exclusivo (por subscrição) para o Serviço de Sincronização de Armazenamento.<br><br>Uso _afssyncservice02_ para este tutorial. |
    | **Subscrição** | A subscrição do Azure que utilizar para este tutorial. |
    | **Grupo de recursos** | O grupo de recursos que contém o serviço de sincronização de armazenamento.<br><br>Uso _afsresgroup101918_ para este tutorial. |
    | **Localização** | EUA Leste |
@@ -309,8 +309,8 @@ Um ponto de final de servidor representa uma localização específica num servi
    | Valor | Descrição |
    | **Servidor registado** | O nome do servidor que criou. Uso *afsvm101918* para este tutorial. |
    | **Caminho** | O caminho do Windows Server para a unidade que criou. Uso *f:\filestosync* neste tutorial. |
-   | **Camadas da Cloud** | Deixe desativado para o tutorial. |
-   | **Espaço livre do volume** | Deixe em branco para o tutorial. |
+   | **Arrumo na Cloud** | Deixe desativado para o tutorial. |
+   | **Espaço Livre do Volume** | Deixe em branco para o tutorial. |
 
 1. Selecione **Criar**.
 
@@ -327,4 +327,4 @@ Os ficheiros estão agora sincronizados na partilha de ficheiros do Azure e no W
 Neste tutorial, aprendeu as etapas básicas para expandir a capacidade de armazenamento de um servidor Windows utilizando o Azure File Sync. Para obter uma visão mais completa ao planear uma implementação de sincronização de ficheiros do Azure, consulte:
 
 > [!div class="nextstepaction"]
-> [Planear a implementação do Azure File Sync](./storage-sync-files-planning.md)
+> [Plan for Azure File Sync deployment](./storage-sync-files-planning.md) (Planear uma implementação do Azure File Sync)

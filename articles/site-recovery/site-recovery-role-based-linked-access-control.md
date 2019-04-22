@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281714"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerir o acesso de recuperação de sites com o controlo de acesso baseado em funções (RBAC)
@@ -38,7 +38,7 @@ Um utilizador tem as seguintes permissões para concluir a replicação de uma n
 > [!IMPORTANT]
 >Certifique-se de que permissões relevantes são adicionadas pelo modelo de implementação (Gestor de recursos / clássico) utilizado para a implementação de recursos.
 
-| **Tipo de Recurso** | **Modelo de Implementação** | **Permissão** |
+| **Tipo de Recurso** | **Modelo de implementação** | **Permissão** |
 | --- | --- | --- |
 | Computação | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |

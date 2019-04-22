@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048219"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ de fábrica de dados do Azure
@@ -145,9 +145,9 @@ Fluxos de controlo orquestrar as atividades de pipeline que incluem o encadeamen
 
 Para obter mais informações sobre os conceitos do Data Factory, veja os artigos seguintes:
 
-- [Conjunto de dados e serviços ligados](concepts-datasets-linked-services.md)
+- [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de dados e serviços ligados)
 - [Pipelines e atividades](concepts-pipelines-activities.md)
-- [Runtime de integração](concepts-integration-runtime.md)
+- [Integration runtime](concepts-integration-runtime.md) (Runtime de integração)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>O que é o modelo de preços do Data Factory?
 Para o Azure Data Factory os detalhes dos preços, consulte [os detalhes dos preços do Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
@@ -211,5 +211,5 @@ Utilize a atividade de cópia para testar dados n o partir de qualquer um dos ou
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter instruções passo a passo Criar uma fábrica de dados, veja os tutoriais seguintes:
 
-- [Início rápido: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copiar dados na cloud](tutorial-copy-data-dot-net.md)

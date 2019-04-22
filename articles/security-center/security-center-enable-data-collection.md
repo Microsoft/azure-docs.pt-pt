@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006752"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
@@ -77,7 +77,7 @@ Centro de segurança pode criar automaticamente uma área de trabalho predefinid
 Para selecionar uma área de trabalho criada pelo centro de segurança:
 
 1. Sob **configuração de área de trabalho predefinida**, selecione utiliza áreas de trabalho criadas pelo centro de segurança.
-   ![Selecionar escalão de preço][10] 
+   ![Selecione o escalão de preço][10] 
 
 1. Clique em **Guardar**.<br>
     Centro de segurança cria uma novo recurso grupo predefinido área de trabalho e nessa localização geográfica e liga o agente a essa área de trabalho. A Convenção de nomenclatura para a área de trabalho e grupo de recursos é:<br>
@@ -138,7 +138,7 @@ Para selecionar uma área de trabalho do Log Analytics existente:
      
     b.  Selecione a área de trabalho pretendida na qual pretende ligar o agente ao clicar em **editar as definições de** na coluna Settings da subscrição pretendida na lista.
         ![Selecione a área de trabalho][8] c. Defina o escalão de preço.
-        ![Selecionar escalão de preço][9] 
+        ![Selecione o escalão de preço][9] 
    
    >[!NOTE]
    >Se já tiver uma área de trabalho de um **Security** ou **SecurityCenterFree** solução ativada, os preços serão definidos automaticamente. 
@@ -254,9 +254,9 @@ Pode instalar manualmente o agente de monitorização Microsoft, para que o Cent
    a.  No menu principal do Centro de segurança, selecione **política de segurança**.
      
    b.  Selecione a área de trabalho no qual pretende ligar o agente. Certificar-se de que a área de trabalho está na mesma subscrição, utilize no Centro de segurança e que tem permissões de leitura/escrita na área de trabalho.
-       ![Selecionar área de trabalho][8]
+       ![Selecione a área de trabalho][8]
 3. Defina o escalão de preço.
-   ![Selecionar escalão de preço][9] 
+   ![Selecione o escalão de preço][9] 
    >[!NOTE]
    >Se já tiver uma área de trabalho de um **Security** ou **SecurityCenterFree** solução ativada, os preços serão definidos automaticamente. 
    > 

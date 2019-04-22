@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273843"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integre o serviço de voz com a sua aplicação de compreensão de idiomas
@@ -66,7 +66,7 @@ Este artigo utiliza o dispositivo de áudio do seu computador. Pode ser um heads
 
 O SDK de Voz já está incluído como referência. 
 
-[![Screenshot do Visual Studio 2017, exibindo o pacote Microsoft.CognitiveServices.Speech NuGet](./media/luis-tutorial-speech-to-intent/nuget-package.png "pacote de Microsoft.CognitiveServices.Speech NuGet mostrando de captura de ecrã do Visual Studio 2017")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Pacote de Microsoft.CognitiveServices.Speech NuGet mostrando de captura de ecrã do Visual Studio 2017](./media/luis-tutorial-speech-to-intent/nuget-package.png "pacote de Microsoft.CognitiveServices.Speech NuGet mostrando de captura de ecrã do Visual Studio 2017")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificar o código C#
 Abrir o ficheiro `Program.cs` e alterar as variáveis seguintes:
@@ -74,7 +74,7 @@ Abrir o ficheiro `Program.cs` e alterar as variáveis seguintes:
 |Nome da variável|Objetivo|
 |--|--|
 |LUIS_assigned_endpoint_key|Corresponde ao valor da chave de subscrição atribuído ao URL de ponto final da página Publicar|
-|LUIS_endpoint_key_region|Corresponde a subdomínio de primeiro URL de ponto final, por exemplo `westus`|
+|LUIS_endpoint_key_region|Corresponde ao primeiro subdomínio do URL de ponto final, por exemplo `westus`|
 |LUIS_app_ID|Corresponde à rota do URL de ponto final a seguir a **aplicações/**|
 
 O ficheiro `Program.cs` já contém as intenções de Recursos Humanos mapeadas.
@@ -98,6 +98,6 @@ Não se esqueça de eliminar o diretório quando tiver terminado com o código d
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Integrar o LUIS com um BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [Integrar LUIS com um Bot](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

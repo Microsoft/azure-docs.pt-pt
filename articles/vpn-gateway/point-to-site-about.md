@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282105"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca da VPN ponto a Site
@@ -94,7 +94,7 @@ Uma configuração P2S requer algumas etapas específicas. Os artigos seguintes 
 
 * [Configurar uma ligação de P2S - autenticação de certificados nativa do Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-* [Configurar o OpenVPN](vpn-gateway-howto-openvpn.md)
+* [Configurar OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ sobre a autenticação de certificados nativa do Azure
 

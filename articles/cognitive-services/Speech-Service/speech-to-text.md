@@ -12,10 +12,10 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008497"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
@@ -83,7 +83,7 @@ Além do modelo Universal utilizado pelos serviços de voz, é possível criar m
 | Modelo | Descrição |
 |-------|-------------|
 | [Modelo acústico](how-to-customize-acoustic-models.md) | A criação de um modelo acústico personalizado é útil se seu aplicativo, ferramentas ou dispositivos são usados num ambiente específico, como num carro ou fábrica com condições de gravação específico. Os exemplos envolvem voz acentuada, ruídos de fundo específicos ou utilizar um microfone específico para gravação. |
-| [Modelo de idioma](how-to-customize-language-model.md) | Crie um modelo de idioma personalizado para melhorar a transcrição de vocabulário específicos da indústria e de gramática, como a terminologia médica ou gíria, IT. |
+| [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de idioma personalizado para melhorar a transcrição de vocabulário específicos da indústria e de gramática, como a terminologia médica ou gíria, IT. |
 | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizado, pode definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa para começar a utilizar é um ficheiro de pronúncia – um arquivo. txt simples. |
 
 > [!NOTE]
@@ -101,10 +101,10 @@ Se seus aplicativos, ferramentas ou produtos estiver a utilizar as APIs de voz d
 
 ## <a name="reference-docs"></a>Documentos de referência
 
-* [API de Voz](speech-sdk-reference.md)
-* [SDK de Dispositivos de Voz](speech-devices-sdk.md)
-* [REST API: Conversão de voz em texto](rest-speech-to-text.md)
-* [REST API: Conversão de texto em voz](rest-text-to-speech.md)
+* [SDK de Voz](speech-sdk-reference.md)
+* [Dispositivos de voz SDK](speech-devices-sdk.md)
+* [REST API: Speech-to-text](rest-speech-to-text.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
 * [REST API: Transcrição de batch e personalização](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passos Seguintes

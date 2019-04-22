@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007149"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
@@ -153,47 +153,47 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 
 - [Operações de utilizador](#user-operations)
   - [Criar Utilizador](#create-user)
-    - [Pedir](#request)
+    - [Pedido](#request)
     - [Resposta](#response)
-  - [Obter utilizador](#get-user)
-    - [Pedir](#request-1)
+  - [Obter Utilizador](#get-user)
+    - [Pedido](#request-1)
     - [Resposta](#response-1)
   - [Obter utilizador por consulta](#get-user-by-query)
-    - [Pedir](#request-2)
+    - [Pedido](#request-2)
     - [Resposta](#response-2)
   - [Obter utilizador por consulta - Zero resultados](#get-user-by-query---zero-results)
-    - [Pedir](#request-3)
+    - [Pedido](#request-3)
     - [Resposta](#response-3)
   - [Atualizar o utilizador [Propriedades com múltiplos valores]](#update-user-multi-valued-properties)
-    - [Pedir](#request-4)
+    - [Pedido](#request-4)
     - [Resposta](#response-4)
   - [Atualizar o utilizador [Propriedades de valor único]](#update-user-single-valued-properties)
-    - [Pedir](#request-5)
+    - [Pedido](#request-5)
     - [Resposta](#response-5)
   - [Eliminar Utilizador](#delete-user)
-    - [Pedir](#request-6)
+    - [Pedido](#request-6)
     - [Resposta](#response-6)
 - [Operações de grupo](#group-operations)
   - [Criar Grupo](#create-group)
-    - [Pedir](#request-7)
+    - [Pedido](#request-7)
     - [Resposta](#response-7)
   - [Obter Grupo](#get-group)
-    - [Pedir](#request-8)
+    - [Pedido](#request-8)
     - [Resposta](#response-8)
   - [Obter grupo por displayName](#get-group-by-displayname)
-    - [Pedir](#request-9)
+    - [Pedido](#request-9)
     - [Resposta](#response-9)
   - [Grupo de atualização [atributos de não-membro]](#update-group-non-member-attributes)
-    - [Pedir](#request-10)
+    - [Pedido](#request-10)
     - [Resposta](#response-10)
   - [Grupo de atualização [Adicionar membros]](#update-group-add-members)
-    - [Pedir](#request-11)
+    - [Pedido](#request-11)
     - [Resposta](#response-11)
   - [Grupo de atualização [remover membros]](#update-group-remove-members)
-    - [Pedir](#request-12)
+    - [Pedido](#request-12)
     - [Resposta](#response-12)
   - [Eliminar Grupo](#delete-group)
-    - [Pedir](#request-13)
+    - [Pedido](#request-13)
     - [Resposta](#response-13)
 
 ### <a name="user-operations"></a>Operações de utilizador
@@ -556,7 +556,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 ### <a name="update-group-add-members"></a>Grupo de atualização [Adicionar membros]
 
 ##### <a name="request"></a>Pedir
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*Aplicar o PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -577,7 +577,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 #### <a name="update-group-remove-members"></a>Grupo de atualização [remover membros]
 
 ##### <a name="request"></a>Pedir
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*Aplicar o PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -598,7 +598,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 #### <a name="delete-group"></a>Eliminar Grupo
 
 ##### <a name="request"></a>Pedir
-*DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
+*Eliminar /Groups/cdb1ce18f65944079d37 HTTP/1.1.*
 
 ##### <a name="response"></a>Resposta
 *HTTP/1.1 204 nenhum conteúdo*
@@ -620,7 +620,7 @@ Para facilitar este processo, [exemplos de código](https://github.com/Azure/Azu
 **Pré-requisitos**
 
 * Visual Studio 2013 ou posterior
-* [SDK do Azure para .NET](https://azure.microsoft.com/downloads/)
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/) (Azure SDK para .NET)
 * Windows máquina que suporta a estrutura do ASP.NET 4.5 para ser utilizado como o ponto de extremidade SCIM. Esta máquina tem de ser acessível a partir da cloud.
 * [Uma subscrição do Azure com uma versão de avaliação ou licenciada do Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 
@@ -1262,10 +1262,10 @@ Grupo de recursos é identificados pelo identificador de esquema, `urn:ietf:para
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](user-provisioning.md)
 * [Personalizar mapeamentos de atributos para o aprovisionamento do utilizador](customize-application-attributes.md)
-* [Escrever Expressões para Mapeamentos de Atributos](functions-for-customizing-application-data.md)
+* [Escrever expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)
 * [Filtros de âmbito para o aprovisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
-* [Notificações do Aprovisionamento de Contas](user-provisioning.md)
-* [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)
+* [Notificações do aprovisionamento de contas](user-provisioning.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

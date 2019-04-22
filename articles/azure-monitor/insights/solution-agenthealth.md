@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426227"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de estado de funcionamento de agente no Azure Monitor
@@ -51,7 +51,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Grupo de gestão do System Center Operations Manager | Sim | Os eventos de heartbeat são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e, depois, reencaminhados para o Azure Monitor. Não é necessária uma conexão direta de agentes do Operations Manager para o Azure Monitor. Dados de eventos de heartbeat são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-Quando adiciona a solução à sua área de trabalho do Log Analytics, o **estado de funcionamento do agente** mosaico será adicionado ao seu dashboard. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico de solução de estado de funcionamento de agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando adiciona a solução à sua área de trabalho do Log Analytics, o **estado de funcionamento do agente** mosaico será adicionado ao seu dashboard. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Clique no mosaico **Funcionamento de Agente** para abrir o dashboard **Funcionamento de Agente**.  O dashboard inclui as colunas da tabela seguinte. Cada coluna mostra os dez principais eventos por ocorrência que correspondem aos critérios dessa coluna relativamente ao intervalo de tempo especificado. Pode executar uma pesquisa de registos que forneça a lista completa ao selecionar **Ver tudo**, no canto inferior direito de cada coluna, ou ao clicar no cabeçalho das colunas.
 

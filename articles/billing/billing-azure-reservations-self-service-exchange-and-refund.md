@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281986"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas de Self-serviços e os reembolsos para as reservas do Azure
@@ -86,7 +86,7 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 
 - Para saber como gerir uma reserva, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
 - Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
-    - [O que é o Azure Reservations?](billing-save-compute-costs-reservations.md)
+    - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
     - [Gerir reservas no Azure](billing-manage-reserved-vm-instance.md)
     - [Compreender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
     - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)

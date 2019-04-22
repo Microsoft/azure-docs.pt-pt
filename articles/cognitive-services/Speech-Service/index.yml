@@ -233,7 +233,7 @@ sections:
           - title: Referência do SDK
             html: |
               <p><a href="https://aka.ms/csspeech/csharpref">API C# (UWP, .NET e Unity)</a></p>
-              <p><a href="https://aka.ms/csspeech/cppref">API C++</a></p>
+              <p><a href="https://aka.ms/csspeech/cppref">API do C++</a></p>
               <p><a href="https://aka.ms/csspeech/javaref">API de Java</a></p>
               <p><a href="https://aka.ms/csspeech/pythonref">API Python</a></p>
               <p><a href="https://aka.ms/csspeech/objectivecref">API Objective-C</a></p>

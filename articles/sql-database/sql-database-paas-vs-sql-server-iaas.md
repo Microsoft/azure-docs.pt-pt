@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360814"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Escolher o melhor opção de SQL Server no Azure
@@ -135,9 +135,9 @@ Quando começar a utilizar uma plataforma na cloud, o custo de execução da sua
 
 Para obter mais informações sobre preços, consulte os seguintes recursos:
 
-- [Preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Preços das máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) e para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
-- [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/)
+- [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>Administração
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283482"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do motor de regras CDN do Azure 
@@ -45,7 +45,7 @@ A condição de correspondência de dispositivo identifica os pedidos efetuados 
 
 Name | Objetivo
 -----|--------
-[Dispositivo](#device) | Identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades.
+[dispositivo](#device) | Identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades.
 
 ## <a name="location-match-conditions"></a>Condições de correspondência de localização
 
@@ -107,7 +107,7 @@ Name | Objetivo
 
 A condição de correspondência sempre aplica-se um conjunto predefinido de funcionalidades para todos os pedidos.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -130,7 +130,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -146,7 +146,7 @@ Informações da chave:
  - O ponto de acesso ao conteúdo identifica o serviço que deve servir os conteúdos solicitados.
  - Não utilize uma instrução IF e combinar determinadas condições de correspondência. Por exemplo, a combinação de uma condição de correspondência de origem de CDN com uma condição de correspondência de origem do cliente criaria um padrão de correspondência que nunca foi possível corresponder. Por esse motivo, as duas condições de correspondência de origem de CDN não podem ser combinadas por meio de uma instrução IF e.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -171,7 +171,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -200,7 +200,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -229,7 +229,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -266,7 +266,7 @@ Esta condição de correspondência permite que realize uma infinidade de person
 
 - Negar a funcionalidade de acesso (403): Ativar a [funcionalidade de negar acesso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar a parte de permissões ou de bloqueios da funcionalidade de filtragem de país.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -280,7 +280,7 @@ Informações da chave:
   - Uma configuração de CNAME do edge
 - Não utilize uma instrução IF e combinar determinadas condições de correspondência. Por exemplo, a combinação de uma condição de correspondência de origem do cliente com uma condição de correspondência de CDN Origin criaria um padrão de correspondência que nunca foi possível corresponder. Por esse motivo, as duas condições de correspondência de origem do cliente não podem ser combinadas por meio de uma instrução IF e.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -343,7 +343,7 @@ Data de lançamento | %{wurfl_cap_release_date} | Uma cadeia que indica o ano e 
 Altura da resolução | %{wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixéis. | 768
 Largura de resolução | %{wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -360,7 +360,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -384,7 +384,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -405,7 +405,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -432,7 +432,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno 
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -460,7 +460,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -485,7 +485,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -503,7 +503,7 @@ Informações da chave:
   - Ignorar a origem não-Cache
   - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -557,7 +557,7 @@ Informações da chave:
 
 - Utilize o **ignorar caso** a opção de controle se é efetuada uma comparação diferenciando maiúsculas de minúsculas.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -596,7 +596,7 @@ Esta condição de correspondência é cumprida quando encontra URLs que termina
 - .php
 - .html
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -623,7 +623,7 @@ Informações da chave:
 
     Por exemplo, a especificação de "presentation.ppt" corresponde a um recurso com o nome "presentation.ppt", mas não um com o nome "presentation.pptx."
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -667,7 +667,7 @@ Informações da chave:
 
 - Para fazer corresponder a todos os pedidos efetuados para um diretório específico, utilize o [diretório de caminho de URL](#url-path-directory) ou o [caminho de URL com carateres universais](#url-path-wildcard) corresponde à condição.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -698,7 +698,7 @@ Informações da chave:
     
 - Espaços no caminho do URL devem ser substituídos por "% 20".
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -760,7 +760,7 @@ Valor                   | Caminho relativo    | Resultado
 *.jpg *.gif *.png       | Origem ou de raiz | Este padrão é correspondido por todos os URLs CNAME da CDN ou de extremidade que termina com. jpg, GIF ou. png. Uma forma alternativa de especificar este padrão é com o [extensão de caminho de URL corresponde à condição](#url-path-extension).
 / imagens / * / suporte de dados / *      | Origem         | Este padrão é correspondido por CDN ou de extremidade URLs de CNAME cujo caminho relativo que começa com uma pasta "imagens" ou "suporte de dados". <br />-URL de CDN: http:\//wpc.0001.&lt; domínio&gt;/800001/myorigin/images/sales/event1.png<br />- Sample edge CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -794,7 +794,7 @@ Informações da chave:
    - Ignorar a origem não-Cache
    - Max-obsoleta interno
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -874,7 +874,7 @@ Utilizador  | João   | Este padrão é correspondido quando a cadeia de consult
 Utilizador  | *     | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de utilizador.
 Email | João\* | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de E-Mail que começa com "João".
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -919,7 +919,7 @@ Informações da chave:
    - Max-obsoleta interno
 
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 
@@ -965,7 +965,7 @@ O exemplo seguinte demonstra como esta opção funciona em situações específi
 user=joe              | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido é "? utilizador = joe."
 \*user=\* \*optout=\* | Este padrão é correspondido quando a consulta de URL da CDN que contém o utilizador ou o parâmetro de revogação.
 
-[Voltar ao topo](#main)
+[Voltar ao início](#main)
 
 </br>
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: cithomas
 ms.openlocfilehash: 8243523887ec9861459b2d196126237cf89bad97
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288370"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicações ASP.NET Core
@@ -100,14 +100,14 @@ Seguinte mostra as alterações sejam adicionados ao arquivo. csproj de seu proj
              * O azure Cosmos DB é controlado automaticamente apenas se for utilizada a HTTP/HTTPS. Modo TCP não ser capturado pelo Application Insights.
 
 
-    1. [Contadores de Desempenho](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)
+    1. [Contadores de desempenho](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)
         1. Suporte para contadores de desempenho em ASP.NET Core é limitado ao seguinte
             1. SDK versão 2.4.1 e acima coletados contadores de desempenho se a aplicação está em execução numa aplicação Web do Azure (Windows)
             1. SDK versão 2.7.0-beta3 e acima coletados contadores de desempenho se a aplicação está em execução no Windows e direcionamento `NETSTANDARD2.0` ou superior.
             1. Para aplicativos visando o .NET Framework completo, os contadores de desempenho são suportados em todas as versões do SDK.
 
             Este documento será atualizado quando é adicionado suporte de contador de desempenho no Linux.
-    1. [Métricas Dinâmicas](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)
+    1. [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)
     1. `ILogger` registos de gravidade `Warning` ou acima estão automaticamente capturada a partir do SDK versão 2.7.0-beta3 ou superior. Leia mais [aqui](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 Pode demorar alguns minutos para a telemetria começar a aparecer no portal. Para verificar rapidamente se tudo estiver funcionando, é melhor usar [métricas em direto](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), enquanto efetuar pedidos para a aplicação em execução.

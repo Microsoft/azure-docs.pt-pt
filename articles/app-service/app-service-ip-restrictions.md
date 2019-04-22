@@ -16,10 +16,10 @@ ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357615"
 ---
 # <a name="azure-app-service-static-access-restrictions"></a>Restrições de acesso estático do serviço de aplicações do Azure #

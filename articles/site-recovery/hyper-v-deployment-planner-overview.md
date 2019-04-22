@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360268"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure
@@ -30,7 +30,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 * Avaliação de elegibilidade de VMs com base no número de discos, no tamanho do disco, em IOPS, na alteração a dados e em algumas características da VM.
 
-**Largura de banda de rede tem de avaliação de RPO**
+**Necessidade de largura de banda de rede vs avaliação de RPO**
 
 * A largura de banda de rede estimada necessária para a replicação delta
 * O débito que o Azure Site Recovery consegue a partir do local para o Azure
@@ -51,7 +51,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 * O espaço de armazenamento livre necessário em cada volume de armazenamento de Hyper-V para a replicação inicial e a replicação de diferenças com êxito para garantir que a replicação de VM não irá causar qualquer período de inatividade indesejável para as suas aplicações de produção
 * Frequência de cópia máxima a definir para replicação do Hyper-V
 
-**Documentação de orientação de criação de batches de replicação inicial** 
+**Orientação para a criação de batches na replicação inicial** 
 * Número de batches de VM a utilizar para proteção
 * Lista de VMs em cada batch
 * Ordem pela qual cada batch deve ser protegido
@@ -70,7 +70,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 ## <a name="support-matrix"></a>Matriz de suporte
 
-| | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
+| | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
 --|--|--|--|--|--
 Cenários suportados |Sim|Sim|Não|Sim*|Não
 Versão suportada | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND

@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
 ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010121"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
@@ -350,12 +350,12 @@ O `context.req` (pedido) objeto tem as seguintes propriedades:
 
 | Propriedade      | Descrição                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _corpo_        | Um objeto que contém o corpo do pedido.               |
-| _Cabeçalhos_     | Um objeto que contém os cabeçalhos de pedido.                   |
-| _método_      | O método HTTP do pedido.                                |
+| _body_        | Um objeto que contém o corpo do pedido.               |
+| _headers_     | Um objeto que contém os cabeçalhos de pedido.                   |
+| _Método_      | O método HTTP do pedido.                                |
 | _originalUrl_ | O URL do pedido.                                        |
-| _parâmetros_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
-| _consulta_       | Um objeto que contém os parâmetros de consulta.                  |
+| _params_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
+| _query_       | Um objeto que contém os parâmetros de consulta.                  |
 | _rawBody_     | O corpo da mensagem como uma cadeia de caracteres.                           |
 
 
@@ -365,8 +365,8 @@ O `context.res` objeto (resposta) tem as seguintes propriedades:
 
 | Propriedade  | Descrição                                               |
 | --------- | --------------------------------------------------------- |
-| _corpo_    | Um objeto que contém o corpo da resposta.         |
-| _Cabeçalhos_ | Um objeto que contém os cabeçalhos de resposta.             |
+| _body_    | Um objeto que contém o corpo da resposta.         |
+| _headers_ | Um objeto que contém os cabeçalhos de resposta.             |
 | _isRaw_   | Indica que a formatação é ignorada para a resposta.    |
 | _status_  | O código de estado HTTP da resposta.                     |
 
@@ -624,7 +624,7 @@ Quando utiliza um cliente específico do serviço num aplicativo de funções do
 
 Para obter mais informações, consulte os seguintes recursos:
 
-+ [Melhores Práticas para as Funções do Azure](functions-best-practices.md)
++ [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 + [Referência para programadores das Funções do Azure](functions-reference.md)
 + [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
 

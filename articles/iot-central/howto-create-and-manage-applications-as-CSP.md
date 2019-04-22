@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 8c73c55b059b4d3ca7136889122c11ab332b3f76
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270511"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerir um aplicativo de Central de IoT do Azure em nome do seu cliente 
@@ -47,13 +47,13 @@ Só pode criar aplicativos de pay as you go como CSP. Para demonstrar o Azure Io
 
 O nome da sua aplicação é apresentado na **Gerenciador de aplicativos** página e dentro de cada aplicação Azure IoT Central. Pode escolher qualquer nome para a sua aplicação do Azure IoT Central. Escolha um nome que faça sentido para si e para outras pessoas na sua organização.
 
-## <a name="application-url"></a>URL da aplicação
+## <a name="application-url"></a>URL da Aplicação
 
 O URL da aplicação é a ligação à sua aplicação. Pode salvar um indicador para ele no seu browser ou partilhá-lo com outras pessoas.
 
 Ao introduzir o nome para a sua aplicação, o seu URL da aplicação é gerado automaticamente. Se preferir, pode escolher um URL diferente para a sua aplicação. Cada URL de Central de IoT do Azure tem de ser exclusivo no Azure IoT Central. Verá uma mensagem de erro se o URL que escolher já foi atribuído.
 
-## <a name="directory"></a>Directório
+## <a name="directory"></a>Diretório
 
 Uma vez que o Azure IoT Central tem um contexto que veio para gerir o cliente que selecionou no Portal de parceiros Microsoft, verá apenas o inquilino do Azure Active Directory para que o cliente no campo de diretório. 
 
@@ -87,7 +87,7 @@ Pode escolher um dos modelos de aplicativos disponíveis para a sua nova aplica�
 | Modelo de aplicação | Descrição |
 | -------------------- | ----------- |
 | Aplicação personalizada   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
-| Amostra Contoso       | Cria uma aplicação que inclui um modelo de dispositivo para um dispositivo conectado simple. Utilize este modelo para começar a explorar o Azure IoT Central. |
+| Exemplo da Contoso       | Cria uma aplicação que inclui um modelo de dispositivo para um dispositivo conectado simple. Utilize este modelo para começar a explorar o Azure IoT Central. |
 | Exemplo da Devkits       | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Utilize este modelo, se for um desenvolvedor de dispositivo fazer experiências com o código em um desses dispositivos. |
 
 ## <a name="next-steps"></a>Passos Seguintes

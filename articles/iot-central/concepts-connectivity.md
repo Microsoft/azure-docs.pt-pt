@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425972"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
@@ -157,10 +157,10 @@ Quando um dispositivo real se liga a sua aplicação do Centro de IoT, suas alte
 A oferta de SDKs de dispositivo do Azure a forma mais fácil para implementar seu código de dispositivo. Os SDKs do dispositivo seguintes estão disponíveis:
 
 - [SDK do Azure IoT para C](https://github.com/azure/azure-iot-sdk-c)
-- [SDK do Azure IoT para Python](https://github.com/azure/azure-iot-sdk-python)
-- [SDK do Azure IoT para Node.js](https://github.com/azure/azure-iot-sdk-node)
-- [SDK do Azure IoT para Java](https://github.com/azure/azure-iot-sdk-java)
-- [SDK do Azure IoT para .NET](https://github.com/azure/azure-iot-sdk-csharp)
+- [Azure IoT SDK para Python](https://github.com/azure/azure-iot-sdk-python)
+- [SDK do Azure IoT para node. js](https://github.com/azure/azure-iot-sdk-node)
+- [SDK do IoT do Azure para Java](https://github.com/azure/azure-iot-sdk-java)
+- [Azure IoT SDK para .NET](https://github.com/azure/azure-iot-sdk-csharp)
 
 Cada dispositivo liga-se através de uma cadeia de ligação exclusivo que identifica o dispositivo. Só pode ligar um dispositivo ao hub IoT em que está registado. Quando cria um dispositivo real na sua aplicação do Azure IoT Central, o aplicativo gera as informações necessárias construir uma cadeia de ligação utilizando `dps-keygen`.
 
@@ -181,7 +181,7 @@ A tabela seguinte resume como o mapeamento de funcionalidades do dispositivo Azu
 
 Para saber mais sobre como utilizar os SDKs de dispositivo, veja um dos seguintes artigos, por exemplo de código:
 
-- [Ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central](howto-connect-nodejs.md)
+- [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs.md)
 - [Ligar um dispositivo de Raspberry Pi a sua aplicação do Azure IoT Central](howto-connect-raspberry-pi-python.md)
 - [Ligar um dispositivo de kit de representante à sua aplicação do Azure IoT Central](howto-connect-devkit.md).
 
@@ -206,6 +206,6 @@ Todos os dados trocados entre dispositivos e o Azure IoT Central são encriptado
 Agora que aprendeu sobre a conectividade do dispositivo no Azure IoT Central, aqui estão os passos sugeridos seguintes:
 
 - [Preparar e ligar um dispositivo de DevKit](howto-connect-devkit.md)
-- [Preparar e ligue-se um Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central](howto-connect-nodejs.md)
+- [Preparar e ligar um Raspberry Pi](howto-connect-raspberry-pi-python.md)
+- [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs.md)
 - [SDK DE C: SDK de cliente de dispositivo de aprovisionamento](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
