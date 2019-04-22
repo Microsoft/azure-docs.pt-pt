@@ -80,7 +80,7 @@ As propriedades para runbooks são descritas na tabela seguinte.
 | runbookType |Especifica os tipos de runbook. <br><br> Script - script do PowerShell <br>PowerShell – fluxo de trabalho do PowerShell <br> GraphPowerShell - runbook do script de PowerShell gráfico <br> GraphPowerShellWorkflow - runbook de fluxo de trabalho de PowerShell gráfico |
 | logProgress |Especifica se [registos de progresso](../../automation/automation-runbook-output-and-messages.md) deve ser gerado para o runbook. |
 | logVerbose |Especifica se [registos verbosos](../../automation/automation-runbook-output-and-messages.md) deve ser gerado para o runbook. |
-| descrição |Descrição opcional para o runbook. |
+| description |Descrição opcional para o runbook. |
 | publishContentLink |Especifica o conteúdo do runbook. <br><br>URI - Uri para o conteúdo do runbook.  Este será um arquivo. ps1 para runbooks do PowerShell e o Script e um ficheiro de runbook gráfico exportado para um runbook de gráfico.  <br> versão - versão do runbook para o seu controlo. |
 
 
@@ -114,7 +114,7 @@ As propriedades para as tarefas de automatização são descritas na tabela segu
 | Propriedade | Descrição |
 |:--- |:--- |
 | runbook |Entidade de nome único com o nome do runbook para começar. |
-| parâmetros |Entidade para cada valor de parâmetro necessário pelo runbook. |
+| parameters |Entidade para cada valor de parâmetro necessário pelo runbook. |
 
 A tarefa inclui o nome do runbook e quaisquer valores de parâmetro para ser enviado para o runbook.  A tarefa deve [dependem]( solutions-solution-file.md#resources) o runbook que ele está começando desde o runbook tem de ser criado antes da tarefa.  Se tiver vários runbooks que deve ser iniciados pode definir sua ordem fazendo com que uma tarefa de depender de quaisquer outras tarefas que devem ser executadas primeiro.
 
@@ -145,7 +145,7 @@ As propriedades de recursos de certificados são descritas na tabela seguinte.
 | Propriedade | Descrição |
 |:--- |:--- |
 | base64Value |Valor de base 64 do certificado. |
-| Thumbprint |Thumbprint do certificado. |
+| thumbprint |Thumbprint do certificado. |
 
 
 
@@ -172,7 +172,7 @@ As propriedades de recursos de credencial são descritas na tabela seguinte.
 | Propriedade | Descrição |
 |:--- |:--- |
 | userName |Nome de utilizador para a credencial. |
-| palavra-passe |Palavra-passe para a credencial. |
+| password |Palavra-passe para a credencial. |
 
 
 ## <a name="schedules"></a>Agendas
@@ -199,11 +199,11 @@ As propriedades de recursos de agenda são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| descrição |Descrição opcional para a agenda. |
+| description |Descrição opcional para a agenda. |
 | startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele pode ser convertido num DateTime válido. |
 | isEnabled |Especifica se a agenda é ativada. |
-| intervalo |O tipo de intervalo para a agenda.<br><br>dia<br>hora |
-| frequência |Frequência com que o cronograma deve ser acionados no número de dias ou horas. |
+| interval |O tipo de intervalo para a agenda.<br><br>dia<br>hora |
+| frequency |Frequência com que o cronograma deve ser acionados no número de dias ou horas. |
 
 Agendas tem de ter uma hora de início com um valor superior à hora atual.  Não é possível fornecer este valor com uma variável, uma vez que nunca sabe quando vai ser instalado.
 
@@ -242,8 +242,8 @@ As propriedades de agendas de tarefas são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome da agenda |Único **nome** entidade com o nome da agenda. |
-| nome do runbook  |Único **nome** entidade com o nome do runbook.  |
+| schedule name |Único **nome** entidade com o nome da agenda. |
+| runbook name |Único **nome** entidade com o nome do runbook.  |
 
 
 
@@ -269,10 +269,10 @@ As propriedades de recursos de variável são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| descrição | Descrição opcional para a variável. |
+| description | Descrição opcional para a variável. |
 | isEncrypted | Especifica se a variável deve ser encriptada. |
-| tipo | Essa propriedade atualmente não tem qualquer efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
-| valor | Valor para a variável. |
+| type | Essa propriedade atualmente não tem qualquer efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
+| value | Valor para a variável. |
 
 > [!NOTE]
 > O **tipo** propriedade atualmente não tem qualquer efeito na variável a ser criada.  O tipo de dados para a variável será determinado pelo valor.  
@@ -282,8 +282,8 @@ Se definir o valor inicial para a variável, tem de ser configurado como o tipo 
 | Tipo de dados | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
 | string   | Coloque o valor entre aspas duplas.  | "\"Olá, mundo\"" | "Hello world" |
-| numérico  | Valor numérico com aspas simples.| "64" | 64 |
-| booleano  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
+| numeric  | Valor numérico com aspas simples.| "64" | 64 |
+| boolean  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
 | datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
