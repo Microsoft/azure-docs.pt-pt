@@ -26,6 +26,8 @@ items:
       href: data-box-gateway-system-requirements.md
     - name: Compreender os limites
       href: data-box-gateway-limits.md
+    - name: Descrição geral da segurança
+      href: data-box-gateway-security.md
     - name: Ver casos de utilização
       href: data-box-gateway-use-cases.md
   - name: Procedimento
@@ -110,9 +112,9 @@ items:
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
-ms.openlocfilehash: d72b7b227142ad62c4c87fb8f06ef84ceef57826
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: f601de8c731354c6d01cfdc6de60115904a37d07
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615936"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679626"

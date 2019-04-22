@@ -13,18 +13,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed328b29c853e5ff75d64332f0228277cff90d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6f151251d76965cf1bc86216eac15a08f1adbc6
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203680"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679113"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosticar erros com o Active Directory serviço ligado do Azure
 
 Ao detetar o código de autenticação anterior, o Azure Active Director ligar servidor detetou um tipo de autenticação incompatível.
 
-Para detetar corretamente o código de autenticação anterior num projeto, deve ser criado o projeto.  Se tiver encontrado este erro e não tiver um código de autenticação anterior no seu projeto, reconstruir e tente novamente.
+Para detetar corretamente o código de autenticação anterior num projeto, deve ser criado o projeto.  Se vir este erro e não tiver um código de autenticação anterior no seu projeto, reconstruir e tente novamente.
 
 ## <a name="project-types"></a>Tipos de projeto
 
@@ -32,7 +32,7 @@ O serviço ligado verifica o tipo de projeto que esteja a desenvolver para que e
 
 ## <a name="compatible-authentication-code"></a>Código de autenticação compatíveis
 
-O serviço ligado também verifica a existência de definições de autenticação que foram anteriormente configuradas ou que são compatíveis com o serviço. Se todas as definições estiverem presentes, é considerada um caso reentrante e abre o serviço ligado visualize as definições.  Se apenas algumas das definições estiverem presentes, ele é considerado um caso de erro.
+O serviço ligado também verifica a existência de definições de autenticação que foram anteriormente configuradas ou que são compatíveis com o serviço. Se todas as definições estiverem presentes, é considerada um caso reentrante e abre o serviço ligado visualize as definições.  Se apenas algumas das definições estiverem presentes, é considerada um caso de erro.
 
 Num projeto MVC, o serviço ligado verifica a existência de qualquer uma das seguintes definições, que resultam da utilização anterior do serviço:
 
@@ -60,7 +60,7 @@ Para detetar a autenticação do Windows num projeto MVC, o ligados procura a `a
 ```xml
 <configuration>
     <system.web>
-        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+        <authentication mode="Windows" />
     </system.web>
 </configuration>
 ```
@@ -70,7 +70,7 @@ Para detetar a autenticação do Windows num projeto Web API, o serviço ligado 
 ```xml
 <Project>
     <PropertyGroup>
-        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+        <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     </PropertyGroup>
 </Project>
 ```
@@ -79,7 +79,7 @@ Para detetar a autenticação de contas de utilizador individuais, o serviço li
 
 ```xml
 <packages>
-    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+    <package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" />
 </packages>
 ```
 
@@ -88,7 +88,7 @@ Para detectar uma forma antiga de autenticação de conta da organização, o se
 ```xml
 <configuration>
     <appSettings>
-        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+        <add key="ida:Realm" value="***" />
     </appSettings>
 </configuration>
 ```

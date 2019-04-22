@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500843"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Como utilizar filas do Service Bus com o node. js
@@ -188,7 +188,7 @@ Para saber mais sobre as filas, consulte os seguintes recursos.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
 * [Azure SDK para o nó] [ Azure SDK for Node] repositório no GitHub
-* [Centro para Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
+* [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878215"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678824"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -30,7 +30,7 @@ Transferi a sua subscrição para outro utilizador no Centro de contas para alte
 
 > [!IMPORTANT]
 > 
-> Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função na [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente do inquilino de origem e não são migradas para o inquilino de destino.
+> Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função na [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente do inquilino de origem e não são migradas para o inquilino de destino. Também terá de recriar manualmente as identidades geridas para recursos do Azure. Para obter mais informações, consulte [FAQ e problemas conhecidos com geridos identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma subscrição do Azure
 
@@ -52,7 +52,7 @@ Transferi a sua subscrição para outro utilizador no Centro de contas para alte
 
    > [!IMPORTANT]
    > 
-   > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função na [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente do inquilino de origem e não são migradas para o inquilino de destino.
+   > Se transferir uma subscrição para um novo do Azure AD de inquilino, todas as atribuições de função na [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) são eliminados permanentemente do inquilino de origem e não são migradas para o inquilino de destino. Também terá de recriar manualmente as identidades geridas para recursos do Azure. Para obter mais informações, consulte [FAQ e problemas conhecidos com geridos identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Caixa de diálogo transferência de subscrição](./media/billing-subscription-transfer/image2.PNG)
 

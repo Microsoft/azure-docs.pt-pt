@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500469"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680881"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -28,9 +28,9 @@ Este guia fornece os conceitos chave e instruções para programadores de Java n
 
 ## <a name="deploying-your-app"></a>Implementar a sua aplicação
 
-Pode utilizar o plug-in do Maven para implementar ficheiros. JAR e. War. Veja [esta documentação](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) para obter mais informações sobre o plug-in do Maven.
+Pode usar [Plug-in do Maven para serviço de aplicações do Azure](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar ficheiros. JAR e. War. Implementação com IDEs populares também é suportada com [Azure Toolkit para IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit para Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-Se não estiver a utilizar o Maven, seu método de implementação irá depender do tipo de arquivo:
+Caso contrário, seu método de implementação irá depender do tipo de arquivo:
 
 - Para implementar ficheiros. War para Tomcat, utilize o `/api/wardeploy/` ponto final para publicar o seu ficheiro de arquivo. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Para implementar ficheiros. JAR nas imagens de Java SE, utilize o `/api/zipdeploy/` ponto final do Kudu site. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
@@ -79,7 +79,7 @@ As imagens incorporadas do Java se baseiam os [Alpine Linux](https://alpine-linu
 
 ## <a name="customization-and-tuning"></a>Personalização e Otimização
 
-Serviço de aplicações do Azure para Linux oferece imediatamente suporte para a caixa de ajuste e a personalização através do Portal do Azure e a CLI. Reveja os seguintes artigos para a configuração de aplicações web específica de não-Java:
+Serviço de aplicações do Azure para Linux oferece imediatamente suporte para a caixa de ajuste e a personalização através do portal do Azure e CLI. Reveja os seguintes artigos para a configuração de aplicações web específica de não-Java:
 
 - [Configurar as definições do serviço de aplicações](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Configurar um domínio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -93,7 +93,7 @@ Para definir a memória alocada ou outras opções de tempo de execução JVM no
 
 No portal do Azure, em **as configurações do aplicativo** da aplicação web, criar uma nova definição de aplicação com o nome `JAVA_OPTS` que inclui as definições adicionais, tais como `-Xms512m -Xmx1204m`.
 
-Para configurar a definição de aplicação de plug-in do Maven, adicione marcas de definição/valor na secção de plug-in do Azure. O exemplo seguinte define uma heapsize específico de Java de máxima e mínima:
+Para configurar a definição de aplicação de plug-in do Maven, adicione marcas de definição/valor na secção de plug-in do Azure. O exemplo seguinte define um mínimo e máximo Java heap tamanho específico:
 
 ```xml
 <appSettings>
@@ -112,7 +112,7 @@ Os desenvolvedores com um único aplicativo bloco de implementação de um em se
 
 Quando o ajuste definições de área dinâmica para dados de aplicação, reveja os detalhes do seu plano de serviço de aplicações e levar em conta vários aplicativos e o bloco de implementação tem de localizar a alocação ideal de memória.
 
-Se estiver implantando um aplicativo de JAR, deve ser nomeado `app.jar` para que a imagem incorporada pode identificar corretamente a sua aplicação. (O plug-in do Maven faz essa renomeação automaticamente.) Se não deseja mudar o nome do seu JAR para `app.jar`, pode carregar um script de shell com o comando a executar o JAR. Em seguida, cole o caminho completo para esse script no [ficheiro de arranque](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do Portal.
+Se estiver implantando um aplicativo de JAR, deve ser nomeado `app.jar` para que a imagem incorporada pode identificar corretamente a sua aplicação. (O plug-in do Maven faz essa renomeação automaticamente.) Se não deseja mudar o nome do seu JAR para `app.jar`, pode carregar um script de shell com o comando a executar o JAR. Em seguida, cole o caminho completo para esse script no [ficheiro de arranque](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do portal.
 
 ### <a name="turn-on-web-sockets"></a>Ativar o web sockets
 
@@ -156,7 +156,7 @@ Aplicações de Java em execução no serviço de aplicações para Linux tem o 
 
 ### <a name="authenticate-users"></a>Autenticar utilizadores
 
-Configurar a autenticação de aplicação no Portal do Azure com o **autenticação e autorização** opção. A partir daí, pode ativar a autenticação com o Azure Active Directory ou inícios de sessão sociais como o Facebook, Google ou GitHub. Configuração do portal do Azure só funciona quando configurar um fornecedor de autenticação único.  Para obter mais informações, consulte [configurar a aplicação de serviço de aplicações para utilizar o início de sessão do Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) e os artigos relacionados para outros fornecedores de identidade.
+Configurar a autenticação de aplicação no portal do Azure com o **autenticação e autorização** opção. A partir daí, pode ativar a autenticação com o Azure Active Directory ou inícios de sessão sociais como o Facebook, Google ou GitHub. Configuração do portal do Azure só funciona quando configurar um fornecedor de autenticação único.  Para obter mais informações, consulte [configurar a aplicação de serviço de aplicações para utilizar o início de sessão do Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) e os artigos relacionados para outros fornecedores de identidade.
 
 Se precisar de vários fornecedores de início de sessão, siga as instruções no [personalizar a autenticação do serviço de aplicações](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) artigo.
 
@@ -293,11 +293,11 @@ Para ligar a origens de dados em aplicativos de Spring Boot, sugerimos que criar
 
 1. Na secção "Definições da aplicação" do painel do serviço de aplicações, defina um nome para a cadeia de caracteres, em seguida, cole a cadeia de ligação de JDBC no campo valor e definir o tipo para "Personalizado". Opcionalmente, pode definir esta cadeia de ligação como definição de ranhura.
 
-    ![Criar uma cadeia de ligação no Portal.][1]
+    ![Criar uma cadeia de ligação no portal.][1]
 
     Esta cadeia de ligação está acessível ao nosso aplicativo como uma variável de ambiente com o nome `CUSTOMCONNSTR_<your-string-name>`. Por exemplo, a cadeia de ligação que criámos acima será nomeada `CUSTOMCONNSTR_exampledb`.
 
-2. No seu `application.properties` de ficheiros, essa cadeia de caracteres de connction com o nome da variável de ambiente de referência. No nosso exemplo, utilizamos o seguinte.
+2. No seu `application.properties` de ficheiros, esta cadeia de ligação com o nome da variável de ambiente de referência. No nosso exemplo, utilizamos o seguinte.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}

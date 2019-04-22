@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278552"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679997"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Depois de definir suas etapas, criar o pipeline com alguns ou todos esses passos.
 
->[!NOTE]
->Não existem dados ou ficheiro são carregados para o serviço Azure Machine Learning quando definir os passos ou criar o pipeline.
+> [!NOTE]
+> Não existem dados ou ficheiro são carregados para o serviço Azure Machine Learning quando definir os passos ou criar o pipeline.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Para obter mais informações, consulte a [pacote de passos de pipeline do azure
 
 ## <a name="submit-the-pipeline"></a>Submeter o pipeline
 
-Quando submete o pipeline, o serviço Azure Machine Learning verifica as dependências para cada passo e carrega um instantâneo do diretório de origem que especificou. Se não for especificado nenhum diretório de origem, o atual diretório de local é carregado.
+Quando submete o pipeline, o serviço Azure Machine Learning verifica as dependências para cada passo e carrega um instantâneo do diretório de origem que especificou. Se não for especificado nenhum diretório de origem, o atual diretório de local é carregado. O instantâneo é armazenado como parte da experimentação na sua área de trabalho.
 
+> [!IMPORTANT]
+> Para impedir que os ficheiros que está a ser incluído no instantâneo, crie uma [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` de ficheiros no diretório e adicione os ficheiros ao mesmo. O `.amlignore` utiliza a mesma sintaxe de ficheiros e padrões como o [. gitignore](https://git-scm.com/docs/gitignore) ficheiro. Se existirem ambos os ficheiros, o `.amlignore` ficheiro tem precedência.
+>
+> Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run

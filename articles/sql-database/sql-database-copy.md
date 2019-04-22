@@ -12,12 +12,12 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 363803e9276a8356b52438f251391378c54f1655
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549700"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678943"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacional consistente de uma base de dados SQL do Azure
 
@@ -25,7 +25,7 @@ Base de dados SQL do Azure fornece vários métodos para criar uma cópia transa
 
 ## <a name="overview"></a>Descrição geral
 
-Uma cópia da base de dados é um instantâneo da base de dados de origem no momento do pedido de cópia. Pode selecionar o mesmo servidor ou um servidor diferente, o escalão de serviço e o tamanho de computação ou um tamanho de computação diferentes dentro da mesma camada de serviço (edição). Depois da cópia estiver concluída, torna-se uma base de dados totalmente funcional e independente. Neste momento, pode atualizar ou mudar a versão para todas as edições. Os inícios de sessão, utilizadores e permissões podem ser geridas de forma independente.  
+Uma cópia da base de dados é um instantâneo da base de dados de origem no momento do pedido de cópia. Pode selecionar o mesmo servidor ou um servidor diferente. Também pode optar por manter o escalão de serviço e tamanho de computação ou utilizar um tamanho de computação diferentes dentro da mesma camada de serviço (edição). Depois da cópia estiver concluída, torna-se uma base de dados totalmente funcional e independente. Neste momento, pode atualizar ou mudar a versão para todas as edições. Os inícios de sessão, utilizadores e permissões podem ser geridas de forma independente.  
 
 > [!NOTE]
 > [Cópias de segurança da base de dados automatizadas](sql-database-automated-backups.md) são utilizadas quando cria uma cópia da base de dados.

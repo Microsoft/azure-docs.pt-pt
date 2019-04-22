@@ -1,36 +1,36 @@
 ---
 title: Criar um contentor no Azure Cosmos DB
 description: Aprenda a criar um contentor no Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
-ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: c075a801a877309709258dd6466e68e46d802eff
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258297"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680439"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contentor do Cosmos do Azure
 
-Este artigo explica as diferentes formas de criar um contentor (coleção, tabela ou gráfico). Utilize o portal do Azure, a CLI do Azure ou SDKs suportados. Este artigo demonstra como criar um contentor, especifique a chave de partição e aprovisionar o débito.
+Este artigo explica as diferentes formas de criar um contentor do Cosmos do Azure (coleção, tabela ou gráfico). Pode utilizar o portal do Azure, CLI do Azure, ou dos SDKs suportados para isso. Este artigo demonstra como criar um contentor, especifique a chave de partição e aprovisionar o débito.
 
-## <a name="create-a-container-by-using-azure-portal"></a>Criar um contentor com o portal do Azure
+## <a name="create-a-container-using-azure-portal"></a>Criar um contentor com o portal do Azure
 
 ### <a id="portal-sql"></a>API DE SQL
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova coleção**. Em seguida, fornece os seguintes detalhes:
 
    * Indica se estiver a criar uma nova base de dados ou utilizar um já existente.
    * Introduza um ID de coleção.
    * Introduza uma chave de partição.
-   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
+   * Introduza um débito aprovisionado (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
 ![Painel de captura de ecrã do Explorador de dados, com a nova coleção realçado](./media/how-to-create-container/partitioned-collection-create-sql.png)
@@ -39,15 +39,14 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-mongodb-dotnet.md#create-a-database-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova coleção**. Em seguida, fornece os seguintes detalhes:
 
    * Indica se estiver a criar uma nova base de dados ou utilizar um já existente.
    * Introduza um ID de coleção.
-   * Selecione a capacidade de armazenamento **Ilimitada**.
    * Introduza uma chave de partição horizontal.
-   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
+   * Introduza um débito aprovisionado (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
 ![Captura de ecrã de API do Azure Cosmos DB para o MongoDB, caixa de diálogo Adicionar coleção](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
@@ -56,14 +55,14 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-cassandra-dotnet.md#create-a-database-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos](create-cassandra-dotnet.md#create-a-database-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova tabela**. Em seguida, fornece os seguintes detalhes:
 
    * Indica se estiver a criar um keyspace novo, ou utilizar um já existente.
    * Introduza um nome de tabela.
    * Introduza as propriedades e especifique uma chave primária.
-   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
+   * Introduza um débito aprovisionado (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
 ![Captura de ecrã do Cassandra API, caixa de diálogo Adicionar tabela](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
@@ -75,7 +74,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-graph-dotnet.md#create-a-database-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos](create-graph-dotnet.md#create-a-database-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **novo gráfico**. Em seguida, fornece os seguintes detalhes:
 
@@ -83,7 +82,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
    * Introduza um ID de gráfico.
    * Selecione a capacidade de armazenamento **Ilimitada**.
    * Introduza uma chave de partição para vértices.
-   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
+   * Introduza um débito aprovisionado (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
 ![Captura de ecrã da API Gremlin, caixa de diálogo Adicionar gráfico](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
@@ -92,13 +91,12 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-table-dotnet.md#create-a-database-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos](create-table-dotnet.md#create-a-database-account), ou selecione uma conta existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova tabela**. Em seguida, fornece os seguintes detalhes:
 
    * Introduza um ID de tabela.
-   * Selecione a capacidade de armazenamento **Ilimitada**.
-   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
+   * Introduza um débito aprovisionado (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
 ![Captura de ecrã da API de tabela, caixa de diálogo Adicionar tabela](./media/how-to-create-container/partitioned-collection-create-table.png)
@@ -106,7 +104,7 @@ Este artigo explica as diferentes formas de criar um contentor (coleção, tabel
 > [!Note]
 > Para a API de Tabela, a chave de partição é especificada sempre que adicionar uma nova linha.
 
-## <a name="create-a-container-by-using-azure-cli"></a>Criar um contentor com a CLI do Azure
+## <a name="create-a-container-using-azure-cli"></a>Criar um contentor com a CLI do Azure
 
 ### <a id="cli-sql"></a>API DE SQL
 
@@ -174,7 +172,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-## <a name="create-a-container-by-using-net-sdk"></a>Criar um contentor com o .NET SDK
+## <a name="create-a-container-using-net-sdk"></a>Criar um contentor com o SDK .NET
 
 ### <a id="dotnet-sql-graph"></a>API de SQL e API do Gremlin
 
@@ -198,7 +196,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-> Protocolo de MongoDB não unidades de pedido. Para criar uma nova coleção com débito, utilize o portal do Azure ou a API de SQL.
+> Protocolo de MongoDB não compreende o conceito de [unidades de pedido](request-units.md). Para criar uma nova coleção com débito aprovisionado na mesma, utilize o portal do Azure ou SDKs do Cosmos DB para a API de SQL.
 
 ### <a id="dotnet-cassandra"></a>API para Cassandra
 
@@ -213,3 +211,6 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
+- [Unidades de pedido no Azure Cosmos DB](request-units.md)
+- [Débito de aprovisionar em contentores e bases de dados](set-throughput.md)
+- [Trabalhar com a conta do Cosmos do Azure](account-overview.md)

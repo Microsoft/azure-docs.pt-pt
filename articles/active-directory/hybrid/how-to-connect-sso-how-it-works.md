@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788b03bb55abdc3040df8c5317f1f55738ebb023
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268367"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677889"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>O Azure Active Directory totalmente integrada início de sessão único: Análise técnica aprofundada
 
@@ -44,7 +44,7 @@ SSO totalmente integrado é ativada através do Azure AD Connect, conforme mostr
 - Chave de desencriptação do Kerberos da conta de computador é compartilhado de forma segura com o Azure AD. Se existirem várias florestas do AD, cada conta de computador terá sua própria chave de desencriptação do Kerberos exclusivo.
 
 >[!IMPORTANT]
-> O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada. Store a conta de computador numa unidade organizacional (UO) onde eles estejam protegidos contra eliminações acidentais e, em que apenas os administradores de domínio têm acesso. A chave de desencriptação do Kerberos da conta de computador também deve ser tratada como confidenciais. É altamente recomendável que [o rollover da chave de desencriptação do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) do `AZUREADSSOACC` conta de computador, pelo menos, a cada 30 dias.
+> O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada e que nenhuma outra conta no Active Directory tem permissões de delegação no `AZUREADSSOACC` conta de computador.... Store a conta de computador numa unidade organizacional (UO) onde eles estejam protegidos contra eliminações acidentais e, em que apenas os administradores de domínio têm acesso. A chave de desencriptação do Kerberos da conta de computador também deve ser tratada como confidenciais. É altamente recomendável que [o rollover da chave de desencriptação do Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) do `AZUREADSSOACC` conta de computador, pelo menos, a cada 30 dias.
 
 Assim que a configuração estiver concluída, o SSO totalmente integrado funciona da mesma forma que qualquer outro início de sessão que utiliza autenticação integrada do Windows (IWA).
 

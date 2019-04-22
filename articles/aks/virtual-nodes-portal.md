@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755265"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681034"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Pré-visualizar - criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais no portal do Azure
 
@@ -32,6 +32,16 @@ As seguintes regiões são suportadas para implementações de nó virtual:
 * E.u.a. Centro-Oeste (EUA)
 * Europa Ocidental (westeurope)
 * E.U.A. oeste (westus)
+
+## <a name="known-limitations"></a>Limitações conhecidas
+Funcionalidade de nós virtual é bastante dependente de conjunto de recursos do ACI. Os seguintes cenários ainda não são suportados conosco virtuais
+
+* Com o principal de serviço para imagens ACR de pull. [Solução](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste em utilizar [segredos do Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitações de rede virtual](../container-instances/container-instances-vnet.md) incluindo o VNet peering, as políticas de rede do Kubernetes e o tráfego de saída à internet com grupos de segurança de rede.
+* Contentores de init
+* [Aliases de anfitrião](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec no ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não irá implementar pods para o nó virtual
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

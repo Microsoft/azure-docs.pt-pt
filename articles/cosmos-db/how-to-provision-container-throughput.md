@@ -1,39 +1,39 @@
 ---
 title: Aprovisionar débito do contentor no Azure Cosmos DB
 description: Aprenda a aprovisionar débito ao nível do contentor no Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/06/2018
-ms.author: mjbrown
-ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: d092844fbd75fc2307cc13ec9b7779ae9237535d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258722"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679709"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Débito de aprovisionar num contentor do Cosmos do Azure
 
-Este artigo explica como aprovisionar o débito para um contentor (gráfico ou uma coleção de tabela) no Azure Cosmos DB. Pode aprovisionar o débito para um único contentor, ou [aprovisionar uma base de dados](how-to-provision-database-throughput.md) e partilhá-lo entre os contentores na base de dados. Pode aprovisionar o débito para um contentor utilizando o portal do Azure, a CLI do Azure ou SDKs do Azure Cosmos DB.
+Este artigo explica como aprovisionar o débito num contentor (gráfico ou uma coleção de tabela) no Azure Cosmos DB. Pode aprovisionar o débito num contentor único, ou [débito de aprovisionar uma base de dados](how-to-provision-database-throughput.md) e partilhá-lo entre os contentores na base de dados. Pode aprovisionar o débito num contentor com o portal do Azure, CLI do Azure ou SDKs do Azure Cosmos DB.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Débito de aprovisionamento através do portal do Azure
+## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account), ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account), ou selecione uma conta do Cosmos do Azure existente.
 
 1. Abra o **Data Explorer** painel e selecione **nova coleção**. Em seguida, fornece os seguintes detalhes:
 
    * Indica se estiver a criar uma nova base de dados ou utilizar um já existente.
-   * Introduza um ID de coleção (ou tabela ou gráfico).
+   * Introduza um ID de contentor (ou tabela ou gráfico).
    * Introduza um valor de chave de partição (por exemplo, `/userid`).
-   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
+   * Introduza um débito de que pretende aprovisionar (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
 ![Captura de ecrã do Data Explorer, com a nova coleção realçado](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-by-using-azure-cli"></a>Débito de aprovisionamento com a CLI do Azure
+## <a name="provision-throughput-using-azure-cli"></a>Aprovisionar débito com a CLI do Azure
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -46,12 +46,12 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Se estiver a aprovisionar o débito de uma conta do Azure Cosmos DB configurado com a API do Azure Cosmos DB para o MongoDB, utilize `/myShardKey` para o caminho da chave de partição. Se estiver a aprovisionar o débito de uma conta do Azure Cosmos DB configurado para a API de Cassandra, utilize `/myPrimaryKey` para o caminho da chave de partição.
+Se estiver a aprovisionar o débito num contentor numa conta do Azure Cosmos configurado com a API do Azure Cosmos DB para o MongoDB, utilize `/myShardKey` para o caminho da chave de partição. Se estiver a aprovisionar o débito num contentor numa conta do Azure Cosmos configurado com a API de Cassandra, utilize `/myPrimaryKey` para o caminho da chave de partição.
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>Débito de aprovisionamento com o .NET SDK
 
 > [!Note]
-> Utilize a API de SQL para aprovisionar débito para todas as APIs, exceto para a API para Cassandra.
+> Utilize os SDKs do Cosmos para a API de SQL para aprovisionar débito para todas as APIs do DB Cosmos, exceto a Cassandra API.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin e APIs de Tabela
 
@@ -81,5 +81,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 Consulte os seguintes artigos para saber mais sobre o aprovisionamento de débito no Azure Cosmos DB:
 
-* [Como aprovisionar débito para uma base de dados](how-to-provision-database-throughput.md)
+* [Como aprovisionar o débito, numa base de dados](how-to-provision-database-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

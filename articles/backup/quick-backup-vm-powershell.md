@@ -7,15 +7,15 @@ manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 5aab5fea5a80eb3ab1b37e08a5e22ca296cb633e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489387"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680303"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 

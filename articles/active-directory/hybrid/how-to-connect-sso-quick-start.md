@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256894"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680910"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
@@ -93,7 +93,7 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 ![Portal do Azure: Painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` em seus locais do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada. Store a conta de computador numa unidade organizacional (UO) onde eles estejam protegidos contra eliminações acidentais e, em que apenas os administradores de domínio têm acesso.
+> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` em seus locais do Active Directory (AD) em cada floresta do AD. O `AZUREADSSOACC` conta de computador precisa ser fortemente protegido por motivos de segurança. Apenas os administradores do domínio deve ser capazes de gerir a conta de computador. Certifique-se de que a delegação de Kerberos da conta de computador está desativada e que nenhuma outra conta no Active Directory tem permissões de delegação no `AZUREADSSOACC` conta de computador. Store a conta de computador numa unidade organizacional (UO) onde eles estejam protegidos contra eliminações acidentais e, em que apenas os administradores de domínio têm acesso.
 
 >[!NOTE]
 > Se estiver a utilizar as arquiteturas de Pass-the-Hash e atenuação de roubo de credenciais no seu ambiente no local, efetue as alterações necessárias para garantir que o `AZUREADSSOACC` conta de computador não acaba no contentor de quarentena. 

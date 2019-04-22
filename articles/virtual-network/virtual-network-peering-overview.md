@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489986"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678484"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -63,8 +63,7 @@ Quando as redes virtuais estão em modo de peering, pode, igualmente, configurar
 
 ![trânsito de peering de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-O trânsito de gateway é suportado para o VNet Peering e VNet Peering Global (pré-visualização). Pode utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais em modo de peering global em pré-visualização. A pré-visualização está disponível em todas as regiões do Azure, regiões da cloud na China e regiões de cloud do Governo. Não é necessária nenhuma lista de permissões. Pode testar em pré-visualização através da CLI, PowerShell, modelos ou API. Portal não é suportado na pré-visualização.
-O trânsito de gateway entre redes virtuais criadas com modelos de implementação diferentes (Resource Manager e clássica) é suportado apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O trânsito de gateway é suportado para o VNet Peering e o Global VNet Peering. O trânsito de gateway entre redes virtuais criadas com modelos de implementação diferentes (Resource Manager e clássica) é suportado apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que partilham uma única ligação ExpressRoute do Azure estão em modo de peering, o tráfego entre as mesmas passa pela relação de peering (ou seja, pela rede principal do Azure). Pode continuar a utilizar gateways locais em cada rede virtual para ligar ao circuito no local. Em alternativa, pode utilizar um gateway partilhado e configurar o trânsito para conectividade no local.
 
@@ -99,9 +98,9 @@ O trânsito do gateway é uma propriedade de peering que permite a uma rede virt
 
     |Modelo de implementação do Azure             | Subscrição  |
     |---------                          |---------|
-    |Ambas com Resource Manager              |[Mesmo](tutorial-connect-virtual-networks-portal.md)|
+    |Ambas com Resource Manager              |[Mesma](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|
-    |Uma com Resource Manager, outra com clássica  |[Mesmo](create-peering-different-deployment-models.md)|
+    |Uma com Resource Manager, outra com clássica  |[Mesma](create-peering-different-deployment-models.md)|
     |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 * Saiba como criar uma [topologia de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).

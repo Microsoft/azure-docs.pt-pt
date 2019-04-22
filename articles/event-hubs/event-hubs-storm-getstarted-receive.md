@@ -15,18 +15,21 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094615"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679266"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos dos Hubs de eventos com o Apache Storm
 
 [O Apache Storm](https://storm.incubator.apache.org) é um sistema em tempo real de computação distribuída que simplifica o processamento fiável de fluxos independentes de dados. Esta secção mostra como utilizar um spout do Storm de Hubs de eventos do Azure para receber eventos dos Hubs de eventos. Utilizar o Apache Storm, pode dividir eventos por vários processos alojados em nós diferentes. A integração de Hubs de eventos com o Storm simplifica do consumo de eventos de forma transparente pontos de verificação seu progresso usando a instalação de Zookeeper do Storm, gerenciamento de pontos de verificação persistentes e receções em paralelo Hubs de eventos.
 
 Para obter mais informações sobre os Hubs de eventos receber padrões, consulte a [descrição geral dos Hubs de eventos][Event Hubs overview].
+
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de começar com o guia de introdução **criar um espaço de nomes de Hubs de eventos e um hub de eventos**. Utilize o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de eventos e obter as credenciais de gestão a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Crie o projeto e adicione o código
 

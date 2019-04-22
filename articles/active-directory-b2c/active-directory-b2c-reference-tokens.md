@@ -1,109 +1,115 @@
 ---
-title: Token de referência no Azure Active Directory B2C | Documentos da Microsoft
-description: Os tipos de tokens emitidos no Azure Active Directory B2C
+title: Descrição geral de tokens - Azure Active Directory B2C | Documentos da Microsoft
+description: Saiba mais sobre os tokens utilizados no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6a588764908f72607bbb99e9b1ea031182c95e64
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166922"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680269"
 ---
-# <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Referência de tokens
+# <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Descrição geral de tokens no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory B2C (Azure AD B2C) emite vários tipos de tokens de segurança, à medida que processa cada [fluxo de autenticação](active-directory-b2c-apps.md). Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token.
+O Azure Active Directory B2C (Azure AD) B2C emite vários tipos de tokens de segurança, à medida que processa cada [fluxo de autenticação](active-directory-b2c-apps.md). Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token.
 
-## <a name="types-of-tokens"></a>Tipos de tokens
-O Azure AD B2C suporta o [protocolo de autorização de OAuth 2.0](active-directory-b2c-reference-protocols.md), que faz uso dos dois tokens de acesso e tokens de atualização. Também suporta a autenticação e início de sessão por meio [OpenID Connect](active-directory-b2c-reference-protocols.md), que introduz um terceiro tipo de token: o token de ID. Cada um destes tokens é representada como um token de portador.
+## <a name="token-types"></a>Tipos de token
 
-Um token de portador é um token de segurança simples que concede o acesso de "bearer" a um recurso protegido. O portador é capaz de apresentar o token de terceiros. O Azure AD B2C devem primeiro autenticar uma parte antes de pode receber um token de portador. Mas se os passos necessários não serão direcionados para proteger o token na transmissão e o armazenamento, pode ser interceptado e utilizado por uma entidade não-intencionais. Alguns tokens de segurança tem um mecanismo interno para impedir que partes não autorizadas a utilizá-los, mas os tokens de portador não tem esse mecanismo. Eles devam ser transportados num canal seguro, tais como a segurança de camada de transporte (HTTPS).
+O Azure AD B2C suporta o [protocolos OAuth 2.0 e OpenID Connect](active-directory-b2c-reference-protocols.md), que faz uso de tokens para autenticação e acesso seguro aos recursos. Todos os tokens utilizados no Azure AD B2C são [tokens de web JSON (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) que contêm declarações de informações sobre o portador e o assunto do token.
 
-Se um token de portador é transmitido fora de um canal seguro, mal-intencionados podem utilizar um ataque man-in-the-middle adquirir o token e utilizá-lo a obter acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se quando os tokens de portador são armazenados ou colocados em cache para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura.
+Os tokens seguintes são utilizados na comunicação com o Azure AD B2C:
 
-Para considerações de segurança adicionais em tokens de portador, consulte [RFC 6750 secção 5](https://tools.ietf.org/html/rfc6750).
+- *Token de ID* -um JWT que contém as afirmações que pode utilizar para identificar os utilizadores na sua aplicação. Este token é enviada de forma segura em pedidos de HTTP para a comunicação entre dois componentes do mesmo aplicativo ou serviço. Pode utilizar as declarações no token de ID como quiser. Elas são comumente usadas para exibir informações de conta ou para tomar decisões de controlo de acesso num aplicativo. Tokens de ID tem sessão iniciadas, mas não estão encriptados. Quando a sua aplicação ou a API recebe um token de ID, ele deve validar a assinatura para provar que o token é autêntico. Também deve validar a sua aplicação ou API algumas declarações no token para provar que é válido. Consoante os requisitos de cenário, as afirmações validadas por um aplicativo podem variar, mas o aplicativo deve executar algumas validações de afirmação comuns em todos os cenários.
+- *Token de acesso* -um JWT que contém as afirmações que pode utilizar para identificar as permissões concedidas às suas APIs. Tokens de acesso tem sessão iniciados, mas eles não estão encriptados. Tokens de acesso são utilizados para fornecer acesso aos servidores APIs e recursos.  Quando a API recebe um token de acesso, ele deve validar a assinatura para provar que o token é autêntico. A API também deve validar algumas declarações no token para provar que é válido. Consoante os requisitos de cenário, as afirmações validadas por um aplicativo podem variar, mas o aplicativo deve executar algumas validações de afirmação comuns em todos os cenários.
+- *Atualizar token* -tokens de atualização são utilizados para adquirir novos tokens de ID e tokens num fluxo de OAuth 2.0 de acesso. Eles fornecem a sua aplicação com acesso de longo prazo para recursos em nome dos utilizadores sem a necessidade de interação com esses utilizadores. Tokens de atualização são opacos para seu aplicativo. São emitidos pelo Azure AD B2C e podem ser inspecionadas e interpretados apenas pelo Azure AD B2C. Eles são vida útil longa, mas seu aplicativo não deve ser escrito com a expectativa de que um token de atualização terá duração de um período de tempo específico. Tokens de atualização podem ser invalidadas a qualquer momento para uma variedade de motivos. A única forma para a sua aplicação saber se um token de atualização é válido é tentar resgatá-lo ao fazer um pedido de token do Azure AD B2C. Quando utilizar um token de atualização para um novo token, receberá um novo token de atualização na resposta de token. Guarde o novo token de atualização. Ele substitui o token de atualização que utilizou anteriormente no pedido. Esta ação ajuda a garantir que seus tokens de atualização mantêm-se válidas durante mais tempo. 
 
-Muitos dos tokens emitidos pelo Azure AD B2C são implementados como tokens de web JSON (JWTs). Um JWT é um meio de compacto e seguras para URL de transferência de informações entre duas partes. JWTs contêm informações conhecidas como afirmações. Estas são algumas hipóteses de obter informações sobre o portador e o assunto do token. As afirmações no JWTs são objetos JSON, que são codificados e serializados para transmissão. Porque JWTs emitidos pelo Azure AD B2C são assinados, mas não encriptados, pode inspecionar o conteúdo de um JWT para depurá-lo facilmente. Estão disponíveis várias ferramentas que pode fazê-lo, incluindo [jwt.ms](https://jwt.ms). Para obter mais informações sobre JWTs, consulte [especificações JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+## <a name="endpoints"></a>Pontos Finais
 
-### <a name="id-tokens"></a>Tokens de ID
+R [registado aplicação](tutorial-register-applications.md) recebe tokens e comunica com o Azure AD B2C ao enviar pedidos para estes pontos finais:
 
-Um token de ID é uma forma de token de segurança que a aplicação recebe do Azure AD B2C `/authorize` e `/token` pontos de extremidade. Tokens de ID são representados como [JWTs](#types-of-tokens), e que contêm afirmações que pode utilizar para identificar os utilizadores na sua aplicação. Quando os tokens de ID são adquiridos do `/authorize` ponto de extremidade, eles são efetuados utilizando o [fluxo implícito](active-directory-b2c-reference-spa.md), que é utilizado frequentemente para os utilizadores iniciar sessão no javascript baseado em aplicativos web. Quando os tokens de ID são adquiridos do `/token` ponto de extremidade, eles são efetuados utilizando o [fluxo de código confidenciais](active-directory-b2c-reference-oidc.md), que mantém o token ocultado a partir do browser. Isso permite que o token a ser enviadas de forma segura em pedidos de HTTP para a comunicação entre dois componentes do mesmo aplicativo ou serviço. Pode utilizar as declarações no token de ID como quiser. Elas são comumente usadas para exibir informações de conta ou para tomar decisões de controlo de acesso numa aplicação.  
+- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
+- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-Tokens de ID tem sessão iniciadas, mas eles não são atualmente criptografados. Quando a sua aplicação ou a API recebe um token de ID, deve [validar a assinatura](#token-validation) para provar que o token é autêntico. A aplicação ou API também deve validar algumas declarações no token para provar que é válido. Consoante os requisitos de cenário, as afirmações validadas por uma aplicação podem variar, mas a aplicação tem de efetuar algumas [validações de afirmação comuns](#token-validation) em todos os cenários.
+Tokens de segurança que seu aplicativo receba do Azure AD B2C podem ser provenientes da `/authorize` ou `/token` pontos de extremidade. Quando os tokens de ID são adquiridos do `/authorize` ponto de extremidade, eles são efetuados utilizando o [fluxo implícito](active-directory-b2c-reference-spa.md), que é utilizado frequentemente para os utilizadores a iniciar sessão para aplicativos web baseados em javascript. Quando os tokens de ID são adquiridos do `/token` ponto de extremidade, eles são efetuados utilizando o [fluxo de código confidenciais](active-directory-b2c-reference-oidc.md), que mantém o token ocultado a partir do browser.
 
-#### <a name="sample-id-token"></a>Token de ID de exemplo
-```
-// Line breaks for display purposes only
+## <a name="claims"></a>Afirmações
 
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IklkVG9rZW5TaWduaW5nS2V5Q29udGFpbmVyIn0.
-eyJleHAiOjE0NDIzNjAwMzQsIm5iZiI6MTQ0MjM1NjQzNCwidmVyIjoiMS4wIiwiaXNzIjoiaHR0cHM6Ly9s
-b2dpbi5taWNyb3NvZnRvbmxpbmUuY29tLzc3NTUyN2ZmLTlhMzctNDMwNy04YjNkLWNjMzExZjU4ZDkyNS92
-Mi4wLyIsImFjciI6ImIyY18xX3NpZ25faW5fc3RvY2siLCJzdWIiOiJOb3Qgc3VwcG9ydGVkIGN1cnJlbnRs
-eS4gVXNlIG9pZCBjbGFpbS4iLCJhdWQiOiI5MGMwZmU2My1iY2YyLTQ0ZDUtOGZiNy1iOGJiYzBiMjlkYzYi
-LCJpYXQiOjE0NDIzNTY0MzQsImF1dGhfdGltZSI6MTQ0MjM1NjQzNCwiaWRwIjoiZmFjZWJvb2suY29tIn0.
-h-uiKcrT882pSKUtWCpj-_3b3vPs3bOWsESAhPMrL-iIIacKc6_uZrWxaWvIYkLra5czBcGKWrYwrAC8ZvQe
-DJWZ50WXQrZYODEW1OUwzaD_I1f1HE0c2uvaWdGXBpDEVdsD3ExKaFlKGjFR2V7F-fPThkVDdKmkUDQX3bVc
-yyj2V2nlCQ9jd7aGnokTPfLfpOjuIrTsAdPcGpe5hfSEuwYDmqOJjGs9Jp1f-eSNEiCDQOaTBSvr479L5ptP
-XWeQZyX2SypN05Rjr05bjZh3j70ZUimiocfJzjibeoDCaQTz907yAg91WYuFOrQxb-5BaUoR7K-O7vxr2M-_
-CQhoFA
+Quando utilizar o Azure AD B2C, terá um controle refinado sobre o conteúdo dos seus tokens. Pode configurar [fluxos de utilizador](active-directory-b2c-reference-policies.md) e [políticas personalizadas](active-directory-b2c-overview-custom.md) para enviar determinados conjuntos de dados de utilizador em afirmações que são necessárias para a sua aplicação. Essas declarações podem incluir propriedades padrão, como **displayName** e **emailAddress**. Seus aplicativos podem usar essas declarações de forma a autenticar os utilizadores e pedidos. 
 
-```
+As afirmações nos tokens de ID não são devolvidas em qualquer ordem específica. Novas declarações podem ser introduzidas nos tokens de ID em qualquer altura. Seu aplicativo não deve interromper conforme novas declarações são introduzidas. Também pode incluir [atributos de utilizador personalizada](active-directory-b2c-reference-custom-attr.md) em suas declarações.
 
-### <a name="access-tokens"></a>Tokens de acesso
+A tabela seguinte lista as afirmações que pode esperar nos tokens de identidade e acesso tokens emitidos pelo Azure AD B2C.
 
-Um token de acesso também é uma forma de token de segurança que a aplicação recebe do Azure AD B2C `/authorize` e `/token` pontos de extremidade. Tokens de acesso também são representados como [JWTs](#types-of-tokens), e que contêm afirmações que pode utilizar para identificar as permissões concedidas às suas APIs. Tokens de acesso tem sessão iniciados, mas eles não são atualmente criptografados. Tokens de acesso devem ser utilizados para fornecer acesso aos servidores APIs e recursos. Saiba mais sobre como [utilizar tokens de acesso](active-directory-b2c-access-tokens.md). 
+| Name | Afirmação | Valor de exemplo | Descrição |
+| ---- | ----- | ------------- | ----------- |
+| Audiência | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é a ID da aplicação. Seu aplicativo deve validar este valor e rejeitar o token, caso não seja correspondente. Público-alvo é sinônimo de recursos. |
+| Emissor | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifica o serviço de token de segurança (STS) que constrói e devolve o token. Ele também identifica o diretório em que o utilizador foi autenticado. Seu aplicativo deve validar a afirmação do emissor para se certificar de que o token provém o ponto final adequado. |
+| Emitida em | `iat` | `1438535543` | O tempo em que o token foi emitido, representado na hora "Epoch". |
+| Hora de expiração | `exp` | `1438539443` | O tempo em que o token se torna inválido, representado na hora "Epoch". A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
+| Não antes | `nbf` | `1438535543` | A hora em que o token se torna válido, representado na hora "Epoch". Desta vez, normalmente, é o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
+| Versão | `ver` | `1.0` | A versão do token de ID, conforme definido pelo Azure AD B2C. |
+| Hash de código | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de código incluído num token de ID apenas quando o token for emitido, juntamente com um código de autorização de OAuth 2.0. Um hash de código pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais informações sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Hash de token de acesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash de token de acesso incluído num token de ID apenas quando o token for emitido, juntamente com um token de acesso de OAuth 2.0. Um hash de token de acesso pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais informações sobre como efetuar esta validação, consulte o [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
+| Valor de uso único | `nonce` | `12345` | Um valor de uso único é uma estratégia utilizada para mitigar ataques de repetição de token. A aplicação, pode especificar um valor de uso único numa solicitação de autorização utilizando a `nonce` parâmetro de consulta. O valor que fornecer no pedido é emitido sem modificações no `nonce` de afirmação de apenas um token de ID. Esta afirmação permite que a aplicação para verificar o valor com o valor especificado no pedido. Seu aplicativo deve executar essa validação durante o processo de validação do token de ID. |
+| Requerente | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. |
+| Referência de classe de contexto de autenticação | `acr` | Não aplicável | Utilizado apenas com as políticas mais antigas. |
+| Política de estrutura de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da política que foi utilizado para adquirir o token de ID. |
+| Tempo de autenticação | `auth_time` | `1438535543` | O tempo em que um usuário inserir, pela última vez, credenciais, representado na hora "Epoch". |
+| Âmbito | `scp` | `Read`| As permissões concedidas para o recurso para um token de acesso. Permissões concedidas múltiplos são separadas por um espaço. |
+| Terceiros autorizados | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | O **ID da aplicação** da aplicação cliente que a solicitação. |
 
-Quando a API recebe um token de acesso, tem [validar a assinatura](#token-validation) para provar que o token é autêntico. A API também deve validar algumas declarações no token para provar que é válido. Consoante os requisitos de cenário, as afirmações validadas por uma aplicação podem variar, mas a aplicação tem de efetuar algumas [validações de afirmação comuns](#token-validation) em todos os cenários.
+## <a name="configuration"></a>Configuração
 
-### <a name="claims-in-id-and-access-tokens"></a>Afirmações nos tokens de acesso e ID
+As seguintes propriedades são utilizadas para [gerir durações de tokens de segurança](configure-tokens.md) emitido pelo Azure AD B2C:
 
-Quando utilizar o Azure AD B2C, terá um controle refinado sobre o conteúdo dos seus tokens. Pode configurar [fluxos de utilizador](active-directory-b2c-reference-policies.md) e as políticas personalizadas para enviar determinados conjuntos de dados de utilizador nas afirmações que a sua aplicação necessita para suas operações. Essas declarações podem incluir propriedades padrão, como o usuário `displayName` e `emailAddress`. Eles também podem incluir [atributos de utilizador personalizada](active-directory-b2c-reference-custom-attr.md) que pode definir no diretório do B2C. Cada acesso e o ID de token que recebe contém um determinado conjunto de declarações relacionadas à segurança. Seus aplicativos podem usar essas declarações de forma a autenticar os utilizadores e pedidos.
+- **Duração (minutos) de token de acesso & ID** – o tempo de vida do token de portador OAuth 2.0 utilizado para obter acesso a um recurso protegido. A predefinição é 60 minutos. O mínimo (inclusive) é de 5 minutos. O máximo (inclusive) é 1440 minutos.
 
-Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em qualquer ordem específica. Além disso, podem ser introduzidas nova afirmações nos tokens de ID em qualquer altura. A aplicação não deve interromper conforme novas declarações são introduzidas. Aqui estão as afirmações que espera existe nos tokens de acesso e de ID emitidos pelo Azure AD B2C. Qualquer afirmações adicionais são determinadas por políticas. Para a prática, tente inspecionar as afirmações no token de ID de exemplo através da colagem-lo para [jwt.ms](https://jwt.ms). Detalhes adicionais podem ser encontrados no [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).
+- **Duração do token atualizado (dias)** – o período de tempo máximo antes do qual um token de atualização pode ser utilizado para adquirir um token de ID ou o acesso de novo. O período de tempo também aborda de que adquirir um novo token de atualização, se seu aplicativo tiver sido concedido a `offline_access` âmbito. A predefinição é 14 dias. O mínimo (inclusive) é um dia. O máximo (inclusive) é de 90 dias.
 
-| Nome | Afirmação | Valor de exemplo | Descrição |
-| --- | --- | --- | --- |
-| Audiência |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma afirmação de audiência identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é a ID da aplicação da sua aplicação, como atribuído à sua aplicação no portal de registo de aplicação. A aplicação deve validar este valor e rejeitar o token, se não corresponde. Público-alvo é sinônimo de recursos. |
-| Emissor |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Ele também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação do emissor para se certificar de que o token provém do ponto de final de v2.0 do Azure Active Directory. |
-| Emitida em |`iat` |`1438535543` |Esta afirmação é a hora em que o token foi emitido, representado na hora "Epoch". |
-| Hora de expiração |`exp` |`1438539443` |Hora de expiração da afirmação é a hora em que o token se torna inválido, representado na hora "Epoch". A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
-| Não antes |`nbf` |`1438535543` |Esta afirmação é a hora em que o token se torna válido, representado na hora "Epoch". Isso normalmente é o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
-| Versão |`ver` |`1.0` |Esta é a versão do token de ID, conforme definido pelo Azure AD. |
-| Hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de código está incluído num token de ID apenas quando o token for emitido, juntamente com um código de autorização de OAuth 2.0. Um hash de código pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
-| Hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de token de acesso está incluído num token de ID apenas quando o token for emitido, juntamente com um token de acesso de OAuth 2.0. Um hash de token de acesso pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais detalhes sobre como efetuar esta validação, consulte o [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
-| Valor de uso único |`nonce` |`12345` |Um valor de uso único é uma estratégia utilizada para mitigar ataques de repetição de token. A aplicação, pode especificar um valor de uso único numa solicitação de autorização utilizando a `nonce` parâmetro de consulta. O valor que fornecer no pedido será emitido sem modificações no `nonce` de afirmação de apenas um token de ID. Isso permite que a sua aplicação verificar o valor com o valor que ele especificado na solicitação, que associa sessão da aplicação um determinado token de ID. A aplicação deve realizar esta validação durante o processo de validação do token de ID. |
-| Requerente |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Este é o principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. Para obter mais informações, consulte [Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
-| Referência de classe de contexto de autenticação |`acr` |Não aplicável |Não utilizado atualmente, exceto no caso de políticas mais antigas. Para obter mais informações, consulte [Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
-| Política de estrutura de confiança |`tfp` |`b2c_1_sign_in` |Este é o nome da política que foi utilizado para adquirir o token de ID. |
-| Tempo de autenticação |`auth_time` |`1438535543` |Esta afirmação é a hora em que um último introduzido credenciais de utilizador, representado na hora "Epoch". |
+- **Duração janela deslizante do token atualizado (dias)** – após este tempo período decorrer o utilizador é forçado a autenticar, independentemente do período de validade mais recente do token atualizado adquirido pela aplicação. Só pode ser fornecido se o parâmetro estiver definido como **limitado**. Tem de ser maior ou igual a **duração do token de atualização (dias)** valor. Se o parâmetro estiver definido como **Unbounded**, não é possível fornecer um valor específico. A predefinição é 90 dias. O mínimo (inclusive) é um dia. O máximo (inclusive) é a 365 dias.
 
-### <a name="refresh-tokens"></a>Tokens de atualização
-Atualizar os tokens são tokens de segurança que seu aplicativo pode usar para adquirir novos tokens de ID e tokens num fluxo de OAuth 2.0 de acesso. Eles fornecem a aplicação com acesso de longo prazo para recursos em nome dos utilizadores sem a necessidade de interação com esses utilizadores.
+Os seguintes casos de utilização estão ativados com estas propriedades:
 
-Para receber uma atualização de token numa resposta de token, a aplicação tem de solicitar o `offline_access` âmbito. Para saber mais sobre o `offline_access` escopo, consulte a [referência do protocolo do Azure AD B2C](active-directory-b2c-reference-protocols.md).
+- Permitir que um utilizador manter sessão iniciada para um aplicativo móvel indefinidamente, desde que o utilizador está continuamente ativo no aplicativo. Pode definir **atualização token duração da janela deslizante (dias)** ao **Unbounded** no seu fluxo de início de sessão do utilizador.
+- Cumprir os requisitos de conformidade de segurança de seu setor e definindo as durações de token de acesso adequado.
 
-Tokens de atualização e sempre serão, completamente opaco para a sua aplicação. São emitidos pelo Azure AD e podem ser inspecionadas e interpretados apenas pelo Azure AD. Eles são vida longa, mas a aplicação não deve ser escrita com a expectativa de que um token de atualização duram um determinado período de tempo. Tokens de atualização podem ser invalidadas a qualquer momento para uma variedade de motivos. A única forma para a sua aplicação saber se um token de atualização é válido é tentar resgatá-lo ao fazer um pedido de token para o Azure AD.
+Estas definições não estão disponíveis para fluxos de utilizador de reposição de palavra-passe. 
 
-Quando utilizar um token de atualização para um novo token (e se a sua aplicação tenha sido concedida a `offline_access` âmbito), receberá um novo token de atualização na resposta de token. Deve guardar o token de atualização recém-emitidos. Ele deve substituir o utilizou anteriormente no pedido de token de atualização. Isto ajuda a garantir que seus tokens de atualização mantêm-se válidas durante mais tempo.
+## <a name="compatibility"></a>Compatibilidade
 
-## <a name="token-validation"></a>Validação do token
-Para validar um token, seu aplicativo deve verificar a assinatura e de declarações do token.
+As seguintes propriedades são utilizadas para [gerenciar a compatibilidade de token](configure-tokens.md):
 
-Muitas bibliotecas de código-fonte aberto estão disponíveis para validar JWTs, dependendo do seu idioma preferencial. Recomendamos que explorar essas opções em vez de implementar sua própria lógica de validação. As informações neste guia podem ajudar a aprender como usar adequadamente dessas bibliotecas.
+- **Afirmação do emissor (iss)** -esta propriedade identifica o inquilino do Azure AD B2C que emitiu o token. O valor predefinido é `https://<domain>/{B2C tenant GUID}/v2.0/`. O valor de `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` inclui IDs de inquilino do Azure AD B2C e o fluxo de utilizador que foi utilizado no pedido de token. Se a sua aplicação ou a biblioteca tem o Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](https://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
 
-### <a name="validate-the-signature"></a>Validar a assinatura
-Um JWT contém três segmentos, separados pelo `.` caráter. O primeiro segmento é o *cabeçalho*, o segundo é o *corpo*, e o terceiro é o *assinatura*. O segmento de assinatura pode ser utilizado para validar a autenticidade do token, para que podem ser fidedignos pela sua aplicação.
+- **Afirmação do requerente** -esta propriedade identifica a entidade para o qual o token declara informações. O valor predefinido é **ObjectID**, que preenche a `sub` de afirmações no token com o ID de objeto do utilizador. O valor de **nepodporuje** é fornecido apenas para fins de compatibilidade. Recomenda-se que mude para **ObjectID** assim que possível.
 
-O Azure AD B2C tokens são assinados com algoritmos de criptografia assimétrica de norma da indústria, como RSA 256. O cabeçalho do token contém informações sobre o método de encriptação e a chave utilizada para assinar o token:
+- **Que representa a ID de política de afirmações** -esta propriedade identifica o tipo de afirmação na qual o nome de política utilizado no pedido de token é preenchido. O valor predefinido é `tfp`. O valor de `acr` é fornecido apenas para fins de compatibilidade.
+
+## <a name="pass-through"></a>Pass-through
+
+Quando é iniciado um percurso do utilizador, o Azure AD B2C recebe um token de acesso de um fornecedor de identidade. O Azure AD B2C utiliza esse token para obter informações sobre o utilizador. [Ative uma afirmação no seu fluxo de utilizador](idp-pass-through-user-flow.md) ou [definir uma afirmação na sua política personalizada](idp-pass-through-custom.md) para transmitir o token por meio para os aplicativos que Registre-se no Azure AD B2C. A aplicação tem de utilizar um [fluxo de utilizador do v2](user-flow-versions.md) para tirar partido das passando o token como uma afirmação.
+
+O Azure AD B2C atualmente suporta apenas passando o token de acesso de fornecedores de identidade do OAuth 2.0, que incluem o Facebook e Google. Para todos os outros fornecedores de identidade, a afirmação é devolvida em branco. 
+
+## <a name="validation"></a>Validação
+
+Para validar um token, o aplicativo deve verificar a assinatura e de declarações do token. Muitas bibliotecas de código-fonte aberto estão disponíveis para validar JWTs, dependendo do seu idioma preferencial. Recomenda-se que explorar essas opções em vez de implementar sua própria lógica de validação.
+
+### <a name="validate-signature"></a>Validar a assinatura
+
+Um JWT contém três segmentos, um *cabeçalho*, uma *corpo*e um *assinatura*. O segmento de assinatura pode ser utilizado para validar a autenticidade do token, de modo a que pode ser considerado fidedigno pelo seu aplicativo. O Azure AD B2C tokens são assinados com algoritmos de criptografia assimétrica de norma da indústria, como RSA 256. 
+
+O cabeçalho do token contém informações sobre o método de encriptação e a chave utilizada para assinar o token:
 
 ```
 {
@@ -113,44 +119,37 @@ O Azure AD B2C tokens são assinados com algoritmos de criptografia assimétrica
 }
 ```
 
-O `alg` afirmação indica o algoritmo que foi utilizado para assinar o token. O `kid` afirmação indica a chave pública específica que foi utilizada para assinar o token.
+O valor do **alg** afirmação é o algoritmo que foi utilizado para assinar o token. O valor do **criança** afirmação é a chave pública que foi utilizada para assinar o token. Em qualquer momento, do Azure AD B2C podem iniciar sessão um token ao utilizar qualquer um de um conjunto de pares de chaves públicas-privadas. O Azure AD B2C gira o conjunto possível de chaves periodicamente. Seu aplicativo deve ser escrito para lidar com essas alterações principais automaticamente. Uma frequência razoável para procurar atualizações para as chaves públicas usadas pelo Azure AD B2C é a cada 24 horas.
 
-Em qualquer momento, do Azure AD pode iniciar sessão um token ao utilizar qualquer um de um determinado conjunto de pares de chaves públicas-privadas. Do Azure AD gira periodicamente, o conjunto possível de chaves, para que a sua aplicação deve ser escrita para lidar com essas alterações principais automaticamente. Uma frequência razoável para procurar atualizações para as chaves públicas usadas pelo Azure AD é a cada 24 horas.
-
-O Azure AD B2C tem um ponto final de metadados OpenID Connect. Isso permite que as aplicações obter informações sobre o Azure AD B2C no tempo de execução. Estas informações incluem pontos finais, conteúdo de token e chaves de assinatura de tokens. O diretório do B2C contém um documento de metadados JSON para cada política. Por exemplo, o documento de metadados para o `b2c_1_sign_in` política no `fabrikamb2c.onmicrosoft.com` está localizado em:
+O Azure AD B2C tem um ponto final de metadados OpenID Connect. Utilizar este ponto final, as aplicações podem solicitar informações sobre o Azure AD B2C no tempo de execução. Estas informações incluem pontos finais, conteúdo de token e chaves de assinatura de tokens. O seu inquilino do Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias partes úteis de informações. Contém os metadados **jwks_uri**, que dá a localização do conjunto de chaves públicas que são utilizados para assinar os tokens. Que a localização é fornecida aqui, mas ele do melhor ao obter a localização dinamicamente usando o documento de metadados e de análise **jwks_uri**:
 
 ```
-https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
 ```
-
-`fabrikamb2c.onmicrosoft.com` é o diretório de B2C utilizado para autenticar o usuário, e `b2c_1_sign_in` é a política utilizada para adquirir o token. Para determinar qual a política foi utilizada para assinar um token (e onde posso para obter os metadados), tem duas opções. Em primeiro lugar, o nome da política está incluído no `acr` de afirmações no token. Pode analisar afirmações fora do corpo do JWT por base-64 decodificar o corpo e a cadeia de caracteres do JSON que resulta ao anular a serialização. O `acr` afirmação será o nome da política que foi utilizado para emitir o token.  A outra opção é codificar a política no valor do `state` parâmetro quando emitir o pedido e, em seguida, decodificá-la para determinar qual a política foi utilizada. Qualquer um dos métodos é válido.
-
-O documento de metadados é um objeto JSON que contém várias partes úteis de informações. Estes incluem a localização dos pontos finais necessários para efetuar a autenticação OpenID Connect. Eles também incluem `jwks_uri`, que dá a localização do conjunto de chaves públicas que são utilizados para assinar os tokens. Que a localização é fornecida aqui, mas é melhor obter a localização dinamicamente usando o documento de metadados e analisando `jwks_uri`:
-
-```
-https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
-```
-
 O documento JSON localizado neste URL contém todas as informações de chaves públicas em uso num momento específico. A aplicação pode utilizar o `kid` no cabeçalho do JWT para selecionar a chave pública no documento JSON que é utilizado para assinar um determinado token de afirmação. Em seguida, ele pode realizar validação da assinatura usando a chave pública correta e o algoritmo indicado.
 
-Uma descrição de como realizar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de código-fonte aberto estão disponíveis para ajudá-lo com isso se precisar dele.
+O documento de metadados para o `B2C_1_signupsignin1` política no `contoso.onmicrosoft.com` inquilino está localizado em:
 
-### <a name="validate-the-claims"></a>Validar as afirmações
-Quando a sua aplicação ou a API recebe um token de ID, ele também deve executar diversas verificações contra as afirmações no token de ID. Esses incluem, mas não sejam limitam a:
+```
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
+```
 
-* O **público-alvo** de afirmação: Isto verifica que o token de ID destinava-se a ser dado à sua aplicação.
-* O **não antes** e **hora de expiração** afirmações: Estes Certifique-se de que o token de ID não expirou.
-* O **emissor** de afirmação: Isto verifica se o token foi emitido para a sua aplicação pelo Azure AD.
-* O **nonce**: Esta é uma estratégia de mitigação de ataques de repetição de token.
+Para determinar qual a política foi utilizada para assinar um token (e onde ir para os metadados do pedido), tem duas opções. Em primeiro lugar, o nome da política está incluído no `acr` de afirmações no token. Pode analisar afirmações fora do corpo do JWT por base-64 decodificar o corpo e a cadeia de caracteres do JSON que resulta ao anular a serialização. O `acr` afirmação é o nome da política que foi utilizado para emitir o token. A outra opção é codificar a política no valor do `state` parâmetro quando emitir o pedido e, em seguida, decodificá-la para determinar qual a política foi utilizada. Qualquer um dos métodos é válido.
 
-Para obter uma lista completa de validações deve executar a sua aplicação, consulte a [especificação do OpenID Connect](https://openid.net). Detalhes dos valores esperados para essas declarações estão incluídas no precedente [secção do token](#types-of-tokens).  
+Uma descrição de como realizar a validação de assinatura está fora do escopo deste documento. Muitas bibliotecas de código-fonte aberto estão disponíveis para o ajudar a validar um token.
 
-## <a name="token-lifetimes"></a>Durações de token
-Durações de token seguintes são fornecidas para aumentar seu conhecimento. Eles podem ajudá-lo ao desenvolver e depurar aplicações. Tenha em atenção que as suas aplicações não devem ser escritas esperar qualquer um desses tempos de vida permaneça constante. Podem e será alterado. Leia mais sobre o [personalização das durações dos tokens](active-directory-b2c-token-session-sso.md) no Azure AD B2C.
+### <a name="validate-claims"></a>Validar as reclamações
 
-| Certificado de | Tempo de vida | Descrição |
-| --- | --- | --- |
-| Tokens de ID |Uma hora |Tokens de ID são normalmente válidos durante uma hora. A aplicação web pode utilizar este tempo de vida para manter o seus próprio sessões com os utilizadores (recomendados). Também pode escolher uma duração de sessão diferente. Se a sua aplicação precisar de obter um novo ID de token, ele simplesmente precisa fazer um novo pedido de início de sessão para o Azure AD. Se um utilizador tiver uma sessão do browser válido com o Azure AD, que o utilizador não poderá ser necessário para introduzir as credenciais novamente. |
-| Tokens de atualização |Até 14 dias |Um token de atualização é válido para um máximo de 14 dias. No entanto, um token de atualização pode se tornar inválido a qualquer momento por uma série de motivos. A aplicação deve continuar a tentar utilizar um token de atualização até que o pedido falhar, ou até que a sua aplicação substitui o token de atualização por um novo. Um token de atualização também pode se tornar inválido se 90 dias tiver passado, uma vez que o usuário inserir pela última vez credenciais. |
-| Códigos de autorização |Cinco minutos |Códigos de autorização são intencionalmente curta duração. Eles devem ser resgatados imediatamente para tokens de acesso, os tokens de ID ou tokens de atualização quando eles são recebidos. |
+Quando seus aplicativos ou a API recebe um token de ID, ele também deve executar diversas verificações contra as afirmações no token de ID. As seguintes declarações devem ser verificadas:
+
+- **público-alvo** -verifica se o token de ID destinava-se a ser dado ao seu aplicativo.
+- **não antes** e **hora de expiração** -verifica se o token de ID se ainda não tiver expirado.
+- **emissor** -verifica se o token foi emitido para seu aplicativo pelo Azure AD B2C.
+- **valor de uso único** -uma estratégia de mitigação de ataques de repetição de token.
+
+Para obter uma lista completa de validações seu aplicativo deve executar, consulte a [especificação do OpenID Connect](https://openid.net).  
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Saiba mais sobre como [utilizar tokens de acesso](active-directory-b2c-access-tokens.md).
 

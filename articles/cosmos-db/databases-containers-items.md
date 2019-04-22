@@ -4,15 +4,15 @@ description: Este artigo descreve como criar e utilizar bases de dados do Azure 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762910"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678807"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Trabalhar com bases de dados, contentores e itens
 
@@ -61,7 +61,7 @@ Pode definir [tempo para Live (TTL)](time-to-live.md) nos itens selecionados den
 
 Usando [de Feed de alterações](change-feed.md), pode subscrever o registo de operações que é gerenciado para cada uma das partições lógicas do seu contentor. O tipo de Feed de alterações fornece o registo de todas as atualizações realizadas no contêiner juntamente com o antes e as imagens depois dos itens. Ver [como criar aplicações reativas com o Feed de alterações](serverless-computing-database.md). Também pode configurar o período de retenção para o alterar Feed utilizando o política no contentor do feed de alterações. 
 
-Pode registrar [procedimentos armazenados, disparadores, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md) e [intercalar procedimentos](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) com o seu contentor do Cosmos do Azure. 
+Pode registrar [procedimentos armazenados, disparadores, funções definidas pelo utilizador (UDFs)](stored-procedures-triggers-udfs.md) e [intercalar procedimentos](how-to-manage-conflicts.md) com o seu contentor do Cosmos do Azure. 
 
 Pode especificar uma [restrição de chave exclusiva](unique-keys.md) no seu contentor do Cosmos do Azure. Ao criar uma política de chaves exclusivas, garantir a exclusividade de um ou mais valores por chave de partição lógica. Assim que tiver sido criado um contentor com uma política de chaves exclusivas, ele impede a criação de todos os itens novos ou atualizados com os valores que duplicar os valores especificados pela restrição de chave exclusiva. Para obter mais informações, consulte [restrições de chave exclusivas](unique-keys.md).
 
@@ -117,7 +117,7 @@ Todos os itens do Cosmos do Azure tem as seguintes propriedades do sistema defin
 |_etag | Gerada pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
 |_ts | Gerada pelo sistema | O carimbo de hora da última atualização do item | Sim | Não | Não | Não | Não |
 |_self | Gerada pelo sistema | URI endereçável do item | Sim | Não | Não | Não | Não |
-|ID | Qualquer um dos | Definido pelo utilizador nome exclusivo dentro de uma partição lógica. Se o utilizador não especifica o id, o sistema irá gerar automaticamente um. | Sim | Sim | Sim | Sim | Sim |
+|ID | Qualquer um dos | Definido pelo utilizador nome exclusivo dentro de uma partição lógica. Se o utilizador não especifica o ID, o sistema irá gerar automaticamente um. | Sim | Sim | Sim | Sim | Sim |
 |Arbitrárias propriedades definidas pelo utilizador | Definidas pelo utilizador | Propriedades definidas pelo utilizador representadas na representação de API nativa (JSON, BSON, CQL, etc.) | Sim | Sim | Sim | Sim | Sim |
 
 ### <a name="operations-on-items"></a>Operações nos itens

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065805"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679130"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -328,57 +328,57 @@ Estes passos descrevem o que acontece quando um utilizador na cloud interage com
 
 ### <a name="general"></a>Geral
 
-**AS PERGUNTAS E**: É necessário um gateway para origens de dados na cloud, como a base de dados do Azure SQL? <br/>
+**Q**: É necessário um gateway para origens de dados na cloud, como a base de dados do Azure SQL? <br/>
 **A**: Não, o gateway se liga a origens de dados no local apenas.
 
-**AS PERGUNTAS E**: O gateway tem de estar instalado no mesmo computador que a origem de dados? <br/>
+**Q**: O gateway tem de estar instalado no mesmo computador que a origem de dados? <br/>
 **A**: Não, o gateway se liga à origem de dados com as informações de ligação fornecida. Considere o gateway como uma aplicação de cliente nesse sentido. O gateway precisa apenas a capacidade de ligar para o nome do servidor que foi fornecido.
 
 <a name="why-azure-work-school-account"></a>
 
-**AS PERGUNTAS E**: Por que motivo deve utilizar uma conta escolar ou profissional para iniciar sessão? <br/>
+**Q**: Por que motivo deve utilizar uma conta escolar ou profissional para iniciar sessão? <br/>
 **A**: Só pode utilizar uma conta escolar ou profissional ao instalar o gateway de dados no local. Sua conta de início de sessão é armazenada num inquilino gerido pelo Azure Active Directory (Azure AD). Normalmente, o nome de principal de utilizador (UPN) da sua conta do Azure AD corresponde ao endereço de e-mail.
 
-**AS PERGUNTAS E**: Onde estão armazenadas as minhas credenciais? <br/>
+**Q**: Onde estão armazenadas as minhas credenciais? <br/>
 **A**: As credenciais que introduzir para uma origem de dados são encriptadas e armazenadas no serviço cloud do gateway. As credenciais são desencriptadas no gateway de dados no local.
 
-**AS PERGUNTAS E**: Existem requisitos de largura de banda de rede? <br/>
+**Q**: Existem requisitos de largura de banda de rede? <br/>
 **A**: Verifique se a ligação de rede tem bom débito. Cada ambiente é diferente e a quantidade de dados enviados pode afetar os resultados. Para garantir um nível de débito entre a origem de dados no local e dos datacenters do Azure, experimente [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Para ajudar a medir o débito, experimente uma ferramenta externa, como o Azure Speed Test.
 
-**AS PERGUNTAS E**: O que é a latência de execução de consultas para uma origem de dados do gateway? O que é a melhor arquitetura? <br/>
+**Q**: O que é a latência de execução de consultas para uma origem de dados do gateway? O que é a melhor arquitetura? <br/>
 **A**: Para reduzir a latência de rede, instale o gateway como próximo da origem de dados quanto possível. Se pode instalar o gateway na origem de dados real, este proximidade minimiza a latência introduzida. Além disso, considere a proximidade aos datacenters do Azure. Por exemplo, se o serviço utiliza o datacenter E.U.A. oeste e tiver o SQL Server alojado numa VM do Azure, em seguida, é aconselhável a VM do Azure na região E.U.A. oeste demasiado. Este proximidade minimiza a latência e evita custos de saída na VM do Azure.
 
-**AS PERGUNTAS E**: Como os resultados são enviados para a cloud? <br/>
+**Q**: Como os resultados são enviados para a cloud? <br/>
 **A**: Os resultados são enviados através do Azure Service Bus.
 
-**AS PERGUNTAS E**: Existem ligações de entrada para o gateway da cloud? <br/>
+**Q**: Existem ligações de entrada para o gateway da cloud? <br/>
 **A**: Não, o gateway utiliza ligações de saída para o Azure Service Bus.
 
-**AS PERGUNTAS E**: E se bloquear as ligações de saída? O que é necessário abrir? <br/>
+**Q**: E se bloquear as ligações de saída? O que é necessário abrir? <br/>
 **A**: Ver as portas e os anfitriões que o gateway utiliza.
 
-**AS PERGUNTAS E**: O que é o serviço real do Windows chamado? <br/>
+**Q**: O que é o serviço real do Windows chamado? <br/>
 **A**: No separador de serviços no Gerenciador de tarefas, o nome do serviço é "PBIEgwService" ou o serviço de Gateway do Power BI Enterprise. Na consola de serviços, o nome do serviço é o "serviço de gateway de dados no local". O serviço do Windows utiliza "NT SERVICE\PBIEgwService" como o SID de serviço (SSID).
 
-**AS PERGUNTAS E**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
+**Q**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
 **A**: Não, o serviço do Windows tem de ter uma conta Windows válida.
 
 ### <a name="disaster-recovery"></a>Recuperação após desastre
 
-**AS PERGUNTAS E**: Que opções estão disponíveis para recuperação após desastre? <br/>
+**Q**: Que opções estão disponíveis para recuperação após desastre? <br/>
 **A**: Pode utilizar a chave de recuperação para restaurar ou mover um gateway. Ao instalar o gateway, especifique a chave de recuperação.
 
-**AS PERGUNTAS E**: Qual é a vantagem da chave de recuperação? <br/>
+**Q**: Qual é a vantagem da chave de recuperação? <br/>
 **A**: A chave de recuperação fornece uma forma de migrar ou recuperar as definições do gateway após um desastre.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Esta secção aborda alguns problemas comuns que poderá ser necessário ao configurar e utilizar o gateway de dados no local.
 
-**AS PERGUNTAS E**: Por que falha minha instalação de gateway? <br/>
+**Q**: Por que falha minha instalação de gateway? <br/>
 **A**: Este problema pode acontecer se o software de antivírus no computador de destino está desatualizado. Pode atualizar o software de antivírus ou desativar o software de antivírus, mas apenas durante a instalação de gateway e, em seguida, ative novamente o software.
 
-**AS PERGUNTAS E**: Por que motivo não vejo minha instalação de gateway ao criar o recurso de gateway no Azure? <br/>
+**Q**: Por que motivo não vejo minha instalação de gateway ao criar o recurso de gateway no Azure? <br/>
 **A**: Este problema pode ocorrer por esses motivos:
 
 * A instalação do gateway já esteja registrada e solicitada por outro recurso de gateway no Azure. Instalações de gateways não são apresentados na lista de instâncias depois de recursos de gateway são criados para eles.
@@ -388,10 +388,10 @@ Para verificar os registos de gateway no portal do Azure, reveja todos os recurs
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**AS PERGUNTAS E**: Onde estão os registos do gateway? <br/>
+**Q**: Onde estão os registos do gateway? <br/>
 **A**: Consulte a [ **registos** seção](#logs) mais adiante neste artigo.
 
-**AS PERGUNTAS E**: Como posso ver que consultas estão a ser enviadas para a origem de dados no local? <br/>
+**Q**: Como posso ver que consultas estão a ser enviadas para a origem de dados no local? <br/>
 **A**: Pode ativar o rastreio de consulta, que inclui as consultas que são enviadas. Não se esqueça de alterar a consulta rastreio de volta para o valor original quando terminado a resolução de problemas. Deixar o rastreio de consulta ativado cria registos maiores.
 
 Pode também ver as ferramentas que a sua origem de dados tem para rastreio de consultas. Por exemplo, pode usar eventos expandidos ou o SQL Profiler para SQL Server e do Analysis Services.
@@ -400,7 +400,7 @@ Pode também ver as ferramentas que a sua origem de dados tem para rastreio de c
 
 Muitos problemas podem surgir quando a versão do gateway torna-se desatualizados. Como uma prática recomendada geral, certifique-se de que tem a versão mais recente. Se não tiver atualizado o gateway durante um mês ou mais tempo, poderá considerar instalar a versão mais recente do gateway e veja se pode reproduzir o problema.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erro: Falha ao adicionar utilizador ao grupo. (-2147463168 PBIEgwService desempenho sessão de utilizadores)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erro: Falha ao adicionar utilizador ao grupo. (-2147463168 PBIEgwService Performance Log Users)
 
 Poderá receber este erro se tentar instalar o gateway num controlador de domínio, que não é suportado. Certifique-se de que implementar o gateway num computador que não seja um controlador de domínio.
 
@@ -434,26 +434,6 @@ Para localizar os registos de eventos para o gateway, siga estes passos:
 3. Selecione **serviço de gateway de dados no local**.
 
    ![Ver registos de eventos para o gateway](./media/logic-apps-gateway-install/event-viewer.png)
-
-### <a name="telemetry"></a>Telemetria
-
-Para monitorização adicional e resolução de problemas, pode ligar e recolher telemetria. 
-
-1. Navegue até à localização para o cliente de gateway de dados no local, que normalmente pode ser encontrado aqui: ```C:\Program Files\On-premises data gateway```
-
-   Caso contrário, para encontrar a localização do cliente, abra a consola de serviços no mesmo computador, encontre **serviço de gateway de dados no local**e ver o **caminho para o executável** propriedade.
-
-2. Abrir isto *configuração* ficheiro: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. Alteração da **SendTelemetry** valor **verdadeiro**:
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Guardar as alterações e, em seguida, reinicie o serviço do Windows.
 
 ### <a name="review-slow-query-performance"></a>Desempenho de consulta lenta de revisão
 
@@ -526,7 +506,7 @@ Para determinar a duração de uma consulta, siga estes passos:
 
 ### <a name="trace-traffic-with-fiddler"></a>Tráfego de rastreio com o Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) é uma ferramenta gratuita da Telerik que monitoriza o tráfego HTTP. Pode rever este tráfego com o serviço Power BI do computador cliente. Este serviço poderá mostrar erros e outras informações relacionadas.
+[Fiddler](https://www.telerik.com/fiddler) é uma ferramenta gratuita da Telerik que monitoriza o tráfego HTTP. Pode rever este tráfego com o serviço Power BI do computador cliente. Este serviço poderá mostrar erros e outras informações relacionadas.
 
 ## <a name="next-steps"></a>Passos Seguintes
     

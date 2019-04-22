@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154376"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680541"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de SAML em políticas personalizadas do Azure Active Directory B2C
 
@@ -81,21 +81,6 @@ O exemplo seguinte mostra a seção de criptografia do perfil técnico do Azure 
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>Fluxo de iniciadas do fornecedor de identidade
-
-Numa única início de sessão em sessão (pedido não solicitada) iniciada por IDP, uma resposta SAML não solicitada é enviada ao Provedor de serviços, neste caso, um perfil técnico do Azure AD B2C. Neste fluxo, o utilizador não passa pela primeira vez pelo aplicativo web, mas é direcionado para o fornecedor de identidade. Quando a solicitação é enviada, uma página de autenticação é fornecida ao usuário pelo fornecedor de identidade. O utilizador concluir o início de sessão e, em seguida, o pedido é redirecionado para o Azure AD B2C com uma resposta SAML que contenha as asserções. O Azure AD B2C lê as asserções e emite um novo token SAML e, em seguida, redireciona o utilizador para a aplicação da entidade confiadora de terceiros. Os redirecionamentos são efetuados pelos **AssertionConsumerService** do elemento **localização** propriedade.
-
-
-![IDP SAML iniciado](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Ao criar um fornecedor de identidade iniciada pelo flow, considere os seguintes requisitos de política:
-
-- O primeiro passo de orquestração tem de ser que um único exchange que aponta para um perfil técnico SAML de afirmações.
-- O perfil técnico tem de ter uma item com o nome de metadados **IdpInitiatedProfileEnabled** definido como `true`.
-- A política da entidade confiadora de terceiros tem de ser um entidade confiadora de SAML.
-- A política da entidade confiadora de terceiros tem de ter uma item com o nome de metadados **IdpInitiatedProfileEnabled** definido como `true`.
-- A resposta não solicitada precisa ser enviada para o `/your-tenant/your-policy/samlp/sso/assertionconsumer` ponto final. Qualquer Estado de reencaminhamento incluído com a resposta é encaminhado para a entidade confiadora. Substitua os valores seguintes: **seu inquilino** com o nome do seu inquilino. **sua política** pelo seu nome de política de terceiros entidade confiadora.
     
 ## <a name="protocol"></a>Protocolo
 

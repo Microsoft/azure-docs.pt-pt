@@ -2,16 +2,17 @@
 title: 'Negócios continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure | Documentos da Microsoft'
 description: Saiba mais sobre emparelhamento regional do Azure, para garantir que os aplicativos sejam resilientes durante falhas de datacenters.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792327"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678875"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure
 
@@ -37,6 +38,7 @@ Figura 1 – pares regionais do Azure
 | Europa |Europa do Norte |Europa Ocidental |
 | França |França Central|Sul de França|
 | Alemanha |Alemanha Central |Alemanha Nordeste |
+| Alemanha |Norte da Alemanha | Alemanha Oeste-Central
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
@@ -45,7 +47,14 @@ Figura 1 – pares regionais do Azure
 | América do Norte |EUA Leste 2 |EUA Central |
 | América do Norte |EUA Centro-Norte |EUA Centro-Sul |
 | América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
+| América do Norte |E.U.A. oeste 3 |EUA Leste
+| Noruega |Leste da Noruega |Oeste da Noruega
+| África do Sul | África do Sul, Norte | África do Sul, Oeste
+| Suécia |Central de Suécia |Suécia Sul
+| Suíça | Norte da Suíça | Oeste da Suíça
 | RU |Reino Unido Oeste |Reino Unido Sul |
+| RU |Norte do Reino Unido |Sul do Reino Unido 2
+| Emirados Árabes Unidos | Norte dos EAU | Emirados Árabes Unidos Centro
 | Departamento de Defesa dos E.U.A. |US DoD Leste |US DoD Centro |
 | Governo dos Estados Unidos da América |Gov (US) - Arizona |Gov (US) - Texas |
 | Governo dos Estados Unidos da América |US Gov - Iowa |Gov (US) - Virginia |
@@ -53,10 +62,11 @@ Figura 1 – pares regionais do Azure
 
 Tabela 1 - mapeamento de pares regionais do Azure
 
-- Índia Ocidental é diferente porque ele é emparelhado com outra região em apenas uma direção. É de região secundária do oeste da Índia sul da Índia, mas a região secundária do Sul da Índia é Índia Central.
-- Sul do Brasil é exclusivo, porque ele está emparelhado com uma região fora do seu próprio geografia. Região secundária do Sul do Brasil é Centro-Sul, mas da Sul E.u.a. região secundária não é sul do Brasil.
-- A região secundária do US Gov Iowa é Virgínia gov (US), mas a região secundária do de Virginia gov (US) não é Iowa gov (US).
-- A região secundária de US Gov Virgínia é US Gov Texas, mas a região secundária do US Gov Texas není Virgínia gov (US).
+- Índia Ocidental está emparelhada em apenas uma direção. É de região secundária do oeste da Índia sul da Índia, mas a região secundária do Sul da Índia é Índia Central.
+- Sul do Brasil é exclusivo, porque ele está emparelhado com uma região fora do seu próprio geografia. A região secundária do Sul do Brasil é Centro-Sul. Da Sul E.u.a. região secundária não é sul do Brasil.
+- A região secundária do US Gov Iowa é Virgínia gov (US).
+- A região secundária de US Gov Virgínia é US Gov Texas.
+- Região secundária do US Gov Texas é US Gov Arizona.
 
 
 Recomendamos que configure a recuperação de desastres de continuidade de negócio (BCDR) através de pares regionais para beneficiar de políticas de isolamento e a disponibilidade do Azure. Para aplicações que suportam várias regiões do Active Directory, recomendamos que utilize ambas as regiões num par de região sempre que possível. Isto irá garantir a disponibilidade ideal para aplicações e de tempo de recuperação minimizado em caso de desastre. 

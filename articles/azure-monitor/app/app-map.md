@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009200"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678551"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
 
@@ -90,9 +90,9 @@ Para ver alertas ativos e as regras subjacentes que fazem com que os alertas ser
 
 ![Captura de ecrã da experiência de análise](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Set cloud_RoleName
+## <a name="set-cloud-role-name"></a>Nome de função do conjunto de cloud
 
-Mapa da aplicação utiliza o `cloud_RoleName` propriedade para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente o `cloud_RoleName` propriedade para a telemetria emitida por componentes. Por exemplo, o SDK irá adicionar um nome do web site ou um nome de função de serviço para o `cloud_RoleName` propriedade. No entanto, há casos em que poderá pretender substituir o valor predefinido. Para substituir cloud_RoleName e alterar o que é apresentado no mapa de aplicativo:
+Mapa da aplicação utiliza a **nome da função na nuvem** propriedade para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente a propriedade de nome de função na nuvem para a telemetria emitida por componentes. Por exemplo, o SDK irá adicionar um nome do web site ou o nome do serviço de função para a propriedade de nome de função na nuvem. No entanto, há casos em que poderá pretender substituir o valor predefinido. Para substituir o nome da função na nuvem e alterar o que é apresentado no mapa de aplicativo:
 
 ### <a name="net"></a>.NET
 
@@ -171,9 +171,9 @@ Se utilizar o Spring Boot com o arranque de Spring Boot do Application Insights,
 
 `spring.application.name=<name-of-app>`
 
-O starter Spring Boot atribuirá automaticamente para o valor introduzido para a propriedade spring.application.name cloudRoleName.
+O starter Spring Boot atribuirá automaticamente o nome da função na nuvem para o valor introduzido para a propriedade spring.application.name.
 
-Para obter mais informações sobre a correlação de Java e como configurar cloudRoleName para Check-out de aplicativos de não-SpringBoot [secção](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) no correlação.
+Para obter mais informações sobre Java correlação e como configurar a função na nuvem nome para Check-out de aplicativos de não-SpringBoot isso [secção](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) no correlação.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript do lado do cliente/browser
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Noções básicas sobre Cloud.RoleName dentro do contexto do mapa da aplicação
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Nome de função de cloud de compreensão dentro do contexto do mapa da aplicação
 
-Como muito como a forma como a pensar sobre Cloud.RoleName pode ser útil dar uma olhada num mapa da aplicação que tem vários Cloud.RoleNames presente:
+Com relação às General como pensar sobre **nome da função na nuvem**, pode ser útil ver um mapa da aplicação que tenha vários nomes de funções de cloud presentes:
 
 ![Captura de ecrã de mapa de aplicativo](media/app-map/cloud-rolename.png)
 
-O mapa da aplicação acima de cada um dos nomes na caixas verdes são Cloud.RoleName/role valores para diferentes aspetos desta aplicação distribuída específico. Portanto, para esta aplicação respetivas funções consistem: `Authentication`, `acmefrontend`, `Inventory Management`, um `Payment Processing Worker Role`. 
+No mapa de aplicativo, acima de cada um dos nomes na caixas verdes é, por exemplo, valores de nome de função para diferentes aspetos desta aplicação distribuída específico na cloud. Portanto, para esta aplicação respetivas funções consistem: `Authentication`, `acmefrontend`, `Inventory Management`, um `Payment Processing Worker Role`. 
 
-No caso desta aplicação cada um desses `Cloud.RoleNames` também representa um recurso do Application Insights exclusivo diferente com suas próprias chaves de instrumentação. Uma vez que o proprietário desta aplicação tem acesso a cada um desses quatro recursos diferentes do Application Insights, o mapa da aplicação é capaz de reunir um mapa das relações subjacentes.
+No caso desta aplicação cada um desses nomes de função na nuvem também representa um recurso do Application Insights exclusivo diferente com suas próprias chaves de instrumentação. Uma vez que o proprietário desta aplicação tem acesso a cada um desses quatro recursos diferentes do Application Insights, o mapa da aplicação é capaz de reunir um mapa das relações subjacentes.
 
 Para o [oficiais definições](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ Para o [oficiais definições](https://github.com/Microsoft/ApplicationInsights-
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Em alternativa, Cloud.RoleInstance pode ser útil para cenários onde Cloud.RoleName indica o problema está algures na sua front-end da web, mas poderá estar a executar o front-end da web em vários servidores com balanceamento de carga, ser capaz de fazer uma busca numa camada mais aprofundada por meio de consultas de Kusto e saber se o problema está a afetar todos os web front-end servidores/instâncias, ou apenas um pode ser extremamente importante.
+Em alternativa, **instância de função na nuvem** pode ser útil para cenários em que **nome da função na nuvem** informa o problema está algures na web front-end, mas poderá estar a executar a web front-end em vários com balanceamento de carga servidores então, ser capaz de fazer uma busca numa camada mais aprofundada através de consultas de Kusto e saber se o problema está a afetar a todas as web front-end servidores/instâncias, ou apenas um pode ser extremamente importante.
 
-Um cenário em que escolherá para substituir o valor de Cloud.RoleInstance possível se a aplicação é executada num ambiente em contentores onde saber apenas o servidor individual pode não ser informações suficientes para localizar um problema específico.
+Um cenário em que escolherá para substituir o valor para a instância de função na nuvem é possível se a aplicação é executada num ambiente em contentores onde saber apenas o servidor individual pode não ser informações suficientes para localizar um problema específico.
 
-Para obter mais informações sobre como substituir a propriedade cloud_RoleName com inicializadores de telemetria, consulte [adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Para obter mais informações sobre como substituir a propriedade de nome de função na nuvem com inicializadores de telemetria, consulte [adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado, experimente estes passos:
+
+### <a name="general"></a>Geral
 
 1. Confirme que está a utilizar um SDK suportado oficialmente. Os SDKs não suportados/da comunidade poderão não suportar a correlação.
 
@@ -226,9 +228,23 @@ Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado,
 
 3. Se estiver a utilizar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirme [cloud_RoleName](#set-cloud_rolename) está configurado corretamente.
+4. Confirme [nome da função na nuvem](#set-cloud-role-name) está configurado corretamente.
 
 5. Se tiver uma dependência em falta, certifique-se de que a mesma está na lista de [dependências recolhidas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, pode acompanhá-la manualmente com uma [chamada de dependência de acompanhamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+
+### <a name="too-many-nodes-on-the-map"></a>Muitos de nós no mapa
+
+Mapa da aplicação constrói um nó de aplicação para cada nome de função de cloud única presente na sua telemetria de pedido e um nó de dependência para cada combinação exclusiva de tipo, o destino e o nome da função na nuvem na sua telemetria de dependência. Se existirem mais de 10.000 nós na sua telemetria, o mapa da aplicação não poderá obter todos os nós e ligações, por isso, o mapa será incompleto. Se isto acontecer, será apresentada uma mensagem de aviso quando visualizar o mapa.
+
+Além disso, o mapa da aplicação só suporta até 1000 nós sem grupo separados compostos de uma só vez. Mapa da aplicação reduz a complexidade visual ao agrupar as dependências que têm o mesmo tipo e os autores de chamadas, mas se sua telemetria tem demasiados nomes de função de cloud única ou muitos tipos de dependência, esse agrupamento insuficiente, e o mapa será possível composição.
+
+Para corrigir este problema, terá de alterar a instrumentação para configurar corretamente o nome da função na nuvem, tipo de dependência e os campos de destino de dependência.
+
+* Destino de dependência deve representar o nome lógico de uma dependência. Em muitos casos, é equivalente ao servidor ou o nome de recurso da dependência. Por exemplo, no caso de dependências HTTP está definido para o nome do anfitrião. Não deve conter IDs exclusivos ou parâmetros que alterar-se de uma solicitação para outra.
+
+* Tipo de dependência deve representar o tipo de lógico de uma dependência. Por exemplo, HTTP, de SQL ou de Blobs do Azure são tipos de dependência típico. Não deve conter IDs exclusivos.
+
+* A finalidade do nome da função na nuvem está descrita com o [acima secção](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentários do portal
 

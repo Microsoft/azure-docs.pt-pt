@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3cb6f4563cf45b9ccd377dec3db4ebab095c8a09
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 137d7aa48595e3f21ee99c6ebe23babd7a2d32b5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885439"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677770"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar os contentores do docker de análise de texto
 
@@ -31,11 +31,11 @@ Análise de texto fornece cada contentor com uma estrutura comum de configuraç�
 
 ## <a name="apikey-configuration-setting"></a>ApiKey definição de configuração
 
-O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _análise de texto_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
+O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _dos serviços cognitivos_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
 
 Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: **Análise de texto** gestão de recursos, em **chaves**
+* Portal do Azure: **Os serviços cognitivos** gestão de recursos, em **chaves**
 
 ## <a name="applicationinsights-setting"></a>Definição do Application Insights
 
@@ -43,11 +43,13 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-O `Billing` definição especifica o URI do ponto final da _análise de texto_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um ponto final válido URI para um __análise de texto_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
+O `Billing` definição especifica o URI do ponto final da _dos serviços cognitivos_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um ponto final válido URI para um __dos serviços cognitivos_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: **Análise de texto** descrição geral, o nome `Endpoint`
+* Portal do Azure: **Os serviços cognitivos** descrição geral, o nome `Endpoint`
+
+Tem de adicionar o `text/analytics/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI.
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ Os exemplos seguintes utilizam as definições de configuração para ilustrar c
 * **Caracteres de continuação de linha**: Os comandos de docker nas secções seguintes utilizam a barra invertida, `\`, como um caractere de continuação de linha. Substituir ou remova esta com base nos requisitos de seu sistema de operativo de anfitrião. 
 * **Ordem de argumento**: Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
 
+Tem de adicionar o `text/analytics/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI.
+
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | A chave de ponto final do recurso de análise de texto disponível na página de chaves de análise de texto do portal do Azure. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | O valor de ponto final de faturação está disponível na página de descrição geral da análise de texto do portal do Azure.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{BILLING_KEY} | Chave do ponto final da `Cognitive Services` recursos disponíveis no Azure `Cognitive Services` página chaves. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | O valor de ponto final de faturação está disponível no Azure `Cognitive Services` página de descrição geral.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](how-tos/text-analytics-how-to-install-containers.md#billing).
-> O valor de ApiKey é o **chave** na página de chaves do recurso de análise de texto do Azure. 
+> O valor de ApiKey é o **chave** do Azure `Cognitive Services` página de chaves do recurso. 
 
 ## <a name="keyphrase-extraction-container-docker-examples"></a>Exemplos do Keyphrase extração contentor docker
 

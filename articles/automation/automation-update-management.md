@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: MT
+ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426494"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679079"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -208,9 +208,9 @@ Para executar uma pesquisa de registos que devolve informações sobre o computa
 
 ## <a name="install-updates"></a>Instalar atualizações
 
-Depois das atualizações são avaliadas para todos os computadores Linux e Windows na sua área de trabalho, pode instalar atualizações necessárias ao criar uma *implementação de atualização*. Uma implementação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Especifique a data e hora para a implementação e um computador ou grupo de computadores a incluir no âmbito de uma implementação. Para saber mais sobre grupos de computadores, consulte [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Depois das atualizações são avaliadas para todos os computadores Linux e Windows na sua área de trabalho, pode instalar atualizações necessárias ao criar uma *implementação de atualização*. Para criar uma implementação de atualização, tem de ter acesso de escrita para a conta de automatização e acesso de escrita para todas as VMs do Azure que são visados na implementação. Uma implementação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Especifique a data e hora para a implementação e um computador ou grupo de computadores a incluir no âmbito de uma implementação. Para saber mais sobre grupos de computadores, consulte [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
- Ao incluir grupos de computadores na sua implementação de atualização, a associação de grupo é avaliada apenas uma vez, no momento da criação da agenda. As alterações subsequentes a um grupo não são refletidas. Para contornar esse uso [grupos dinâmicos](#using-dynamic-groups), estes grupos são resolvidos no momento da implementação e são definidos por uma consulta.
+Ao incluir grupos de computadores na sua implementação de atualização, a associação de grupo é avaliada apenas uma vez, no momento da criação da agenda. As alterações subsequentes a um grupo não são refletidas. Para contornar esse uso [grupos dinâmicos](#using-dynamic-groups), estes grupos são resolvidos no momento da implementação e são definidos por uma consulta para as VMs do Azure ou procura guardada para VMs não pertencentes ao Azure.
 
 > [!NOTE]
 > Máquinas de virtuais do Windows que são implementadas no Azure Marketplace por predefinição, são definidas para receber atualizações automáticas do serviço de atualização do Windows. Este comportamento não é alterado quando adicionar esta solução ou adicionar as máquinas virtuais do Windows à sua área de trabalho. Se não gerir ativamente atualizações ao utilizar esta solução, aplica-se o comportamento predefinido (para aplicar atualizações automaticamente).
@@ -219,13 +219,13 @@ Para evitar as atualizações sejam aplicadas fora da janela de manutenção no 
 
 Máquinas virtuais que foram criadas a partir de imagens de Red Hat Enterprise Linux (RHEL) a pedido que estão disponíveis no Azure Marketplace estão registadas para o acesso a [Red Hat atualização de infra-estrutura (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) que é implementado no Azure. Qualquer outra distribuição de Linux tem de ser atualizada de repositório de ficheiros online a distribuição através dos seguintes métodos com suporte a distribuição.
 
-Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** painel abre-se. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
+Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** é aberta a página. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
 
 | Propriedade | Descrição |
 | --- | --- |
 | Name |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Linux ou Windows|
-| Grupos de atualização (pré-visualização)|Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
+| Grupos de atualização |Para máquinas do Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. </br></br>Para as máquinas não Azure, selecione um existente já guardado pesquisa para selecionar um grupo de computadores não pertencentes ao Azure para incluir na implementação. </br></br>Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
 | Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
 |Incluir/excluir atualizações|Esta ação abre o **incluir/excluir** página. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior) |
@@ -567,7 +567,14 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Utilizando os grupos dinâmicos
 
-Gestão de atualizações fornece a capacidade para visar um grupo dinâmico de VMs do Azure para implementações de atualizações. Estes grupos são definidos por uma consulta, quando uma implementação de atualização é iniciada, os membros desse grupo são avaliados. Grupos dinâmicos não funcionam com as VMs clássicas. Ao definir a sua consulta, os seguintes itens podem ser usados juntos para preencher o grupo dinâmico
+Gestão de atualizações fornece a capacidade para visar um grupo dinâmico de VMs de não pertencentes ao Azure ou do Azure para implementações de atualizações. Estes grupos são avaliados no momento da implementação, pelo que não tem de editar a sua implementação para adicionar máquinas.
+
+> [!NOTE]
+> Tem de ter as permissões adequadas ao criar uma implementação de atualização. Para obter mais informações, consulte [instalar atualizações](#install-updates).
+
+### <a name="azure-machines"></a>Máquinas do Azure
+
+Estes grupos são definidos por uma consulta, quando uma implementação de atualização é iniciada, os membros desse grupo são avaliados. Grupos dinâmicos não funcionam com as VMs clássicas. Ao definir a sua consulta, os seguintes itens podem ser usados juntos para preencher o grupo dinâmico
 
 * Subscrição
 * Grupos de recursos
@@ -579,6 +586,12 @@ Gestão de atualizações fornece a capacidade para visar um grupo dinâmico de 
 Para pré-visualizar os resultados de um grupo dinâmico, clique nas **pré-visualização** botão. Esta pré-visualização mostra a associação de grupo nessa altura, neste exemplo, que está a procurar máquinas com a marca **função** é igual a **BackendServer**. Se mais máquinas tiverem esta etiqueta adicionada, estes serão adicionados a todas as implementações futuras em relação a esse grupo.
 
 ![grupos de pré-visualização](./media/automation-update-management/preview-groups.png)
+
+### <a name="non-azure-machines"></a>Máquinas não Azure
+
+Para não pertencentes ao Azure máquinas, pesquisas guardadas também referido como grupos de computadores são utilizados para criar o grupo dinâmico. Para saber como criar uma procura guardada, veja [criar um grupo de computadores](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Uma vez criado o grupo pode selecioná-lo a partir da lista de pesquisas guardadas. Clique em **pré-visualização** para pré-visualizar os computadores a pesquisa guardada nesse momento.
+
+![Selecionar grupos](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrar no System Center Configuration Manager
 
@@ -628,7 +641,7 @@ Para remover uma VM de gestão de atualizações:
 Avance para o tutorial para saber como gerir atualizações para as suas máquinas virtuais do Windows.
 
 > [!div class="nextstepaction"]
-> [Gerir atualizações e correções para as VMs Windows do Azure](automation-tutorial-update-management.md)
+> [Gerir atualizações e correções para as VMs do Windows Azure](automation-tutorial-update-management.md)
 
 * Utilizar as pesquisas de registos no [registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver os dados de atualizações detalhados.
 * [Criar alertas](automation-tutorial-update-management.md#configure-alerts) para obter o estado de implementação de atualização.

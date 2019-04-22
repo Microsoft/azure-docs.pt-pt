@@ -1,21 +1,21 @@
 ---
 title: Saiba como gerir conflitos entre regiões no Azure Cosmos DB
 description: Saiba como gerir conflitos no Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: 6f4e6fce88815490ceffd7456cde045b38e32b29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548830"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680218"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflito no Azure Cosmos DB
 
-Com gravações entre várias regiões, quando ocorre um conflito de dados, pode resolver o conflito com políticas de resolução de conflito diferentes. Este artigo descreve como gerir políticas de resolução de conflito através da utilização de plataformas de idioma diferente.
+Com gravações de várias regiões, se vários clientes escreverem no mesmo item, podem ocorrer conflitos. Quando ocorre um conflito, pode resolver o conflito ao utilizar políticas de resolução de conflito diferentes. Este artigo descreve como gerir políticas de resolução de conflito.
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Criar uma política de resolução de conflitos personalizada
 
@@ -82,9 +82,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Criar uma política de resolução de conflito personalizado com um procedimento armazenado
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Criar uma política de resolução de conflito personalizada utilizando um procedimento armazenado
 
-Estes exemplos mostram como configurar um contentor com uma política de resolução de conflitos personalizada com um procedimento armazenado para resolver o conflito. Esses conflitos não aparecem em conflito, exceto se houver um erro no seu procedimento armazenado do feed.
+Estes exemplos mostram como configurar um contentor com uma política de resolução de conflito personalizada usando um procedimento armazenado para resolver o conflito. Esses conflitos não aparecem em conflito, exceto se houver um erro no seu procedimento armazenado do feed.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK do .NET
 
@@ -162,7 +162,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 Depois de criar o contentor, tem de criar o `resolver` procedimento armazenado.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Criar uma política de resolução de conflito de última-escritor-wins
+## <a name="create-a-last-writer-wins-lww-conflict-resolution-policy"></a>Criar uma política de resolução de conflito de última-escritor-Wins (LWW)
 
 Estes exemplos mostram como configurar um contentor com uma política de resolução de conflito de última-escritor-wins. Se o caminho não está definido ou é inválido, é assumida como predefinição para o `_ts` propriedade. Esta propriedade é o campo timestamp. Esses conflitos não aparecem no feed de conflito.
 
@@ -233,7 +233,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="read-from-conflict-feed"></a>Ler a partir do feed de conflitos
 
-Estes exemplos mostram como ler a partir do feed de conflitos de um contentor. Conflitos aparecem em conflito feed apenas se eles não foram resolvidos automaticamente.
+Estes exemplos mostram como ler a partir do feed de conflitos de um contentor. Conflitos aparecem em conflito feed apenas se eles não foram resolvidos automaticamente, por exemplo, optou por uma política de resolução de conflito manual e não a registar o procedimento armazenado.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>SDK do .NET
 
@@ -285,6 +285,10 @@ while conflict:
 
 Saiba mais sobre os seguintes conceitos do Azure Cosmos DB:
 
+* [Distribuição global - sob definições avançadas](global-dist-under-the-hood.md)
+* [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
+* [Configurar os clientes de multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Adicionar ou remover regiões a partir da sua conta do Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md).
 * [Criação de partições e distribuição de dados](partition-data.md)
 * [Indexação no Azure Cosmos DB](indexing-policies.md)

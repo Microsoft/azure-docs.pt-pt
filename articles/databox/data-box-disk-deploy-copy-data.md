@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548751"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678501"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se
 
@@ -52,7 +52,7 @@ Antes de copiar os dados para os discos, reveja as seguintes considerações:
 - Apenas os VHDs fixos podem ser carregados para criar discos geridos. VHDs dinâmicos, VHDs diferenciais ou VHDX não são suportados ficheiros.
 
 
-## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Execute os seguintes passos para ligar e copiar dados do seu computador para o Data Box Disk.
+Execute os seguintes passos para ligar e copiar dados do seu computador para o Data Box Disk.
 
 1. Veja o conteúdo da unidade desbloqueada. A lista de pré-criada pastas e subpastas na unidade é diferente de acordo com as opções selecionadas ao colocar a ordem de disco Data Box.
 

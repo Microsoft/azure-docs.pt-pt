@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983173"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678110"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Unificada alertas e monitorização no Azure Monitor substitui clássico alertas e monitorização
 
@@ -23,7 +23,7 @@ Com o novo Azure de monitorização e alertas plataforma no local, será descont
 
  ![Alerta clássica no portal do Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-Incentivamos a começar a utilizar o e recrie os alertas na nova plataforma. Para clientes que possuam um grande número de alertas, está trabalhando para fornecer uma forma de mover alertas clássicos existentes para o novo sistema de alertas sem interrupção ou adicionado os custos.
+Incentivamos a começar a utilizar o e recrie os alertas na nova plataforma. Para clientes que possuam um grande número de alertas, estamos [sem interrupções em fases](alerts-understand-migration.md#roll-out-phases), uma [ferramenta de migração voluntária](alerts-using-migration-tool.md) mover alertas clássicos existentes para o novo sistema de alertas sem interrupção ou custos adicionais.
 
 > [!IMPORTANT]
 > Regras de alerta clássicas criadas no registo de Atividades não serão preteridas ou migradas. Todas as regras de alerta clássicas criadas no registo de atividades podem ser acedidas e utilizadas como-é o Azure monitor novo - alertas. Para obter mais informações, consulte [criar, ver e gerir alertas de registo de atividade através do Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). Da mesma forma, podem ser acedidas e utilizadas como os alertas no serviço de estado de funcionamento-é a partir da nova secção de estado de funcionamento do serviço. Para obter detalhes, consulte [alertas nas notificações de estado de funcionamento do serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
@@ -60,13 +60,14 @@ Todos os clássico monitorização e alertas de sistemas, incluindo corresponden
 
 No final de Junho de 2019, no Azure Monitor:
 
-- Serviço de monitorização e alertas clássico será extinto e já não está disponível para a criação de novas regras de alerta
+- Serviço de monitorização e alertas clássico será extinto e já não está disponível para a criação de novas regras de alerta.
 - Quaisquer regras de alerta que continuam a pertencer nos alertas (clássicas) para além de Junho de 2019 irão continuar a executar e acionar notificações, mas não está disponível para modificação.
-- A partir de Julho de 2019, quaisquer regras de alerta clássico de monitorização e alertas serão migradas automaticamente pela Microsoft para seus equivalentes na nova plataforma de monitor do Azure. O processo será totalmente integrado sem qualquer período de inatividade e os clientes terão sem perda de monitorização de cobertura.
-- Alertar regras migrados para a nova plataforma irá fornecer cobertura de monitorização como antes, mas irá disparar a notificação com novas cargas de alertas. Qualquer endereço de e-mail, um ponto final do webhook ou uma ligação de aplicação lógica associada à regra de alerta clássica será transportada quando migrados, mas não se comporte corretamente como alerta contagem será diferente na nova plataforma
+- A partir de Julho de 2019, regras de alerta no clássico de monitorização e alertas que podem ser migrado, será automaticamente movida pela Microsoft para seus equivalentes na nova plataforma de monitor do Azure. O processo será totalmente integrado sem qualquer período de inatividade e os clientes terão sem perda de monitorização de cobertura.
+- Alertar regras migrados para a nova plataforma irá fornecer cobertura de monitorização como antes, mas irá disparar a notificação com novas cargas de alertas. Qualquer endereço de e-mail, um ponto final do webhook ou uma ligação de aplicação lógica associada à regra de alerta clássica será transportada quando migrados, mas não se comporte corretamente como alerta contagem será diferente na nova plataforma.
+- Algumas [regras de alerta clássicas que não podem ser migradas automaticamente](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) e requerem ação manual dos utilizadores irá continuar a executar até de 2020 de Junho.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor irá fornecer ferramentas para os clientes automaticamente em breve a migrar suas regras de alerta clássicas para a nova plataforma. E executá-lo a força para todas as regras de alerta clássicas que ainda existe, a partir de Julho de 2019. Os clientes terão de Certifique-se de consumo payload de regra de alerta clássica é adaptada para lidar com o payload novo a partir de automatização [Unified métricas e alertas no Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Unified métricas e alertas para outro Azure recursos](#unified-metrics-and-alerts-for-other-azure-resources), após a migração de regras de alerta clássicas. 
+> Microsoft Azure Monitor tem implementadas em fases [ferramenta para migrar voluntariamente](alerts-using-migration-tool.md) suas regras de alerta clássicas para a nova plataforma em breve. E executá-lo a força para todas as regras de alerta clássicas que ainda existe e que podem ser migrados, a partir de Julho de 2019. Os clientes terão de Certifique-se de consumo payload de regra de alerta clássica é adaptada para lidar com o payload novo a partir de automatização [Unified métricas e alertas no Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Unified métricas e alertas para outro Azure recursos](#unified-metrics-and-alerts-for-other-azure-resources), após a migração de regras de alerta clássicas. Para obter mais detalhes, consulte [preparar a migração de regra de alerta clássica](alerts-prepare-migration.md)
 
 Em breve fornecemos ferramentas para que possa migrar voluntariamente seus alertas a partir [alertas (clássica) secção](../../azure-monitor/platform/alerts-classic.overview.md) do portal do Azure para os novos alertas do Azure. Todas as regras configuradas nos alertas (clássicas) que são migradas para o novo Azure Monitor serão gratuitas e não será cobradas. Regras de alerta clássicas migradas também serão não assume qualquer custo para enviar notificações por e-mail, webhook ou LogicApp. No entanto, o uso dos tipos mais recente de notificação ou ação (como o SMS, chamada de voz, integração de ITSM, etc.) será cobráveis se adicionado a um alerta de migração ou a nova. Para obter mais informações, consulte [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -84,4 +85,3 @@ Este artigo será atualizado regularmente com ligações e informações detalha
 
 * Saiba mais sobre o [novo unificada do Azure Monitor](../../azure-monitor/overview.md).
 * Saiba mais sobre a nova [alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
-

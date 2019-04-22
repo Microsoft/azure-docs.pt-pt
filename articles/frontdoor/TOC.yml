@@ -73,6 +73,8 @@ items:
       href: waf-front-door-custom-rules-powershell.md
     - name: Configurar código de resposta personalizado
       href: waf-front-door-configure-custom-response-code.md
+    - name: Configurar limite de taxa de WAF - Azure PowerShell
+      href: waf-front-door-rate-limit-powershell.md
 - name: FAQ
   items:
   - name: FAQ do Front Door
@@ -97,9 +99,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 209f0eaca474b33519e133145bc28c02870b668f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 7ac4e84bf714dabdbfb0c587122287d02b6b3bbe
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59356736"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680116"

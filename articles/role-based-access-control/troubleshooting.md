@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 04/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407594"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678433"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Resolver problemas relacionados com o RBAC para recursos do Azure
 
@@ -29,20 +29,20 @@ Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em fu
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas com atribuições de funções do RBAC
 
 - Se não for possível adicionar uma atribuição de função no portal do Azure no **controlo de acesso (IAM)** porque o **Add** > **adicionar atribuição de função** opção está desativada ou uma vez que obterá o erro de permissões "o cliente com o id de objeto não tem autorização para realizar a ação", verifique que o tem atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleAssignments/write` permissão como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator) no âmbito para atribuir a função que está a tentar.
-- Se receber a mensagem de erro "podem ser criadas mais atribuições de função (código: RoleAssignmentLimitExceeded) "ao tentar atribuir uma função, tente reduzir o número de atribuições de funções por atribuição de funções a grupos em vez disso. O Azure suporta até **2000** atribuições de funções por subscrição.
+- Se receber a mensagem de erro "podem ser criadas mais atribuições de função (código: RoleAssignmentLimitExceeded)" quando tenta atribuir uma função, experimente atribuir funções a grupos, de modo a reduzir o número de atribuições. O Azure suporta até **duas mil** atribuições de funções por subscrição.
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
 - Se precisar de passos para saber como criar uma função personalizada, veja os tutoriais de função personalizada usando [do Azure PowerShell](tutorial-custom-role-powershell.md) ou [CLI do Azure](tutorial-custom-role-cli.md).
 - Se não é possível atualizar uma função personalizada existente, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinition/write` permissão, tais como [proprietário](built-in-roles.md#owner) ou [o administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
-- Se não for possível eliminar uma função personalizada e obter a mensagem de erro "lá referência à função de atribuições de funções existentes (código: RoleDefinitionHasAssignments) ", em seguida, há ainda usando a função personalizada de atribuições de funções. Remover essas atribuições de funções e tente novamente a eliminar a função personalizada.
-- Se receber a mensagem de erro "limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **2000** funções personalizadas num inquilino.
-- Se obtiver um erro semelhante a "o cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/ subscrições / {subscriptionid}', no entanto, a subscrição associada não foi encontrada" ao tentar atualizar uma função personalizada, verifique Se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) ter sido eliminada no inquilino. Se o escopo foi eliminado, crie um pedido de suporte porque não existe nenhuma solução de auto-atendimento disponível neste momento.
+- Se não conseguir eliminar uma função personalizada e obtiver a mensagem de erro “Não existem atribuições de funções existentes que façam referência à função (código: RoleDefinitionHasAssignments)", significa que ainda há atribuições de funções a utilizar a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
+- Se receber a mensagem de erro “Limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **2000** funções personalizadas num inquilino.
+- Se obtiver um erro semelhante a "o cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/ subscrições / {subscriptionid}', no entanto, a subscrição associada não foi encontrada" ao tentar atualizar uma função personalizada, verifique Se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) ter sido eliminada no inquilino. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar o RBAC quando as subscrições são movidas entre inquilinos
 
 - Se precisar de passos para saber como transferir uma subscrição para um Azure AD diferente do inquilino, consulte [transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md).
-- Se a transferência de subscrição para um Azure AD diferente do inquilino, todas as atribuições de função são eliminadas permanentemente do inquilino do Azure AD de origem e não são migradas para o inquilino do Azure AD de destino. Tem de recriar as atribuições de função no inquilino de destino.
+- Se transferir uma subscrição para outro inquilino do Azure AD, todas as atribuições de funções são eliminadas permanentemente do inquilino do Azure AD de origem e não são migradas para o inquilino do Azure AD de destino. Tem de recriar as atribuições de funções no inquilino de destino. Também terá de recriar manualmente as identidades geridas para recursos do Azure. Para obter mais informações, consulte [FAQ e problemas conhecidos com geridos identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se for um Azure AD Administrador Global e não tiver acesso a uma subscrição depois que ele foi movido entre inquilinos, utilize o **Access management para recursos do Azure** alternância para temporariamente [elevar o acesso do utilizador](elevate-access-global-admin.md) para obter acesso à subscrição.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas relacionados com administradores ou coadministradores de serviços
@@ -51,7 +51,7 @@ Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em fu
 
 ## <a name="access-denied-or-permission-errors"></a>Acesso negado ou erros de permissão
 
-- Se obtiver o erro de permissões "o cliente com o id de objeto não tem autorização para executar a ação no âmbito (código: AuthorizationFailed) "ao tentar criar um recurso, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha permissão de escrita para o recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter o [contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) função no grupo de recursos (ou âmbito principal). Para obter uma lista de permissões para cada função incorporada, consulte [funções incorporadas para recursos do Azure](built-in-roles.md).
+- Se receber o erro de permissões “O cliente com o id de objeto não tem autorização para realizar a ação acima do âmbito (código: AuthorizationFailed)" quando tenta criar um recurso, confirme que tem sessão iniciada com um utilizador que tenha atribuída uma função com a permissão de escrita no recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
 - Se obtiver o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tenta criar ou atualizar um pedido de suporte, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha o `Microsoft.Support/supportTickets/write` permissão, como [Contribuidor de pedido de suporte](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>Alterações RBAC não estão a ser detetadas
@@ -127,6 +127,6 @@ Algumas funcionalidades do [as funções do Azure](../azure-functions/functions-
 Um leitor pode clicar a **funcionalidades de plataforma** separador e, em seguida, clique em **todas as definições** ver algumas definições relacionadas com uma aplicação de funções (semelhante a uma aplicação web), mas não podem modificar qualquer uma destas definições.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure](role-assignments-portal.md)
+* [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 * [Ver registos de atividade para alterações RBAC para recursos do Azure](change-history-report.md)
 

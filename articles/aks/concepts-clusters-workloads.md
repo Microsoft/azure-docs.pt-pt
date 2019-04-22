@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181355"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678799"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -196,6 +196,9 @@ O controlador de DaemonSet pode agendar pods em nós no início do processo de i
 Como StatefulSets, um DaemonSet é definido como parte de uma definição de YAML utilizando `kind: DaemonSet`.
 
 Para obter mais informações, consulte [Kubernetes DaemonSets][kubernetes-daemonset].
+
+> [!NOTE]
+> Se utilizar o [suplemento de nós virtuais](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets não criará pods no nó virtual.
 
 ## <a name="namespaces"></a>Espaços de nomes
 

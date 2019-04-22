@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282870"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680490"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -116,6 +116,14 @@ Sim. Cada circuito ExpressRoute tem um par redundante de cruzada ligações conf
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Irei perder conectividade se não for uma das minhas ligações do ExpressRoute?
 
 Não irá perder a conectividade se uma das ligações cruzadas falhar. Uma ligação redundante está disponível para suportar a carga da sua rede e proporcionar elevada disponibilidade do seu circuito do ExpressRoute. Além disso, pode criar um circuito numa localização diferente peering para obter resiliência ao nível do circuito.
+
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Como implementar a redundância no peering privado
+
+Vários circuitos do ExpressRoute a partir de localizações de peering diferentes podem ser ligados à mesma rede virtual para fornecer elevada disponibilidade no caso do que um único circuito fica indisponível. Pode então [atribuir pesos superior](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) à ligação local para favorecer prefere um circuito específico. É altamente recomendável que os clientes configurar, pelo menos, dois circuitos do ExpressRoute para evitar pontos únicos de falha. 
+
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Como posso implementar a redundância no peering da Microsoft?
+
+É altamente recomendável quando os clientes estão a utilizar o peering para aceder a serviços público do Azure, como o armazenamento do Azure ou SQL do Azure, bem como os clientes que estão a utilizar o peering da Microsoft para o Office 365 que implementam vários circuitos no peering diferentes da Microsoft localizações para evitar pontos únicos de faiure. Os clientes podem anunciar o mesmo prefixo em ambos os circuitos e utilizar [prefixação como caminho](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou anunciar prefixos diferentes para determinar o caminho do local.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como garantir a elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
 

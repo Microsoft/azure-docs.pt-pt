@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 79fe3bce558a8315f5fbf7dbc82a4979e8e24238
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599813"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677447"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controlar o tráfego de serviço de aplicações do Azure com o Gestor de tráfego do Azure
 > [!NOTE]
@@ -43,7 +43,7 @@ O Gestor de tráfego do Azure utiliza quatro métodos de encaminhamento diferent
 Para obter mais informações, consulte [métodos de encaminhamento do Gestor de tráfego](../traffic-manager/traffic-manager-routing-methods.md).
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>Serviço de aplicações e perfis do Gestor de tráfego
-Para configurar o controle de tráfego da aplicação de serviço de aplicações, criar um perfil no Traffic Manager do Azure que utiliza uma das três carregar balanceamento métodos descritos anteriormente e, em seguida, adicione os pontos de extremidade (no caso, o serviço de aplicações) para o qual pretende controlar o tráfego para o perfil. O estado da aplicação (em execução, parada ou eliminada) é comunicado regularmente para o perfil para que o Gestor de tráfego do Azure pode direcionar o tráfego em conformidade.
+Para configurar o controle de tráfego da aplicação de serviço de aplicações, criar um perfil no Traffic Manager do Azure que utiliza um dos quatro carregar balanceamento métodos descritos anteriormente e, em seguida, adicione os pontos de extremidade (no caso, o serviço de aplicações) para o qual pretende controlar o tráfego para o perfil. O estado da aplicação (em execução, parada ou eliminada) é comunicado regularmente para o perfil para que o Gestor de tráfego do Azure pode direcionar o tráfego em conformidade.
 
 Ao utilizar o Gestor de tráfego do Azure com o Azure, tenha em atenção os seguintes pontos:
 

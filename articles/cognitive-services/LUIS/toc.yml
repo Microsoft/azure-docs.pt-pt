@@ -168,7 +168,7 @@ items:
 - name: Guias de procedimentos
   items:
   - name: Iniciar uma nova aplicação
-    displayName: import
+    displayName: import, export, container
     href: luis-how-to-start-new-app.md
   - name: Criar o Modelo
     items:
@@ -249,7 +249,7 @@ items:
       href: luis-how-to-azure-subscription.md
     - name: Gerir versões
       href: luis-how-to-manage-versions.md
-      diplayName: import
+      diplayName: import, export, container
     - name: Gerir os autores e colaboradores
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
@@ -416,9 +416,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 1a35c8befbffae02a169e87390677c547aec833c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7ab39cc6ff0badeb784e38e47cae4cbeb36556e5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523689"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678858"

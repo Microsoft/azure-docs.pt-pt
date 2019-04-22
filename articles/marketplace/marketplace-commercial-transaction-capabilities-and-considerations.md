@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731094"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678909"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Capacidades de transações comerciais do Azure Marketplace e considerações
 
@@ -44,7 +44,7 @@ Além da lista e opções de publicação de avaliação, a opção de publicaç
 
 ## <a name="transact-general-overview"></a>Visão geral de Transact
 
-Quando utilizar a opção de publicação do transact, a Microsoft permite que a venda e a implementação de software de terceiros para a subscrição do cliente do Azure. O publicador tem de considerar a faturação das taxas de infraestrutura do Azure e do publicador licenciamento taxas de software, ao selecionar uma faturação de modelo e tipo no Azure Marketplace de oferta. 
+Ao utilizar o transact a opção de publicação, a Microsoft permite que a venda de software de terceiros e a implantação de alguns tipos de oferta para a subscrição do cliente do Azure. O publicador tem de considerar a faturação das taxas de infraestrutura do Azure e do publicador licenciamento taxas de software, ao selecionar uma faturação de modelo e tipo no Azure Marketplace de oferta.
 
 A opção de publicação do Transact no Azure Marketplace atualmente é suportada para os seguintes tipos de oferta: Máquinas virtuais, aplicações do Azure ou aplicações de SaaS.
 
@@ -58,7 +58,7 @@ Para máquinas virtuais e aplicações do Azure, as tarifas de utilização da i
 
 **Para aplicações SaaS**
 
-Para aplicações SaaS, o publicador tem em conta as tarifas de utilização da infraestrutura do Azure e taxas de licenciamento de software como um item único custo.  Este é representado como uma taxa mensal fixa para o cliente. A utilização de infraestrutura do Azure é gerenciada e faturada diretamente para o parceiro.  As tarifas de utilização da infraestrutura real não são vistas pelo cliente.  Os publicadores, normalmente, optar por agrupar as tarifas de utilização da infraestrutura do Azure nos respetivos preços de licença de software.  Não são limitadas de taxas de licenciamento de software ou baseado no consumo.
+Para aplicações SaaS, o publicador tem em conta as tarifas de utilização da infraestrutura do Azure e taxas de licenciamento de software como um item único custo.  Este é representado como uma tarifa fixa para o cliente. A utilização de infraestrutura do Azure é gerenciada e faturada diretamente para o parceiro.  As tarifas de utilização da infraestrutura real não são vistas pelo cliente.  Os publicadores, normalmente, optar por agrupar as tarifas de utilização da infraestrutura do Azure nos respetivos preços de licença de software.  Não são limitadas de taxas de licenciamento de software ou baseado no consumo.
 
 ## <a name="transact-billing-models"></a>Transact modelos de faturação
 

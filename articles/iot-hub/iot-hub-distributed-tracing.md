@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501388"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Mensagens de dispositivo-para-cloud do Azure IoT com o rastreio distribuído (pré-visualização) de rastreio
@@ -35,8 +35,8 @@ Neste artigo, vai utilizar o [Azure IoT device SDK para C](./iot-hub-device-sdk-
 - A pré-visualização do rastreio distribuído é atualmente suportado apenas para os Hubs IoT criado nas seguintes regiões:
 
   - **Europa do Norte**
-  - **Sudeste Asiático**
-  - **EUA Oeste 2**
+  - **Sudeste asiático**
+  - **E.U.A. oeste 2**
 
 - Este artigo pressupõe que esteja familiarizado com o envio de mensagens de telemetria ao seu hub IoT. Certifique-se de que concluiu o [enviar telemetria início rápido de C](./quickstart-send-telemetry-c.md).
 

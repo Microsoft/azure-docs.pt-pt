@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877130"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678688"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurar os contentores do Docker de reconhecer de texto
 
@@ -31,11 +31,11 @@ O **reconhecer texto** ambiente de tempo de execução de contentores é configu
 
 ## <a name="apikey-configuration-setting"></a>ApiKey definição de configuração
 
-O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _de imagem digitalizada_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
+O `ApiKey` definição especifica o Azure `Cognitive Services` utilizado para controlar informações de faturação para o contentor de chave de recurso. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _dos serviços cognitivos_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
 
 Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: **Da visão do computador** gestão de recursos, em **chaves**
+* Portal do Azure: **Os serviços cognitivos** gestão de recursos, em **chaves**
 
 ## <a name="applicationinsights-setting"></a>Definição do Application Insights
 
@@ -43,11 +43,13 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-O `Billing` definição especifica o URI do ponto final da _de imagem digitalizada_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _de imagem digitalizada_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
+O `Billing` definição especifica o URI do ponto final da _dos serviços cognitivos_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _dos serviços cognitivos_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: **Do imagem digitalizada** descrição geral, o nome `Endpoint`
+* Portal do Azure: **Os serviços cognitivos** descrição geral, o nome `Endpoint`
+
+Não se esqueça de adicionar o `vision/v1.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado na seguinte tabela. 
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
@@ -89,16 +91,18 @@ Os exemplos seguintes utilizam as definições de configuração para ilustrar c
 * **Caracteres de continuação de linha**: Os comandos de Docker nas secções seguintes utilizam a barra invertida, `\`, como um caractere de continuação de linha. Substituir ou remova esta com base nos requisitos de seu sistema de operativo de anfitrião. 
 * **Ordem de argumento**: Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do Docker.
 
+Não se esqueça de adicionar o `vision/v1.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado na seguinte tabela. 
+
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | A chave de ponto final do recurso de imagem digitalizada. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | A chave de ponto final do recurso dos serviços cognitivos. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | O valor de ponto final faturação incluindo região.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](computer-vision-how-to-install-containers.md#billing).
-> O valor de ApiKey é o **chave** na página de chaves do recurso de visão do computador do Azure. 
+> O valor de ApiKey é o **chave** do Azure `Cognitive Services` página de chaves do recurso. 
 
 ## <a name="recognize-text-container-docker-examples"></a>Reconhecer exemplos de Docker do contentor de texto
 

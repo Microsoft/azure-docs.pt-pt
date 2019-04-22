@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: df893683c387f8d694500ae1ace93a5a146ea352
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496799"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678144"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
@@ -45,7 +45,13 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Para criar ou ver uma exportação de dados ou para agendar uma exportação, abra o âmbito pretendido no portal do Azure e selecione **análise de custo** no menu. Por exemplo, navegue até **subscrições**, selecione uma subscrição na lista e, em seguida, selecione **análise de custo** no menu. Na parte superior da página de análise de custo, clique em **exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, clique em **agendar exportação**. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
+Para criar ou ver uma exportação de dados ou para agendar uma exportação, abra o âmbito pretendido no portal do Azure e selecione **análise de custo** no menu. Por exemplo, navegue até **subscrições**, selecione uma subscrição na lista e, em seguida, selecione **análise de custo** no menu. Na parte superior da página de análise de custo, clique em **exportar** e, em seguida, escolha uma opção de exportação. Por exemplo, clique em **agendar exportação**.  
+
+> [!NOTE]
+> Além de subscrições, pode criar exportações em grupos de recursos, contas, os departamentos e inscrições. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
+> 
+> 
+
 
 Clique em **Add**, escreva um nome para a exportação e, em seguida, selecione a **exportação diária dos custos de mês até à data** opção. Clique em **Seguinte**.
 
@@ -113,4 +119,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para otimizar e melhorar a eficiência, ao identificar os recursos inativos e subutilizados.
 
 > [!div class="nextstepaction"]
-> [Revisão e tomar medidas relacionadas com recomendações de otimização](tutorial-acm-opt-recommendations.md)
+> [Analisar e tomar medidas relacionadas com recomendações de otimização](tutorial-acm-opt-recommendations.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339011"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678892"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor (pré-visualização pública)
 
@@ -40,6 +40,9 @@ Alertas com limiares dinâmicos podem ser configuradas através de alertas de m�
 Limiares dinâmicos continuamente aprende os dados da série de métrica e tenta modelá-lo usando um conjunto de algoritmos e métodos. Detetar padrões nos dados, tais como a sazonalidade (por hora / dia / semanais) e é capaz de lidar com métricas ruidosos (por exemplo, CPU do computador ou memória), bem como as métricas com dispersão baixa (por exemplo, a taxa de disponibilidade e o erro).
 
 Os limiares são selecionados de forma que um desvio destes limiares indica uma anomalia no comportamento da métrica.
+
+> [!NOTE]
+> Deteção de padrão sazonal está definida para o intervalo de hora, dia ou semana. Isso significa que os outros padrões como o padrão de bihourly ou semiweekly poderão não ser detetados.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que faz a definição de "Sensibilidade" na média de limiares dinâmicos?
 
@@ -73,13 +76,23 @@ Para acionar um alerta quando ocorreu uma violação de um limiares dinâmicos e
 
 **Ignorar dados antes de** -os utilizadores podem, opcionalmente, também, definir uma data de início a partir da qual o sistema deve começar a calcular os limiares de. Um caso de utilização típica pode ocorrer quando um recurso era uma em execução no modo de teste e agora é promovido para servir uma carga de trabalho de produção e, portanto, o comportamento de qualquer métrica durante a fase de teste deve ser ignorado.
 
+## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Como descobrir por que motivo foi acionado um alerta de limiares dinâmicos?
+
+Pode explorar acionadas instâncias de alerta na vista de alertas ao clicar na ligação no e-mail ou mensagem de texto ou browser para ver os alertas no portal do Azure. [Saiba mais sobre a vista de alertas](alerts-overview.md#alerts-experience).
+
+Apresenta a vista de alerta:
+
+- Todos os detalhes de métrica no momento em que o alerta de limiares dinâmicos disparado.
+- Um gráfico do período em que o alerta foi acionador que inclui os limiares dinâmicos usado nesse ponto no tempo.
+- Capacidade para fornecer comentários sobre o alerta de limiares dinâmicos e os alertas experiência de exibição, o que poderia melhorar as deteções futuras.
+
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Comportamento lento será alterado no acionador métrico um alerta?
 
 Provavelmente não. Limiares dinâmicos são bons para detetar desvios significativos, em vez de lentamente evoluindo problemas.
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>A quantidade de dados é utilizado para visualização e, em seguida, calcular limiares?
 
-Os limiares que aparece no gráfico, antes da criação de uma regra de alerta em métrica, são calculados com base em dados históricos suficiente para calcular a hora ou diariamente padrões sazonais (10 dias). Pressionar "Padrão de semanal de exibição" irá adquirir dados históricos suficientes para calcular padrões sazonais semanais (28 dias). Depois de criar uma regra de alerta, os limiares dinâmica irá utilizar necessários de todos os dados históricos que estão disponível e irão aprender continuamente e adeptos com base nos dados novos para fazer com que os limiares mais precisos.
+Os limiares que aparece no gráfico, antes da criação de uma regra de alerta em métrica, são calculados com base em dados históricos suficiente para calcular a hora ou diariamente padrões sazonais (10 dias). Depois de criar uma regra de alerta, os limiares dinâmica irá utilizar necessários de todos os dados históricos que estão disponível e irão aprender continuamente e adeptos com base nos dados novos para fazer com que os limiares mais precisos. Isso significa que, depois deste gráfico de cálculo também exibirão padrões semanais.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para acionar um alerta?
 

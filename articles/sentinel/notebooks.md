@@ -15,53 +15,89 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 63ce2be847017ed7e80fe5e573d5553311f6af2f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae9d52e4a26825e4318a6afb8aadc86ac29fa2b3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107683"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677841"
 ---
-# <a name="use-notebooks-to-hunt-for-anomalies"></a>Utilizar blocos de notas para procurar anomalias
+# <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Utilizar blocos de notas do Jupyter para procurar ameaças de segurança
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Sentinel do Azure tira partido do poder dos blocos de notas interativos do Jupyter para fornecer informações e ações para investigar ou procurar anomalias de segurança no seu ambiente. Azure Sentinel vem pré-carregada com blocos de notas que foram desenvolvidos por analistas de segurança da Microsoft. Cada bloco de notas é a finalidade criada com um fluxo de trabalho independente para um caso de utilização específicos. Visualizações são incluídas em cada bloco de notas para exploração de dados mais rápida e detecção de ameaças. Personalizar os blocos de notas incorporados para atender às suas necessidades, criar novos blocos de notas do zero ou importar blocos de notas de sentinela a Azure "Comunidade do GitHub. Blocos de notas do Jupyter são importados como um projeto na página de blocos de notas do Azure – isso permite que o utilizador aceder a todos os seus blocos de notas do Azure sentinela num único local. Blocos de notas podem ser executados com um clique de um botão ou podem ser configurados pelo utilizador para corresponder ao seu ambiente.
+A base do Azure sentinela é o arquivo de dados; ele combina consultar, o esquema dinâmico e é dimensionado para volumes de grandes quantidades de dados de elevado desempenho. O portal do Azure sentinela e todas as ferramentas de sentinela de Azure utilizam uma API comum para aceder este arquivo de dados. A mesma API, como também está disponível para ferramentas externas [Jupyter](https://jupyter.org/) blocos de notas e Python. Enquanto muitas tarefas comuns podem ser executadas no portal, o Jupyter amplia o escopo do que pode fazer com estes dados. Ele combina programação completa com uma grande coleção de bibliotecas para análise de dados, visualização e aprendizagem de máquina. Esses atributos certifique Jupyter uma ferramenta muito apelativa para investigação de segurança e detecção.
 
-A experiência totalmente integrada que permite que blocos de notas executar no armazenamento e computação na Cloud sem sobrecarga de manutenção subjacente. A capacidade de aproveitar o ecossistema de blocos de notas do Jupyter existente permite-lhe a modelos de origem da multidão, sem partilhar dados do cliente. 
+![Bloco de notas de exemplo](./media/notebooks/sentinel-nb-mapandtimeline.png)
 
+Integramos a experiência do Jupyter no portal do Azure sentinela, tornando mais fácil para criar e executar blocos de notas para analisar os dados. O *Kqlmagic* biblioteca fornece a cola que lhe permite realizar consultas de sentinela do Azure e executá-los diretamente dentro de um bloco de notas. Consulta de utilização a [linguagem de consulta de Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Vários blocos de notas, desenvolvidos por alguns dos analistas de segurança da Microsoft, são empacotados com sentinela do Azure. Algumas destes blocos de notas baseiam-se para um cenário específico e pode ser usadas como-é. Outros pretendem como exemplos para ilustrar técnicas e funcionalidades que pode copiar ou adaptar para uso em seus próprios blocos de notas. Também é possível importar outros blocos de notas da Comunidade do Azure sentinela GitHub.
 
-Cada bloco de notas é hospedado em blocos de notas do Azure (atualmente em pré-visualização), um ambiente de desenvolvimento interativo na cloud do Azure. Blocos de anotações são sempre acessível, sempre disponível em qualquer browser e em qualquer lugar no mundo.  O Azure sentinela "blocos de notas incorporados para a investigação e buscar são clonados para um projeto que lhe pertence, e o que pode modificar e adaptar ao seu ambiente. Algumas dos blocos de notas mais populares incorporados são:
+Utiliza a experiência integrada do Jupyter [blocos de notas do Azure](https://notebooks.azure.com/) para armazenar, partilhar e executar blocos de notas. Também pode executar estes blocos de notas localmente (se tiver um ambiente de Python e o Jupyter no seu computador) ou em outros ambientes de JupterHub, como o Azure Databricks.
 
-- **Alerta de investigação e buscar**: Este bloco de notas interativo permite uma rápida triagem de diferentes classes de alertas ao obter a atividade relacionada e enriquecer o alerta com a atividade associada e dados a partir do qual o alerta foi gerado.
+Blocos de notas tem dois componentes:
 
-- **Anfitrião de ponto final orientada hunting**: Permite-lhe hunt para detetar sinais de uma violação de segurança por desagregar as atividades relevantes de segurança associadas a um anfitrião de ponto final.  
+- a interface baseada no browser e em que vai introduzir e executar consultas e de código, e onde estão apresentados os resultados da execução.
+- um *kernel* que é responsável pela análise e execução do código em si. 
 
-- **Office entrar orientada caçar**: Permite-lhe hunt para inícios de sessão suspeitos ao visualizar as localizações geográficas de registos suspeitos, bem como a exibição de padrões de início de sessão invulgares derivados de dados do Office 365.
+Em blocos de notas do Azure, este kernel é executado no Azure *gratuitos de computação na Cloud e armazenamento* por predefinição. Se seus blocos de notas incluem modelos de aprendizagem automática complexas ou visualizações deve considerar a utilização mais poderosa e dedicada recursos de computação, tais como [máquinas de virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Blocos de notas na sua conta sejam mantidos privados, a menos que pretenda partilhá-los.
+
+Os blocos de notas do Azure sentinela usar muitas bibliotecas de Python populares, como o pandas, matplotlib, bokeh e outras pessoas. Há um grande número de outros pacotes do Python para a sua escolha, que cobre áreas como:
+
+- visualizações e gráficos
+- processamento de dados e análise
+- as estatísticas e computação numérica
+- Machine learning e de aprendizagem profunda
+
+Disponibilizámos também algumas ferramentas de segurança do código-fonte aberto Jupyter num pacote designado [msticpy](https://github.com/Microsoft/msticpy/). Este pacote é usado em muitos dos blocos de notas incluídos. Ferramentas de Msticpy foram concebidas especificamente para ajudar com a criação de blocos de notas para buscar e investigação e estamos a trabalhar ativamente novos recursos e melhorias.
+
+Os blocos de notas iniciais incluem:
+
+- **Orientada investigação - processo alertas**: Permite-lhe rapidamente Triar alertas através da análise de atividade nos anfitriões afetados.
+- **Orientada hunting - Explorador do host Windows**: Permite-lhe explorar a atividade de conta, as execuções de processo, atividade de rede e outros eventos num anfitrião.  
+- **Orientada hunting - explorando o Office 365**: Busca de atividade suspeita do Office 365 em vários conjuntos de dados do Office 365.
+
+O [repositório do GitHub do Azure sentinela Comunidade](https://github.com/Azure/Azure-Sentinel) é a localização para qualquer futuras blocos de notas do Azure sentinela criada pela Microsoft ou que tenham feito parte da Comunidade.
 
 ## <a name="run-a-notebook"></a>Executar um bloco de notas
-No exemplo a seguir, executamos o bloco de notas para pesquisar por explorar as profunda de anomalias de localização para ver se alguém numa localização inesperada está a fazer algo na sua rede interno.
 
-1. No portal do Azure sentinela, clique em **blocos de notas** e, em seguida, selecione qualquer um dos blocos de notas incorporados.
+No exemplo a seguir, vamos criar um projeto de blocos de notas do Azure no portal do Azure sentinela, preenchendo o projeto com blocos de notas. Antes de utilizar estes blocos de notas, é uma boa idéia fazer uma cópia do bloco de notas e a cópia de trabalho. Trabalhar em cópias permite-lhe com segurança atualizar para versões futuras do blocos de notas, sem substituir qualquer um dos seus dados.
+
+1. No portal do Azure sentinela, clique em **blocos de notas** no menu de navegação. Para criar um novo projeto de blocos de notas do Azure, clique em **sentinela blocos de notas do Azure Clone** ou abrir seus blocos de notas existentes projetos clique **vá para os seus blocos de notas**.
   
-   ![Selecione o bloco de notas](./media/notebooks/select-notebook.png)
+   ![Selecione os blocos de notas](./media/notebooks/sentinel-az-notebooks-home.png)
 
-3. Clique em **importação** para clonar o repositório do GitHub para o seu projeto de blocos de notas do Azure.
-   ![Bloco de notas de importação](./media/notebooks/import1.png)
-4. Cada bloco de anotações orienta-o através dos passos para realizar uma busca ou a investigação. Modelos, bibliotecas e outras dependências e a configuração de conectividade para o Azure sentinela são automaticamente importados para habilitar a execução de um clique. Todas as bibliotecas necessárias para executar um bloco de notas e código são previamente carregadas. Pode começar imediatamente a execução de um bloco de notas no seu espaço de trabalho do Log Analytics sem qualquer configuração.
+2. Se escolheu **sentinela blocos de notas do Azure Clone** no passo anterior, será apresentada a caixa de diálogo seguinte. Clique em **importação** para clonar o repositório do GitHub para o seu projeto de blocos de notas do Azure. Se não tiver uma conta de blocos de notas do Azure existente, será solicitado a criar uma e iniciar sessão.
 
-   ![Repositório de importação](./media/notebooks/import2.png)
+   ![Bloco de notas de importação](./media/notebooks/sentinel-nb-signin-and-clone.png)
 
-5. Explore, modificar e executar todas as notas de exemplo fornecidas. Estes podem ser utilizados como blocos de construção para vários cenários diferentes.
+3. Ao criar um novo projeto, terá de nomear o projeto - utilizar o nome predefinido ou o tipo numa nova. Não verificar a **Clone recursivamente** opção - esta opção refere-se a repositórios de GitHub ligados. Clicar em **importação** inicia o conteúdo do GitHub, o que pode demorar alguns minutos para concluir a clonagem.
 
-   ![Selecione o bloco de notas](./media/notebooks/import3.png)
+   ![Bloco de notas de importação](./media/notebooks/sentinel-create-nb-project.png)
 
+4. Abra o **blocos de notas** pasta para ver os blocos de notas. Cada bloco de anotações descreve os passos para a realização de uma busca ou a investigação. Bibliotecas e outras dependências necessárias para o bloco de notas podem ser instaladas do bloco de notas em si ou por meio de um procedimento de configuração simples. Configuração de que o vincula seu projeto de bloco de notas para a sua subscrição do Azure sentinela é automaticamente aprovisionada nos passos anteriores. Blocos de notas do estão prontos para executar na sua área de trabalho do Log Analytics com sentinela do Azure.
 
+   ![Repositório de importação](./media/notebooks/sentinel-open-notebook1.png)
+
+5. Abra um bloco de notas. Computação de gratuita está selecionada por predefinição para executar os blocos de notas (realçados). Se tiver configurado uma DSVM do usar (veja acima), selecione a DSVM e autenticar antes de abrir o primeiro bloco de notas. Clique num bloco de notas para abri-lo.
+
+   ![Selecione o bloco de notas](./media/notebooks/sentinel-open-notebook2.png)
+
+6. Selecionando a versão de Python. Quando abre pela primeira vez um bloco de notas, ele poderá pedir-lhe para selecionar uma versão de kernel. Caso contrário, selecione o kernel para utilizar como a seguir. Python 3.6 ou posterior deve ser o kernel selecionado (no canto superior direito da janela do bloco de notas).
+
+   ![Selecione o bloco de notas](./media/notebooks/sentinel-select-kernel.png)
+
+Para obter uma introdução rápida para consultar dados no Azure sentinela, examinar os [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) bloco de notas na pasta de principal de blocos de notas. Blocos de notas de exemplo adicionais podem ser encontrados no **blocos de notas de exemplo** subpasta. Os blocos de notas de exemplo foram guardados com dados, para que seja mais fácil ver a saída desejada (Recomendamos a vê-los no [nbviewer](https://nbviewer.jupyter.org/)). O **HowTos** pasta contém blocos de notas que descreve, por exemplo: definição predefinida a versão do Python, configurar uma DSVM, Azure sentinela a criar os marcadores de um bloco de notas e outros assuntos.
+
+Estes blocos de notas destinam-se-á como as duas ferramentas úteis e como as ilustrações e exemplos de código que podem ser usados no desenvolvimento de seus próprios blocos de notas.
+
+Apreciamos os seus comentários, se sugestões, pedidos de funcionalidades, contribuiu com blocos de notas, relatórios de bugs ou melhorias e adições para blocos de notas existentes. Vá para o [Azure sentinela Comunidade GitHub](https://github.com/Azure/Azure-Sentinel) para criar um problema ou o fork e carregue uma contribuição.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a executar uma investigação de detecção com blocos de notas no Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
+
+Neste artigo, aprendeu como começar a utilizar blocos de notas do Jupyter no Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 
 - [Proativamente hunt relativamente a ameaças](hunting.md)
 - [Utilizar marcadores para salvar informações interessantes ao sorte!](bookmarks.md)
