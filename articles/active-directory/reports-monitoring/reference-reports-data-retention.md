@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438823"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683738"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatórios do Azure Active Directory
 
@@ -68,8 +68,8 @@ Para sinais de segurança, o processo de coleta é iniciado quando participar pa
 
 | Relatório                 | Azure AD Gratuito | Azure AD Básico | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| Auditoria de Diretórios        | 7 dias        |  7 dias        | 30 dias             | 30 dias             |
-| Atividade de Início de Sessão       | N/A           |  N/A           | 30 dias             | 30 dias             |
+| Registos de auditoria             | 7 dias        |  7 dias        | 30 dias             | 30 dias             |
+| Inícios de sessão               | N/A           |  N/A           | 30 dias             | 30 dias             |
 | Utilização MFA do Azure        | 30 dias       |  30 dias       | 30 dias             | 30 dias             |
 
 Pode manter os dados de atividade de auditoria e início de sessão por mais tempo do que o período de retenção predefinido descrito acima, o encaminhamento para uma conta de armazenamento do Azure com o Azure Monitor. Para obter mais informações, consulte [registos de arquivo do Azure AD para uma conta de armazenamento do Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).

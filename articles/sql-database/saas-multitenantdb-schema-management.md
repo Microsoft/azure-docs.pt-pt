@@ -1,5 +1,5 @@
 ---
-title: Gerir o esquema da Base de Dados SQL numa aplicação multi-inquilino | Microsoft Docs
+title: Gerir o esquema da Base de Dados SQL do Azure numa aplicação multi-inquilino | Microsoft Docs
 description: Gerir o Esquema para vários inquilinos numa aplicação multi-inquilino que utiliza a Base de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database

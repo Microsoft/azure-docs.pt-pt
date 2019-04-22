@@ -3,17 +3,17 @@ title: Gerir cópias de segurança com controlo de acesso baseado em funções d
 description: Utilize o controlo de acesso baseado em funções para gerir o acesso às operações de gestão de cópia de segurança no cofre dos serviços de recuperação.
 services: backup
 author: trinadhk
-manager: shreeshd
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 04/17/2019
 ms.author: trinadhk
-ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674638"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682530"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilizar o controlo de acesso baseado em funções para gerir pontos de recuperação de cópia de segurança do Azure
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
@@ -21,7 +21,7 @@ O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão po
 > [!IMPORTANT]
 > Funções fornecidas pelo Azure Backup estão limitadas a ações que podem ser executadas no portal do Azure ou através da REST API ou cmdlets do PowerShell ou a CLI do cofre dos serviços de recuperação. Ações executadas no Azure cópia de segurança Centro de interface do Usuário do agente de cliente ou sistema da IU do Gestor de proteção de dados ou IU de servidor de cópia de segurança do Azure estão fora do controlo de uma destas funções.
 
-O Azure Backup fornece 3 funções incorporadas para controlar as operações de gestão de cópia de segurança. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
+Cópia de segurança do Azure fornece três funções incorporadas para controlar as operações de gestão de cópia de segurança. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
 * [Contribuidor de cópia de segurança](../role-based-access-control/built-in-roles.md#backup-contributor) -esta função tem todas as permissões para criar e gerir a cópia de segurança, exceto criar cofre dos serviços de recuperação e fornecer acesso a outras pessoas. Imagine esta função como administrador da gestão de cópia de segurança que pode fazer todas as operações de gestão de cópia de segurança.
 * [Operador de cópia de segurança](../role-based-access-control/built-in-roles.md#backup-operator) -esta função tem permissões para tudo o que um contribuinte exceto de remoção de cópia de segurança e a gerir políticas de cópia de segurança. Esta função é equivalente ao Contribuidor, exceto que ele não é possível efetuar operações destrutivas como parar cópia de segurança com dados de eliminar ou remover registo de recursos no local.
@@ -60,7 +60,24 @@ A tabela seguinte mostra as ações de gestão de cópia de segurança e corresp
 | Eliminar registados no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
 
 > [!IMPORTANT]
-> Se especifica Contribuidor de VM com um âmbito de recursos VM e clique em cópia de segurança como parte das definições de VM, abrirá a tela "Ativar cópia de segurança", mesmo que a VM já foi efetuada como a chamada para verificar o estado cópia de segurança funciona apenas no nível de subscrição. Para evitar isto, ou aceda ao Cofre e abrir a vista de item de cópia de segurança da VM ou especificar a função de Contribuidor de VM ao nível da subscrição. 
+> Se especifica Contribuidor de VM com um âmbito de recursos VM e clique em cópia de segurança como parte das definições de VM, abrirá a tela "Ativar cópia de segurança", mesmo que a VM já foi efetuada como a chamada para verificar o estado cópia de segurança funciona apenas no nível de subscrição. Para evitar isto, ou aceda ao Cofre e abrir a vista de item de cópia de segurança da VM ou especificar a função de Contribuidor de VM ao nível da subscrição.
+
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para a cópia de segurança de partilha de ficheiros do Azure
+A tabela seguinte mostra as ações de gestão de cópia de segurança e a função correspondente necessário para efetuar a operação de partilha de ficheiros do Azure.
+
+| Operação de gestão | Função necessária | Recursos |
+| --- | --- | --- |
+| Ativar cópia de segurança de partilhas de ficheiros do Azure | Contribuidor de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| | Conta de Armazenamento | Recurso de conta de armazenamento do contribuinte |
+| Cópia de segurança a pedido da VM | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| Restaurar a partilha de ficheiros | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| | Contribuinte de Conta de Armazenamento | Recursos de conta de armazenamento em que a origem de restauro e partilhas de ficheiros de destino estão presentes |
+| Restaurar ficheiros individuais | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| | Contribuinte de Conta de Armazenamento |   Recursos de conta de armazenamento em que a origem de restauro e partilhas de ficheiros de destino estão presentes |
+| Parar proteção | Contribuidor de Cópia de Segurança | Cofre dos Serviços de Recuperação |      
+| Anular o registo de conta de armazenamento de cofre |   Contribuidor de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| | Contribuinte de Conta de Armazenamento | Recurso de conta de armazenamento|
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md): Comece com RBAC no portal do Azure.

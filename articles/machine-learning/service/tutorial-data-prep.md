@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: cd77dcc7202f61a801d29d42f61815c8ce7c2067
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496219"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698362"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
@@ -84,7 +84,7 @@ Toda a configuração para o seu trabalho de desenvolvimento pode ser feita num 
 Utilize o seguinte para instalar pacotes necessários, se ainda não tivê-los.
 
 ```shell
-pip install "azureml-dataprep>=1.1.0,<1.2.0"
+pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
 Importe o SDK.
@@ -157,8 +157,7 @@ green_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -686,8 +685,7 @@ time_split_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;
@@ -881,8 +879,7 @@ transformed_features_df.head(5)
 ```
 
 <div>
-<style scoped>
-.dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
+<style scoped> .dataframe tbody tr th: só de-de-type {vertical-align: intermédia;}
 
     .dataframe tbody tr th {
         vertical-align: top;

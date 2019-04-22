@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501260"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698169"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir as regras predefinidas modificado no Azure AD Connect
 
@@ -76,12 +76,12 @@ Regra de sincronização de entrada significa que a origem para o atributo é um
 
  ![Regras predefinidas](media/how-to-connect-fix-default-rules/default3a.png)
 
-Siga a sua própria Convenção de nomenclatura para nomear a regra, aqui usamos **personalizado do AD - utilizador**, isso significa que a regra é uma regra personalizada e uma regra de entrada do espaço de conector do AD para o Metaverso. 
+Siga a sua própria Convenção de nomenclatura para nomear a regra, aqui usamos **personalizado do AD - utilizador**, isso significa que a regra é uma regra personalizada e uma regra de entrada do espaço de conector do AD para o Metaverso.   
 
  ![Regras predefinidas](media/how-to-connect-fix-default-rules/default3b.png)
 
 Dê sua própria descrição da regra, para que a manutenção futura da regra é fácil, como o que é o objetivo desta regra e por que motivo foi necessária.
-Selecionou o sistema ligado (floresta) a origem do atributo. Em seguida, o tipo de objeto de sistema ligado e o tipo de objeto de Metaverso.
+Selecione um ligado sistema (floresta) – a origem de atributo. Em seguida, selecione o tipo de objeto de sistema ligado e o tipo de objeto do Metaverso.
 
 Especifique o valor de prioridade entre 0 – 99 (reduzir o número superior a precedência). Mantenha os outros campos, como "Tag", "Ativar a sincronização de palavra-passe" e "Disabled" como predefinição.
 

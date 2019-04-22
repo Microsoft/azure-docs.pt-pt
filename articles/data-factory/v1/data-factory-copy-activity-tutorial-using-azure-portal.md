@@ -36,7 +36,7 @@ ms.locfileid: "58090275"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-Neste artigo, vai aprender a utilizar o [portal do Azure](https://portal.azure.com) para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de BLOBs do Azure para uma base de dados do SQL Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
+Neste artigo, vai aprender a utilizar o [portal do Azure](https://portal.azure.com) para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de BLOBs do Azure para uma Base de Dados SQL do Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
 
 Neste tutorial, vai criar um pipeline com uma atividade no mesmo: Atividade de cópia. A Atividade de Cópia copia dados de um arquivo de dados suportado para um arquivo de dados sink suportado. Para obter uma lista dos arquivos de dados suportados como origens e sinks, veja [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Arquivos de dados suportados). A atividade utiliza a tecnologia de um serviço globalmente disponível que pode copiar dados entre vários arquivos de dados de uma forma segura, fiável e dimensionável. Para obter mais informações sobre a Atividade de Cópia, veja [Data Movement Activities](data-factory-data-movement-activities.md) (Atividades de Movimento de Dados).
 
@@ -141,7 +141,7 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dado
 
     Para obter mais informações sobre as propriedades JSON na definição do serviço ligado, veja o artigo [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) (Conector do Armazenamento de Blobs do Azure).
 
-### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Criar um serviço ligado para a SQL Database do Azure
+### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Criar um serviço ligado para a Base de Dados SQL do Azure
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados. Especifique o nome do servidor SQL do Azure, o nome da base de dados, o nome de utilizador e a palavra-passe do utilizador nesta secção. 
 
 1. No **Editor do Data Factory**, clique no botão **Novo arquivo de dados**, na barra de ferramentas, e selecione **Base de Dados SQL do Azure** no menu pendente. Deverá ver o modelo JSON para criar o serviço ligado SQL do Azure no painel à direita.

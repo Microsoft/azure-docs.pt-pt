@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação de serviço de aplicações. |
 | [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | Cria um servidor da Base de Dados SQL. |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor de Base de Dados SQL. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Cria uma regra de firewall para um servidor da Base de Dados SQL. |
 | [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Cria uma base de dados ou uma base de dados elástica. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modificar a configuração de uma aplicação de serviço de aplicações. |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662912"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681527"
 ---
 # <a name="eventstore-service-overview"></a>Descrição geral do serviço de EventStore
 
@@ -72,7 +72,7 @@ Na [fabricSettings.json no seu cluster](service-fabric-cluster-fabric-settings.m
 
 ### <a name="azure-cluster"></a>Cluster do Azure
 
-No modelo do Azure Resource Manager do seu cluster, pode ativar o serviço de EventStore ao efetuar uma [atualização de configuração do cluster](service-fabric-cluster-config-upgrade-azure.md) e adicionar o código seguinte. O `upgradeDescription` secção configura a atualização de configuração para acionar um reinício em nós. Pode remover a secção em outra atualização.
+No modelo do Azure Resource Manager do seu cluster, pode ativar o serviço de EventStore ao efetuar uma [atualização de configuração do cluster](service-fabric-cluster-config-upgrade-azure.md) e adicionar o código a seguir, pode usar o PlacementConstraints para colocar as réplicas do EventStore serviço num NodeType específico, por exemplo, um NodeType dedicado para os serviços do sistema. O `upgradeDescription` secção configura a atualização de configuração para acionar um reinício em nós. Pode remover a secção em outra atualização.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ No modelo do Azure Resource Manager do seu cluster, pode ativar o serviço de Ev
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046160"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683907"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
@@ -45,7 +45,7 @@ O serviço do Azure Machine Learning tem suporte variado em destinos de computa�
 |[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Todos os computação destinos podem ser reutilizados para várias tarefas de formação**. Por exemplo, depois de anexar uma VM remota à área de trabalho, pode reutilizá-lo para várias tarefas.
@@ -92,7 +92,7 @@ Utilize as secções abaixo para configurar estes destinos de computação:
 * [Computador local](#local)
 * [Computação do Azure Machine Learning](#amlcompute)
 * [Máquinas virtuais remotas](#vm)
-* [Azure HDInsight](#hdinsight)
+* [O Azure HDInsight](#hdinsight)
 
 
 ### <a id="local"></a>Computador local
@@ -377,7 +377,6 @@ Pode acessar os destinos de computação associados à área de trabalho utiliza
 
 Para obter mais informações, consulte [gestão de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Submeter treinamento executar
 
 Depois de criar uma configuração de execução, usá-lo para executar a sua experimentação.  O padrão de código para submeter uma execução de treinamento é o mesmo para todos os tipos de destinos de computação:
@@ -385,6 +384,13 @@ Depois de criar uma configuração de execução, usá-lo para executar a sua ex
 1. Criar uma experimentação para execução
 1. Submeta a execução.
 1. Aguarde a execução concluir.
+
+> [!IMPORTANT]
+> Ao submeter a execução de treinamento, um instantâneo do diretório que contém os scripts de treinamento é criado e enviado para o destino de computação. Também são armazenado como parte da experimentação na sua área de trabalho. Se alterar os arquivos e submeter a execução mais uma vez, apenas os ficheiros alterados serão carregados.
+>
+> Para impedir que os ficheiros que está a ser incluído no instantâneo, crie uma [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` de ficheiros no diretório e adicione os ficheiros ao mesmo. O `.amlignore` utiliza a mesma sintaxe de ficheiros e padrões como o [. gitignore](https://git-scm.com/docs/gitignore) ficheiro. Se existirem ambos os ficheiros, o `.amlignore` ficheiro tem precedência.
+> 
+> Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Criar uma experimentação
 
@@ -399,8 +405,6 @@ Submeter a experimentação com um `ScriptRunConfig` objeto.  Este objeto inclui
 * **source_directory**: O diretório de origem que contém o script de treinamento
 * **script**: Identificar o script de treinamento
 * **run_config**: A configuração de execução, que por sua vez, define em que ocorrerá o treinamento.
-
-Quando submete uma execução de treinamento, um instantâneo do diretório que contém os scripts de treinamento é criado e enviado para o destino de computação. Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshot).
 
 Por exemplo, para utilizar [o local de destino](#local) configuração:
 
@@ -419,7 +423,7 @@ Em alternativa, pode:
 
 Consulte estes blocos de notas para obter exemplos de treinamento com vários destinos de computação:
 * [procedimentos-to-use-azureml/treinamento](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+* [tutoriais/img-classificação-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

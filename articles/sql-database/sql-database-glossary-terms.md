@@ -40,13 +40,13 @@ objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na ba
 ||Base de dados de grande escala|Criada dentro de uma base de dados ou movido para a camada de serviços de hiperescala do modelo de compra baseado em vCore|
 ||Bases de dados fundamentais do negócio|Criada dentro de uma base de dados ou movido para a camada de serviços críticos de negócios do modelo de compra baseado em vCore|
 |[Modelos de compra e de recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
-||Modelo de compras baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
+||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Um núcleo fornecido para o SO convidado pelo hipervisor.|
 ||Camada de serviços|Um nível de serviço dentro de um modelo de compra|
 ||Tamanho de computação|A quantidade de recursos de computação para um único banco de dados, o conjunto elástico ou a instância gerida num escalão de serviço|
 ||Quantidade de armazenamento|A quantidade de armazenamento disponível para um único banco de dados, o conjunto elástico ou a instância gerida|
 ||Geração de computação|A geração de processador num escalão de serviço|
-|Regras de firewall do servidor da base de dados|Regras de firewall do IP|[Regras de firewall do IP](sql-database-firewall-configure.md)|
+|Regras de firewall de IP do servidor da base de dados|Regras de firewall do IP|[Regras de firewall do IP](sql-database-firewall-configure.md)|
 ||Regras de firewall de IP ao nível do servidor|[Regras de firewall do IP ao nível do servidor](sql-database-firewall-configure.md#overview)|
 || Regras de firewall do IP de nível de base de dados|[Regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md#overview)|
 ||Pontos finais de rede virtual e regras|[Pontos finais e regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)|

@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544157"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682685"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação (pré-visualização pública)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Cabeçalhos HTTP permitem que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever desses cabeçalhos HTTP ajuda-o a realizar vários cenários importantes, como a adição de campos de cabeçalho relacionadas à segurança, como HSTS / X-XSS-proteção, remover o cabeçalho de resposta de campos que pode revelar informações confidenciais, informações de porta de remoção de X-reencaminhados-para cabeçalhos, etc. Gateway de aplicação suporta a capacidade de adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP enquanto o pedido e pacotes de resposta se mover entre os conjuntos de cliente e o back-end. Ele também fornece a capacidade de adicionar condições para se certificar de que os cabeçalhos especificados foram reescritos apenas quando forem cumpridas determinadas condições.
+Cabeçalhos HTTP permitem que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever desses cabeçalhos HTTP ajuda-o a realizar vários cenários importantes, como a adição de campos de cabeçalho relacionadas à segurança, como HSTS / X-XSS-proteção, remover o cabeçalho de resposta de campos que pode revelar informações confidenciais, remover informações de porta de X-reencaminhados-para cabeçalhos, etc. Gateway de aplicação suporta a capacidade de adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP enquanto o pedido e pacotes de resposta se mover entre os conjuntos de cliente e o back-end. Ele fornece a capacidade de adicionar condições para se certificar de que os cabeçalhos especificados foram reescritos apenas quando forem cumpridas determinadas condições. A capacidade também suporta vários [variáveis de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que ajudam a armazenar as informações adicionais sobre os pedidos e respostas, permitindo-lhe fazer regras de reescrita poderosas.
 > [!NOTE]
 >
 > O suporte de reescrita de cabeçalho HTTP só está disponível para o [novo SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Cabeçalhos de reconfiguração](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Cabeçalhos suportados para reescrever
 
@@ -35,7 +37,7 @@ Utilizar a reescrita condições pode avaliar o conteúdo dos pedidos de HTTP (S
 - Cabeçalhos HTTP na resposta
 - Variáveis de servidor de gateway de aplicação
 
-Uma condição pode ser utilizada para avaliar se a variável especificada está presente, se a variável especificada corresponde exatamente a um valor específico, ou se a variável especificada corresponde exatamente a um padrão específico. [Biblioteca do Perl compatível Regular expressões (PCRE)](https://www.pcre.org/) é utilizado para implementar as condições de correspondência de padrão de expressão regular. Para saber mais sobre a sintaxe de expressão regular, consulte a [expressões regulares do Perl cara página](http://perldoc.perl.org/perlre.html).
+Uma condição pode ser utilizada para avaliar se a variável especificada está presente, se a variável especificada corresponde exatamente a um valor específico, ou se a variável especificada corresponde exatamente a um padrão específico. [Biblioteca do Perl compatível Regular expressões (PCRE)](https://www.pcre.org/) é utilizado para implementar as condições de correspondência de padrão de expressão regular. Para saber mais sobre a sintaxe de expressão regular, consulte a [expressões regulares do Perl cara página](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Ações de reconfiguração
 
@@ -124,6 +126,18 @@ Este problema pode ser resolvido ao definir o nome de anfitrião no cabeçalho l
 Várias vulnerabilidades de segurança podem ser corrigidas através da implementação de cabeçalhos na resposta da aplicação. Alguns desses cabeçalhos de segurança são XSS-X-proteção, segurança de transporte Strict, conteúdo--política de segurança, etc. Pode utilizar o gateway de aplicação para definir esses cabeçalhos para todas as respostas.
 
 ![Cabeçalho de segurança](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>Eliminar cabeçalhos indesejados
+
+Convém remover esses cabeçalhos de resposta HTTP que revelam informações confidenciais, como o nome do servidor de back-end, sistema operativo, os detalhes da biblioteca, etc. Pode utilizar o gateway de aplicação para removê-las.
+
+![A eliminar cabeçalho](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Verifique a presença de um cabeçalho
+
+Pode avaliar o cabeçalho de solicitação ou resposta HTTP para a presença de uma variável do cabeçalho ou no servidor. Isto é útil quando pretende efetuar uma reescrita de cabeçalho apenas quando um determinado cabeçalho está presente.
+
+![A verificar a presença de um cabeçalho](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limitações
 

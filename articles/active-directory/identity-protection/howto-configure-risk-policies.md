@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517543"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699038"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco na proteção de identidade do Azure Active Directory (atualizada)
 
@@ -41,7 +41,8 @@ O Azure AD analisa cada início de sessão de um utilizador. É o objetivo da an
 
 A política de risco de início de sessão é uma resposta automática, que pode configurar para um nível de risco de início de sessão específicos. Em sua resposta, pode bloquear o acesso aos seus recursos ou exigir passando um desafio de autenticação multifator (MFA) para obter acesso.
 
-   
+Quando um utilizador concluir com êxito uma linha de MFA acionada pela política de risco de início de sessão, fornece comentários ao Identity Protection, que o início de sessão teve origem no usuário legítimo. Assim, o evento de risco de início de sessão que acionou a linha de comandos da MFA será fechado automaticamente e proteção de identidade irá impedir que este evento que contribuem para a elevação de risco de utilizador. Ativar a política de início de sessão de risco pode reduzir a complexidade quando na vista de inícios de sessão de risco ao permitir que os utilizadores Self-remediar quando lhe for pedido para a MFA e automaticamente, em seguida, fechar o associado risco início de sessão.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Como posso aceder a política de risco de início de sessão?
    
 A política de risco de início de sessão está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

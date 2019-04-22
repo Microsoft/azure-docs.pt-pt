@@ -65,7 +65,7 @@ O Azure adiciona rotas de sistema predefinidas adicionais para diferentes capaci
 
 - **Peering de rede virtual (VNet)**: Quando cria uma peering entre duas redes virtuais de rede virtual, é adicionada uma rota para cada intervalo de endereços dentro do espaço de endereço de cada rede virtual que é criado um peering para. Saiba mais sobre o [peering de rede virtual](virtual-network-peering-overview.md).  
 - **Gateway de rede virtual**: Uma ou mais rotas com *gateway de rede Virtual* listado como o tipo de próximo salto são adicionados quando um gateway de rede virtual é adicionado a uma rede virtual. A origem também é *gateway de rede virtual*, porque o gateway adiciona as rotas à sub-rede. Se o seu gateway de rede no local trocar de rotas de protocolo [BGP](#border-gateway-protocol) (Border Gateway Protocol) com um gateway de rede virtual do Azure, é adicionada uma rota a cada rota propagada a partir do gateway de rede no local. Recomenda-se que resuma as rotas no local para os intervalos de endereços maiores possíveis, para que sejam propagadas para um gateway de rede virtual do Azure o menor número possível de rotas. Existem limites ao número de rotas que pode propagar para um gateway de rede virtual do Azure. Para obter mais detalhes, veja [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
-- **VirtualNetworkServiceEndpoint**: Os endereços IP públicos para determinados serviços são adicionados à tabela de rotas pelo Azure ao ativar a um ponto final de serviço para o serviço. Os pontos finais de serviço são ativados para sub-redes individuais dentro de uma rede virtual, pelo que a rota só é adicionada à tabela de rotas de uma sub-rede para a qual o ponto final esteja ativado. Os endereços IP públicos dos serviços do Azure mudam periodicamente. O Azure gere os endereços na tabela de rotas automaticamente quando os mesmos são modificados. Saiba mais sobre os [pontos finais de serviço da rede virtual](virtual-network-service-endpoints-overview.md) e os serviços para os quais pode criar pontos finais de serviço. 
+- **VirtualNetworkServiceEndpoint**: Os endereços IP públicos para determinados serviços são adicionados à tabela de rotas pelo Azure ao ativar a um ponto final de serviço para o serviço. Os pontos finais de serviço são ativados para sub-redes individuais dentro de uma rede virtual, pelo que a rota só é adicionada à tabela de rotas de uma sub-rede para a qual o ponto final esteja ativado. Os endereços IP públicos dos serviços do Azure mudam periodicamente. O Azure gere os endereços na tabela de rotas automaticamente quando os mesmos são modificados. Saiba mais sobre os [pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md) e os serviços para os quais pode criar pontos finais de serviço. 
 
 > [!NOTE]
 > Os tipos de salto seguinte **VNet peering** e **VirtualNetworkServiceEndpoint** só são adicionados a tabelas de rotas de sub-redes que estejam dentro das redes virtuais criadas através do modelo de implementação Azure Resource Manager. Os tipos de salto seguinte não são associados às tabelas de rotas que estejam associadas a sub-redes da rede virtual criada através do modelo de implementação clássica. Saiba mais sobre os [modelos de implementação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure.
@@ -110,7 +110,7 @@ O nome apresentado e referenciado para os tipos de próximo salto são diferente
 |Aplicação virtual               |VirtualAppliance                                |VirtualAppliance|
 |Nenhuma                            |Nenhuma                                            |Null (não disponível na CLI clássica no modo asm)|
 |Peering de rede virtual         |VNet peering                                    |Não aplicável|
-|Ponto final do serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
+|Ponto final de serviço de rede virtual|VirtualNetworkServiceEndpoint                   |Não aplicável|
 
 ### <a name="border-gateway-protocol"></a>BGP (Border Gateway Protocol)
 
@@ -134,7 +134,7 @@ Se várias rotas tiverem o mesmo prefixo de endereço, o Azure seleciona o tipo 
 3. Rota de sistema
 
 > [!NOTE]
-> As rotas de sistema para o tráfego de rede virtual, peerings de rede virtual ou pontos finais do serviço de rede virtual são rotas preferenciais, mesmo que as rotas BGP sejam mais específicas.
+> As rotas de sistema para o tráfego de rede virtual, peerings de rede virtual ou pontos finais de serviço de rede virtual são rotas preferenciais, mesmo que as rotas BGP sejam mais específicas.
 
 Por exemplo, uma tabela de rotas contém as rotas seguintes:
 

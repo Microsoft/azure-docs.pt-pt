@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4585d151e286917c67586a02539a10ade32bdd4c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094543"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682313"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Importar VMs a partir de outro laboratório no Azure DevTest Labs
 O serviço de Azure DevTest Labs melhora significativamente a gestão das máquinas virtuais (VMs) para desenvolvimento e atividades de teste. Permite-lhe mover uma VM a partir de um laboratório para outra como a equipe ou alteram os requisitos de infraestrutura. Seguem-se alguns cenários comuns em que poderá ter de fazer isso: 
@@ -42,7 +42,7 @@ Além disso, para poder importar uma VM a partir de um laboratório para outro, 
 Atualmente, pode importar uma VM a partir de um laboratório para outro apenas ao utilizar o Azure PowerShell e a REST API.
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
-Transferir o script do PowerShell ImportVirtualMachines.ps1 a partir de ficheiros [repositório de Git de laboratório do DevTest do Azure](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) sua unidade local. 
+Transferir o script do PowerShell ImportVirtualMachines.ps1 a partir de ficheiros [repositório de Git de laboratório do DevTest do Azure](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) sua unidade local. 
 
 #### <a name="import-a-single-vm"></a>Importar uma única VM
 Execute o script de ImportVirtualMachines.ps1 para importar uma única VM a partir de um laboratório de origem para um laboratório de destino. Pode especificar um novo nome para a VM que está a ser copiado ao utilizar o paramer DestinationVirtualMachineName. 

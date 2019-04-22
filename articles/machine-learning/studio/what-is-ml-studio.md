@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
-ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/20/2019
+ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894007"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683006"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -108,7 +108,7 @@ Para obter ajuda na navegação da extensa biblioteca de algoritmos de machine l
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementar um serviço web de análise preditiva
 Assim que o modelo de análise preditiva estiver pronto, pode implementá-lo como um serviço web a partir do Machine Learning Studio. Consulte o artigo [Implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md) para obter mais detalhes.
 
-
+<a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>Como o Machine Learning Studio é diferente do serviço Azure Machine Learning?
 
 [O serviço do Azure Machine Learning](../service/overview-what-is-azure-ml.md) fornece serviços e SDKs para rapidamente de preparação de dados, preparar e implementar modelos de aprendizagem automática. Melhore a produtividade e reduza os custos através de computação e pipelines com dimensionamento automático. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn. 

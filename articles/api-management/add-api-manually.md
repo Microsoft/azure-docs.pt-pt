@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247907"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682802"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
-Os passos neste artigo mostram como utilizar o portal do Azure para adicionar uma API manualmente à instância de Gestão de API (APIM). Um cenário comum de quando será útil criar uma API em branco e defini-la manualmente é quando pretende simular uma API. Para obter detalhes sobre a simulação de uma API, veja [Simular respostas de API](mock-api-responses.md).
+Os passos neste artigo mostram como utilizar o portal do Azure para adicionar uma API manualmente para a instância de gestão de API (APIM). Um cenário comum de quando será útil criar uma API em branco e defini-la manualmente é quando pretende simular uma API. Para obter detalhes sobre a simulação de uma API, veja [Simular respostas de API](mock-api-responses.md).
 
 Se pretender importar uma API existente, veja a secção [Tópicos relacionados](#related-topics).
 
-Neste artigo, vamos criar uma API em branco e especificar [httpbin.org](http://httpbin.org) (um serviço de teste público) como uma API de back-end.
+Neste artigo, vamos criar uma API em branco e especificar [httpbin.org](https://httpbin.org) (um serviço de teste público) como uma API de back-end.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
+Conclua o início rápido seguinte: [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,10 +48,10 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
     |**Nome**|**Valor**|**Descrição**|
     |---|---|---|
     |**Nome a apresentar**|"*Blank API*" |Este nome é apresentado no portal do Programador.|
-    |**URL do Serviço Web** (opcional)| "*http://httpbin.org*"| Se pretender simular uma API, poderá não introduzir nada. <br/>Neste caso, vamos introduzir [http://httpbin.org](http://httpbin.org). Este é um serviço de teste público. <br/>Se pretender importar uma API que está mapeada para um back-end automaticamente, veja um dos tópicos na secção [Tópicos relacionados](#related-topics).|
+    |**URL do Serviço Web** (opcional)| "*https://httpbin.org*"| Se pretender simular uma API, poderá não introduzir nada. <br/>Neste caso, vamos introduzir [https://httpbin.org](https://httpbin.org). Este é um serviço de teste público. <br/>Se pretender importar uma API que está mapeada para um back-end automaticamente, veja um dos tópicos na secção [Tópicos relacionados](#related-topics).|
     |**Esquema do URL**|"*HTTPS*"|Neste caso, embora o back-end tenha acesso HTTP não seguro, especificamos um acesso APIM de HTTPS seguro para o back-end. <br/>Este tipo de cenário (HTTPS para HTTP) é chamado terminação HTTPS. Poderá fazê-lo se a sua API existir dentro de uma rede virtual (onde saiba que o acesso é seguro, mesmo que não seja utilizado HTTPS). <br/>Poderá utilizar a "terminação HTTPS" para poupar alguns ciclos da CPU.|
     |**Sufixo do URL**|"*hbin*"| O sufixo é um nome que identifica esta API específica nesta instância de APIM. Tem de ser exclusivo nesta instância de APIM.|
-    |**Produtos**|"*Unlimited*" |Associe a API a um produto e publique-a. Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/><br/> Por predefinição, cada instância da Gestão de API é fornecida com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
+    |**Produtos**|"*Unlimited*" |Associe a API a um produto e publique-a. Se pretender que a API seja publicada e esteja disponível para programadores, adicione-a a um produto. Pode fazê-lo durante a criação da API ou defini-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Pode incluir um número de APIs e disponibilizá-las para os programadores através do portal do programador. <br/>Os programadores têm de subscrever primeiro um produto para obter acesso à API. Quando subscrevem, recebem uma chave de subscrição que é válida para qualquer API nesse produto. Se tiver criado a instância APIM, já é um administrador, pelo que tem todos os produtos subscritos por predefinição.<br/><br/> Por predefinição, cada instância daAPI Management é fornecida com dois produtos de exemplo: **Starter** e **ilimitado**.| 
 5. Selecione **Criar**.
 
 Neste momento, não tem operações na APIM que mapeiem para as operações na sua API de back-end. Se chamar uma operação que está exposta através do back-end, mas não através da APIM, obtém um **404**.
@@ -107,7 +107,7 @@ Teste a operação no portal do Azure.  Em alternativa, pode testá-la no **Port
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Transformar e proteger a sua API](transform-api.md)

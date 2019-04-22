@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.openlocfilehash: e88be8e7b94566ff94dd94a8679f8ade9d54c0b6
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762328"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784524"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
 

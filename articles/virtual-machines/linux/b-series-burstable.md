@@ -1,9 +1,9 @@
 ---
-title: Os tamanhos de VM do Linux do Azure B-série | Microsoft Docs
-description: Descreve a B-série de burstable tamanhos de VM do Azure.
+title: Tamanhos de VM Linux do Azure de série B | Documentos da Microsoft
+description: Descreve a série B das burstable tamanhos de VM do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: jonbeck7
+author: ayshakeen
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
-ms.author: jonbeck
-ms.openlocfilehash: f60c5ab6b32eba8f35b4d788941406bd5723f25c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: ayshak
+ms.openlocfilehash: 7cbab5c6b3a724c2219648873fd45ca6bde90339
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834661"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683157"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquinas de virtuais burstable de série B
 
 [!INCLUDE [virtual-machines-common-b-series-burstable](../../../includes/virtual-machines-common-b-series-burstable.md)]
 
 
-## <a name="other-sizes"></a>Outros tamanhos de
+## <a name="other-sizes"></a>Outros tamanhos
 - [Fins gerais](sizes-general.md)
 - [Com otimização de computação](sizes-compute.md)
 - [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)
@@ -36,4 +36,4 @@ ms.locfileid: "30834661"
 - [Computação de elevado desempenho](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.

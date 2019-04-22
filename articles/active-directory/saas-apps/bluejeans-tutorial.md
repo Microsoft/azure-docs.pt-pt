@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901955"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integração do Active Directory do Azure com BlueJeans
 
@@ -38,7 +39,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com BlueJeans, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * BlueJeans único início de sessão na subscrição ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -105,14 +106,16 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
 4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    ![BlueJeans domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
+    ![BlueJeans domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<companyname>.BlueJeans.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.BlueJeans.com`
+
+    b. Na **identificador** caixa de texto, escreva um URL: `http://samlsp.bluejeans.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente BlueJeans](https://support.bluejeans.com/contact) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente BlueJeans](https://support.bluejeans.com/contact) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
@@ -122,7 +125,7 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -132,11 +135,11 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
 2. Aceda a **administrador \> definições de grupo \> segurança**.
 
-    ![Admin](./media/bluejeans-tutorial/IC785868.png "Admin")
+    ![Admin](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. Na **segurança** secção, execute os seguintes passos:
 
-    ![SAML início de sessão único](./media/bluejeans-tutorial/IC785869.png "SAML início de sessão único")
+    ![SAML início de sessão único](./media/bluejeans-tutorial/ic785869.png "SAML início de sessão único")
 
     a. Selecione **SAML início de sessão único**.
 
@@ -144,7 +147,7 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
 4. Avançar com os seguintes passos:
 
-    ![Caminho de certificado](./media/bluejeans-tutorial/IC785870.png "caminho de certificado")
+    ![Caminho de certificado](./media/bluejeans-tutorial/ic785870.png "caminho de certificado")
 
     a. Clique em **Escolher ficheiro**, para carregar o certificado com codificação base 64 que transferiu do portal do Azure.
 
@@ -156,9 +159,9 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
 5. Avançar com os seguintes passos:
 
-    ![Guardar alterações](./media/bluejeans-tutorial/IC785874.png "guardar alterações")
+    ![Guardar alterações](./media/bluejeans-tutorial/ic785874.png "guardar alterações")
 
-    a. Na **id de utilizador** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. Na **Id de utilizador** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     b. Na **E-Mail** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -182,8 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -225,18 +227,18 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no BlueJe
 
 2. Aceda a **administrador \> GERIR utilizadores \> adicionar utilizador**.
 
-    ![Admin](./media/bluejeans-tutorial/IC785877.png "Admin")
+    ![Admin](./media/bluejeans-tutorial/ic785877.png "Admin")
 
-    >[!IMPORTANT]
-    >O **adicionar utilizador** separador apenas está disponível se, no **guia de segurança**, **ativar o aprovisionamento automático** está desmarcada. 
+    > [!IMPORTANT]
+    > O **adicionar utilizador** separador apenas está disponível se, no **guia de segurança**, **ativar o aprovisionamento automático** está desmarcada.
 
 3. Na **adicionar utilizador** secção, execute os seguintes passos:
 
-    ![Adicionar utilizador](./media/bluejeans-tutorial/IC785886.png "adicionar utilizador")
+    ![Adicionar utilizador](./media/bluejeans-tutorial/ic785886.png "adicionar utilizador")
 
     a. Na **nome próprio** texto, introduza o nome de utilizador, como **Eduarda**.
 
-    b. Na **sobrenome** texto, digite o apelido do utilizador, como **simon**.
+    b. Na **sobrenome** texto, digite o apelido do utilizador, como **Simon**.
 
     c. Na **escolher um nome de utilizador BlueJeans** texto, introduza o nome de utilizador do utilizador, como **Brittasimon**
 
@@ -244,7 +246,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no BlueJe
 
     e. Na **empresa** texto, introduza a sua empresa.
 
-    f. Na **endereço de E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
+    f. Na **endereço de E-Mail** texto, introduza o e-mail do utilizador, como `brittasimon\@contoso.com`.
 
     g. Na **criar um I.D de reunião BlueJeans** texto, introduza o ID de reunião.
 
@@ -252,7 +254,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no BlueJe
 
     i. Clique em **continuar**.
 
-    ![Adicionar utilizador](./media/bluejeans-tutorial/IC785887.png "adicionar utilizador")
+    ![Adicionar utilizador](./media/bluejeans-tutorial/ic785887.png "adicionar utilizador")
 
     J. Clique em **adicionar utilizador**.
 
@@ -272,4 +274,3 @@ Quando clica no mosaico BlueJeans no painel de acesso, deve ser automaticamente 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

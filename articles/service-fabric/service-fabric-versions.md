@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191652"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681612"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões suportadas do Service Fabric
 
@@ -30,7 +30,9 @@ Consulte os seguintes documentos em detalhes sobre como manter o seu cluster exe
 - [Atualizar a versão do Service Fabric num cluster do Azure](service-fabric-cluster-upgrade.md)
 - [Atualizar a versão do Service Fabric num cluster de servidores windows autónomo](service-fabric-cluster-upgrade-windows-server.md)
 
-Seguem-se a lista das versões de Service Fabric que são suportadas e respetivas datas de fim do suporte.
+## <a name="supported-versions"></a>Versões suportadas
+
+A tabela seguinte lista as versões de Service Fabric que são suportadas e as respetivas datas de fim do suporte.
 
 | **Runtime do Service Fabric no cluster** | **Pode atualizar diretamente a partir da versão do cluster** |**SDK compatível / versões de pacote de NuGet** | **Fim do suporte** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ Seguem-se a lista das versões de Service Fabric que são suportadas e respetiva
 | 6.2.* | 6.0.232.* |Menor ou igual à versão 3.1 |Outubro 26,2018   |
 | 6.3.* | 6.1.480.* |Menor ou igual à versão 3.2 |Março de 31,2019  |
 | 6.4.* | 6.2.301.* |Menor ou igual a versão 3.3 |Versão atual e por isso, sem data de fim |
+
+## <a name="supported-operating-systems"></a>Sistemas operativos suportados
+
+ A tabela seguinte lista os sistemas operativos suportados para as versões suportadas do Service Fabric.
+
+| **Sistema operativo** | **Versão de recursos de infraestrutura de serviço com suporte mais antigo** |
+| --- | --- |
+| Windows Server 2012 R2 | Todas as versões |
+| Windows Server 2016 | Todas as versões |
+| Windows Server 1709 | 6.0 |
+| Windows Server versão 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

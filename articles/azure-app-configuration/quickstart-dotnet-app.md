@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: d71e08a548809ef0de47c4a865af531732a88a4b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576077"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697282"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: Criar um .NET Framework de aplicação com a configuração de aplicações do Azure
 
@@ -106,4 +106,4 @@ Para fazer este início rápido, instale [Visual Studio 2017](https://visualstud
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação de consola do .NET Framework. Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)

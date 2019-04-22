@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579415"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683615"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
 
@@ -46,7 +46,7 @@ Utilize a API de GenerateAnswer na sua aplicação ou Bot para consultar a base 
 Depois de publicar a sua base de dados de conhecimento, a partir do [portal do QnA Maker](https://www.qnamaker.ai), ou utilizando o [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), pode obter os detalhes do ponto final do GenerateAnswer.
 
 Para obter os detalhes do seu ponto final:
-1. Inicie sessão no [ https://www.qnamaker.ai ](https://www.qnamaker.ai).
+1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. Na **meu bases de dados de conhecimento**, clique em **View Code** para sua base de dados de conhecimento.
     ![meu bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do seu ponto final de GenerateAnswer.
@@ -64,7 +64,7 @@ Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mos
 O **URL do pedido** tem o seguinte formato: 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |Propriedade de pedido HTTP|Name|Type|Objetivo|
@@ -84,7 +84,7 @@ O corpo JSON tem várias definições:
 |`top`|opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
 |`userId`|opcional|string|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
 |`isTest`|opcional|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
-|`strictFilters`|opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados.|
+|`strictFilters`|opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Utilize `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
 
 Um exemplo de corpo JSON é semelhante a:
 

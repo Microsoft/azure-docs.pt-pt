@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266322"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683873"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -65,7 +65,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 - [Autenticação do SQL](#sql-authentication)
 - [Autenticação do Azure AD application token: Principal de serviço](#service-principal-authentication)
-- [Autenticação do Azure AD application token: Identidades geridas para os recursos do Azure](#managed-identity)
+- [Autenticação do Azure AD application token: identidades geridas para recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se atingir o erro com o código de erro como "UserErrorFailedToConnectToSqlServer" e a mensagem, como "o limite de sessão para a base de dados é XXX e foi atingido.", adicione `Pooling=false` para sua cadeia de ligação e tente novamente.
@@ -132,21 +132,21 @@ Para usar uma autenticação de token de aplicação de serviço baseada em prin
     - Chave da aplicação
     - ID do inquilino
 
-1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD tem de ser um utilizador do Azure AD ou o grupo do Azure AD, mas não pode ser um principal de serviço. Este passo é feito para que, no próximo passo, pode utilizar uma identidade do Azure AD para criar o principal de um utilizador de base de dados contido para o serviço.
+2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD tem de ser um utilizador do Azure AD ou o grupo do Azure AD, mas não pode ser um principal de serviço. Este passo é feito para que, no próximo passo, pode utilizar uma identidade do Azure AD para criar o principal de um utilizador de base de dados contido para o serviço.
 
-1. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o principal de serviço. Ligar à base de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL: 
+3. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o principal de serviço. Ligar à base de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL: 
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código:
+4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configurar um serviço de base de dados do SQL Azure ligado** no Azure Data Factory.
+5. **Configurar um serviço de base de dados do SQL Azure ligado** no Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Exemplo de serviço ligado que utilize autenticação do principal de serviço
@@ -182,31 +182,21 @@ Pode ser associada uma fábrica de dados com um [identidade de recursos do Azure
 
 Para utilizar a autenticação de identidade gerida, siga estes passos:
 
-1. **Crie um grupo no Azure AD.** Torne um membro do grupo de a identidade gerida.
-    
-   1. Encontre a identidade de geridos de fábrica de dados do portal do Azure. Vá para a fábrica de dados **propriedades**. Copie o ID de identidade de serviço.
-    
-   1. Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo. Inicie sessão com o `Connect-AzureAD` comando. Execute os seguintes comandos para criar um grupo e adicionar a identidade gerida como um membro.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-    
 1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
 
-1. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o grupo do Azure AD. Ligar à base de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL: 
+2. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para a identidade de geridos de fábrica de dados. Ligar à base de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL: 
     
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Conceder as permissões necessárias do grupo do Azure AD** como faria normalmente para utilizadores SQL e outras pessoas. Por exemplo, execute o seguinte código:
+3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configurar um serviço de base de dados do SQL Azure ligado** no Azure Data Factory.
+4. **Configurar um serviço de base de dados do SQL Azure ligado** no Azure Data Factory.
 
 **Exemplo:**
 
@@ -620,7 +610,7 @@ Quando copia dados de ou para a base de dados do Azure SQL, os seguintes mapeame
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numérico |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -628,7 +618,7 @@ Quando copia dados de ou para a base de dados do Azure SQL, os seguintes mapeame
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| text |String, Char[] |
+| texto |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |

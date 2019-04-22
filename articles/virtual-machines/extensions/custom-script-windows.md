@@ -3,8 +3,8 @@ title: Extensão de Script personalizado do Azure para Windows | Documentos da M
 description: Automatizar tarefas de configuração de VM do Windows ao utilizar a extensão de Script personalizado
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: georgewallace
+manager: carmonm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f4181fee-7a9d-4a1c-b517-52956f5b7fa1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
-ms.author: roiyz
-ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 075813feadfb81fe8f7d337dfc5f7ba01bd41e86
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097928"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698695"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script personalizado para Windows
 

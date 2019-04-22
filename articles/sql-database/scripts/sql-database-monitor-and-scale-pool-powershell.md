@@ -21,7 +21,7 @@ ms.locfileid: "59356607"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Utilizar o PowerShell para monitorizar e dimensionar um conjunto elástico na base de dados do Azure SQL
 
-Este exemplo de script do PowerShell monitoriza as métricas de desempenho de um conjunto elástico, dimensiona-o para um tamanho de computação superior e cria uma regra de alerta numa das métricas de desempenho.
+Este exemplo de script do PowerShell monitoriza as métricas de desempenho de um conjunto elástico, dimensiona-o para um tamanho da computação superior e cria uma regra de alerta numa das métricas de desempenho.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

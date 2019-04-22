@@ -1,22 +1,22 @@
 ---
-title: Configurar scripts de pré e post em sua implementação de gestão de atualizações no Azure (pré-visualização)
+title: Configurar scripts de pré e post em sua implementação de gestão de atualizações no Azure
 description: Este artigo descreve como configurar e gerir o pré e implementações de atualizações de scripts para postagem
 services: automation
 ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263813"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698747"
 ---
-# <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
+# <a name="manage-pre-and-post-scripts"></a>Gerir scripts de pré e post
 
 Scripts de pré e post permitem executar runbooks do PowerShell na sua conta de automatização antes (pré-tarefa) e depois da implantação (pós-tarefa) uma atualização. Scripts de pré e post são executados no contexto do Azure e não localmente. Pré-scripts de são executados no início da implantação da atualização. Scripts de publicação são executados no final da implementação e depois de quaisquer reinícios que estão configurados.
 
@@ -26,7 +26,7 @@ Para um runbook a ser utilizado como um script de pré ou post, o runbook tem de
 
 ## <a name="using-a-prepost-script"></a>Usando um script de pré/pós
 
-Para utilizar o pré e ou postagem de script numa implementação de atualização, comece por criar uma implementação de atualização. Selecione **pré- scripts de + Scripts de publicação (pré-visualização)**. Esta ação abre o **pré-scripts de selecione + pós-scripts** página.  
+Para utilizar o pré e ou postagem de script numa implementação de atualização, comece por criar uma implementação de atualização. Selecione **pré- scripts de + Scripts pós**. Esta ação abre o **pré-scripts de selecione + pós-scripts** página.  
 
 ![Selecione os scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -136,7 +136,7 @@ Um exemplo completo com todas as propriedades pode ser encontrado em: [Para obte
 > [!NOTE]
 > O `SoftwareUpdateConfigurationRunContext` objeto pode conter entradas duplicadas para máquinas. Isso pode fazer com que os scripts de pré e Post ser executado várias vezes na mesma máquina. Para resolver esse comportamento, utilize `Sort-Object -Unique` para selecionar apenas os nomes VM exclusivos em seu script.
 
-## <a name="samples"></a>Exemplos
+## <a name="samples"></a>Amostras
 
 Exemplos de scripts de pré e post podem ser encontrados na [Galeria de centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell), ou importados através do portal do Azure. A importação dos mesmos através do portal, na sua conta de automatização, em **automatização de processos**, selecione **Galeria de Runbooks**. Uso **gestão de atualizações** para o filtro.
 
@@ -206,7 +206,20 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-non-azure-machines"></a>Interagir com máquinas não Azure
+## <a name="interacting-with-machines"></a>Interagir com as máquinas
+
+Executam tarefas de pré e post como um runbook na conta de automatização e não diretamente nas máquinas na sua implementação. Tarefas de pré e post também executados no contexto do Azure e não tem acesso a máquinas não Azure. As secções seguintes mostram como pode interagir com as máquinas diretamente se eles são uma VM do Azure ou uma máquina não pertencentes ao Azure:
+
+### <a name="interacting-with-azure-machines"></a>Interagir com as máquinas do Azure
+
+Tarefas de pré e post são eram executados como runbooks e não são executados nativamente nas suas VMs do Azure na sua implementação. Para interagir com as VMs do Azure, tem de ter os seguintes itens:
+
+* Uma conta Run As
+* Um runbook que pretende executar
+
+Para interagir com as máquinas do Azure, deve utilizar o [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet para interagir com as VMs do Azure. Para obter um exemplo de como fazê-lo, veja o exemplo de runbook [gestão de atualizações - executar o Script com o comando executar](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc).
+
+### <a name="interacting-with-non-azure-machines"></a>Interagir com máquinas não Azure
 
 Tarefas de pré e post executados no contexto do Azure e não tem acesso a máquinas não Azure. Para interagir com as máquinas não Azure, tem de ter os seguintes itens:
 
@@ -215,38 +228,7 @@ Tarefas de pré e post executados no contexto do Azure e não tem acesso a máqu
 * Um runbook que pretende executar localmente
 * Runbook principal
 
-Para interagir com máquinas não Azure, um runbook principal é executado no contexto do Azure. Este runbook chama um runbook subordinado com o [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Tem de especificar o `-RunOn` parâmetro e forneça o nome da função de trabalho de Runbook híbrida para o script seja executado.
-
-```powershell
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$resourceGroup = "AzureAutomationResourceGroup"
-$aaName = "AzureAutomationAccountName"
-
-$output = Start-AzureRmAutomationRunbook -Name "StartService" -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName -RunOn "hybridWorker"
-
-$status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-while ($status.status -ne "Completed")
-{ 
-    Start-Sleep -Seconds 5
-    $status = Get-AzureRmAutomationJob -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-}
-
-$summary = Get-AzureRmAutomationJobOutput -Id $output.jobid -ResourceGroupName $resourceGroup  -AutomationAccountName $aaName
-
-if ($summary.Type -eq "Error")
-{
-    Write-Error -Message $summary.Summary
-}
-```
+Para interagir com máquinas não Azure, um runbook principal é executado no contexto do Azure. Este runbook chama um runbook subordinado com o [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Tem de especificar o `-RunOn` parâmetro e forneça o nome da função de trabalho de Runbook híbrida para o script seja executado. Para obter um exemplo de como fazê-lo, veja o exemplo de runbook [gestão de atualizações - execute o Script localmente](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
 ## <a name="abort-patch-deployment"></a>Abortar a implantação de patches
 
@@ -268,5 +250,5 @@ if (<My custom error logic>)
 Avance para o tutorial para saber como gerir atualizações para as suas máquinas virtuais do Windows.
 
 > [!div class="nextstepaction"]
-> [Gerir atualizações e correções para as VMs Windows do Azure](automation-tutorial-update-management.md)
+> [Gerir atualizações e correções para as VMs do Windows Azure](automation-tutorial-update-management.md)
 

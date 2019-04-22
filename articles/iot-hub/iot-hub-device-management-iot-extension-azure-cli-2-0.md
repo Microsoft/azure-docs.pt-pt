@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6b1029c5532e106c269b47e6e184b9c93faf8d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043011"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681425"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utilizar a extensão de IoT para a CLI do Azure para gestão de dispositivos do IoT Hub do Azure
 
@@ -49,7 +49,7 @@ Execute o CLI do Azure e a extensão de IoT para a CLI do Azure com várias opç
 
 ## <a name="what-you-need"></a>Do que precisa
 
-* Concluir o tutorial [configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) que abrange os seguintes requisitos:
+* Concluir o [simulador online de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial ou um dos tutoriais dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes incluem os seguintes requisitos::
 
   - Uma subscrição ativa do Azure.
   - Um hub IoT do Azure com a sua subscrição.

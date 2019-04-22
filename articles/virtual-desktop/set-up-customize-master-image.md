@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505605"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698320"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -274,7 +274,7 @@ Para redirecionar os fusos horários:
 1. No servidor do Active Directory, abra a **consola de gestão de políticas de grupo**.
 2. Expanda o seu domínio e objetos de política de grupo.
 3. Com o botão direito a **objeto de diretiva de grupo** que criou para a definições de política de grupo e selecione **editar**.
-4. Na **Editor de gerenciamento de diretiva de grupo**, navegue até à **configuração do computador** > **políticas** > **administração Modelos** > **componentes do Windows** > **horizonte Ver serviços de RDSH** > **sessão de área de trabalho remoto Host** > **dispositivo e o redirecionamento de recursos**.
+4. Na **Editor de gerenciamento de diretiva de grupo**, navegue até à **configuração do computador** > **políticas** > **administração Modelos** > **componentes do Windows** > **dos serviços de ambiente de trabalho remoto** > **anfitrião de sessões de ambiente de trabalho remoto**   >  **Dispositivo e o redirecionamento de recursos**.
 5. Ativar a **permitir o redireccionamento de fuso horário** definição.
 
 Também pode executar este comando na imagem mestra para redirecionar os fusos horários:
@@ -367,8 +367,8 @@ As instruções seguintes indicam como carregar sua imagem mestre para uma conta
 
 Agora que possui uma imagem, pode criar ou atualizar conjuntos de anfitrião. Para saber mais sobre como criar e atualizar conjuntos de anfitrião, veja os artigos seguintes:
 
-- [Criar um conjunto de anfitriões com um modelo do Azure Resource Manager](create-host-pools-arm-template.md)
+- [Criar um conjunto de anfitrião com um modelo Azure Resource Manager](create-host-pools-arm-template.md)
 - [Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Criar um conjunto de anfitriões com o PowerShell](create-host-pools-powershell.md)
-- [Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões](create-host-pools-user-profile.md)
-- [Configurar o método de balanceamento de carga do Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configurar uma partilha do perfil de utilizador para um conjunto de anfitrião](create-host-pools-user-profile.md)
+- [Configurar o método de balanceamento de carga de área de Trabalho Virtual do Windows](configure-host-pool-load-balancing.md)

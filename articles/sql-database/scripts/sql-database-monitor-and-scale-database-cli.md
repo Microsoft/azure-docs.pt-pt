@@ -21,7 +21,7 @@ ms.locfileid: "59361601"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Utilizar a CLI para monitorizar e dimensionar uma base de dados SQL
 
-Este exemplo de script da CLI do Azure dimensiona uma base de dados SQL do Azure para um tamanho de computação diferente depois de consultar as informações de tamanho da base de dados.
+Este exemplo de script da CLI do Azure dimensiona uma base de dados SQL do Azure para um tamanho da computação diferente depois de consultar as informações de tamanho da base de dados.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Cria um servidor de base de dados SQL que aloja as bases de dados individuais e conjuntos elásticos. |
 | [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Mostra as informações de utilização de tamanho de uma base de dados individual ou agrupada. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Atualiza as propriedades da base de dados (como o escalão de serviço ou o tamanho de computação) ou move uma base de dados para, de ou entre conjuntos elásticos. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Atualiza as propriedades da base de dados (como o escalão de serviço ou o tamanho da computação) ou move uma base de dados para, de ou entre conjuntos elásticos. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 

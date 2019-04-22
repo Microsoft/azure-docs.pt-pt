@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 04/24/2018
 ms.author: danlep
 ms.openlocfilehash: 950d8b4b5ec1a55e2054039a01d6807915b5c714
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848227"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784078"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
 

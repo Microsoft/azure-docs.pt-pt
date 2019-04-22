@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59362198"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784061"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Camada de negócio críticos - base de dados do Azure SQL
 
@@ -27,7 +27,7 @@ ms.locfileid: "59362198"
 Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do SQL Server que é ajustada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três modelos de arquiteturais que são utilizados na base de dados do Azure SQL:
 - Geral finalidade/Standard 
 - Críticos de negócios/Premium
-- Hiperescala
+- Hyperscale
 
 Modelo de camada de serviço crítico para a empresa/Premium baseia-se num cluster de processos de motor de base de dados. Este modelo de arquitetura baseia-se no fato de que existe é sempre um quórum de nós de motor de base de dados disponíveis e não tem impacto de desempenho mínimos na carga de trabalho, mesmo durante as atividades de manutenção.
 

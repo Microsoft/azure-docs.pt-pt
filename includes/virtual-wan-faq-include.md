@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3fa261c6cb76cb95cffc602e5018e480afbb5dae
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891056"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737239"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -81,7 +81,7 @@ Sim. Veja a página [Preços](https://azure.microsoft.com/pricing/details/virtua
 
 ### <a name="how-do-i-calculate-price-of-a-hub"></a>Como posso calcular o preço de um hub?
  
-Pagaria para o serviço no hub. Por exemplo, 10 ramificações ou dispositivos no local que seja necessário para ligar a WAN Virtual do Azure implicariam ligar pontos finais VPN no hub. Permite que dizer que esta é a VPN de unidade de escala de 1 = 500 Mbps, isso é cobrado em US $0.361/ h. Cada ligação é cobrada em US $ 0,08/h. Para 10 conexões, o encargo total de serviço/h seria US $0.361 + $. 8 / RH. Encargos de dados de deixar o tráfego do azure aplicam-se. 
+Pagaria para o serviço no hub. Por exemplo, 10 ramificações ou dispositivos no local que seja necessário para ligar a WAN Virtual do Azure implicariam ligar pontos finais VPN no hub. Permite que dizer que esta é a VPN de unidade de escala de 1 = 500 Mbps, isso é cobrado em US $0.361/ h. Cada ligação é cobrada em US $ 0,08/h. Para 10 conexões, o encargo total de serviço/h seria US $0.361 + $. 8 / RH. Os encargos de dados para o tráfego que sai do Azure aplicam-se. 
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Como é que os novos parceiros que não estão listados na sua lista de parceiros de lançamento são incluídos?
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437344"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699275"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ligar computadores sem acesso à internet com o gateway do Log Analytics no Azure Monitor
 
@@ -124,9 +124,9 @@ ou
 1. No painel da área de trabalho, sob **configurações**, selecione **definições avançadas**.
 1. Aceda a **origens ligadas** > **servidores de Windows** e selecione **gateway de baixar o Log Analytics**.
 
-## <a name="install-the-log-analytics-gateway"></a>Instalar o gateway do Log Analytics
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Instalar o gateway de Log Analytics com o Assistente de configuração
 
-Para instalar um gateway, siga estes passos.  (Se tiver instalado uma versão anterior, chamada reencaminhador do Log Analytics, ela será atualizada para esta versão.)
+Para instalar um gateway com o Assistente de configuração, siga estes passos. 
 
 1. Na pasta de destino, faça duplo clique em **gateway.msi do Log Analytics**.
 1. Na página **Bem-vindo**, selecione **Seguinte**.
@@ -152,6 +152,40 @@ Para instalar um gateway, siga estes passos.  (Se tiver instalado uma versão an
 
    ![Captura de ecrã de serviços locais, que mostra que o Gateway do OMS está em execução](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instalar o gateway do Log Analytics, utilizando a linha de comandos
+O ficheiro transferido para o gateway é um pacote de instalador Windows que suporta a instalação automática de linha de comandos ou outro método automatizado. Se não estiver familiarizado com as opções da linha de comandos padrão para o Windows Installer, consulte [opções da linha de comandos](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+A tabela seguinte realça os parâmetros suportados pela configuração.
+
+|Parâmetros| Notas|
+|----------|------| 
+|PORTNUMBER | Número de porta TCP para o gateway para escutar |
+|PROXY | Endereço IP do servidor proxy |
+|INSTALLDIR | Caminho totalmente qualificado para especificar o diretório de instalação dos ficheiros de software de gateway |
+|NOME DE UTILIZADOR | Id de utilizador para autenticar com o servidor proxy |
+|PALAVRA-PASSE | Palavra-passe do utilizador Id para autenticar com o proxy |
+|LicenseAccepted | Especifique um valor de **1** para verificar a aceitar o contrato de licença |
+|HASAUTH | Especifique um valor de **1** quando foram especificados parâmetros de nome de utilizador/palavra-passe |
+|HASPROXY | Especifique um valor de **1** ao especificar o endereço IP para **PROXY** parâmetro |
+
+Para instalar automaticamente o gateway e configurá-lo com um endereço de proxy específico, o número de porta, escreva o seguinte:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+Utilizar a opção de linha de comando /qn oculta o programa de configuração, /qb mostra o programa de configuração durante a instalação silenciosa.  
+
+Se precisar de fornecer as credenciais para autenticar com o proxy, escreva o seguinte:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+Após a instalação, pode confirmar as definições são aceites (exlcuding o nome de utilizador e palavra-passe) com os seguintes cmdlets do PowerShell:
+
+- **Get-OMSGatewayConfig** – devolve o gateway está configurado para escutar a porta de TCP.
+- **Get-OMSGatewayRelayProxy** – devolve o endereço IP do servidor proxy configurado para comunicar com.
 
 ## <a name="configure-network-load-balancing"></a>Configurar o balanceamento de carga de rede 
 Pode configurar o gateway para elevada disponibilidade com a rede balanceamento de carga (NLB) com qualquer um dos Microsoft [rede balanceamento de carga (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), ou balanceadores de carga baseada em hardware. O Balanceador de carga gere tráfego ao redirecionar as ligações pedidas dos agentes do Log Analytics ou servidores de gestão do Operations Manager em todos os seus nós. Se um servidor de Gateway ficar inativo, o tráfego é redirecionado para outros nós.

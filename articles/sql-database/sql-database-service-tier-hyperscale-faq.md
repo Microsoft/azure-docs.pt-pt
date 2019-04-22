@@ -44,7 +44,7 @@ O serviço de acesso baseado em vCore escalões principalmente são diferenciado
 - A camada de serviços de Hiperescala está otimizada para cargas de trabalho de base de dados muito grandes.
 - O escalão de serviço crítico para a empresa é adequado para cargas de trabalho empresariais em que a latência de e/s é uma prioridade.
 
-| | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para a Empresa |
+| | Tipo de recurso | Fins Gerais |  Hyperscale | Crítico para a Empresa |
 |:---|:---:|:---:|:---:|:---:|
 | **Melhor para** |Todos|  A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas equilibradas opções de computação e armazenamento. | Aplicações de dados com os requisitos de capacidade de dados grandes e a capacidade para armazenamento de dimensionamento automático e o dimensionamento de computação com fluidez. | Aplicativos de OLTP com elevada taxa de transações e menor latência e/s. Oferece maior resiliência a falhas usando vários, isolada réplicas.|
 |  **Tipo de recurso** ||Base de dados / elastic pool / instância gerida | Base de dados individual | Base de dados / elastic pool / instância gerida |

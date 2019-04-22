@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276784"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684026"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de base de dados de conhecimento no QnA Maker
 A ferramenta QnA Maker Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -35,14 +35,23 @@ A base de dados de conhecimento está pronta para teste depois que ele é preenc
 
 Esse loop estreito de atualização de teste continua até estar satisfeito com os resultados. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para grandes KBs, utilize testes automatizados com o [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e o `isTest=true` parâmetro de cadeia de caracteres de consulta que consultas a `test` base de dados de conhecimento, em vez da base de dados de conhecimento publicada. 
+Para grandes KBs, utilize testes automatizados com o [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e o `isTest` body as consultas de propriedade a `test` base de dados de conhecimento, em vez da base de dados de conhecimento publicada. 
+
+```json
+{
+  "question": "example question",
+  "top": 3,
+  "userId": "Default",
+  "isTest": true
+}
+```
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 Depois de concluída a base de dados de conhecimento de teste, pode publicá-lo. Publicar pushes a versão mais recente da base de dados de conhecimento testada para uma pesquisa do Azure dedicado de índice que representa a **publicados** base de dados de conhecimento. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
 Dessa forma, qualquer alteração que está a ser feita para a versão de teste de base de dados de conhecimento não afetam a versão publicada que pode ser em direto num aplicativo de produção.
 
-Cada uma destas bases de dados de conhecimento pode ser alvo para fins de teste em separado. Com as APIs, pode direcionar a versão de teste de base de dados de conhecimento com `isTest=true` sinalizador na chamada generateAnswer.
+Cada uma destas bases de dados de conhecimento pode ser alvo para fins de teste em separado. Com as APIs, pode direcionar a versão de teste de base de dados de conhecimento com `isTest` body propriedade na chamada generateAnswer.
 
 Saiba como [publicar a sua base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

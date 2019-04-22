@@ -1,12 +1,18 @@
 ---
 title: Organizar recursos com os grupos de gestão do Azure - Governação do Azure
-description: 'Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.'
+description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699394"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -37,11 +43,11 @@ Uma única atribuição no grupo de gestão pode permitir que os utilizadores te
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório
 
 É atribuído a cada diretório um único grupo de gestão de nível superior denominado grupo de gestão de "Raiz".
-Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo de gestão de Raiz permite a aplicação de políticas globais e de atribuições RBAC ao nível do diretório. Inicialmente, o [Administrador Global do Azure AD tem de se elevar](../../role-based-access-control/elevate-access-global-admin.md) a proprietário deste grupo de raiz. Assim que o administrador se tornar no proprietário do grupo, pode atribuir qualquer função RBAC a outros utilizadores do diretório ou grupos para gerir a hierarquia.
+Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os grupos de gestão e subscrições associados ao mesmo. Este grupo de gestão de raiz permite a aplicação de políticas globais e atribuições do RBAC ao nível do diretório. Inicialmente, o [Administrador Global do Azure AD tem de se elevar](../../role-based-access-control/elevate-access-global-admin.md) à função de Administrador de Acesso de Utilizador deste grupo de raiz. Após elevar esse acesso, o administrador pode atribuir qualquer função RBAC a outros utilizadores do diretório ou grupos para gerir a hierarquia. Enquanto administrador, pode atribuir à sua própria conta a função de proprietário do grupo de gestão de raiz.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Factos importantes sobre o grupo de gestão de Raiz
 
-- O nome e ID do grupo de gestão de raiz são fornecidos por predefinição. O nome a apresentar pode ser atualizado a qualquer momento para mostrar o nome diferente no portal do Azure.
+- O nome e ID do grupo de gestão de raiz são fornecidos por predefinição. O nome a apresentar pode ser atualizado a qualquer momento para mostrar o nome diferente no portal do Azure. Para [alterar o nome](manage.md#change-the-name-of-a-management-group), sua conta tem de estar atribuída à função de Proprietário ou Contribuinte no grupo de gestão de raiz.
   - O nome será "Grupo de raiz de inquilino".
   - O ID será o ID do Azure Active Directory.
 - O grupo de gestão de raiz não pode ser movido nem eliminado, ao contrário de outros grupos de gestão.  
@@ -63,7 +69,7 @@ Quando um utilizador começa a utilizar grupos de gestão, ocorre um processo de
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas ao ver todas as subscrições
 
-Alguns diretórios que começaram a utilizar os grupos de gestão numa fase inicial da pré-visualização, antes de 25 de junho de 2018, podem ter um problema em que todas as subscrições não se encontram na hierarquia.  Os processos que permitem incluir todas as subscrições na hierarquia foram implementados após uma atribuição de função ou política realizada no grupo de gestão de raiz no diretório.
+Alguns diretórios que começaram a utilizar os grupos de gestão numa fase inicial da pré-visualização, antes de 25 de junho de 2018, podem ter um problema em que nem todas as subscrições estão dentro da hierarquia. O processo que permite incluir todas as subscrições na hierarquia foram implementados após uma atribuição de função ou política realizada no grupo de gestão de raiz no diretório. 
 
 ### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
 

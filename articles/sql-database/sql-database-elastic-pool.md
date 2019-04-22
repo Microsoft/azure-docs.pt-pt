@@ -138,7 +138,7 @@ Para obter mais informações sobre outras ferramentas de base de dados para tra
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opções de continuidade de negócio para bases de dados num conjunto elástico
 
-As bases de dados agrupadas suportam geralmente as mesmas [funcionalidades de continuidade de negócio](sql-database-business-continuity.md) que estão disponíveis para as bases de dados individuais.
+As bases de dados de conjunto suportam geralmente as mesmas [funcionalidades de continuidade de negócio](sql-database-business-continuity.md) que estão disponíveis para as bases de dados individuais.
 
 - **Restauro de ponto no tempo**
 

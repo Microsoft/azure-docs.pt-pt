@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: a8d071544462361e9750d3fa622467cd0000a040
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 43d0ab6552847df7f1f2a8599dcc7cb9a8fcb57b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056788"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698834"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de referência de computação para VMs do Windows
-As pontuações de referência SPECInt seguintes mostram o desempenho de computação de alinhamento de VM de alto desempenho do Azure com o Windows Server. Pontuações de referência de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+As pontuações de referência SPECInt seguintes mostram o desempenho de computação de alinhamento de VM de alto desempenho do Azure com o Windows Server. Pontuações de referência de computação também estão disponíveis para [VMs do Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Os números de Linux foi atualizados recentemente e contêm um conjunto mais abrangente de VMs.

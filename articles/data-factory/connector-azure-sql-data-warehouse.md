@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/16/2019
 ms.author: jingwang
-ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010200"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681221"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -58,11 +58,11 @@ As seguintes propriedades são suportadas para um serviço ligado do Azure SQL D
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo deve ser definida como **AzureSqlDW**. | Sim |
+| tipo | A propriedade de tipo deve ser definida como **AzureSqlDW**. | Sim |
 | connectionString | Especifique as informações necessárias para ligar à instância do armazém de dados SQL do Azure para o **connectionString** propriedade. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a chave de principal de serviço/palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
 | servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
-| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
+| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim, ao utilizar a autenticação do Azure AD com um principal de serviço. |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou um runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não |
 
 Para tipos de autenticação diferentes, consulte as secções seguintes em pré-requisitos e exemplos de JSON, respectivamente:
@@ -136,21 +136,21 @@ Para utilizar a autenticação de token de aplicação de serviço baseada em pr
     - Chave da aplicação
     - ID do inquilino
 
-1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
+2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
 
-1. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o principal de serviço. Ligar ao armazém de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL:
+3. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o principal de serviço. Ligar ao armazém de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código:
+4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configurar um serviço ligado do Azure SQL Data Warehouse** no Azure Data Factory.
+5. **Configurar um serviço ligado do Azure SQL Data Warehouse** no Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Exemplo de serviço ligado que utilize autenticação do principal de serviço
@@ -184,36 +184,23 @@ Para utilizar a autenticação de token de aplicação de serviço baseada em pr
 
 Pode ser associada uma fábrica de dados com um [identidade de recursos do Azure gerida](data-factory-service-identity.md) que representa a fábrica específica. Pode utilizar esta identidade gerida para a autenticação do Azure SQL Data Warehouse. A fábrica designada pode aceder e do armazém de dados de cópia de ou para os seus dados ao utilizar esta identidade.
 
-> [!IMPORTANT]
-> Tenha em atenção que o PolyBase não é atualmente suportado para a autenticação de identidade gerida.
-
 Para utilizar a autenticação de identidade gerida, siga estes passos:
 
-1. **Crie um grupo no Azure AD.** Torne um membro do grupo de a identidade gerida.
+1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
 
-   1. Encontre a identidade de geridos de fábrica de dados do portal do Azure. Vá para a fábrica de dados **propriedades**. Copie o ID de identidade de serviço.
-
-   1. Instalar o [do Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) módulo. Inicie sessão com o `Connect-AzureAD` comando. Execute os seguintes comandos para criar um grupo e adicionar a identidade gerida como um membro.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-
-1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito.
-
-1. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o grupo do Azure AD. Ligar ao armazém de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL. 
+2. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para a identidade de geridos de fábrica de dados. Ligar ao armazém de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL. 
     
     ```sql
-    CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Conceder as permissões necessárias do grupo do Azure AD** como faria normalmente para utilizadores SQL e outras pessoas. Por exemplo, execute o seguinte código.
+3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Azure AD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configurar um serviço ligado do Azure SQL Data Warehouse** no Azure Data Factory.
+5. **Configurar um serviço ligado do Azure SQL Data Warehouse** no Azure Data Factory.
 
 **Exemplo:**
 
@@ -244,7 +231,7 @@ Para copiar dados de ou para o Azure SQL Data Warehouse, defina o **tipo** propr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **type** propriedade do conjunto de dados tem de ser definida como **AzureSqlDWTable**. | Sim |
+| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **AzureSqlDWTable**. | Sim |
 | tableName | O nome da tabela ou vista na instância do Azure SQL Data Warehouse que o serviço ligado refere-se a. | Não para a origem, Sim para o sink |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
@@ -276,7 +263,7 @@ Para copiar dados do Azure SQL Data Warehouse, defina o **tipo** propriedade na 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **type** propriedade da origem de atividade de cópia tem de ser definida como **SqlDWSource**. | Sim |
+| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **SqlDWSource**. | Sim |
 | sqlReaderQuery | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução de SQL tem de ser uma instrução SELECT no procedimento armazenado. | Não |
 | storedProcedureParameters | Parâmetros do procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. | Não |
@@ -379,7 +366,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlDWSink**. | Sim |
+| tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlDWSink**. | Sim |
 | allowPolyBase | Indica se deve utilizar o PolyBase, quando aplicável, em vez do mecanismo BULKINSERT. <br/><br/> Recomendamos que carrega dados para o SQL Data Warehouse com o PolyBase. Consulte a [utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) secção para as restrições e detalhes.<br/><br/>Valores permitidos são **True** e **falso** (predefinição).  | Não |
 | polyBaseSettings | Um grupo de propriedades que pode ser especificada quando o **allowPolybase** estiver definida como **verdadeiro**. | Não |
 | rejectValue | Especifica o número ou porcentagem das linhas que pode ser rejeitada antes da consulta falha.<br/><br/>Saiba mais sobre opções de rejeição do PolyBase na seção argumentos [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Valores permitidos são 0 (predefinição), 1, 2, etc. |Não |
@@ -415,9 +402,6 @@ Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/p
 * Se a sua origem de dados está no armazenamento de Blobs do Azure ou do Azure Data Lake Store e o formato é compatível com o PolyBase, direto de cópia para o Azure SQL Data Warehouse com o PolyBase. Para obter detalhes, consulte  **[direcionar cópia com o PolyBase](#direct-copy-by-using-polybase)**.
 * Se seu arquivo de dados de origem e o formato originalmente não é suportada pelo PolyBase, utilize o **[cópia faseada através do PolyBase](#staged-copy-by-using-polybase)** em vez disso, a funcionalidade. A funcionalidade de cópia faseada também oferece melhor débito. Converte automaticamente os dados em formato compatível com o PolyBase. E ele armazena os dados no armazenamento de Blobs do Azure. Em seguida, carrega os dados para o SQL Data Warehouse.
 
-> [!IMPORTANT]
-> Tenha em atenção que o PolyBase não é atualmente suportado para a autenticação de token de aplicação baseada em MSI do Azure AD.
-
 ### <a name="direct-copy-by-using-polybase"></a>Copiar direto utilizando o PolyBase
 
 SQL Data Warehouse PolyBase suporta diretamente o Blob do Azure e Azure Data Lake Store. Utiliza o principal de serviço como uma origem e tem requisitos de formato de ficheiro específico. Se a sua fonte de dados cumprir os critérios descritos nesta secção, utilize o PolyBase para copiar direta do arquivo de dados de origem para o Azure SQL Data Warehouse. Caso contrário, utilize [cópia faseada através do PolyBase](#staged-copy-by-using-polybase).
@@ -427,7 +411,7 @@ SQL Data Warehouse PolyBase suporta diretamente o Blob do Azure e Azure Data Lak
 
 Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definições e vai automaticamente para o mecanismo BULKINSERT para o movimento de dados.
 
-1. O **serviço ligado de origem** é de tipo de armazenamento de Blobs do Azure (**AzureBLobStorage**/**AzureStorage**) com autenticação de chave de conta ou o Azure Data Lake Armazenamento Gen1 (**AzureDataLakeStore**) com a autenticação do principal de serviço.
+1. O **serviço ligado de origem** é de tipo de armazenamento de Blobs do Azure (**AzureBLobStorage**/**AzureStorage**) com **autenticação de chave de conta**  ou do Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) com **autenticação do principal de serviço**.
 2. O **conjunto de dados de entrada** é do tipo **AzureBlob** ou **AzureDataLakeStoreFile**. O tipo de formato sob `type` propriedades é **OrcFormat**, **ParquetFormat**, ou **TextFormat**, com as seguintes configurações:
 
    1. `fileName` não contém o filtro de carateres universais.
@@ -552,9 +536,9 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON |
 | --- | --- | --- |
-| dbo | MyTable | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
-| dbo1 | MyTable | dbo1.MyTable ou [dbo1].[MyTable] |
-| dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
+| dbo | MyTable | MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
+| dbo1 | MyTable | dbo1. MyTable ou [dbo1]. [MyTable] |
+| dbo | My.Table | [My.Table] ou [dbo]. [My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
 
 Se vir o seguinte erro, o problema poderá ser o valor especificado para o **tableName** propriedade. Consulte a tabela anterior para a maneira correta de especificar valores para o **tableName** propriedade JSON.
@@ -580,36 +564,36 @@ Quando copia dados de ou para o Azure SQL Data Warehouse, os seguintes mapeament
 | Tipo de dados do armazém de dados SQL do Azure | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | bigint | Int64 |
-| binary | Byte[] |
-| bit | Boolean |
-| char | String, Char[] |
+| binário | Byte[] |
+| bit | Booleano |
+| char | Cadeia de caracteres, Char [] |
 | date | DateTime |
 | Datetime | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
-| FILESTREAM attribute (varbinary(max)) | Byte[] |
-| Float | Double |
+| decimal | decimal |
+| Atributo FILESTREAM (varbinary(max)) | Byte[] |
+| Flutuante | Valor de duplo |
 | image | Byte[] |
 | int | Int32 |
-| money | Decimal |
-| nchar | String, Char[] |
-| ntext | String, Char[] |
-| numeric | Decimal |
-| nvarchar | String, Char[] |
-| real | Single |
-| rowversion | Byte[] |
+| dinheiro | decimal |
+| nchar | Cadeia de caracteres, Char [] |
+| ntext | Cadeia de caracteres, Char [] |
+| numérico | decimal |
+| nvarchar | Cadeia de caracteres, Char [] |
+| real | Único |
+| ROWVERSION | Byte[] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
-| smallmoney | Decimal |
+| smallmoney | decimal |
 | sql_variant | Object |
-| text | String, Char[] |
-| time | TimeSpan |
-| timestamp | Byte[] |
+| texto | Cadeia de caracteres, Char [] |
+| hora | Período de tempo |
+| carimbo de data/hora | Byte[] |
 | tinyint | Byte |
-| uniqueidentifier | Guid |
+| uniqueidentifier | GUID |
 | varbinary | Byte[] |
-| varchar | String, Char[] |
+| varchar | Cadeia de caracteres, Char [] |
 | xml | Xml |
 
 ## <a name="next-steps"></a>Passos Seguintes

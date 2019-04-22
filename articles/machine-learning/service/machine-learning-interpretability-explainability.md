@@ -1,7 +1,7 @@
 ---
 title: Capacidade de interpretação do modelo
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar o SDK do Azure Machine Learning Interpretability para explicar por que o seu modelo faz predições. Ele pode ser usado durante a inferência e formação para compreender como o seu modelo faz predições.
+description: Aprenda a explicar por que o seu modelo faz predições com o Azure Machine Learning Interpretability SDK. Ele pode ser usado durante a inferência e formação para compreender como o seu modelo faz predições.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494445"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682462"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>SDK do Azure Machine Learning Interpretability
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Modelo interpretability com o serviço Azure Machine Learning
 
 Neste artigo, irá aprender a explicar por que o seu modelo de feitas as previsões tornou-se com o SDK de Interpretability do Azure Machine Learning. É importante ser capaz de explicar o seu modelo pelos seguintes motivos:
 
@@ -25,9 +25,10 @@ Neste artigo, irá aprender a explicar por que o seu modelo de feitas as previs�
 * Enquanto cientista de dados, quiser entender **como consultar o modelo para encontrar informações**. Também precisa de ferramentas para tomar decisões informadas sobre **como melhorar o seu modelo**.
 * Como uma empresa, precisa entender **o comportamento do modelo com diferentes distribuições de entrada** e **como o modelo se comportará ao analisar a entrada específica**.
 
-Interpretability do Machine learning é importante em duas fases do ciclo de desenvolvimento de aprendizagem automática: **treinamento** tempo e **inferência** tempo:
+Interpretability do Machine learning é importante em duas fases do ciclo de desenvolvimento de aprendizagem automática: 
 
 * Durante **treinamento**: Designers de modelo e avaliadores necessitam de ferramentas de interpretability para explicar o resultado de um modelo para os participantes para criar a confiança. Eles também precisam informações sobre o modelo para que eles possam depurar o modelo e tomar decisões sobre o comportamento corresponde a seus objetivos. Por fim, eles precisam para se certificar de que o modelo não é medido.
+
 * Durante **inferência**: Predições tem de ser explicadas para as pessoas que utilizam o seu modelo. Por exemplo, por que fiz o modelo de negar um empréstimo mortgage, ou prever que um portfólio de investimento acarreta um risco mais alto?
 
 O SDK do Azure Machine Learning Interpretability incorpora tecnologias desenvolvidas pela Microsoft e comprovada bibliotecas de terceiros (por exemplo, SHAP e verde-LIMÃO). O SDK cria uma API comum entre as bibliotecas integradas e integra-se os serviços do Azure Machine Learning. Com este SDK, pode explicar modelos de machine learning **globalmente em todos os dados**, ou **localmente num ponto de dados específico** usando as tecnologias de topo de gama de forma fácil de usar e dimensionável.
@@ -91,7 +92,7 @@ A inteligência incorporada ao `TabularExplainer` irá tornar-se mais sofisticad
 
 O diagrama seguinte mostra a relação entre os dois conjuntos de direct e meta explainers.
 
-[![Machine Learning Interpretability arquitetura](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Arquitetura de Interpretability do Machine Learning](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>Modelos suportados
 

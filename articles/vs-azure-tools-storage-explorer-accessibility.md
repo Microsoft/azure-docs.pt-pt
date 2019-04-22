@@ -1,6 +1,6 @@
 ---
-title: Acessibilidade de Explorador de armazenamento do Azure (pré-visualização) | Microsoft Docs
-description: Acessibilidade de Explorador de armazenamento do Azure (pré-visualização)
+title: Acessibilidade do Explorador de armazenamento do Azure (pré-visualização) | Documentos da Microsoft
+description: Acessibilidade do Explorador de armazenamento do Azure (pré-visualização)
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,79 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: 617a5c35ce059bf13fcf0b5aab415d8e431041e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525946"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698098"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Explorador de armazenamento
-## <a name="screen-readers"></a>Leitores de ecrã
-Explorador de armazenamento suporta a utilização de um leitor de ecrã em Windows e Mac. Os leitores de ecrã seguinte, são recomendados para cada plataforma:
-* Windows: NVDA
-* MAC: Voice Over
-* Linux: Leitores de ecrã não são suportados no Linux
 
-Caso se depare com um problema de acessibilidade ao utilizar o Explorador de armazenamento, consulte [abrir um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+## <a name="screen-readers"></a>Leitores de ecrã
+
+Explorador de armazenamento suporta a utilização de um leitor de ecrã no Windows e Mac. Os leitores de ecrã seguintes são recomendados para cada plataforma:
+
+Plataforma | Leitor de ecrã
+---------|--------------
+Windows  | NVDA
+Mac      | Voice Over
+Linux    | (os leitores de ecrã não são suportados no Linux)
+
+Caso se depare com um problema de acessibilidade ao utilizar o Explorador de armazenamento, volte [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="zoom"></a>Zoom
-Pode efetuar o texto no Explorador de armazenamento maiores através de zoom. Para aplicar zoom no, clique em **Zoom no** no menu de ajuda. Também pode utilizar o menu de ajuda para reduzir e repor o nível de zoom de volta para o nível predefinido.
 
-![Opções de zoom no menu Ajuda][0]
+Pode aumentar o texto no Explorador de armazenamento por meio de zoom em. Para aplicar zoom no, clique em **Zoom em** no menu de ajuda. Também pode utilizar o menu de ajuda para reduzir e o nível de zoom de volta para o nível predefinido de reposição.
 
-A definição de zoom aumenta o tamanho da maioria dos elementos de IU. Recomenda-se também ativar texto grande e as definições para o SO para se certificar de que todos os elementos de IU estão corretamente dimensionados de zoom.
+![Opções de zoom no menu de ajuda][0]
 
-## <a name="high-contrast-theming"></a>Temas elevado contraste
-Explorador de armazenamento tem dois temas de alto contraste, **elevado contraste leve** e **elevado contraste escuro**. Pode alterar o tema acedendo ao submenu temas no menu de ajuda.
+A definição de zoom aumenta o tamanho da maioria dos elementos de interface do Usuário. Recomenda-se também ativar texto grande e as definições para o seu sistema operacional para se certificar de que todos os elementos de interface do Usuário são corretamente dimensionados de zoom.
 
-![Temas sub menu][1]
+## <a name="high-contrast-themes"></a>Temas de alto contraste
 
-A definição do tema altera a cor da maioria dos elementos de IU. Recomenda-se também ativar o tema de alto contraste para se certificar de que todos os elementos de IU estão corretamente coloridos de correspondência dos seu SO.
+Explorador de armazenamento tem dois temas de alto contraste, **alto contraste Light** e **alto contraste escuro**. Pode alterar o tema selecionando na ajuda do > menu de temas.
+
+![Os temas sub menu][1]
+
+A definição de tema altera a cor da maioria dos elementos de interface do Usuário. Recomenda-se também habilitar o tema de alto contraste para se certificar de que todos os elementos de interface do Usuário são corretamente coloridos de correspondência de seu sistema operacional.
 
 ## <a name="shortcut-keys"></a>Teclas de atalho
+
 ### <a name="window-commands"></a>Janela de comandos
-|Comando|Atalho de teclado|
-|--------------|------------------------|
-|Nova janela|**Controlo + Shift + N**|
-|Feche o Editor|**Controlo + F4**|
-|Sair|**Controlo + Shift + W**|
+
+Comando       | Atalho de teclado
+--------------|--------------------
+Nova janela    | **Controle + Shift + N**
+Fechar Editor  | **Controle + F4**
+Sair          | **Controle + Shift + W**
 
 ### <a name="navigation-commands"></a>Comandos de navegação
-|Comando|Atalho de teclado|
-|--------------|------------------------|
-|Painel seguinte foco|**F6**|
-|Painel anterior foco|**SHIFT + F6**|
-|Explorador|**Controlo + Shift + I**|
-|Gestão de Contas|**Controlo + Shift + A.**|
-|Ativar/desativar barra de lateral|**Controlo + B**|
-|Registo de Atividades|**Controlo + Shift + L**|
-|Propriedades e ações|**Controlo + Shift + P**|
-|Editor de atual|**Controlo + Home**|
-|Editor de seguinte|**Controlo + página para baixo**|
-|Editor anterior|**Controlo + página cópias de segurança**|
+
+Comando                | Atalho de teclado
+-----------------------|----------------------
+Painel seguinte de foco       | **F6**
+Painel anterior de foco   | **Shift+F6**
+Explorador               | **Controle + Shift + E**
+Gestão de Contas     | **Controle + Shift + A**
+Ativar/desativar barra de lado        | **Controle + B**
+Registo de Atividades           | **Controle + Shift + L**
+Propriedades e ações | **Controle + Shift + P**
+Editor de atual         | **Controle + Home**
+Editor seguinte            | **Controle + página para baixo**
+Editor anterior        | **Controle + página para cima**
 
 ### <a name="zoom-commands"></a>Comandos de zoom
-|Comando|Atalho de teclado|
-|--------------|------------------------|
-|Ampliar|**Controlo + =**|
-|Reduzir|**Controlo +-**|
 
-### <a name="blob-and-file-share-editor-commands"></a>Blob e comandos de Editor de partilha de ficheiros
-|Comando|Atalho de teclado|
-|--------------|------------------------|
-|Anterior|**Seta para a ALT + esquerda**|
-|Reencaminhar|**ALT + direito seta**|
-|Para Cima|**ALT + cópia de segurança seta**|
+Comando  | Atalho de teclado
+---------|------------------
+Ampliar  | **Control+=**
+Reduzir | **Controle +-**
+
+### <a name="blob-and-file-share-editor-commands"></a>Comandos de Editor de partilha de ficheiros e de blob
+
+Comando | Atalho de teclado
+--------|--------------------
+Anterior    | **ALT + esquerda seta**
+Reencaminhar | **Seta de ALT + direita**
+Para Cima      | **ALT + SETA para cima**
+
+### <a name="editor-commands"></a>Comandos de editor
+
+Comando | Atalho de teclado
+--------|------------------
+Copiar    | **Controle + C**
+Cortar     | **Controle + X**
+Colar   | **Controle + V**
+Atualizar  | **Controle + R**
 
 ### <a name="other-commands"></a>Outros comandos
-|Comando|Atalho de teclado|
-|--------------|------------------------|
-|Copiar|**Controlo + C**|
-|Cortar|**Controlo + X**|
-|Colar|**Controlo + V**|
-|Ativar/desativar ferramentas de programador|**F12**|
-|Recarregar|**Controlo + R**|
+
+Comando                | Atalho de teclado
+-----------------------|------------------
+Ferramentas de programação de alternância | **F12**
+Recarregar                 | **ALT + controlo + R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

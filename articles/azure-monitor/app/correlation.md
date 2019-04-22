@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493642"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683030"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -143,8 +143,8 @@ O [especificação do modelo de dados de OpenTracing](https://opentracing.io/) e
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`,  `PageView`                 | `Span` com `span.kind = server`                  |
-| `Dependency`                          | `Span` com `span.kind = client`                  |
+| `Request`, `PageView`                 | `Span` com o `span.kind = server`                  |
+| `Dependency`                          | `Span` com o `span.kind = client`                  |
 | `Id` de `Request` e `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
 | `Operation_ParentId`                  | `Reference` do tipo `ChildOf` (o intervalo de principal)   |
@@ -217,7 +217,7 @@ Para correlacionar a telemetria na aplicação de Spring Boot de assíncrono, si
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Escrever [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
-- Saiba mais sobre [definição cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) para outros SDKs.
+- Saiba mais sobre [definição cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) para outros SDKs.
 - Carregar todos os componentes de seus microsserviços no Application Insights. Veja a [plataformas suportadas](../../azure-monitor/app/platforms.md).
 - Consulte a [modelo de dados](../../azure-monitor/app/data-model.md) para tipos do Application Insights.
 - Saiba como [estender e filtrar telemetria](../../azure-monitor/app/api-filtering-sampling.md).

@@ -4,20 +4,20 @@ description: Saiba como localizar o custo da unidade de pedido para qualquer ope
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053168"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683839"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Encontrar a unidade de pedido custos (RU) no Azure Cosmos DB
 
 Este artigo apresenta as diferentes formas de localizar os [unidades de pedido](request-units.md) consumo para qualquer operação executada em relação a um contentor do Cosmos do Azure. É atualmente possível medir este consumo com o portal do Azure ou ao inspecionar a resposta enviada de volta do Azure Cosmos DB através de um dos SDKs.
 
-## <a name="core-api"></a>API principal
+## <a name="sql-core-api"></a>SQL API (principal)
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -25,7 +25,7 @@ Atualmente o portal do Azure permite-lhe encontrar os encargos de pedidos para a
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account) e inseri-la com os dados ou selecione uma conta existente que já contenha dados.
+1. [Criar uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) e inseri-la com os dados ou selecione uma conta existente do Cosmos do Azure que já contenha dados.
 
 1. Abra o **Data Explorer** painel e selecione o contentor que deseja trabalhar.
 
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-Pedir o custo da unidade é exposto por um personalizado [comandos de base de dados](https://docs.mongodb.com/manual/reference/command/) com o nome `getLastRequestStatistics`. Este comando devolve um documento que contém o nome da última operação executada, a seu encargo de pedido e a sua duração.
+Cobranças de unidades de pedido é exposta por um personalizado [comandos de base de dados](https://docs.mongodb.com/manual/reference/command/) com o nome `getLastRequestStatistics.` este comando devolve um documento que contém o nome da última operação executada, a seu encargo de pedido e a sua duração.
 
 ### <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -155,7 +155,7 @@ Atualmente o portal do Azure permite-lhe encontrar os encargos de pedidos para a
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos DB](create-mongodb-dotnet.md#create-a-database-account) e inseri-la com os dados ou selecione uma conta existente que já contenha dados.
+1. [Criar uma nova conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e inseri-la com os dados ou selecione uma conta existente que já contenha dados.
 
 1. Abra o **Data Explorer** painel e selecione a coleção que deseja trabalhar.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Utilizar o controlador de node. js do MongoDB
 
-Ao utilizar o [oficial controlador de node. js do MongoDB](https://mongodb.github.io/node-mongodb-native/) (consulte [neste início rápido](create-mongodb-nodejs.md) em relação à sua utilização), comandos podem ser executados ao chamar o `command` método num `Db` objeto.
+Ao utilizar o [oficial controlador de node. js do MongoDB](https://mongodb.github.io/node-mongodb-native/) (consulte [neste início rápido](create-mongodb-nodejs.md) em relação à sua utilização), comandos podem ser executados ao chamar o `command` método num `db` objeto.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -230,7 +230,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ### <a name="use-drivers-and-sdk"></a>Drivers de utilização e SDK
 
-Cabeçalhos devolvidos pela API do Gremlin são mapeados para os atributos de estado personalizado que atualmente são apresentados do Gremlin .NET e Java. A cobrança do pedido está disponível na `x-ms-request-charge` chave.
+Cabeçalhos devolvidos pela API do Gremlin são mapeados para atributos de estado personalizado, que atualmente são apresentados do Gremlin .NET e Java. A cobrança do pedido está disponível na `x-ms-request-charge` chave.
 
 ### <a name="use-the-net-sdk"></a>Utilizar o .NET SDK
 
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Consulte os seguintes artigos para saber mais sobre como otimizar seu consumo de unidades de pedido:
 
+* [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)
 * [Otimizar o débito aprovisionado de custo no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
+* [Dimensione globalmente o débito aprovisionado](scaling-throughput.md)
+* [Débito de aprovisionar em contentores e bases de dados](set-throughput.md)
+* [Como aprovisionar o débito para um contentor](how-to-provision-container-throughput.md)

@@ -77,7 +77,7 @@ Siga estes passos para criar uma base de dados em branco.
     ![criar servidor de base de dados](./media/sql-database-design-first-database/create-database-server.png)
 
 5. Clique em **Selecionar**.
-6. Clique em **Escalão de preço** para especificar a camada de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada escalão de serviço.
+6. Clique em **Escalão de preço** para especificar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento. Pode explorar as opções para o número de DTUs/vCores e armazenamento que está disponível para cada escalão de serviço.
 
     Depois de selecionar o escalão de serviço, o número de DTUs ou vCores e a quantidade de armazenamento, clique em **aplicar**.
 

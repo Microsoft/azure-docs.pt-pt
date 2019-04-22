@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273401"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699171"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço do Azure Search
 Máximo limita-se no armazenamento, cargas de trabalho e as quantidades de índices, documentos, e outros objetos dependem se [aprovisionar o Azure Search](search-create-service-portal.md) na **gratuito**, **básica**,  **Standard**, ou **otimizadas para armazenamento** escalões de preço.
@@ -55,7 +55,7 @@ Máximo limita-se no armazenamento, cargas de trabalho e as quantidades de índi
 | Máximo [perfis de classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Funções máximas por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> criados após o final de 2017 têm um limite maior de 15 índices, indexadores e origens de dados, de serviços básicos. Os serviços que criou anteriormente têm 5. Escalão básico é o único SKU com um limite inferior de 100 campos por índice.
+<sup>1</sup> serviços básicos criados antes de Dezembro de 2017 têm limites inferiores (5, em vez de 15) em índices. Escalão básico é o único SKU com um limite inferior de 100 campos por índice.
 
 <a name="document-limits"></a>
 
@@ -81,7 +81,7 @@ Para os serviços sujeitos a limites de documento, aplicam-se aos limites máxim
 
 |  Gratuito | Básica | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
+|  10,000 |1&nbsp;milhões |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
 
 Se o seu serviço tem limites que estão a bloquear, criar um novo serviço e, em seguida, voltar a publicar todo o conteúdo para esse serviço. Não existe nenhum mecanismo para reprovisionamento forma totalmente integrada o seu serviço em hardware novo em segundo plano.
 
@@ -99,9 +99,8 @@ Para manter o tamanho do documento para baixo, lembre-se de excluir os dados nã
 
 ## <a name="indexer-limits"></a>Limites do indexador
 
-Serviços básicos criados após o final de 2017 têm um limite maior de 15 índices, origens de dados, conjuntos de competências e indexadores.
+Tempos de execução máximos existem para fornecer o saldo e mais estabilidade para o serviço como um todo, mas os conjuntos de dados maiores pode necessitar de mais indexação tempo do que permite o máximo. Se uma tarefa de indexação não é possível concluir no tempo máximo permitido, tente executá-lo com base numa agenda. O scheduler mantém um registo do Estado de indexação. Se uma tarefa agendada de indexação é interrompida por qualquer motivo, o indexador possam começar onde pela última vez parou na próxima execução agendada.
 
-Operações com muitos recursos, como a análise de imagem na indexação de Blobs do Azure ou de processamento de linguagem natural na pesquisa cognitiva, tem tempos mais curtos de execução máximos para que podem ser satisfeitos a outros trabalhos de indexação. Se uma tarefa de indexação não é possível concluir no tempo máximo permitido, tente executá-lo com base numa agenda. O scheduler mantém um registo do Estado de indexação. Se uma tarefa agendada de indexação é interrompida por qualquer motivo, o indexador possam começar onde pela última vez parou na próxima execução agendada.
 
 | Recurso | Livre&nbsp;<sup>1</sup> | Básica&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |ERROS DE L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
@@ -109,14 +108,15 @@ Operações com muitos recursos, como a análise de imagem na indexação de Blo
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
 | Conjuntos de competências máximos <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
 | Carga máxima de indexação por invocação |10.000 documentos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |N/A |Sem limite |Sem limite |
+| Agenda mínimo | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
 | Máximo de tempo de execução <sup>5</sup> | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |24 horas |24 horas |
 | Máximo de tempo de blob de indexação com a análise de imagem ou de conjuntos de habilidades de pesquisa cognitiva execução <sup>5</sup> | 3 a 10 minutos |2 horas |2 horas |2 horas |2 horas |N/A  |2 horas |2 horas |
 | Indexador de BLOBs: tamanho máximo de blob, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexador de BLOBs: número máximo de carateres de conteúdo extraído de um blob |32,000 |64,000 |4 milhões |4 milhões |4 milhões |N/A |4 milhões |4 milhões |
+| Indexador de BLOBs: número máximo de carateres de conteúdo extraído de um blob |32,000 |64,000 |4&nbsp;milhões |4&nbsp;milhões |4&nbsp;milhões |N/A |4&nbsp;milhões |4&nbsp;milhões |
 
 <sup>1</sup> serviços gratuitos têm indexador tempo de execução máximo de 3 minutos para as origens de blob e 1 minuto para todas as outras origens de dados. Para IA indexação que chamadas para os serviços cognitivos, serviços gratuitos estão-limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito através do pipeline de melhoria.
 
-<sup>2</sup> criados após o final de 2017 têm um limite maior de 15 índices, indexadores e origens de dados, de serviços básicos. Os serviços que criou anteriormente têm 5.
+<sup>2</sup> serviços básicos criados antes de Dezembro de 2017 têm limites inferiores (5, em vez de 15) nos indexadores e origens de dados e conjuntos de competências.
 
 <sup>3</sup> serviços S3 HD não incluem o suporte de indexador.
 
@@ -145,12 +145,12 @@ R [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz ch
 
 <sup>1</sup> no Azure Search, o corpo de um pedido é sujeitos a um limite superior de 16 MB, impor um limite prático no conteúdo de campos individuais ou coleções que caso contrário, não estão limitadas por teóricos limites (ver [suporte de dados tipos de](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter mais informações sobre a composição de campo e restrições).
 
-## <a name="api-response-limits"></a>Limites de resposta da API
+## <a name="api-response-limits"></a>Limites de resposta de API
 * Máximos 1000 documentos devolvidos por página de resultados da pesquisa
 * Sugestões de 100 máximos devolvidos por pedido de API de sugestão
 
-## <a name="api-key-limits"></a>Limites de chave de API
-As chaves de API são utilizadas para autenticação de serviço. Existem dois tipos. Chaves de administração são especificadas no cabeçalho do pedido e concedem acesso completo de leitura / escrita para o serviço. Chaves de consulta são só de leitura, especificado no URL e, normalmente distribuídos para as aplicações cliente.
+## <a name="api-key-limits"></a>Limites de chaves de API
+Chaves de API são utilizadas para autenticação de serviço. Existem dois tipos. Chaves de administração são especificadas no cabeçalho do pedido e concedem acesso completo de leitura / escrita para o serviço. Chaves de consulta são só de leitura, especificado no URL e, normalmente distribuídos para as aplicações cliente.
 
 * Máximo de 2 chaves de administração por serviço
 * Máximo de 50 chaves de consulta por serviço

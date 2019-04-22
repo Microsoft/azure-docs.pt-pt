@@ -17,20 +17,20 @@ ms.date: 03/19/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd3d5a19e861bd738f3c618610aadb77da30b384
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520348"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698967"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registo de autenticação multifator
 
-O Azure AD Identity Protection ajuda a gerir o roll-cancelar o registro de autenticação multifator (MFA) ao configurar uma política. Este artigo explica o que pode ser utilizada a política para um como configurá-lo.
+O Azure AD Identity Protection ajuda a gerir o roll-cancelar o registro de autenticação multifator (MFA) ao configurar uma política para exigir o registo do MFA. Este artigo explica o que pode ser utilizada a política para um como configurá-lo.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>O que é a política de registo de autenticação multifator?
 
-Autenticação multifator do Azure é um método de verificação quem é o que requer a utilização de mais do que apenas um nome de utilizador e palavra-passe. Ele fornece uma segunda camada de segurança para inícios de sessão de utilizador e transações.  
+Autenticação multifator do Azure é um método de verificação quem é o que requer a utilização de mais do que apenas um nome de utilizador e palavra-passe. Ele fornece uma segunda camada de segurança para inícios de sessão de utilizador e transações. Por ordem para que os utilizadores possam responder a pedidos MFA, eles tem primeiro de registar para a MFA. 
 
 Recomendamos que exigem multi-factor authentication para inícios de sessão de utilizador, porque ele:
 
@@ -39,7 +39,7 @@ Recomendamos que exigem multi-factor authentication para inícios de sessão de 
 - Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar a partir de comprometimentos de conta
 
 
-Para obter mais detalhes, consulte [o que é o Azure multi-factor Authentication?](../authentication/multi-factor-authentication.md)
+Para obter mais detalhes sobre a MFA, consulte [o que é o Azure multi-factor Authentication?](../authentication/multi-factor-authentication.md)
 
 
 ## <a name="how-do-i-access-the-mfa-registration-policy"></a>Como posso aceder a política de registo MFA?
@@ -51,15 +51,15 @@ A política de registo MFA está no **configurar** secção sobre o [página do 
 
 
 
-## <a name="policy-settings"></a>Definições da política
+## <a name="policy-settings"></a>Definições de política
 
-Ao configurar a política de risco de início de sessão, tem de definir:
+Ao configurar a política de registo do MFA, tem de definir:
 
 - Os utilizadores e grupos que a política aplica-se a:
 
     ![Utilizadores e grupos](./media/howto-mfa-policy/11.png)
 
-- O tipo de acesso que pretende ser imposto:  
+- O controle que pretende impor requisitos de registo na MFA:  
 
     ![Access](./media/howto-mfa-policy/12.png)
 

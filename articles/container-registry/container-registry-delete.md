@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
-ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983256"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683465"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminar imagens de contentor no Azure Container Registry
 
 Para manter o tamanho do seu registo de contentor do Azure, deve eliminar periodicamente dados de imagem obsoletos. Embora algumas imagens de contentor implementadas em produção podem exigir armazenamento a longo prazo, outras pessoas podem ser eliminadas, mais rapidamente. Por exemplo, num cenário de teste e compilação automatizada, seu registo rapidamente pode preencher com imagens que nunca podem ser implementadas e podem ser removidas pouco tempo depois de concluir o passo de compilação e teste.
 
-Uma vez que pode eliminar os dados de imagem de várias maneiras diferentes, é importante compreender como cada operação de eliminação afeta a utilização do armazenamento. Este artigo apresenta os componentes de imagens de registo e um contentor de Docker pela primeira vez, então abrange vários métodos para a eliminação de dados de imagem.
+Uma vez que pode eliminar os dados de imagem de várias maneiras diferentes, é importante compreender como cada operação de eliminação afeta a utilização do armazenamento. Este artigo apresenta os componentes de imagens de registo e um contentor de Docker pela primeira vez, então abrange vários métodos para a eliminação de dados de imagem. Scripts de exemplo são fornecidos para o ajudar a automatizar as operações de eliminação.
 
 ## <a name="registry"></a>Registo
 
@@ -34,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Também podem incluir os nomes de repositório [espaços de nomes](container-registry-best-practices.md#repository-namespaces). Espaços de nomes permitem agrupar imagens com nomes de encaminhamento de repositório delimitada por barra, por exemplo:
+Também podem incluir os nomes de repositório [espaços de nomes](container-registry-best-practices.md#repository-namespaces). Espaços de nomes permitem para imagens de grupo usando nomes de encaminhamento de repositório delimitada por barra, por exemplo:
 
 ```
 marketing/campaign10-18/web:v2
@@ -54,7 +54,7 @@ Uma imagem *marca* Especifica a versão. Uma única imagem dentro de um reposit�
 
 O repositório (ou repositório e o espaço de nomes) e uma marca define o nome de uma imagem. Pode colocar e retirar uma imagem especificando seu nome na operação de push ou pull.
 
-Um registo privado, como o Azure Container Registry, o nome da imagem também inclui o nome completamente qualificado do anfitrião de registo. O anfitrião de registo para imagens no ACR está no formato *acrname.azurecr.io*. Por exemplo, seria o nome completo da primeira imagem no espaço de nomes 'marketing' na secção anterior:
+Um registo privado, como o Azure Container Registry, o nome da imagem também inclui o nome completamente qualificado do anfitrião de registo. O anfitrião de registo para imagens no ACR está no formato *acrname.azurecr.io* (em minúsculas). Por exemplo, seria o nome completo da primeira imagem no espaço de nomes "marketing" na secção anterior:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -158,7 +158,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> A eliminar *por etiqueta* não deve ser confundido com a eliminação de uma etiqueta (untagging). Pode eliminar uma etiqueta com o comando da CLI do Azure [untag de repositório az acr][az-acr-repository-untag]. Não existe espaço é liberado quando untag uma imagem, porque sua [manifesto](#manifest) e camada de dados permanecem no Registro. Apenas a referência de marca em si é eliminada.
+> A eliminar *por etiqueta* não deve ser confundido com a eliminação de uma etiqueta (untagging). Pode eliminar uma etiqueta com o comando da CLI do Azure [untag de repositório az acr][az-acr-repository-untag]. Não existe espaço é liberado quando untag uma imagem, porque sua [manifesto](#manifest) e os dados de camada permanecem no Registro. Apenas a referência de marca em si é eliminada.
 
 ## <a name="delete-by-manifest-digest"></a>Eliminar ao resumo do manifesto
 
@@ -201,7 +201,56 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-O "acr-helloworld:v2" imagem será eliminada do Registro, conforme é qualquer camada de dados exclusiva para essa imagem. Se um manifesto é associado a vários tags, todas as marcas associadas também são eliminadas.
+O `acr-helloworld:v2` imagem será eliminada do Registro, conforme é qualquer camada de dados exclusiva para essa imagem. Se um manifesto é associado a vários tags, todas as marcas associadas também são eliminadas.
+
+### <a name="list-digests-by-timestamp"></a>Resumos de lista por timestamp
+
+Para manter o tamanho de um repositório ou de registo, poderá ter de eliminar periodicamente resumos de manifestos com mais de uma determinada data.
+
+O seguinte comando da CLI do Azure apresenta uma lista de todos os digest manifesto num repositório com mais de um período de tempo especificado por ordem ascendente. Substitua `<acrName>` e `<repositoryName>` com valores adequados para o seu ambiente. O carimbo de hora pode ser uma expressão de data / hora completa ou uma data, tal como neste exemplo.
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> \
+--orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### <a name="delete-digests-by-timestamp"></a>Eliminar resumos ao timestamp
+
+Depois de identificar os resumos de manifestos obsoletos, pode executar o script de Bash seguinte para eliminar os resumos de manifestos com mais de um carimbo especificado. Ele requer que a CLI do Azure e **xargs**. Por predefinição, o script não realiza nenhuma exclusão. Alteração da `ENABLE_DELETE` valor a `true` para ativar a eliminação de imagem.
+
+> [!WARNING]
+> Utilize o seguinte script de exemplo com cuidado, dados de imagem eliminada é UNRECOVERABLE. Se tiver de sistemas que solicitar imagens ao manifesto digest (em vez do nome da imagem), não deve executar esses scripts. A eliminar os resumos de manifestos irá impedir que esses sistemas incluem a solicitação as imagens a partir do registo. Em vez de solicitar ao manifesto, considere adotar uma *marcação exclusivo* esquema, uma [recomendado melhor prática][tagging-best-practices]. 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:00.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+fi
+```
 
 ## <a name="delete-untagged-images"></a>Eliminar imagens não marcadas
 
@@ -257,14 +306,12 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### <a name="delete-all-untagged-images"></a>Eliminar todas as imagens não marcadas
 
-Utilize os seguintes scripts de exemplo com cuidado – eliminado dados de imagem são UNRECOVERABLE.
+> [!WARNING]
+> Utilize os seguintes scripts de exemplo com cuidado – eliminado dados de imagem são UNRECOVERABLE. Se tiver de sistemas que solicitar imagens ao manifesto digest (em vez do nome da imagem), não deve executar esses scripts. A eliminar imagens não marcadas irá impedir que esses sistemas extrair as imagens a partir do registo. Em vez de solicitar ao manifesto, considere adotar uma *marcação exclusivo* esquema, uma [recomendado melhor prática][tagging-best-practices].
 
 **CLI do Azure no Bash**
 
 O script de Bash seguinte elimina todas as imagens não marcadas a partir de um repositório. Ele requer que a CLI do Azure e **xargs**. Por predefinição, o script não realiza nenhuma exclusão. Alteração da `ENABLE_DELETE` valor a `true` para ativar a eliminação de imagem.
-
-> [!WARNING]
-> Se tiver de sistemas que solicitar imagens ao manifesto digest (em vez do nome da imagem), não deve executar este script. A eliminar imagens não marcadas irá impedir que esses sistemas extrair as imagens a partir do registo. Em vez de solicitar ao manifesto, considere adotar uma *marcação exclusivo* esquema, uma [recomendado melhor prática][tagging-best-practices].
 
 ```bash
 #!/bin/bash
@@ -293,9 +340,6 @@ fi
 **CLI do Azure no PowerShell**
 
 O seguinte script do PowerShell elimina todas as imagens não marcadas a partir de um repositório. Ele requer o PowerShell e a CLI do Azure. Por predefinição, o script não realiza nenhuma exclusão. Alteração da `$enableDelete` valor a `$TRUE` para ativar a eliminação de imagem.
-
-> [!WARNING]
-> Se tiver de sistemas que solicitar imagens ao manifesto digest (em vez do nome da imagem), não deve executar este script. A eliminar imagens não marcadas irá impedir que esses sistemas extrair as imagens a partir do registo. Em vez de solicitar ao manifesto, considere adotar uma *marcação exclusivo* esquema, uma [recomendado melhor prática][tagging-best-practices].
 
 ```powershell
 # WARNING! This script deletes data!

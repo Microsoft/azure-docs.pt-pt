@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904224"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785035"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar o acesso a partir de redes virtuais (VNet)
 

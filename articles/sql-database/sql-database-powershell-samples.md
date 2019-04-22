@@ -1,6 +1,6 @@
 ---
 title: Exemplos de scripts do Azure PowerShell para a Base de Dados SQL | Microsoft Docs
-description: Exemplos de scripts do Azure PowerShell para ajudar a criar e gerir servidores de Base de Dados SQL do Azure, conjuntos elásticos, bases de dados e firewalls.
+description: Exemplos de scripts do Azure PowerShell para ajudar a criar e gerir servidores da Base de Dados SQL do Azure, conjuntos elásticos, bases de dados e firewalls.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -36,14 +36,14 @@ A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell 
 |---|---|
 |**Criar e configurar bases de dados individuais e conjuntos elásticos**||
 | [Criar uma base de dados e configurar uma regra de firewall do servidor de base de dados](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria uma base de dados SQL do Azure e configura uma regra de firewall ao nível do servidor. |
-| [Criar conjuntos elásticos e mover bases de dados agrupadas](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria conjuntos elásticos da Base de Dados SQL do Azure, move bases de dados agrupadas e altera os tamanhos de computação.|
+| [Criar conjuntos elásticos e mover bases de dados agrupadas](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria conjuntos elásticos da Base de Dados SQL do Azure, move bases de dados de conjunto e altera os tamanhos de computação.|
 |**Configurar georreplicação e ativação pós-falha**||
 | [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a georreplicação ativa para uma base de dados SQL do Azure e realiza a ativação pós-falha para uma réplica secundária. |
 | [Configurar e efetuar a ativação pós-falha de uma base de dados agrupada através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a georreplicação ativa para uma base de dados SQL do Azure num conjunto elástico SQL e realiza a ativação pós-falha para uma réplica secundária. |
 | [Configurar e efetuar a ativação pós-falha de um grupo de ativação pós-falha para uma base de dados](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura um grupo de ativação pós-falha para uma instância de servidor da Base de Dados SQL do Azure, adiciona uma base de dados ao grupo de ativação pós-falha e efetua a ativação pós-falha para o servidor secundário |
 |**Dimensionar uma base de dados e um conjunto elástico**||
-| [Dimensionar uma base de dados](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitoriza as métricas de desempenho de uma base de dados SQL do Azure, dimensiona-a para um tamanho de computação superior e cria uma regra de alerta numa das métricas de desempenho. |
-| [Dimensionar um conjunto elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitoriza as métricas de desempenho de um conjunto elástico da Base de Dados SQL do Azure, dimensiona-o para um tamanho de computação superior e cria uma regra de alerta numa das métricas de desempenho.  |
+| [Dimensionar uma base de dados](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitoriza as métricas de desempenho de uma base de dados SQL do Azure, dimensiona-a para um tamanho da computação superior e cria uma regra de alerta numa das métricas de desempenho. |
+| [Dimensionar um conjunto elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitoriza as métricas de desempenho de um conjunto elástico da Base de Dados SQL do Azure, dimensiona-o para um tamanho da computação superior e cria uma regra de alerta numa das métricas de desempenho.  |
 | **Auditoria e deteção de ameaças** |
 | [Configurar a auditoria e a deteção de ameaças](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura as políticas de auditoria e deteção de ameaças para uma base de dados SQL do Azure. |
 | **Restaurar, copiar e importar uma base de dados**||

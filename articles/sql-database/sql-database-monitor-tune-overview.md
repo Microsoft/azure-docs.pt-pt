@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875157"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683178"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
@@ -103,7 +103,6 @@ Existem várias soluções alternativas seguidas para atenuar problemas, cada qu
 Para obter mais informações sobre como resolver estes tipos de problemas, consulte:
 
 - Isso [sente um cheiro um parâmetro](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) mensagem de blogue
-- Isso [parâmetro, a detecção de problemas e soluções alternativas](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/) mensagem de blogue
 - Isso [elefante e detecção de parâmetro de mouse](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) mensagem de blogue
 - Isso [sql dinâmico em comparação com a qualidade de plano em consultas parametrizadas](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) mensagem de blogue
 

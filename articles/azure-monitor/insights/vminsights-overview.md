@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004587"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697894"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (pré-visualização)?
 
-Monitor do Azure para VMs monitoriza máquinas de virtuais do Azure (VM) e conjuntos de dimensionamento de máquinas virtuais em escala. Ele analisa o desempenho e estado de funcionamento das suas VMs de Linux e Windows e monitoriza os seus processos e as dependências de outros recursos e processos externos. 
+Monitor do Azure para VMs monitoriza máquinas de virtuais do Azure (VM) e conjuntos de dimensionamento de máquinas virtuais em escala. Analisa o desempenho e o estado de funcionamento das suas VMs do Windows e do Linux e monitoriza os respetivos processos e dependências noutros recursos e processos externos. 
 
 Como uma solução, o Azure Monitor para VMs inclui suporte para as dependências de desempenho e a aplicação de monitorização para as VMs que estão alojados no local ou em outro fornecedor de cloud. Três principais recursos fornecem informações detalhadas:
 
@@ -39,7 +39,7 @@ As funcionalidades estão organizadas nas três perspectivas:
 * Mapa
 
 >[!NOTE]
->Atualmente, a funcionalidade de estado de funcionamento é oferecida apenas para máquinas virtuais do Azure e o dimensionamento de máquinas virtuais conjuntos. Funcionalidades de mapa de desempenho e suportam VMs do Azure e máquinas virtuais que estão alojadas no seu ambiente ou de outro fornecedor de cloud.
+>Atualmente, a funcionalidade de estado de funcionamento é oferecida apenas para máquinas virtuais do Azure. Funcionalidades de mapa de desempenho e suportam VMs do Azure, conjuntos de dimensionamento de VM do Azure e máquinas virtuais que estão alojadas no seu ambiente ou de outro fornecedor de cloud.
 
 Integração com os registos do Azure Monitor oferece poderosas agregação e a filtragem e ele pode analisar as tendências de dados ao longo do tempo. Essa carga de trabalho abrangente de monitorização não pode ser obtido com o Azure Monitor ou o mapa de serviço autónomo.  
 

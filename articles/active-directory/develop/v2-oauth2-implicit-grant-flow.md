@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501319"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698457"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Fluxo de concessão de plataforma de identidade da Microsoft e implícita
 
@@ -52,7 +52,7 @@ O diagrama seguinte mostra a aparência de todo início de sessão fluxo implíc
 
 ## <a name="send-the-sign-in-request"></a>Enviar o pedido de início de sessão
 
-Inicialmente iniciar a sessão do utilizador na sua aplicação, pode enviar um [OpenID Connect](v2-protocols-oidc.md) pedido de autorização e obtenha um `id_token` do ponto de extremidade do Microsoft identity platform.
+Inicialmente iniciar a sessão do utilizador na sua aplicação, pode enviar um [OpenID Connect](v2-protocols-oidc.md) pedido de autenticação e obtenha um `id_token` do ponto de extremidade do Microsoft identity platform.
 
 > [!IMPORTANT]
 > Para pedir com êxito um token de ID, o registo de aplicações no [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página tem de ter o fluxo de concessão implícita ativado corretamente, ao selecionar **tokens de acesso** e **Tokens de ID** sob o **concessão implícita** secção. Se não estiver ativada, um `unsupported_response` vai ser devolvido o erro: **O valor fornecido para o parâmetro de entrada "response_type" não é permitido para este cliente. Valor esperado é 'code'**

@@ -29,7 +29,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Colocar uma aplicação existente num contentor com o Visual Studio
-> * Criar uma SQL Database do Azure
+> * Criar uma Base de Dados SQL do Azure
 > * Criar um registo de contentor do Azure
 > * Implementar uma aplicação do Service Fabric no Azure
 
@@ -265,7 +265,7 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Colocar uma aplicação existente num contentor com o Visual Studio
-> * Criar uma SQL Database do Azure
+> * Criar uma Base de Dados SQL do Azure
 > * Criar um registo de contentor do Azure
 > * Implementar uma aplicação do Service Fabric no Azure
 

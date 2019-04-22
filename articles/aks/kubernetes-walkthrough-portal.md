@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9a7cbc22ce6034db0ab7d5229104c644ec3f0330
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad93df6d628c91cddcf8e0a51c6ea11991e7b024
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087742"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684128"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implementar um cluster do Azure Kubernetes Service (AKS) no portal do Azure
 
@@ -106,6 +106,8 @@ spec:
       labels:
         app: azure-vote-back
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
         image: redis
@@ -144,6 +146,8 @@ spec:
       labels:
         app: azure-vote-front
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1

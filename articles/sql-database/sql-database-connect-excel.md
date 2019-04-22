@@ -46,7 +46,7 @@ Irá também precisar de uma cópia do Excel. Este artigo utiliza o [Microsoft E
    ![Escrever o nome do servidor e as credenciais de início de sessão](./media/sql-database-connect-excel/connect-to-server.png)
 
    > [!TIP]
-   > Dependendo do ambiente de rede, poderá não conseguir ligar ou poderá perder a ligação se o servidor de base de dados SQL não permitir tráfego a partir do seu endereço IP de cliente. Aceda ao [portal do Azure](https://portal.azure.com/), clique em servidores SQL, clique no servidor, clique em firewall em definições e adicione o seu endereço IP de cliente. Consulte [Como configurar as definições da firewall](sql-database-configure-firewall-settings.md) para detalhes.
+   > Dependendo do ambiente de rede, poderá não conseguir ligar ou poderá perder a ligação se o servidor da base de dados SQL não permitir tráfego a partir do seu endereço IP de cliente. Aceda ao [portal do Azure](https://portal.azure.com/), clique em servidores SQL, clique no servidor, clique em firewall em definições e adicione o seu endereço IP de cliente. Consulte [Como configurar as definições da firewall](sql-database-configure-firewall-settings.md) para detalhes.
 
 5. Na **Navigator**, selecione a base de dados para trabalhar com na lista, selecione as tabelas ou vistas que pretende trabalhar com (que escolhemos **vGetAllCategories**) e, em seguida, selecione **carga**para mover os dados da sua base de dados para a folha de cálculo do Excel.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 7d38120c530b89230893b85829d201c14a8cba04
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579585"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697299"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início rápido: Criar uma função do Azure com configuração de aplicações
 
@@ -114,4 +114,4 @@ Para fazer este início rápido, instale [Visual Studio 2017](https://visualstud
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma função do Azure. Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)

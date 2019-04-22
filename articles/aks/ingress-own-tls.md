@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: c109febc90c9dd8d9b17489c9e612f677695bd25
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e20f881d740c5d5b73c23c933ceb3d6f19e78ef9
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727097"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683856"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entradas HTTPS e utilizar seus próprios certificados TLS no Azure Kubernetes Service (AKS)
 
@@ -31,17 +31,21 @@ Também pode:
 
 Este artigo utiliza o Helm para instalar o controlador de entrada do NGINX e um exemplo de aplicação web. Tem de ter o Helm inicializado no seu cluster do AKS e utilizar uma conta de serviço para Tiller. Certifique-se de que está a utilizar a última versão do Helm. Para obter instruções de atualização, consulte a [Helm instalar docs][helm-install]. Para obter mais informações sobre como configurar e utilizar o Helm, consulte [instalar aplicações com Helm no Azure Kubernetes Service (AKS)][use-helm].
 
-Este artigo também requer a execução da versão 2.0.41 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este artigo também requer a execução da versão 2.0.61 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
 Para criar o controlador de entrada, utilize `Helm` para instalar *entrada de nginx*. Para maior redundância, as duas réplicas dos controladores de entrada de NGINX são implementadas com o `--set controller.replicaCount` parâmetro. Para beneficiar totalmente a execução de réplicas do controlador de entrada, certificar-se de que há mais de um nó no cluster do AKS.
 
 > [!TIP]
-> O exemplo seguinte instala o controlador de entrada no `kube-system` espaço de nomes. Pode especificar um espaço de nomes diferente para o seu próprio ambiente, se assim o desejar. Se o cluster do AKS não RBAC ativado, adicione `--set rbac.create=false` para os comandos.
+> O exemplo seguinte cria um espaço de nomes do Kubernetes para os recursos de entrada com o nome *básico de entrada*. Especifique um espaço de nomes para o seu próprio ambiente, conforme necessário. Se o cluster do AKS não RBAC ativado, adicione `--set rbac.create=false` para os comandos do Helm.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Use Helm to deploy an NGINX ingress controller
+helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
 ```
 
 Durante a instalação, um endereço IP público do Azure é criado para o controlador de entrada. Este endereço IP público é estático para o tempo de vida do controlador de entrada. Se eliminar o controlador de entrada, a atribuição de endereços IP pública é perdida. Se, em seguida, criar um controlador de entrada adicionais, é atribuído um novo endereço IP público. Se pretender manter a utilização do endereço IP público, em vez disso, pode [criar um controlador de entrada com um endereço IP público estático][aks-ingress-static-tls].
@@ -49,7 +53,7 @@ Durante a instalação, um endereço IP público do Azure é criado para o contr
 Para obter o endereço IP público, utilize o `kubectl get service` comando. Demora alguns minutos para que o endereço IP a ser atribuída ao serviço.
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
+$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
 virulent-seal-nginx-ingress-controller        LoadBalancer   10.0.48.240   40.87.46.190   80:31159/TCP,443:30657/TCP   7m
@@ -83,6 +87,7 @@ O exemplo seguinte cria um nome secreto *aks-entrada-tls*:
 
 ```console
 kubectl create secret tls aks-ingress-tls \
+    --namespace ingress-basic \
     --key aks-ingress-tls.key \
     --cert aks-ingress-tls.crt
 ```
@@ -100,13 +105,16 @@ helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 Crie a primeira aplicação de demonstração de um gráfico Helm com o seguinte comando:
 
 ```console
-helm install azure-samples/aks-helloworld
+helm install azure-samples/aks-helloworld --namespace ingress-basic
 ```
 
 Agora a instalar uma segunda instância do aplicativo de demonstração. Para a segunda instância, especifique um novo título para que as duas aplicações são visualmente distintas. Também especificar um nome de serviço único:
 
 ```console
-helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
+helm install azure-samples/aks-helloworld \
+    --namespace ingress-basic \
+    --set title="AKS Ingress Demo" \
+    --set serviceName="ingress-demo"
 ```
 
 ## <a name="create-an-ingress-route"></a>Criar uma rota de entrada
@@ -127,6 +135,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -208,7 +217,25 @@ $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/h
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Este artigo usou o Helm para instalar os componentes de entrada e aplicações de exemplo. Quando implementa um gráfico Helm, um número de recursos do Kubernetes é criado. Esses recursos incluem pods, implementações e serviços. Para limpar, lista as versões do Helm com a `helm list` comando. Procure gráficos chamados *entrada de nginx* e *aks-helloworld*, conforme mostrado no seguinte exemplo:
+Este artigo usou o Helm para instalar os componentes de entrada e aplicações de exemplo. Quando implementa um gráfico Helm, um número de recursos do Kubernetes é criado. Esses recursos incluem pods, implementações e serviços. Para limpar estes recursos, pode optar por eliminar o espaço de nomes de exemplo inteiro ou os recursos individuais.
+
+### <a name="delete-the-sample-namespace-and-all-resources"></a>Eliminar o espaço de nomes de exemplo e todos os recursos
+
+Para eliminar o espaço de nomes de exemplo completo, utilize o `kubectl delete` de comando e especifique o nome do espaço de nomes. Todos os recursos no espaço de nomes são eliminados.
+
+```console
+kubectl delete namespace ingress-basic
+```
+
+Em seguida, remova o repositório Helm para a aplicação hello world do AKS:
+
+```console
+helm repo remove azure-samples
+```
+
+### <a name="delete-resources-individually"></a>Eliminar recursos individualmente
+
+Em alternativa, uma abordagem mais granular é eliminar os recursos individuais que criou. Lista o Helm versões com a `helm list` comando. Procure gráficos chamados *entrada de nginx* e *aks-helloworld*, conforme mostrado no seguinte exemplo:
 
 ```
 $ helm list
@@ -241,10 +268,16 @@ Remova a rota de entrada que eram direcionadas para o tráfego para as aplicaç�
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Por fim, remova o segredo do certificado:
+Elimine o certificado segredo:
 
 ```console
 kubectl delete secret aks-ingress-tls
+```
+
+Por fim, pode eliminar o próprio espaço de nomes. Utilize o `kubectl delete` de comando e especifique o nome do espaço de nomes:
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

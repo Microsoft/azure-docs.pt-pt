@@ -56,7 +56,7 @@ Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armaz
 
 Para obter mais informações sobre os preços de armazenamento, consulte a [preços](https://azure.microsoft.com/pricing/details/sql-database/single/) página.
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore dá-lhe flexibilidade, controlo, transparência de consumo de recursos individuais e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [crítico para a empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) camadas para de serviço [bases de dados únicas](sql-database-single-database-scale.md), [ conjuntos elásticos](sql-database-elastic-pool.md), e [instâncias geridas](sql-database-managed-instance.md). Para bases de dados individuais, também pode escolher o [camada de serviços de hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md).
 
@@ -108,7 +108,7 @@ Se estiver à procura para migrar um existente no local ou o SQL Server a carga 
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que tiram partido de um conjunto elástico de recursos
 
-Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para um determinado banco de dados, este padrão é caracterizado por uma média de utilização baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
+Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para um determinado banco de dados, este padrão é caracterizado por uma média de utilização baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor da Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
 
 ## <a name="purchase-model-frequently-asked-questions-faq"></a>Modelo de compra perguntas mais frequentes (FAQ)
 

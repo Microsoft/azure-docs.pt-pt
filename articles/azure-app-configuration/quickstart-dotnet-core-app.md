@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 3f15b6bf5ff3cc1949794ebc1ee2a5f62158cede
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575782"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698627"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início rápido: Criar um .NET Core de aplicação com a configuração de aplicações
 
@@ -110,4 +110,4 @@ Utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microso
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação de consola .NET Core através da [fornecedor de configuração de aplicação](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)

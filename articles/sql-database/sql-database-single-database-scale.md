@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/20/2019
 ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
 ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58286266"
@@ -83,7 +83,7 @@ Será cobrado por cada hora, que uma base de dados existe ao utilizar o escalão
 
 ## <a name="change-storage-size"></a>Alterar o tamanho de armazenamento
 
-### <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
+### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 - Pode aprovisionar um armazenamento até ao limite de tamanho máximo com incrementos de 1 GB. O armazenamento de dados configurável mínimo é de 5 GB
 - Armazenamento para uma base de dados pode ser aprovisionado por aumentar ou diminuir o tamanho máximo, usando o [portal do Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), o [Da CLI do azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).

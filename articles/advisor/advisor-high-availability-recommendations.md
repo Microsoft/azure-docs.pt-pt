@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881193"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699309"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade da sua aplicação com o Assistente do Azure
 
@@ -65,6 +65,10 @@ Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/sto
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurar o gateway de VPN ativos-ativos para resiliência de ligação
 
 Configuração de ativo-ativo, ambas as instâncias de um gateway VPN irão estabelecer túneis S2S VPN para o dispositivo VPN no local. Quando um evento de manutenção planeada ou não planeado eventos acontece à instância de um gateway, o tráfego irá ser mudado ao longo para o outro túnel IPsec ativo automaticamente. O Assistente do Azure irá identificar os gateways de VPN que não estejam configurados como ativo-ativo e sugerir configurá-las para elevada disponibilidade.
+
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Utilizar gateways de VPN de produção para executar as cargas de trabalho de produção
+
+O Assistente do Azure irá verificar a existência de quaisquer gateways VPN que são um SKU básico e recomendamos que utilize um SKU de produção. O SKU básico foi concebido para fins de testes e de desenvolvimento. SKUs de produção oferecem um número mais elevado de túneis, suporte BGP, opções de configuração de ativo-ativo, personalizados a política de Ipsec/IKE e maior estabilidade e disponibilidade.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de elevada disponibilidade no Advisor
 

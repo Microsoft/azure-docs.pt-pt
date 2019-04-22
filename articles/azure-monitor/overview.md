@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
 ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850825"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784964"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306579"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698687"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação à sua aplicação do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -35,15 +35,13 @@ Este tutorial baseia-se no manual de início rápido das aplicações móveis. P
 
 Autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isso permite que o sistema de autenticação redirecionar para a sua aplicação, uma vez concluído o processo de autenticação. Neste tutorial, utilizamos o esquema de URL _appname_ em todo. No entanto, pode utilizar qualquer esquema de URL que escolher. Deve ser exclusivo para a sua aplicação móvel. Para ativar o redirecionamento no lado do servidor:
 
-1. No [portal do Azure], selecione o serviço de aplicações.
+1. Na [portal do Azure](https://ms.portal.azure.com), selecione o serviço de aplicações.
 
 2. Clique nas **autenticação / autorização** opção de menu.
 
 3. Na **permitido URLs de redirecionamento externo**, introduza `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** nessa cadeia é o esquema de URL para a sua aplicação móvel.  Deve seguir normal especificação de URL para um protocolo (utilize letras e números apenas e começar com uma letra).  Deve tome nota da cadeia de caracteres que escolha, como precisará ajustar o código da aplicação móvel com o esquema de URL em vários locais.
 
-4. Clique em **OK**.
-
-5. Clique em **Guardar**.
+4. Clique em **Guardar**.
 
 ## <a name="permissions"></a>Restringir as permissões para utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]

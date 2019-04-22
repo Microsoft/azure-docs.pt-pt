@@ -1,5 +1,5 @@
 ---
-title: Perguntas mais frequentes sobre o funcionamento em rede no funções do Azure
+title: Perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure
 description: Respostas a algumas das perguntas mais comuns e cenários para funcionamento em rede com as funções do Azure.
 services: functions
 author: alexkarcher-msft
@@ -8,59 +8,61 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548652"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682207"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure
 
-Segue-se uma lista de perguntas mais frequentes sobre a rede. Para obter uma descrição mais abrangente, leia o [as funções de sistema de rede documento de opções](functions-networking-options.md)
+Este artigo apresenta uma lista de perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure. Para obter uma descrição mais completa, consulte [opções de redes de funções](functions-networking-options.md).
 
 ## <a name="how-do-i-set-a-static-ip-in-functions"></a>Como posso definir um IP estático em funções?
 
-Implementar uma função num ambiente de serviço de aplicações (ASE) está atualmente a única forma de ter um IP estático de entrada e saído para a função. Para obter detalhes sobre como utilizar um ASE, começar com o artigo aqui: [Criar e utilizar um ASE de ILB](../app-service/environment/create-ilb-ase.md).
+Implementar uma função num ambiente de serviço de aplicações está atualmente a única forma de ter um IP estático de entrada e saído para a função. Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, começar com o artigo [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Como posso restringir o acesso à internet para minha função?
 
-Pode restringir o acesso à internet de diversas formas, listadas abaixo.
+Pode restringir o acesso à internet de duas formas:
 
-* [Restrições de IP](../app-service/app-service-ip-restrictions.md): restringir o tráfego de entrada para a sua aplicação de função por intervalo de IP.
-* Remova todos os acionadores HTTP. Para alguns aplicativos, é suficiente para simplesmente evitar acionadores HTTP e usar qualquer outra origem de evento para acionar a função.
+* [Restrições de IP](../app-service/app-service-ip-restrictions.md): Restringir o tráfego de entrada para a sua aplicação de função, intervalo de IP.
+* Remoção de todos os acionadores HTTP. Para alguns aplicativos, é suficiente para simplesmente evitar acionadores HTTP e usar qualquer outra origem de evento para acionar a função.
 
-A consideração mais importante ao fazer isso é Lembre-se de que o editor do portal do Azure requer acesso direto à sua função em execução para utilizar. Quaisquer alterações de código através do portal do Azure irão exigir que o dispositivo que estiver a utilizar para navegar até ao portal para têm a sua lista branca IP. Ainda pode, no entanto, usar qualquer coisa na guia de funcionalidades de plataforma com restrições de rede no local.
+Tenha em atenção que o editor do portal do Azure requer acesso direto à sua função em execução. Quaisquer alterações de código através do portal do Azure irão exigir que o dispositivo que estiver a utilizar para navegar até ao portal para têm a sua lista branca IP. Mas ainda pode usar qualquer coisa na guia de funcionalidades de plataforma com restrições de rede no local.
 
-## <a name="how-do-i-restrict-my-function-app-to-a-vnet"></a>Como posso restringir a minha aplicação de função a uma VNET?
+## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como posso restringir a minha aplicação de função a uma rede virtual?
 
-A única forma de restringir totalmente uma função de forma que todo o tráfego flui através de uma VNET é usar um internamente com balanceamento de carga (ILB) ambiente do serviço de aplicações (ASE). Esta opção implementa o seu site numa infraestrutura dedicada dentro de uma VNET e envia todos os acionadores e tráfego através da VNET. Para obter detalhes sobre como utilizar um ASE, começar com o artigo aqui: [Criar e utilizar um ASE de ILB](../app-service/environment/create-ilb-ase.md).
+A única forma de restringir totalmente uma função de forma que todo o tráfego flui através de uma rede virtual é usar um ambiente de serviço de aplicações internamente com balanceamento de carga. Esta opção implementa o seu site numa infraestrutura dedicada numa rede virtual e envia todos os acionadores e tráfego através da rede virtual. 
 
-## <a name="how-can-i-access-resources-in-a-vnet-from-a-function-app"></a>Como posso aceder a recursos numa VNET a partir de uma aplicação de funções?
+Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, começar com o artigo [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
 
-Pode acessar os recursos numa VNET de uma função em execução a utilizar a integração de VNET. Para obter mais informações, consulte [integração de VNET](functions-networking-options.md#vnet-integration)
+## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Como posso aceder a recursos numa rede virtual a partir de uma aplicação de funções?
+
+Pode acessar os recursos numa rede virtual de uma função em execução ao utilizar a integração da rede virtual. Para obter mais informações, consulte [integração da rede Virtual](functions-networking-options.md#virtual-network-integration).
 
 ## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>Como posso aceder a recursos protegidos por pontos finais de serviço?
 
-Utilizar a nova integração de VNET (atualmente em pré-visualização), pode aceder a recursos de uma função em execução protegidos pelo ponto final de serviço. Para obter mais informações, consulte [pré-visualizar a integração de VNET](functions-networking-options.md#preview-vnet-integration).
+Ao utilizar a integração da rede virtual (atualmente em pré-visualização), pode aceder a recursos protegidos de ponto final de serviço de uma função em execução. Para obter mais informações, consulte [pré-visualizar a integração de rede virtual](functions-networking-options.md#preview-version-of-virtual-network-integration).
 
-## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-vnet"></a>Como posso acionar uma função de um recurso numa VNET?
+## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Como posso acionar uma função de um recurso numa rede virtual?
 
-Só pode acionar uma função de um recurso numa VNET ao implementar a aplicação de funções para um ambiente de serviço de aplicações. Para obter detalhes sobre como utilizar um ASE, veja [criando e usando um ASE de ILB](../app-service/environment/create-ilb-ase.md).
+Pode acionar uma função de um recurso numa rede virtual apenas ao implementar a aplicação de funções para um ambiente de serviço de aplicações. Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, consulte [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
 
 
-## <a name="how-can-i-deploy-my-function-app-in-a-vnet"></a>Como posso implementar a minha aplicação de função numa VNET?
+## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implementar meu aplicativo de função numa rede virtual?
 
-Implantar num ambiente de serviço de aplicações é a única forma de criar uma aplicação de função que é totalmente dentro de uma VNET para obter detalhes sobre como utilizar um ASE de ILB, começar com o artigo aqui: [Criar e utilizar um ASE de ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Implantar num ambiente de serviço de aplicações é a única forma de criar uma aplicação de função que é totalmente dentro de uma rede virtual. Para obter detalhes sobre como utilizar o Balanceador de carga interno com um ambiente de serviço de aplicações, começar com o artigo [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
-Para cenários em que só precisa unidirecional acesso aos recursos da VNET, ou menos isolamento de rede abrangente, consulte a [descrição geral de funcionamento em rede das funções](functions-networking-options.md).
+Para cenários em que precisa Apenas unidirecional acesso aos recursos de rede virtual, ou menos isolamento de rede abrangente, consulte a [descrição geral de funcionamento em rede das funções](functions-networking-options.md).
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre o funcionamento em rede e as funções: 
+Para saber mais sobre redes e as funções: 
 
-* [Siga o nosso VNET integração tutorial de introdução](./functions-create-vnet.md)
-* [Saiba mais sobre as opções de funcionamento em rede nas funções aqui](./functions-networking-options.md)
-* [Saiba mais sobre a integração de VNET com o serviço de aplicações / funções aqui](../app-service/web-sites-integrate-with-vnet.md)
-* [Saiba mais sobre VNETs no Azure](../virtual-network/virtual-networks-overview.md)
+* [Siga o tutorial sobre como começar a integração da rede virtual](./functions-create-vnet.md)
+* [Saiba mais sobre as opções de funcionamento em rede nas funções do Azure](./functions-networking-options.md)
+* [Saiba mais sobre a integração de rede virtual com o serviço de aplicações e funções](../app-service/web-sites-integrate-with-vnet.md)
+* [Saiba mais sobre as redes virtuais no Azure](../virtual-network/virtual-networks-overview.md)
 * [Ativar mais recursos de rede e controlo com ambientes de serviço de aplicações](../app-service/environment/intro.md)

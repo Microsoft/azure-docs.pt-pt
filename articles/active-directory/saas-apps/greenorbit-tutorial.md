@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6720d888aae313a2e6ad2ce4df458adba8742f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: f289830fce184f99a0bd2dc7a21bd9457f5183ae
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565364"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenorbit"></a>Tutorial: Integração do Active Directory do Azure com GreenOrbit
 
@@ -56,7 +56,7 @@ Para configurar a integração do GreenOrbit com o Azure AD, terá de adicionar 
 
 **Para adicionar GreenOrbit a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -64,11 +64,11 @@ Para configurar a integração do GreenOrbit com o Azure AD, terá de adicionar 
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar uma nova aplicação, clique a **nova aplicação** botão na parte superior da caixa de diálogo.
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **GreenOrbit**, selecione **GreenOrbit** a partir do painel de resultados, em seguida, clique nas **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **GreenOrbit**, selecione **GreenOrbit** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![GreenOrbit na lista de resultados](common/search-new-app.png)
 
@@ -108,9 +108,9 @@ Para configurar o Azure AD início de sessão único com GreenOrbit, execute os 
 
     ![GreenOrbit domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.GreenOrbit.com`
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `http://<SUBDOMAIN>.trial.GreenOrbit.com`
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente GreenOrbit](mailto:support@greenorbit.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
@@ -195,7 +195,7 @@ Quando clica no mosaico GreenOrbit no painel de acesso, deve ser automaticamente
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

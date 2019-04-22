@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651274"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683057"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
@@ -39,21 +39,27 @@ A um nível elevado, a API REST do Scheduler expõe estas operações para a ges
 
 ### <a name="job-management"></a>Gestão de tarefas
 
-Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Este é o endereço URI dessas operações:
+Suporta operações de criação e edição de tarefas. Todas as tarefas têm de pertencer a uma coleção de tarefas existente, pelo que não existe nenhuma criação implícita. Para obter mais informações, veja [API REST do Scheduler – Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs). Este é o endereço URI para essas operações:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+```
 
 ### <a name="job-collection-management"></a>Gestão de coleções de tarefas
 
-Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Este é o endereço URI dessas operações:
+Suporta operações de criação e edição de tarefas e coleções de tarefas, que são mapeadas para quotas e definições partilhadas. Por exemplo, as quotas especificam o número máximo de tarefas e o intervalo de periodicidade mais pequeno. Para obter mais informações, veja [API REST do Scheduler – Coleções de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Este é o endereço URI para essas operações:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+```
 
 ### <a name="job-history-management"></a>Gestão do histórico de tarefas
 
-Suporta a operação GET para obter 60 dias do histórico de execuções de tarefas, por exemplo, o tempo decorrido da tarefa e os resultados de execução da tarefa. Inclui suporte de parâmetros de cadeias de consulta para filtrar com base no estado. Para obter mais informações, veja [API REST do Scheduler – Tarefas – Lista do Histórico de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Este é o endereço URI desta operação:
+Suporta a operação GET para obter 60 dias do histórico de execuções de tarefas, por exemplo, o tempo decorrido da tarefa e os resultados de execução da tarefa. Inclui suporte de parâmetros de cadeias de consulta para filtrar com base no estado. Para obter mais informações, veja [API REST do Scheduler – Tarefas – Lista do Histórico de Tarefas](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Este é o endereço URI para esta operação:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+```
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+```
 
 ## <a name="job-types"></a>Tipos de tarefa
 
@@ -245,7 +251,7 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 | **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
 | **schedule** | Não | Varia | Os detalhes das agendas mais complexas e avançadas. Veja **hours**, **hours**, **weekDays**, **months** e **monthDays** | 
 | **hours** | Não | 1 a 24 | Um matriz com a hora marca quando a tarefa será executada | 
-| **minutes** | Não | 1 a 24 | Um matriz com os minutos marca quando a tarefa será executada | 
+| **minutes** | Não | 0 a 59 | Um matriz com os minutos marca quando a tarefa será executada | 
 | **months** | Não | 1 a 12 | Um matriz com os meses marca quando a tarefa será executada | 
 | **monthDays** | Não | Varia | Um matriz com os dias do mês marca quando a tarefa será executada | 
 | **weekDays** | Não | “Segunda-feira”, “Terça-feira”, “Quarta-feira”, “Quinta-feira”, “Sexta-feira”, “Sábado”, “Domingo” | Um matriz com os dias da semana marca quando a tarefa será executada | 

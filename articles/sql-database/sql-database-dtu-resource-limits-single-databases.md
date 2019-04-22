@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/20/2019
 ms.openlocfilehash: a0b565be2edba7dcf1ba4c1b17284ce05b4cea2f
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620551"
@@ -32,7 +32,7 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 > [!IMPORTANT]
 > Para dimensionar a orientação e considerações, consulte [dimensionar uma base de dados](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>Camada de serviços básicos
+### <a name="basic-service-tier"></a>Escalão de serviços básicos
 
 | **Tamanho de computação** | **Básica** |
 | :--- | --: |
@@ -44,7 +44,7 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 | Sessões simultâneas máx. | 300 |
 |||
 
-### <a name="standard-service-tier"></a>Camada de serviços padrão
+### <a name="standard-service-tier"></a>Escalão de serviço Standard
 
 | **Tamanho de computação** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
@@ -68,7 +68,7 @@ As tabelas seguintes mostram os recursos disponíveis para uma base de dados em 
 | Sessões simultâneas máx. |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>Camada de serviços premium
+### <a name="premium-service-tier"></a>Escalão de serviços Premium
 
 | **Tamanho de computação** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|

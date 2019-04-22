@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 5a985e43c097dbea2861a5eb9fa10c526cbf089a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051444"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697873"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -191,4 +191,4 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação web do ASP.NET Core através da [fornecedor de configuração de aplicação](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)

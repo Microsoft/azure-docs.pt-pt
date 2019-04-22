@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
-ms.openlocfilehash: 132609529fbeda9b6dbd76a3ef6c824e84c15164
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670766"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699188"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
@@ -39,7 +39,7 @@ Para simplificar algumas das etapas envolvidas na configuração do Azure AD com
 2. O ficheiro zip com o botão direito, selecione **propriedades**, selecione a **desbloqueio** caixa de verificação e, em seguida, clique em **aplicar**.
 3. Extraia o ficheiro zip.
 
-## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>Criar aplicações do Azure AD e asssign utilizadores de funções
+## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Criar aplicações do Azure AD e atribuir utilizadores a funções
 Criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo. Depois de criar os aplicativos para representar o cluster, atribuir os seus utilizadores para o [funções com suporte para o Service Fabric](service-fabric-cluster-security-roles.md): só de leitura e administrador.
 
 Executar `SetupApplications.ps1`e forneça o inquilino, ID, o nome do cluster e o URL de resposta do aplicativo web, como parâmetros.  Também pode especifica nomes de utilizador e palavras-passe para os utilizadores.  Por exemplo:

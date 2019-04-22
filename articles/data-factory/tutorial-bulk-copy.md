@@ -115,7 +115,7 @@ Tanto para a Base de dados SQL como para o SQL Data Warehouse, permita que os se
 
 Neste tutorial, vai criar três serviços ligados para blob de origem, sink e teste, respetivamente, que incluem ligações para os arquivos de dados:
 
-### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados do Azure de origem
+### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure de origem
 
 1. Crie um ficheiro JSON com o nome **Azuresqldatabaselinkedservice** na **C:\ADFv2TutorialBulkCopy** pasta com o seguinte conteúdo: (Crie a pasta ADFv2TutorialBulkCopy caso ainda não exista.)
 

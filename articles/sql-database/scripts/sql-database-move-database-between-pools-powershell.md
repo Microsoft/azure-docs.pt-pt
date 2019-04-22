@@ -21,7 +21,7 @@ ms.locfileid: "59357813"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Utilizar o PowerShell para criar conjuntos elásticos e mover bases de dados entre conjuntos elásticos
 
-Este exemplo de script do PowerShell cria dois conjuntos elásticos e move uma base de dados de um conjunto elástico para outro conjunto elástico e, em seguida, move uma base de dados para fora de um conjunto elástico, para um tamanho de computação de base de dados do individual.
+Este exemplo de script do PowerShell cria dois conjuntos elásticos e move uma base de dados de um conjunto elástico para outro conjunto elástico e, em seguida, move uma base de dados para fora de um conjunto elástico, para um tamanho da computação de base de dados do individual.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

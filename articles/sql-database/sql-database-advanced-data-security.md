@@ -12,11 +12,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791614"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784488"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de dados avançados para a base de dados do Azure SQL
 

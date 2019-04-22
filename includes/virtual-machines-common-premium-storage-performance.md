@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542357"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737242"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium do Azure: conceber o elevado desempenho
 
@@ -261,7 +261,8 @@ Lembre-se de que os discos de armazenamento Premium têm capacidades de desempen
 As VMs de escala elevada que tiram partido do armazenamento Premium do Azure têm uma tecnologia de colocação em cache de várias camada chamada BlobCache. BlobCache usa uma combinação da RAM da Máquina Virtual e local SSD para colocar em cache. Esta cache está disponível para os discos de persistentes do armazenamento Premium e os discos da VM locais. Por predefinição, esta definição de cache é definida como leitura/escrita para discos de SO e só de leitura para os discos de dados alojados no armazenamento Premium. Com disco à colocação em cache ativada nos discos de armazenamento Premium, a VMs de grande escala pode alcançar extremamente altos níveis de desempenho que excedem o desempenho de disco subjacente.
 
 > [!WARNING]
-> Colocação em cache do disco só é suportada para discos de tamanhos até 4 TiB.
+> Colocação em cache do disco não é suportada para discos superiores a 4 TiB. Se vários discos estão anexados à sua VM, cada disco que é 4 TiB ou menores irá suportar a colocação em cache.
+>
 > Alterar a definição de cache de um disco do Azure desliga e voltar anexa o disco de destino. Se for o disco do sistema operativo, a VM é reiniciada. Pare todos os aplicativos/serviços que possam ser afetados por este interrupção antes de alterar a definição de cache do disco.
 
 Para saber mais sobre como funciona o BlobCache, consulte o interior [armazenamento Premium do Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) postagem de blog.
@@ -353,7 +354,7 @@ Uma configuração importantes no repartição de disco é o tamanho do stripe. 
 
 Por exemplo, se um pedido de e/s gerado pela sua aplicação for maior do que o tamanho do stripe de disco, o sistema de armazenamento escreve-lo em limites de unidade repartidos em mais de um disco. Quando está na altura de aceder a esses dados, terá de procurar em mais do que um unidades do stripe para concluir o pedido. O efeito cumulativo desse comportamento pode levar a degradação do desempenho substanciais. Por outro lado, se o tamanho do pedido de e/s é menor do que o tamanho do stripe, e se é aleatório por natureza, os pedidos de e/s podem aumentar no mesmo disco provocar um estrangulamento e, por fim, degradar o desempenho de e/s.
 
-Dependendo do tipo de carga de trabalho de que seu aplicativo está em execução, escolha um tamanho adequado do stripe. Para pedidos de e/s pequenas aleatórios, utilize um tamanho mais pequeno do stripe. Ao passo que, para o e/s sequenciais grandes pedidos de utilizar um tamanho maior do stripe. Descubra as stripe recomendações de tamanho para a aplicação que irá executar no armazenamento Premium. Para o SQL Server, configure o tamanho da faixa de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Ver [melhores práticas de desempenho para o SQL Server em VMs do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
+Dependendo do tipo de carga de trabalho de que seu aplicativo está em execução, escolha um tamanho adequado do stripe. Para pedidos de e/s pequenas aleatórios, utilize um tamanho mais pequeno do stripe. Enquanto que para o e/s sequenciais grandes pedidos de utilizar um tamanho maior do stripe. Descubra as stripe recomendações de tamanho para a aplicação que irá executar no armazenamento Premium. Para o SQL Server, configure o tamanho da faixa de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Ver [melhores práticas de desempenho para o SQL Server em VMs do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
 
 > [!NOTE]
 > Pode do stripe em conjunto um máximo de 32 discos de armazenamento premium numa VM da série DS e de 64 discos de armazenamento premium numa VM da série GS.

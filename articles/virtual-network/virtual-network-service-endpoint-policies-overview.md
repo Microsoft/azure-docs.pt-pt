@@ -1,5 +1,5 @@
 ---
-title: Políticas de ponto final de serviço da Rede Virtual do Azure | Microsoft Docs
+title: Políticas de ponto final de serviço de Rede Virtual do Azure | Microsoft Docs
 description: Saiba como utilizar Políticas de Ponto Final de Serviço para filtrar o tráfego da Rede Virtual para os recursos de serviços do Azure
 services: virtual-network
 documentationcenter: na
@@ -29,11 +29,11 @@ __O armazenamento do Azure__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentr
 Para obter as notificações mais atualizadas para pré-visualização, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 > [!NOTE]  
-> Durante a pré-visualização, as políticas de ponto final de serviço da rede virtual poderão não ter o mesmo nível de disponibilidade e fiabilidade das funcionalidades que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Durante a pré-visualização, as políticas de ponto final de serviço de rede virtual poderão não ter o mesmo nível de disponibilidade e fiabilidade das funcionalidades que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-benefits"></a>Principais vantagens
 
-As políticas de ponto final de serviço da rede virtual oferecem as seguintes vantagens:
+As políticas de ponto final de serviço de rede virtual oferecem as seguintes vantagens:
 
 - __Segurança melhorada para o tráfego da Rede Virtual para os Serviços do Azure__
 

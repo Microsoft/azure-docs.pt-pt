@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
-ms.openlocfilehash: 200e2dfd2dd4f9aedd9256b307491a0b207ea124
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/16/2019
+ms.openlocfilehash: e92d1c65d9601c23e7e785f07e2de3e43ea6612b
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57964248"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684655"
 ---
 Consultas para o contentor são faturadas ao escalão de preço do recurso do Azure utilizado para o `<ApiKey>`.
 
@@ -26,7 +26,7 @@ Todos os três das seguintes opções tem de ser especificados com valores váli
 | Opção | Descrição |
 |--------|-------------|
 | `ApiKey` | A chave de API do recurso de serviço cognitivo utilizada para controlar informações de faturas.<br/>O valor desta opção tem de ser definido para uma chave de API para o recurso aprovisionado especificado no `Billing`. |
-| `Billing` | O ponto final do recurso de serviço cognitivo utilizado para controlar informações de faturas.<br/>O valor desta opção tem de ser definido para o ponto final do URI de um recurso do LUIS Azure aprovisionado.|
+| `Billing` | O ponto final do recurso de serviço cognitivo utilizado para controlar informações de faturas.<br/>O valor desta opção tem de ser definido para o ponto final do URI de um recurso do Azure aprovisionado.|
 | `Eula` | Indica que aceite a licença para o contentor.<br/>O valor desta opção tem de ser definido `accept`. |
 
 

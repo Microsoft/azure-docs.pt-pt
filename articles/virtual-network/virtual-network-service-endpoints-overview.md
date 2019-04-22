@@ -82,7 +82,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 ### <a name="configuration"></a>Configuração
 
 - Os pontos finais de serviço são configurados numa sub-rede de uma rede virtual. Os pontos finais funcionam com qualquer tipo de instância de computação em execução nessa sub-rede.
-- Pode configurar vários pontos finais de serviço para todos os serviços do Azure suportados (por exemplo, Armazenamento ou Base de Dados SQL do Microsoft Azure) numa sub-rede.
+- Pode configurar vários pontos finais de serviço para todos os serviços do Azure suportados (por exemplo, Armazenamento ou Base de Dados SQL do Azure) numa sub-rede.
 - Na Base de Dados SQL do Azure, as redes virtuais têm de estar na mesma região que o recurso de serviço do Azure. Se utilizar contas do Armazenamento do Microsoft Azure GRS e RA-GRS, a conta principal deve existir na mesma região que a rede virtual. Em todos os outros serviços, os recursos de serviço do Azure podem ser protegidos para redes virtuais em qualquer região. 
 - A rede virtual onde o ponto final está configurado pode existir na mesma subscrição ou numa subscrição diferente que a do recurso de serviço do Azure. Para obter mais informações sobre as permissões necessárias para configurar pontos finais e para proteger serviços do Azure, veja [Aprovisionamento](#provisioning).
 - Para os serviços suportados, pode proteger recursos novos ou existentes para redes virtuais através de pontos finais de serviço.
@@ -146,7 +146,7 @@ Para perguntas frequentes, examinar [FAQs do ponto final de serviço de rede Vir
 
 - Saiba como [configurar pontos finais de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - Saiba como [proteger uma conta do Armazenamento do Microsoft Azure para uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- Saiba como [proteger uma conta da Base de Dados SQL do Microsoft Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Saiba como [proteger uma conta da Base de Dados SQL do Azure para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger um Azure SQL Data Warehouse para uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
 - Saiba mais sobre [políticas de ponto final de serviço de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)

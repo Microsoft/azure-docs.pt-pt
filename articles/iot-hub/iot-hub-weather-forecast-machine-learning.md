@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: a203018cb1a27c17b9c7162b50a380f9edae2e60
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273197"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684043"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsão meteorológica com os dados de sensor do seu hub IoT no Azure Machine Learning
 
@@ -41,7 +41,7 @@ Saiba como utilizar o Azure Machine Learning resistir a previsão (probabilidade
 
 ## <a name="what-you-need"></a>Do que precisa
 
-- Tutorial [configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluída que abrange os seguintes requisitos:
+- Concluir o [simulador online de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial ou um dos tutoriais dispositivo; por exemplo, [Raspberry Pi com node. js](iot-hub-raspberry-pi-kit-node-get-started.md). Estes incluem os seguintes requisitos:
   - Uma subscrição ativa do Azure.
   - Um hub IoT do Azure com a sua subscrição.
   - Uma aplicação de cliente que envia mensagens para o seu hub IoT do Azure.

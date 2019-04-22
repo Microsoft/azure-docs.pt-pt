@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 54a51c567e8dd655ee3a575d1d4887ec6e094e40
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894683"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684061"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
-O contentor de compreensão de idiomas (LUIS) carrega o modelo de compreensão de idiomas treinado ou publicado, também conhecido como um [aplicação LUIS](https://www.luis.ai), para um contentor de docker e fornece acesso para as previsões de consulta da API do contentor pontos de extremidade. Pode recolher registos de consulta do contêiner e carregar esses back para o modelo de compreensão de idiomas do Azure para melhorar a exatidão da previsão da aplicação.
+O contentor de compreensão de idiomas (LUIS) carrega o modelo de compreensão de idiomas treinado ou publicado, também conhecido como um [aplicação LUIS](https://www.luis.ai), para um contentor de docker e fornece acesso para as previsões de consulta da API do contentor pontos de extremidade. Pode recolher registos de consulta do contêiner e carregar esses back para a aplicação de compreensão de idiomas para melhorar a exatidão da previsão da aplicação.
 
 O vídeo seguinte demonstra como utilizar este contentor.
 
-[![Cdemonstração de ontainer para os serviços cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Demonstração de contentor para os serviços cognitivos](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -36,7 +36,14 @@ Para executar o contentor de LUIS, tem de ter o seguinte:
 |--|--|
 |Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
 |Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
-|Recurso da compreensão (LUIS) de idioma e a aplicação associada |Para utilizar o contentor, tem de ter:<br><br>* A [ _compreensão de idiomas_ recursos do Azure](luis-how-to-azure-subscription.md), juntamente com a chave de ponto de extremidade associado e o ponto final do URI (utilizada como o ponto final de faturação).<br>* Uma aplicação publicada ou preparada empacotada como uma entrada montada no contentor com o seu ID de aplicação associada.<br>* A chave de criação de conteúdos para transferir o pacote de aplicação, se estiver fazendo isso da API.<br><br>Estes requisitos são utilizados para transmitir os argumentos da linha de comandos para as seguintes variáveis:<br><br>**{AUTHORING_KEY}**: Esta chave é utilizada para obter a aplicação em pacote de serviço do LUIS na cloud e carregar os registos de consulta de volta para a cloud. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Este ID é utilizado para selecionar a aplicação. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Esta chave é utilizada para iniciar o contentor. Pode encontrar a chave de ponto final em dois locais. A primeira é o portal do Azure dentro de _compreensão de idiomas_ lista de chaves do recurso. Chave do ponto final também está disponível no portal do LUIS nas chaves e ponto final de página de definições. Não utilize a chave de arranque.<br><br>**{BILLING_ENDPOINT}**: O valor de ponto final de faturação está disponível na página de descrição geral de compreensão de idioma do portal do Azure. Um exemplo é: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>O [chave e a chave de ponto final de criação](luis-boundaries.md#key-limits) com objetivos diferentes. Não utilize-os alternadamente. |
+|Azure `Cognitive Services` recursos e o LUIS [aplicação em pacote](/luis-how-to-start-new-app.md#export-app-for-containers) ficheiro |Para utilizar o contentor, tem de ter:<br><br>* A _dos serviços cognitivos_ o ponto final de faturação URI da chave de recursos do Azure e a faturação associada. Ambos os valores estão disponíveis nas páginas de descrição geral e as chaves para o recurso e são necessários para iniciar o contentor. Tem de adicionar o `luis/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI. <br>* Uma aplicação publicada ou preparada empacotada como uma entrada montada no contentor com o seu ID de aplicação associada. Pode obter o ficheiro em pacote a partir do portal do LUIS ou as APIs de criação. Se estiver a obter o LUIS aplicação em pacote a partir do [APIs de criação](#authoring-apis-for-package-file), também terá de sua _chave de criação_.<br><br>Estes requisitos são utilizados para transmitir os argumentos da linha de comandos para as seguintes variáveis:<br><br>**{AUTHORING_KEY}**: Esta chave é utilizada para obter a aplicação em pacote de serviço do LUIS na cloud e carregar os registos de consulta de volta para a cloud. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Este ID é utilizado para selecionar a aplicação. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Esta chave é utilizada para iniciar o contentor. Pode encontrar a chave de ponto final em dois locais. A primeira é o portal do Azure dentro de _dos serviços cognitivos_ lista de chaves do recurso. Chave do ponto final também está disponível no portal do LUIS nas chaves e ponto final de página de definições. Não utilize a chave de arranque.<br><br>**{BILLING_ENDPOINT}**: Um exemplo é: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>O [chave e a chave de ponto final de criação](luis-boundaries.md#key-limits) com objetivos diferentes. Não utilize-os alternadamente. |
+
+### <a name="authoring-apis-for-package-file"></a>Criação de APIs para o ficheiro de pacote
+
+Criação de APIs para aplicações em pacote:
+
+* [API de pacote publicado](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip)
+* [Pacote publicado de não preparado e só de API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip)
 
 ### <a name="the-host-computer"></a>O computador anfitrião
 
@@ -114,7 +121,7 @@ Antes de empacotar um aplicativo de LUIS, tem de ter o seguinte:
 
 |Requisitos de empacotamento|Detalhes|
 |--|--|
-|Azure _compreensão de idiomas_ instância de recurso|Regiões suportadas incluem<br><br>Oeste dos E.U.A. (```westus```)<br>Europa Ocidental (```westeurope```)<br>Leste da Austrália (```australiaeast```)|
+|Azure _dos serviços cognitivos_ instância de recurso|Regiões suportadas incluem<br><br>Oeste dos E.U.A. (```westus```)<br>Europa Ocidental (```westeurope```)<br>Leste da Austrália (```australiaeast```)|
 |Aplicação do LUIS treinada ou publicada|Sem nenhum [não suportado dependências](#unsupported-dependencies). |
 |Acesso para o [computador anfitrião](#the-host-computer)do sistema de ficheiros |O computador anfitrião tem de permitir uma [entrada de montagem](luis-container-configuration.md#mount-settings).|
   
@@ -214,7 +221,7 @@ Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/
 | Marcador de posição | Valor |
 |-------------|-------|
 |{ENDPOINT_KEY} | Esta chave é utilizada para iniciar o contentor. Não utilize a chave de arranque. |
-|{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível na página de descrição geral de compreensão de idioma do portal do Azure.|
+|{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível no portal do Azure `Cognitive Services` página de descrição geral. Tem de adicionar o `luis/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo seguinte: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
 Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando.
 
@@ -245,7 +252,7 @@ Obter mais [exemplos](luis-container-configuration.md#example-docker-run-command
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
-> O valor de ApiKey é o **chave** também está disponível na página de chaves do recurso de compreensão de linguagem do Azure e as chaves e os pontos finais de página no portal do LUIS.  
+> O valor de ApiKey é o **chave** também está disponível no Azure e as chaves e os pontos finais de página no portal do LUIS `Cognitive Services` página de chaves do recurso.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -324,7 +331,7 @@ Se executar o contentor com uma saída [montar](luis-container-configuration.md#
 
 ## <a name="billing"></a>Faturação
 
-O envia de contentor do LUIS cobrança informações para o Azure, utilizando um _compreensão de idiomas_ recursos na sua conta do Azure. 
+O envia de contentor do LUIS cobrança informações para o Azure, utilizando um _dos serviços cognitivos_ recursos na sua conta do Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

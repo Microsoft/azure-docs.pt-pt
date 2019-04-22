@@ -1,21 +1,21 @@
 ---
 title: Como configurar múltiplos principais no Azure Cosmos DB
 description: Saiba como configurar múltiplos principais nas suas aplicações no Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312145"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682275"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Como configurar vários mestres em seus aplicativos que utilizam o Azure Cosmos DB
 
-Para utilizar as funcionalidades de vários mestres em seus aplicativos terá de ativar a escrita de várias regiões e configurar a capacidade em multihoming. Multihoming é configurada ao definir a região atual em que a aplicação é implementada.
+Para utilizar a funcionalidade de vários mestre na sua aplicação, terá de ativar as gravações de várias regiões e configurar o recurso multi homing no Azure Cosmos DB. Multi-homing é configurada ao definir a região onde a aplicação é implementada.
 
 ## <a id="netv2"></a>.NET SDK v2
 
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>SDK do Java Async
 
-Para ativar múltiplos principais no seu conjunto de aplicativos `policy.setUsingMultipleWriteLocations(true)` true e configurar `policy.setPreferredLocations` para a região em que o aplicativo está sendo implantado e Cosmos DB é replicado.
+Para ativar múltiplos principais no seu conjunto de aplicativos `policy.setUsingMultipleWriteLocations(true)` e configure `policy.setPreferredLocations` para a região em que o aplicativo está sendo implantado e Cosmos DB é replicado.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre a distribuição global, de vários mestre e consistência no Azure Cosmos DB. Consulte os seguintes artigos:
+Em seguida pode ler os artigos seguintes:
 
 * [Utilizar tokens de sessão para o gerenciamento de consistência no Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Tipos de conflito e diretivas de resolução no Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Elevada disponibilidade no Azure Cosmos DB](high-availability.md)
-
+* [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
 * [Escolher o nível certo de consistência no Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Compromissos de consistência, disponibilidade e desempenho no Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
+* [Globalmente dimensionar o débito aprovisionado](scaling-throughput.md)
+* [Distribuição global - sob definições avançadas](global-dist-under-the-hood.md)

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 4/1/2019
 ms.author: victorh
 ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805249"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784828"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Balanceador de carga Standard do Azure
 

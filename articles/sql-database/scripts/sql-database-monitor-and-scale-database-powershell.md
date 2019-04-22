@@ -21,7 +21,7 @@ ms.locfileid: "59359483"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Utilize o PowerShell para monitorizar e dimensionar uma base de dados SQL
 
-Este exemplo de script do PowerShell monitoriza as métricas de desempenho de uma base de dados, dimensiona-a para um tamanho de computação superior e cria uma regra de alerta numa das métricas de desempenho.
+Este exemplo de script do PowerShell monitoriza as métricas de desempenho de uma base de dados, dimensiona-a para um tamanho da computação superior e cria uma regra de alerta numa das métricas de desempenho.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

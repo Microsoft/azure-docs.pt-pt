@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
 ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048024"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784711"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Início rápido: Obtenha informações de imagem usando a API de REST de pesquisa Visual do Bing e Go
 

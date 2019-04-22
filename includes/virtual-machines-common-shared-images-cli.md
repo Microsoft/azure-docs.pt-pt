@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 36c4757feb367fd39ae94640cb8e8a0f1714a0d3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192130"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737237"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -66,7 +66,7 @@ az sig image-definition create \
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem 
  
-Criar versões da imagem, conforme necessário através de [az Galeria criar-imagem-versão da imagem](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de introduzir o ID da imagem gerida a utilizar como uma linha de base para criar a versão da imagem. Pode usar [lista de imagens de az](/cli/azure/image?view#az-image-list) para obter informações sobre imagens que estão num grupo de recursos. Neste exemplo, é a versão da nossa imagem *1.0.0* e, vamos criar 5 réplicas total no *e.u.a. Centro-Oeste*, *Centro-Sul* e E.U.A. Leste 2 * regiões.
+Criar versões da imagem, conforme necessário através de [az Galeria criar-imagem-versão da imagem](/cli/azure/sig/image-version#az-sig-image-version-create). Terá de introduzir o ID da imagem gerida a utilizar como uma linha de base para criar a versão da imagem. Pode usar [lista de imagens de az](/cli/azure/image?view#az-image-list) para obter informações sobre imagens que estão num grupo de recursos. Neste exemplo, é a versão da nossa imagem *1.0.0* e vamos criar 5 réplicas no *e.u.a. Centro-Oeste* região, 1 réplica no *Centro-Sul* região e 1 réplica no *E.U.A. Leste 2* região.
 
 ```azurecli-interactive 
 az sig image-version create \

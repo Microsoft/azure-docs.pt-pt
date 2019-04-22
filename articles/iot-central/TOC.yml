@@ -1,154 +1,147 @@
-items:
 - name: Documentação do Azure IoT Central
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o Azure IoT Central
-    href: overview-iot-central.md
-  - name: Opções de Solução IoT
-    href: overview-iot-options.md
-  - name: Apresentação da IU
-    href: overview-iot-central-tour.md
+    - name: O que é o Azure IoT Central
+      href: overview-iot-central.md
+    - name: Opções de Solução IoT
+      href: overview-iot-options.md
+    - name: Apresentação da IU
+      href: overview-iot-central-tour.md
 - name: Inícios rápidos
-  items:
-  - name: Criar uma nova aplicação
-    href: quick-deploy-iot-central.md
   expanded: true
+  items:
+    - name: Criar uma nova aplicação
+      href: quick-deploy-iot-central.md
 - name: Tutoriais
   items:
-  - name: 1 - Definir um novo tipo de dispositivo
-    href: tutorial-define-device-type.md
-  - name: 2 - Configurar regras
-    href: tutorial-configure-rules.md
-  - name: 3 - Personalizar a vista do operador
-    href: tutorial-customize-operator.md
-  - name: 4 - Monitorizar os seus dispositivos
-    href: tutorial-monitor-devices.md
-  - name: 5 - Adicionar um dispositivo
-    href: tutorial-add-device.md
+    - name: 1 - Definir um novo tipo de dispositivo
+      href: tutorial-define-device-type.md
+    - name: 2 - Configurar regras
+      href: tutorial-configure-rules.md
+    - name: 3 - Personalizar a vista do operador
+      href: tutorial-customize-operator.md
+    - name: 4 - Monitorizar os seus dispositivos
+      href: tutorial-monitor-devices.md
+    - name: 5 - Adicionar um dispositivo
+      href: tutorial-add-device.md
 - name: Conceitos
   items:
-  - name: Arquitetura
-    href: concepts-architecture.md
-  - name: Conectividade
-    href: concepts-connectivity.md
+    - name: Arquitetura
+      href: concepts-architecture.md
+    - name: Conectividade
+      href: concepts-connectivity.md
 - name: Guias de procedimentos
   items:
-  - name: Ligar dispositivos
-    items:
-    - name: Gerar uma cadeia de ligação do dispositivo
-      href: howto-generate-connection-string.md
-    - name: Preparar e ligar uma aplicação (genérica) do Node.js
-      href: howto-connect-nodejs.md
-    - name: Preparar e ligar um DevKit de IoT MXChip
-      href: howto-connect-devkit.md
-    - name: Preparar e ligar um Raspberry Pi (Python)
-      href: howto-connect-raspberry-pi-python.md
-    - name: Preparar e ligar um Raspberry Pi (C#)
-      href: howto-connect-raspberry-pi-csharp.md
-    - name: Preparar e ligar um dispositivo Windows Core de IoT
-      href: howto-connect-windowsiotcore.md
-    - name: Monitorizar a conectividade do dispositivo com a linha de comandos
-      href: howto-use-iotc-explorer.md
-  - name: Gerir dispositivos
-    items:
-    - name: Configurar um modelo de dispositivo
-      href: howto-set-up-template.md
-    - name: Faça a gestão dos seus dispositivos
-      href: howto-manage-devices.md
-    - name: Executar uma tarefa
-      href: howto-run-a-job.md
-    - name: Utilizar conjuntos de dispositivos
-      href: howto-use-device-sets.md
-    - name: Modelo de dispositivo da versão
-      href: howto-version-devicetemplate.md
-  - name: Monitorização e análise
-    items:
-    - name: Criar regra de telemetria
-      href: howto-create-telemetry-rules.md
-    - name: Criar uma regra de eventos
-      href: howto-create-event-rules.md
-    - name: Analisar os dados do seu dispositivo
-      href: howto-create-analytics.md
-  - name: Ações e extensibilidade
-    items:
-    - name: Agrupar várias ações nas regras
-      href: howto-use-action-groups.md
-    - name: Criar ações de webhook em regras
-      href: howto-create-webhooks.md
-    - name: Criar fluxos de trabalho no Microsoft Flow
-      href: howto-add-microsoft-flow.md
-    - name: Criar fluxos de trabalho no Azure Logic Apps
-      href: howto-build-azure-logic-apps.md
-    - name: Acionar Funções do Azure
-      href: howto-trigger-azure-functions.md
-    - name: Exportar os seus dados
+    - name: Ligar dispositivos
       items:
-      - name: Exportar para os Hubs de Eventos e o Service Bus
-        href: howto-export-data-event-hubs-service-bus.md
-      - name: Exportar para o Armazenamento de Blobs
-        href: howto-export-data-blob-storage.md
-    - name: Ver os seus dados no Power BI
-      href: howto-connect-powerbi.md
-    - name: Ligar outras clouds de IoT
-      href: howto-build-iotc-device-bridge.md
-  - name: Administração
-    items:
-    - name: Administrar a sua aplicação
-      href: howto-administer.md
-    - name: Preparar e carregar imagem
-      href: howto-prepare-images.md
-    - name: Gerir a partir do portal do Azure
-      href: howto-manage-iot-central-from-portal.md
-    - name: Gerir a partir da CLI do Azure
-      href: howto-manage-iot-central-from-cli.md
-    - name: Gerir a partir do Azure PowerShell
-      href: howto-manage-iot-central-from-powershell.md
-    - name: Criar e gerir uma aplicação como CSP
-      href: howto-create-and-manage-applications-as-CSP.md
-    - name: Configurar o dashboard de aplicações
-      href: howto-configure-homepage.md
-  - name: Personalização
-    items:
-    - name: Criar dashboards pessoais
-      href: howto-personalize-dashboard.md
-    - name: Gerir as suas preferências
-      href: howto-manage-preferences.md
+        - name: Gerar uma cadeia de ligação do dispositivo
+          href: howto-generate-connection-string.md
+        - name: Preparar e ligar uma aplicação (genérica) do Node.js
+          href: howto-connect-nodejs.md
+        - name: Preparar e ligar um DevKit de IoT MXChip
+          href: howto-connect-devkit.md
+        - name: Preparar e ligar um Raspberry Pi (Python)
+          href: howto-connect-raspberry-pi-python.md
+        - name: 'Preparar e ligar um Raspberry Pi (C#)'
+          href: howto-connect-raspberry-pi-csharp.md
+        - name: Preparar e ligar um dispositivo Windows Core de IoT
+          href: howto-connect-windowsiotcore.md
+        - name: Monitorizar a conectividade do dispositivo com a linha de comandos
+          href: howto-use-iotc-explorer.md
+    - name: Gerir dispositivos
+      items:
+        - name: Configurar um modelo de dispositivo
+          href: howto-set-up-template.md
+        - name: Faça a gestão dos seus dispositivos
+          href: howto-manage-devices.md
+        - name: Executar uma tarefa
+          href: howto-run-a-job.md
+        - name: Utilizar conjuntos de dispositivos
+          href: howto-use-device-sets.md
+        - name: Modelo de dispositivo da versão
+          href: howto-version-devicetemplate.md
+    - name: Monitorização e análise
+      items:
+        - name: Criar regra de telemetria
+          href: howto-create-telemetry-rules.md
+        - name: Criar uma regra de eventos
+          href: howto-create-event-rules.md
+        - name: Analisar os dados do seu dispositivo
+          href: howto-create-analytics.md
+    - name: Ações e extensibilidade
+      items:
+        - name: Agrupar várias ações nas regras
+          href: howto-use-action-groups.md
+        - name: Criar ações de webhook em regras
+          href: howto-create-webhooks.md
+        - name: Criar fluxos de trabalho no Microsoft Flow
+          href: howto-add-microsoft-flow.md
+        - name: Criar fluxos de trabalho no Azure Logic Apps
+          href: howto-build-azure-logic-apps.md
+        - name: Acionar Funções do Azure
+          href: howto-trigger-azure-functions.md
+        - name: Exportar os seus dados
+          items:
+            - name: Exportar para os Hubs de Eventos e o Service Bus
+              href: howto-export-data-event-hubs-service-bus.md
+            - name: Exportar para o Armazenamento de Blobs
+              href: howto-export-data-blob-storage.md
+        - name: Ver os seus dados no Power BI
+          href: howto-connect-powerbi.md
+        - name: Ligar outras clouds de IoT
+          href: howto-build-iotc-device-bridge.md
+    - name: Administração
+      items:
+        - name: Administrar a sua aplicação
+          href: howto-administer.md
+        - name: Preparar e carregar imagem
+          href: howto-prepare-images.md
+        - name: Gerir a partir do portal do Azure
+          href: howto-manage-iot-central-from-portal.md
+        - name: Gerir a partir da CLI do Azure
+          href: howto-manage-iot-central-from-cli.md
+        - name: Gerir a partir do Azure PowerShell
+          href: howto-manage-iot-central-from-powershell.md
+        - name: Criar e gerir uma aplicação como CSP
+          href: howto-create-and-manage-applications-as-CSP.md
+        - name: Configurar o dashboard de aplicações
+          href: howto-configure-homepage.md
+    - name: Personalização
+      items:
+        - name: Criar dashboards pessoais
+          href: howto-personalize-dashboard.md
+        - name: Gerir as suas preferências
+          href: howto-manage-preferences.md
 - name: Relacionado
   items:
-  - name: Soluções
-    items:
-    - name: Aceleradores de soluções IoT
-      href: /azure/iot-suite
-    - name: Centro de IoT
-      href: /microsoft-iot-central
-  - name: Serviços de plataforma
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
-      href: /azure/iot-dps
-    - name: Location Based Services
-      href: /azure/location-based-services
-    - name: SDKs de Serviço
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Microsoft Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDKs do Dispositivo IoT
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Soluções
+      items:
+        - name: Aceleradores de soluções IoT
+          href: /azure/iot-suite
+        - name: Centro de IoT
+          href: /microsoft-iot-central
+    - name: Serviços de plataforma
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: SDKs de Serviço
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do Dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
-  - name: Pedidos de dados do cliente
-    href: iot-central-customer-data-requests.md
-  - name: Browsers suportados
-    href: iot-central-supported-browsers.md
-ms.openlocfilehash: 277b1ca0a239bddc02ca32d93ca1ffebbf542240
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59425904"
+    - name: Pedidos de dados do cliente
+      href: iot-central-customer-data-requests.md
+    - name: Browsers suportados
+      href: iot-central-supported-browsers.md

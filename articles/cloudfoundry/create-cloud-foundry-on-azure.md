@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
 ms.openlocfilehash: 382e342f2144bcc6eeedafd74790bb442b8f9308
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884245"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59784863"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster de Pivotal Cloud Foundry no Azure
 

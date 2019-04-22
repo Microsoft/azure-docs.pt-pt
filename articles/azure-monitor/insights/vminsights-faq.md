@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243778"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698285"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Monitor do Azure para VMs (pré-visualização) perguntas mais frequentes
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Azure Monitor para as VMs. Se tiver perguntas adicionais sobre a solução, vá para o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -100,7 +100,7 @@ O Azure Monitor para a funcionalidade de mapa de VMs é baseado em mapa de servi
 * VMs monitorizadas agora estão incluídas no nó do grupo de cliente e o gráfico em anel mostra a proporção de máquinas virtuais não monitorizadas do vs monitorizados no grupo.  Também pode ser utilizado para filtrar a lista de máquinas quando o grupo é expandido.
 * Monitorizado máquinas de virtuais agora são incluídas em nós de grupo de porta de servidor e o gráfico em anel mostra a proporção de máquinas não monitorizadas do vs monitorizados no grupo.  Também pode ser utilizado para filtrar a lista de máquinas quando o grupo é expandido.
 * O estilo de mapa foi atualizado para ser mais consistente com o mapa da aplicação do Application insights.
-* Os painéis do lado foram atualizados, mas ainda não tem o conjunto completo de integração que eram suportadas no mapa de serviço - Gestão de atualizações, controlo de alterações, segurança e serviço de atendimento. 
+* Os painéis do lado foram atualizados e não tem o conjunto completo de integração que eram suportadas no mapa de serviço - Gestão de atualizações, controlo de alterações, segurança e serviço de atendimento. 
 * A opção para escolher os grupos e as máquinas para mapear foi atualizada e agora suporta subscrições, grupos de recursos, os conjuntos de dimensionamento de máquina virtual do Azure e serviços em nuvem.
 * Não é possível criar novos grupos de máquina de mapa de serviço no Azure Monitor para a funcionalidade de mapa de VMs.  
 
@@ -125,6 +125,12 @@ Embora tenhamos feito melhorias ao mapa para lidar com configurações de grande
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Por que o gráfico de rede na guia desempenho ter um aspeto diferente no gráfico de rede na página de descrição geral de VM do Azure?
 
 A página de descrição geral para uma VM do Azure apresenta gráficos com base em medição do anfitrião da atividade na VM do convidado.  Para o gráfico de rede na descrição de geral de VM do Azure, mostra apenas o tráfego de rede que será cobrado.  Isso não inclui o tráfego de inter-vnet.  Os dados e gráficos mostrados para o Azure Monitor para VMs é baseado nos dados da VM do convidado e a rede de gráficos apresenta todo o tráfego de TCP/IP que é a entrada e saída para essa VM, incluindo inter-vnet.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Como o tempo de resposta é medido para dados armazenados no VMConnection e apresentado no painel de ligação e pastas de trabalho?
+
+Tempo de resposta é uma aproximação. Uma vez que não podemos instrumentar o código do aplicativo, que não realmente sabemos quando começa um pedido e ao receber a resposta. Em vez disso, vamos observar a ser enviados numa conexão de dados e, em seguida, dados que regressam nessa ligação. Nosso agente controla estes envia e recebe e tenta pareá-las: recebe uma seqüência de envia, seguido de uma seqüência de é interpretado como um par de solicitação/resposta. O período de tempo entre estas operações é o tempo de resposta. Ele inclui a latência de rede e o tempo de processamento do servidor.
+
+Essa aproximação funciona bem para protocolos que são de solicitação/resposta com base em: uma única solicitação sai na ligação e uma única resposta chega. Esse é o caso para HTTP (S) (sem o pipelining), mas não satisfeita para outros protocolos.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>São as suas limitações se estou no plano de preços gratuito do Log Analytics?
 Se tiver configurado o Azure Monitor com uma área de trabalho do Log Analytics a utilizar o *gratuito* preços escalão, o Azure Monitor para a funcionalidade de mapa de VMs só irá suportar cinco máquinas ligadas ligado à área de trabalho. Se tiver cinco VMs ligadas a uma área de trabalho gratuita, desligar uma das VMs e, em seguida, ligar mais tarde uma nova VM, a nova VM não é monitorizada e refletida na página de mapa.  

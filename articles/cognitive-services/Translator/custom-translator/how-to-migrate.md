@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901530"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698404"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar os projetos de área de trabalho de Hub e ao Translator personalizado
 
@@ -119,6 +119,7 @@ Página de histórico de migração apresenta seguindo as informações de resum
 Se quiser que mais detalhadas que o relatório de migração sobre os seus projetos, treinamentos e documentos, terá opção Exportar detalhes como CSV.
 
 ## <a name="implementation-notes"></a>Notas de implementação
+* Sistemas com linguagem ainda não pares disponíveis no personalizado Translator só estará disponível para aceder a dados ou anular a implementação através de tradutor de personalizado. Esses projetos serão marcados como "Indisponível" na página de projetos. À medida que ativamos novos pares de idiomas tradutor personalizado, os projetos se tornará ativos para preparar e implementar. 
 * Migrando um projeto do Hub para o Translator personalizado não terá qualquer impacto no seu treinamentos de Hub ou projetos. Não eliminamos projetos ou documentos do Hub durante uma migração e não anular a implementação modelos.
 * Apenas são permitidos para migrar uma vez por projeto. Se precisar repetir uma migração num projeto, entre em contato conosco.
 * Personalizado Translator suporta pares de idiomas NMT de e para inglês. [Ver a lista completa de langauges suportados](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub não necessita de modelos de linha de base e, portanto, oferece suporte a várias linguagens de milhares. É possível migrar um par de idioma não suportado, no entanto, estamos apenas irá executar a migração de documentos e as definições do projeto. Não será capazes de preparar o modelo de novo. Além disso, estes documentos e projetos serão apresentados como Inativos para indicar que não pode ser utilizados neste momento. Se é adicionado suporte para estes projetos e/ou documentos, ficam trainable e Active Directory.

@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 140c8b2ab9b7985652a6474a1a9373e0d453b9e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900731"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699335"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Assistente do Azure
 
@@ -37,9 +37,9 @@ Advisor identifica as portas de rede virtual que tem estado Inativas durante mai
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Comprar instâncias de máquinas virtuais reservadas para poupar dinheiro sobre os custos de pay as you go
 
-O assistente irá rever a utilização da máquina virtual durante os últimos 30 dias e determinar se pode poupar dinheiro ao comprar uma reserva do Azure. O assistente mostrará a os regiões e os tamanhos em que potencialmente tem as maioria das poupanças e irá mostrar-lhe a poupança estimada na compra de reservas. 
+O assistente irá rever a utilização da máquina virtual durante os últimos 30 dias e determinar se pode poupar dinheiro ao comprar uma reserva do Azure. O assistente mostrará a os regiões e os tamanhos em que potencialmente tem as maioria das poupanças e irá mostrar-lhe a poupança estimada na compra de reservas. Com reservas do Azure, pode comprar previamente os custos base para as suas máquinas virtuais. Descontos serão aplicado automaticamente para as VMs de novas ou existentes com o mesmo tamanho e a região, como as reservas. [Saiba mais sobre as instâncias de VM reservadas do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Com reservas do Azure, pode comprar previamente os custos base para as suas máquinas virtuais. Descontos serão aplicado automaticamente para as VMs de novas ou existentes com o mesmo tamanho e a região, como as reservas. [Saiba mais sobre as instâncias de VM reservadas do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+O assistente também será notificado das instâncias reservadas que tem que expiram nos próximos 30 dias. Recomenda que compra instâncias reservadas novas para evitar pagar o preço pay as you go.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminar não associados a endereços IP públicos para poupar dinheiro
 

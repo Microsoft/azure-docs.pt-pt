@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 61466f3574ba7a88665a8d78818d0a4c12716bbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269797"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Active Directory do Azure com o Rackspace SSO
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com o Rackspace SSO, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * Rackspace SSO logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -101,11 +101,21 @@ Para configurar o Azure AD início de sessão único com o Rackspace SSO, execut
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. No **configuração básica de SAML** secção, carregamento a **ficheiro de metadados do fornecedor de serviços** que pode transferir a partir do [URL](https://login.rackspace.com/federate/sp.xml) e execute os seguintes passos:
 
-    ![Domínio de SSO rackspace e URLs únicas início de sessão em informações](common/sp-signonurl.png)
+    a. Clique em **carregamento de ficheiro de metadados**.
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://login.rackspace.com/federate/`
+    ![image](common/upload-metadata.png)
+
+    b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
+
+    ![image](common/browse-upload-metadata.png)
+
+    c. Depois do ficheiro de metadados é carregado com êxito, os urls necessários obter automaticamente preenchido automaticamente.
+
+    d. Na **URL de início de sessão** caixa de texto, escreva um URL: `https://login.rackspace.com/federate/`
+
+    ![Domínio de SSO rackspace e URLs únicas início de sessão em informações](common/sp-signonurl.png)   
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -143,7 +153,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -189,7 +199,7 @@ Quando clica no mosaico Rackspace SSO no painel de acesso, deve ser automaticame
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

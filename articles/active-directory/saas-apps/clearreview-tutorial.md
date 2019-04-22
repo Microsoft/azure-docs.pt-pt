@@ -8,19 +8,20 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa6a88971ca69fa910435d00722dcdf12db44f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf2576aa112d58e499f0c4a16bf8e9261114974b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880896"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698984"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Active Directory do Azure com a revisão clara
 
@@ -38,7 +39,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com a revisão clara, precisa do seguinte:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * Limpar revisão início de sessão único de subscrição ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -118,33 +119,21 @@ Para configurar o Azure AD início de sessão único com a revisão clara, execu
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente de revisão clara](https://clearreview.com/contact/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-6. Rever clara da aplicação espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+6. Rever clara da aplicação espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Rever clara da aplicação espera **nameidentifier** seja mapeado com **user.mail**, por isso terá de editar o mapeamento do atributo clicando no **editar** ícone e alterar o mapeamento do atributo.
 
     ![image](common/edit-attribute.png)
 
-7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
-    
-    | Name | Atributo de origem | 
-    | ---------------| --------------- |
-    | Valor do identificador de nome   | user.mail |
+7. Sobre o **atributos de utilizador e afirmações** caixa de diálogo, execute os seguintes passos:
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+    a. Clique em **ícone de edição** à direita da **o valor do identificador de nome**.
 
-    ![image](common/new-save-attribute.png)
+    ![image](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image](./media/clearreview-tutorial/attribute01.png)
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    b. Partir do **atributo de origem** lista, selecione o **user.mail** valor para essa linha de atributo.
 
-    c. Deixe o **espaço de nomes** em branco.
-
-    d. Selecione a origem de dado **atributo**.
-
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
-
-    f. Clique em **Ok**
-
-    g. Clique em **Guardar**.
+    c. Clique em **Guardar**.
 
 8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -156,7 +145,7 @@ Para configurar o Azure AD início de sessão único com a revisão clara, execu
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -168,7 +157,7 @@ Para configurar o Azure AD início de sessão único com a revisão clara, execu
 
     ![Configurar o botão único início de sessão em Guardar](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. Selecione **alteração** na parte inferior da página.
+3. No **integrações** secção na parte inferior da página clique a **alteração** botão à direita do **definições de início de sessão único**.
 
     ![Configurar o botão único início de sessão em Guardar](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
@@ -176,7 +165,7 @@ Para configurar o Azure AD início de sessão único com a revisão clara, execu
 
     ![Configurar o botão único início de sessão em Guardar](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. Na **URL de emissor** caixa de texto, cole o valor de **identificador do Azure Ad** que copiou do portal do Azure.
+    a. No **URL de emissor** caixa de texto, cole o valor de **do Azure AD identificador** que copiou do portal do Azure.
 
     b. Na **ponto final de SAML** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.  
 
@@ -184,7 +173,7 @@ Para configurar o Azure AD início de sessão único com a revisão clara, execu
 
     d. Abra o certificado transferido no bloco de notas e cole o conteúdo do **certificado X.509** caixa de texto.   
 
-5. Clique em **Guardar**.
+    e. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 

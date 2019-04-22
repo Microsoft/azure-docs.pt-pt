@@ -95,7 +95,7 @@ Agora, prepare o armazenamento de Blobs do Azure e base de dados SQL do Azure pa
     ```
 2. Utilize ferramentas, como o [Explorador do Storage do Azure](https://storageexplorer.com/), para criar o contentor **adftutorial** e carregar o ficheiro **emp.txt** para o contentor.
 
-3. Utilize o seguinte script SQL para criar a tabela **emp** na SQL Database do Azure.  
+3. Utilize o seguinte script SQL para criar a tabela **emp** na Base de Dados SQL do Azure.  
 
     ```SQL
     CREATE TABLE dbo.emp

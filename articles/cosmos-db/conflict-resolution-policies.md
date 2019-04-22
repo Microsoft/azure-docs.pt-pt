@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407424"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684230"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflito e políticas de resolução
 
@@ -37,11 +37,11 @@ O Azure Cosmos DB oferece um mecanismo orientado por diretivas flexível para re
   > [!NOTE]
   > Última escrever Wins é a política de resolução de conflito de predefinida. Está disponível para as seguintes APIs: SQL, MongoDB, Cassandra, Gremlin e tabela.
 
-  Para obter mais informações, consulte [exemplos que usam LWW entram em conflito de políticas de resolução](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Para obter mais informações, consulte [exemplos que usam LWW entram em conflito de políticas de resolução](how-to-manage-conflicts.md).
 
 - **Custom**: Esta política de resolução destina-se a semântica definida pelo aplicativo para reconciliação de conflitos. Quando definir esta política no seu contentor do Cosmos do Azure, também tem de registar um *intercalar o procedimento armazenado*. Este procedimento é invocado automaticamente quando está em conflito é detetadas numa transação de base de dados no servidor. O sistema fornece exatamente garantir uma vez para a execução de um procedimento de mesclagem como parte do protocolo de compromisso.  
 
-  Se configurar o seu contentor com a opção de resolução personalizados e não registar um procedimento de intercalação no contentor ou o procedimento de intercalação lança uma exceção em tempo de execução, os conflitos são escritos para o *conflitos de feed*. Seu aplicativo, em seguida, tem de resolver manualmente os conflitos em conflitos feed. Para obter mais informações, consulte [exemplos de como utilizar a política de resolução personalizados e como utilizar os conflitos de feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Se configurar o seu contentor com a opção de resolução personalizados e não registar um procedimento de intercalação no contentor ou o procedimento de intercalação lança uma exceção em tempo de execução, os conflitos são escritos para o *conflitos de feed*. Seu aplicativo, em seguida, tem de resolver manualmente os conflitos em conflitos feed. Para obter mais informações, consulte [exemplos de como utilizar a política de resolução personalizados e como utilizar os conflitos de feed](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > Política de resolução de conflito personalizado está disponível apenas para contas da API de SQL.
@@ -51,6 +51,5 @@ O Azure Cosmos DB oferece um mecanismo orientado por diretivas flexível para re
 Saiba como configurar políticas de resolução de conflitos:
 
 * [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
-* [Como utilizar a política de resolução de conflito LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Como utilizar a política de resolução de conflito personalizado](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Como gerir políticas de resolução de conflito](how-to-manage-conflicts.md)
 * [Como ler de conflitos de feed](how-to-manage-conflicts.md#read-from-conflict-feed)

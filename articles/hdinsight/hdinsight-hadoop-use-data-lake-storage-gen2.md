@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 7e21d4c6705213cb57f058c062fff0ff4957a52a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802546"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681867"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -139,6 +139,5 @@ Para definir permissões dos utilizadores para consultar dados, utilize grupos d
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Atualizar a integração do Azure HDInsight com a pré-visualização de geração 2 de armazenamento do Data Lake - ACL e segurança](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Introdução à pré-visualização do Azure Data Lake Storage geração 2](../storage/blobs/data-lake-storage-introduction.md)

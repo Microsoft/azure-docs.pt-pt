@@ -19,7 +19,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357582"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utilize a CLI para mover uma base de dados SQL num conjunto elástico SQL
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utilize a CLI para mover uma base de dados SQL do Azure num conjunto elástico SQL
 
 Este exemplo de script da CLI do Azure cria dois conjuntos elásticos e move uma base de dados SQL do Azure de um conjunto de elástico de SQL para outro conjunto elástico de SQL e, em seguida, move o tamanho de computação de base de dados fora do conjunto elástico para um único banco de dados.
 

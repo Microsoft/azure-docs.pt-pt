@@ -45,7 +45,7 @@ Eis os passos de fluxo de trabalho ponto-a-ponto normais para carregar dados inc
 > Ambos a Base de Dados SQL do Azure e o SQL Server suportam a tecnologia de Controlo de Alterações. Este tutorial utiliza a Base de Dados SQL do Azure como o arquivo de dados de origem. Também pode utilizar um SQL Server local. 
 
 1. **Carregamento de dados históricos inicial** (executar uma vez):
-    1. Ative a tecnologia de Controlo de Alterações na base de dados SQL de Azure de origem.
+    1. Ative a tecnologia de Controlo de Alterações na base de dados SQL do Azure de origem.
     2. Obtenha o valor inicial da SYS_CHANGE_VERSION na base de dados SQL do Azure como a linha de base para capturar os dados alterados.
     3. Carregar os dados completos da base de dados SQL do Azure para um armazenamento de blobs do Azure. 
 2. **Carregamento incremental de dados delta com base numa agenda** (executar periodicamente após o carregamento de dados inicial):

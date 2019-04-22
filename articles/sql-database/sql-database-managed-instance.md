@@ -71,7 +71,7 @@ Os principais recursos do instâncias geridas são mostrados na tabela a seguir:
 | Serviço de relatórios incorporado (SSRS) | Não, utilizar o Power BI ou do IaaS do SSRS |
 |||
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para instâncias geridas dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe alterar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

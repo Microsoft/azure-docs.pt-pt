@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856027"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699052"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do Service Bus - comparação e contraste
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas disponibilizadas atualmente pelo Microsoft Azure: Filas de armazenamento e filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -84,7 +84,7 @@ Esta seção compara alguns dos recursos fundamentais colocação em fila fornec
 * O padrão de FIFO garantido em filas do Service Bus requer o uso de sessões de mensagens. No caso de falha da aplicação ao processar uma mensagem é recebida na **observar & Bloquear** modo, na próxima vez que um recetor de fila aceita uma sessão de mensagens, irá começar com a mensagem de falha após a respetiva time-to-live (TTL) período de expirar.
 * Filas de armazenamento foram concebidas para suportar cenários de colocação em fila padrão, como desacoplando componentes da aplicação para aumentar a escalabilidade e tolerância a falhas, carregar nivelamento e a criação de fluxos de trabalho do processo.
 * Suporte de filas do Service Bus a *pelo-menos-uma vez* garantia de entrega. 
-* Inconsistências em relação ao processamento de mensagens no contexto de sessões de barramento de serviço podem ser evitadas ao utilizar o estado da sessão para armazenar o estado do aplicativo em relação ao progresso de manipulação de sequência de mensagem da sessão e com transações em torno de liquidar recebeu mensagens e a atualizar o estado da sessão. Esse tipo de recurso de consistência, às vezes, é rotulado *exatamente-processamento uma vez* de outro fabricante produtos, mas a transação falhas, obviamente, fará com que as mensagens sejam redeliveried e, portanto, o termo adequado não exatamente.
+* Inconsistências em relação ao processamento de mensagens no contexto de sessões de barramento de serviço podem ser evitadas ao utilizar o estado da sessão para armazenar o estado do aplicativo em relação ao progresso de manipulação de sequência de mensagem da sessão e com transações em torno de liquidar recebeu mensagens e a atualizar o estado da sessão. Esse tipo de recurso de consistência, às vezes, é rotulado *exatamente-processamento uma vez* de outro fabricante produtos, mas a transação falhas, obviamente, fará com que as mensagens ser reenviada e, portanto, o termo adequado não exatamente.
 * Filas de armazenamento fornecem um modelo de programação uniforme e consistente em filas, tabelas e BLOBs – para os desenvolvedores e para as equipas de operações.
 * Filas do Service Bus fornecem suporte para transações locais no contexto de uma única fila.
 * O **receber e eliminar** modo suportado pelo Service Bus fornece a capacidade de reduzir o contador de operações de mensagens (e o custo associado), em troca de garantia de entrega de baixa expectativa com.

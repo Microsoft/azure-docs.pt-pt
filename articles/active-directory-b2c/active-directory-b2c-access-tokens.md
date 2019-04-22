@@ -1,137 +1,140 @@
 ---
-title: Pedir tokens de acesso no Azure Active Directory B2C | Documentos da Microsoft
-description: Este artigo irá mostrar como configurar uma aplicação de cliente e adquirir um token de acesso.
+title: Pedir um token de acesso - Azure Active Directory B2C | Documentos da Microsoft
+description: Saiba como solicitar um token de acesso do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5670d8b3c97cc1f9f6d149e8eadaa60d527e45f5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768355"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683941"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Pedir tokens de acesso
+# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Pedir um token de acesso no Azure Active Directory B2C
 
-Um token de acesso (denotado como **acesso\_token** nas respostas do Azure AD B2C) é uma forma de token de segurança que um cliente pode utilizar para aceder a recursos que está protegido por um [o servidor de autorização](active-directory-b2c-reference-protocols.md), por exemplo, uma API web. Tokens de acesso são representados como [JWTs](active-directory-b2c-reference-tokens.md) e contêm informações sobre o servidor de recurso pretendido e as permissões concedidas para o servidor. Ao chamar o servidor de recursos, o token de acesso tem de estar presente na solicitação HTTP.
+Uma *token de acesso* contém declarações que pode utilizar no Azure Active Directory (Azure AD) B2C para identificar as permissões concedidas às suas APIs. Ao chamar um servidor de recurso, um token de acesso tem de estar presente na solicitação HTTP. Um token de acesso é denotado como **access_token** nas respostas do Azure AD B2C. 
 
-Este artigo aborda como configurar uma aplicação cliente e a API web para obter um **acesso\_token**.
-
-> [!NOTE]
-> **Cadeias de API da Web (em-nome-de) não é suportado pelo Azure AD B2C.**
->
-> Muitas arquiteturas incluem uma API web que precisa chamar outra API web a jusante, ambas protegidas pelo Azure AD B2C. Este cenário é comum em clientes nativos que têm um web API back-end, que por sua vez chama um serviço online da Microsoft, como o Azure AD Graph API.
->
-> Este cenário de API web em cadeia pode ser suportado utilizando a concessão de credencial de portador do OAuth 2.0 JWT, também conhecida como o fluxo em-nome-de. No entanto, o fluxo em-nome-de atualmente não é implementado no Azure AD B2C.
-
-## <a name="register-a-web-api-and-publish-permissions"></a>Registar uma API web e publicar as permissões
-
-Antes de solicitar um token de acesso, tem primeiro de registar uma API web e publicar as permissões (âmbitos) que podem ser concedidas à aplicação cliente.
-
-### <a name="register-a-web-api"></a>Registar uma API Web
-
-1. No menu de recursos do Azure AD B2C no portal do Azure, clique em **aplicativos**.
-2. Clique em **+ adicionar** na parte superior do menu.
-3. Introduza um **Nome** para a aplicação que irá descrever a aplicação para os consumidores. Por exemplo, pode introduzir "Contoso API".
-4. Coloque o comutador **Incluir aplicação Web/API Web** em **Sim**.
-5. Introduza um valor arbitrário para o **URLs de resposta**. Por exemplo, introduza `https://localhost:44316/`. O valor não é relevante, uma vez que uma API deve não receber o token diretamente a partir do Azure AD B2C.
-6. Introduza um **URI de ID de Aplicação**. Este é o identificador utilizado para a API Web. Por exemplo, introduza "notas" na caixa. O **URI de ID de aplicação** seria `https://{tenantName}.onmicrosoft.com/notes`.
-7. Clique em **Criar** para registar a aplicação.
-8. Clique na aplicação que acabou de criar e copie a **ID de Aplicação de Cliente** exclusiva global que utilizará posteriormente no seu código.
-
-### <a name="publishing-permissions"></a>Permissões de publicação
-
-Os escopos, que são análogos às permissões, são necessários quando a sua aplicação está a chamar uma API. Alguns exemplos de âmbitos são de "leitura" ou "escrita". Suponha que deseja que a web ou aplicação nativa "ler" a partir de uma API. A aplicação deverá chamar o Azure AD B2C e solicitar um token de acesso que dá acesso ao âmbito de "leitura". Para o Azure AD B2C emitir um token de acesso, a aplicação precisa ser concedida a permissão "ler" a partir da API específica. Para fazer isso, sua API tem primeiro de publicar o âmbito "ler".
-
-1. No Azure AD B2C **aplicativos** menu, abra a API web de aplicação ("Contoso API").
-2. Clique em **Âmbitos publicados**. Esta é a secção onde pode definir as permissões (âmbitos) que podem ser concedidas a outras aplicações.
-3. Adicione **valores de âmbito** conforme necessário (por exemplo, "ler"). Por predefinição, será definido o âmbito "user_impersonation". Pode ignorar esta se desejar. Introduza uma descrição do âmbito na **nome do âmbito** coluna.
-4. Clique em **Guardar**.
-
-> [!IMPORTANT]
-> O **nome do âmbito** é a descrição dos **o valor de âmbito**. Ao usar o escopo, certifique-se de utilizar o **valor de âmbito**.
-
-## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>Conceder um nativo ou web permissões de aplicações para uma API web
-
-Depois de uma API estiver configurada para publicar âmbitos, a aplicação de cliente tem de ser concedido esses âmbitos através do portal do Azure.
-
-1. Navegue para o **aplicativos** menu no menu de recursos do Azure AD B2C.
-2. Registar uma aplicação de cliente ([aplicação web](active-directory-b2c-app-registration.md) ou [cliente nativo](active-directory-b2c-app-registration.md)) se ainda não tiver um. Se estiver a seguir este guia como ponto de partida, terá de registar uma aplicação de cliente.
-3. Clique em **acesso à API**.
-4. Clique em **Adicionar**.
-5. Selecione a API web e os âmbitos (permissões) que pretende conceder.
-6. Clique em **OK**.
+Este artigo mostra-lhe como solicitar um token de acesso para um aplicativo web e a web API. Para obter mais informações sobre tokens no Azure AD B2C, consulte a [descrição geral de tokens no Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
 > [!NOTE]
-> O Azure AD B2C não pedir o seu cliente utilizadores da aplicação para o seu consentimento. Em vez disso, todos os consentimento é fornecido pelo administrador, com base nas permissões configuradas entre as aplicações descritas acima. Se uma concessão de permissões para uma aplicação tiver sido revogada, todos os utilizadores que eram anteriormente possível adquirir essa permissão já não será capazes de fazer isso.
+> **Cadeias de API da Web (em-nome-de) não é suportado pelo Azure AD B2C.** -Muitas arquiteturas incluem uma API web que precisa chamar outra API web a jusante, ambas protegidas pelo Azure AD B2C. Este cenário é comum em clientes que tenham um web API back-end, que por sua vez chama um outro serviço. Este cenário de API web em cadeia pode ser suportado utilizando a concessão de credencial de portador do OAuth 2.0 JWT, também conhecida como o fluxo em-nome-de. No entanto, o fluxo em-nome-de atualmente não é implementado no Azure AD B2C.
 
-## <a name="requesting-a-token"></a>Pedir um token
+## <a name="prerequisites"></a>Pré-requisitos
 
-Quando pedir um token de acesso, a aplicação cliente tem de especificar as permissões pretendidas no **âmbito** parâmetro do pedido. Por exemplo, para especificar a **valor do âmbito** "leitura" para a API que tenha o **URI de ID de aplicação** de `https://contoso.onmicrosoft.com/notes`, o escopo seria `https://contoso.onmicrosoft.com/notes/read`. Segue-se um exemplo de um pedido de código de autorização para o `/authorize` ponto final.
+- [Criar um fluxo de utilizador](tutorial-create-user-flows.md) para permitir aos utilizadores inscrever-se e iniciar sessão na sua aplicação.
+- Se ainda não fez isso, [adicionar uma web de aplicação de API com o seu inquilino do Azure Active Directory B2C](add-web-application.md).
 
-> [!NOTE]
-> Atualmente, os domínios personalizados não são suportados, juntamente com os tokens de acesso. Tem de utilizar o seu domínio tenantName.onmicrosoft.com no URL do pedido.
+## <a name="scopes"></a>Âmbitos
+
+Âmbitos oferecem uma forma de gerir permissões para recursos protegidos. Quando é solicitado um token de acesso, a aplicação cliente tem de especificar as permissões pretendidas no **âmbito** parâmetro do pedido. Por exemplo, para especificar o **valor do âmbito** de `read` para a API com o **App ID URI** de `https://contoso.onmicrosoft.com/api`, o âmbito seria `https://contoso.onmicrosoft.com/api/read`.
+
+São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Para adquirir várias permissões no mesmo pedido, pode adicionar várias entradas no único **âmbito** parâmetro do pedido, separado por espaços.
+
+O exemplo seguinte mostra os âmbitos descodificados num URL:
+
+```
+scope=https://contoso.onmicrosoft.com/api/read openid offline_access
+```
+
+O exemplo seguinte mostra os âmbitos codificados numa URL:
+
+```
+scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
+```
+
+Se pedir mais âmbitos do que as concedidas para a sua aplicação de cliente, a chamada terá êxito se pelo menos uma permissão for concedida. O **scp** afirmações no token de acesso resultante é preenchida com apenas as permissões que foram concedidas com êxito. O padrão de OpenID Connect especifica vários valores de âmbito especial. Os seguintes âmbitos representam a permissão para aceder ao perfil do usuário:
+
+- **openid** -pede um token de ID.
+- **offline_access** -um através do token de atualização de pedidos [fluxos de código de autenticação](active-directory-b2c-reference-oauth-code.md).
+
+Se o **response_type** parâmetro numa `/authorize` pedido inclui `token`, o **âmbito** parâmetro tem de incluir o âmbito de pelo menos um recurso diferente de `openid` e `offline_access`que vai ser concedida. Caso contrário, o `/authorize` pedido falhar.
+
+## <a name="request-a-token"></a>Solicitar um token
+
+Para pedir um token de acesso, terá de um código de autorização. Segue-se um exemplo de um pedido para o `/authorize` ponto final para um código de autorização. Domínios personalizados não são suportados para utilização com tokens de acesso. Utilize o seu domínio de inquilino name.onmicrosoft.com no URL do pedido.
 
 No exemplo seguinte, substitua estes valores:
 
 - `<tenant-name>` -O nome do inquilino do Azure AD B2C.
 - `<policy-name>` -O nome do seu fluxo de utilizador ou de política personalizado.
-- `<application-ID>` -O identificador da aplicação da aplicação cliente que registrou.
+- `<application-ID>` -O identificador da aplicação da aplicação web que registrados para suportar o fluxo de utilizador.
 - `<redirect-uri>` -O **URI de redirecionamento** que introduziu quando registou a aplicação cliente.
 
 ```
-https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+client_id=<application-ID>
+&nonce=anyRandomValue
+&redirect_uri=https://jwt.ms
+&scope=https://tenant-name>.onmicrosoft.com/api/read
+&response_type=code 
 ```
 
-Para adquirir várias permissões no mesmo pedido, pode adicionar várias entradas no único **âmbito** parâmetro, separado por espaços. Por exemplo:
-
-URL descodificado:
+A resposta com o código de autorização deve ser semelhante a este exemplo:
 
 ```
-scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
+https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-Com codificação URL:
+Depois de receber com êxito o código de autorização, pode usá-lo para pedir um token de acesso:
 
 ```
-scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
+POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+Host: https://<tenant-name>.b2clogin.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&client_id=<application-ID>
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
+&redirect_uri=https://jwt.ms
+&client_secret=2hMG2-_:y12n10vwH...
 ```
 
-Pode solicitar mais âmbitos (permissões) para um recurso do que as concedidas para a sua aplicação de cliente. Quando for este o caso, a chamada terá êxito se pelo menos uma permissão for concedida. Resultante **acesso\_token** terá sua afirmação de "scp" preenchida com apenas as permissões que foram concedido com êxito.
+Deverá ver algo semelhante à seguinte resposta:
 
-> [!NOTE] 
-> Não suportamos a pedidas permissões em relação a dois recursos da web diferentes no mesmo pedido. Esse tipo de pedido irá falhar.
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
+    "token_type": "Bearer",
+    "not_before": 1549647431,
+    "expires_in": 3600,
+    "expires_on": 1549651031,
+    "resource": "f2a76e08-93f2-4350-833c-965c02483b11",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiJjNjRhNGY3ZC0zMDkxLTRjNzMtYTcyMi1hM2YwNjk0Z..."
+}
+```
 
-### <a name="special-cases"></a>Casos especiais
+Quando utilizar https://jwt.ms para examinar o token de acesso que foi devolvido, deverá ver algo semelhante ao seguinte exemplo:
 
-O padrão de OpenID Connect especifica vários valores de "escopo" especial. Os seguintes âmbitos especiais representam a permissão "aceder o perfil do usuário":
-
-* **openid**: Isso pede um token de ID
-* **offline\_access**: Isso pede um token de atualização (usando [fluxos de código de autenticação](active-directory-b2c-reference-oauth-code.md)).
-
-Se o `response_type` parâmetro numa `/authorize` pedido inclui `token`, o `scope` parâmetro tem de incluir o âmbito de pelo menos um recurso (diferente de `openid` e `offline_access`) que vai ser concedida. Caso contrário, o `/authorize` pedido irá terminar com uma falha.
-
-## <a name="the-returned-token"></a>O token devolvido
-
-Com êxito minted **acesso\_token** (em qualquer um a `/authorize` ou `/token` ponto final), as seguintes declarações estará presentes:
-
-| Name | Afirmação | Descrição |
-| --- | --- | --- |
-|Audiência |`aud` |O **ID da aplicação** do recurso único que o token concede acesso para. |
-|Âmbito |`scp` |As permissões concedidas ao recurso. Várias permissões concedidas ficarão separadas por espaço. |
-|Terceiros autorizados |`azp` |O **ID da aplicação** da aplicação cliente que a solicitação. |
-
-Quando a API recebe a **acesso\_token**, ela tem [validar o token](active-directory-b2c-reference-tokens.md) para provar que o token é autêntico e tem as afirmações corretas.
-
-Estamos sempre abertas para comentários e sugestões! Se tiver quaisquer problemas com este tópico, publique no Stack Overflow usando a marca ["azure-ad-b2c"](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Para pedidos de funcionalidades, adicioná-los ao [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dl..."
+}.{
+  "iss": "https://contoso0926tenant.b2clogin.com/c64a4f7d-3091-4c73-a7.../v2.0/",
+  "exp": 1549651031,
+  "nbf": 1549647431,
+  "aud": "f2a76e08-93f2-4350-833c-965...",
+  "oid": "1558f87f-452b-4757-bcd1-883...",
+  "sub": "1558f87f-452b-4757-bcd1-883...",
+  "name": "David",
+  "tfp": "B2C_1_signupsignin1",
+  "nonce": "anyRandomValue",
+  "scp": "read",
+  "azp": "38307aee-303c-4fff-8087-d8d2...",
+  "ver": "1.0",
+  "iat": 1549647431
+}.[Signature]
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Criar uma API web com [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-* Criar uma API web com [node. js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Saiba mais sobre como [configurar tokens no Azure AD B2C](configure-tokens.md)

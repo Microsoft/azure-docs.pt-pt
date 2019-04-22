@@ -1,118 +1,111 @@
-items:
 - name: Documentação da API Face
   href: index.yml
 - name: Descrição geral
-  items:
-  - name: O que é o API Face?
-    href: Overview.md
   expanded: true
+  items:
+    - name: O que é o API Face?
+      href: Overview.md
 - name: Inícios rápidos
   items:
-  - name: Utilizar o SDK de cliente
-    items:
-    - name: Detetar rostos numa imagem
+    - name: Utilizar o SDK de cliente
       items:
-      - name: C#
-        href: QuickStarts/csharp-detect-sdk.md
-      - name: Python
-        href: Tutorials/FaceAPIinPythonTutorial.md
-  - name: Utilizar a API REST
-    items:
-    - name: Detetar rostos numa imagem
+        - name: Detetar rostos numa imagem
+          items:
+            - name: 'C#'
+              href: QuickStarts/csharp-detect-sdk.md
+            - name: Python
+              href: Tutorials/FaceAPIinPythonTutorial.md
+    - name: Utilizar a API REST
       items:
-      - name: C#
-        href: QuickStarts/CSharp.md
-      - name: cURL
-        href: QuickStarts/curl.md
-      - name: Ir
-        href: QuickStarts/go.md
-      - name: Java
-        href: QuickStarts/Java.md
-      - name: JavaScript
-        href: QuickStarts/JavaScript.md
-      - name: Node.js
-        href: QuickStarts/node.md
-      - name: PHP
-        href: QuickStarts/PHP.md
-      - name: Python
-        href: QuickStarts/Python.md
-      - name: Ruby
-        href: QuickStarts/Ruby.md
+        - name: Detetar rostos numa imagem
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp.md
+            - name: cURL
+              href: QuickStarts/curl.md
+            - name: Ir
+              href: QuickStarts/go.md
+            - name: Java
+              href: QuickStarts/Java.md
+            - name: JavaScript
+              href: QuickStarts/JavaScript.md
+            - name: Node.js
+              href: QuickStarts/node.md
+            - name: PHP
+              href: QuickStarts/PHP.md
+            - name: Python
+              href: QuickStarts/Python.md
+            - name: Ruby
+              href: QuickStarts/Ruby.md
 - name: Tutoriais
   items:
-  - name: Utilizar o SDK de cliente
-    items:
-    - name: C#
-      href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+    - name: Utilizar o SDK de cliente
+      items:
+        - name: 'C#'
+          href: Tutorials/FaceAPIinCSharpTutorial.md
+        - name: Android
+          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Guias de procedimentos
   items:
-  - name: Deteção de rostos
-    href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identificação de rostos
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Adicionar rostos
-    href: Face-API-How-to-Topics/how-to-add-faces.md
-  - name: Especifique um modelo de reconhecimento facial
-    href: Face-API-How-to-Topics/specify-recognition-model.md
-  - name: Utilizar a funcionalidade de grande escala
-    href: Face-API-How-to-Topics/how-to-use-large-scale.md
-  - name: Analisar vídeos em tempo real
-    href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
-  - name: Migrar dados de rostos
-    href: Face-API-How-to-Topics/how-to-migrate-face-data.md
-  - name: Utilizar contentores
-    items:
-    - name: Instalar e executar contentores
-      href: face-how-to-install-containers.md
-    - name: Configurar contentores
-      href: face-resource-container-config.md
-  - name: Utilizar o Serviço Ligado da API Face
-    href: vs-face-connected-service.md
+    - name: Deteção de rostos
+      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: Identificação de rostos
+      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
+    - name: Adicionar rostos
+      href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Especifique um modelo de reconhecimento facial
+      href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Utilizar a funcionalidade de grande escala
+      href: Face-API-How-to-Topics/how-to-use-large-scale.md
+    - name: Analisar vídeos em tempo real
+      href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
+    - name: Migrar dados de rostos
+      href: Face-API-How-to-Topics/how-to-migrate-face-data.md
+    - name: Utilizar contentores
+      items:
+        - name: Instalar e executar contentores
+          href: face-how-to-install-containers.md
+        - name: Configurar contentores
+          href: face-resource-container-config.md
+    - name: Utilizar o Serviço Ligado da API Face
+      href: vs-face-connected-service.md
 - name: Amostras
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: Referência
   items:
-  - name: API Face
-    href: APIReference.md
-  - name: SDKs
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python
-    - name: Ir
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
-    - name: Android (Java)
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
-    - name: iOS
-      href: https://github.com/Microsoft/Cognitive-Face-iOS
+    - name: API Face
+      href: APIReference.md
+    - name: SDKs
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python'
+        - name: Ir
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
+        - name: Android (Java)
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable'
+        - name: iOS
+          href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Recursos
   items:
-  - name: Glossário
-    href: Glossary.md
-  - name: FAQ
-    href: FAQ.md
-  - name: Preços e limites
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430315-face-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Disponibilidade regional
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Notas de versão
-    href: ReleaseNotes.md
-ms.openlocfilehash: 1c03cba2c6f318c87a8a060558e2f851b72f70fe
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804791"
+    - name: Glossário
+      href: Glossary.md
+    - name: FAQ
+      href: FAQ.md
+    - name: Preços e limites
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430315-face-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Notas de versão
+      href: ReleaseNotes.md

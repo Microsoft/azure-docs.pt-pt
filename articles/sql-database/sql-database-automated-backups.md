@@ -61,7 +61,7 @@ O período de retenção predefinido para uma base de dados criada com o modelo 
 - Camada de serviço Standard é cinco semanas.
 - Escalão de serviço Premium é cinco semanas.
 
-#### <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
+#### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópia de segurança predefinido é de 7 dias (para único, agrupados e bases de dados de instância). Para todas as bases de dados SQL do Azure (único, agrupados, e bases de dados de instância, pode [alterar o período de retenção de cópia de segurança 35 dias](#how-to-change-the-pitr-backup-retention-period).
 

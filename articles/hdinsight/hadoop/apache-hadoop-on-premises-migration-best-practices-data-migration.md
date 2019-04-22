@@ -7,14 +7,14 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02c7f53c090559ca0ada46ec90de3a44b0518a29
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003461"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683600"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de migração de dados
 
@@ -29,8 +29,7 @@ Existem duas opções principais para migrar os dados no local para o ambiente d
     2. Expressroute – o ExpressRoute é um serviço do Azure que lhe permite criar ligações privadas entre os datacenters da Microsoft e de infraestrutura no local ou numa instalação de colocalização. As ligações ExpressRoute não entram na Internet pública e oferecem maior segurança, fiabilidade e velocidade com latências mais baixas que as ligações normais pela Internet. Para obter mais informações, consulte [criar e modificar um circuito do ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Transferência de dados online de caixa de dados - limite de caixa de dados e dados de caixa de Gateway são produtos de transferência de dados online que atuam como gateways de armazenamento para gerir os dados entre o Azure e o site de rede. O Data Box Edge, um dispositivo de rede no local, transfere dados de e para o Azure e utiliza computação edge ativada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma aplicação virtual com capacidades de gateway de armazenamento. Para obter mais informações, consulte [documentação de caixa de dados do Azure - transferir Online](https://docs.microsoft.com/azure/databox-online/).
 1.  O envio de dados Offline
-    1. Importar / exportar serviço - pode enviar os discos físicos para o Azure e eles serão carregados por si. Para obter mais informações, consulte [o que é o serviço importar/exportar do Azure?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
-    1. Dados de caixa de transferência de dados offline - Data Box, disco do Data Box, e dados de caixa pesada dispositivos ajudá-lo a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Estes dispositivos de transferência de dados offline são enviados entre a organização e o centro de dados do Azure. Utilizam encriptação AES para ajudar a proteger os dados em trânsito e são submetidos a um processo de limpeza pós-carregamento para eliminar dados do dispositivo. Para obter mais informações, consulte [Azure documentação do Data Box - Offline transferir](https://docs.microsoft.com/azure/databox/).
+    1. Dados de caixa de transferência de dados offline - Data Box, disco do Data Box, e dados de caixa pesada dispositivos ajudá-lo a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Estes dispositivos de transferência de dados offline são enviados entre a organização e o centro de dados do Azure. Utilizam encriptação AES para ajudar a proteger os dados em trânsito e são submetidos a um processo de limpeza pós-carregamento para eliminar dados do dispositivo. Para obter mais informações sobre os dispositivos de transferência offline do Data Box, consulte [documentação do Azure Data Box - transferência Offline](https://docs.microsoft.com/azure/databox/). Para obter mais informações sobre a migração de clusters do Hadoop, consulte [Use Azure Data Box para migrar de um arquivo HDFS no local para o armazenamento do Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 A tabela a seguir com duração de transferência de dados aproximada com base na largura de banda de rede e de volume de dados. Use uma caixa de dados se a migração de dados poderá demorar a demorar mais de três semanas.
 

@@ -24,7 +24,7 @@ ms.locfileid: "58917481"
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
+Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [Base de Dados SQL do Azure](/previous-versions/azure/ee336279(v=azure.100)), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
 
@@ -107,9 +107,9 @@ Na secção seguinte, irá configurar a solução para utilizar recursos em nuve
 Terá de efetuar os passos seguintes para executar a aplicação na nuvem:
 
 * Crie um serviço em nuvem do Azure.
-* Crie uma SQL Database do Azure.
+* Crie uma Base de Dados SQL do Azure.
 * Crie uma conta do Storage do Azure.
-* Configure a solução para utilizar a SQL Database do Azure, quando é executada no Azure.
+* Configure a solução para utilizar a Base de Dados SQL do Azure, quando é executada no Azure.
 * Configure a solução para utilizar a sua conta do Storage do Azure, quando é executada no Azure.
 * Implemente o projeto no serviço em nuvem do Azure.
 
@@ -133,7 +133,7 @@ Um serviço em nuvem do Azure é o ambiente onde a aplicação irá ser executad
 
     ![Novo Serviço em Nuvem](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-an-azure-sql-database"></a>Criar uma SQL Database do Azure
+### <a name="create-an-azure-sql-database"></a>Criar uma Base de Dados SQL do Azure
 Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada na nuvem.
 
 1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso > Bases de Dados > Base de Dados SQL**.
@@ -155,7 +155,7 @@ Quando a aplicação é executada na nuvem, utilizará uma base de dados baseada
 8. Marque **Permitir o acesso dos serviços do Azure ao servidor**.
 9. Clique em **Selecionar** para o novo servidor.
 
-    ![Novo servidor de Base de Dados SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Novo servidor da Base de Dados SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Clique em **Criar**.
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
@@ -185,8 +185,8 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
 
     Na imagem, é criada uma conta do Storage com o URL `csvccontosoads.core.windows.net`.
 
-### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurar a solução para utilizar a SQL Database do Azure quando for executada no Azure
-O projeto Web e o projeto de função de trabalho têm a sua própria cadeia de ligação de base de dados, e cada uma tem de apontar para a SQL Database do Azure quando a aplicação for executada no Azure.
+### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurar a solução para utilizar a Base de Dados SQL do Azure quando for executada no Azure
+O projeto Web e o projeto de função de trabalho têm a sua própria cadeia de ligação de base de dados, e cada uma tem de apontar para a Base de Dados SQL do Azure quando a aplicação for executada no Azure.
 
 Utilizará uma [transformação Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função da Web e uma definição de ambiente de serviço em nuvem para a função de trabalho.
 

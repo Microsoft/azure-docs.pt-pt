@@ -4,17 +4,16 @@ description: Resolva problemas ao utilizar o diagnóstico do Azure em máquinas 
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822141"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699103"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -82,7 +81,7 @@ Se não houver dados para a métrica específica, verifique **configuração de 
 Se a configuração está definida corretamente, mas não pode ver os dados de métrica, utilize as seguintes diretrizes para ajudar a resolver.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Não é a partir de diagnóstico do Azure
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnóstico do Azure não está a iniciar
 Para obter informações sobre por que o diagnóstico do Azure falhou ao iniciar, consulte a **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** ficheiros na localização de ficheiros de registo que foi fornecida anteriormente.
 
 Se estes registos indicarem `Monitoring Agent not reporting success after launch`, significa que ocorreu uma falha de inicialização MonAgentHost.exe. Consulte os registos na localização que é indicado para `MonAgentHost log file` na secção anterior.
@@ -97,7 +96,7 @@ Se encontrar um **negativo** código de saída, consulte a [tabela de códigos d
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Dados de diagnóstico não estão conectados ao armazenamento do Azure
 Determine se nenhum dos dados é apresentada ou alguns dos dados é apresentada.
 
-### <a name="diagnostics-infrastructure-logs"></a>Registos de infraestrutura de diagnóstico
+### <a name="diagnostics-infrastructure-logs"></a>Registos de infraestruturas de diagnósticos
 Registos do diagnóstico todos os erros nos logs de infraestrutura de diagnósticos. Certifique-se de que ativou a [registos de captura da infraestrutura de diagnósticos na sua configuração](#how-to-check-diagnostics-extension-configuration). Em seguida, pode procurar rapidamente para quaisquer erros relevantes que são apresentados no `DiagnosticInfrastructureLogsTable` tabela na sua conta de armazenamento configurado.
 
 ### <a name="no-data-is-appearing"></a>Não existem dados é apresentada
@@ -105,9 +104,16 @@ A razão mais comum que os dados de eventos não aparecem em todos os é que as 
 
 Solução: Corrija a configuração de diagnósticos e reinstalar o diagnóstico.
 
-Se a conta de armazenamento está configurado corretamente acesso remoto na máquina e certifique-se de que o DiagnosticsPlugin.exe e MonAgentCore.exe estão em execução. Se não estiver em execução, siga os passos no diagnóstico do Azure não está a iniciar.
+Se a conta de armazenamento está configurado corretamente acesso remoto na máquina e certifique-se de que *DiagnosticsPlugin.exe* e *MonAgentCore.exe* estão em execução. Se não estiver em execução, siga os passos em [diagnóstico do Azure não está a iniciar](#azure-diagnostics-is-not-starting).
 
 Se estiver a executar os processos, aceda a [são dados introdução capturados localmente?](#is-data-getting-captured-locally) e siga as instruções incluídas.
+
+Se isso não resolver o problema, tente:
+
+1. Desinstalar o agente
+2. Remover o diretório C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Instalar o agente novamente
+
 
 ### <a name="part-of-the-data-is-missing"></a>Parte dos dados está em falta
 Se estiver a obter alguns dados, mas não todas, significa que o pipeline de coleção/transferência de dados está definido corretamente. Siga as subsecções aqui para limitar o problema.

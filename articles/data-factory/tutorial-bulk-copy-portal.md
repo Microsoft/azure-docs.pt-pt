@@ -112,7 +112,7 @@ Os serviços ligados são criados para ligar os seus arquivos de dados e computa
 
 Neste tutorial, vai ligar os arquivos de dados da Base de Dados SQL do Azure, do Azure SQL Data Warehouse e do Armazenamento de Blobs do Azure à fábrica de dados. A Base de Dados SQL do Azure é o arquivo de dados de origem. O Azure SQL Data Warehouse é o arquivo de dados de sink/destino. O Armazenamento de Blobs do Azure destina-se a testar os dados antes de serem isolados no SQL Data Warehouse mediante a utilização do PolyBase. 
 
-### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados do Azure de origem
+### <a name="create-the-source-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure de origem
 Neste passo, vai criar um serviço ligado para ligar a sua base de dados SQL do Azure à fábrica de dados. 
 
 1. Clique em **Ligações**, na parte inferior da janela, e clique em **+ Novo**, na barra de ferramentas. 

@@ -74,7 +74,7 @@ Será cobrado por cada hora, que uma base de dados existe ao utilizar o escalão
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-### <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
+### <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
 - Pode aprovisionar um armazenamento até ao limite de tamanho máximo:
 

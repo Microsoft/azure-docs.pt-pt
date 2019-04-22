@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86ae61a6aec6c546b36c52f3f3875cbebdc838e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861932"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698547"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Active Directory do Azure com absorver LMS
 
@@ -38,7 +39,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com absorver LMS, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * Absorver LMS única início de sessão ativada subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -120,17 +121,21 @@ Para configurar o Azure AD início de sessão único com absorver LMS, execute o
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de cliente de LMS absorver](https://support.absorblms.com/hc/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **metadados XML**entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**.
+
+    ![image](common/edit-attribute.png)
+
+6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-6. Sobre o **configurar absorver LMS** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Sobre o **configurar absorver LMS** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -162,7 +167,7 @@ Para configurar o Azure AD início de sessão único com absorver LMS, execute o
 
     d. Na **modo** caixa, selecione **fornecedor de identidade iniciada pelo**.
 
-    e. Na **propriedade de Id** caixa, selecione o atributo que configurou como o identificador de utilizador no Azure AD. Por exemplo, se *userPrincipalName* está selecionado no Azure AD, selecione **Username**.
+    e. Na **propriedade de Id** caixa, selecione o atributo que configurou como o identificador de utilizador no Azure AD. Por exemplo, se *nameidentifier* está selecionado no Azure AD, selecione **Username**.
 
     f. Selecione **Sha256** como um **tipo de assinatura**.
 
@@ -194,7 +199,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -272,7 +277,7 @@ Nesta secção, vai testar a configuração do Azure AD única início de sessã
 
 Quando clica no mosaico de LMS absorver no painel de acesso, deve ser automaticamente sessão iniciada no LMS absorver, para que configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
