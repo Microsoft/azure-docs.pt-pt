@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270528"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
@@ -44,9 +44,9 @@ O Azure disponibiliza ferramentas que inclui a Interface de linha de comandos do
 
 * **Repositório** -um registo contém um ou mais repositórios, que são grupos de virtual de imagens de contentor com o mesmo nome mas etiquetas diferentes ou resumos. O Registo de Contentores do Azure suporta espaços de nomes de repositórios com múltiplos níveis. Com espaços de nomes de vários níveis, pode agrupar coleções de imagens relacionadas com uma aplicação específica ou uma coleção de aplicações para equipas de programação ou operacionais específicas. Por exemplo:
 
-  * `myregistry.azurecr.io/aspnetcore:1.0.1` representa uma imagem em toda a empresa
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem utilizada para criar aplicações de .NET, partilhadas em todo o departamento de garantias
-  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representa uma imagem de web, agrupada na aplicação de submissões do cliente, propriedade do departamento de garantias
+  * `myregistry.azurecr.io/aspnetcore:1.0.1` representa uma imagem transversal a toda a empresa
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem utilizada para criar aplicações .NET, partilhadas em todo o departamento de garantias
+  * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representa uma imagem Web, agrupada na aplicação de submissões do cliente, que é propriedade do departamento de garantias
 
 * **Imagem** -armazenados num repositório, cada imagem é um instantâneo só de leitura de um contentor compatível com o Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens de contentor, o Azure Container Registry armazena [relacionados com formatos de conteúdo](container-registry-image-formats.md) como [executar Helm gráficos](container-registry-helm-repos.md), utilizado para implementar aplicações no Kubernetes.
 
@@ -60,6 +60,6 @@ As [Tarefas do Azure Container Registry](container-registry-tasks-overview.md) (
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar um registo de contentores com o portal do Azure](container-registry-get-started-portal.md)
-* [Criar um registo de contentores com a CLI do Azure](container-registry-get-started-azure-cli.md)
-* [Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR](container-registry-tasks-overview.md)
+* [Create a container registry using the Azure portal (Criar um registo de contentores com o portal do Azure)](container-registry-get-started-portal.md)
+* [Create a container registry using the Azure CLI (Criar um registo de contentores com a CLI do Azure)](container-registry-get-started-azure-cli.md)
+* [Automatizar a aplicação de patches ao SO e à arquitetura com as Tarefas do ACR](container-registry-tasks-overview.md)

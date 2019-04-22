@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426194"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Azure Monitor do agente do Log Analytics para Linux 
@@ -92,7 +92,7 @@ Alertas de registos recolhidos pelo Nagios têm uma **tipo** de **alerta** e um 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| `Type` |*Alerta* |
+| `Type` |*Alertar* |
 | `SourceSystem` |*Nagios* |
 | `AlertName` |Nome do alerta. |
 | `AlertDescription` | Descrição do alerta. |
@@ -108,7 +108,7 @@ Alertas de registos recolhidos pelo Zabbix têm uma **tipo** de **alerta** e um 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| `Type` |*Alerta* |
+| `Type` |*Alertar* |
 | `SourceSystem` |*Zabbix* |
 | `AlertName` | Nome do alerta. |
 | `AlertPriority` | Gravidade do alerta.<br><br>não classificado<br>informações<br>aviso<br>média<br>Alta<br>após desastre  |

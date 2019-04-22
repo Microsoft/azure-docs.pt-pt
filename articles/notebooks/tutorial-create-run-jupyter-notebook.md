@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258542"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um bloco de notas do Jupyter com Python
@@ -128,7 +128,7 @@ Com o ficheiro de dados pronto e o conjunto de ambiente de projeto, pode criar e
 1. Uma vez que tem um *Requirements. txt* ficheiro as definições de ambiente, verá a mensagem, "aguardar o seu contentor concluir a ser preparada." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no bloco de notas; não é possível executar células de código, no entanto, até que o ambiente é totalmente configurado.
 1. O bloco de notas abre-se na interface do Jupyter com uma célula de código vazio único como predefinição.
 
-    [![Initial vista de um novo bloco de notas em blocos de notas do Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Vista inicial de um novo bloco de notas em blocos de notas do Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Realizar uma visita guiada da interface do bloco de notas
 
@@ -144,7 +144,7 @@ Menu de R (C) com os comandos para trabalhar com o bloco de notas.
 (F) indica se o bloco de notas é confiável (a predefinição é **não é fidedigna**).
 (G) o kernel utilizado para executar o bloco de notas, juntamente com um indicador de atividade.
 
-[![Po áreas de interface do Usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Principais áreas de interface do Usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter fornece uma apresentação incorporada dos principais elementos da interface do Usuário. Começar a visita guiada ao selecionar o **ajudar** > **Tour de Interface do usuário** comando e ao clicar nos pop-ups.
 
@@ -428,7 +428,7 @@ Artigos de procedimentos:
 - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
 - [Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
 - [Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
-- [Trabalhar com ficheiros de dados](work-with-project-data-files.md)
+- [Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [Trabalhar com arquivos de dados](work-with-project-data-files.md)
 - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Utilizar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

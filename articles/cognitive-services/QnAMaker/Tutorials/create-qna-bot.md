@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263881"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Crie um QnA Bot com o Azure Bot Service v4
 
 Crie um chatbot de FAQ do **publicar** página para uma base de dados de conhecimento existente. Este bot usa o SDK do Bot Framework v4. Não é necessário escrever qualquer código para criar o bot, todo o código é fornecido por si.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -58,7 +58,7 @@ Crie um bot como uma aplicação de cliente para a base de dados de conhecimento
     |Idioma SDK|C#|Esta é a linguagem de programação subjacente utilizada pelo bot framework SDK. As opções são C# ou node. js.|
     |Chave de autenticação do QnA|**Não altere**|Este valor é preenchido por si.|
     |Plano do serviço de aplicações/localização|**Não altere**|Para este tutorial, a localização não é importante.|
-    |Armazenamento do Azure|**Não altere**|Dados de conversação são armazenados em tabelas de armazenamento do Azure.|
+    |Storage do Azure|**Não altere**|Dados de conversação são armazenados em tabelas de armazenamento do Azure.|
     |Application Insights|**Não altere**|O registo é enviado para o Application Insights.|
     |ID de aplicação da Microsoft|**Não altere**|Utilizador do Active Directory e a palavra-passe é necessária.|
 

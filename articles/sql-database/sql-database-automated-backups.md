@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545829"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678603"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
-Base de dados SQL automaticamente cria cópias de segurança da base de dados que são mantidas entre 7 e 35 dias e utiliza o armazenamento com redundância geográfica do Azure do acesso de leitura (RA-GRS) para se certificar de que eles preservados, mesmo que o Centro de dados não está disponível. Estas cópias de segurança são criadas automaticamente e sem encargos adicionais. Não precisa de fazer nada para que aconteçam e pode [alterar o período de retenção de cópia de segurança](#how-to-change-the-pitr-backup-retention-period). Cópias de segurança da base de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque eles protegem os dados de danos acidentais ou eliminação. Se as regras de segurança exigem que as cópias de segurança estão disponíveis por um longo período de tempo (até 10 anos), pode configurar uma [retenção a longo prazo](sql-database-long-term-retention.md).
+Base de dados SQL automaticamente cria cópias de segurança da base de dados que são mantidas entre 7 e 35 dias e utiliza o armazenamento com redundância geográfica do Azure do acesso de leitura (RA-GRS) para se certificar de que eles são preservados, mesmo que o Centro de dados não está disponível. Estas cópias de segurança são criadas automaticamente e sem encargos adicionais. Não precisa de fazer nada para que aconteçam e pode [alterar o período de retenção de cópia de segurança](#how-to-change-the-pitr-backup-retention-period). Cópias de segurança da base de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque eles protegem os dados de danos acidentais ou eliminação. Se as regras de segurança exigem que as cópias de segurança estão disponíveis por um longo período de tempo (até 10 anos), pode configurar uma [retenção a longo prazo](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045599"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
@@ -62,13 +62,13 @@ O Explorador de dados do Azure disponibiliza SDKs que podem ser utilizadas para 
 
 Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dados com:
 
-* [SDK Python](/azure/kusto/api/python/kusto-python-client-library)
+* [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
-* [SDK .NET](/azure/kusto/api/netfx/about-the-sdk)
+* [SDK do .NET](/azure/kusto/api/netfx/about-the-sdk)
 
 * [SDK Java](/azure/kusto/api/java/kusto-java-client-library)
 
-* [SDK de Node](/azure/kusto/api/node/kusto-node-client-library)
+* [Nó de SDK](/azure/kusto/api/node/kusto-node-client-library)
 
 * [API REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 

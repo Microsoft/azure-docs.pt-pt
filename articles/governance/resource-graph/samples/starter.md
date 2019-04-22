@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267774"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
@@ -22,16 +22,16 @@ O primeiro passo para compreender as consultas com Azure Resource Graph é obter
 Vamos examinar as seguintes consultas de introdução:
 
 > [!div class="checklist"]
-> - [Recursos do Azure de contagem](#count-resources)
-> - [Recursos de lista classificados por nome](#list-resources)
-> - [Mostrar todas as máquinas virtuais, ordenadas por nome por ordem descendente](#show-vms)
-> - [Mostrar os primeiros cinco máquinas virtuais por nome e o respetivo tipo de SO](#show-sorted)
-> - [Contagem de máquinas virtuais ao tipo de SO](#count-os)
-> - [Mostrar recursos que contêm o armazenamento](#show-storage)
-> - [Lista de endereços IP públicos de todos os](#list-publicip)
-> - [Contagem de recursos que tenham endereços IP configurados por subscrição](#count-resources-by-ip)
-> - [Lista de recursos com um valor de etiqueta específica](#list-tag)
-> - [Listar todas as contas de armazenamento com o valor de etiqueta específica](#list-specific-tag)
+> - [Contar recursos do Azure](#count-resources)
+> - [Listar recursos ordenados por nome](#list-resources)
+> - [Mostrar todas as máquinas virtuais ordenadas por nome em ordem descendente](#show-vms)
+> - [Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO](#show-sorted)
+> - [Contar máquinas virtuais por tipo de SO](#count-os)
+> - [Mostrar recursos que contêm armazenamento](#show-storage)
+> - [Listar todos os endereços IP públicos](#list-publicip)
+> - [Contar recursos que tenham endereços IP configurados por subscrição](#count-resources-by-ip)
+> - [Listar recursos com um valor de etiqueta específico](#list-tag)
+> - [Listar todas as contas de armazenamento com um valor de etiqueta específico](#list-specific-tag)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -94,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO
 
-Esta consulta vai utilizar `limit` para obter apenas cinco registos correspondentes, ordenados por nome. O tipo do recurso do Azure é `Microsoft.Compute/virtualMachines`. `project` informa ao gráfico de recursos do Azure que propriedades para incluir.
+Esta consulta vai utilizar `limit` para obter apenas cinco registos correspondentes, ordenados por nome. O tipo do recurso do Azure é `Microsoft.Compute/virtualMachines`. `project` informa o Azure Resource Graph quais as propriedades a incluir.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,7 +167,7 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 
 À semelhança da consulta anterior, encontra tudo o que era de um tipo com a palavra **publicIPAddresses**.
 Esta consulta expande esse padrão para incluir apenas os resultados em que **properties.ipAddress**
-`isnotempty`, para devolver apenas os **properties.ipAddress**e, a `limit` os resultados por parte superior
+`isnotempty`, para devolver apenas os **properties.ipAddress**e, a `limit` o resultados por parte superior
 100. Poderá ter de evitar as aspas consoante a shell escolhida.
 
 ```Query
@@ -251,7 +251,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 ```
 
 > [!NOTE]
-> Este exemplo utiliza `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência de maiúsculas de minúsculas.
+> Este exemplo utiliza `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência sensível a maiúsculas e minúsculas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051482"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
@@ -55,7 +55,7 @@ No seu browser, navegue para o [página da web de visão personalizada](https://
     |__Genérico__| Otimizado para uma ampla variedade de tarefas de classificação de imagens. Se nenhum dos outros domínios são adequadas ou se tiver a certeza de qual escolher o domínio, selecione o domínio genérico. |
     |__Comida__|Otimizado para fotos de pratos conforme os veria num menu do restaurante. Se quiser classificar fotografias de frutas individuais ou vegetables, utilize o domínio de alimento.|
     |__Pontos de referência__|Otimizado para pontos de referência reconhecíveis, naturais e artificiais. Este domínio funciona melhor quando o ponto de referência é claramente visível na fotografia. Este domínio funciona mesmo que o ponto de referência é um pouco obstructed por pessoas na sua frente.|
-    |__Retalho__|Otimizado para imagens que se encontram num catálogo de compra ou o Web site de compra. Se pretender que o serviço de alta precisão classificar entre dresses, intuição e shirts, utilize este domínio.|
+    |__Revenda__|Otimizado para imagens que se encontram num catálogo de compra ou o Web site de compra. Se pretender que o serviço de alta precisão classificar entre dresses, intuição e shirts, utilize este domínio.|
     |__Domínios compactos__| Otimizado para as restrições de classificação em tempo real em dispositivos móveis. Os modelos de gerados por domínios compactos podem ser exportados para executar localmente.|
 
 1. Por fim, selecione __criar projeto__.
@@ -130,5 +130,5 @@ Treinar o seu classificador de cada vez, cria uma nova _iteração_ com suas pr�
 
 Neste guia, aprendeu a criar e formar um modelo de classificação de imagem usando o Web site de visão personalizada. Em seguida, obter mais informações sobre o processo interativo de melhorar o seu modelo.
 
-[Testar e voltar a preparar um modelo](test-your-model.md)
+[Test and retrain a model](test-your-model.md) (Testar e voltar a preparar um modelo)
 

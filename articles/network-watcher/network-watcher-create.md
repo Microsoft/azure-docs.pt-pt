@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051568"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do observador de rede do Azure
@@ -110,7 +110,7 @@ Agora que tem uma instância do observador de rede, saiba mais sobre as funciona
 * [Topologia](network-watcher-topology-overview.md)
 * [Captura de pacotes](network-watcher-packet-capture-overview.md)
 * [Verificação do fluxo de IP](network-watcher-ip-flow-verify-overview.md)
-* [Próximo salto](network-watcher-next-hop-overview.md)
+* [Salto seguinte](network-watcher-next-hop-overview.md)
 * [Vista do grupo de segurança](network-watcher-security-group-view-overview.md)
 * [Registo do fluxo do NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Resolução de problemas do Gateway de rede virtual](network-watcher-troubleshoot-overview.md)

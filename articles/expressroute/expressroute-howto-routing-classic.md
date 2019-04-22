@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045718"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar um peering para um circuito do ExpressRoute (clássico)
@@ -87,7 +87,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
 
 ### <a name="to-create-azure-private-peering"></a>Para criar um peering privado do Azure
 
-1. **Crie um circuito ExpressRoute.**
+1. **Crie um circuito do ExpressRoute.**
 
    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
 2. **Verifique o circuito de ExpressRoute para se certificar de que está aprovisionado.**
@@ -190,7 +190,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
 
 ### <a name="to-create-azure-public-peering"></a>Para criar um peering público do Azure
 
-1. **Criar um circuito do ExpressRoute**
+1. **Crie um circuito do ExpressRoute**
 
    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering público do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
 2. **Verifique o circuito de ExpressRoute para verificar se é aprovisionado**
@@ -294,7 +294,7 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
 
 ### <a name="to-create-microsoft-peering"></a>Para criar peering da Microsoft
 
-1. **Criar um circuito do ExpressRoute**
+1. **Crie um circuito do ExpressRoute**
   
    Siga as instruções para criar um [circuito ExpressRoute](expressroute-howto-circuit-classic.md) e solicite ao fornecedor de conectividade que o aprovisione. Se o seu fornecedor de conectividade oferecer serviços geridos de Camada 3, pode solicitar-lhe que ative o peering privado do Azure por si. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não fizer a gestão do encaminhamento por si, depois de criar o seu circuito, siga as instruções abaixo.
 2. **Verifique o circuito de ExpressRoute para verificar se é aprovisionado**

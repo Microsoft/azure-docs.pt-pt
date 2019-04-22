@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258781"
 ---
 # <a name="what-is-azure-data-box-disk"></a>O que é o Azure Data Box Disk?
@@ -129,8 +129,8 @@ R. O conjunto de ferramentas disponível com o disco do Data Box contém três f
  - **Ferramenta de cópia de divisão de disco de caixa de dados**: Utilize esta ferramenta se estiver a utilizar vários discos e tem um grande conjunto de dados que precisa ser dividida e copiados entre todos os discos. Essa ferramenta está atualmente disponível para Windows. Essa ferramenta não é suportada com discos geridos. Essa ferramenta também valida como ele copia os dados, pelo que pode ignorar a etapa de validação quando utilizar esta ferramenta.
 
 O conjunto de ferramentas está disponível para Windows e Linux. Pode baixar o conjunto de ferramentas aqui:
-- [Transferir o conjunto de ferramentas de disco Data Box para Windows](https://aka.ms/databoxdisktoolswin) 
-- [Transferir o conjunto de ferramentas de disco Data Box para Linux](https://aka.ms/databoxdisktoolslinux)
+- [Transferir o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
+- [Transferir o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P. Pode usar disco Data Box para transferir dados para ficheiros do Azure e, em seguida, utilizar os dados com o Azure File Sync? 
 R. Os ficheiros do Azure são suportados com o disco Data Box mas não irão funcionar bem com o Azure File Sync. Metadados não é mantido se os dados de ficheiro são utilizados com o Azure File Sync.

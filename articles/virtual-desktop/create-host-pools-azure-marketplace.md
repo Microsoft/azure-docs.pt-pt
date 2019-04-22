@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257455"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
@@ -36,7 +36,7 @@ Para executar a oferta para aprovisionar um novo conjunto de anfitrião do Azure
 
 Siga as indicações para introduzir as informações para os painéis apropriados.
 
-### <a name="basics"></a>Informações básicas
+### <a name="basics"></a>Noções básicas
 
 Eis o que fazer para o painel Noções básicas:
 

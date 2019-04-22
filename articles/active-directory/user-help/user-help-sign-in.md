@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268362"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicie sessão utilizando as informações de segurança ou de verificação de dois passos
@@ -26,7 +26,7 @@ Depois de configurar a verificação de dois passos ou informações de seguran�
 > [!Note]
 > Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo.
 > 
-> Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação usando estes artigos passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Definir informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
+> Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação usando estes artigos passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicie sessão com uma notificação de aplicação de autenticador no seu dispositivo móvel
 

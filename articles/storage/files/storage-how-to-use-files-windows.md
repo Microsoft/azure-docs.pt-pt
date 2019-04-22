@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
 ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048848"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
@@ -225,7 +225,7 @@ Pode selecionar **Abrir** para abrir um instantâneo específico.
 
 #### <a name="restore-from-a-previous-version"></a>Restaurar de uma versão anterior
 Selecione **Restaurar** para copiar os conteúdos do diretório inteiro recursivamente no momento de criação do instantâneo de partilha para a localização original.
- ![Restaurar o botão na mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+ ![Botão de restauro na mensagem de aviso](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Proteger o Windows/Windows Server
 Para poder montar uma partilha de ficheiros do Azure no Windows, a porta 445 tem de estar acessível. Muitas organizações optam por bloquear esta porta devido a riscos de segurança inerentes ao SMB 1. O SMB 1, também conhecido como CIFS (Common Internet File System), é um protocolo de sistema de ficheiros legado incluído no Windows e no Windows Server. O SMB 1 é um protocolo desatualizado, ineficiente e, acima de tudo, inseguro. A boa notícia é que os Ficheiros do Azure não suportam SMB 1 e todas as versões suportadas do Windows e do Windows Server permitem removê-lo ou desativá-lo. Antes de utilizar partilhas de ficheiros do Azure em produção, [recomendamos vivamente](https://aka.ms/stopusingsmb1) remover ou desativar sempre o cliente SMB 1 e o servidor no Windows.
@@ -298,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o SMB 1.
 
 ### <a name="smb-resources"></a>Recursos do SMB
-- [Parar de utilizar o SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [Câmara de compensação do SMB 1 produto](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [Detetar a 1 de SMB no seu ambiente com DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
-- [Desativar o SMB 1 por meio da diretiva de grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
+- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Deixar de utilizar o SMB 1)
+- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Centro de Informações de Produtos que Utilizam o SMB 1)
+- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Descobrir o SMB 1 no seu ambiente com DSCEA)
+- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Desativar o SMB 1 através da Política de Grupo)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [FAQ](../storage-files-faq.md)
-- [Resolução de problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      

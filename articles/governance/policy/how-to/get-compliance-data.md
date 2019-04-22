@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263785"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de compatibilidade dos recursos do Azure
@@ -56,7 +56,7 @@ Uma análise de avaliação para uma subscrição ou um grupo de recursos pode s
 Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
 
 - `{YourRG}` -Substituir pelo nome do seu grupo de recursos
-- `{subscriptionId}` -Substituir pelo seu ID de subscrição
+- `{subscriptionId}` - substituir pelo ID da subscrição
 
 A análise suporta a avaliação dos recursos numa subscrição ou num grupo de recursos. Iniciar uma verificação pelo âmbito de aplicação com uma API REST **POST** comando utilizando as estruturas URI seguintes:
 

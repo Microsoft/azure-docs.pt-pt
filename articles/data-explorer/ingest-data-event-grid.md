@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/30/2019
 ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051857"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início rápido: Ingerir blobs no Explorador de dados do Azure através da subscrição de notificações do Event Grid
@@ -38,13 +38,13 @@ Neste guia de introdução, saiba como configurar uma [Azure Event Grid](/azure/
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Name | *ligação da grade de teste* | O nome do event grid que pretende criar.|
-    | Esquema de Eventos | *Esquema do Event Grid* | O esquema que deve ser utilizado para o event grid. |
+    | Name | *test-grid-connection* | O nome do event grid que pretende criar.|
+    | Esquema de Eventos | *Esquema de grelha de eventos* | O esquema que deve ser utilizado para o event grid. |
     | Tipo de Tópico | *Conta de armazenamento* | O tipo de tópico do event grid. |
     | Recurso do Tópico | *gridteststorage* | O nome da conta de armazenamento. |
-    | Subscrever todos os tipos de eventos | *limpar* | Não seja notificado sobre todos os eventos. |
-    | Tipos de Eventos Definidos | *Criado pelo Blob* | Os eventos específicos para obter notificações de. |
-    | Tipo de Ponto Final | *Hubs de Eventos* | O tipo de ponto final ao qual irá enviar eventos. |
+    | Subscrever todos os tipos de eventos | *clear* | Não seja notificado sobre todos os eventos. |
+    | Tipos de Eventos Definidos | *Criado pelo blob* | Os eventos específicos para obter notificações de. |
+    | Tipo de Ponto Final | *Hubs de eventos* | O tipo de ponto final ao qual irá enviar eventos. |
     | Ponto Final | *test-hub* | O hub de eventos que criou. |
     | | |
 
@@ -102,7 +102,7 @@ Agora ligar para o event grid partir do Explorador de dados do Azure, para que o
     | Nome da ligação de dados | *test-hub-connection* | O nome da ligação que pretende criar no Explorador de dados do Azure.|
     | Subscrição de conta de armazenamento | O ID de subscrição | O ID de subscrição onde reside a sua conta de armazenamento.|
     | Conta de armazenamento | *gridteststorage* | O nome da conta de armazenamento que criou anteriormente.|
-    | Event Grid | *ligação da grade de teste* | O nome do event grid que criou. |
+    | Event Grid | *test-grid-connection* | O nome do event grid que criou. |
     | O nome do hub de eventos | *test-hub* | O hub de eventos que criou. Este campo é preenchido automaticamente quando escolhe uma grelha de eventos. |
     | Grupo de consumidores | *test-group* | O grupo de consumidores de eventos definidos hub que criou. |
     | | |
@@ -197,4 +197,4 @@ Se não planeja usar sua grelha de eventos novamente, limpar **test-hub-rg**, pa
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)

@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 9b945057ed0c94fbab7a9114ad1198a0f157fa4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270970"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do catálogo de dados do Azure
 
 Este artigo fornece uma introdução aos conceitos e termos utilizados na documentação do catálogo de dados do Azure.
 
-## <a name="catalog"></a>catálogo
+## <a name="catalog"></a>Catálogo
 
 O catálogo de dados do Azure é um repositório de metadados com base na cloud em que os dados e origens de dados pode ser registado. O catálogo serve como uma localização de armazenamento central para os metadados estruturais extraídos de origens de dados e metadados descritivos que adicionou por utilizadores.
 
@@ -50,7 +50,7 @@ Metadados descritivos de um recurso de dados podem incluir informações sobre c
 * O URL de uma identidade e acesso à ferramenta de gestão (como o Microsoft Identity Manager) que pode ser utilizado para obter acesso à origem de dados.
 * Uma entrada de texto livre que descreve a forma como os utilizadores poderem obter acesso à origem de dados.
 
-## <a name="preview"></a>pré-visualização
+## <a name="preview"></a>Pré-visualização
 
 Uma pré-visualização no catálogo de dados do Azure é um instantâneo de até 20 registos que podem ser extraídos da origem de dados durante o registo e armazenados no catálogo com metadados do recurso de dados. A pré-visualização pode ajudar os utilizadores que detetar um recurso de dados compreendam melhor a sua função e objetivo. Em outras palavras, a visualização de dados de exemplo pode ser mais valioso do que ver apenas os nomes das colunas e tipos de dados.
 Pré-visualizações só são suportadas para tabelas e vistas e tem de ser selecionadas explicitamente pelo utilizador durante o registo.
@@ -86,4 +86,4 @@ O registo é o ato de extrair metadados do recurso de dados de uma origem de dad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Início rápido: Criar um catálogo de dados do Azure](data-catalog-get-started.md) 
+[Quickstart: Criar um catálogo de dados do Azure](data-catalog-get-started.md) 

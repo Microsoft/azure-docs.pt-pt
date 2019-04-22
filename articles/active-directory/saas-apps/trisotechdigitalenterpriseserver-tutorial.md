@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Active Directory do Azure com Trisotech Digital Enterprise Server
@@ -140,11 +140,11 @@ Para configurar o Azure AD início de sessão único com Trisotech Digital Enter
 
     c. Na **ID da aplicação** caixa de texto, introduza o URL com o seguinte padrão: `https://<companyname>.trisotech.com`.
 
-    d. Clique em **Guardar**
+    d. Clicar em **Guardar**
 
     e. Introduza o nome de domínio na **permitidos domínios (vazio significa que todas as pessoas)** caixa de texto, ela atribui automaticamente licenças para utilizadores correspondentes os domínios permitido
 
-    f. Clique em **Guardar**
+    f. Clicar em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -203,7 +203,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Trisotech Digit
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte do Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -213,7 +213,7 @@ Quando clica no mosaico Trisotech Digital Enterprise Server no painel de acesso,
 
 - [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

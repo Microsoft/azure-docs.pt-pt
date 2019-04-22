@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280116"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
 O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
 
-[![Examples de blocos de notas do Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de blocos de notas do Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou conhecido por muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformação, simulação numérica, modelação estatística e o desenvolvimento de modelos de Machine learning.
 
@@ -103,9 +103,9 @@ Para discutir suas perguntas sobre blocos de notas do Azure, enviar um problema 
 
   - [Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)
   - [Clonar um bloco de notas](quickstart-clone-jupyter-notebook.md)
-  - [Migrar um bloco de notas Jupyter local](quickstart-migrate-local-jupyter-notebook.md)
+  - [Migrar de um bloco de notas Jupyter local](quickstart-migrate-local-jupyter-notebook.md)
   - [Utilizar um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md)
-  - [Iniciar sessão e definir um ID de utilizador](quickstart-sign-in-azure-notebooks.md)
+  - [Iniciar sessão e defina um ID de utilizador](quickstart-sign-in-azure-notebooks.md)
 
 - Tutoriais:
 
@@ -116,7 +116,7 @@ Para discutir suas perguntas sobre blocos de notas do Azure, enviar um problema 
   - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
   - [Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
   - [Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-  - [Apresentar diapositivos](present-jupyter-notebooks-slideshow.md)
-  - [Trabalhar com ficheiros de dados](work-with-project-data-files.md)
+  - [Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+  - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
   - [Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Utilizar os Serviços do Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+  - [Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

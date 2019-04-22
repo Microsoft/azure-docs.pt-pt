@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050622"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorizar o desempenho, a Estado de funcionamento e a utilização com métricas de Explorador de dados do Azure
@@ -40,7 +40,7 @@ No painel de métricas:
 
 1. Para criar um gráfico de métricas, selecione **métrica** nome e relevantes **agregação** por métrica conforme especificado abaixo. O **Resource** e **espaço de nomes de métrica** selecionadores são pré-selecionada ao seu cluster do Explorador de dados do Azure.
 
-    **Métrica** | **Unidade** | **Agregação** | **Descrição de métrica**
+    **Métricas** | **Unit** | **Agregação** | **Descrição de métrica**
     |---|---|---|---|
     | Utilização da cache | Percentagem | AVG, Max, Min | Percentagem de recursos de cache alocados atualmente em uso pelo cluster. Cache refere-se ao tamanho de SSD alocado para a atividade do utilizador, de acordo com a política de cache definida. Uma utilização média da cache de 80% ou inferior é um Estado sustentável para um cluster. Se a utilização de cache média for superior a 80%, o cluster deve estar [aumentado verticalmente](manage-cluster-scale-up.md) a um armazenamento com otimização de escalão de preço ou [aumentados horizontalmente](manage-cluster-scale-out.md) para mais instâncias. Em alternativa, adaptar-se a política de cache (menos dias em cache). Se a utilização de cache é superior a 100%, o tamanho dos dados sejam armazenados em cache, de acordo com a política de colocação em cache, é maior do que o tamanho total da cache no cluster. |
     | CPU | Percentagem | AVG, Max, Min | Percentagem de recursos de computação alocados atualmente em utilização por máquinas no cluster. Uma CPU média de 80% ou inferior é sustentável para um cluster. O valor máximo de CPU é 100%, que significa que existem não existem recursos de computação adicionais para processar dados. Quando um cluster não está a executar corretamente, verifique o valor máximo da CPU para determinar se existem CPUs específicas que são bloqueados. |
@@ -68,4 +68,4 @@ Informações adicionais sobre como utilizar o [Explorador de métricas](/azure/
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)

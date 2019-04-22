@@ -9,10 +9,10 @@ ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263575"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Criar o IoT Central ponte de dispositivo e ligue-se noutras clouds de IoT ao IoT Central
@@ -45,4 +45,4 @@ Os recursos do Azure serão alojados na sua subscrição do Azure. Pode saber ma
 Agora que aprendeu como criar o IoT Central bridge de dispositivo, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Faça a gestão dos seus dispositivos](howto-manage-devices.md)
+> [Gerir os seus dispositivos](howto-manage-devices.md)

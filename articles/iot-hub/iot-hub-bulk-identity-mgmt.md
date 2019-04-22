@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049977"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e Exportar identidades de dispositivos do IoT Hub em massa
@@ -260,7 +260,7 @@ Utilizar o opcional **importMode** propriedade nos dados de serialização de im
 | **update** |Se já existe um dispositivo com a especificado **ID**, informações existentes serão substituídas com os dados de entrada fornecidos sem para o **ETag** valor. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. |
 | **updateIfMatchETag** |Se já existe um dispositivo com a especificado **ID**, informações existentes serão substituídas com os dados de entrada fornecidos apenas se houver um **ETag** corresponder. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. <br/>Se houver uma **ETag** erro de correspondência, um erro é escrito para o ficheiro de registo. |
 | **createOrUpdateIfMatchETag** |Se não existir um dispositivo com a especificado **ID**, recentemente está registado. <br/>Se o dispositivo já existir, informações existentes serão substituídas com os dados de entrada fornecidos apenas se houver uma **ETag** corresponder. <br/>Se houver uma **ETag** erro de correspondência, um erro é escrito para o ficheiro de registo. <br> O utilizador pode, opcionalmente, especificar dados duplo, juntamente com os dados do dispositivo. Etag do duplo, se for especificado, é processada independentemente da etag do dispositivo. Se existir um erro de correspondência com o etag o duplo existente, um erro é escrito para o ficheiro de registo. |
-| **delete** |Se já existe um dispositivo com a especificado **ID**, este é eliminado sem para o **ETag** valor. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. |
+| **eliminar** |Se já existe um dispositivo com a especificado **ID**, este é eliminado sem para o **ETag** valor. <br/>Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. |
 | **deleteIfMatchETag** |Se já existe um dispositivo com o especificado **ID**, é eliminado apenas se existir um **ETag** corresponder. Se o dispositivo não existir, um erro é escrito para o ficheiro de registo. <br/>Se existir um erro de correspondência de ETag, um erro é escrito para o ficheiro de registo. |
 
 > [!NOTE]
@@ -424,7 +424,7 @@ Neste artigo, aprendeu a realizar operações em massa de registo de identidade 
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 
-* [Guia do programador do IoT Hub](iot-hub-devguide.md)
+* [guia para programadores do IoT Hub](iot-hub-devguide.md)
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar, utilizando o serviço de aprovisionamento de dispositivos do IoT Hub para ativar o aprovisionamento sem toque e just-in-time, consulte: 

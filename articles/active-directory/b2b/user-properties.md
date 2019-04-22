@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257608"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração do Azure Active Directory B2B
@@ -68,7 +68,7 @@ Esta propriedade indica a relação do utilizador para os inquilinos do anfitri�
   > [!NOTE]
   > O UserType tem sem relação com a forma como o utilizador inicia sessão, a função de diretório do utilizador e assim por diante. Esta propriedade simplesmente indica a relação do utilizador para a organização de anfitrião e permite que a organização impor políticas que dependem desta propriedade.
 
-### <a name="source"></a>Fonte
+### <a name="source"></a>Origem
 Esta propriedade indica como o utilizador inicia sessão.
 
 - Utilizador convidado: Este utilizador foi convidado, mas ainda não tiver resgatado um convite.

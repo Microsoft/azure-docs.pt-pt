@@ -12,10 +12,10 @@ ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425768"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio
@@ -128,7 +128,7 @@ Clique na ligação **About** (Acerca de) na parte superior da página para acio
 O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
 
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
-1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, altere a linha 70, que lê `<h2>Application uses</h2>` para algo como: `<h2>Hello k8s in Azure!</h2>`
+1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, altere a linha 70 que lê `<h2>Application uses</h2>` para algo semelhante a `<h2>Hello k8s in Azure!</h2>`
 1. Guarde o ficheiro.
 1. Aceda ao seu browser e atualize a página. Deverá ver a página Web mostrar o código HTML atualizado.
 
@@ -138,7 +138,7 @@ O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não
 A atualização de ficheiros de código exige mais algum trabalho, porque a aplicação .NET Core tem de ser recompilada e produzir binários de aplicação atualizados.
 
 1. Pare o depurador no Visual Studio.
-1. Abra o ficheiro de código com o nome `Controllers/HomeController.cs`e editar a mensagem que será apresentada a página About: `ViewData["Message"] = "Your application description page.";`
+1. Abra o ficheiro de código com o nome `Controllers/HomeController.cs` e edite a mensagem que a página About (Sobre) vai apresentar: `ViewData["Message"] = "Your application description page.";`
 1. Guarde o ficheiro.
 1. Prima **F5** para iniciar novamente a depuração. 
 

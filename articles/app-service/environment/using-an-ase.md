@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9a6c7c47a6ea81f682f453a85ee6f8e214a09a7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630670"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678093"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -137,7 +137,7 @@ Com um ASE externo, todas estas opções de publicação se comportam da mesma. 
 
 A principal diferença com a publicação é relativamente a um ASE de ILB. Com um ASE de ILB, os pontos finais de publicação estão disponíveis apenas através do ILB. O ILB é um IP privado na sub-rede do ASE na rede virtual. Se não tiver acesso à rede para o ILB, não é possível publicar todas as aplicações no ASE. Conforme observado na [criar e utilizar um ASE de ILB][MakeILBASE], terá de configurar o DNS para as aplicações no sistema. Que inclui o ponto de extremidade do SCM. Se não estão definidos corretamente, não é possível publicar. Seus IDEs também tem de ter acesso à rede para o ILB para publicar diretamente no mesmo.
 
-Sistemas CI baseados na Internet, como o GitHub e do Azure DevOps, não funcionam com um ASE de ILB porque o ponto final de publicação não está acessível pela Internet. Em alternativa, tem de utilizar um sistema CI que utilize um modelo de extração, como o Dropbox.
+Uso imediato, os sistemas CI baseados na Internet, como o GitHub e do Azure DevOps, não funcionam com um ASE de ILB porque o ponto final de publicação não está acessível pela Internet. Para o Azure DevOps, pode contornar isso ao instalar um agente de hospedagem interna de lançamento na sua rede interna em que ele possa alcançar o ILB. Em alternativa, também pode usar um sistema de CI que utilize um modelo de extração, como o Dropbox.
 
 Os pontos finais de publicação para aplicações num ASE de ILB utilizam o domínio com o qual o ASE de ILB foi criado. Pode ver no perfil de publicação da aplicação e no painel da aplicação do portal (no **descrição geral** > **Essentials** e, também no **propriedades**). 
 

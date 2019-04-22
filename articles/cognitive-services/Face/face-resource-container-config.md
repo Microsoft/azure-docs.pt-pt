@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73fc17ae5c65cd1a6ce47a18cbe17e6c338b7aaf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882128"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677787"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar os contentores do Docker de rostos
 
@@ -31,11 +31,11 @@ O **Face** ambiente de tempo de execução de contentores é configurado usando 
 
 ## <a name="apikey-configuration-setting"></a>ApiKey definição de configuração
 
-O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _Face_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
+O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _dos serviços cognitivos_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
 
 Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: **Da face** gestão de recursos, em **chaves**
+* Portal do Azure: **Os serviços cognitivos** gestão de recursos, em **chaves**
 
 ## <a name="applicationinsights-setting"></a>Definição do Application Insights
 
@@ -43,11 +43,13 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-O `Billing` definição especifica o URI do ponto final da _Face_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _Face_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
+O `Billing` definição especifica o URI do ponto final da _dos serviços cognitivos_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _dos serviços cognitivos_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada no seguinte local:
 
-* Portal do Azure: **Da face** descrição geral, o nome `Endpoint`
+* Portal do Azure: **Os serviços cognitivos** descrição geral, o nome `Endpoint`
+
+Não se esqueça de adicionar o _Face_ encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo. 
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
@@ -136,12 +138,12 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | A chave de ponto final do recurso de rostos. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | O valor de ponto final faturação incluindo região.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | A chave de ponto final do recurso dos serviços cognitivos. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | O valor de ponto final faturação incluindo a região e o encaminhamento de rostos.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](face-how-to-install-containers.md#billing).
-> O valor de ApiKey é o **chave** na página chaves do Azure Face recursos. 
+> O valor de ApiKey é o **chave** do Azure `Cognitive Services` página de chaves do recurso. 
 
 ## <a name="face-container-docker-examples"></a>Exemplos do contentor Docker de rostos
 

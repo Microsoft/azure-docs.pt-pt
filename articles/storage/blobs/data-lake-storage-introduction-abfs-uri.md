@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: c851044393adbacb6b80e264c6a4393b1c083efb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e4f148ac6f66cfbd7d89eff3623418197c2e0a33
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006131"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681187"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize a geração 2 Lake armazenamento de dados do Azure URI
 
@@ -48,4 +48,4 @@ No entanto, se a conta que desejo abordar é definida como o sistema de ficheiro
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](data-lake-storage-use-hdi-cluster.md)
+- [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

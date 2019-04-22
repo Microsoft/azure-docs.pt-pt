@@ -85,6 +85,8 @@ items:
       href: create-certificate.md
     - name: Monitorizar e gerir a criação do certificados
       href: create-certificate-scenarios.md
+  - name: Atributos de Segurança Comuns do Azure
+    href: key-vault-security-attributes.md
 - name: Guias de procedimentos
   items:
   - name: Registo do Azure Key Vault
@@ -165,8 +167,6 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
   - name: Contrato de Nível de Serviço (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault/
-  - name: Atributos de Segurança Comuns
-    href: key-vault-security-attributes.md
   - name: Limites do serviço
     href: key-vault-service-limits.md
   - name: Estado do serviço
@@ -177,9 +177,9 @@ items:
     href: https://blogs.technet.com/b/kv/
   - name: Comentários sobre o Produto
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 2d15287e04161f51159d71ce413cbcd2fe44d8f7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 884ea065833d34da17084fcee966ff34e4da02c2
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546353"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678518"

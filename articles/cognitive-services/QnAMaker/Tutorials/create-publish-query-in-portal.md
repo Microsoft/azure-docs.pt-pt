@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266958"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: No portal do QnA Maker, criar uma base de dados de conhecimento
@@ -67,7 +67,7 @@ Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-serv
     |Nome da definição|Valor da definição|Objetivo|
     |--|--|--|
     |do IdP|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Os conteúdos de FAQ nesse URL estão formatados com uma pergunta, seguida de uma resposta. O Criador de FAQ consegue interpretar este formato para extrair perguntas e as respostas associadas.|
-    |Ficheiro |_Não é utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
+    |Ficheiro |_não utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
     |Personalidade de Chit-chat|O amigo|Esta definição dá uma personalidade informal e amigável a perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
 
     ![Passo 4 do processo de criação da BDC](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)

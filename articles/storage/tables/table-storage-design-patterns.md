@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271633"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
@@ -197,7 +197,7 @@ Para ativar a pesquisa por apelido com a estrutura de entidade mostrada acima, t
 * Crie entidades de índice na mesma partição que as entidades de funcionários.  
 * Crie entidades de índice numa partição separada ou a tabela.  
 
-<u>Opção #1: Utilizar o armazenamento de blobs</u>  
+<u>Opção #1: Utilizar o armazenamento de BLOBs</u>  
 
 Para a primeira opção, crie um blob para cada nome de última exclusivo e, em cada armazenamento de BLOBs uma lista do **PartitionKey** (department) e **RowKey** (identificação do funcionário) valores para os funcionários que tenham esse nome passado. Quando adicionar ou eliminar um funcionário deve garantir que o conteúdo do blob relevante é eventualmente consistente com as entidades de funcionários.  
 
@@ -781,7 +781,7 @@ O serviço de tabela é um *esquema* armazenamento de tabela, que significa que 
 <th>FirstName</th>
 <th>LastName</th>
 <th>Idade</th>
-<th>Enviar por e-mail</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1108,7 +1108,7 @@ A aplicação cliente pode chamar vários métodos assíncronos como este, e cad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Modelar relações](table-storage-design-modeling.md)
-- [Design das consultas](table-storage-design-for-query.md)
-- [Encriptar dados da tabela](table-storage-design-encrypt-data.md)
-- [Design da modificação de dados](table-storage-design-for-modification.md)
+- [Modelando as relações](table-storage-design-modeling.md)
+- [Design para a consulta](table-storage-design-for-query.md)
+- [Encriptação de dados de tabela](table-storage-design-encrypt-data.md)
+- [Design para modificação de dados](table-storage-design-for-modification.md)

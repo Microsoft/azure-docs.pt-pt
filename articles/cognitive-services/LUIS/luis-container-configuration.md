@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883119"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678569"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do Docker de compreensão de idiomas 
 
@@ -30,23 +30,23 @@ Este contentor tem as seguintes definições de configuração:
 |--|--|--|
 |Sim|[ApiKey](#apikey-setting)|Utilizado para controlar informações de faturação.|
 |Não|[ApplicationInsights](#applicationinsights-setting)|Permite que adicione [do Azure Application Insights](https://docs.microsoft.com/azure/application-insights) suporte de telemetria ao seu contentor.|
-|Sim|[Faturação](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
-|Sim|[Eula](#eula-setting)| Indica que aceite a licença para o contentor.|
+|Sim|[Billing](#billing-setting)|Especifica o ponto final do URI do recurso de serviço no Azure.|
+|Sim|[EULA](#eula-setting)| Indica que aceite a licença para o contentor.|
 |Não|[Fluentd](#fluentd-settings)|Escrever o registo e, opcionalmente, dados de métrica para um servidor de Fluentd.|
 |Não|[Proxy de HTTP](#http-proxy-credentials-settings)|Configure um proxy HTTP para fazer pedidos de saída.|
-|Não|[Registo](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
-|Sim|[Monta](#mount-settings)|Ler e escrever dados do computador anfitrião para o contentor e do contentor para o computador anfitrião.|
+|Não|[Logging](#logging-settings)|Fornece suporte de registo do ASP.NET Core para o seu contentor. |
+|Sim|[Mounts](#mount-settings)|Ler e escrever dados do computador anfitrião para o contentor e do contentor para o computador anfitrião.|
 
 > [!IMPORTANT]
 > O [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), e [ `Eula` ](#eula-setting) definições são utilizadas em conjunto, e tem de indicar valores válidos para todas as três-los; caso contrário não inicia o contentor. Para obter mais informações sobre como utilizar estas definições de configuração para criar uma instância de um contentor, consulte [faturação](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>ApiKey definição
 
-O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _compreensão de idiomas_ recurso especificado para o [ `Billing` ](#billing-setting) definição de configuração.
+O `ApiKey` definição especifica a chave de recurso do Azure utilizada para controlar informações de faturação para o contentor. Tem de especificar um valor para o ApiKey e o valor tem de ser uma chave válida para o _dos serviços cognitivos_ recurso especificado para o [ `Billing` ](#billing-setting) definição de configuração.
 
 Esta definição pode ser encontrada nos seguintes locais:
 
-* Portal do Azure: **Compreensão de idiomas** gestão de recursos, em **chaves**
+* Portal do Azure: **Os serviços cognitivos** gestão de recursos, em **chaves**
 * Portal de LUIS: **As chaves e definições de ponto final** página. 
 
 Não utilize a chave de arranque ou a chave de criação. 
@@ -57,12 +57,15 @@ Não utilize a chave de arranque ou a chave de criação.
 
 ## <a name="billing-setting"></a>Definição de faturação
 
-O `Billing` definição especifica o URI do ponto final da _compreensão de idiomas_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _compreensão de idiomas_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
+O `Billing` definição especifica o URI do ponto final da _dos serviços cognitivos_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _dos serviços cognitivos_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada nos seguintes locais:
 
-* Portal do Azure: **Compreensão de idiomas** descrição geral, o nome `Endpoint`
+* Portal do Azure: **Os serviços cognitivos** descrição geral, o nome `Endpoint`
 * Portal de LUIS: **As chaves e definições de ponto final** página, como parte do ponto final do URI.
+
+Não se esqueça de incluir o `luis/v2.0` encaminhamento no URL, conforme mostrado na tabela a seguir:
+
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
@@ -109,16 +112,18 @@ Os exemplos seguintes utilizam as definições de configuração para ilustrar c
 * **Caracteres de continuação de linha**: Os comandos de docker nas secções seguintes utilizam a barra invertida, `\`, como um caractere de continuação de linha. Substituir ou remova esta com base nos requisitos de seu sistema de operativo de anfitrião. 
 * **Ordem de argumento**: Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
 
+Não se esqueça de incluir o `luis/v2.0` encaminhamento no URL, conforme mostrado na seguinte tabela.
+
 Substitua {_argument_name_} pelos seus próprios valores:
 
 | Marcador de posição | Valor | Formato ou de exemplo |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | A chave de ponto final da aplicação LUIS treinada. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível na página de descrição geral de compreensão de idioma do portal do Azure.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível no Azure `Cognitive Services` página de descrição geral. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](luis-container-howto.md#billing).
-> O valor de ApiKey é o **chave** também está disponível na página de chaves do recurso de compreensão de linguagem do Azure e as chaves e os pontos finais de página no portal do LUIS. 
+> O valor de ApiKey é o **chave** também está disponível no Azure e as chaves e os pontos finais de página no portal do LUIS `Cognitive Services` página de chaves do recurso. 
 
 ### <a name="basic-example"></a>Exemplo básico
 

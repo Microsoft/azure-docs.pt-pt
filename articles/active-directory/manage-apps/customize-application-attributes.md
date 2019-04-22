@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267213"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
@@ -123,8 +123,8 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
    * *Número inteiro* -atributo contém um número inteiro.
    * *Referência* -atributo contém um ID que faz referência a um valor armazenado em outra tabela na aplicação de destino.
    * *Cadeia de caracteres* -atributo contém uma cadeia de texto. 
-* **Chave Primária?** – Se o atributo é definido como um campo de chave primária no esquema do objeto de destino.
-* **É Obrigatório?** – Se o atributo é necessário para ser preenchido em sistemas ou aplicativos de destino.
+* **Chave primária?** – Se o atributo é definido como um campo de chave primária no esquema do objeto de destino.
+* **Necessário?** – Se o atributo é necessário para ser preenchido em sistemas ou aplicativos de destino.
 * **Valores múltiplos?** – Se o atributo oferece suporte a vários valores.
 * **Maiúsculas ou minúsculas?** – Se os valores de atributos são avaliados de uma forma de maiúsculas e minúsculas.
 * **Expressão de API** -não utilizar, exceto se instruído a fazer isso, a documentação para um conector de aprovisionamento específico (por exemplo, o dia de trabalho).
@@ -157,6 +157,6 @@ A seleção desta opção efetivamente forçará uma ressincronização de todos
 * [Escrever expressões para mapeamentos de atributos](functions-for-customizing-application-data.md)
 * [Filtros de âmbito para o aprovisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
-* [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
 
 

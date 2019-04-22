@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426346"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core
@@ -105,7 +105,7 @@ Neste momento, tem uma aplicação Web básica que pode ser executada localmente
     ```
 
 O comando `azds prep` da CLI do Azure gera recursos do Docker e Kubernetes com as predefinições:
-* `./Dockerfile` Descreve a aplicação imagem de contentor e como o código-fonte é criado e é executado dentro do contentor.
+* `./Dockerfile` descreve a imagem de contentor da aplicação e como o código-fonte é construído e executado no contentor.
 * Um [gráfico Helm](https://docs.helm.sh) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
 
 Por enquanto, não é necessário entender o conteúdo completo desses ficheiros. No entanto, importa realçar que **os mesmos recursos de configuração como código do Kubernetes e do Docker podem ser utilizados do desenvolvimento à produção, dando maior consistência em diferentes ambientes.**
@@ -145,7 +145,7 @@ Abra este URL numa janela do browser e deve ver o carregamento da aplicação We
 ### <a name="update-a-content-file"></a>Atualizar um ficheiro de conteúdo
 O Azure Dev Spaces não se limita apenas a pôr o código em execução no Kubernetes. Tem que ver com permitir-lhe ver, de forma rápida e iterativa, as alterações ao código serem aplicadas num ambiente do Kubernetes na cloud.
 
-1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, altere a linha 70, que lê `<h2>Application uses</h2>` para algo como: `<h2>Hello k8s in Azure!</h2>`
+1. Localize o ficheiro `./Views/Home/Index.cshtml` e faça uma edição ao HTML. Por exemplo, altere a linha 70 que lê `<h2>Application uses</h2>` para algo semelhante a `<h2>Hello k8s in Azure!</h2>`
 1. Guarde o ficheiro. Pouco depois, na janela do terminal, verá uma mensagem que diz que um ficheiro no contentor em execução foi atualizado.
 1. Aceda ao seu browser e atualize a página. Deverá ver a página Web mostrar o código HTML atualizado.
 
@@ -155,7 +155,7 @@ O que aconteceu? As edições aos ficheiros de conteúdos, como HTML e CSS, não
 A atualização de ficheiros de código exige mais algum trabalho, porque a aplicação .NET Core tem de ser recompilada e produzir binários de aplicação atualizados.
 
 1. Na janela de terminal, prima `Ctrl+C` (para parar `azds up`).
-1. Abra o ficheiro de código com o nome `Controllers/HomeController.cs`e editar a mensagem que será apresentada a página About: `ViewData["Message"] = "Your application description page.";`
+1. Abra o ficheiro de código com o nome `Controllers/HomeController.cs` e edite a mensagem que a página About (Sobre) vai apresentar: `ViewData["Message"] = "Your application description page.";`
 1. Guarde o ficheiro.
 1. Execute `azds up` na janela de terminal. 
 
@@ -226,7 +226,7 @@ Em vez de reconstruir e reimplementar uma imagem de contentor nova sempre que fo
 
 Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá ver a mensagem personalizada apresentada na IU.
 
-**Agora tem um método para iteração no código e depuração diretamente no Kubernetes rapidamente!** Em seguida, irá ver como pode criar e chamar um segundo contentor.
+**Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.** Em seguida, irá ver como pode criar e chamar um segundo contentor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257115"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
@@ -32,7 +32,7 @@ As previsões ou predições da aprendizagem automática podem tornar as aplica�
 
 O serviço do Azure Machine Learning fornece um ambiente com base na cloud, que pode utilizar para de preparação de dados, formar, testar, implementar, gerir e controlar os modelos de aprendizagem automática.
 
-[![Afluxo de trabalho do serviço do Machine Learning de zure](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Fluxo de trabalho de serviço do Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 O serviço do Azure Machine Learning totalmente compatível com tecnologias de código aberto. Portanto, pode usar dezenas de milhares de pacotes de Python de código-fonte aberto com componentes de aprendizagem automática. Os exemplos são PyTorch, o TensorFlow e scikit-Saiba mais.
 Suporte para ferramentas avançadas torna mais fácil de forma interativa explorar e preparar dados e, em seguida, desenvolver e testar modelos. Os exemplos são [blocos de notas do Jupyter](https://jupyter.org) ou o [do Azure Machine Learning para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extensão.
@@ -52,8 +52,8 @@ E com avançados [de machine learning pipelines](concept-ml-pipelines.md), pode 
 Utilizar o <a href="https://aka.ms/aml-sdk" target="_blank">principal SDK de Python</a> e o <a href="https://aka.ms/data-prep-sdk" target="_blank">SDK de preparação de dados</a> para o Azure Machine Learning, bem como pacotes de Python de código-fonte aberto, que pode criar e treinar a aprendizagem automática altamente precisos e modelos de aprendizagem profunda -se num área de trabalho de serviço do Azure Machine Learning.
 Pode escolher entre muitas do machine learning componentes disponíveis em pacotes de Python de código-fonte aberto, como os exemplos seguintes:
 
-- <a href="https://scikit-learn.org/stable/" target="_blank">scikit-Saiba mais</a>
-- <a href="https://www.tensorflow.org" target="_blank">TensorFlow</a>
+- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
+- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>
 

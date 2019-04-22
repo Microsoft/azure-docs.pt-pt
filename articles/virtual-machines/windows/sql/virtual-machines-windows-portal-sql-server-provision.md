@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259206"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure
@@ -72,12 +72,12 @@ Existem vários separadores para configurar uma máquina virtual do SQL Server. 
 
 | Passo | Descrição |
 | --- | --- |
-| **Noções básicas** |[Configurar definições básicas](#1-configure-basic-settings) |
-| **Funcionalidades Opcionais** |[Configurar funcionalidades opcionais](#2-configure-optional-features) |
-| **Definições do SQL Server** |[Configurar as definições do SQL Server](#3-configure-sql-server-settings) |
+| **Noções básicas** |[Configurar as definições básicas](#1-configure-basic-settings) |
+| **Funcionalidades opcionais** |[Configurar funcionalidades opcionais](#2-configure-optional-features) |
+| **Definições do SQL Server** |[Configurar definições do SQL Server](#3-configure-sql-server-settings) |
 | **Rever + criar** | [Reveja o resumo](#4-review--create) |
 
-## <a name="1-configure-basic-settings"></a>1. Configurar definições básicas
+## <a name="1-configure-basic-settings"></a>1. Configurar as definições básicas
 
 
 Sobre o **Noções básicas** separador, forneça as seguintes informações:
@@ -109,7 +109,7 @@ Sobre o **Noções básicas** separador, forneça as seguintes informações:
 
 * Sob **regras de porta de entrada**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (. 3389)** na lista suspensa. 
 
-   ![Regras de porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
+   ![Regras da porta de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 
 ## <a name="2-configure-optional-features"></a>2. Configurar funcionalidades opcionais
@@ -149,7 +149,7 @@ Sobre o **monitorização** separador, configurar a monitorização e de encerra
 ![Definições de gestão da VM do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
 
-## <a name="3-configure-sql-server-settings"></a>3. Configurar as definições do SQL Server
+## <a name="3-configure-sql-server-settings"></a>3. Configurar definições do SQL Server
 
 Sobre o **definições do SQL Server** separador, configure as definições específicas e otimizações para o SQL Server. As definições que pode configurar para o SQL Server incluem o seguinte:
 
@@ -157,8 +157,8 @@ Sobre o **definições do SQL Server** separador, configure as definições espe
 
 | Definição |
 | --- |
-| [Conectividade](#connectivity) |
-| [Authentication](#authentication) |
+| [Conetividade](#connectivity) |
+| [Autenticação](#authentication) |
 | [Integração do Cofre de Chaves do Azure](#azure-key-vault-integration) |
 | [Configuração do armazenamento](#storage-configuration) |
 | [Aplicação de Patches Automatizada](#automated-patching) |
@@ -201,11 +201,11 @@ Se não ativar a Autenticação do SQL Server, em seguida, pode utilizar a conta
 
 ![Autenticação do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
-### <a name="azure-key-vault-integration"></a>Integração do Azure Key Vault
+### <a name="azure-key-vault-integration"></a>Integração do Cofre de Chaves do Azure
 
 Para armazenar segredos de segurança no Azure para a encriptação, clique em **Integração do cofre de chaves do Azure** e clique em **Ativar**.
 
-![Integração do Azure Key Vault](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Integração do Cofre de Chaves do Azure](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 
 A tabela seguinte lista os parâmetros necessários para configurar a Integração do Cofre de Chaves do Azure.
 
@@ -244,7 +244,7 @@ Se for um cliente de Software Assurance, pode utilizar o [benefício híbrido do
 
 ![Licença de VM do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
 
-### <a name="automated-patching"></a>Correção automática
+### <a name="automated-patching"></a>Aplicação de patches automatizada
 
 A **Aplicação de patches automatizada** está ativada por predefinição. A Aplicação de patches automatizada permite ao Azure automaticamente aplicar o patch do SQL Server e o sistema operativo. Especifique um dia da semana, a hora e a duração de uma janela de manutenção. O Azure executa a aplicação de patches nesta janela de manutenção. A agenda da janela de manutenção utiliza a região da VM para a hora. Se não pretender que o Azure aplique automaticamente o patch do SQL Server e o sistema operativo, clique em **Desativar**.  
 

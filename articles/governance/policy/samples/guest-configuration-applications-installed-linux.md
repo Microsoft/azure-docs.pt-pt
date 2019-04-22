@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
 ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256469"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Exemplo - auditoria se aplicações especificadas não estão instaladas em VMs do Linux
@@ -83,7 +83,7 @@ O **deployIfNotExists** definição de política define as imagens do Azure, a p
 |RedHat |osa | Todos |
 |credativ |Debian | Tudo, exceto a 7\* |
 |SUSE |SLES\* |Tudo, exceto a 11\* |
-|Canonical| UbuntuServer |Tudo, exceto a 12\* |
+|Canónico| UbuntuServer |Tudo, exceto a 12\* |
 |microsoft-dsvm |linux-data-science-vm-ubuntu |Todos |
 |microsoft-dsvm |azureml |Todos |
 |cloudera |cloudera-centos-os |Tudo, exceto a 6\* |
@@ -229,7 +229,7 @@ Remove-AzPolicyDefinition -Id $definition
 
 Os scripts de implementação e remoção utilizam os seguintes comandos. Cada comando na tabela seguinte liga à documentação específica do comando:
 
-| Command | Notas |
+| Comando | Notas |
 |---|---|
 | [New-AzPolicySetDefinition](/powershell/module/az.resources/New-AzPolicySetDefinition) | Cria uma iniciativa de política do Azure. |
 | [New-AzPolicyDefinition](/powershell/module/az.resources/New-AzPolicyDefinition) | Cria uma definição de política do Azure. |
