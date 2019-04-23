@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 034/08/2019
 ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59356875"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799104"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma base de dados na base de dados do Azure SQL
 

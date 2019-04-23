@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
 ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360621"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798951"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 

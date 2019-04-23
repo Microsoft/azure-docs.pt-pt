@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263235"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799121"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chave exclusivas no Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Para criar itens com a mensagem de e-mail mesmo endereço, mas não o mesmo nome
 
 Por exemplo, o contentor pode conter itens com os seguintes valores, onde cada item honra a restrição de chave exclusiva.
 
-|CompanyID|Nome Próprio|Apelido|Endereço de e-mail|
+|CompanyID|Nome próprio|Apelido|Endereço de e-mail|
 |---|---|---|---|
 |Contoso|Gaby|Duperre|gaby@contoso.com |
 |Contoso|Gaby|Duperre|gaby@fabrikam.com|

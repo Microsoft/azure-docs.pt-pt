@@ -1,61 +1,54 @@
-items:
 - name: Windows Virtual Desktop
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o Windows Virtual Desktop?
-    href: overview.md
+    - name: O que é o Windows Virtual Desktop?
+      href: overview.md
 - name: Tutoriais
   items:
-  - name: 1. Criar um inquilino no Windows Virtual Desktop
-    href: tenant-setup-azure-active-directory.md
-  - name: 2. Criar um conjunto de anfitriões com o Azure Marketplace
-    href: create-host-pools-azure-marketplace.md
-  - name: 3. Gerir grupos de aplicações
-    href: manage-app-groups.md
-  - name: 4. Criar principais de serviço e atribuições de funções com o PowerShell
-    href: create-service-principal-role-powershell.md
+    - name: 1. Criar um inquilino no Windows Virtual Desktop
+      href: tenant-setup-azure-active-directory.md
+    - name: 2. Criar um conjunto de anfitriões com o Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 3. Gerir grupos de aplicações
+      href: manage-app-groups.md
+    - name: 4. Criar principais de serviço e atribuições de funções com o PowerShell
+      href: create-service-principal-role-powershell.md
 - name: Procedimentos
   items:
-  - name: Ligar a recursos do Windows Virtual Desktop
-    items:
-    - name: Ligar com o Windows 7 e Windows 10
-      href: connect-windows-7-and-10.md
-    - name: Ligar com o cliente web
-      href: connect-web.md
-  - name: Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
-    href: create-host-pools-arm-template.md
-  - name: Criar um conjunto de anfitriões com o PowerShell
-    href: create-host-pools-powershell.md
-  - name: Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
-    href: create-host-pools-user-profile.md
-  - name: Configurar o método de balanceamento de carga do Windows Virtual Desktop
-    href: configure-host-pool-load-balancing.md
-  - name: Identificar problemas com a funcionalidade de diagnóstico
-    href: diagnostics-role-service.md
-  - name: Preparar e personalizar uma imagem VHD principal
-    href: set-up-customize-master-image.md
-  - name: Dimensionar automaticamente os hosts de sessão
-    href: set-up-scaling-script.md
+    - name: Ligar a recursos do Windows Virtual Desktop
+      items:
+        - name: Ligar com o Windows 7 e Windows 10
+          href: connect-windows-7-and-10.md
+        - name: Ligar com o cliente web
+          href: connect-web.md
+    - name: Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
+      href: create-host-pools-arm-template.md
+    - name: Criar um conjunto de anfitriões com o PowerShell
+      href: create-host-pools-powershell.md
+    - name: Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
+      href: create-host-pools-user-profile.md
+    - name: Configurar o método de balanceamento de carga do Windows Virtual Desktop
+      href: configure-host-pool-load-balancing.md
+    - name: Identificar problemas com a funcionalidade de diagnóstico
+      href: diagnostics-role-service.md
+    - name: Preparar e personalizar uma imagem VHD principal
+      href: set-up-customize-master-image.md
+    - name: Dimensionar automaticamente os hosts de sessão
+      href: set-up-scaling-script.md
 - name: Conceitos
   items:
-  - name: Ambiente do Windows Virtual Desktop
-    href: environment-setup.md
-  - name: Acesso delegado ao Windows Virtual Desktop
-    href: delegated-access-virtual-desktop.md
-  - name: Métodos de balanceamento de carga do agrupamento de anfitriões
-    href: host-pool-load-balancing.md
+    - name: Ambiente do Windows Virtual Desktop
+      href: environment-setup.md
+    - name: Acesso delegado ao Windows Virtual Desktop
+      href: delegated-access-virtual-desktop.md
+    - name: Métodos de balanceamento de carga do agrupamento de anfitriões
+      href: host-pool-load-balancing.md
 - name: Referência
   items:
-  - name: PowerShell
-    href: /powershell/windows-virtual-desktop/overview
+    - name: PowerShell
+      href: /powershell/windows-virtual-desktop/overview
 - name: Recursos
   items:
-  - name: Grupo de suporte da Comunidade Técnica
-    href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-ms.openlocfilehash: 3f3f332f8ab9b2764dd513777860627dda9b4c45
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496340"
+    - name: Grupo de suporte da Comunidade Técnica
+      href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'

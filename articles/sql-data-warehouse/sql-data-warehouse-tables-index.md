@@ -12,11 +12,11 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270052"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797946"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexação de tabelas no armazém de dados SQL
 

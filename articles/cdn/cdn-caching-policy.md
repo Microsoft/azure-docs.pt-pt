@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918285"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798609"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerir a CDN do Azure, colocação em cache da política nos serviços de multimédia do Azure
 Serviços de multimédia do Azure fornece baseada em HTTP transmissão em fluxo adaptável e transferência progressiva. HTTP com base em transmissão em fluxo é altamente dimensionável, com benefícios de colocação em cache em proxy e as camadas CDN, bem como a colocação em cache do lado do cliente. Pontos finais de transmissão em fluxo fornece capacidades de transmissão em fluxo gerais e também a configuração para cabeçalhos de cache HTTP. Pontos finais de transmissão em fluxo define Cache-Control de HTTP: duração máxima e Expires cabeçalhos. Pode obter mais informações para cabeçalhos de cache HTTP partir [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

@@ -9,11 +9,11 @@ ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291802"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59804828"
 ---
 O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Armazenamento de Blobs está otimizado para armazenar grandes quantidades de dados não estruturados. Dados não estruturados são os dados que não cumprem a um modelo de dados específica ou a definição, como texto ou dados binários.
 

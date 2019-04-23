@@ -5,11 +5,11 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59055690"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59804855"
 ---
 A tabela seguinte lista os limites associados com os escalões de serviço diferentes S1, S2, S3 e F1. Para obter informações sobre o custo de cada *unidade* em cada escalão, consulte [preços do IoT Hub do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 

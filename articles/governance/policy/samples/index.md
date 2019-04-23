@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 03/19/2019
 ms.author: dacoulte
 ms.openlocfilehash: 5a39614d544157695b8b2f02ab5f1fe4427d5ca5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275685"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796906"
 ---
 # <a name="azure-policy-samples"></a>Exemplos do Azure Policy
 

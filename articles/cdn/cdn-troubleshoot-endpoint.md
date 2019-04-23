@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916279"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59799240"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Resolução de problemas de pontos finais de CDN do Azure que devolvem um código de 404 Estado
 Este artigo permite-lhe resolver problemas com pontos finais de rede de entrega conteúdo (CDN) que retornam códigos de estado de resposta HTTP 404.

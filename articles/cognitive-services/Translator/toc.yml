@@ -1,251 +1,244 @@
-items:
 - name: Documentação da Tradução de Texto
   href: index.yml
 - name: API de Texto do Tradutor
   items:
-  - name: Descrição geral
-    items:
-    - name: O que é a API de Texto do Microsoft Translator?
-      href: translator-info-overview.md
-  - name: Inícios rápidos
-    items:
-    - name: Traduzir texto
+    - name: Descrição geral
       items:
-      - name: C#, REST
-        href: quickstart-csharp-translate.md
-      - name: Go, REST
-        href: quickstart-go-translate.md
-      - name: Java, REST
-        href: quickstart-java-translate.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-translate.md
-      - name: PHP, REST
-        href: quickstart-php-translate.md
-      - name: Python, REST
-        href: quickstart-python-translate.md
-      - name: Ruby, REST
-        href: quickstart-ruby-translate.md
-    - name: Transliterar texto
+        - name: O que é a API de Texto do Microsoft Translator?
+          href: translator-info-overview.md
+    - name: Inícios rápidos
       items:
-      - name: C#, REST
-        href: quickstart-csharp-transliterate.md
-      - name: Go, REST
-        href: quickstart-go-transliterate.md
-      - name: Java, REST
-        href: quickstart-java-transliterate.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-transliterate.md
-      - name: PHP, REST
-        href: quickstart-php-transliterate.md
-      - name: Python, REST
-        href: quickstart-python-transliterate.md
-      - name: Ruby, REST
-        href: quickstart-ruby-transliterate.md
-    - name: Identificar a linguagem
+        - name: Traduzir texto
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-translate.md
+            - name: 'Go, REST'
+              href: quickstart-go-translate.md
+            - name: 'Java, REST'
+              href: quickstart-java-translate.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-translate.md
+            - name: 'PHP, REST'
+              href: quickstart-php-translate.md
+            - name: 'Python, REST'
+              href: quickstart-python-translate.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-translate.md
+        - name: Transliterar texto
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-transliterate.md
+            - name: 'Go, REST'
+              href: quickstart-go-transliterate.md
+            - name: 'Java, REST'
+              href: quickstart-java-transliterate.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-transliterate.md
+            - name: 'PHP, REST'
+              href: quickstart-php-transliterate.md
+            - name: 'Python, REST'
+              href: quickstart-python-transliterate.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-transliterate.md
+        - name: Identificar a linguagem
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-detect.md
+            - name: 'Go, REST'
+              href: quickstart-go-detect.md
+            - name: 'Java, REST'
+              href: quickstart-java-detect.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-detect.md
+            - name: 'PHP, REST'
+              href: quickstart-php-detect.md
+            - name: 'Python, REST'
+              href: quickstart-python-detect.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-detect.md
+        - name: Procurar traduções de palavras
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-dictionary.md
+            - name: 'Go, REST'
+              href: quickstart-go-dictionary.md
+            - name: 'Java, REST'
+              href: quickstart-java-dictionary.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-dictionary.md
+            - name: 'PHP, REST'
+              href: quickstart-php-dictionary.md
+            - name: 'Python, REST'
+              href: quickstart-python-dictionary.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-dictionary.md
+        - name: Obter idiomas suportados
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-languages.md
+            - name: 'Go, REST'
+              href: quickstart-go-languages.md
+            - name: 'Java, REST'
+              href: quickstart-java-languages.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-languages.md
+            - name: 'PHP, REST'
+              href: quickstart-php-languages.md
+            - name: 'Python, REST'
+              href: quickstart-python-languages.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-languages.md
+        - name: Determinar o comprimento da frase
+          items:
+            - name: 'C#, REST'
+              href: quickstart-csharp-sentences.md
+            - name: 'Go, REST'
+              href: quickstart-go-sentences.md
+            - name: 'Java, REST'
+              href: quickstart-java-sentences.md
+            - name: 'Node.js, REST'
+              href: quickstart-nodejs-sentences.md
+            - name: 'PHP, REST'
+              href: quickstart-php-sentences.md
+            - name: 'Python, REST'
+              href: quickstart-python-sentences.md
+            - name: 'Ruby, REST'
+              href: quickstart-ruby-sentences.md
+    - name: Tutoriais
       items:
-      - name: C#, REST
-        href: quickstart-csharp-detect.md
-      - name: Go, REST
-        href: quickstart-go-detect.md
-      - name: Java, REST
-        href: quickstart-java-detect.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-detect.md
-      - name: PHP, REST
-        href: quickstart-php-detect.md
-      - name: Python, REST
-        href: quickstart-python-detect.md
-      - name: Ruby, REST
-        href: quickstart-ruby-detect.md
-    - name: Procurar traduções de palavras
+        - name: Criar uma aplicação do WPF para a Tradução de Texto
+          href: tutorial-wpf-translation-csharp.md
+        - name: Criar uma aplicação de tradução do Flask
+          href: tutorial-build-flask-app-translation-synthesis.md
+    - name: Conceitos
       items:
-      - name: C#, REST
-        href: quickstart-csharp-dictionary.md
-      - name: Go, REST
-        href: quickstart-go-dictionary.md
-      - name: Java, REST
-        href: quickstart-java-dictionary.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-dictionary.md
-      - name: PHP, REST
-        href: quickstart-php-dictionary.md
-      - name: Python, REST
-        href: quickstart-python-dictionary.md
-      - name: Ruby, REST
-        href: quickstart-ruby-dictionary.md
-    - name: Obter idiomas suportados
+        - name: Personalizar e melhorar a conversão de texto
+          href: customization.md
+        - name: Modo de contabilização de carateres da API
+          href: character-counts.md
+    - name: Guias de procedimentos
       items:
-      - name: C#, REST
-        href: quickstart-csharp-languages.md
-      - name: Go, REST
-        href: quickstart-go-languages.md
-      - name: Java, REST
-        href: quickstart-java-languages.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-languages.md
-      - name: PHP, REST
-        href: quickstart-php-languages.md
-      - name: Python, REST
-        href: quickstart-python-languages.md
-      - name: Ruby, REST
-        href: quickstart-ruby-languages.md
-    - name: Determinar o comprimento da frase
+        - name: Inscrição na API de Texto do Microsoft Translator
+          href: translator-text-how-to-signup.md
+        - name: Migrar para a API de Texto V3
+          href: migrate-to-v3.md
+        - name: Adicionar filtragem de linguagem obscena
+          href: profanity-filtering.md
+        - name: Receber informações de alinhamento de palavras
+          href: word-alignment.md
+        - name: Impedir a tradução de conteúdo
+          href: prevent-translation.md
+        - name: Utilizar a funcionalidade de dicionário dinâmico
+          href: dynamic-dictionary.md
+        - name: Traduzir por trás de firewalls
+          href: firewalls.md
+    - name: Referência
       items:
-      - name: C#, REST
-        href: quickstart-csharp-sentences.md
-      - name: Go, REST
-        href: quickstart-go-sentences.md
-      - name: Java, REST
-        href: quickstart-java-sentences.md
-      - name: Node.js, REST
-        href: quickstart-nodejs-sentences.md
-      - name: PHP, REST
-        href: quickstart-php-sentences.md
-      - name: Python, REST
-        href: quickstart-python-sentences.md
-      - name: Ruby, REST
-        href: quickstart-ruby-sentences.md
-  - name: Tutoriais
-    items:
-    - name: Criar uma aplicação do WPF para a Tradução de Texto
-      href: tutorial-wpf-translation-csharp.md
-    - name: Criar uma aplicação de tradução do Flask
-      href: tutorial-build-flask-app-translation-synthesis.md
-  - name: Conceitos
-    items:
-    - name: Personalizar e melhorar a conversão de texto
-      href: customization.md
-    - name: Modo de contabilização de carateres da API
-      href: character-counts.md
-  - name: Guias de procedimentos
-    items:
-    - name: Inscrição na API de Texto do Microsoft Translator
-      href: translator-text-how-to-signup.md
-    - name: Migrar para a API de Texto V3
-      href: migrate-to-v3.md
-    - name: Adicionar filtragem de linguagem obscena
-      href: profanity-filtering.md
-    - name: Receber informações de alinhamento de palavras
-      href: word-alignment.md
-    - name: Impedir a tradução de conteúdo
-      href: prevent-translation.md
-    - name: Utilizar a funcionalidade de dicionário dinâmico
-      href: dynamic-dictionary.md
-    - name: Traduzir por trás de firewalls
-      href: firewalls.md
-  - name: Referência
-    items:
-    - name: Referência da API de Texto do Microsoft Translator v3
-      href: reference/v3-0-reference.md
+        - name: Referência da API de Texto do Microsoft Translator v3
+          href: reference/v3-0-reference.md
+          items:
+            - name: Linguagens
+              href: reference/v3-0-languages.md
+            - name: Traduzir
+              href: reference/v3-0-translate.md
+            - name: Transliterar
+              href: reference/v3-0-transliterate.md
+            - name: Detetar
+              href: reference/v3-0-detect.md
+            - name: BreakSentence
+              href: reference/v3-0-break-sentence.md
+            - name: Pesquisa no Dicionário
+              href: reference/v3-0-dictionary-lookup.md
+            - name: Exemplos do dicionário
+              href: reference/v3-0-dictionary-examples.md
+        - name: Referência da API de Texto do Microsoft Translator v2 (preterido)
+          href: reference/v2-0-reference.md
+          items:
+            - name: Transformar o texto
+              href: transform-text.md
+            - name: Como utilizar os relatórios do Collaborative Translation Framework (CTF)
+              href: ctf-reporting.md
+            - name: Devolver traduções de Melhor N
+              href: return-n-best-translations.md
+    - name: Recursos
       items:
-      - name: Linguagens
-        href: reference/v3-0-languages.md
-      - name: Traduzir
-        href: reference/v3-0-translate.md
-      - name: Transliterar
-        href: reference/v3-0-transliterate.md
-      - name: Detetar
-        href: reference/v3-0-detect.md
-      - name: BreakSentence
-        href: reference/v3-0-break-sentence.md
-      - name: Pesquisa no Dicionário
-        href: reference/v3-0-dictionary-lookup.md
-      - name: Exemplos do dicionário
-        href: reference/v3-0-dictionary-examples.md
-    - name: Referência da API de Texto do Microsoft Translator v2 (preterido)
-      href: reference/v2-0-reference.md
-      items:
-      - name: Transformar o texto
-        href: transform-text.md
-      - name: Como utilizar os relatórios do Collaborative Translation Framework (CTF)
-        href: ctf-reporting.md
-      - name: Devolver traduções de Melhor N
-        href: return-n-best-translations.md
-  - name: Recursos
-    items:
-    - name: Exemplos de código no GitHub
-      href: https://aka.ms/TranslatorGitHub
-    - name: FAQ
-      href: https://www.microsoft.com/translator/faq.aspx
-    - name: Base de Dados de Conhecimento
-      href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
-    - name: Suporte de idioma e região
-      href: language-support.md
-    - name: Preços
-      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Disponibilidade regional
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    - name: Limites de pedidos
-      href: request-limits.md
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: UserVoice
-      href: https://cognitive.uservoice.com/forums/558796-translator
+        - name: Exemplos de código no GitHub
+          href: 'https://aka.ms/TranslatorGitHub'
+        - name: FAQ
+          href: 'https://www.microsoft.com/translator/faq.aspx'
+        - name: Base de Dados de Conhecimento
+          href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+        - name: Suporte de idioma e região
+          href: language-support.md
+        - name: Preços
+          href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+        - name: Disponibilidade regional
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Limites de pedidos
+          href: request-limits.md
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+        - name: UserVoice
+          href: 'https://cognitive.uservoice.com/forums/558796-translator'
 - name: Custom Translator
   items:
-  - name: Descrição geral
-    items:
-    - name: O que é o Custom Translator?
-      href: custom-translator/overview.md
-  - name: Inícios rápidos
-    items:
-    - name: Criar um modelo personalizado
-      href: custom-translator/quickstart-build-deploy-custom-model.md
-  - name: Conceitos
-    items:
-    - name: Áreas de trabalho e projetos
-      href: custom-translator/workspace-and-project.md
-    - name: Documentos paralelos
-      href: custom-translator/what-are-parallel-documents.md
-    - name: Dicionário
-      href: custom-translator/what-is-dictionary.md
-    - name: Formatos de documentos
-      href: custom-translator/document-formats-naming-convention.md
-    - name: Alinhamento de frases
-      href: custom-translator/sentence-alignment.md
-    - name: Filtragem de dados
-      href: custom-translator/data-filtering.md
-    - name: Formação e modelo
-      href: custom-translator/training-and-model.md
-    - name: Classificação de BLEU
-      href: custom-translator/what-is-bleu-score.md
-  - name: Guias de procedimentos
-    items:
-    - name: Criar um projeto
-      href: custom-translator/how-to-create-project.md
-    - name: Gerir projetos
-      href: custom-translator/how-to-search-edit-delete-projects.md
-    - name: Carregar um documento
-      href: custom-translator/how-to-upload-document.md
-    - name: Ver detalhes do documento
-      href: custom-translator/how-to-view-document-details.md
-    - name: Preparar um modelo
-      href: custom-translator/how-to-train-model.md
-    - name: Ver detalhes do modelo
-      href: custom-translator/how-to-view-model-details.md
-    - name: Viver resultados do teste do sistema
-      href: custom-translator/how-to-view-system-test-results.md
-    - name: Gerir definições
-      href: custom-translator/how-to-manage-settings.md
-    - name: Migrar do Hub
-      href: custom-translator/how-to-migrate.md
-  - name: Recursos
-    items:
-    - name: Suporte de Idiomas
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
-    - name: Glossário
-      href: custom-translator/glossary.md
-    - name: FAQ
-      href: custom-translator/faq.md
-    - name: Preços
-      href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: UserVoice
-      href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: 319b40bc97a9cadfdffa8891e01d5f22bf872755
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006294"
+    - name: Descrição geral
+      items:
+        - name: O que é o Custom Translator?
+          href: custom-translator/overview.md
+    - name: Inícios rápidos
+      items:
+        - name: Criar um modelo personalizado
+          href: custom-translator/quickstart-build-deploy-custom-model.md
+    - name: Conceitos
+      items:
+        - name: Áreas de trabalho e projetos
+          href: custom-translator/workspace-and-project.md
+        - name: Documentos paralelos
+          href: custom-translator/what-are-parallel-documents.md
+        - name: Dicionário
+          href: custom-translator/what-is-dictionary.md
+        - name: Formatos de documentos
+          href: custom-translator/document-formats-naming-convention.md
+        - name: Alinhamento de frases
+          href: custom-translator/sentence-alignment.md
+        - name: Filtragem de dados
+          href: custom-translator/data-filtering.md
+        - name: Formação e modelo
+          href: custom-translator/training-and-model.md
+        - name: Classificação de BLEU
+          href: custom-translator/what-is-bleu-score.md
+    - name: Guias de procedimentos
+      items:
+        - name: Criar um projeto
+          href: custom-translator/how-to-create-project.md
+        - name: Gerir projetos
+          href: custom-translator/how-to-search-edit-delete-projects.md
+        - name: Carregar um documento
+          href: custom-translator/how-to-upload-document.md
+        - name: Ver detalhes do documento
+          href: custom-translator/how-to-view-document-details.md
+        - name: Preparar um modelo
+          href: custom-translator/how-to-train-model.md
+        - name: Ver detalhes do modelo
+          href: custom-translator/how-to-view-model-details.md
+        - name: Viver resultados do teste do sistema
+          href: custom-translator/how-to-view-system-test-results.md
+        - name: Gerir definições
+          href: custom-translator/how-to-manage-settings.md
+        - name: Migrar do Hub
+          href: custom-translator/how-to-migrate.md
+    - name: Recursos
+      items:
+        - name: Suporte de Idiomas
+          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
+        - name: Glossário
+          href: custom-translator/glossary.md
+        - name: FAQ
+          href: custom-translator/faq.md
+        - name: Preços
+          href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+        - name: Stack Overflow
+          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+        - name: UserVoice
+          href: 'https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide'
