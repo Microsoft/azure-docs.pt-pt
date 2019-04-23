@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047488"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792752"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do serviço aprovisionamento de dispositivo Hub IoT
 

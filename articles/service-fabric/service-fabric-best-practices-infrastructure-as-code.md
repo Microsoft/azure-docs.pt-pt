@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049625"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793819"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -53,7 +53,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## <a name="azure-service-fabric-resources"></a>Recursos de infraestrutura de serviço do Azure
 
-Pode implementar aplicações e serviços em cluster do Service Fabric através do Azure Resource Manager. Ver [gerenciar aplicativos e serviços como recursos do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para obter detalhes. Seguem-se melhor prática Service Fabric application recursos específicos para incluir nos seus recursos de modelo do Resource Manager.
+Pode implementar serviços e aplicações no seu cluster do Service Fabric através do Azure Resource Manager. Ver [gerenciar aplicativos e serviços como recursos do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para obter detalhes. Seguem-se melhor prática Service Fabric application recursos específicos para incluir nos seus recursos de modelo do Resource Manager.
 
 ```json
 {

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
 ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051823"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793836"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Exemplos de análise do log de Firewall do Azure
 

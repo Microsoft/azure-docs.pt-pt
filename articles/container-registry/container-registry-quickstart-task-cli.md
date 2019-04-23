@@ -9,11 +9,11 @@ ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919694"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793391"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início rápido: Criar e executar uma imagem de contentor com tarefas de registo de contentor do Azure
 

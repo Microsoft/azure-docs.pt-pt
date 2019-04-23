@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267928"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792406"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar o exemplo de esquema de serviços de compartilhados do ISO 27001
 
@@ -66,7 +66,7 @@ Depois da cópia do exemplo de plano gráfico de ter sido com êxito **publicado
 
 1. Forneça os valores de parâmetro para a atribuição do esquema:
 
-   - Informações básicas
+   - Noções básicas
 
      - **Subscrições**: Selecione um ou mais das subscrições que estão no grupo de gestão é guardado sua cópia do exemplo de plano gráfico para. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada um usando os parâmetros introduzidos.
      - **Nome da atribuição**: O nome é preenchido previamente com base no nome do plano gráfico.
@@ -107,17 +107,17 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|[Preview]: Implementar o agente de análise de registo para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|[Preview]: Implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|[Preview]: Implementar o agente de análise de registo para conjuntos de dimensionamento VM do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|[Preview]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|Tipos de recurso permitidos|Atribuição de política|Tipos de recurso permitidos|Lista de tipos de recursos permitida para ser implementado. Esta lista é composta por todos os tipos de recurso implementados nos serviços partilhados.|
-|SKUs de contas de armazenamento permitidas|Atribuição de política|SKUs de armazenamento permitido|Lista de diagnóstico de registos permitidos de SKUs de conta de armazenamento. Valor predefinido é _["Standard_LRS"]_.|
+|[Preview]\: Implementar o agente de análise de registo para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|[Preview]\: Implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|[Preview]\: Implementar o agente de análise de registo para conjuntos de dimensionamento VM do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|[Preview]\: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos permitida para ser implementado. Esta lista é composta por todos os tipos de recurso implementados nos serviços partilhados.|
+|SKUs de contas de armazenamento permitidos|Atribuição de política|SKUs de armazenamento permitido|Lista de diagnóstico de registos permitidos de SKUs de conta de armazenamento. Valor predefinido é _["Standard_LRS"]_.|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual pode ser implementado. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
 |Iniciativa do esquema para ISO 27001|Atribuição de política|Tipos de recursos para os registos de diagnóstico de auditoria|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não está ativada. Os valores aceitáveis podem ser encontrados em [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 |Grupo de recursos do log Analytics|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvsc-log-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos do log Analytics|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Escalão do serviço|Define a camada da área de trabalho do Log Analytics. Valor predefinido é _PerNode_.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Camada de serviços|Define a camada da área de trabalho do Log Analytics. Valor predefinido é _PerNode_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Localização|Região utilizada para criar a área de trabalho do Log Analytics. Valor predefinido é _E.U.A. oeste 2_.|
 |Grupo de recursos de rede|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvcs-net-rg` para tornar o grupo de recursos exclusivo.|

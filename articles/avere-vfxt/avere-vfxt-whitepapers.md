@@ -7,11 +7,11 @@ ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59264170"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791878"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>VFTX do Azure para documentos técnicos do Azure e outros recursos 
 

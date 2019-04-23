@@ -9,11 +9,11 @@ ms.date: 4/4/2019
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: e709ccee9dfcc6b6931df86b5dd38c7255baefdb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260770"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792580"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -35,7 +35,7 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 | Pacote cumulativo de atualizações de Setembro de 2018 | 3.3.0.0 | 24 de setembro de 2018 | Suportado - versão do agente irá expirar em 19 de Julho de 2019 |
 | Pacote cumulativo de atualizações de Agosto de 2018 | 3.2.0.0 | 15 de agosto de 2018 | Suportado - versão do agente irá expirar em 19 de Julho de 2019 |
 | Disponibilidade geral | 3.1.0.0 | 19 de Julho de 2018 | Suportado - versão do agente irá expirar em 19 de Julho de 2019 |
-| Agentes expiradas | 1.1.0.0 - 3.0.13.0 | N/D | Não suportado - a expirou de versões do agente de 1 de Outubro de 2018 |
+| Agentes expiradas | 1.1.0.0 - 3.0.13.0 | N/A | Não suportado - a expirou de versões do agente de 1 de Outubro de 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
