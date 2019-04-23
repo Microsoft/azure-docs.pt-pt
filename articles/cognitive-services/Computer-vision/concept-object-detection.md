@@ -1,28 +1,28 @@
 ---
 title: Deteção de objetos - o de imagem digitalizada
 titleSuffix: Azure Cognitive Services
-description: Conceitos relacionados a deteção de objetos com a API de imagem digitalizada.
+description: Aprenda conceitos relacionados com a funcionalidade de deteção de objeto da API de imagem digitalizada - utilização e limites.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496943"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001852"
 ---
-# <a name="object-detection"></a>Deteção de objetos
+# <a name="detect-common-objects-in-images"></a>Detetar objetos comuns em imagens
 
 Deteção de objetos é semelhante à [marcação](concept-tagging-images.md), mas a API devolve as coordenadas da caixa delimitadora (em pixéis) para cada objeto encontrado. Por exemplo, se uma imagem contiver um cachorro, gato e person, a operação de deteção irá listar esses objetos, juntamente com suas coordenadas na imagem. Pode utilizar esta funcionalidade para processar as relações entre os objetos numa imagem. Ele também permite determinar se existem várias instâncias da mesma marca numa imagem.
 
-A API de detectar se aplica etiquetas com base nos objetos ou vivos identificados na imagem. Neste momento, não existe nenhuma relação formal entre a taxonomia de etiquetagem e a taxonomia de deteção de objeto. Num nível conceitual, a API de detetar apenas localiza objetos e vivos, enquanto a API de marca também pode incluir contextuais termos como "fechado", que não podem ser localizados com delimitação de caixas.
+A API de detectar se aplica etiquetas com base nos objetos ou vivos identificados na imagem. Atualmente, não existe nenhuma relação formal entre a taxonomia de etiquetagem e a taxonomia de deteção de objeto. Num nível conceitual, a API de detetar apenas localiza objetos e vivos, enquanto a API de marca também pode incluir contextuais termos como "fechado", que não podem ser localizados com delimitação de caixas.
 
 ## <a name="object-detection-example"></a>Exemplo de deteção de objeto
 

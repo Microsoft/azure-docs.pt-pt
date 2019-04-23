@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8d7d77128acd4bdb81a99ac6756a5e28b4a408f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802966"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001597"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -126,7 +126,7 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 
 ### <a name="the-owning-group"></a>O grupo proprietário
 
-Nas POSIX ACLs, cada utilizador está associado um *grupo primário*. Por exemplo, o utilizador "alice" poderá pertencer ao grupo "finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
+Nas POSIX ACLs, cada utilizador está associado um *grupo primário*. Por exemplo, o utilizador "Alice" poderá pertencer ao grupo "Finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuir o grupo proprietário para um novo ficheiro ou diretório
 
@@ -285,7 +285,7 @@ Se a entrada representa um utilizador e que o utilizador não existe no Azure AD
 
 Quando define ACLs para principais de serviço, é importante usar o ID de objeto (OID) do *principal de serviço* para o registo da aplicação que criou. É importante observar que aplicações registadas tem um principal de serviço separado no específico inquilino do Azure AD. Aplicações registadas tem um OID que está visível no portal do Azure, mas a *principal de serviço* tem outra OID (diferente).
 
-Para obter o OID para o principal de serviço que corresponde a um registo de aplicações, pode utilizar o `az ad sp show` comando. Especifique o ID da aplicação como o parâmetro. Eis um exemplo sobre como obter o OID para o principal de serviço que corresponde a um registo de aplicação com o Id da aplicação = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
+Para obter o OID para o principal de serviço que corresponde a um registo de aplicações, pode utilizar o `az ad sp show` comando. Especifique o ID da aplicação como o parâmetro. Eis um exemplo sobre como obter o OID para o principal de serviço que corresponde a um registo de aplicação com o ID da aplicação = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

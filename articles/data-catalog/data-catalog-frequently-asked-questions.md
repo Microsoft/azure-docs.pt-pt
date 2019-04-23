@@ -2,18 +2,18 @@
 title: Perguntas mais frequentes sobre o catálogo de dados do Azure
 description: Perguntas mais frequentes sobre o catálogo de dados do Azure, incluindo capacidades de deteção de origens de dados, anotação e gestão.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231469"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998460"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas mais frequentes sobre o catálogo de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes relacionadas com o serviço de catálogo de dados do Azure.
@@ -27,10 +27,10 @@ Catálogo de dados face aos desafios de deteção de origem de dados e de "dados
 ## <a name="what-are-its-target-audiences"></a>Quais são seus públicos-alvo?
 Catálogo de dados foi concebido para utilizadores técnicos e, incluindo:
 
-* Os programadores de dados e profissionais de BI e análise: as pessoas que são responsáveis por produzir conteúdo de dados e análise para outras pessoas consumir.
-* Stewards de dados: as pessoas que possuem o conhecimento sobre os dados, o que significa que e como ele deve ser usado.
-* Os consumidores de dados: as pessoas que precisam de ser capaz de facilmente detetar, compreender e ligar aos dados que precisam para realizar o trabalho, utilizando a ferramenta de sua preferência.
-* Central IT: as pessoas que precisa para facilitar a centenas de origens de dados detetável por utilizadores empresariais e que precisam de manter a supervisão sobre como os dados estiverem sendo usados e por quem.
+* Os desenvolvedores de dados e os profissionais de BI e análise: Pessoas que são responsáveis por produzir conteúdo de dados e análise para outras pessoas consumir.
+* Stewards de dados: Pessoas que possuem o conhecimento sobre os dados, o que significa que e como ele deve ser usado.
+* Consumidores de dados: As pessoas que precisam de ser capaz de facilmente detetar, compreender e ligar aos dados que precisam para realizar o trabalho, utilizando a ferramenta de sua preferência.
+* Central IT: Pessoas que precisa para facilitar a centenas de origens de dados detetável por utilizadores empresariais e que precisam de manter a supervisão sobre como os dados estiverem sendo usados e por quem.
 
 ## <a name="what-is-its-availability-by-region"></a>O que é a sua disponibilidade por região?
 Serviços de catálogo de dados estão atualmente disponíveis nos seguintes centros de dados:
@@ -68,7 +68,7 @@ Para registar os seus dados no catálogo de dados:
 As propriedades específicas diferem de origem de dados à origem de dados, mas, em geral, o serviço de publicação do catálogo de dados extrai as seguintes informações:
 
 * Nome do elemento
-* Tipo de recurso
+* Tipo de Recurso
 * Descrição do recurso
 * Nomes de atributo/colunas
 * Tipos de dados de atributo/colunas

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432231"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999047"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerir o acesso aos recursos do Azure através do RBAC e o Azure PowerShell
 
@@ -63,7 +63,7 @@ Automation Operator                               Automation Operators are able 
 Para listar uma função específica, utilize [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzRoleDefinition <role name>
+Get-AzRoleDefinition <role_name>
 ```
 
 ```Example
@@ -88,7 +88,7 @@ AssignableScopes : {/}
 Para listar uma definição de função no formato JSON, utilize [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzRoleDefinition <role name> | ConvertTo-Json
+Get-AzRoleDefinition <role_name> | ConvertTo-Json
 ```
 
 ```Example
@@ -122,7 +122,7 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 Para listar as ações para uma função específica, utilize [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
-Get-AzRoleDefinition <role name> | FL Actions, NotActions
+Get-AzRoleDefinition <role_name> | FL Actions, NotActions
 ```
 
 ```Example
@@ -135,7 +135,7 @@ NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
 ```
 
 ```azurepowershell
-(Get-AzRoleDefinition <role name>).Actions
+(Get-AzRoleDefinition <role_name>).Actions
 ```
 
 ```Example
@@ -162,23 +162,23 @@ No RBAC, para acesso de lista, lista as atribuições de funções.
 Pode ver todas as atribuições de função para uma subscrição especificada, o grupo de recursos ou o recurso. Por exemplo, para ver as todas as active atribuições para um grupo de recursos, utilize [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzRoleAssignment -ResourceGroupName <resource group name>
+Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
 ```
 
 ```Example
-PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales-projectforecast | FL DisplayName, RoleDefinitionName, Scope
+PS C:\> Get-AzRoleAssignment -ResourceGroupName pharma-sales | FL DisplayName, RoleDefinitionName, Scope
 
 DisplayName        : Alain Charon
 RoleDefinitionName : Backup Operator
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 
 DisplayName        : Isabella Simonsen
 RoleDefinitionName : BizTalk Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 
 DisplayName        : Alain Charon
 RoleDefinitionName : Virtual Machine Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
 ### <a name="list-role-assignments-for-a-user"></a>Listar atribuições de funções para um utilizador
@@ -186,7 +186,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 Para listar todas as funções que são atribuídas a um utilizador especificado, utilize [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzRoleAssignment -SignInName <email, userprincipalname>
+Get-AzRoleAssignment -SignInName <email_or_userprincipalname>
 ```
 
 ```Example
@@ -194,13 +194,13 @@ PS C:\> Get-AzRoleAssignment -SignInName isabella@example.com | FL DisplayName, 
 
 DisplayName        : Isabella Simonsen
 RoleDefinitionName : BizTalk Contributor
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
 Para listar todas as funções que são atribuídas a um utilizador especificado e as funções que são atribuídas a grupos a que pertence o utilizador, utilize [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
-Get-AzRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
+Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGroups
 ```
 
 ```Example
@@ -225,38 +225,22 @@ Para atribuir uma função, precisa identificar o objeto (utilizador, grupo ou a
 
 Se não souber o ID de subscrição, pode encontrá-lo na **subscrições** painel no portal do Azure, ou pode usar [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
-Para obter o ID de objeto para um grupo do Azure AD, utilize [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
+Para obter o ID de objeto para um utilizador do Azure AD, utilize [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
-Get-AzADGroup -SearchString <group name in quotes>
+Get-AzADUser -StartsWith <string_in_quotes>
+```
+
+Para obter o ID de objeto para um grupo do Azure AD, utilize [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+
+```azurepowershell
+Get-AzADGroup -SearchString <group_name_in_quotes>
 ```
 
 Para obter o ID de objeto para um aplicativo ou principal de serviço do Azure AD, utilize [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
 ```azurepowershell
-Get-AzADServicePrincipal -SearchString <service name in quotes>
-```
-
-### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Criar uma atribuição de função para uma aplicação com um âmbito de subscrição
-
-Para conceder acesso a uma aplicação no âmbito da subscrição, utilize [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
-
-```azurepowershell
-New-AzRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
-```
-
-```Example
-PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
-
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
-DisplayName        : MyApp1
-SignInName         :
-RoleDefinitionName : Reader
-RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-ObjectId           : 77777777-7777-7777-7777-777777777777
-ObjectType         : ServicePrincipal
-CanDelegate        : False
+Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 ```
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Criar uma atribuição de função para um utilizador com um âmbito de grupo de recursos
@@ -264,16 +248,51 @@ CanDelegate        : False
 Para conceder acesso a um utilizador no âmbito do grupo de recursos, utilize [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name_in_quotes> -ResourceGroupName <resource_group_name>
 ```
 
 ```Example
-PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+PS C:\> New-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 
 
-RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast/pr
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/pr
                      oviders/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
-Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Alain Charon
+SignInName         : alain@example.com
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+```
+
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Criar uma atribuição de função com o ID exclusivo da função
+
+Existem duas vezes, quando um nome de função podem ser alteradas, por exemplo:
+
+- Estiver a utilizar a sua própria função personalizada e optar por alterar o nome.
+- Estiver a utilizar uma função de pré-visualização que tenha **(pré-visualização)** no nome. Quando a função for lançada, a função foi mudada.
+
+> [!IMPORTANT]
+> Uma versão de pré-visualização é fornecida sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Mesmo que uma função for renomeada, o ID de função não é alterada. Se estiver a utilizar scripts ou a automatização para criar as suas atribuições de função, é uma prática recomendada usar o ID exclusivo da função em vez do nome de função. Por conseguinte, se uma função for renomeada, seus scripts têm maior probabilidade de funcionar.
+
+Para criar uma atribuição de função com o ID exclusivo da função em vez do nome de função, utilize [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
+```
+
+O exemplo seguinte atribui o [contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) função *alain@example.com* utilizador no *pharma vendas* âmbito do grupo de recursos. Para obter o ID exclusivo da função, pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou consulte [funções incorporadas para recursos do Azure](built-in-roles.md).
+
+```Example
+PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 DisplayName        : Alain Charon
 SignInName         : alain@example.com
 RoleDefinitionName : Virtual Machine Contributor
@@ -288,7 +307,7 @@ CanDelegate        : False
 Para conceder acesso a um grupo no âmbito do recurso, utilize [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name_in_quotes> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
 ```
 
 ```Example
@@ -314,16 +333,38 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Criar uma atribuição de função para uma aplicação com um âmbito de subscrição
+
+Para conceder acesso a uma aplicação no âmbito da subscrição, utilize [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <application id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+```
+
+```Example
+PS C:\> New-AzRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+DisplayName        : MyApp1
+SignInName         :
+RoleDefinitionName : Reader
+RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
+ObjectId           : 77777777-7777-7777-7777-777777777777
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
+
 ## <a name="remove-access"></a>Remover o acesso
 
 No RBAC, para remover o acesso, remover uma atribuição de função usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 ```azurepowershell
-Remove-AzRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
+Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope <scope_such_as_subscription>
 ```
 
 ```Example
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

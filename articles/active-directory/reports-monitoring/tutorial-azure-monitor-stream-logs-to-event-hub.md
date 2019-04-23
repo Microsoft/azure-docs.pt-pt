@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Transmitir registos do Azure Active Directory num hub de eventos do Azure (pré-visualização) | Microsoft Docs
-description: Saiba como configurar o Diagnóstico do Azure para enviar registos do Azure Active Directory para um hub de eventos (pré-visualização)
+title: Tutorial – registos do Stream do Azure Active Directory para um hub de eventos do Azure | Documentos da Microsoft
+description: Saiba como configurar o diagnóstico do Azure para enviar registos do Azure Active Directory para um hub de eventos
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436936"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995603"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Registos do Azure Active Directory Stream para um hub de eventos do Azure (pré-visualização)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Registos do Azure Active Directory Stream para um hub de eventos do Azure
 
 Neste tutorial, saiba como configurar as definições de diagnóstico do Azure Monitor para transmitir os registos de Azure Active Directory (Azure AD) para um hub de eventos do Azure. Utilize este mecanismo para integrar os seus registos com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros, como Splunk e QRadar.
 

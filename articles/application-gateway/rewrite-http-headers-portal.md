@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 9d52114f5d01beca53ed48ee2114dc98cc20f3a2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682429"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994610"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescreva os cabeçalhos de solicitação e resposta HTTP com o Gateway de aplicação do Azure - portal do Azure
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Tem de ter um v2 de Gateway de aplicação SKU, uma vez que a capacidade de Reescrita do cabeçalho não é suportado para o SKU de v1. Se não tiver o SKU de v2, crie uma [SKU do Gateway de aplicação v2](<https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) antes de começar.
+Tem de ter um v2 de Gateway de aplicação SKU, uma vez que a capacidade de Reescrita do cabeçalho não é suportado para o SKU de v1. Se não tiver o SKU de v2, crie uma [SKU do Gateway de aplicação v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>O que é necessário reescrever um cabeçalho
 

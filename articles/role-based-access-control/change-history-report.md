@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535553"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997908"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Ver registos de atividade para alterações RBAC para recursos do Azure
 
@@ -43,7 +43,7 @@ Seguem-se as operações relacionadas com o RBAC que estão registadas no regist
 
 O registo de atividades no portal do tem vários filtros. Seguem-se os filtros de RBAC:
 
-|Filtrar  |Value  |
+|Filtro  |Value  |
 |---------|---------|
 |Categoria de eventos     | <ul><li>Administrativa</li></ul>         |
 |Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar uma definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
@@ -66,7 +66,7 @@ Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Act
 Este comando apresenta uma lista de todas as alterações de definição de função num grupo de recursos nos últimos sete dias:
 
 ```azurepowershell
-Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 Este comando apresenta uma lista de todos os atribuição de função e as alterações de definição de função numa subscrição nos últimos sete dias e exibe os resultados numa lista:
@@ -88,7 +88,7 @@ EventTimestamp          : 4/20/2018 9:18:05 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
-                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
 ```
 
@@ -99,7 +99,7 @@ Para ver os registos de atividades com a CLI do Azure, utilize o [lista de regis
 Este comando lista os registos de atividades num grupo de recursos, desde a hora de início:
 
 ```azurecli
-az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
+az monitor activity-log list --resource-group pharma-sales --start-time 2018-04-20T00:00:00Z
 ```
 
 Este comando lista os registos de atividade para o fornecedor de recursos de autorização, desde a hora de início:
@@ -108,7 +108,7 @@ Este comando lista os registos de atividade para o fornecedor de recursos de aut
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 [Registos de Monitor do Azure](../log-analytics/log-analytics-overview.md) é outra ferramenta que pode utilizar para recolher e analisar as alterações de RBAC para todos os seus recursos do Azure. Registos de Monitor do Azure tem as seguintes vantagens:
 

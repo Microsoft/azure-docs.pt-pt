@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: daeb5bcbfbc609c293a6b3f55e61aaa29566b768
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728527"
 documentType: LandingData
 title: Documentação da API de Pesquisa de Vídeos do Bing
 metadata:
-  title: Documentação da API de Pesquisa de Vídeos do Bing - Tutoriais, inícios rápidos, referências de API | Microsoft Docs
+  title: 'Documentação da API de Pesquisa de Vídeos do Bing - Tutoriais, inícios rápidos, referências de API | Microsoft Docs'
   description: Aprenda a utilizar a pesquisa da API de Pesquisa de Vídeos do Bing e encontre vídeos por toda a Web.
   services: cognitive-services
   author: mikedodaro
@@ -21,85 +15,85 @@ metadata:
   ms.date: 01/31/2019
   ms.author: v-gedod
 abstract:
-  description: A API de Pesquisa de Vídeos do Bing permite-lhe integrar as funcionalidades de pesquisa de vídeo do Bing nas suas aplicações. Ao enviar consultas de pesquisa para a API, pode obter e exibir vídeos relevantes e com alta qualidade de forma parecida a bing.com/videos.
+  description: 'A API de Pesquisa de Vídeos do Bing permite-lhe integrar as funcionalidades de pesquisa de vídeo do Bing nas suas aplicações. Ao enviar consultas de pesquisa para a API, pode obter e exibir vídeos relevantes e com alta qualidade de forma parecida a bing.com/videos.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-video-search/overview
+            html: <p>Aprenda sobre a API de Pesquisa de Vídeos do Bing</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é a API de Pesquisa de Vídeos do Bing?
+          - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+            html: <p>Aprenda como enviar consultas de pesquisa de Vídeo para o Bing</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: A enviar consultas de pesquisa
+          - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+            html: '<p>Aprenda a filtrar resultados de pesquisa, obter miniaturas de vídeo, expandir consultas de pesquisa</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Obter vídeos da web
+  - title: Inícios rápidos de cinco minutos
     items:
-    - href: /azure/cognitive-services/bing-video-search/overview
-      html: <p>Aprenda sobre a API de Pesquisa de Vídeos do Bing</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: O que é a API de Pesquisa de Vídeos do Bing?
-    - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
-      html: <p>Aprenda como enviar consultas de pesquisa de Vídeo para o Bing</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: A enviar consultas de pesquisa
-    - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>Aprenda a filtrar resultados de pesquisa, obter miniaturas de vídeo, expandir consultas de pesquisa</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Obter vídeos da web
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Pesquise na web por vídeos com:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Pesquise na web por vídeos com:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: quickstarts/sdk-csharp-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: quickstarts/sdk-java-quickstart
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: quickstarts/nodejs
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: quickstarts/php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: quickstarts/sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: quickstarts/ruby
+            text: Ruby
+  - title: Tutoriais Passo-a-Passo
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: quickstarts/sdk-csharp-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: quickstarts/sdk-java-quickstart
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: quickstarts/php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: quickstarts/sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: quickstarts/ruby
-      text: Ruby
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Desenvolva aplicações usando a API de Pesquisa de Vídeos do Bing:'
-  - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">Aplicação Web de página única</a>
-- title: Amostras
-  items:
-  - type: paragraph
-    text: 'Encontrar exemplos para a API de Pesquisa de Vídeos do Bing:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Desenvolva aplicações usando a API de Pesquisa de Vídeos do Bing:'
+      - type: paragraph
+        text: <a href="tutorial-bing-video-search-single-page-app">Aplicação Web de página única</a>
+  - title: Amostras
     items:
-    - html: <a href="sdk.md">Exemplos de Código</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Encontrar exemplos para a API de Pesquisa de Vídeos do Bing:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">Exemplos de Código</a>
+  - title: Referência
     items:
-    - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">API de Pesquisa de Vídeos do Bing v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">API de Pesquisa de Vídeos do Bing v5</a></p>
-    - title: SDKs
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: APIs
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">API de Pesquisa de Vídeos do Bing v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">API de Pesquisa de Vídeos do Bing v5</a></p>'
+          - title: SDKs
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideo?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-videosearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/videosearch?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>'

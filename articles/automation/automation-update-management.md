@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679079"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149704"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Patches de terceiros no Windows
 
-Gestão de atualizações baseia-se no WSUS ou a atualização do Windows de correção suportada sistemas Windows. Ferramentas como o [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) permite-lhe publicar atualizações personalizadas no WSUS. Neste cenário permite a gestão de atualizações para máquinas de patch que usar o WSUS como seu repositório de atualização com o software de terceiros. Para saber como configurar o Updates Publisher, veja [instalar o Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Gestão de atualizações baseia-se no repositório de atualização configuradas localmente para aplicar patches a sistemas de Windows suportados. Este é o WSUS ou o Windows Update. Ferramentas como o [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) permite-lhe publicar atualizações personalizadas no WSUS. Neste cenário permite a gestão de atualizações para máquinas de patch que utilizam o System Center Configuration Manager como seu repositório de atualização com o software de terceiros. Para saber como configurar o Updates Publisher, veja [instalar o Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planeamento de rede
 

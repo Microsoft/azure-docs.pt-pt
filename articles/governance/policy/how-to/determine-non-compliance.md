@@ -3,16 +3,16 @@ title: Determinar as causas da não conformidade
 description: Quando um recurso está em conformidade, existem muitas razões possíveis. Aprenda a saber o que causou a não conformidade.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276104"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995015"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -124,6 +124,8 @@ Como parte de um novo **pré-visualização pública**, os últimos 14 dias de a
    ![Diff Visual do histórico de alteração de política na página de histórico de alteração](../media/determine-non-compliance/change-history-visual-diff.png)
 
 O _visual diff_ aides na identificação de alterações a um recurso. Foram detetadas as alterações podem não estar relacionados com o atual estado de conformidade do recurso.
+
+Dados de histórico de alterações são fornecidos pela [gráfico de recursos do Azure](../../resource-graph/overview.md). Para consultar estas informações fora do portal do Azure, veja [obter as alterações de recursos](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,24 +1,23 @@
 ---
 title: Gerir reservas do Azure | Documentos da Microsoft
 description: Saiba como pode alterar o âmbito da subscrição e gerir o acesso para as reservas do Azure.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904446"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994968"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
@@ -29,7 +28,19 @@ Se comprasse Azure Reserved Virtual Machine Instances, pode alterar a definiçã
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Alterar o âmbito de uma reserva
+## <a name="reservation-order-and-reservation"></a>A encomenda de reserva e de reserva
+
+Quando compra de uma reserva, são criados dois objetos: **A encomenda de reserva** e **reserva**.
+
+No momento da compra, uma encomenda de reserva tem uma reserva de sob a mesma. Ações, como divisão, merge, reembolso parcial ou exchange criar reservas de novo sob a **encomenda de reserva**.
+
+Para ver uma encomenda de reserva, aceda ao **reservas** > selecione a reserva e, em seguida, clique o **ID de encomenda de reserva**.
+
+![Exemplo de detalhes da encomenda de reserva que mostra o ID de encomenda de reserva ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Uma reserva herda as permissões da sua encomenda de reserva.
+
+## <a name="change-the-reservation-scope"></a>Alterar o âmbito de reserva
 
  O desconto de reserva se aplica a máquinas virtuais, bases de dados SQL, Azure Cosmos DB ou outros recursos que corresponde à sua reserva e executados no âmbito da reserva. O contexto de faturação é dependente da subscrição utilizada para comprar a reserva.
 
@@ -47,9 +58,12 @@ O âmbito só se aplica às ofertas Pay As You Go MS-AZR - 0003p ou MS-AZR - 002
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os utilizadores que podem gerir uma reserva
 
-Pode delegar a gestão de uma reserva. Para tal, adicione pessoas às funções na reserva. Por predefinição, a pessoa que comprou a reserva e o administrador de conta têm a função Proprietário.
+Pode delegar a gestão de reserva ao adicionar as pessoas a funções na encomenda de reserva ou a reserva. Por predefinição, a pessoa que coloca a ordem de reserva e o administrador de conta têm a função de proprietário na encomenda de reserva e a reserva.
 
-Pode gerir o acesso a reservas de forma independente das subscrições do que obtém o desconto de reserva. Quando concede permissões para gerir uma reserva de alguém, que não lhes direitos para gerir a subscrição. E se conceder a alguém permissões para gerir uma subscrição no âmbito da reserva, que não lhes direitos para gerir a reserva.
+Pode gerir o acesso para pedidos de reservas e reservas de forma independente das subscrições que obter o desconto de reserva. Quando conceder a alguém permissões para gerir uma encomenda de reserva ou a reserva, ele não dar-lhes permissão para gerir a subscrição. Da mesma forma, se alguém conceder permissões para gerir uma subscrição no âmbito da reserva, não dá-las direitos para gerir a ordem de reserva ou a reserva.
+
+Para efetuar um exchange ou o reembolso, o utilizador tem de ter acesso a encomenda de reserva. Ao conceder a alguém permissões, é melhor conceder permissões para a encomenda de reserva, não a reserva.
+
 
 Para delegar a gestão de acesso para uma reserva:
 

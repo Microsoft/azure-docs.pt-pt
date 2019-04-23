@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 8055b5d7e6c53abc385a99d9190a38603ebb968b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417451"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997939"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Ligar a origens de dados do Azure Databricks
 
@@ -31,7 +31,7 @@ A lista seguinte apresenta as origens de dados no Azure que pode utilizar com o 
 - [Base de dados SQL do Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Este link fornece a API de pacote de dados para ligar a bases de dados do SQL usando o JDBC e como controlar o paralelismo de leituras por meio da interface JDBC. Este tópico fornece exemplos detalhados, com a API de Scala, Python abreviado e exemplos de Spark SQL no final.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)
+- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
     Esta ligação fornece exemplos sobre como utilizar o principal de serviço do Azure Active Directory para autenticar com o Data Lake Store. Ele também fornece instruções sobre como aceder os dados no Data Lake Store a partir do Azure Databricks.
 

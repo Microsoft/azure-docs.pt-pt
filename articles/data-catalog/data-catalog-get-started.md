@@ -1,17 +1,17 @@
 ---
 title: Criar um Catálogo de Dados do Azure
 description: Guia de introdução sobre como criar um catálogo de dados do Azure.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 04/05/2019
-ms.openlocfilehash: 66d178497f3403579990340b88a1153905b2a2bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f00e9eaf56f3973b357792a8d1923a4b5998e0a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271038"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997738"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Início rápido: Criar um Catálogo de Dados do Azure
 

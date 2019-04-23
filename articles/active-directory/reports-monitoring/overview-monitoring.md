@@ -1,5 +1,5 @@
 ---
-title: O que é a monitorização do Azure Active Directory? (pré-visualização) | Microsoft Docs
+title: O que é a monitorização do Azure Active Directory? | Microsoft Docs
 description: Mostra uma descrição geral da monitorização do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de416d18505d0258da446318b3dc6a9853ff13e7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434862"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009047"
 ---
-# <a name="what-is-azure-active-directory-monitoring-preview"></a>O que é a monitorização do Azure Active Directory? (pré-visualização)
+# <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 
 Com a monitorização do Azure Active Directory (Azure AD), pode agora encaminhar os registos de atividades do Azure AD para diferentes pontos finais. Em seguida, pode retê-los para utilização a longo prazo ou integrá-los com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros para obter informações sobre o seu ambiente.
 

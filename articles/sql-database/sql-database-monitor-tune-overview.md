@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0c93888af16ed7f7162f38c73be5f6330c886c65
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683178"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001580"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
@@ -85,9 +85,9 @@ Se determinar que tem um problema de desempenho relacionados com a execução, o
 > [!IMPORTANT]
 > Para um conjunto um consultas de T-SQL com esses DMVs para resolver problemas de utilização de CPU, consulte [problemas de desempenho de CPU identificar](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues).
 
-### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Resolver problemas de consultas com problemas de plano de execução de consulta de parâmetro sensíveis
+### <a name="ParamSniffing"></a> Resolver problemas de consultas com problemas de plano de execução de consulta de parâmetro sensíveis
 
-O problema do parâmetro plano confidenciais (PSP) refere-se a um cenário em que o otimizador de consultas gera um plano de execução de consulta que é o ideal apenas para um valor de parâmetro específico (ou conjunto de valores) e o plano em cache, em seguida, é não ideal para os valores de parâmetro utilizados no execuções consecutivas. Planos de não-ideal, em seguida, podem resultar em problemas de desempenho de consulta e degradação de débito de carga de trabalho geral.
+O problema do parâmetro plano confidenciais (PSP) refere-se a um cenário em que o otimizador de consultas gera um plano de execução de consulta que é o ideal apenas para um valor de parâmetro específico (ou conjunto de valores) e o plano em cache, em seguida, é não ideal para os valores de parâmetro utilizados no execuções consecutivas. Planos de não-ideal, em seguida, podem resultar em problemas de desempenho de consulta e degradação de débito de carga de trabalho geral. Para obter mais informações sobre a detecção de parâmetro e o processamento de consultas, consulte a [guia de arquitetura de processamento de consulta](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide.md7#ParamSniffing).
 
 Existem várias soluções alternativas seguidas para atenuar problemas, cada qual com vantagens e desvantagens associadas e as desvantagens:
 
@@ -102,17 +102,17 @@ Existem várias soluções alternativas seguidas para atenuar problemas, cada qu
 
 Para obter mais informações sobre como resolver estes tipos de problemas, consulte:
 
-- Isso [sente um cheiro um parâmetro](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) mensagem de blogue
-- Isso [elefante e detecção de parâmetro de mouse](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) mensagem de blogue
-- Isso [sql dinâmico em comparação com a qualidade de plano em consultas parametrizadas](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) mensagem de blogue
+- Isso [Faro, um parâmetro](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) mensagem de blogue
+- Isso [sql dinâmico em comparação com a qualidade de plano em consultas parametrizadas](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) mensagem de blogue
+- Isso [técnicas de otimização de consulta SQL no SQL Server: Parâmetro Sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/) mensagem de blogue
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Resolução de problemas de atividade de compilação devido a parametrização imprópria
 
 Quando uma consulta tem literais, o motor de base de dados escolhe automaticamente parametrizar a instrução ou um utilizador pode parametrizar explicitamente-lo para reduzir o número de compila. Um número elevado de compila de uma consulta usando o mesmo padrão, diferentes valores literais, mas pode resultar em alta utilização da CPU. Da mesma forma, se apenas parcialmente parametrizar uma consulta que continua a ter os literais, o motor de base de dados não parametrize-lo ainda mais.  Segue-se um exemplo de uma consulta parametrizada parcialmente:
 
 ```sql
-select * from t1 join t2 on t1.c1=t2.c1
-where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
 No exemplo anterior, `t1.c1` demora `@p1` mas `t2.c2` continua tirar GUID como literal. Neste caso, se alterar o valor para `c2`, a consulta será tratada como uma consulta diferente e uma nova compilação ocorrerá. Para reduzir as compilações no exemplo anterior, a solução é parametrizar também o GUID.
@@ -120,24 +120,24 @@ No exemplo anterior, `t1.c1` demora `@p1` mas `t2.c2` continua tirar GUID como l
 A seguinte consulta mostra a contagem de consultas por hash de consulta para determinar se uma consulta corretamente é parametrizada ou não:
 
 ```sql
-   SELECT  TOP 10  
-      q.query_hash
-      , count (distinct p.query_id ) AS number_of_distinct_query_ids
-      , min(qt.query_sql_text) AS sampled_query_text
-   FROM sys.query_store_query_text AS qt
-      JOIN sys.query_store_query AS q
-         ON qt.query_text_id = q.query_text_id
-      JOIN sys.query_store_plan AS p 
-         ON q.query_id = p.query_id
-      JOIN sys.query_store_runtime_stats AS rs 
-         ON rs.plan_id = p.plan_id
-      JOIN sys.query_store_runtime_stats_interval AS rsi
-         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
-   WHERE
-      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
-      AND query_parameterization_type_desc IN ('User', 'None')
-   GROUP BY q.query_hash
-   ORDER BY count (distinct p.query_id) DESC
+SELECT  TOP 10  
+  q.query_hash
+  , count (distinct p.query_id ) AS number_of_distinct_query_ids
+  , min(qt.query_sql_text) AS sampled_query_text
+FROM sys.query_store_query_text AS qt
+  JOIN sys.query_store_query AS q
+     ON qt.query_text_id = q.query_text_id
+  JOIN sys.query_store_plan AS p 
+     ON q.query_id = p.query_id
+  JOIN sys.query_store_runtime_stats AS rs 
+     ON rs.plan_id = p.plan_id
+  JOIN sys.query_store_runtime_stats_interval AS rsi
+     ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+WHERE
+  rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+  AND query_parameterization_type_desc IN ('User', 'None')
+GROUP BY q.query_hash
+ORDER BY count (distinct p.query_id) DESC
 ```
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Resolver a consultas de problemas ou fornecer mais recursos
@@ -183,7 +183,7 @@ Em cenários de CPU alta, a consulta Store e as estatísticas de espera nem semp
 - Consultas de consumo de CPU alta podem ainda ser em execução e as consultas ainda não terminou
 - As consultas de consumo de CPU alta estavam em execução aquando da ocorrência de uma ativação pós-falha
 
-Consulta Store e vistas de gestão de dinâmica de controlo de estatísticas de espera apenas mostram os resultados das consultas e concluídas excedeu o tempo e não mostrar dados para a executar atualmente instruções (até que eles concluírem).  A vista de gestão dinâmica [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) permite-lhe controlar as consultas em execução e o tempo de trabalho associados.
+Consulta Store e vistas de gestão de dinâmica de controlo de estatísticas de espera apenas mostram os resultados das consultas e concluídas excedeu o tempo e não mostrar dados para a executar atualmente instruções (até que eles concluírem). A vista de gestão dinâmica [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) permite-lhe controlar as consultas em execução e o tempo de trabalho associados.
 
 Conforme mostrado no gráfico anterior, as esperas mais comuns são:
 
@@ -198,6 +198,8 @@ Conforme mostrado no gráfico anterior, as esperas mais comuns são:
 > - [Identificar problemas de desempenho de e/s](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificar `tempdb` problemas de desempenho](sql-database-monitoring-with-dmvs.md#identify-io-performance-issues)
 > - [Identificar as esperas de concessão de memória](sql-database-monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues)
+> - [TigerToolbox - deve aguardar e Travas](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
+> - [TigerToolbox - usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
 ## <a name="improving-database-performance-with-more-resources"></a>Melhorando o desempenho de base de dados com mais recursos
 

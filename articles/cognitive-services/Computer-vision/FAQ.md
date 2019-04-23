@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351954"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004878"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>API de imagem digitalizada perguntas mais frequentes
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351954"
 
 -----
 
-**Pergunta**: *Que idiomas são suportados com imagem digitalizada?*
-
-**resposta**: As linguagens suportadas incluem:
-
-| | | Idiomas Suportados | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Dinamarquês (da-DK)  | Holandês (nl-NL)     | Português           | Finlandês (fi-FI)            |Francês (fr-FR)
-| Alemão (Alemanha-DE)  | Grego (el-GR)     | Hungarian (hu-HU) | Italiano (it-IT)            | Japonês (ja-JP)
-| Coreano (ko-KR)  | Norueguês (não-nb) | Polonês (pl-PL)    | Português (pt-BR) (pt-PT) | Russo (ru-RU)
-| Espanhol (es-ES)   | Sueco (sv-SV)     | Turco (tr-TR)   |                            |
-
------
-
 **Pergunta**: *Imagem digitalizada pode ser usada para ler pratos de licença?*
 
 **resposta**: A API de imagem digitalizada oferece deteção de texto boa com o OCR, mas não está atualmente otimizado para pratos de licença. Estamos constantemente a tentar melhorar os nossos serviços e adicionou OCR para reconhecimento de placa de automática para nossa lista de pedidos de funcionalidades.
-
------
-
-**Pergunta**: *Que idiomas são suportados para reconhecimento de manuscrito?*
-
-**resposta**: Atualmente, é suportada apenas em inglês.
 
 -----
 

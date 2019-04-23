@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501095"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995630"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e utilizar ficheiros de recursos
 
@@ -72,7 +72,7 @@ Uma alternativa para gerar um URL de SAS é para ativar o acesso de leitura anó
 
 Em vez de configurar e criar um URL de SAS, pode utilizar o nome do seu contentor de armazenamento do Azure para aceder aos seus dados de Blobs. O contentor de armazenamento utilizado tem na conta de armazenamento do Azure que está ligada à sua conta do Batch, conhecida como a conta de armazenamento automático. Usando o nome do contentor de armazenamento de uma conta de armazenamento automático permite-lhe ignorar a configurar e criar um URL de SAS para aceder a um contentor de armazenamento.
 
-Neste exemplo, partimos do princípio de que os dados a ser utilizado para a criação do arquivo de recursos já estão a ser uma conta de armazenamento do Azure ligada a sua conta do Batch. Se não tiver uma conta de armazenamento automático, veja os passos em [criar uma conta do Batch](/create-a-batch-account.md) para obter detalhes sobre como criar e associar uma conta.
+Neste exemplo, partimos do princípio de que os dados a ser utilizado para a criação do arquivo de recursos já estão a ser uma conta de armazenamento do Azure ligada a sua conta do Batch. Se não tiver uma conta de armazenamento automático, veja os passos em [criar uma conta do Batch](batch-account-create-portal.md) para obter detalhes sobre como criar e associar uma conta.
 
 Ao utilizar uma conta de armazenamento ligada, não precisa criar e configurar um URL de SAS para um contentor de armazenamento. Em vez disso, forneça o nome do contentor de armazenamento na sua conta de armazenamento ligada.
 

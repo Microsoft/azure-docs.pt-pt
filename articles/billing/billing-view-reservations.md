@@ -1,7 +1,6 @@
 ---
 title: Ver as reservas para recursos do Azure | Documentos da Microsoft
 description: Saiba como ver as reservas do Azure no portal do Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -11,31 +10,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650228"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995528"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Ver as reservas do Azure no portal do Azure
 
 Dependendo do tipo de subscrição e permissões, existem duas formas para ver as reservas para o Azure.
 
-## <a name="view-reservations-as-owner-or-reader"></a>Reservas de exibição como proprietário ou leitor
+## <a name="view-purchased-reservations"></a>Ver as reservas adquiridas
 
-Por predefinição, quando adquire uma reserva, e o administrador de conta podem ver a reserva. O administrador de conta e obtém automaticamente a função de proprietário a reserva. Para permitir que outras pessoas ver a reserva, tem de adicioná-los como um **proprietário** ou **leitor** a reserva. Para obter mais informações, consulte [adicionar ou alterar os utilizadores que podem gerir uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+Por predefinição, quando adquire uma reserva, e o administrador de conta podem ver a reserva. O administrador de conta e obtém automaticamente a função de proprietário na encomenda de reserva e reserva. Para permitir que outras pessoas ver a reserva, tem de adicioná-los como um **proprietário** ou **leitor** na encomenda de reserva ou reserva.
+
+Para obter mais informações, consulte [adicionar ou alterar os utilizadores que podem gerir uma reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 Para ver uma reserva como proprietário ou leitor,
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **reservas**.
-
-    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. Deverá ver uma lista das reservas onde tem a função de proprietário ou leitor.
+2. Pesquisar nos **reservas**.
+    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)  
+3. A lista mostra todas as reservas em que tiver a função de proprietário ou leitor. Cada reserva mostra a percentagem de utilização de conhecidos último.  
+    ![Exemplo que mostra uma lista de reservas](./media/billing-view-reservation/view-reservations.png)
+4. Selecionar uma reserva e ver a tendência de utilização dos últimos cinco dias.  
+    ![Tendência de utilização de reserva do exemplo que mostra](./media/billing-view-reservation/reservation-utilization.png)
+5. Também pode obter o [utilização de reserva](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) usando a API de utilização de instância reservada e com o [pacote de conteúdos do Microsoft Azure consumo Insights Power BI](/power-bi/service-connect-to-azure-consumption-insights).
 
 Se precisar de alterar o âmbito de uma reserva, dividir uma reserva ou alteração que pode gerir uma reserva, consulte [Gerir reservas de Azure](billing-manage-reserved-vm-instance.md).
 
@@ -46,7 +49,7 @@ Se precisar de alterar o âmbito de uma reserva, dividir uma reserva ou alteraç
 Para exibir transações de reserva no portal do Azure,
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496884"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995664"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -65,6 +65,9 @@ Aqui estão algumas das coisas que pode fazer com o registo de atividades:
 * Consultá-los através do Cmdlet do PowerShell, CLI ou REST API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o registo de atividades no portal do Azure
+
+> [!NOTE] 
+> O registo de atividades armazena os registos no back-end durante 90 dias. Se gostaria de manter os dados, além disso, configure uma **perfil de registo** conforme descrito abaixo. 
 
 No portal do Azure, pode ver o registo de atividades em vários locais:
 * O **registo de atividades** que pode aceder ao procurar o registo de atividade em **todos os serviços** no painel de navegação esquerdo.

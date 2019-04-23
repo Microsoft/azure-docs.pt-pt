@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: d71e08a548809ef0de47c4a865af531732a88a4b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33deea0805ffa89bcc6a64f34a97a4e080690da9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697282"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008822"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: Criar um .NET Framework de aplicação com a configuração de aplicações do Azure
 
@@ -36,6 +36,14 @@ Para fazer este início rápido, instale [Visual Studio 2017](https://visualstud
 ## <a name="create-an-app-configuration-store"></a>Criar um arquivo de configuração de aplicação
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecione **Explorador de chave/valor** > **+ criar** para adicionar os seguintes pares de chave-valor:
+
+    | Chave | Value |
+    |---|---|
+    | TestApp:Settings:Message | Dados de configuração de aplicações do Azure |
+
+    Deixe **rótulo** e **tipo de conteúdo** branco por agora.
 
 ## <a name="create-a-net-console-app"></a>Criar uma aplicação de consola .NET
 
@@ -106,4 +114,4 @@ Para fazer este início rápido, instale [Visual Studio 2017](https://visualstud
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação de consola do .NET Framework. Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

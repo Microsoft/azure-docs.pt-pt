@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680711"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008703"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Especificamente, este conector do Salesforce suporta:
 - Edições de desenvolvedor do Salesforce, Professional, Enterprise ou ilimitado.
 - Copiar dados de e para produção, o sandbox e o domínio personalizado de Salesforce.
 
-O conector do Salesforce baseia-se da API de REST do Salesforce, com [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados de e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para os dados de cópia.
+O conector do Salesforce é criado com base na API de REST/em massa do Salesforce, com [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados de e [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para os dados de cópia.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 | tipo |A propriedade de tipo deve ser definida como **Salesforce**. |Sim |
 | environmentUrl | Especifique o URL da instância do Salesforce. <br> -Predefinição é `"https://login.salesforce.com"`. <br> -Para copiar dados de proteção de segurança, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
-| palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| password |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Para obter instruções sobre como repor e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para sink se associada a origem de serviço não tem o runtime de integração |
 
@@ -235,7 +235,7 @@ Para copiar dados para o Salesforce, defina o tipo de sink na atividade de cópi
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SalesforceSink**. | Sim |
-| WriteBehavior | O comportamento de escrita para a operação.<br/>Valores permitidos são **inserir** e **Upsert**. | Não (a predefinição é Insert) |
+| writeBehavior | O comportamento de escrita para a operação.<br/>Valores permitidos são **inserir** e **Upsert**. | Não (a predefinição é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação de upsert. O campo especificado tem de ser definido como "Campo de Id externo" no objeto Salesforce. Ele não pode ter valores nulos os dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados escritos para o Salesforce em cada lote. | Não (a predefinição é 5.000) |
 | ignoreNullValues | Indica se a ignorar valores NULL de dados de entrada durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert ou atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **False**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert ou atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
@@ -316,7 +316,7 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 | Tipo de dados do Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | Número de automática |String |
-| Caixa de verificação |Booleano |
+| Caixa de verificação |Boolean |
 | Moeda |Decimal |
 | Date |DateTime |
 | Data/Hora |DateTime |
@@ -328,7 +328,7 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 | Percentagem |Decimal |
 | Telefone |String |
 | Lista de opções |String |
-| Texto |String |
+| Text |String |
 | Área de texto |String |
 | Área de texto (longa) |String |
 | Área de texto (avançado) |String |

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093893"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998282"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -75,7 +75,7 @@ Quando se deparar com alta utilização de sessão ou de trabalho, as opções d
 - Otimização de consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização da função de trabalho maior é devido à contenção de recursos de computação. Para obter mais informações, consulte [ajuste de consulta/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Governação de taxa de registo de transação 
-Governação de taxa de registo de transação é um processo na base de dados do SQL do Azure utilizada para limitar as taxas de ingestão elevada para cargas de trabalho, como em massa insert, SELECT INTO e compilações de índice. Estes limites são controlados e impostos no nível de frações de segundos para a taxa de geração de registos do log, a limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação a arquivos de dados.  Velocidades de geração de log de transação atualmente dimensionadas de forma linear até um ponto que seja dependente do hardware, com o log máximo taxa permitido que está a ser 48 MB/s com o modelo de compra de vCore. 
+Governação de taxa de registo de transação é um processo na base de dados do SQL do Azure utilizada para limitar as taxas de ingestão elevada para cargas de trabalho, como em massa insert, SELECT INTO e compilações de índice. Estes limites são controlados e impostos no nível de frações de segundos para a taxa de geração de registos do log, a limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação a arquivos de dados.  Velocidades de geração de log de transação atualmente dimensionadas de forma linear até um ponto que seja dependente do hardware, com o log máximo taxa permitido que está a ser 96 MB/s com o modelo de compra de vCore. 
 
 > [!NOTE]
 > O IOs físico real para os ficheiros de registo de transações não é regido ou limitado. 
@@ -98,7 +98,7 @@ Formação de tráfego do registo taxa Governador é exibida por meio dos seguin
 |||
 
 Ao se deparar com um limite de taxa de registo é hampering escalabilidade desejada, considere as seguintes opções:
-- Aumentar verticalmente para um escalão superior, para que a velocidade máxima de log MB/s 48. 
+- Aumentar verticalmente para um escalão superior, para obter a máxima taxa de registo 96 MB/s. 
 - Se os dados a serem carregados são transitórios, ou seja, testar dados num processo de ETL, que pode ser carregado para a tempdb (que é registado no mínimo). 
 - Para cenários de análise, carregar para uma tabela columnstore em cluster abordado. Isso reduz a taxa de registo necessário devido à compactação. Essa técnica aumente a utilização da CPU e só é aplicável a conjuntos de dados que tiram partido de índices columnstore em cluster. 
 

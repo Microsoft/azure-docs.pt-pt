@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450951"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995069"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilizar os Serviços Ligados no Visual Studio para estabelecer ligação à API de Imagem Digitalizada
 
@@ -38,15 +38,15 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 1. No **Solution Explorer** (Explorador de Soluções), selecione **Add** (Adicionar)  > **Connected Service** (Serviço Ligado).
    É apresentada a página de Connected Service (Serviço Ligado) com os serviços que pode adicionar ao seu projeto.
 
-   ![Captura de ecrã do menu de contexto num projeto do Visual Studio: Adicionar > serviço ligado](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Clique no menu num projeto do Visual Studio: Adicionar > serviço ligado](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. No menu de serviços disponíveis, escolha **API de Imagem Digitalizada dos Serviços Cognitivos**.
 
-   ![o menu de serviços ligados, realce analisar imagens com imagem digitalizada](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu de serviços ligado: Analise imagens... é descrito](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições.
 
-   ![Uma janela de "API de imagem digitalizada" Visual Studio com a lista pendente de subscrição realçada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Janela de API de imagem digitalizada do computador com o menu pendente de subscrição realçada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para a API de Imagem Digitalizada ou escolha a ligação de Edição para modificar o nome gerado automaticamente, selecione o grupo de recursos e o Escalão de Preço.
 
@@ -98,7 +98,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
 1. Clique com o botão direito do rato no ficheiro de imagem, selecione Properties (Propriedades) e, em seguida, selecione **Copy if newer** (Copiar se for mais recente). 
 
-   ![Uma janela de propriedades de imagem; Copiar para diretório de saída está definido para copiar se for mais recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![janela de propriedades de imagem; Copiar para diretório de saída definido como copiar se for mais recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Substitua o método Configure (Configuração) pelo código seguinte para aceder à API de Imagem Digitalizada e testar uma imagem.
 
@@ -256,7 +256,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
 Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
-1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste Início Rápido nos resultados da pesquisa, selecione-o.
+1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 

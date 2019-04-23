@@ -1,17 +1,17 @@
 ---
 title: Registar recursos de dados no Catálogo de Dados do Azure
 description: Como registar recursos de dados no seu catálogo de dados do Azure
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 04/08/2019
-ms.openlocfilehash: e89bd4806e2bb2369c100e948be51dcf32f2e123
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362505"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011712"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar recursos de dados no Catálogo de Dados do Azure
 

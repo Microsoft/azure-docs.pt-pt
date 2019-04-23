@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: 8a568302b2fd8ed0140c2ad084495d41cc09ed8f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225064"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994593"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 
@@ -36,7 +36,7 @@ Segurança de perímetro no HDInsight é alcançada através de redes virtuais e
 
 Outra camada de segurança de perímetro é obtida através do serviço de Gateway de VPN. O gateway funciona como primeira linha de defesa para qualquer pedido de entrada para o cluster do HDInsight. Aceita o pedido, valida- e apenas, em seguida, permite que o pedido passar para outros nós no cluster. Dessa forma, o gateway fornece segurança de perímetro para outros nós de dados e o nome do cluster.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Um administrador empresarial pode criar um cluster do HDInsight com ESP num [rede virtual](https://azure.microsoft.com/services/virtual-network/). Todos os nós do cluster do HDInsight são associados ao domínio gerido pela empresa. Isto é conseguido através da utilização de [do Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
 Com esta configuração, empregados da empresa podem iniciar sessão nós do cluster através das respetivas credenciais de domínio. Também podem utilizar as credenciais de domínio para autenticar noutros pontos finais aprovados, como o Apache Ambari Views, ODBC, JDBC, PowerShell e REST APIs para interagir com o cluster. O administrador tem controlo total sobre a limitar o número de utilizadores que interagem com o cluster através destes pontos finais.

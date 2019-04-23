@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.openlocfilehash: 8be2e59898ea5fcca1dbf1710974d0420941973e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571299"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002141"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -83,7 +83,7 @@ A diferença em capacidades suportadas entre os escalões básicos e standard do
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
 | Enviar eventos de módulo | Sim | Sim |
 | [Atualizar o estado de carregamento do ficheiro](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
-| [Operação de dispositivo em massa](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | Sim, exceto para os recursos de IoT Edge | Sim | 
+| [Operação de dispositivo em massa](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | Sim, exceto para os recursos de IoT Edge | Sim | 
 | [Remover da fila de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sim |
 | [Obter o dispositivo duplo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sim |
 | Obter módulo duplo |   | Sim |

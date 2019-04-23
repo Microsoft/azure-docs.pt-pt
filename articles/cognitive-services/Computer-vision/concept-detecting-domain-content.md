@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339016"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994491"
 ---
 # <a name="detect-domain-specific-content"></a>Detetar conteúdos específica do domínio
 
@@ -30,7 +30,7 @@ Pode analisar uma imagem usando apenas o modelo de específicas do domínio esco
 
 Segue-se um exemplo de resposta JSON devolvido pelos **modelos/celebridades/analisar** API para a imagem específica:
 
-![Satya Nadella permanente](./images/satya.jpeg)
+![Satya Nadella pé, e sorrindo](./images/satya.jpeg)
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525930"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998466"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -92,20 +92,22 @@ Os ficheiros do Azure oferece dois escalões de desempenho: standard e premium.
 |Europa do Norte  | Não |
 |Europa Ocidental   | Sim|
 |Sudeste asiático       | Sim|
+|Ásia Oriental     | Não |
 |Leste do Japão    | Não |
+|Oeste do Japão    | Não |
 |Coreia do Sul Central | Não |
 |Leste da Austrália| Não |
 
 ### <a name="provisioned-shares"></a>Partilhas aprovisionadas
 
-Partilhas de ficheiros de Premium (pré-visualização) são aprovisionadas com base numa proporção de GiB/IOPS/débito fixa. Para cada GiB aprovisionado, a partilha será emitida um IOPS e o débito de MiB/s de 0,1 até aos limites máximos por partilha. O mínimo de aprovisionamento são 100 GiB com o mínimo de IOPS/débito. Tamanho da partilha pode ser aumentado mediante qualquer tempo e diminuição em qualquer altura, mas pode ser reduzido a cada 24 horas desde o último aumento.
+Partilhas de ficheiros de Premium (pré-visualização) são aprovisionadas com base numa proporção de GiB/IOPS/débito fixa. Para cada GiB aprovisionado, a partilha será emitida um IOPS e o débito de MiB/s de 0,1 até aos limites máximos por partilha. O mínimo de aprovisionamento são 100 GiB com o mínimo de IOPS/débito.
 
 Na base de melhor esforço, todas as partilhas podem ultrapassar os limites até três IOPS por GiB de armazenamento aprovisionado durante 60 minutos ou mais consoante o tamanho da partilha. Novas partilhas de começam com o crédito de rajada completo com base na capacidade aprovisionada.
 
-Todas as partilhas podem ultrapassar os limites até 100, pelo menos, débito IOPS e o destino de 100 MiB/s. Partilhas de tem de ser aprovisionadas em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, o próximo tamanho é 101 GIB e assim por diante.
+Partilhas de tem de ser aprovisionadas em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, o próximo tamanho é 101 GIB e assim por diante.
 
 > [!TIP]
-> Linha de base de IOPS = 100 + 1 * aprovisionado GiB. (Até um máximo de 100 000 IOPS).
+> Linha de base de IOPS = 1 * aprovisionado GiB. (Até um máximo de 100 000 IOPS).
 >
 > Limite de rajada = 3 * IOPS da linha de base. (Até um máximo de 100 000 IOPS).
 >
@@ -113,13 +115,13 @@ Todas as partilhas podem ultrapassar os limites até 100, pelo menos, débito IO
 >
 > taxa de entrada = 40 MiB/s + 0.04 * aprovisionado GiB
 
-Tamanho da partilha pode ser aumentado mediante qualquer tempo e diminuição em qualquer altura, mas pode ser reduzido a cada 24 horas desde o último aumento. Alterações de dimensionamento IOPS/débito entrarão em vigor dentro de 24 horas após a alteração de tamanho.
+Tamanho da partilha pode ser aumentado em qualquer altura, mas pode ser reduzido apenas após 24 horas desde o último aumento. Após uma espera de 24 horas, sem um aumento de tamanho, pode diminuir o tamanho da partilha de quantas vezes até que aumentá-la novamente. Alterações de dimensionamento IOPS/débito entrarão em vigor dentro de alguns minutos após a alteração de tamanho.
 
 A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de partilha aprovisionado:
 
 (Tamanhos assinalados com um * estão em pré-visualização pública limitada)
 
-|Capacidade (GiB) | Linha de base de IOPS | Limite de rajada | Saída (MiB/s) | Entrada (MiB/s) |
+|Capacidade (GiB) | Linha de base de IOPS | Períodos de rajada de IOPS | Saída (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
 |500         | 500     | Até 1500   | 90   | 60   |
@@ -136,20 +138,20 @@ Atualmente, os tamanhos de partilha de ficheiros até 5 TiB estão em pré-visua
 
 Partilhas de ficheiros de Premium podem ultrapassar os limites seu IOPS até um fator de três. Extrapolação é automatizado e funciona com base num sistema de crédito. Funciona numa base de melhor esforço e o limite de rajada de segurança não é uma garantia, podem períodos de rajada de partilhas de ficheiros *até* o limite.
 
-Créditos acumular-se num bucket de rajada sempre que o tráfego de sua existem fileshares está abaixo da linha de base IOPS. Por exemplo, uma partilha de GiB 100 tem a linha de base de 100 IOPS. Se o tráfego real na partilha foi 40 IOPS para um intervalo de 1 segundo específico, o IOPS de não utilizado 60 é creditado um bucket de rajada. Estes créditos, em seguida, serão utilizados mais tarde quando operações iria exceder a linha de base IOPs.
+Créditos acumular-se num bucket de rajada sempre que o tráfego para a partilha de ficheiros está abaixo da linha de base IOPS. Por exemplo, uma partilha de GiB 100 tem a linha de base de 100 IOPS. Se o tráfego real na partilha foi 40 IOPS para um intervalo de 1 segundo específico, o IOPS de não utilizado 60 é creditado um bucket de rajada. Estes créditos, em seguida, serão utilizados mais tarde quando operações iria exceder a linha de base IOPs.
 
 > [!TIP]
-> Tamanho do registo de limite de rajada = Baseline_IOPS * 2 * 3600.
+> Tamanho do registo de rajada = Baseline_IOPS * 2 * 3600.
 
-Sempre que uma partilha excede a linha de base IOPS e tem créditos num bucket de rajada, irá expandir. Partilhas podem continuar a expandir, desde que os créditos são restantes, embora partilhas menores do que 50 tiB apenas permanecerá atingiu o limite de rajada para até uma hora. Partilhas de maiores do que 50 TiB tecnicamente podem exceder este limite de uma hora, se a duas horas, mas isso é com base no número de créditos de rajada acumulados. Cada e/s para além de linha de base de IOPS consome uma unidade de crédito e assim que todos os créditos são consumidos a partilha irá devolver a linha de base IOPS.
+Sempre que uma partilha excede a linha de base IOPS e tem créditos num bucket de rajada, irá expandir. Partilhas podem continuar a expandir, desde que os créditos são restantes, embora partilhas menores do que 50 TiB apenas permanecerá atingiu o limite de rajada para até uma hora. Partilhas de maiores do que 50 TiB tecnicamente podem exceder este limite de uma hora, se a duas horas, mas isso é com base no número de créditos de rajada acumulados. Cada e/s para além de linha de base de IOPS consome uma unidade de crédito e assim que todos os créditos são consumidos a partilha irá devolver a linha de base IOPS.
 
 Os créditos de partilha têm três Estados:
 
 - A acumular, quando a partilha de ficheiros está a utilizar menos do que a linha de base IOPS.
 - Recusar, quando a partilha de ficheiros é bursting.
-- IOPS restantes em zero, quando existem sem créditos ou de uma linha de base estão em utilização.
+- IOPS restantes constante, quando existem sem créditos ou de uma linha de base estão em utilização.
 
-Novo início de partilhas de ficheiros com o número total de créditos no respetivo registo de rajada.
+Novo início de partilhas de ficheiros com o número total de créditos no respetivo registo de rajada. Os créditos de rajada não irão ser acumulados se a partilha de IOPS são inferiores a linha de base de IOPS devido à limitação pelo servidor.
 
 ## <a name="file-share-redundancy"></a>Redundância de partilha de ficheiros
 

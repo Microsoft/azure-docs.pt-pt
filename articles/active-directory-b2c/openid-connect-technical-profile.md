@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e8bfa5a3e60efe860b5e7197d96ebe5ce3a86030
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916772"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001410"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico OpenId Connect em políticas personalizadas do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory (Azure AD) B2C fornece suporte para o [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) fornecedor de identidade do protocolo. OpenID Connect 1.0 define uma camada de identidade com base no OAuth 2.0 e representa a Estado da última palavra em protocolos de autenticação moderna.  Com OpenId Connect perfil técnico, pode federar com uma ligação do OpenId com base em fornecedor de identidade, como o Azure AD, que lhe permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
+O Azure Active Directory (Azure AD) B2C fornece suporte para o [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) fornecedor de identidade do protocolo. OpenID Connect 1.0 define uma camada de identidade com base no OAuth 2.0 e representa a Estado da última palavra em protocolos de autenticação moderna. Com um perfil técnico OpenId Connect, pode federar com um fornecedor de OpenId Connect de identidade com base, como o Azure AD. Federação com um fornecedor de identidade permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -52,7 +52,7 @@ O **OutputClaimsTransformations** elemento pode conter uma coleção de **Output
 
 O exemplo seguinte mostra as afirmações devolvidas pelo fornecedor de identidade Account Microsoft:
 
-- O **sub** afirmação que está mapeada para o **socialIdpUserId** de afirmação.
+- O **sub** afirmação que está mapeada para o **issuerUserId** de afirmação.
 - O **name** afirmação que está mapeada para o **displayName** de afirmação.
 - O **e-mail** sem mapeamento de nomes.
 
@@ -65,7 +65,7 @@ O perfil técnico também retorna afirmações que não são devolvidas pelo for
 <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
   <OutputClaim ClaimTypeReferenceId="email" />
 </OutputClaims>
@@ -81,7 +81,7 @@ O perfil técnico também retorna afirmações que não são devolvidas pelo for
 | ProviderName | Não | O nome do fornecedor de identidade. |
 | response_types | Não | O tipo de resposta, de acordo com a especificação de OpenID Connect Core 1.0. Valores possíveis: `id_token`, `code`, ou `token`. |
 | response_mode | Não | O método que o fornecedor de identidade utiliza para enviar o resultado para o Azure AD B2C. Valores possíveis: `query`, `form_post` (predefinição), ou `fragment`. |
-| scope | Não | O âmbito do pedido de acesso definido de acordo com a especificação de OpenID Connect Core 1.0. Por exemplo, `openid`, `profile`, e `email`. |
+| scope | Não | O âmbito do pedido que é definido de acordo com a especificação de OpenID Connect Core 1.0. Por exemplo, `openid`, `profile`, e `email`. |
 | HttpBinding | Não | O enlace de HTTP esperado para os token e afirmações de token pontos finais de acesso. Valores possíveis: `GET` ou `POST`.  |
 | ValidTokenIssuerPrefixes | Não | Uma chave que pode ser utilizada para iniciar sessão a cada um dos inquilinos, quando utilizar um fornecedor de identidade de multi-inquilino do Azure Active Directory. |
 | UsePolicyInRedirectUri | Não | Indica se deve utilizar uma política ao construir o URI de redirecionamento. Quando configurar a sua aplicação no fornecedor de identidade, tem de especificar o URI de redirecionamento. O redirecionamento URI aponta para o Azure AD B2C, `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com pode mudar com o seu inquilino name.b2clogin.com).  Se especificar `false`, precisa adicionar um URI de redirecionamento para cada política utilizar. Por exemplo: `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp`. |

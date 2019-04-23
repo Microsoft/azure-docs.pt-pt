@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 3846815dabdc9e351f3d8449feb88affb9c6efdb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648270"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001206"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento automático vertical com dimensionamento de máquinas virtuais
 

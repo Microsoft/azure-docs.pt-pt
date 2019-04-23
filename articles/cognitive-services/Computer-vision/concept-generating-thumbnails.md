@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876804"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002447"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerar miniaturas de smart-recortadas com imagem digitalizada
 
@@ -38,15 +38,15 @@ Também pode obter as coordenadas de caixa delimitadora não processados disso m
 
 A miniatura gerada pode variar bastante, dependendo do que especificou para a altura, largura e corte inteligente, conforme mostrado na imagem seguinte.
 
-![Miniaturas](./Images/thumbnail-demo.png)
+![Uma imagem das regiões montanhosas junto a várias configurações de recorte](./Images/thumbnail-demo.png)
 
 A tabela seguinte ilustra as miniaturas típicas geradas de imagem digitalizada para as imagens de exemplo. As miniaturas geradas para uma altura de destino especificado e a largura de 50 pixels, com o corte inteligente ativado.
 
-| Imagem | Miniatura |
+| Image | Miniatura |
 |-------|-----------|
-|![Uma pessoa seguindo um uma pedra das regiões montanhosas em sunset](./Images/mountain_vista.png) | ![Miniatura de montanha de equipamentos esportivos](./Images/mountain_vista_thumbnail.png) |
+|![Hora das regiões exterior ao sol, com a silhueta da pessoa](./Images/mountain_vista.png) | ![Miniatura de Outdoor Mountain em sunset, com a silhueta da pessoa](./Images/mountain_vista_thumbnail.png) |
 |![Uma flor branca com um plano de fundo verde](./Images/flower.png) | ![Miniatura de analisar flor de imagem digitalizada](./Images/flower_thumbnail.png) |
-|![Uma mulher no teto de um apartamento](./Images/woman_roof.png) | ![Miniatura de teto de mulher](./Images/woman_roof_thumbnail.png) |
+|![Uma mulher no teto de um apartamento](./Images/woman_roof.png) | ![miniatura de uma mulher no teto de um apartamento](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

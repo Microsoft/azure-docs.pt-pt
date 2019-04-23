@@ -4,7 +4,7 @@ description: Pré-requisitos para implementar o OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: f4fd33b250bf1f79610f4363e85b97be87892d78
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449976"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001654"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implementar o OpenShift no Azure
 
@@ -28,11 +28,11 @@ Este artigo descreve os pré-requisitos comuns para implementar o OpenShift Cont
 
 A instalação do OpenShift utiliza playbooks do Ansible. Ansible utiliza Secure Shell (SSH) para ligar a todos os anfitriões de cluster para concluir os passos de instalação.
 
-Quando o ansible inicia a ligação de SSH para hosts remotos, ele não é possível introduzir uma palavra-passe. Por esse motivo, a chave privada não pode ter uma palavra-passe (frase de acesso) associada a ele ou falha de implementação.
+Quando o ansible faz a ligação de SSH para hosts remotos, ele não é possível introduzir uma palavra-passe. Por esse motivo, a chave privada não pode ter uma palavra-passe (frase de acesso) associada a ele ou falha de implementação.
 
-Uma vez que as máquinas virtuais (VMs) implementar através de modelos Azure Resource Manager, a mesma chave pública é utilizada para acesso a todas as VMs. Tem de inserir a chave privada correspondente na VM que executa todos os playbooks também. Para fazer isso de forma segura, use um cofre de chave do Azure para passar a chave privada para a VM.
+Uma vez que as máquinas virtuais (VMs) implementar através de modelos Azure Resource Manager, a mesma chave pública é utilizada para acesso a todas as VMs. A chave privada correspondente tem de ser na VM que executa todos os playbooks também. Para efetuar esta ação de forma segura, um cofre de chave do Azure é utilizado para passar a chave privada para a VM.
 
-Se for necessário para armazenamento persistente para contentores, volumes persistentes são necessários. OpenShift suporta discos rígidos virtuais (VHDs) do Azure para esta capacidade, mas tem de ser configurado primeiro Azure como o fornecedor de cloud.
+Se for necessário para armazenamento persistente para contentores, volumes persistentes são necessários. OpenShift suporta discos rígidos virtuais (VHDs) do Azure para volumes persistentes, mas tem de ser configurado primeiro Azure como o fornecedor de cloud.
 
 Nesse modelo, o OpenShift:
 
@@ -40,7 +40,7 @@ Nesse modelo, o OpenShift:
 - Monta o VHD para uma VM e formata o volume.
 - Monta o volume para o pod.
 
-Para esta configuração funcione, OpenShift necessita de permissões para executar essas tarefas no Azure. Conseguir isto com um principal de serviço. O principal de serviço é uma conta de segurança no Azure Active Directory que são concedidas permissões para recursos.
+Para esta configuração funcione, OpenShift necessita de permissões para executar essas tarefas no Azure. Um principal de serviço é utilizado para esta finalidade. O principal de serviço é uma conta de segurança no Azure Active Directory que são concedidas permissões para recursos.
 
 O principal de serviço tem de ter acesso às contas de armazenamento e as VMs que compõem o cluster. Se todos os recursos de cluster do OpenShift implementar um grupo de recursos, o principal de serviço pode ser concedido permissões para esse grupo de recursos.
 
@@ -60,7 +60,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Recomenda-se para utilizar um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo é separado do grupo de recursos no qual implementar os recursos do cluster OpenShift.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Deve utilizar um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo é separado do grupo de recursos no qual implementar os recursos do cluster OpenShift.
 
 O exemplo seguinte cria um grupo de recursos chamado *keyvaultrg* no *eastus* localização:
 
@@ -136,6 +136,33 @@ Tome nota da propriedade appId devolvida do comando:
 
 Para obter mais informações sobre principais de serviço, consulte [criar um Azure principal de serviço com a CLI do Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
+## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo do Resource Manager
+
+Segredos tem de ser criado para a chave privada SSH (**sshPrivateKey**), segredo do cliente do Azure AD (**aadClientSecret**), palavra-passe de administrador do OpenShift (**openshiftPassword** ) e a chave de palavra-passe ou a ativação do Gestor de subscrições do Red Hat (**rhsmPasswordOrActivationKey**).  Além disso, se forem utilizados certificados SSL personalizados, em seguida, seis segredos adicionais serão necessário criar - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, e **masterkeyfile**.  Estes parâmetros serão explicados mais detalhadamente.
+
+O modelo faz referência específicos nomes secretos por isso, **tem** utilize os nomes de negrito listados acima (sensível a maiúsculas e minúsculas).
+
+### <a name="custom-certificates"></a>Certificados personalizados
+
+Por predefinição, o modelo irá implementar um cluster de OpenShift com certificados autoassinados para a consola web do OpenShift e o domínio de encaminhamento. Se quiser utilizar certificados SSL personalizados, defina 'routingCertType' para 'custom' e 'masterCertType' para 'custom'.  Terá dos ficheiros de AC, certificado e chave no formato. pem para os certificados.  É possível utilizar certificados personalizados para uma, mas não na outra.
+
+Precisará armazenar esses arquivos em segredos do Key Vault.  Utilize o mesmo Cofre de chaves que utilizou para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes secretos, o modelo está hard-coded para utilizar os nomes secretos específicos para cada um dos ficheiros de certificado SSL.  Store os dados de certificado utilizando as informações da tabela seguinte.
+
+| Nome do segredo      | Ficheiro de certificado   |
+|------------------|--------------------|
+| mastercafile     | ficheiro de AC principal     |
+| mastercertfile   | ficheiro de certificado principal   |
+| masterkeyfile    | ficheiro de chave mestra    |
+| routingcafile    | ficheiro de AC de encaminhamento    |
+| routingcertfile  | Encaminhamento ficheiro de certificado  |
+| routingkeyfile   | ficheiro da chave de encaminhamento   |
+
+Crie os segredos com a CLI do Azure. Segue-se um exemplo.
+
+```bash
+az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo abordou os seguintes tópicos:
@@ -146,4 +173,4 @@ Este artigo abordou os seguintes tópicos:
 Em seguida, implemente um cluster do OpenShift:
 
 - [Implementar o OpenShift Container Platform](./openshift-container-platform.md)
-- [Implementar OKD](./openshift-okd.md)
+- [Implementar o OpenShift Container Platform gestão automática centrada no Marketplace oferta](./openshift-marketplace-self-managed.md)

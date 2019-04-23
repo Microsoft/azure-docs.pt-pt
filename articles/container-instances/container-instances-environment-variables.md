@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606893"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994780"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Definir variáveis de ambiente no container instances
 
@@ -143,14 +143,11 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Exemplo do portal do Azure
 
-Para definir as variáveis de ambiente quando inicia um contentor no portal do Azure, especifique-os na **configuração** página ao criar o contentor.
+Para definir as variáveis de ambiente quando inicia um contentor no portal do Azure, especifique-os na **avançadas** página ao criar o contentor.
 
-Quando implementar com o portal, está atualmente limitado a três variáveis e tem de introduzi-los no seguinte formato: `"variableName":"value"`
-
-Para ver um exemplo, inicie o [aci-wordcount] [ aci-wordcount] contentor com o *NumWords* e *MinLength* variáveis.
-
-1. Na **Configuration**, defina o **política de reinício** para *em caso de falha*
-2. Introduza `"NumWords":"5"` para a primeira variável, selecione **Sim** sob **adicionar variáveis de ambiente adicionais**e introduza `"MinLength":"8"` para a segunda variável. Selecione **OK** para verificar e, em seguida, implementar o contentor.
+1. Sobre o **avançadas** página, defina o **política de reinício** para *em caso de falha*
+2. Sob **variáveis de ambiente**, introduza `NumWords` com um valor de `5` para a primeira variável e introduza `MinLength` com um valor de `8` para a segunda variável. 
+1. Selecione **rever + criar** para verificar e, em seguida, implementar o contentor.
 
 ![Página de portal que mostra o ambiente de variável caixas de texto e botão de ativar][portal-env-vars-01]
 

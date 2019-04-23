@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313080"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998622"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detetar os esquemas de cores em imagens
 
@@ -30,7 +30,7 @@ Imagem digitalizada também devolve um valor booleano que indica se uma imagem e
 
 O exemplo seguinte ilustra a resposta JSON devolvida de imagem digitalizada quando detetar o esquema de cores da imagem de exemplo. Neste caso, a imagem de exemplo não é uma imagem simples, mas o primeiro plano dominante e cores de fundo são pretas e as cores dominantes para a imagem como um todo são preto e branco.
 
-![Exterior/Montanha](./Images/mountain_vista.png)
+![Hora das regiões exterior ao sol, com a silhueta da pessoa](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ O exemplo seguinte ilustra a resposta JSON devolvida de imagem digitalizada quan
 
 A tabela seguinte mostra o primeiro plano retornado, em segundo plano e cores de imagem para cada imagem de exemplo.
 
-| Imagem | Cores dominantes |
+| Image | Cores dominantes |
 |-------|-----------------|
 |![Uma flor branca com um plano de fundo verde](./Images/flower.png)| Em primeiro plano: Preto<br/>Em segundo plano: Branco<br/>Cores: Preto, White, verde|
 ![Comboio em execução por meio de uma estação](./Images/train_station.png) | Em primeiro plano: Preto<br/>Em segundo plano: Preto<br/>Cores: Preto |
@@ -63,7 +63,7 @@ A tabela seguinte mostra o primeiro plano retornado, em segundo plano e cores de
 
  A tabela seguinte mostra a cor de destaque retornado, como um valor hexadecimal de cor do HTML, para cada imagem de exemplo.
 
-| Imagem | Cor de destaque |
+| Image | Cor de destaque |
 |-------|--------------|
 |![Uma pessoa seguindo um uma pedra das regiões montanhosas em sunset](./Images/mountain_vista.png) | #BB6D10 |
 |![Uma flor branca com um plano de fundo verde](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ A tabela seguinte mostra o primeiro plano retornado, em segundo plano e cores de
 
 A tabela seguinte mostra a avaliação do imagem digitalizada preto e branca em imagens de exemplo.
 
-| Imagem | Preto e branco? |
+| Image | Preto e branco? |
 |-------|----------------|
 |![Uma imagem simples de edifícios em Manhattan](./Images/bw_buildings.png) | true |
 |![Uma casa azul e o front-yard](./Images/house_yard.png) | false |

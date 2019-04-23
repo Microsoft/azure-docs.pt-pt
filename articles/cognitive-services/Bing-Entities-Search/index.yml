@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5f02bb073ee541edb66d61632241aa57a778dcb0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731672"
 documentType: LandingData
 title: Documentação da Pesquisa de Entidades do Bing
 metadata:
-  title: Documentação da API de Pesquisa de Entidades do Bing - Tutoriais, inícios rápidos, referências de API | Microsoft Docs
-  description: Como utilizar a API de Pesquisa de Entidades do Bing para obter informações sobre pessoas, lugares ou outros assuntos definidos. Os tutoriais explicam como criar aplicações que utilizam o serviço.
+  title: 'Documentação da API de Pesquisa de Entidades do Bing - Tutoriais, inícios rápidos, referências de API | Microsoft Docs'
+  description: 'Como utilizar a API de Pesquisa de Entidades do Bing para obter informações sobre pessoas, lugares ou outros assuntos definidos. Os tutoriais explicam como criar aplicações que utilizam o serviço.'
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -21,85 +15,85 @@ metadata:
   ms.date: 02/01/2019
   ms.author: v-gedod
 abstract:
-  description: A API de Pesquisa de Entidades do Bing permite que as suas aplicações obtenham informações sobre entidades detetadas nas consultas de pesquisa. As entidades podem ser pessoas, lugares, títulos de multimédia e muito mais.
+  description: 'A API de Pesquisa de Entidades do Bing permite que as suas aplicações obtenham informações sobre entidades detetadas nas consultas de pesquisa. As entidades podem ser pessoas, lugares, títulos de multimédia e muito mais.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-entities-search/overview
+            html: <p>Saiba mais sobre a API de Pesquisa de Entidades do Bing</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Procurar entidades
+          - href: /azure/cognitive-services/bing-entities-search/concepts/search-for-entities
+            html: <p>Saiba como procurar entidades com a API de Pesquisa de Entidades do Bing.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Enviar pedidos de pesquisa
+          - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+            html: <p>Saiba como enviar pedidos de pesquisa para a API.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: A enviar consultas de pesquisa
+  - title: Inícios rápidos de cinco minutos
     items:
-    - href: /azure/cognitive-services/bing-entities-search/overview
-      html: <p>Saiba mais sobre a API de Pesquisa de Entidades do Bing</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Procurar entidades
-    - href: /azure/cognitive-services/bing-entities-search/concepts/search-for-entities
-      html: <p>Saiba como procurar entidades com a API de Pesquisa de Entidades do Bing.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Enviar pedidos de pesquisa
-    - href: /azure/cognitive-services/bing-custom-search/hosted-ui
-      html: <p>Saiba como enviar pedidos de pesquisa para a API.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: A enviar consultas de pesquisa
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Comece a utilizar a API de Pesquisa de Entidades do Bing ao criar uma consulta e ver a resposta JSON:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Comece a utilizar a API de Pesquisa de Entidades do Bing ao criar uma consulta e ver a resposta JSON:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: quickstarts/entity-sdk-csharp-quickstart
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: quickstarts/entity-sdk-java-quickstart
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: quickstarts/entity-sdk-node-quickstart
+            text: Node.js
+          - image:
+              src: media/index/logo_php.svg
+            href: quickstarts/php
+            text: PHP
+          - image:
+              src: media/index/logo_python.svg
+            href: quickstarts/entity-sdk-python-quickstart
+            text: Python
+          - image:
+              src: media/index/logo_ruby.svg
+            href: quickstarts/ruby
+            text: Ruby
+  - title: Tutoriais Passo-a-Passo
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: quickstarts/entity-sdk-csharp-quickstart
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: quickstarts/entity-sdk-java-quickstart
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: quickstarts/entity-sdk-node-quickstart
-      text: Node.js
-    - image:
-        src: media/index/logo_php.svg
-      href: quickstarts/php
-      text: PHP
-    - image:
-        src: media/index/logo_python.svg
-      href: quickstarts/entity-sdk-python-quickstart
-      text: Python
-    - image:
-        src: media/index/logo_ruby.svg
-      href: quickstarts/ruby
-      text: Ruby
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como desenvolver aplicativos usando a API de Pesquisa de Entidades do Bing:'
-  - type: paragraph
-    text: <a href="tutorial-bing-entities-search-single-page-app">Aplicação Web de página única</a>
-- title: Amostras
-  items:
-  - type: paragraph
-    text: 'Encontre exemplos para a API de Pesquisa de Entidades do Bing:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Saiba como desenvolver aplicativos usando a API de Pesquisa de Entidades do Bing:'
+      - type: paragraph
+        text: <a href="tutorial-bing-entities-search-single-page-app">Aplicação Web de página única</a>
+  - title: Amostras
     items:
-    - html: <a href="sdk.md">Exemplos de Código</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Encontre exemplos para a API de Pesquisa de Entidades do Bing:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="sdk.md">Exemplos de Código</a>
+  - title: Referência
     items:
-    - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference">API de Pesquisa de Entidades do Bing v7</a></p>
-    - title: SDKs
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: APIs
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference">API de Pesquisa de Entidades do Bing v7</a></p>'
+          - title: SDKs
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-entitysearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>'
