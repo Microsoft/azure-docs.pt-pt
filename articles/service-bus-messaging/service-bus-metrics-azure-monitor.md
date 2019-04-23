@@ -12,7 +12,7 @@ ms.date: 11/06/2018
 ms.author: aschhab
 ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59798521"

@@ -10,7 +10,7 @@ services: iot-central
 manager: timlt
 ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59798815"

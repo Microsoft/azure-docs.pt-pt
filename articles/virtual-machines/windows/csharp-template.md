@@ -17,7 +17,7 @@ ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 50d0d78e9dc0c7f51fcd82dd16eab5a180eae073
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59796034"

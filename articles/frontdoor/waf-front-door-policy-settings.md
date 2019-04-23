@@ -12,7 +12,7 @@ ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59797468"

@@ -8,7 +8,7 @@ ms.date: 03/31/2019
 ms.author: rimman
 ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59798968"

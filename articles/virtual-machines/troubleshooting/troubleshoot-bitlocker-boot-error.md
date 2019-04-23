@@ -15,7 +15,7 @@ ms.date: 03/25/2019
 ms.author: genli
 ms.openlocfilehash: 51fc47a28cc40d286b5a268d4c42e3531f346c5e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59796869"
