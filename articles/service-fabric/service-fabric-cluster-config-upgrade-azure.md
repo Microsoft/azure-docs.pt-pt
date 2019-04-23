@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
 ms.openlocfilehash: 77b9b20f99f00ef87c4907c2890cb3a21d20ec75
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047018"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789776"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster no Azure 
 

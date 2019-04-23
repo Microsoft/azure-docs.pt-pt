@@ -9,11 +9,11 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 42fdd6645a7a0e7cd9a2f0a7bc969e8eee62758c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267196"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789622"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Resolver problemas de erros usando os esquemas do Azure
 

@@ -228,8 +228,8 @@ items:
     - name: Configurar o Peering Público para o seu circuito
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
 ms.openlocfilehash: 920e0a4f1497378b8f04d52e38392635aaa0a136
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044951"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791203"

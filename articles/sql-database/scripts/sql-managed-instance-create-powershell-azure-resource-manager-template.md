@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: dfd81735b7dfd95a38caf3934fe9057adbcde5a7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357090"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790014"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Utilize o PowerShell com o modelo Azure Resource Manager para criar uma instância gerida na base de dados do Azure SQL
 

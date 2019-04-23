@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59264094"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790984"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>Exemplo – auditoria definições de auditoria do SQL server
 

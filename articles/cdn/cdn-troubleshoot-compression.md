@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918829"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790999"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Resolver problemas de compressão de ficheiros CDN
 Este artigo ajuda-o a resolver problemas com o [compressão de ficheiros CDN](cdn-improve-performance.md).

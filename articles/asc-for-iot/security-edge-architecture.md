@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862238"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59790047"
 ---
 # <a name="azure-iot-edge-security-module"></a>Módulo de segurança do Azure IoT Edge
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
 ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847997"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789996"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações do Azure de nomenclatura e terminologia de Monitor
 Alterações significativas feitas para o Azure Monitor recentemente, com diferentes serviços que estão sendo consolidados para simplificar a monitorização para os clientes do Azure. Este artigo descreve o nome recente e as alterações de terminologia na documentação do Azure Monitor.

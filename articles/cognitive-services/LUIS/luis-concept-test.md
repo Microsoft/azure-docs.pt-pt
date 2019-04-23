@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893236"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789542"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Teste de expressões de exemplo no LUIS
 

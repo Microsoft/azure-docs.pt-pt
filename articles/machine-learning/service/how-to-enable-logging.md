@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
 ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885898"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789378"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Ative o registo no serviço Azure Machine Learning
 

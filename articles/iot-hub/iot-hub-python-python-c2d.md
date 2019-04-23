@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
 ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272875"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789793"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Enviar mensagens da cloud para o dispositivo com o IoT Hub (Python)
 
