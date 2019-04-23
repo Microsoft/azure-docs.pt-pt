@@ -426,7 +426,7 @@ Aprovisionamento de aplicações de Mobile back-end pode demorar alguns minutos.
 1. Na **adicionar ligação de dados** painel, selecione **base de dados do SQL - configurar definições necessárias** > **criar uma nova base de dados**. Introduza o nome da nova base de dados do **nome** caixa.
 1. Selecione **servidor**. Na **novo servidor** painel, introduza um nome de servidor exclusivo na **nome do servidor** caixa e forneça um servidor adequado, início de sessão de administrador e a palavra-passe. Certifique-se de que **permitir que os serviços do azure ao servidor de acesso** está selecionada. Selecione **OK**.
 
-   ![Criar uma SQL Database do Azure][6]
+   ![Criar uma Base de Dados SQL do Azure][6]
 1. Na **nova base de dados** painel, selecione **OK**.
 1. De volta a **adicionar ligação de dados** painel, selecione **cadeia de ligação**e introduza o início de sessão e palavra-passe que indicou quando criou a base de dados. Se utilizar uma base de dados existente, forneça as credenciais de início de sessão para essa base de dados. Selecione **OK**.
 1. De volta a **adicionar ligação de dados** painel mais uma vez, selecione **OK** para criar a base de dados.
