@@ -35,7 +35,7 @@ Os dados para o perímetro geográfico ou conjunto de perímetros geográficos s
 | startTime | Datetime  | true | O início, data hora da validade período de tempo. |
 | endTime   | Datetime  | true |  Data hora da validade período de tempo final. |
 | recurrenceType | string | false |   O tipo de periodicidade do período. O valor pode ser `Daily`, `Weekly`, `Monthly`, ou `Yearly`. Valor predefinido é `Daily`.|
-| businessDayOnly | Booleano | false |  Indica se os dados só são válidos durante dias úteis. Valor predefinido é `false`.|
+| businessDayOnly | Boolean | false |  Indica se os dados só são válidos durante dias úteis. Valor predefinido é `false`.|
 
 
 * Todos os valores de coordenadas são representados como [latitude, longitude] definido na `WGS84`.
