@@ -33,12 +33,12 @@
     "live"
   ],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs.pt-pt",
-  "git_repository_branch_open_to_public_contributors": "live",
+  "git_repository_branch_open_to_public_contributors": "master",
   "continue_with_document_error": true,
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {
-    "live-sxs": "live"
+    "live-sxs": "master"
   },
   "dependent_repositories": [
     {
