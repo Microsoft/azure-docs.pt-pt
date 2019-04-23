@@ -13,7 +13,7 @@ ms.date: 04/02/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 17cf6629aca6c73bc96e4cf0c172a2e87a7aafb8
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59799172"

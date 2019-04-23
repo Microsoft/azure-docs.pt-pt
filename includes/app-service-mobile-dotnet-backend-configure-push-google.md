@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59804837"

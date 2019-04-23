@@ -1,68 +1,61 @@
-items:
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Cofre de Chaves
-    tocHref: /azure/
-    topicHref: /azure/key-vault/index
+    - name: Cofre de Chaves
+      tocHref: /azure/
+      topicHref: /azure/key-vault/index
 - name: Azure
   tocHref: /java/
   topicHref: /azure/index
   items:
-  - name: Cofre de Chaves
-    tocHref: /java/azure/
-    topicHref: /azure/key-vault/
-    items:
-    - name: Spring
-      tocHref: /java/azure/spring-framework/
-      topicHref: /java/azure/spring-framework/
+    - name: Cofre de Chaves
+      tocHref: /java/azure/
+      topicHref: /azure/key-vault/
+      items:
+        - name: Spring
+          tocHref: /java/azure/spring-framework/
+          topicHref: /java/azure/spring-framework/
 - name: Azure
   tocHref: /powershell/
   topicHref: /azure/index
   items:
-  - name: Cofre de Chaves
-    tocHref: /powershell/module/
-    topicHref: /azure/key-vault/
-    items:
-    - name: Cmdlets do PowerShell do Key Vault
-      tocHref: /powershell/module/az.keyvault/
-      topicHref: /powershell/module/az.keyvault/
+    - name: Cofre de Chaves
+      tocHref: /powershell/module/
+      topicHref: /azure/key-vault/
+      items:
+        - name: Cmdlets do PowerShell do Key Vault
+          tocHref: /powershell/module/az.keyvault/
+          topicHref: /powershell/module/az.keyvault/
 - name: Azure
   tocHref: /cli/
   topicHref: /azure/index
   items:
-  - name: Cofre de Chaves
-    tocHref: /cli/azure/
-    topicHref: /azure/key-vault/
-    items:
-    - name: Referência da CLI do Key Vault
-      tocHref: /cli/azure/keyvault/
+    - name: Cofre de Chaves
+      tocHref: /cli/azure/
       topicHref: /azure/key-vault/
       items:
-      - name: Certificados
-        tocHref: /cli/azure/keyvault/certificate
-        topicHref: /azure/key-vault/
-      - name: Chaves
-        tocHref: /cli/azure/keyvault/key
-        topicHref: /azure/key-vault/
-      - name: Segredos
-        tocHref: /cli/azure/keyvault/secret
-        topicHref: /azure/key-vault/
+        - name: Referência da CLI do Key Vault
+          tocHref: /cli/azure/keyvault/
+          topicHref: /azure/key-vault/
+          items:
+            - name: Certificados
+              tocHref: /cli/azure/keyvault/certificate
+              topicHref: /azure/key-vault/
+            - name: Chaves
+              tocHref: /cli/azure/keyvault/key
+              topicHref: /azure/key-vault/
+            - name: Segredos
+              tocHref: /cli/azure/keyvault/secret
+              topicHref: /azure/key-vault/
 - name: Azure
   tocHref: /sccm/
   topicHref: /azure/index
   items:
-  - name: Cofre de Chaves
-    tocHref: /sccm/apps/
-    topicHref: /azure/key-vault/index
-    items:
-    - name: Executar scripts do SCCM
-      tocHref: /sccm/apps/deploy-use/
+    - name: Cofre de Chaves
+      tocHref: /sccm/apps/
       topicHref: /azure/key-vault/index
-ms.openlocfilehash: 3a11cee3221ccff773291ede56415af09d80120b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848809"
+      items:
+        - name: Executar scripts do SCCM
+          tocHref: /sccm/apps/deploy-use/
+          topicHref: /azure/key-vault/index
