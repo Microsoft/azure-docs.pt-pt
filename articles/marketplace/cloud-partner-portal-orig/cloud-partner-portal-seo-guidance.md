@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pbutlerm
 ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59488854"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787100"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Orientação de SEO de mercado do Azure
 

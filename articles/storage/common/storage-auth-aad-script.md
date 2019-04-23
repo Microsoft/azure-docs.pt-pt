@@ -9,11 +9,11 @@ ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803583"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787003"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Utilizar uma identidade do Azure AD para aceder a dados de BLOBs e filas com a CLI ou o PowerShell
 

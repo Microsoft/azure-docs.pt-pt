@@ -19,11 +19,11 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266327"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59785580"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -111,7 +111,7 @@ Uma breve descrição de cada tipo de afirmação emitido pela plataforma de ide
 
 | Afirmação | Descrição |
 | --- | --- |
-| ID da Aplicação | Identifica a aplicação que está a utilizar o token. |
+| ID da aplicação | Identifica a aplicação que está a utilizar o token. |
 | Audiência | Identifica o recurso de destinatário a que se destina o token. |
 | Referência da Classe de Contexto de Autenticação da Aplicação | Indica de que forma o cliente foi autenticado (cliente público versus cliente confidencial). |
 | Autenticação Instantânea | Regista a data e hora em que ocorreu a autenticação. |
@@ -127,7 +127,7 @@ Uma breve descrição de cada tipo de afirmação emitido pela plataforma de ide
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
 | Âmbito | Indica as permissões concedidas à aplicação cliente. |
 | Requerente | Indica o principal sobre o qual o token declara informações. |
-| ID do Inquilino | Contém um identificador exclusivo imutável do inquilino do diretório que emitiu o token. |
+| ID do inquilino | Contém um identificador exclusivo imutável do inquilino do diretório que emitiu o token. |
 | Duração do Token | Define o intervalo de tempo durante o qual um token é válido. |
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |
 | Versão | Contém o número de versão do token. |

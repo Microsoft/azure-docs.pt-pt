@@ -80,13 +80,13 @@ items:
       href: sql-database-design-first-database-csharp.md
   - name: Migrar para a Base de Dados SQL
     items:
-    - name: Migrar para uma base de dados individual/agrupada com o DMS
+    - name: Migrar para uma base de dados individual/de conjunto com o DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrar para uma instância gerida com o DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: Segurança na Base de Dados SQL
     items:
-    - name: Segurança de base de dados individual e agrupada
+    - name: Segurança de base de dados individual e de conjunto
       href: sql-database-security-tutorial.md
     - name: Segurança da instância gerida
       href: sql-database-managed-instance-aad-security-tutorial.md
@@ -107,7 +107,7 @@ items:
     href: sql-database-resource-manager-samples.md
 - name: Conceitos
   items:
-  - name: Comprar modelos
+  - name: Modelos de compra
     items:
     - name: Descrição geral
       href: sql-database-purchase-models.md
@@ -127,9 +127,9 @@ items:
       href: sql-database-service-tier-general-purpose.md
     - name: Escalões de serviço Crítico para a Empresa/Premium
       href: sql-database-service-tier-business-critical.md
-    - name: Camada de serviços de hiperescala
+    - name: Escalão de serviço do Hyperscale
       href: sql-database-service-tier-hyperscale.md
-    - name: Perguntas Frequentes de Hiperescala
+    - name: Perguntas Frequentes do Hyperscale
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Bases de dados individuais
     items:
@@ -362,7 +362,7 @@ items:
     items:
     - name: Descrição geral
       href: sql-database-howto-single-database.md
-    - name: Migrar para uma base de dados individual/agrupada
+    - name: Migrar para uma base de dados individual/de conjunto
       href: sql-database-single-database-migrate.md
     - name: Gerir a base de dados SQL após a migração
       href: sql-database-manage-after-migration.md
@@ -733,8 +733,8 @@ items:
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
 ms.openlocfilehash: d789a7d8cb42d0871dcd09e55036f965daef0d9f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495076"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786930"

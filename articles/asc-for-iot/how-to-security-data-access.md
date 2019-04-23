@@ -1,25 +1,25 @@
 ---
 title: Acesso a dados com o Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
 description: Saiba mais sobre como aceder aos seus dados de alerta e as recomendações de segurança ao utilizar o Centro de segurança do Azure para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758527"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789079"
 ---
 # <a name="access-your-security-data"></a>Aceder aos seus dados de segurança 
 

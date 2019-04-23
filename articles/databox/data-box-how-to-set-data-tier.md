@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
 ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905567"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789130"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilizar o Azure Data Box para enviar dados para a camada de blob de armazenamento do Azure adequada
 
