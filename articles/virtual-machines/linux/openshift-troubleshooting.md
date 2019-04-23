@@ -4,7 +4,7 @@ description: Resolver problemas de implementação do OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540351"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001121"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Resolver problemas de implementação do OpenShift no Azure
 
@@ -42,9 +42,9 @@ SSH para o anfitrião do ansible playbook. Para o modelo OKD (versão 3.9 e ante
 
 ## <a name="log-files"></a>Ficheiros de registo
 
-Os ficheiros de registo (stderr e stdout) para os scripts de preparação do anfitrião estão localizados no /var/lib/waagent/custom-script/download/0 em todos os anfitriões. Se Ocorreu um erro durante a preparação do anfitrião, veja estes ficheiros de registo para determinar o erro.
+Os ficheiros de registo (stderr e stdout) para os scripts de preparação do anfitrião estão localizados em `/var/lib/waagent/custom-script/download/0` em todos os anfitriões. Se Ocorreu um erro durante a preparação do anfitrião, veja estes ficheiros de registo para determinar o erro.
 
-Se os scripts de preparação foi executado com êxito, em seguida, os ficheiros de registo no diretório /var/lib/waagent/custom-script/download/1 do anfitrião de playbook ansible precisará ser examinado. Se o erro ocorreu durante a instalação real do OpenShift, o ficheiro de stdout exibirá o erro. Utilize estas informações para contactar o suporte para obter mais assistência.
+Se os scripts de preparação foi executado com êxito, em seguida, o registo de ficheiros no `/var/lib/waagent/custom-script/download/1` diretório do anfitrião de playbook ansible tem de ser examinada. Se o erro ocorreu durante a instalação real do OpenShift, o ficheiro de stdout exibirá o erro. Utilize estas informações para contactar o suporte para obter mais assistência.
 
 Exemplo de saída
 
@@ -93,11 +93,11 @@ Os erros mais comuns durante a instalação são:
 
 ### <a name="private-key-has-a-passphrase"></a>Chave privada tem uma frase de acesso
 
-Verá um erro que a permissão foi negada para SSH. SSH para o anfitrião de manual de comunicação do ansible para verificar a existência de uma frase de acesso a chave privada.
+Verá um erro que a permissão foi negada para ssh. SSH para o anfitrião de manual de comunicação do ansible para verificar a existência de uma frase de acesso a chave privada.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>Segredo do Cofre de chaves com a chave privada não foi criado corretamente
 
-A chave privada é injetada no anfitrião de playbook ansible - ~/.ssh/id_rsa. Certifique-se que este ficheiro está correto. Teste ao abrir uma sessão SSH para um de nós do cluster do anfitrião de playbook ansible.
+A chave privada é copiada para o anfitrião de manual de comunicação do ansible - ~/.ssh/id_rsa. Certifique-se que este ficheiro está correto. Teste ao abrir uma sessão SSH para um de nós do cluster do anfitrião de playbook ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>As credenciais de principal de serviço foram introduzidas incorretamente
 

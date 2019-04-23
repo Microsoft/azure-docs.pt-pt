@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338297"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000067"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de armazenamento
 
@@ -89,9 +89,9 @@ Para obter mais informações, veja os artigos seguintes:
 - [Criar clusters do HDInsight com o armazenamento do Data Lake com o portal do Azure](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Utilizar o armazenamento do Data Lake com clusters do HDInsight do Azure](../hdinsight-hadoop-use-data-lake-store.md)
 
-### <a name="azure-data-lake-storage-gen2-preview"></a>Geração de armazenamento 2 do Azure Data Lake (pré-visualização)
+### <a name="azure-data-lake-storage-gen2"></a>Armazenamento do Azure Data Lake Ger2
 
-Geração de armazenamento 2 do Azure Data Lake é a mais recente do armazenamento da oferta e está em pré-visualização no momento da redação deste artigo. Ele unifica os principais recursos da primeira geração de armazenamento do Azure Data Lake com um ponto de extremidade para os sistema de ficheiros compatível Hadoop, que se integrado diretamente ao armazenamento de Blobs do Azure. Esta melhoria combina os benefícios de dimensionamento e custos de armazenamento de objetos com a fiabilidade e desempenho normalmente associados apenas com sistemas de ficheiros no local.
+Geração de armazenamento 2 do Azure Data Lake é a mais recente do armazenamento da oferta. Ele unifica os principais recursos da primeira geração de armazenamento do Azure Data Lake com um ponto de extremidade para os sistema de ficheiros compatível Hadoop, que se integrado diretamente ao armazenamento de Blobs do Azure. Esta melhoria combina os benefícios de dimensionamento e custos de armazenamento de objetos com a fiabilidade e desempenho normalmente associados apenas com sistemas de ficheiros no local.
 
 ADLS Gen 2 está embutido no início da [armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md) e permite-lhe interagir com dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](../../data-lake-store/index.md), como semântica do sistema de ficheiros, ao nível do ficheiro segurança e dimensionamento são combinados com armazenamento em camadas e de baixo custo, capacidades de recuperação após desastre/disponibilidade elevada e uma grande/ferramentas do SDK o ecossistema de desde [armazenamento de Blobs do Azure](../../storage/blobs/storage-blobs-introduction.md). No ger2 de armazenamento do Data Lake, todas as qualidades de armazenamento de objetos permanecem enquanto adicionar as vantagens de uma interface de sistema de ficheiros otimizados para análise de cargas de trabalho.
 
@@ -115,7 +115,7 @@ Um dos formatos seguintes pode ser utilizado para aceder aos dados armazenados n
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Introdução à pré-visualização do Azure Data Lake Storage geração 2](../../storage/data-lake-storage/introduction.md)
+- [Introdução ao Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [O driver de sistema de ficheiros do Azure Blob (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 - [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 

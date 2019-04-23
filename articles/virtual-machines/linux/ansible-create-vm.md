@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188143"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Utilizar o Ansible para criar uma máquina virtual do Linux no Azure
 Ao utilizar uma linguagem declarativa, o Ansible permite-lhe automatizar a criação, a configuração e a implementação de recursos do Azure através dos *manuais de procedimentos* do Ansible. Cada secção deste artigo mostra o aspeto de cada secção de um manual de procedimentos do Ansible, de modo a criar e configurar diferentes aspetos de uma máquina virtual do Linux. O [manual de procedimentos completo do Ansible](#complete-sample-ansible-playbook) é apresentado no final deste artigo.

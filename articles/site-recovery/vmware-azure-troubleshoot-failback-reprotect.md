@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 57630d1fa95c2133e592f691add8c515ca718afb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833436"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999472"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Resolver problemas de reativação pós-falha para o local do Azure
 
@@ -56,7 +56,7 @@ Para resolver este problema:
 
 Para resolver este problema:
 
-Para voltar a proteger uma VM com ativação pós-falha, a VM do Azure tem de executar para que os registros do serviço de mobilidade com o configuration server no local e pode iniciar a replicação através da comunicação com o servidor de processos. Se o computador estiver num incorreta de rede ou não está em execução (suspenso Estado ou desligar para baixo), o servidor de configuração não é possível contactar o serviço de mobilidade na VM para começar a nova proteção.
+Para voltar a proteger uma VM com ativação pós-falha, a VM do Azure tem de executar para que os registros do serviço de mobilidade com o configuration server no local e pode iniciar a replicação através da comunicação com o servidor de processos. Se a máquina estiver numa rede incorreta ou não está em execução (não responder ou desligado), o servidor de configuração não é possível contactar o serviço de mobilidade na VM para começar a nova proteção.
 
 * Reinicie a VM para que possa começar a se comunicar ao site no local.
 * Reinicie a tarefa de reproteção depois de iniciar a máquina virtual do Azure.

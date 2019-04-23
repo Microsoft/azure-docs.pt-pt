@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075037"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002039"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalizar um modelo de idioma com as APIs do indexador de vídeo
 
@@ -47,7 +47,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
 
@@ -118,7 +118,7 @@ Segue-se o pedido no Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
 
@@ -183,7 +183,7 @@ Segue-se o pedido no Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 
@@ -225,7 +225,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 
@@ -294,7 +294,7 @@ Segue-se o pedido no Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 
@@ -344,7 +344,7 @@ Segue-se o pedido no Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get).
 
 ### <a name="request-parameters-and-request-body"></a>Parâmetros do pedido e o corpo do pedido
 
@@ -409,7 +409,7 @@ Segue-se o pedido no Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido
 
@@ -480,7 +480,7 @@ Segue-se o pedido no Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 
@@ -517,7 +517,7 @@ Segue-se o pedido no Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 
@@ -566,7 +566,7 @@ Segue-se o pedido no Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122).
+[Consulte os parâmetros necessários e testar com o Portal de programador do indexador de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
 
 ### <a name="request-parameters"></a>Parâmetros do pedido 
 

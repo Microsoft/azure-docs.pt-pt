@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online do RDS SQL Server para a base de dados do Azure SQL ou uma instância gerida da base de dados do Azure SQL | Documentos da Microsoft'
-description: Aprenda a realizar uma migração online do SQL Server de RDS para a base de dados do Azure SQL ou uma instância gerida da base de dados do Azure SQL utilizando o serviço de migração de base de dados do Azure.
+title: 'Tutorial: Utilizar o serviço de migração de base de dados do Azure para uma migração online do RDS SQL Server para a base de dados do Azure SQL ou para uma instância gerida da base de dados do Azure SQL | Documentos da Microsoft'
+description: Aprenda a efetuar uma migração online do SQL Server de RDS para a base de dados do Azure SQL ou para uma base de dados do SQL Azure instância gerida utilizando o serviço de migração de base de dados do Azure.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886408"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998979"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o servidor de SQL de RDS para a base de dados do Azure SQL ou uma base de dados do Azure SQL instância gerida online com o DMS
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância de servidor de SQL de RDS para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou uma [instância gerida de base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com período de indisponibilidade mínimo. Neste tutorial, migra os **Adventureworks2012** base de dados restaurada para um servidor de SQL de RDS instância do SQL Server 2012 (ou posterior) para a base de dados do Azure SQL ou uma base de dados do SQL Azure instância gerida utilizando a migração de base de dados do Azure Serviço.
@@ -187,7 +187,14 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
  
 3. Selecione + **Novo Projeto de Migração**.
 4. Na **novo projeto de migração** ecrã, especifique um nome para o projeto, no **tipo de servidor de origem** caixa de texto, selecione **AWS RDS para o SQL Server**, no  **Tipo de servidor de destino** caixa de texto, selecione **base de dados do Azure SQL**.
+
+    > [!NOTE]
+    > Para o tipo de servidor de destino, selecione **base de dados do Azure SQL** para migrar para ambos os uma base de dados de singleton de base de dados do Azure SQL e, bem como para uma base de dados do SQL do Azure de instância gerida.
+
 5. Na **escolha o tipo de atividade** secção, selecione **migração de dados Online**.
+
+    > [!IMPORTANT]
+    > Verifique se seleciona **migração de dados Online**; offline as migrações não são suportadas para este cenário.
 
     ![Criar Projeto do Azure Database Migration Service](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 

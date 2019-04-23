@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
-ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: cc6c93420e939e90e12b989def491199fd2c6b15
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547953"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007003"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar uma área de trabalho do serviço do Azure Machine Learning
 
@@ -27,7 +27,9 @@ Neste artigo, saiba como criar uma área de trabalho usando qualquer um dos segu
 * Um modelo Azure Resource Manager
 * O [do Azure Machine Learning CLI](#cli)
 
-A área de trabalho, criar utilizando os passos aqui em pode ser usada como um pré-requisito para outros tutoriais e artigos de instruções. 
+A área de trabalho, criar utilizando os passos aqui em pode ser usada como um pré-requisito para outros tutoriais e artigos de instruções.
+
+Se gostaria de utilizar um script para configurar a aprendizagem automática num ambiente de Python local, consulte a [GitHub do Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obter instruções.  
 
 Quando cria uma área de trabalho os seguintes recursos do Azure são adicionados automaticamente (se estiverem disponíveis regional):
  

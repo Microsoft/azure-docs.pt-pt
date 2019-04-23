@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: Com o Go para chamar a API de análise de texto'
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de códigos para o ajudar a começar a utilizar rapidamente a API de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure.
+description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de análise de texto nos serviços cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188956"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002784"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Go para chamar o serviço cognitivos de análise de texto 
 <a name="HOLTop"></a>
@@ -32,9 +32,9 @@ Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-h
 
 <a name="Detect"></a>
 
-## <a name="detect-language-request"></a>Pedido de deteção de idioma
+## <a name="detect-language"></a>Detetar idioma
 
-A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -72,7 +72,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/languages"
+    const uriPath = "/text/analytics/v2.1/languages"
 
     const uri = uriBase + uriPath
 
@@ -175,9 +175,9 @@ func main() {
 
 <a name="SentimentAnalysis"></a>
 
-## <a name="analyze-sentiment-request"></a>Pedido de análise de sentimentos
+## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Análise de sentimentos pode ser utilizada para descobrir o que os clientes pensam da sua marca ou tópico através da análise de texto não processado para dicas sobre o sentimento positivo ou negativo. O exemplo seguinte fornece as pontuações para dois documentos, uma em inglês e outra em espanhol.
+A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -215,7 +215,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/sentiment"
+    const uriPath = "/text/analytics/v2.1/sentiment"
 
     const uri = uriBase + uriPath
 
@@ -293,9 +293,9 @@ O resultado é medido como positivo se ele é classificado mais próximo 1.0 e n
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases-request"></a>Pedido de extração de expressões-chave
+## <a name="extract-key-phrases"></a>Extrair expressões-chave
 
-A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Extração de expressões-chave é utilizada para identificar rapidamente os pontos principais de um documento ou de texto. O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
+A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -333,7 +333,7 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.0/keyPhrases"
+    const uriPath = "/text/analytics/v2.1/keyPhrases"
 
     const uri = uriBase + uriPath
 
@@ -433,7 +433,7 @@ func main() {
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entidades](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrair palavras de texto, como "EUA", em seguida, dar a o tipo de e/ou a ligação da Wikipedia para este word(s). O tipo de "United States" for `location`, enquanto o link para Wikipedia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrair palavras de texto, como "EUA", em seguida, dar a o tipo de e/ou a ligação da Wikipedia para este word(s). O tipo de "United States" for `location`, enquanto o link para Wikipedia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -471,13 +471,12 @@ func main() {
     a free trial access key, you should not need to change this region.
     */
     const uriBase =    "https://westus.api.cognitive.microsoft.com"
-    const uriPath = "/text/analytics/v2.1-preview/entities"
+    const uriPath = "/text/analytics/v2.1/entities"
 
     const uri = uriBase + uriPath
 
     data := []map[string]string{
-        {"id": "1", "language": "en", "text": "Jeff bought three dozen eggs because there was a 50% discount."},
-        {"id": "2", "language": "en", "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."},
+        {"id": "1", "language": "en", "text": "Microsoft is an It company."}
     }
 
     documents, err := json.Marshal(&data)
@@ -531,158 +530,47 @@ func main() {
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 

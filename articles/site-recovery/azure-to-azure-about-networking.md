@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651548"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149319"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
 
@@ -48,7 +48,7 @@ Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conec
 
 **URL** | **Detalhes**  
 --- | ---
-*.blob.core.windows.net | É necessário para que os dados podem ser escritos para a conta de armazenamento de cache na região de origem da VM. Se souber a cache de contas de armazenamento para as suas VMs, pode a lista de permissões os URLs de conta de armazenamento removeu (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
+*.blob.core.windows.net | É necessário para que os dados podem ser escritos para a conta de armazenamento de cache na região de origem da VM. Se souber a cache de contas de armazenamento para as suas VMs, pode a lista de permissões os URLs de conta de armazenamento específico (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
 login.microsoftonline.com | Necessário para autorização e autenticação para os URLs do serviço Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | É necessário para que a comunicação de serviço de recuperação de Site pode ocorrer a partir da VM. Pode usar o "Site Recovery IP correspondente' se o proxy de firewall oferece suporte a IPs.
 *.servicebus.windows.net | É necessário para que os dados de monitorização e diagnóstico do Site Recovery podem ser escritos da VM. Pode usar o "Site Recovery monitorização IP correspondente' se o proxy de firewall oferece suporte a IPs.
@@ -96,13 +96,19 @@ Intervalos de endereços de IP de recuperação de site são os seguintes:
    Sul do Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
    Coreia do Sul Central | 52.231.28.253 | 52.231.32.85
-   Coreia do Sul | 52.231.298.185 | 52.231.200.144
+   Coreia do Sul | 52.231.198.185 | 52.231.200.144
    França Central | 52.143.138.106 | 52.143.136.55
    Sul de França | 52.136.139.227 |52.136.136.62
    Austrália central| 20.36.34.70 | 20.36.46.142
    Austrália Central 2| 20.36.69.62 | 20.36.74.130
    África do Sul, Oeste | 102.133.72.51 | 102.133.26.128
    África do Sul, Norte | 102.133.160.44 | 102.133.154.128
+   Gov (US) - Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov - Iowa | 13.72.184.23 | 23.97.16.186
+   Gov (US) - Arizona | 52.244.205.45 | 52.244.48.85
+   Gov (US) - Texas | 52.238.119.218 | 52.238.116.60
+   US DoD Leste | 52.181.164.103 | 52.181.162.129
+   US DoD Centro | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
 
 Este exemplo mostra como configurar regras NSG para uma VM a replicar.

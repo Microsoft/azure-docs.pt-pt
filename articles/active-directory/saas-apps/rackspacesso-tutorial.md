@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ca6667a5353d253743a45d5db742811d8e15ed31
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682122"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Active Directory do Azure com o Rackspace SSO
 
@@ -72,7 +72,7 @@ Para configurar a integração do Rackspace SSO para o Azure AD, terá de adicio
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
 Nesta secção, configure e teste do Azure AD início de sessão único com o Rackspace SSO com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Rackspace SSO tem de ser estabelecida.
+Ao utilizar o início de sessão único com Rackspace, os utilizadores de Rackspace serão automaticamente criados pela primeira vez que iniciar sessão portal do Rackspace. 
 
 Para configurar e testar o Azure AD início de sessão único com o Rackspace SSO, tem de concluir os seguintes blocos de construção:
 
@@ -80,8 +80,8 @@ Para configurar e testar o Azure AD início de sessão único com o Rackspace SS
 2. **[Configurar Rackspace SSO início de sessão único](#configure-rackspace-sso-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de Rackspace SSO](#create-rackspace-sso-test-user)**  - para ter um equivalente da Eduarda Almeida na Rackspace SSO, que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o mapeamento do atributo no painel de controlo de Rackspace](#set-up-attribute-mapping-in-the-rackspace-control-panel)**  - para atribuir funções de Rackspace para utilizadores do Azure AD.
+1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -121,21 +121,21 @@ Para configurar o Azure AD início de sessão único com o Rackspace SSO, execut
 
     ![O link de download de certificado](common/metadataxml.png)
 
-6. Sobre o **configurar o Rackspace SSO** secção, copie os URLs apropriados de acordo com seus requisitos.
-
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-    a. URL de início de sessão
-
-    b. Identificador do Azure AD
-
-    c. URL de fim de sessão
+Esse arquivo será carregado para Rackspace para preencher as definições de configuração de Federação de identidades necessárias.
 
 ### <a name="configure-rackspace-sso-single-sign-on"></a>Configurar o Rackspace SSO início de sessão único
 
-Para configurar o início de sessão único num **Rackspace SSO** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de Rackspace SSO ](https://support.rackspace.com/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **Rackspace SSO** lado:
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+1. Consulte a documentação em [adicionar um fornecedor de identidade para o painel de controle](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
+1. Ele irá levá-lo pelos passos para:
+    1. Criar um novo provedor de identidade
+    1. Especifique um domínio de e-mail que os utilizadores irão utilizar para identificar a sua empresa ao iniciar sessão.
+    1. Carregar o **XML de metadados de Federação** anteriormente transferidas a partir do painel de controlo do Azure.
+
+Isto irá configurar corretamente as definições de SSO básicas necessárias para o Azure e Rackspace para se ligar.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
@@ -185,15 +185,58 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-### <a name="create-rackspace-sso-test-user"></a>Criar utilizador de teste Rackspace SSO
+### <a name="set-up-attribute-mapping-in-the-rackspace-control-panel"></a>Configurar o mapeamento do atributo no painel de controlo de Rackspace
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na Rackspace SSO. Trabalhar com [equipa de suporte de Rackspace SSO](https://support.rackspace.com/) para adicionar os utilizadores na plataforma do SSO de Rackspace. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Rackspace utiliza um **política de mapeamento do atributo** para atribuir funções de Rackspace e de grupos aos seus utilizadores de início de sessão únicos. O **política de mapeamento do atributo** traduz as afirmações de SAML do Azure AD para os campos de configuração de utilizador requer Rackspace. Mais documentação pode ser encontrada na Rackspace [documentação de noções básicas de mapeamento do atributo](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Algumas considerações:
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+* Se pretender atribuir diferentes níveis de acesso de Rackspace com grupos do Azure AD, terá de permitir que a declaração de grupos do Azure **Rackspace SSO** as definições de início de sessão único. O **política de mapeamento do atributo** , em seguida, será utilizado para corresponder a esses grupos para pretendido Rackspace funções e grupos:
+
+    ![Os grupos de definições de afirmações](common/sso-groups-claim.png)
+
+* Por predefinição, o Azure AD envia os grupos de UID do Azure AD no afirmações de SAML, em comparação com o nome do grupo. No entanto, se estiver a sincronizar o seu diretório de Active Directory no local para o Azure AD, terá a opção para enviar os nomes reais dos grupos:
+
+    ![Os grupos de definições de nome de afirmação](common/sso-groups-claims-names.png)
+
+O exemplo a seguir **política de mapeamento do atributo** demonstra:
+1. Definir o nome do utilizador Rackspace como o `user.name` afirmações SAML. Qualquer declaração pode ser usada, mas é mais comuns para defini-lo como um campo que contém o endereço de e-mail do utilizador.
+1. Definir as funções de Rackspace `admin` e `billing:admin` num utilizador ao corresponder um grupo do AD do Azure, pelo nome do grupo ou UID de grupo. A *substituição* dos `"{0}"` no `roles` campo é utilizado e será substituído com os resultados da `remote` expressões de regra.
+1. Utilizar o `"{D}"` *predefinido substituição* para permitir que Rackspace obter campos adicionais de SAML, procurando as afirmações SAML padrão e bem conhecidas na troca de SAML.
+
+```yaml
+---
+mapping:
+    rules:
+    - local:
+        user:
+          domain: "{D}"
+          name: "{At(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)}"
+          email: "{D}"
+          roles:
+              - "{0}"
+          expire: "{D}"
+      remote:
+          - path: |
+              (
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='7269f9a2-aabb-9393-8e6d-282e0f945985') then ('admin', 'billing:admin') else (),
+                if (mapping:get-attributes('http://schemas.microsoft.com/ws/2008/06/identity/claims/groups')='MyAzureGroup') then ('admin', 'billing:admin') else ()
+              )
+            multiValue: true
+  version: RAX-1
+```
+> [!TIP]
+> Certifique-se de que utilize um editor de texto que valida a sintaxe YAML, ao editar o ficheiro de política.
+
+Consulte a Rackspace [documentação de noções básicas de mapeamento do atributo](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) para obter mais exemplos.
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico Rackspace SSO no painel de acesso, deve ser automaticamente sessão iniciada no SSO Rackspace para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+Também pode utilizar o **Validate** botão no **Rackspace SSO** único configurações de logon:
+
+   ![Botão Validar de SSO](common/sso-validate-sign-on.png)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

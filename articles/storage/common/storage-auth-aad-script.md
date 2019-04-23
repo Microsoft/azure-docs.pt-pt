@@ -1,29 +1,29 @@
 ---
-title: Execute comandos CLI do Azure ou do PowerShell numa identidade do Azure AD para aceder a dados de BLOBs e filas | Documentos da Microsoft
-description: CLI do Azure e o PowerShell suportam a iniciar sessão com uma identidade do Azure AD para executar comandos nos dados de BLOBs e filas de armazenamento do Azure. Um token de acesso é fornecido para a sessão e utilizado para autorizar as operações de chamada. Permissões dependem da função RBAC atribuída para a identidade do Azure AD.
+title: Execute comandos CLI do Azure ou do PowerShell com credenciais do Azure AD para aceder aos dados de BLOBs ou filas | Documentos da Microsoft
+description: CLI do Azure e o PowerShell suportam início de sessão com credenciais do Azure AD para executar comandos nos dados de BLOBs e filas de armazenamento do Azure. Um token de acesso é fornecido para a sessão e utilizado para autorizar as operações de chamada. Permissões dependem da função RBAC atribuída para a entidade de segurança do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787003"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149653"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Utilizar uma identidade do Azure AD para aceder a dados de BLOBs e filas com a CLI ou o PowerShell
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Execute comandos CLI do Azure ou do PowerShell com credenciais do Azure AD para aceder aos dados de BLOBs ou filas
 
-O armazenamento do Azure fornece extensões para a CLI do Azure e do PowerShell que permitem-lhe iniciar sessão e executar comandos de scripts sob uma identidade do Azure Active Directory (Azure AD). A identidade do Azure AD pode ser um utilizador, grupo ou principal de serviço de aplicações, ou pode ser um [identidade de recursos do Azure gerida](../../active-directory/managed-identities-azure-resources/overview.md). Pode atribuir permissões para aceder aos dados de BLOBs e filas para a identidade do Azure AD através do controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções do RBAC no armazenamento do Azure, consulte [gerir direitos de acesso aos dados de armazenamento do Azure com o RBAC](storage-auth-aad-rbac.md).
+O armazenamento do Azure fornece extensões para a CLI do Azure e do PowerShell que permitem-lhe iniciar sessão e executar o script de comandos com credenciais do Azure Active Directory (Azure AD). Quando iniciar sessão CLI do Azure ou do PowerShell com credenciais do Azure AD, é devolvido um token de acesso de OAuth 2.0. Esse token é automaticamente utilizado pelo CLI ou o PowerShell para autorizar as operações de dados subsequentes no armazenamento de BLOBs ou filas. Para operações suportadas, já não tem de transmitir uma chave de conta ou o token SAS com o comando.
 
-Quando iniciar sessão CLI do Azure ou do PowerShell com uma identidade do Azure AD, é devolvido um token de acesso para aceder ao armazenamento do Azure sob essa identidade. Esse token é automaticamente usado pela CLI ou o PowerShell para autorizar as operações de armazenamento do Azure. Para operações suportadas, já não tem de transmitir uma chave de conta ou o token SAS com o comando.
+Pode atribuir permissões aos dados de BLOBs e filas para um principal de segurança do Azure AD através do controlo de acesso baseado em funções (RBAC). Para obter mais informações sobre as funções do RBAC no armazenamento do Azure, consulte [gerir direitos de acesso aos dados de armazenamento do Azure com o RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Operações suportadas
 
-As extensões são suportadas para operações de contentores e filas. As operações que podem ser chamados depende das permissões concedidas à identidade do Azure AD com a qual inicia sessão no CLI do Azure ou o PowerShell. Permissões para os contentores de armazenamento do Azure ou filas são atribuídas através do controlo de acesso baseado em funções (RBAC). Por exemplo, se uma função de leitor de dados é atribuída à identidade, em seguida, pode executar comandos de scripts de leitura de dados de um contentor ou uma fila. Se uma função de contribuinte do Data for atribuída para a identidade, em seguida, pode executar comandos de scripts que ler, escreverem ou eliminar um contentor ou fila ou os dados contêm. 
+As extensões são suportadas para operações de contentores e filas. As operações que podem ser chamados depende das permissões concedidas para a entidade de segurança do Azure AD com a qual inicia sessão no CLI do Azure ou o PowerShell. Permissões para os contentores de armazenamento do Azure ou filas são atribuídas através do controlo de acesso baseado em funções (RBAC). Por exemplo, se está atribuído a **leitor de dados de Blob** função, em seguida, pode executar comandos de scripts de leitura de dados de um contentor ou uma fila. Se estiver atribuído a **contribuinte de dados do Blob** função, em seguida, pode executar comandos de scripts que ler, escreverem ou eliminar um contentor ou fila ou os dados nelas contidos. 
 
 Para obter detalhes sobre as permissões necessárias para cada operação de armazenamento do Azure num contentor ou fila, consulte [permissões para chamar as operações REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
@@ -129,5 +129,5 @@ O exemplo seguinte mostra como criar um contentor numa nova conta de armazenamen
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre as funções do RBAC para o armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC](storage-auth-aad-rbac.md).
-- Para saber mais sobre a utilização de identidades geridas para recursos do Azure com o armazenamento do Azure, veja [Authenticate acesso para blobs e filas com o Azure managed identidades para recursos do Azure](storage-auth-aad-msi.md).
+- Para saber mais sobre a utilização de identidades geridas para recursos do Azure com o armazenamento do Azure, veja [autenticar o acesso a blobs e filas com o Azure Active Directory e de identidades geridas para recursos do Azure](storage-auth-aad-msi.md).
 - Para saber como autorizar o acesso a contentores e filas de dentro dos seus aplicativos de armazenamento, veja [utilize o Azure AD com aplicações de armazenamento](storage-auth-aad-app.md).

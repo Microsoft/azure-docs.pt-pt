@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227711"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003450"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Implementar o Azure Databricks na sua rede virtual (pré-visualização)
 
@@ -37,7 +37,7 @@ Pode utilizar a interface de implantação de área de trabalho do Azure Databri
 
 A rede virtual que implementar a sua área de trabalho do Azure Databricks para tem de cumprir os seguintes requisitos:
 
-### <a name="location"></a>Localização
+### <a name="location"></a>Location
 
 A rede virtual tem de residir na mesma localização que a área de trabalho do Azure Databricks.
 
@@ -121,7 +121,7 @@ Se utilizar este modelo sem também utilizar o modelo de grupos de segurança de
 
 Se não utilizar o [portal do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) ou [modelos Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar a rede com grupos de segurança, tem manualmente o seguinte tráfego de lista de permissões nas suas sub-redes.
 
-|Direção|Protocolo|Origem|Porta de origem|Destino|Porta de destino|
+|Direction|Protocolo|Origem|Porta de origem|Destino|Porta de destino|
 |---------|--------|------|-----------|-----------|----------------|
 |Entrada|\*|VirtualNetwork|\*|\*|\*|
 |Entrada|\*|IP do NAT de plano de controlo|\*|\*|22|
@@ -131,7 +131,7 @@ Se não utilizar o [portal do Azure](https://docs.azuredatabricks.net/administra
 |Saída|\*|\*|\*|Armazenamento (etiqueta de serviço)|\*|
 |Saída|\*|\*|\*|VirtualNetwork|\*|
 
-Tráfego de sub-rede de lista de permissões com o IP seguinte endereços. Para SQL (metastore) e armazenamento (armazenamento de artefactos e de log), deve usar o Sql e o armazenamento [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Tráfego de sub-rede de lista branca com o IP seguinte endereços. Para SQL (metastore) e armazenamento (armazenamento de artefactos e de log), deve usar o Sql e o armazenamento [etiquetas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 |Região do Azure Databricks|Serviço|IP público|
 |-----------------------|-------|---------|
@@ -188,7 +188,7 @@ Causa possível: Contentor não é possível comunicar com a instância de aloja
 
 ### <a name="notebook-command-errors"></a>Erros de comando do bloco de notas
 
-**Comando parou**
+**Comando não está a responder**
 
 Causa possível: a comunicação de trabalho para o trabalho está bloqueada. Corrigi, certificar-se de que as regras de segurança de entrada atender aos requisitos.
 

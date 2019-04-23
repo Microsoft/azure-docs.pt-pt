@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 8c8c3052496241d359461c68ae4d81cbf01e9c02
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9ddf0d2d4c9c6d25f6a04df2db8a4ee93f177467
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187683"
 ---
 # <a name="troubleshoot-shared-image-galleries"></a>Resolver problemas de galerias de imagem partilhada
 

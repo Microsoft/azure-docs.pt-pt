@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093740"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002906"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Efetuar ativação pós-falha manual para um hub IoT (pré-visualização pública)
 
@@ -49,9 +49,6 @@ Neste tutorial, vai realizar as seguintes tarefas:
 
     **Região**: selecione uma região perto de si e que faça parte da pré-visualização. Este tutorial utiliza `westus2`. Uma ativação pós-falha só pode ser executada entre regiões do Azure geograficamente emparelhadas. A região geograficamente emparelhada com westus2 é WestCentralUS.
     
-   > [!NOTE]
-   > Ativação pós-falha manual está atualmente em pré-visualização pública e está *não* disponível nas seguintes regiões do Azure: E.U.A. leste, E.U.A. oeste, Europa do Norte, Europa Ocidental, sul do Brasil e dos E.U.A. centro-Sul.
-
    **Nome do Hub IoT**: especifique um nome para o seu hub IoT. O nome do hub tem de ser globalmente exclusivo. 
 
    ![Captura de ecrã que mostra o painel Básico para criar um hub IoT](./media/tutorial-manual-failover/create-hub-02-basics.png)

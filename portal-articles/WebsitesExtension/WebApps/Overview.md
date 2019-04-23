@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530869"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicações
 O Serviço de Aplicações do Azure permitem-lhe criar e alojar aplicações Web na linguagem de programação da sua preferência sem ter de gerir infraestrutura nem a linguagem ou o runtime do framework da Web. Este serviço garante dimensionamento automático e elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, Serviços de DevOps do Azure ou de qualquer repositório de Git. Saiba como utilizar o Serviço de Aplicações do Azure com os nossos guias de introdução, tutoriais e amostras.

@@ -2,18 +2,18 @@
 title: Atalhos de teclado do Catálogo de Dados do Azure
 description: Este artigo mostra os atalhos de teclado para o catálogo de dados do Azure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 35fcdf7e08f57c563cf28e7a6d8f1595cf31f7d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409067"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000781"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Ferramenta de registo da origem de atalhos de teclado para os dados do catálogo de dados
@@ -23,7 +23,7 @@ ms.locfileid: "47409067"
 | Separador para cada controle numa página |Tab |
 | Escolha uma opção |Introduza ou barra de espaço |
 | Maximizar a página |WIN + SETA PARA CIMA |
-| Página de minimizar/restauro |WIN + DOWN |
+| Página de minimizar/restauro |WIN+DOWN |
 | Menu de página aberta |ALT + BARRADEESPAÇO |
 
 ### <a name="authentication-page"></a>Página de autenticação

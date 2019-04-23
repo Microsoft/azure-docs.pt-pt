@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984055"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006678"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -73,7 +73,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)
 * [Mensagem de blogue](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
+## <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
 Com a monitorização de conectividade do serviço, pode agora testar a acessibilidade de aplicativos e detectar afunilamentos de desempenho no local, redes de deteção de carrier e centros de dados de cloud/privadas.
 
@@ -86,7 +86,7 @@ Com a monitorização de conectividade do serviço, pode agora testar a acessibi
 
 Para obter mais informações, veja os artigos seguintes:
 
-* [Configurar o Monitor de desempenho de rede para a monitorização de pontos finais de serviço](https://aka.ms/applicationconnectivitymonitorguide)
+* [Configurar o Monitor de desempenho de rede para a monitorização de pontos finais de serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Mensagem de blogue](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Análise de Tráfego

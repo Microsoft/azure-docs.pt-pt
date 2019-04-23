@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: 55ccfd17a39a19bec01924e263d8f4892bd6101d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216752"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005694"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -66,7 +66,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 | | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
 --|--|--|--|--|--
 Cenários suportados |Sim|Sim|Não|Sim*|Não
-Versão suportada | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Versão suportada | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|ND|Cluster Hyper-V, anfitrião Hyper-V|ND|
 Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (pode criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND |Vários (pode criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND
 
@@ -117,7 +117,7 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
 
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta Site Recovery Deployment Planner é 2.3.
+A versão mais recente da ferramenta Site Recovery Deployment Planner é 2.4.
 Veja a página [Histórico de versões do Planeador de Implementações do Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: d84ebcdbd557a56c4c20600be67f26a084d43ed2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681816"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005966"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -33,7 +33,7 @@ O [de imagem digitalizada](Computer-vision/Home.md), [Face](Face/Overview.md), [
 
 - **Controlo sobre os dados**: Permita aos clientes escolherem onde estes serviços cognitivos processa os dados. Isto é essencial para os clientes que não é possível enviar dados para a cloud, mas precisam de acesso à tecnologia de serviços cognitivos. Suporte consistência em ambientes híbridos – em dados, gestão, identidade e segurança.
 - **Controle sobre atualizações do modelo**: Fornece aos clientes flexibilidade no controlo de versões e a atualização dos modelos implementados em suas soluções.
-- **Arquitetura portátil**: Ative a criação de uma arquitetura de aplicativos portáteis que pode ser implementada no Azure, no local e o limite. Contentores podem ser implementados diretamente à [serviço Kubernetes do Azure](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [Azure Pilha](../azure-stack/index.yml). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Arquitetura portátil**: Ative a criação de uma arquitetura de aplicativos portáteis que pode ser implementada no Azure, no local e o limite. Contentores podem ser implementados diretamente à [serviço Kubernetes do Azure](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml), ou uma [Kubernetes](https://kubernetes.io/) cluster implementado para [Azure Pilha](/azure-stack/operator). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Alto débito / baixa latência**: Fornece aos clientes a capacidade de dimensionar para um débito elevado e requisitos de baixa latência, permitindo que os serviços cognitivos executar fisicamente perto dos seus dados e lógica do aplicativo. Os contentores não limite de transações por segundo (TPS) e podem ser feitos para aumentar verticalmente e horizontalmente para lidar com a pedido, se fornecer os recursos de hardware necessários. 
 
 

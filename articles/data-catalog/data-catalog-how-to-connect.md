@@ -2,18 +2,18 @@
 title: Como ligar a origens de dados no catálogo de dados do Azure
 description: Artigo que mostra como realce como ligar a origens de dados detetadas com o catálogo de dados do Azure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 973077b56f1a777d917a94f9c1470e6f8c15a489
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405059"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000577"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como ligar a origens de dados
 ## <a name="introduction"></a>Introdução
@@ -38,9 +38,9 @@ Ao utilizar o "Abrir em...." menu para origens de dados no portal do catálogo d
 | Abrir na aplicação | Extensão de ficheiro protocolo | Versões de aplicações suportados |
 | --- | --- | --- |
 | Excel |.odc |Excel 2010 ou posterior |
-| Excel (principais 1000) |.odc |Excel 2010 ou posterior |
+| Excel (Top 1000) |.odc |Excel 2010 ou posterior |
 | Power Query |.xlsx |Excel 2016 ou o Excel 2010 ou o Excel 2013 com o Power Query para o suplemento do Excel instalado |
-| O ambiente de trabalho do Power BI |. pbix |Power BI Desktop Julho 2016 ou posterior |
+| Power BI Desktop |.pbix |Power BI Desktop Julho 2016 ou posterior |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 atualização 4 ou posterior com as ferramentas do SQL Server instalada |
 | Gestor de relatórios |http:// |Consulte [requisitos de browser do SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
 

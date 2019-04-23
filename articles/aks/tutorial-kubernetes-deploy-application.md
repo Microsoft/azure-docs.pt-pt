@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756270"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149534"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicações no Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutor
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Substitua *microsoft* pelo seu nome de servidor de início de sessão do ACR. Este nome de imagem foi encontrado na linha 47 do ficheiro de manifesto. O seguinte exemplo mostra o nome da imagem predefinida:
+Substitua *microsoft* pelo seu nome de servidor de início de sessão do ACR. O nome da imagem for encontrado na linha 51 do ficheiro de manifesto. O seguinte exemplo mostra o nome da imagem predefinida:
 
 ```yaml
 containers:

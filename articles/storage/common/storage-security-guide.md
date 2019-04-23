@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650126"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006014"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
@@ -244,7 +244,7 @@ Para obter informações mais detalhadas sobre como utilizar assinaturas de aces
 
     Este artigo inclui uma explicação sobre o modelo SAS, exemplos de assinaturas de acesso partilhado, e recomendações para a prática recomendada usar de SAS. Também discuti é a revogação de permissão concedida.
 
-* Authentication
+* Autenticação
 
   * [Autenticação para os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Introdução ao Tutorial de assinaturas de acesso partilhado
@@ -302,7 +302,7 @@ Para a encriptação em si, pode gerar e gerir as suas próprias chaves de encri
   Este artigo fornece uma explicação de encriptação do lado do cliente e fornece exemplos de como utilizar a biblioteca de cliente de armazenamento para encriptar e desencriptar recursos a partir de quatro serviços de armazenamento. Também fala sobre o Azure Key Vault.
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>Com o Azure Disk Encryption para encriptar discos utilizados pelas suas máquinas virtuais
-O Azure Disk Encryption é um novo recurso. Esta funcionalidade permite-lhe encriptar os discos de SO e discos de dados utilizados pela máquina Virtual IaaS. Para Windows, as unidades são encriptadas com a tecnologia de encriptação do BitLocker de norma da indústria. Para o Linux, os discos são encriptados com a tecnologia de DM-Crypt. Isso está integrado com o Azure Key Vault, para que possa controlar e gerir as chaves de encriptação de disco.
+O Azure Disk Encryption permite que criptografe os discos de SO e discos de dados utilizados pela máquina Virtual IaaS. Para Windows, as unidades são encriptadas com a tecnologia de encriptação do BitLocker de norma da indústria. Para o Linux, os discos são encriptados com a tecnologia de DM-Crypt. Isso está integrado com o Azure Key Vault, para que possa controlar e gerir as chaves de encriptação de disco.
 
 A solução suporta os seguintes cenários para IaaS VMs quando forem ativadas no Microsoft Azure:
 

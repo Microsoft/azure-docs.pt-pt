@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445693"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996035"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store dados críticos da empresa no armazenamento de Blobs do Azure
 
@@ -41,7 +41,7 @@ Armazenamento imutável suporta o seguinte:
 
 - **Configuração de nível de contêiner**: Os utilizadores podem configurar políticas de retenção com base no tempo e retenção legal etiquetas ao nível do contentor. Ao utilizar as definições de nível de contêiner simples, os utilizadores podem criar e políticas de retenção com base no tempo de bloqueio, expandir a intervalos de retenção, conjunto e retenções jurídicas claro e muito mais. Estas políticas se aplicam a todos os blobs no contentor, novo e existente.
 
-- **Suporte de registo de auditoria**: Cada contentor inclui um registo de auditoria. Ele apresenta os comandos de retenção com base no tempo até cinco para políticas de retenção com base no tempo bloqueado, com um máximo de três logs para extensões de intervalo de retenção. Para uma retenção com base no tempo, o registo contém o ID de utilizador, tipo de comando, carimbos de data / hora e intervalo de retenção. Para retenções jurídicas, o registo contém o ID de utilizador, tipo de comando, carimbos de data / hora e as etiquetas de retenção legal. Este registo é retido durante o tempo de vida do contentor, de acordo com as diretrizes de normas de 17a-4(f) seg. O [registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) mostra um registo mais abrangente de todas as atividades do plano de controle; e permitindo [registos de diagnóstico do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) retém e mostra as operações de plano de dados. É responsabilidade do usuário para armazenar os registos de forma permanente, como poderá ser necessário por motivos de regulamentação ou outros.
+- **Suporte de registo de auditoria**: Cada contentor inclui um log de auditoria de política. Ele mostra até sete com base no tempo de retenção de comandos para políticas de retenção com base no tempo bloqueado e contém o ID de utilizador, tipo de comando, carimbos de data / hora e intervalo de retenção. Para retenções jurídicas, o registo contém o ID de utilizador, tipo de comando, carimbos de data / hora e as etiquetas de retenção legal. Este registo é retido durante o tempo de vida da política, de acordo com as diretrizes de normas de 17a-4(f) seg. O [registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) mostra um registo mais abrangente de todas as atividades do plano de controle; e permitindo [registos de diagnóstico do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) retém e mostra as operações de plano de dados. É responsabilidade do usuário para armazenar os registos de forma permanente, como poderá ser necessário por motivos de regulamentação ou outros.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -82,15 +82,28 @@ A tabela seguinte mostra os tipos de operações de BLOBs que estão desativadas
 
 <sup>1</sup> o aplicativo permite que estas operações criar um novo blob de uma vez. Todos os subsequentes substituir não são permitidas operações num caminho de blob existente num contentor de imutável.
 
+## <a name="supported-values"></a>Valores suportados
+
+### <a name="time-based-retention"></a>Retenção com base no tempo
+- Para uma conta de armazenamento, o número máximo de contentores com bloqueado com base no tempo políticas imutável é 1000.
+- O intervalo de retenção mínimo é de 1 dia. O máximo é 146,000 dias (400 anos).
+- Para um contentor, o número máximo de edições para expandir um intervalo de retenção para bloqueado com base no tempo políticas imutável é 5.
+- Para um contentor, um máximo de 7 registos de auditoria de política de retenção com base no tempo são retidos durante a duração da política.
+
+### <a name="legal-hold"></a>Suspensão legal
+- Para uma conta de armazenamento, o número máximo de contentores com uma definição de suspensão legal é 1000.
+- Para um contentor, o número máximo de etiquetas de suspensão legal é 10.
+- O comprimento mínimo de uma etiqueta de suspensão legal é 3 carateres de alfanuméricos. O comprimento máximo é 23 carateres alfanuméricos.
+- Para um contentor, um máximo de 10 legais armazenar os registos são mantidos durante a duração da política de auditoria de política.
+
 ## <a name="pricing"></a>Preços
 
 Não é sem custos adicionais para utilizar esta funcionalidade. Dados imutáveis é o preço da mesma forma como os dados regulares, e mutáveis. Para detalhes de preços no armazenamento de Blobs do Azure, consulte a [armazenamento do Azure, página de preços](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Introdução
-Armazenamento imutável está disponível apenas para fins gerais v2 e contas de armazenamento de Blobs. Destas contas devem ser gerenciado através de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Para obter informações sobre como atualizar uma conta de armazenamento v1 de fins gerais existente, consulte [atualizar uma conta de armazenamento](../common/storage-account-upgrade.md).
+Armazenamento imutável está disponível apenas para fins gerais v2 e contas de armazenamento de Blobs. Estas contas têm de ser geridas através de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Para obter informações sobre como atualizar uma conta de armazenamento v1 de fins gerais existente, consulte [atualizar uma conta de armazenamento](../common/storage-account-upgrade.md).
 
 As versões mais recentes do [portal do Azure](https://portal.azure.com), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), e [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) suporta armazenamento imutável para armazenamento de Blobs do Azure. [Suporte de bibliotecas de cliente](#client-libraries) também é fornecida.
-
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -152,16 +165,6 @@ As seguintes bibliotecas de cliente suportam armazenamento imutável para armaze
 - [Biblioteca de cliente Python versão 2.0.0 Release Candidate 2 e posterior](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Biblioteca de cliente de Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>Valores suportados
-
-- O intervalo de retenção mínimo é um dia. O máximo é 146,000 dias (400 anos).
-- Para uma conta de armazenamento, o número máximo de contentores com políticas de imutáveis bloqueadas é 1000.
-- Para uma conta de armazenamento, o número máximo de contentores com uma definição de suspensão legal é 1000.
-- Para um contentor, o número máximo de etiquetas de suspensão legal é 10.
-- O comprimento máximo de uma etiqueta de suspensão legal é 23 carateres alfanuméricos. O comprimento mínimo é de três carateres.
-- Para um contentor, o número máximo de extensões de intervalo de retenção permitido para políticas de imutáveis bloqueadas é três.
-- Para um contentor com uma política de imutável bloqueado, um máximo de cinco registos da política de retenção com base no tempo e um máximo de 10 legais armazenar os registos são mantidos durante a duração do contentor de política.
-
 ## <a name="faq"></a>FAQ
 
 **Pode fornecer documentação de conformidade de WORM?**
@@ -178,7 +181,7 @@ Não, pode utilizar o armazenamento imutável com qualquer v2 de fins gerais exi
 
 **Posso aplicar uma retenção legal e a política de retenção com base no tempo?**
 
-Um contentor pode ter uma retenção legal e uma política de retenção com base no tempo, ao mesmo tempo. Todos os blobs existentes nesse contentor permanecem no Estado imutável até que todos os retenções jurídicas forem verificadas, mesmo que o seu período de retenção em vigor expirou. Por outro lado, um blob permanece num Estado imutável até expira o período de retenção em vigor, apesar de tem sido limpo retenções jurídicas todos os.
+Sim, um contentor pode ter uma retenção legal e uma política de retenção com base no tempo ao mesmo tempo. Todos os blobs existentes nesse contentor permanecem no Estado imutável até que todos os retenções jurídicas forem verificadas, mesmo que o seu período de retenção em vigor expirou. Por outro lado, um blob permanece num Estado imutável até expira o período de retenção em vigor, apesar de tem sido limpo retenções jurídicas todos os.
 
 **São as políticas de retenção legal apenas para judiciais ou existem outros cenários de utilização?**
 
@@ -208,7 +211,7 @@ Sim. Quando uma política de retenção com base no tempo é criada, ele está n
 
 Sim. [Eliminação de forma recuperável para o armazenamento de Blobs do Azure](storage-blob-soft-delete.md) aplica-se a todos os contentores numa conta de armazenamento, independentemente de uma retenção legal ou de uma política de retenção com base no tempo. Recomendamos que ative a eliminação de forma recuperável para proteção adicional antes de quaisquer políticas WORM imutáveis são aplicadas e confirmadas. 
 
-**A funcionalidade está disponível em clouds nacionais e do governo?**
+**Onde o recurso está disponível?**
 
 Armazenamento imutável está disponível nas regiões do Azure público, China e administração pública. Se não estiver disponível armazenamento imutável na sua região, entre em contato com suporte e e-mail azurestoragefeedback@microsoft.com.
 

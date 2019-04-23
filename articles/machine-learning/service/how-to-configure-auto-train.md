@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548838"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010386"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -179,7 +179,7 @@ Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tr
 
 ## <a name="configure-your-experiment-settings"></a>Configurar as definições de experimentação
 
-Existem várias opções que pode utilizar para configurar seu automatizada experimentação do machine learning. Esses parâmetros são definidos pela Instanciação de um `AutoMLConfig` objeto. Consulte a [AutoMLConfig classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para obter uma lista completa de parâmetros.  
+Existem várias opções que pode utilizar para configurar seu automatizada experimentação do machine learning. Esses parâmetros são definidos pela Instanciação de um `AutoMLConfig` objeto. Consulte a [AutoMLConfig classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para obter uma lista completa de parâmetros.  
 
 Alguns exemplos incluem:
 
@@ -210,7 +210,7 @@ Alguns exemplos incluem:
         n_cross_validations=5)
     ```
 
-Os três diferentes `task` valores de parâmetro determinam a lista de algoritmos para aplicar.  Utilize o `whitelist` ou `blacklist` parâmetros para modificar ainda mais iterações com os algoritmos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada no [SupportedAlgorithms classe](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+Os três diferentes `task` valores de parâmetro determinam a lista de algoritmos para aplicar.  Utilize o `whitelist` ou `blacklist` parâmetros para modificar ainda mais iterações com os algoritmos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada na [SupportedAlgorithms classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
 ## <a name="primary-metric"></a>Métrica primária
 A métrica primária; conforme mostrado nos exemplos acima determina a métrica a ser utilizado durante a preparação de modelos para otimização. A métrica primária, que pode selecionar é determinada pelo tipo de tarefa que escolher. Segue-se uma lista de métricas disponíveis.
@@ -240,43 +240,6 @@ Se usar `preprocess=True`, os seguintes passos de pré-processamento de dados s�
 
 ## <a name="ensemble-models"></a>Modelos de Ensemble
 Ensemble learning melhora os resultados do machine learning e o desempenho de previsão ao combinam muitos modelos em vez de utilizar os modelos de únicos. Quando usando automatizadas a aprendizagem automática, pode preparar os modelos de ensemble com o [algoritmo de seleção de ensemble Caruana com a inicialização de Ensemble classificada](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). A iteração ensemble é apresentado como a última iteração de sua execução.
-
-## <a name="time-series-forecasting"></a>Previsão de série temporal
-Para o tipo de tarefa de previsão de série de tempo tem parâmetros adicionais para definir.
-1. time_column_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados. 
-1. max_horizon - isso define o período de tempo que pretende prever horizontalmente com base na periodicidade dos dados de treinamento. Por exemplo se tiver dados de treinamento com detalhamento de tempo diária, até que ponto por definir em dias em que quer que o modelo para treinar para.
-1. grain_column_names - isso define o nome de colunas que contêm dados de séries de tempo individuais em seus dados de treinamento. Por exemplo, se a previsão de vendas de uma determinada marca pela loja, definiria colunas de arquivo e marca como as colunas de intervalo de agregação.
-
-Ver exemplo dessas definições de que está a ser utilizadas abaixo, o exemplo de bloco de notas está disponível [aqui](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
-
-# View the number of time series data with defined grains
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
-    'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task='forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
-                             X=X_train,
-                             y=y_train,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 ## <a name="run-experiment"></a>Execute experimentação
 

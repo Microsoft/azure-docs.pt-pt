@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649888"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149738"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas mais comuns: Replicação do Azure para o Azure
 
@@ -67,7 +67,7 @@ Com o Site Recovery, pode replicar e recuperar VMs entre quaisquer duas regiões
 
 Não, recuperação de sites não necessita de conectividade à internet. Mas requer acesso aos intervalos IP e URLs de recuperação de Site, conforme mencionado na [este artigo](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Pode replicar o aplicativo ter o grupo de recursos separado para camadas separadas? 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Pode replicar o aplicativo ter o grupo de recursos separado para camadas separadas?
 Sim, pode replicar o aplicativo e manter a configuração da recuperação após desastre no grupo de recursos separado demasiado.
 Por exemplo, se tiver um aplicativo com cada camadas de aplicação, db e web no grupo de recursos separados, em seguida, ter de clicar no [Assistente de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes por para proteger todas as camadas. ASR irá replicar esses três camadas em três grupo de recursos diferente.
 
@@ -89,11 +89,12 @@ Hoje em dia, a maioria dos aplicativos pode recuperar bem a partir de instantân
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>O que é a frequência de geração de ponto de recuperação consistentes com falhas?
 Site Recovery cria um ponto de recuperação consistentes com falhas, a cada 5 minutos.
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>O que é um ponto de recuperação consistentes com aplicações? 
-Pontos de recuperação consistentes com a aplicação são criados a partir de instantâneos consistentes com aplicações. Pontos de recuperação consistentes com aplicações capturam os mesmos dados como instantâneos consistentes com falhas, com a adição de todos os dados na memória e todas as transações no processo. Devido aos conteúdos adicionais, os instantâneos consistentes com aplicações mais estejam e segue há mais tempo para executar. Recomendamos que os pontos de recuperação consistentes com aplicações de sistemas operacionais de base de dados e aplicações como o SQL Server.
+### <a name="what-is-an-application-consistent-recovery-point"></a>O que é um ponto de recuperação consistentes com aplicações?
+Pontos de recuperação consistentes com a aplicação são criados a partir de instantâneos consistentes com aplicações. Pontos de recuperação consistentes com aplicações capturam os mesmos dados como instantâneos consistentes com falhas, com a adição de todos os dados na memória e todas as transações no processo.
+Devido aos conteúdos adicionais, os instantâneos consistentes com aplicações mais estejam e segue há mais tempo para executar. Recomendamos que os pontos de recuperação consistentes com aplicações de sistemas operacionais de base de dados e aplicações como o SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>O que é o impacto de pontos de recuperação consistentes com aplicações no desempenho de aplicações?
-Considerando a pontos de recuperação consistentes com aplicações captura todos os dados na memória e no processo requer o framework, como o VSS no windows para silenciar o aplicativo. Isso, caso sejam feitas com bastante freqüência pode ter impacto no desempenho se a carga de trabalho já está muito ocupada. Normalmente, recomenda-se para não utilizar baixa frequência para pontos de recuperação consistente com a aplicação para cargas de trabalho não base de dados e para a carga de trabalho de base de dados de 1 hora é suficiente. 
+Considerando a pontos de recuperação consistentes com aplicações captura todos os dados na memória e no processo requer o framework, como o VSS no windows para silenciar o aplicativo. Isso, caso sejam feitas com bastante freqüência pode ter impacto no desempenho se a carga de trabalho já está muito ocupada. Normalmente, recomenda-se para não utilizar baixa frequência para pontos de recuperação consistente com a aplicação para cargas de trabalho não base de dados e para a carga de trabalho de base de dados de 1 hora é suficiente.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>O que é a frequência mínima de geração de ponto de recuperação consistentes com aplicações?
 Site Recovery pode cria um ponto de recuperação consistentes com aplicações com uma frequência mínima de na hora.
@@ -216,7 +217,11 @@ Depende da situação. Por exemplo, se a região de origem VM existir, apenas as
 Após a nova proteção, a quantidade de tempo para a reativação pós-falha é, normalmente, semelhante a hora de ativação pós-falha da região primária para uma região secundária.
 
 ## <a name="capacity"></a>Capacidade
-### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery funciona com a instância reservada?
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
+A equipa do Azure Site Recovery (ASR) funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, numa tentativa de se certificar de que as VMs protegidas por ASR para o desastre recovery com êxito de ser implementado na região de recuperação (DR) após desastre, Sempre que são iniciadas operações de ativação pós-falha do ASR.
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery funciona com as instâncias reservadas?
 Sim, pode comprar [reservar instâncias](https://azure.microsoft.com/pricing/reserved-vm-instances/) a DR região e as operações de ativação pós-falha do ASR utilizará-los. </br> Nenhuma configuração adicional é necessária dos clientes.
 
 

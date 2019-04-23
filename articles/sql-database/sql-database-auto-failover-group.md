@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848391"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009077"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -40,7 +40,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Terminologia do grupo de ativação pós-falha automática e capacidades
 
-- **Grupo de ativação pós-falha**
+- **Grupo de ativação pós-falha (NÉVOA)**
 
   Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária.
 
@@ -77,11 +77,11 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   - **Servidor de base de dados SQL registo CNAME de DNS para o serviço de escuta de leitura / escrita**
 
-     Num servidor de base de dados SQL, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `failover-group-name.database.windows.net`.
+     Num servidor de base de dados SQL, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `<fog-name>.database.windows.net`.
 
   - **Gerido registo CNAME de DNS de instância para o serviço de escuta de leitura / escrita**
 
-     Na instância gerida, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `failover-group-name.zone_id.database.windows.net`.
+     Na instância gerida, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `<fog-name>.zone_id.database.windows.net`.
 
 - **Escuta de só de leitura do grupo de ativação pós-falha**
 
@@ -89,11 +89,11 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   - **Servidor de base de dados SQL registo CNAME de DNS para o serviço de escuta só de leitura**
 
-     Num servidor de base de dados SQL, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `failover-group-name.secondary.database.windows.net`.
+     Num servidor de base de dados SQL, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `'.secondary.database.windows.net`.
 
   - **Gerido registo CNAME de DNS de instância para o serviço de escuta só de leitura**
 
-     Na instância gerida, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `failover-group-name.zone_id.database.windows.net`.
+     Na instância gerida, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `<fog-name>.zone_id.database.windows.net`.
 
 - **Política de ativação pós-falha automática**
 
@@ -156,11 +156,11 @@ Ao projetar um serviço com a continuidade do negócio em mente, siga estas Dire
 
 - **Utilizar o serviço de escuta de leitura / escrita para a carga de trabalho OLTP**
 
-  Quando executar operações de OLTP, utilize `failover-group-name.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. Tenha em atenção de que a ativação pós-falha envolve a atualizar que o registo DNS para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado.
+  Quando executar operações de OLTP, utilize `<fog-name>.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. Tenha em atenção de que a ativação pós-falha envolve a atualizar que o registo DNS para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado.
 
 - **Utilizar o serviço de escuta só de leitura para a carga de trabalho só de leitura**
 
-  Se tiver uma isolada logicamente só de leitura carga de trabalho que forem tolerantes a determinados limitada de dados, pode utilizar a base de dados secundária no aplicativo. Para sessões de só de leitura, utilize `failover-group-name.secondary.database.windows.net` que o servidor o URL e a ligação é automaticamente direcionado para o secundário. Também é recomendável que indique na cadeia de ligação ler intenção através de **ApplicationIntent = só de leitura**.
+  Se tiver uma isolada logicamente só de leitura carga de trabalho que forem tolerantes a determinados limitada de dados, pode utilizar a base de dados secundária no aplicativo. Para sessões de só de leitura, utilize `<fog-name>.secondary.database.windows.net` que o servidor o URL e a ligação é automaticamente direcionado para o secundário. Também é recomendável que indique na cadeia de ligação ler intenção através de **ApplicationIntent = só de leitura**.
 
 - **Esteja preparado para degradação de desempenho**
 
@@ -206,7 +206,7 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
 
 - **Utilizar o serviço de escuta de leitura / escrita para a carga de trabalho OLTP**
 
-  Quando executar operações de OLTP, utilize `failover-group-name.zone_id.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. A ativação pós-falha envolve a atualizar o registo DNS, para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado. Uma vez que a instância secundária compartilha a zona DNS com o principal, a aplicação cliente poderá voltar a ligar ao mesmo com o mesmo certificado de SAN.
+  Quando executar operações de OLTP, utilize `<fog-name>.zone_id.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. A ativação pós-falha envolve a atualizar o registo DNS, para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado. Uma vez que a instância secundária compartilha a zona DNS com o principal, a aplicação cliente poderá voltar a ligar ao mesmo com o mesmo certificado de SAN.
 
 - **Ligar diretamente a georreplicação secundária para consultas só de leitura**
 
@@ -214,8 +214,8 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
 
   > [!NOTE]
   > Em determinadas camadas de serviços, a base de dados SQL do Azure suporta a utilização de [réplicas só de leitura](sql-database-read-scale-out.md) carregar saldo consulta só de leitura cargas de trabalho utilizar a capacidade de uma réplica só de leitura e a utilizar o `ApplicationIntent=ReadOnly` parâmetro na ligação cadeia de caracteres. Quando tiver configurado uma secundária georreplicada, pode utilizar esta capacidade para ligar a qualquer uma réplica só de leitura na localização primária ou na localização georreplicado.
-  > - Para ligar a uma réplica só de leitura na localização primária, utilize `failover-group-name.zone_id.database.windows.net`.
-  > - Para ligar a uma réplica só de leitura na localização secundária, utilize `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Para ligar a uma réplica só de leitura na localização primária, utilize `<fog-name>.zone_id.database.windows.net`.
+  > - Para ligar a uma réplica só de leitura na localização secundária, utilize `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Esteja preparado para degradação de desempenho**
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21603ff213bc8babb4145209a76aee0b4150cc12
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357065"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997619"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Implementar aplicações lógicas com modelos Azure Resource Manager
 
@@ -67,7 +67,7 @@ New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent
 ```
 
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment)
 * [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>

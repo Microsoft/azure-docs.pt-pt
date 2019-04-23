@@ -17,11 +17,11 @@ ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
 ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188245"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 846472e00bc048de906ee8e14f6de38e366f3571
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 6557f3a4129076c1e8708208e5d4e0d4f53dcec3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225234"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000560"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração
 
@@ -69,4 +69,5 @@ Exportar dados utilizando o [portal do Azure](https://aka.ms/azconfig/portal) ou
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Quickstart: Criar uma aplicação web ASP.NET](./quickstart-aspnet-core-app.md)  
+> [!div class="nextstepaction"]
+> [Criar uma aplicação web ASP.NET Core](./quickstart-aspnet-core-app.md)  

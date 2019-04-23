@@ -1,24 +1,24 @@
 ---
-title: Criar um gateway de aplicação que aloja vários sites - portal do Azure
-description: Saiba como criar um gateway de aplicação que aloja vários sites no portal do Azure.
+title: Tutorial - criar um gateway de aplicação que aloja vários sites no portal do Azure
+description: Neste tutorial, saiba como criar um gateway de aplicação que aloja vários sites no portal do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080172"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999030"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Criar e configurar um gateway de aplicação para alojar vários web sites com o portal do Azure
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar um gateway de aplicação para alojar vários web sites com o portal do Azure
 
-Pode utilizar o portal do Azure para [configurar o alojamento de vários web sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, vai definir os conjuntos de endereços de back-end utilizando as máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo pressupõe que tiver vários domínios e utiliza os exemplos de *www.contoso.com* e *www.fabrikam.com*.
+Pode utilizar o portal do Azure para [configurar o alojamento de vários web sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste tutorial, vai definir os conjuntos de endereços de back-end utilizando as máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
 
-Neste artigo, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um gateway de aplicação
@@ -146,7 +146,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 
 As regras são processadas pela ordem em que são apresentadas, e o tráfego é direcionado com a primeira regra que corresponder, independentemente da especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 
-Neste exemplo, vai criar duas novas regras e eliminar a regra predefinida que foi criada quando criou o gateway de aplicação. 
+Neste exemplo, criará duas novas regras e eliminar a regra predefinida criada quando criou o gateway de aplicação.
 
 1. Clique em **regras** e, em seguida, clique em **básica**.
 2. Introduza *contosoRule* para o nome.
@@ -179,6 +179,18 @@ Depois de criar o gateway de aplicação com o respetivo endereço IP público, 
 
     ![Testar o site fabrikam no gateway de aplicação](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar dos recursos que criou com o gateway de aplicação, remova o grupo de recursos. Ao remover o grupo de recursos, também remover o gateway de aplicação e todos os respetivos recursos relacionados.
+
+Para remover o grupo de recursos:
+
+1. No menu da esquerda do portal do Azure, selecione **grupos de recursos**.
+2. Sobre o **grupos de recursos** página, procure **myResourceGroupAG** na lista, em seguida, selecioná-lo.
+3. Sobre o **página do grupo de recursos**, selecione **eliminar grupo de recursos**.
+4. Introduza *myResourceGroupAG* para **tipo o nome de grupo de recursos** e, em seguida, selecione **eliminar**
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Configurar o serviço de aplicações com o Gateway de aplicação](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o que pode fazer com o Gateway de aplicação do Azure](application-gateway-introduction.md)

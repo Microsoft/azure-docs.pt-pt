@@ -16,30 +16,30 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 23d1e53785ece50943d732db12b4cf460ba6752a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767486"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997058"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Criar uma máquina virtual do Windows numa zona de disponibilidade com o portal do Azure
 
 Este artigo explica através do portal do Azure para criar uma máquina virtual numa zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 
-Para utilizar uma zona de disponibilidade, crie a máquina virtual numa [região suportada do Azure](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+Para utilizar uma zona de disponibilidade, crie a máquina virtual numa [região suportada do Azure](../../availability-zones/az-overview.md#services-support-by-region).
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure 
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Criar máquina virtual
+## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
 1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 
-3. Introduza as informações da máquina virtual. O nome de utilizador e palavra-passe introduzidos aqui são utilizados para iniciar sessão na máquina virtual. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Escolha uma localização, como os E.U.A. Leste 2, que suporta zonas de disponibilidade. Quando terminar, clique em **OK**.
+3. Introduza as informações da máquina virtual. O nome de utilizador e a palavra-passe introduzidos aqui são utilizados para iniciar sessão na máquina virtual. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Escolha uma localização, como os E.U.A. Leste 2, que suporta zonas de disponibilidade. Quando terminar, clique em **OK**.
 
     ![Introduza as informações básicas sobre a VM no painel do portal](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 

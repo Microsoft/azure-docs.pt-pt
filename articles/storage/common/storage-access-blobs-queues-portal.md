@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846385"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148939"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utilizar o portal do Azure para aceder a dados de BLOBs ou filas
 
@@ -41,13 +41,13 @@ Quando tentar aceder aos dados de BLOBs ou filas no portal do Azure, o portal do
 Para aceder aos dados de BLOBs ou filas do portal do Azure com a sua conta do Azure AD, as duas das declarações a seguir devem ser verdadeiras para:
 
 - Foi atribuído o Azure Resource Manager [leitor](../../role-based-access-control/built-in-roles.md#reader) função, no mínimo, âmbito para o nível da conta de armazenamento ou superior. O **leitor** função concede as permissões mais restritas, mas outra função do Azure Resource Manager que concede acesso a recursos de gerenciamento de conta de armazenamento também é aceitável.
-- Foi atribuído a uma função de interna ou personalizada que fornece acesso a dados de fila ou de blobs.
+- Foi atribuído a uma função de interna ou personalizada que fornece acesso a dados de BLOBs ou filas.
 
 O **leitor** atribuição de função ou outra atribuição de função do Azure Resource Manager é necessária para que o usuário pode exibir e navegar recursos de gerenciamento de conta de armazenamento no portal do Azure. As funções RBAC que concedem acesso aos dados de BLOBs ou filas não conceda acesso a recursos de gerenciamento de conta de armazenamento. Para aceder a dados de BLOBs ou filas no portal, o utilizador tem permissões para navegar de recursos da conta de armazenamento. Para obter mais informações sobre este requisito, consulte [atribuir a função de leitor para acesso ao portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 As funções incorporadas que suportam o acesso aos seus dados de BLOBs ou filas incluem:
 
-- [Proprietário de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para POSIX controlo de acesso para a geração 2 de armazenamento do Azure Data Lake (pré-visualização).
+- [Proprietário de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para controlo de acesso POSIX para geração 2 de armazenamento do Azure Data Lake.
 - [Contribuinte de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Permissões de leitura/escrita/eliminação para blobs.
 - [Leitor de dados de Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Permissões só de leitura para blobs.
 - [Contribuinte de dados de fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Permissões de leitura/escrita/eliminar para filas.

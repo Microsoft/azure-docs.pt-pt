@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361816"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002753"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -126,7 +126,7 @@ A opção de implementação de instância gerida combina recursos avançados de
 Uma instância gerida fornece isolamento de segurança adicionais de outros inquilinos na nuvem do Azure. Isolamento de segurança inclui:
 
 - [Implementação de rede virtual nativo](sql-database-managed-instance-connectivity-architecture.md) e a conectividade ao seu ambiente no local com o Express Route do Azure ou o Gateway de VPN.
-- Ponto final SQL é exposto apenas por meio de um endereço IP privado, que permite conectividade segura do Azure privado ou redes híbridas.
+- Numa implementação predefinida, o ponto final SQL é exposto apenas por meio de um endereço IP privado, que permite conectividade segura do Azure privado ou redes híbridas.
 - Inquilino único com a infraestrutura subjacente dedicada (computação, armazenamento).
 
 O diagrama seguinte descreve várias opções de conectividade para as suas aplicações:

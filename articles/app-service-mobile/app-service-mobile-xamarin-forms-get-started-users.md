@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d97c4689b40dd0bcf2ab083c688c547014a4de0b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001046"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011667"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Adicionar autenticação à sua aplicação de formulários Xamarin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -331,7 +331,7 @@ Esta secção mostra como implementar o **IAuthenticate** interface em projetos 
             if (args.Kind == ActivationKind.Protocol)
             {
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
-                TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
+                MobileServiceClientExtensions.ResumeWithURL(TodoItemManager.DefaultManager.CurrentClient,protocolArgs.Uri);
             }
        }
 

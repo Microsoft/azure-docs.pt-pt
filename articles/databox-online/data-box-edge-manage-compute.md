@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499035"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997653"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerir a computação no seu limite de caixa de dados do Azure
 

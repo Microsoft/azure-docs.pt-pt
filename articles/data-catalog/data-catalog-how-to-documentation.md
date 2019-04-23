@@ -2,18 +2,18 @@
 title: Como documentar origens de dados no catálogo de dados do Azure
 description: Artigo que mostra como realce de como documentar recursos de dados no catálogo de dados do Azure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406214"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005283"
 ---
 # <a name="document-data-sources"></a>Documentar origens de dados
 ## <a name="introduction"></a>Introdução
@@ -39,9 +39,9 @@ A vantagem **catálogo de dados do Azure** documentação permite-lhe utilizar o
 
 O nível de documentação pode variar entre descrevendo as características e o valor de um contentor de elemento de dados para uma descrição detalhada do esquema da tabela dentro de um contêiner. O nível de documentação fornecida deve ser conduzido por suas necessidades empresariais. Mas em geral, aqui estão alguns prós e contras de como documentar recursos de dados:
 
-* Apenas um contêiner de documentos: todo o conteúdo é num único local, mas podem não ter os detalhes necessários para os utilizadores tomar uma decisão informada.
-* Apenas as tabelas de documentos: conteúdo é específico para esse objeto, mas os utilizadores têm vários locais para documentos.
-* Documente a contentores e tabelas: uma abordagem mais abrangente, mas pode introduzir mais manutenção dos documentos.
+* Apenas um contêiner do documento: Todo o conteúdo é num único local, mas pode não ter os detalhes necessários para os utilizadores tomar uma decisão informada.
+* Apenas as tabelas de documentos: O conteúdo é específico para esse objeto, mas os utilizadores têm vários locais para documentos.
+* Tabelas e contentores de documento: Uma abordagem mais abrangente, mas pode introduzir mais manutenção dos documentos.
 
 ## <a name="summary"></a>Resumo
 Documentar origens de dados com **catálogo de dados do Azure** pode criar uma narrativa sobre seus recursos de dados da forma mais detalhada, conforme necessário.  Ao utilizar ligações, pode ligar ao conteúdo armazenado num repositório de conteúdo existente, que reúne os documentos existentes e recursos de dados. Assim que os utilizadores detetam recursos de dados apropriado, eles podem ter um conjunto completo de documentação.

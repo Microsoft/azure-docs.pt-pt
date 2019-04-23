@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118362"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007513"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configurar o encaminhamento de porta no balanceador de carga do Azure com o portal
 
@@ -60,7 +60,7 @@ Primeiro, crie um balanceador de carga Standard público que pode balancear a ca
     |Zona de disponibilidade| Selecione **redundância de zona**.    |
      
     >[!NOTE]
-     >Certifique-se criar o Balanceador de carga e todos os recursos para o mesmo num local que suporta zonas de disponibilidade. Para obter mais informações, consulte [regiões que suportam as zonas de disponibilidade](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+     >Certifique-se criar o Balanceador de carga e todos os recursos para o mesmo num local que suporta zonas de disponibilidade. Para obter mais informações, consulte [regiões que suportam as zonas de disponibilidade](../availability-zones/az-overview.md#services-support-by-region). 
 
 3. Na **rever + criar** separador, clique em **criar**.  
   

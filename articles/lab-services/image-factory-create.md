@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796315"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148990"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagem personalizada no Azure DevTest Labs
-Este artigo mostra-lhe como configurar uma fábrica de imagem personalizada, utilizando scripts de exemplo disponíveis no [repositório de Git](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+Este artigo mostra-lhe como configurar uma fábrica de imagem personalizada, utilizando scripts de exemplo disponíveis no [repositório de Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>O que é uma fábrica de imagem?
 Uma fábrica de imagem é uma solução de configuração como código que cria e distribui imagens automaticamente em intervalos regulares com todas as configurações desejadas. As imagens na fábrica de imagem são sempre atualizadas e a manutenção contínua é praticamente zero assim que todo o processo é automatizado. E, porque as configurações necessárias já estão a ser a imagem, guarda a hora de configurar manualmente o sistema depois de uma VM tiver sido criada com o sistema operacional base.
@@ -39,7 +39,7 @@ A solução permite que a velocidade de criação de máquinas virtuais de image
 
 ![Visão geral da solução](./media/create-image-factory/high-level-view-of-solution.png)
 
-Há uma [extensão do VSTS para laboratórios Dev/Test](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que permite-lhe executar estes passos individuais: 
+Há uma [extensão do VSTS para laboratórios Dev/Test](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que permite-lhe executar estes passos individuais:
 
 - Criar uma imagem personalizada
 - Criar VM

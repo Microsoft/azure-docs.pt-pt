@@ -1,17 +1,17 @@
 ---
 title: Ativar a replicação de VMs de VMware para recuperação após desastre para o Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como ativar VMs de VMware para replicação para o Azure para recuperação após desastre com o Azure Site Recovery.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 4/18/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.author: ramamill
+ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418114"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004742"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -89,7 +89,7 @@ Em seguida, verifique se as propriedades da máquina virtual de origem. Lembre-s
     ![Janela de propriedades de computação e rede](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Nome da VM do Azure: Modifique o nome para atender aos requisitos do Azure, se necessário.
-    * Tamanho de VM de destino ou tipo de VM: O tamanho VM predefinido é escolhido com base na origem de tamanho da VM. Pode selecionar um tamanho VM diferente com base nas suas necessidades em qualquer altura antes da ativação pós-falha. Tenha em atenção que o tamanho de disco da VM também se baseia no tamanho do disco de origem, e só pode ser alterado após a ativação pós-falha. Saiba mais sobre tamanhos de disco e taxas de IOPS em [metas de escalabilidade e desempenho para discos VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
+    * Tamanho de VM de destino ou tipo de VM: O tamanho VM predefinido é escolhido com base em alguns parâmetros que incluem o número de discos, contagem NIC, CPU contagem de núcleos, memória e tamanhos de função VM disponíveis na região do Azure de destino. O Azure Site Recovery escolhe o primeiro tamanho VM disponível que satisfaça todos os critérios. Pode selecionar um tamanho VM diferente com base nas suas necessidades em qualquer altura antes da ativação pós-falha. Tenha em atenção que o tamanho de disco da VM também se baseia no tamanho do disco de origem, e só pode ser alterado após a ativação pós-falha. Saiba mais sobre tamanhos de disco e taxas de IOPS em [metas de escalabilidade e desempenho para discos VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
 
     *  Grupo de recursos: Pode selecionar uma [grupo de recursos](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), do que uma máquina virtual se torna parte de uma após a ativação pós-falha. Pode alterar esta definição em qualquer altura antes da ativação pós-falha. Após a ativação pós-falha, se migrar a máquina virtual a um grupo de recursos diferente, interromper as definições de proteção para essa máquina virtual.
     * Conjunto de disponibilidade: Pode selecionar uma [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) se a sua máquina virtual tem de ser uma parte de uma após a ativação pós-falha. Quando seleciona um conjunto de disponibilidade, considere as seguintes informações:

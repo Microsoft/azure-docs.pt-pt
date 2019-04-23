@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b8f4fdb3ab3e1107a8753db14dcbb68c6d97a104
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: b5dea8a64410e23f3b92feb8ce757646435697d3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652506"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003416"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -74,6 +74,7 @@ Leia as seguintes notas de SAP e documentos pela primeira vez
   * [Administração de complemento de elevada disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referência de complemento de elevada disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Configurar ASCS/ERS para SAP Netweaver com recursos autônomos no RHEL 7.5](https://access.redhat.com/articles/3569681)
+  * [Configurar S/4HANA de SAP ASCS/ERS com o servidor de Enfileirar autónomo 2 (ENSA2) no Pacemaker no RHEL ](https://access.redhat.com/articles/3974941)
 * Documentação do RHEL específica do Azure:
   * [Políticas de suporte para Clusters de elevada disponibilidade do RHEL - máquinas de virtuais do Microsoft Azure como membros do Cluster](https://access.redhat.com/articles/3131341)
   * [Instalar e configurar um Cluster de elevada disponibilidade Linux 7.4 (e posterior) de Enterprise do Red Hat no Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -480,6 +481,8 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[1]**  Criam os recursos de cluster SAP
 
+  Se utilizar a arquitetura de servidor de 1 de colocar em fila (ENSA1), defina os recursos da seguinte forma:
+
    <pre><code>sudo pcs property set maintenance-mode=true
    
    sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
@@ -495,12 +498,36 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint location rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>NW1</b> eq 1
-   
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
    </code></pre>
+
+   Suporte SAP introduzida para colocar em fila servidor 2, incluindo a replicação, a partir do SAP NW 7.52. A partir do ABAP plataforma 1809, colocar em fila servidor 2 está instalado por predefinição. Consulte SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) para suporte para colocar em fila o servidor 2.
+   Se utilizar a arquitetura de servidor 2 de colocar em fila ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), instale o agente de recurso, recurso-agentes-sap-4.1.1-12.el7.x86_64 ou mais recente e definir os recursos da seguinte forma:
+
+<pre><code>sudo pcs property set maintenance-mode=true
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ASCS00 SAPInstance \
+    InstanceName=<b>NW1</b>_ASCS00_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS00_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000 \
+    --group g-<b>NW1</b>_ASCS
+   
+   sudo pcs resource create rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    InstanceName=<b>NW1</b>_ERS02_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS02_<b>nw1-aers</b>" \
+    AUTOMATIC_RECOVER=false IS_ERS=true \
+    --group g-<b>NW1</b>_AERS
+      
+   sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
+   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   
+   sudo pcs node unstandby <b>nw1-cl-0</b>
+   sudo pcs property set maintenance-mode=false
+   </code></pre>
+
+   Se estiver a atualizar a partir de uma versão mais antiga e mudar para o servidor de colocar em fila 2, consulte a nota sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante no nó que os recursos estão em execução.
 

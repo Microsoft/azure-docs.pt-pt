@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d1db228f4c73cc00cd32ca6ae5b86056db68f05b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848699"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148956"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -43,7 +43,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para iniciar sessão
 
 As seguintes distribuições de Linux são atualmente suportadas durante a pré-visualização desta funcionalidade:
 
-| Distribuição | Versão |
+| Distribuição | Version |
 | --- | --- |
 | CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
@@ -64,7 +64,7 @@ As seguintes regiões do Azure atualmente são suportadas durante a pré-visuali
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
+## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
 Criar um grupo de recursos com [criar grupo az](/cli/azure/group#az-group-create), em seguida, crie uma VM com [az vm criar](/cli/azure/vm#az-vm-create) usando uma distribuição suportada e numa região suportada. O exemplo seguinte implementa uma VM com o nome *myVM* que utiliza *Ubuntu 16.04 LTS* para um grupo de recursos com o nome *myResourceGroup* no *southcentralus*  região. Nos exemplos a seguir, pode fornecer seu próprio grupo de recursos e os nomes VM conforme necessário.
 
@@ -83,7 +83,7 @@ São necessários alguns minutos para criar a VM e os recursos de suporte.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Instalar o início de sessão do Azure AD a extensão de VM
 
-Para iniciar sessão a uma VM do Linux com credenciais do Azure AD, instale o registo do Azure Active Directory na extensão VM. Extensões de VM são pequenos aplicativos que fornecem as tarefas de automatização e configuração de pós-implementação em máquinas virtuais do Azure. Uso [conjunto de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) para instalar o *AADLoginForLinux* extensão na VM com o nome *myVM* no *myResourceGroup* recursos grupo:
+Para iniciar sessão a uma VM do Linux com credenciais do Azure AD, instale o início de sessão do Azure Active Directory a extensão de VM. Extensões de VM são pequenos aplicativos que fornecem as tarefas de automatização e configuração de pós-implementação em máquinas virtuais do Azure. Uso [conjunto de extensão az vm](/cli/azure/vm/extension#az-vm-extension-set) para instalar o *AADLoginForLinux* extensão na VM com o nome *myVM* no *myResourceGroup* recursos grupo:
 
 ```azurecli-interactive
 az vm extension set \

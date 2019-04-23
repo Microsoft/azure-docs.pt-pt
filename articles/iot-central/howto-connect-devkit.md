@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617823"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006187"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -24,7 +24,7 @@ Este artigo descreve como, como um desenvolvedor de dispositivo, para ligar um d
 Para concluir os passos neste artigo, tem os seguintes recursos:
 
 1. Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-1. Um dispositivo de DevKit. Para comprar um dispositivo de DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
+1. Um dispositivo de DevKit. Para comprar um dispositivo de DevKit, visite [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
 ## <a name="sample-devkits-application"></a>Exemplo de aplicação Devkits
 
@@ -239,14 +239,14 @@ Ativar/desativar definições
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
 | Propriedade do dispositivo | Localização do dispositivo   | localização  | localização    |
-| Texto            | Fabricados no     | manufacturedIn   | N/A       |
+| Text            | Fabricados no     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>Comandos
 
 | Nome a apresentar | Nome do campo | Tipo de retorno | Nome a apresentar do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo       | texto        | valor, para apresentar         | displayedValue   | texto             |
-| contagem decrescente    | Contagem decrescente  | número      | Contar de               | countFrom        | número           |
+| Contagem decrescente    | Contagem decrescente  | número      | Contar de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

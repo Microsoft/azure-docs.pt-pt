@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679334"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003858"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas de armazém de dados SQL do Azure
 Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
@@ -33,7 +33,7 @@ Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Explorador de objetos do Visual Studio está em falta os utilizadores do AAD           | Este é um problema conhecido.  Como solução, ver os usuários [database_principals][sys.database_principals].  Ver [Authentication ao Azure SQL Data Warehouse] [ Authentication to Azure SQL Data Warehouse] para saber mais sobre como utilizar o Azure Active Directory com o SQL Data Warehouse. |
-| Manual de criação de scripts, utilizando o Assistente de criação de scripts ou pode ligar através do SSMS é lentos, travados ou produção de erros | Certifique-se de que os utilizadores foram criados na base de dados mestra. Em Opções de script, certifique-se também que a edição do motor está definida como "Microsoft Azure SQL Data Warehouse Edition" e tipo de mecanismo é "Microsoft Azure SQL Database". |
+| Manual de criação de scripts, utilizando o Assistente de criação de scripts ou pode ligar através do SSMS é lenta, não responde ou produção de erros | Certifique-se de que os utilizadores foram criados na base de dados mestra. Em Opções de script, certifique-se também que a edição do motor está definida como "Microsoft Azure SQL Data Warehouse Edition" e tipo de mecanismo é "Microsoft Azure SQL Database". |
 | Gerar scripts falhar no SSMS                             | Gerar um script do SQL data warehouse falha se a opção "Gerar o script para objetos dependentes" da opção estiver definida como "True". Como solução, os utilizadores tem manualmente de aceder ao ferramentas -> Opções -> SQL Server Object Explorer -> gerar scripts para opções dependentes e definido como false |
 
 ## <a name="performance"></a>Desempenho

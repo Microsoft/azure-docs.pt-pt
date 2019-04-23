@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: ec79f6a9b255d44e66b901a0aae263c8dbbf2863
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248253"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149865"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Quotas e limites de dimensionamento no DevTest Labs
 À medida que trabalha no DevTest Labs, pode observar que existem determinados limites predefinidos a alguns recursos do Azure, o que podem afetar o serviço de DevTest Labs. Estes limites são denominados **quotas**.
@@ -28,7 +28,7 @@ ms.locfileid: "51248253"
 
 Pode usar cada recurso do Azure até atingir a quota. Cada subscrição tem quotas separadas e a utilização é controlada por subscrição.
 
-Por exemplo, cada subscrição tem uma quota predefinida de 20 núcleos. Então, se estiver a criar VMs no seu laboratório com quatro núcleos, pode criar apenas cinco VMs. 
+Por exemplo, cada subscrição tem uma quota predefinida de 20 núcleos. Então, se estiver a criar VMs no seu laboratório com quatro núcleos, pode criar apenas cinco VMs.
 
 [Subscrição e limites do serviço do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits) lista algumas das mais comuns quotas para recursos do Azure. Os recursos mais comumente usados num laboratório e, para que pode encontrar as quotas, inclui os núcleos VM, endereços IP públicos, interface de rede, os discos geridos, atribuição de função RBAC e circuitos do ExpressRoute.
 
@@ -67,4 +67,4 @@ Estes passos mostram-lhe como pedir um aumento de quota através da [portal do A
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Passos Seguintes
-* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

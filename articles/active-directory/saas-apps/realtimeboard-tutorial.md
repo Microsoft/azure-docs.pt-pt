@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283142"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integração do Active Directory do Azure com RealtimeBoard
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD início de sessão único com RealtimeBoard, execute 
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>Configurar RealtimeBoard Single Sign-On
 
-Para configurar o início de sessão único num **RealtimeBoard** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [RealtimeBoard suporte equipe](). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **RealtimeBoard** lado, terá de enviar o transferido **XML de metadados de Federação** e apropriado copiados URLs do portal do Azure para RealtimeBoard a equipa de suporte. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 

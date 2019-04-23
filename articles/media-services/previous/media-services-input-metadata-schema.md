@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cdca2823962c442c9142fa439795269f419aa489
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189687"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009907"
 ---
 # <a name="input-metadata"></a>Metadados de entrada 
 
@@ -179,7 +179,7 @@ Ver um exemplo XML no final deste artigo: [Exemplo XML](media-services-input-met
 | **Lyrics**<br /><br /> Necessário |**xs:int** |Defina este atributo como 1 para indicar que este Roteiro contém a letra de música. |
 | **Karaokê**<br /><br /> Necessário |**xs:int** |Defina este atributo como 1 para indicar que isso representa a faixa de karaokê (música em segundo plano, sem vocals). |
 | **Forçado**<br /><br /> Necessário |**xs:int** |Defina este atributo como 1 para indicar que esta é a apresentação forçada. |
-| **HearingImpaired**<br /><br /> Necessário |**xs:int** |Defina este atributo como 1 para indicar que este Roteiro destina-se ouvir com deficiências visuais. |
+| **HearingImpaired**<br /><br /> Necessário |**xs:int** |Defina este atributo como 1 para indicar este Roteiro para Novatos dificuldades auditivas. |
 | **VisualImpaired**<br /><br /> Necessário |**xs:int** |Defina este atributo como 1 para indicar este Roteiro para o deficiente. |
 | **CleanEffects**<br /><br /> Necessário |**xs: int** |Defina este atributo como 1 para indicar que este Roteiro tem efeitos limpos. |
 | **AttachedPic**<br /><br /> Necessário |**xs: int** |Defina este atributo como 1 para indicar que este Roteiro tem imagens. |

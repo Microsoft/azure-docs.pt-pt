@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762502"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004759"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -88,7 +88,7 @@ Pode obter o débito mínimo de um contentor ou uma base de dados por meio de pr
 
 Ao utilizar o SDK de .NET, o [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método permite-lhe obter o débito mínimo de um contentor ou uma base de dados. 
 
-Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em qualquer altura. Pode executar a operação de redução vertical após o período de inatividade de 4 horas. O período de inatividade é definido como o tempo de período quando não ocorreu nenhuma oferta operações de substituição (que inclui a ampliação e redução verticais) num contentor ou uma base de dados. 
+Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em qualquer altura. 
 
 ## <a name="comparison-of-models"></a>Comparação dos modelos
 

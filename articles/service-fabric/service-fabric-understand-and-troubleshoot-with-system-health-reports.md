@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528191"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007462"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Componentes do Service Fabric do Azure fornecem reporta o estado de funcionamento do sistema de todas as entidades no cluster prontos a utilizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) cria e elimina as entidades com base em relatórios do sistema. Ele também organiza numa hierarquia que captura as interações de entidade.
@@ -29,7 +29,7 @@ Componentes do Service Fabric do Azure fornecem reporta o estado de funcionament
 > 
 > 
 
-Relatórios de estado de funcionamento do sistema proporcionam visibilidade para o cluster e funcionalidade do aplicativo e problemas de sinalizador. Para aplicações e serviços, relatórios de estado de funcionamento do sistema Certifique-se de que as entidades são implementadas e se comportam corretamente a partir da perspetiva do Service Fabric. Os relatórios não fornecem qualquer monitorização de estado de funcionamento de lógica de negócios do serviço ou a deteção de processos bloqueados. Serviços de utilizador podem enriquecer os dados de estado de funcionamento com informações específicas para sua lógica.
+Relatórios de estado de funcionamento do sistema proporcionam visibilidade para o cluster e funcionalidade do aplicativo e problemas de sinalizador. Para aplicações e serviços, relatórios de estado de funcionamento do sistema Certifique-se de que as entidades são implementadas e se comportam corretamente a partir da perspetiva do Service Fabric. Os relatórios não fornecem qualquer monitorização de estado de funcionamento de lógica de negócios do serviço ou a deteção de processos que não estão a responder. Serviços de utilizador podem enriquecer os dados de estado de funcionamento com informações específicas para sua lógica.
 
 > [!NOTE]
 > Relatórios de estado de funcionamento enviados por watchdogs de utilizador são visíveis apenas *depois de* os componentes de sistema criar uma entidade. Quando uma entidade é eliminada, o arquivo de estado de funcionamento exclui automaticamente todos os relatórios de estado de funcionamento associados ao mesmo. O mesmo acontece quando é criada uma nova instância da entidade. Um exemplo é quando é criada uma nova instância da réplica de serviço persistidas com monitoração de estado. Todos os relatórios associados à instância antiga são eliminados e removidos da loja.

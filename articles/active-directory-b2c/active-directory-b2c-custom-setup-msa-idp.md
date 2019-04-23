@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4bcc51c3efce95178dbb190eb86cb7ac8e224cd0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 842d9497333d02a9f7918d86cd7d76e84b504063
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187526"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002121"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Microsoft com as políticas personalizadas no Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Para utilizar uma conta Microsoft como fornecedor de identidade no Azure AD B2C,
 1. Inicie sessão para o [Portal de registo de aplicação do Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) com as credenciais da conta Microsoft.
 2. No canto superior direito, selecione **adicionar uma aplicação**.
 3. Introduza um **nome da aplicação**e, em seguida, clique em **Create** 
-4. Selecione **gerar nova palavra-passe** e certifique-se de que copia a palavra-passe para utilizar quando configurar o fornecedor de identidade. Também copiar a **Id da aplicação**. 
+4. Selecione **gerar nova palavra-passe** e certifique-se de que copia a palavra-passe para utilizar quando configurar o fornecedor de identidade. Também copiar o ID da aplicação. 
 5. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` no **redirecionar URLs**. Substitua `your-tenant-name` com o nome do seu inquilino.
 6. Selecione **Guardar**.
 
@@ -44,7 +44,7 @@ Para utilizar uma conta Microsoft como fornecedor de identidade no Azure AD B2C,
 Precisa armazenar a palavra-passe que gerou e gravado anteriormente no seu inquilino do Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
 4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
@@ -88,7 +88,7 @@ Pode definir do Azure AD como um fornecedor de afirmações ao adicionar o **Cla
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
@@ -141,13 +141,13 @@ O **ClaimsProviderSelection** elemento é semelhante a um botão do fornecedor d
 Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, neste caso, é para o Azure AD B2C comunicar com uma conta do Twitter para receber um token.
 
 1. Encontrar o **OrchestrationStep** que inclua `Order="2"` no percurso do utilizador.
-2. Adicione as seguintes **ClaimsExchange** elemento certificar-se de que usar o mesmo valor para **Id** que utilizou para **TargetClaimsExchangeId**:
+2. Adicione as seguintes **ClaimsExchange** elemento certificar-se de que utiliza o mesmo valor para o ID que utilizou para **TargetClaimsExchangeId**:
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
     
-    Atualize o valor de **TechnicalProfileReferenceId** para o **Id** do perfil técnico que criou anteriormente. Por exemplo, `MSA-OIDC`.
+    Atualize o valor de **TechnicalProfileReferenceId** para o ID do perfil técnico que criou anteriormente. Por exemplo, `MSA-OIDC`.
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.
 
@@ -156,7 +156,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
 Comunicação com o Azure AD B2c ocorre por meio de um aplicativo que criar no seu inquilino. Esta secção lista os passos opcionais que pode seguir para criar uma aplicação de teste, se ainda não o tiver feito.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
 4. Selecione **aplicativos**e, em seguida, selecione **Add**.
 5. Introduza um nome para o aplicativo, por exemplo *testapp1*.

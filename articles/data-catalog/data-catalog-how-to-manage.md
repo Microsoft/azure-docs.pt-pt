@@ -2,18 +2,18 @@
 title: Gerir recursos de dados no catálogo de dados do Azure
 description: O artigo destaca como controlar a visibilidade e a propriedade de recursos de dados registados no catálogo de dados do Azure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 46af78dae6d5c1607f56d36732adce5e677e0c65
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407643"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000645"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerir recursos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução

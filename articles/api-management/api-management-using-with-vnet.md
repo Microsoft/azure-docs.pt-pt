@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db48db5ce9402267570ac9e41f9f4b5bec2781ad
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527953"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006051"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -74,7 +74,8 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 
      ![Selecione a VPN][api-management-setup-vpn-select]
 
-5. Clique em **guardar** na parte superior do ecrã.
+5. Clique em **guardar** na barra de navegação superior.
+6. Clique em **aplicar configuração de rede** na barra de navegação superior.
 
 > [!NOTE]
 > O endereço VIP da instância de gestão de API irá alterar em cada VNET está ativado ou desativado.
@@ -108,7 +109,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 
 <a name="required-ports"> </a> Quando uma instância de serviço de gestão de API está alojada numa VNET, as portas na tabela seguinte são utilizadas.
 
-| Origem / porta de destino (s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem / destino   | Finalidade (*)                                                 | Tipo de rede virtual |
+| Origem / porta de destino (s) | Direction          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem / destino   | Finalidade (*)                                                 | Tipo de rede virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente para gestão de API                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para o portal do Azure e Powershell         | Externo e interno  |

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: sachins
-ms.openlocfilehash: ad77204f0c5d916b4006ffa68a9608429f93f87a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.openlocfilehash: e371ac848eff0e66390fe17bc23934725fca35f9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246063"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000611"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar a geração 2 de armazenamento do Azure Data Lake
 
@@ -31,11 +31,11 @@ Depois de um grupo de segurança é atribuído permissões, adicionar ou remover
 
 ### <a name="security-for-groups"></a>Segurança para grupos
 
-Quando ou os seus utilizadores precisam de acesso a dados numa conta de armazenamento com espaço de nomes hierárquico ativado, é melhor usar grupos de segurança do Azure Active Directory. Alguns recomendado de grupos para começar seria **ReadOnlyUsers**, **WriteAccessUsers**, e **FullAccessUsers** para a raiz do sistema de ficheiros e até mesmo separar aqueles para chave subdiretórios. Se houver alguma outra previstos grupos de utilizadores que podem ser adicionados mais tarde, mas que não tenham sido identificados, porém, podem considerar a criação de grupos de segurança fictício que têm acesso a determinadas pastas. Utilizar o grupo de segurança garante que pode evitar o tempo de processamento muito tempo ao atribuir novas permissões para milhares de arquivos.
+Quando ou os seus utilizadores precisam de acesso a dados numa conta de armazenamento com espaço de nomes hierárquico ativado, é melhor usar grupos de segurança do Azure Active Directory. Alguns recomendado de grupos para começar seria **ReadOnlyUsers**, **WriteAccessUsers**, e **FullAccessUsers** para a raiz do sistema de arquivos e até mesmo separar aqueles para chave subdiretórios. Se houver alguma outra previstos grupos de utilizadores que podem ser adicionados mais tarde, mas que não tenham sido identificados, porém, podem considerar a criação de grupos de segurança fictício que têm acesso a determinadas pastas. Utilizar o grupo de segurança garante que pode evitar o tempo de processamento muito tempo ao atribuir novas permissões para milhares de arquivos.
 
 ### <a name="security-for-service-principals"></a>Segurança para principais de serviço
 
-Principais de serviço do Azure Active Directory são normalmente utilizados por serviços, como o Azure Databricks para aceder a dados na geração 2 de armazenamento do Data Lake. Para muitos clientes, um principal de serviço do Azure Active Directory único pode ser adequado e pode ter todas as permissões na raiz do sistema de geração 2 de armazenamento do Data Lake de. Outros clientes poderão precisar de vários clusters com principais de serviço diferentes em que um cluster tem acesso total aos dados e o outro cluster com acesso só de leitura. 
+Principais de serviço do Azure Active Directory são normalmente utilizados por serviços, como o Azure Databricks para aceder a dados na geração 2 de armazenamento do Data Lake. Para muitos clientes, um principal de serviço do Azure Active Directory único pode ser adequado e pode ter todas as permissões na raiz do sistema de arquivos de geração 2 de armazenamento do Data Lake. Outros clientes poderão precisar de vários clusters com principais de serviço diferentes em que um cluster tem acesso total aos dados e o outro cluster com acesso só de leitura. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Ativar a firewall de geração 2 de armazenamento do Data Lake com acesso de serviço do Azure
 

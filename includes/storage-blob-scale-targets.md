@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 4/11/2019
+ms.date: 4/20/2019
 ms.author: tamram
-ms.openlocfilehash: b3e2f018a3f1ba2563ba8cf2df6dfd4959be592e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d96f400332b7953b34a157b3b52cf00bb20db76e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737236"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012515"
 ---
 | Recurso | Destino        |
 |----------|---------------|
@@ -23,4 +23,4 @@ ms.locfileid: "59737236"
 | Número máximo de políticas de acesso armazenadas por contentor de BLOBs | 5 |
 |Taxa de transferência de destino para o blob único |Até os limites de entrada/saída de conta de armazenamento<sup>1</sup> |
 
-<sup>1</sup> débito único objeto depende de diversos fatores, incluindo, mas não limitado a: simultaneidade, tamanho da operação, o escalão de desempenho, velocidade da origem para carregamentos e de destino para as transferências.
+<sup>1</sup> débito único objeto depende de diversos fatores, incluindo, mas não limitado a: simultaneidade, tamanho do pedido, o escalão de desempenho, velocidade da origem para carregamentos e de destino para as transferências. Para tirar partido das [blob de blocos de alto débito](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) aprimoramentos de desempenho, utilize um tamanho de pedido de colocar o Blob ou colocação de blocos de 4 > MiB (> 256 MiB para armazenamento de BLOBs de blocos de desempenho premium ou para a geração 2 de armazenamento do Data Lake).

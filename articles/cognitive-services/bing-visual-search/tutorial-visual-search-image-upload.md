@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 42a7db316e844e5dbd09fb75a07e1c7883a9cec9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491088"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011729"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carregar imagens para a API de pesquisa Visual do Bing
 
@@ -169,7 +169,7 @@ Esta aplicação tem uma opção para alterar esses valores. Adicione as seguint
                 <option value="fi-FI">Finland (Finnish)</option>
                 <option value="fr-FR">France (French)</option>
                 <option value="de-DE">Germany (German)</option>
-                <option value="zh-HK">Hong Kong (Traditional Chinese)</option>
+                <option value="zh-HK">Hong Kong SAR(Traditional Chinese)</option>
                 <option value="en-IN">India (English)</option>
                 <option value="en-ID">Indonesia (English)</option>
                 <option value="it-IT">Italy (Italian)</option>

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877076"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000050"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure  
 
@@ -37,10 +37,13 @@ Esta página da Comunidade de serviços de multimédia do Azure (AMS) aborda as 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discussão
+
 ### <a name="twitter"></a>Twitter
+
 Utilize o [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) identificador do twitter contacte-nos ou seguir as atualizações no Twitter. Pode utilizar o [ @AzureSupport ](https://twitter.com/azuresupport) identificador do twitter para pedir suporte no Twitter.  
 
 ### <a name="online-forums"></a>Fóruns online
+
 Fóruns do seguintes podem ser utilizados para fazer perguntas sobre produtos atuais e os recursos.
 
 Atualmente, o MSDN é o Fórum de Comunidade principal da equipe de serviços de multimédia.
@@ -48,9 +51,11 @@ Atualmente, o MSDN é o Fórum de Comunidade principal da equipe de serviços de
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 A equipe também monitora perguntas marcadas no Stack Overflow com 'azure--serviços de multimédia'.
+
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Contactar a equipa
+
 Serviços de multimédia do Azure, o e-mail de suporte principal é: **amshelp\@microsoft.com**.
 
 A tabela seguinte apresenta uma lista de correio eletrónico de equipes de recursos de sub-rotina:

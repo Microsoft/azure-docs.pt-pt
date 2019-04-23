@@ -1,5 +1,5 @@
 ---
-title: Examine a saída do indexador de vídeo produzida pela v2 API
+title: Examine a saída do indexador de vídeo dos serviços de multimédia do Azure produzida pela v2 API
 titlesuffix: Azure Media Services
 description: Este tópico examina a saída do indexador de vídeo produzida pela v2 API.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280218"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011329"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
 
@@ -37,7 +37,7 @@ Este artigo examina o conteúdo JSON devolvido pelos **índice de vídeo de intr
 |accountId|VI a lista de reprodução conta ID.|
 |ID|ID de. a lista de reprodução|
 |nome|Nome da lista de reprodução.|
-|descrição|Descrição da lista de reprodução.|
+|description|Descrição da lista de reprodução.|
 |userName|O nome de utilizador que criou a lista de reprodução.|
 |criado|Hora de criação da lista de reprodução.|
 |privacyMode|Modo de privacidade para a lista de reprodução (público/privado).|
@@ -148,7 +148,7 @@ As informações são um conjunto de dimensões (por exemplo, linhas de transcri
 
 Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista das suas instâncias temporais (por exemplo: 00: 00:05 – 00:00:10, 01: 00:00-00:02:30 e 00:41:21 – 00:41:49.) Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face as coordenadas (20,230,60,60).
 
-|Versão|A versão de código|
+|Version|A versão de código|
 |---|---|
 |sourceLanguage|Idioma de origem do vídeo (supondo que um idioma principal). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
 |language|O idioma de informações (traduzido do idioma de origem). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
@@ -279,40 +279,24 @@ Exemplo:
 |instâncias|Uma lista de intervalos de tempo em que esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>faces
@@ -322,7 +306,7 @@ Exemplo:
 |ID|O ID do rosto.|
 |nome|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
-|descrição|Uma descrição da celebridade. |
+|description|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura do que enfrentam.|
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
@@ -510,7 +494,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 |nome|O nome de marcas.|
 |referenceId | O sufixo do url da wikipédia marca. Por exemplo, "Target_Corporation" é o sufixo de [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | A marca do url da Wikipédia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|descrição|A descrição de marcas.|
+|description|A descrição de marcas.|
 |etiquetas|Uma lista de etiquetas predefinidas que foram associados essa marca.|
 |confiança|O valor de confiança do detetor de marca do Video Indexer (0-1).|
 |instâncias|Uma lista de intervalos de tempo desta marca. Cada instância possui um brandType, que indica se esta marca apareceu na transcrição ou no OCR.|

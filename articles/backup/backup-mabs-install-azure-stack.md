@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497932"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996514"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -61,7 +61,7 @@ Se forem partilhados com outras máquinas virtuais, a conta de armazenamento tam
 Cada máquina virtual do Azure Stack é fornecido com o armazenamento de disco temporário, que está disponível para o utilizador como volume `D:\`. A área de transição local necessária pelo Azure Backup pode ser configurada para estar situada em `D:\`, e a localização da cache pode ser colocada em `C:\`. Dessa forma, sem armazenamento tem de ser criadas na direção oposta os discos de dados ligados à máquina virtual do Azure Backup Server.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Armazenamento de dados de cópia de segurança no disco local e no Azure
-Servidor de cópia de segurança do Azure armazena dados de cópia de segurança nos discos Azure ligados à máquina virtual, para recuperação operacional. Assim que os discos e o espaço de armazenamento estão anexados à máquina virtual, o servidor de cópia de segurança do Azure gere o armazenamento para si. A quantidade de armazenamento de dados de cópia de segurança depende do número e tamanho dos discos anexados a cada [máquinas de virtuais do Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Cada tamanho de VM do Azure Stack tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é quatro discos. A3 é oito discos. A4 é 16 discos. Novamente, o tamanho e número de discos determina o agrupamento de armazenamento de cópia de segurança total.
+Servidor de cópia de segurança do Azure armazena dados de cópia de segurança nos discos Azure ligados à máquina virtual, para recuperação operacional. Assim que os discos e o espaço de armazenamento estão anexados à máquina virtual, o servidor de cópia de segurança do Azure gere o armazenamento para si. A quantidade de armazenamento de dados de cópia de segurança depende do número e tamanho dos discos anexados a cada [máquinas de virtuais do Azure Stack](/azure-stack/user/azure-stack-storage-overview). Cada tamanho de VM do Azure Stack tem um número máximo de discos que podem ser anexados à máquina virtual. Por exemplo, A2 é quatro discos. A3 é oito discos. A4 é 16 discos. Novamente, o tamanho e número de discos determina o agrupamento de armazenamento de cópia de segurança total.
 
 > [!IMPORTANT]
 > Deve **não** manter os dados de recuperação operacional (cópia de segurança) em discos ligado ao servidor de cópia de segurança do Azure por mais de cinco dias.
@@ -73,7 +73,7 @@ Para armazenar dados de cópia de segurança no Azure, criar ou utilizar um cofr
  
 ### <a name="scaling-deployment"></a>Dimensionar implementação
 Se quiser dimensionar a sua implementação, tem as seguintes opções:
-  - Aumentar verticalmente – aumente o tamanho da máquina virtual do Azure Backup Server de uma série de série D e aumentar o armazenamento local [acordo com as instruções de máquina virtual do Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Aumentar verticalmente – aumente o tamanho da máquina virtual do Azure Backup Server de uma série de série D e aumentar o armazenamento local [acordo com as instruções de máquina virtual do Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Descarregar dados – envia os dados antigos para o Azure e mantém apenas os dados mais recentes no armazenamento ligado para o servidor de cópia de segurança do Azure.
   - Aumente horizontalmente – adicionar mais servidores de cópia de segurança do Azure para proteger as cargas de trabalho.
 

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64f78b04d433c81302499addf15c3d19621bbf9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788348"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995732"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova aplicação Android utilizando as âncoras espaciais do Azure
 
@@ -57,12 +57,12 @@ Modificar `app\manifests\AndroidManifest.xml` para incluir as seguintes entradas
 </application>
 ```
 
-Modificar `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada seguinte. Esse código irá garantir que seu aplicativo se destina a ARCore versão 1.5 (o suporte para ARCore 1.6 + no âncoras espaciais do Azure estarão em breve). Após esta alteração, poderá obter uma notificação do Gradle que lhe pede para sincronizar: clique em **sincronizar agora**.
+Modificar `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada seguinte. Esse código irá assegurar que sua versão da aplicação destinos ARCore 1.7. Após esta alteração, poderá obter uma notificação do Gradle que lhe pede para sincronizar: clique em **sincronizar agora**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.7.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_ </a> simplifica a composição de cenas 3D realistas em aplicações de realidade aumentada, sem ter de aprender o OpenGL.
 
-Modificar `Gradle Scripts\build.gradle (Module: app)` para incluir as seguintes entradas. Este código permitirá que a aplicação para utilizar construções de linguagem do Java 8, que `Sceneform` requer. Também irá garantir que as aplicações têm como destino `Sceneform` versão 1.5, uma vez que ele deve corresponder à versão de ARCore seu aplicativo está usando. Após esta alteração, poderá obter uma notificação do Gradle que lhe pede para sincronizar: clique em **sincronizar agora**.
+Modificar `Gradle Scripts\build.gradle (Module: app)` para incluir as seguintes entradas. Este código permitirá que a aplicação para utilizar construções de linguagem do Java 8, que `Sceneform` requer. Também irá garantir que as aplicações têm como destino `Sceneform` versão 1.7, uma vez que ele deve corresponder à versão de ARCore seu aplicativo está usando. Após esta alteração, poderá obter uma notificação do Gradle que lhe pede para sincronizar: clique em **sincronizar agora**.
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
     ...
 }
 ```

@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 04/18/2019
 ms.author: danlep
-ms.openlocfilehash: e7155604339bc634078fd022e05ede5f902bc0d8
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
-ms.translationtype: MT
+ms.openlocfilehash: fe129847e685c7151a9b7ad7ea65abbd38530733
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634715"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997075"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de conteúdo suportados no Azure Container Registry
 
@@ -21,16 +21,19 @@ Utilize um repositório privado no Azure Container Registry para gerir um dos se
 
 ## <a name="docker-compatible-container-images"></a>Imagens de contentor compatível com o docker
 
+São suportados os seguintes formatos de imagem de contentor do Docker:
+
 * [V2 no manifesto de imagem no docker, esquema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
 * [V2 de manifesto de imagem do docker, 2 de esquema](https://docs.docker.com/registry/spec/manifest-v2-2/) -inclui o manifesto de lista que permitem registos para armazenar imagens em várias plataformas numa referência única "imagem: etiqueta"
 
-* [Abra a especificação de formato de imagem do contentor iniciativa (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md) 
+## <a name="oci-images"></a>Imagens OCI
 
+O Azure Container Registry também oferece suporte a imagens que cumprem os [especificação de formato de imagem de iniciativa Open de contentor (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Os formatos de empacotamento incluem [sif (Schools singularidade da imagem de formato)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
 
 ## <a name="helm-charts"></a>Gráficos Helm
 
-O Azure Container Registry também pode alojar repositórios para [executar Helm gráficos](https://helm.sh/), um formato de empacotamento utilizado para gerir e implementar aplicações para Kubernetes rapidamente. [Cliente de Helm](https://docs.helm.sh/using_helm/#installing-helm) versão 2.11.0 ou posterior é suportado.
+O Azure Container Registry pode alojar repositórios para [executar Helm gráficos](https://helm.sh/), um formato de empacotamento utilizado para gerir e implementar aplicações para Kubernetes rapidamente. [Cliente de Helm](https://docs.helm.sh/using_helm/#installing-helm) versão 2.11.0 ou posterior é suportado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

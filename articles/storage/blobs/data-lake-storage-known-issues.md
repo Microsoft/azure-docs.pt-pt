@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194713"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006867"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -47,13 +47,13 @@ Discos não geridos da Máquina Virtual (VM) dependem de APIs de armazenamento d
 
 APIs de armazenamento de BLOBs e APIs de geração 2 do Azure Data Lake não são interoperáveis entre si.
 
-Se tiver ferramentas, aplicações, serviços ou scripts que utilizam APIs de Blob e pretende utilizá-los para trabalhar com todo o conteúdo que carregar para a sua conta, em seguida, não a ativar um espaço de nomes hierárquico na sua conta de armazenamento de BLOBs até que o tornam-se de APIs de Blob interoperável com APIs de geração 2 do Azure Data Lake. Com uma conta de armazenamento sem um espaço de nomes hierárquico significa que, em seguida, não tem acesso a recursos específicos de geração 2 de armazenamento do Data Lake, como o sistema de ficheiros e diretórios acessar listas de controlo.
+Se tiver ferramentas, aplicações, serviços ou scripts que utilizam APIs de Blob e pretende utilizá-los para trabalhar com todo o conteúdo que carregar para a sua conta, em seguida, não a ativar um espaço de nomes hierárquico na sua conta de armazenamento de BLOBs até que o tornam-se de APIs de Blob interoperável com APIs de geração 2 do Azure Data Lake. Utilizar uma conta de armazenamento sem um espaço de nomes hierárquico significa que, em seguida, não tem acesso a recursos específicos de geração 2 de armazenamento do Data Lake, como o diretório e arquivo listas de controlo de acesso de sistema.
 
 ## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 
 Para ver ou gerir contas de geração 2 de armazenamento do Data Lake ao utilizar o Explorador de armazenamento do Azure, tem de ter, pelo menos, versão `1.6.0` da ferramenta que está disponível como uma [gratuitamente para download](https://azure.microsoft.com/features/storage-explorer/).
 
-Tenha em atenção que a versão do Explorador de armazenamento que está incorporada no Portal do Azure faz atualmente não suporta a visualização ou gerenciamento de contas de geração 2 de armazenamento do Data Lake com a funcionalidade de espaço de nomes hierárquico ativada.
+Tenha em atenção que a versão do Explorador de armazenamento que está incorporada no portal do Azure faz atualmente não suporta a visualização ou gerenciamento de contas de geração 2 de armazenamento do Data Lake com a funcionalidade de espaço de nomes hierárquico ativada.
 
 ## <a name="blob-viewing-tool"></a>Ferramenta de visualização de blob
 

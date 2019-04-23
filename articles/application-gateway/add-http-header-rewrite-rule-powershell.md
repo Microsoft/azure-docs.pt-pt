@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: bfafc74cbcb97f28cc085196a2cbaf4e9bf2e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548324"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005626"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescreva os cabeçalhos de solicitação e resposta HTTP com o Gateway de aplicação do Azure - Azure PowerShell
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Este tutorial exige que execute o Azure PowerShell localmente. Tem de ter Az versão 1.0.0 do módulo ou posterior instalado. Execute `Import-Module Az` e, em seguida,`Get-Module Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
-- Tem de ter um v2 de Gateway de aplicação SKU, uma vez que a capacidade de Reescrita do cabeçalho não é suportado para o SKU de v1. Se não tiver o SKU de v2, crie uma [SKU do Gateway de aplicação v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) antes de começar.
+- Tem de ter um v2 de Gateway de aplicação SKU, uma vez que a capacidade de Reescrita do cabeçalho não é suportado para o SKU de v1. Se não tiver o SKU de v2, crie uma [SKU do Gateway de aplicação v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>O que é necessário reescrever um cabeçalho
 

@@ -18,11 +18,11 @@ ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
 ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60186757"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial - Gerir discos do Azure com a CLI do Azure
 

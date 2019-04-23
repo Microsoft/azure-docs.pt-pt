@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969673"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996055"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o seu StorSimple
 
@@ -45,7 +45,7 @@ Define uma região ou a localização quando cria pela primeira vez o serviço S
 
 Aqui está uma lista de regiões onde o serviço StorSimple Device Manager está disponível para a cloud pública do Azure e pode ser implementado.
 
-![storsimple-dispositivo-manager--regiões de serviço](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Para a cloud do Azure Government, o serviço StorSimple Device Manager está disponível nos datacenters Iowa gov (US) e gov (US) Virginia.
 
@@ -69,7 +69,7 @@ Se utilizar um StorSimple 8100 ou 8600 dispositivo físico, o dispositivo está 
 
 | #  | País        | #  | País     | #  | País      | #  | País              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Austrália      | 16 | RAE de Hong Kong   | 31 | Nova Zelândia  | 46 | África do Sul         |
+| 1  | Austrália      | 16 | RAE de Hong Kong| 31 | Nova Zelândia  | 46 | África do Sul         |
 | 2  | Áustria        | 17 | Hungria     | 32 | Nigéria      | 47 | Coreia do Sul          |
 | 3  | Barém        | 18 | Islândia     | 33 | Noruega       | 48 | Espanha                |
 | 4  | Bélgica        | 19 | Índia       | 34 | Peru         | 49 | Sri Lanka            |
@@ -80,7 +80,7 @@ Se utilizar um StorSimple 8100 ou 8600 dispositivo físico, o dispositivo está 
 | 9  | República Checa | 24 | Japão       | 39 | Catar        | 54 | Turquia               |
 | 10 | Dinamarca        | 25 | Quénia       | 40 | Roménia      | 55 | Ucrânia              |
 | 11 | Egito          | 26 | Kuwait      | 41 | Rússia       | 56 | Emirados Árabes Unidos |
-| 12 | Finlândia        | 27 | Macau       | 42 | Arábia Saudita | 57 | Reino Unido       |
+| 12 | Finlândia        | 27 | R.A.E. de Macau   | 42 | Arábia Saudita | 57 | Reino Unido       |
 | 13 | França         | 28 | Malásia    | 43 | Singapura    | 58 | Estados Unidos        |
 | 14 | Alemanha        | 29 | México      | 44 | Eslováquia     | 59 | Vietname              |
 | 15 | Grécia         | 30 | Países Baixos | 45 | Eslovénia     | 60 | Croácia              |

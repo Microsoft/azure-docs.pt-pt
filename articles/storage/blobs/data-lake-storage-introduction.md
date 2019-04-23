@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009429"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009468"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 -   **Custo-eficiência**: Geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md).
 
--   **Controlador otimizada**: É o controlador de abfs [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final de dfs, dfs.core.windows.net.
+-   **Controlador otimizada**: É o controlador ABFS [otimizado especificamente](data-lake-storage-abfs-driver.md) para análise de macrodados. As APIs REST correspondente são apresentadas através do ponto final `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Escalabilidade
 

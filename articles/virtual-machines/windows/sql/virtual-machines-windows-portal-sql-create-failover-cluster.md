@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486323"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011372"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
 
@@ -29,7 +29,7 @@ Este artigo explica como criar uma ativação pós-falha de Cluster de instânci
 
 O diagrama seguinte mostra a solução completa em máquinas virtuais do Azure:
 
-![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
+![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-create-failover-cluster/00-sql-fci-s2d-complete-solution.png)
 
 O diagrama anterior mostra:
 
@@ -399,7 +399,7 @@ Para criar o Balanceador de carga:
 
    - **Nome**: Um nome para a sonda de estado de funcionamento.
    - **Protocolo**: TCP.
-   - **Porta**: Definido como uma porta TCP disponível. Esta porta precisa de uma porta de firewall aberta. Utilize o [mesma porta](#ports) definido para a sonda de estado de funcionamento à firewall.
+   - **Porta**: Definir como a porta que criou na firewall para a sonda de estado de funcionamento no [este passo](#ports). Neste artigo, o exemplo utiliza a porta TCP `59999`.
    - **Intervalo**: 5 segundos.
    - **Limiar de mau estado de funcionamento**: 2 falhas consecutivas.
 
@@ -421,7 +421,7 @@ Para criar o Balanceador de carga:
    - **Sonda de estado de funcionamento**: Utilize a sonda de estado de funcionamento que configurou anteriormente.
    - **Persistência da sessão**: Nenhum.
    - **Tempo limite (minutos) de inatividade**: 4.
-   - **Vírgula flutuante (devolução direta do servidor) de IP**: Ativado
+   - **Vírgula flutuante (devolução direta do servidor) de IP**: Enabled
 
 1. Clique em **OK**.
 

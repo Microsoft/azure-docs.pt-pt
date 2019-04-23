@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: jonbeck
 ms.openlocfilehash: 69617a09de6ca80c1e674e0b20a40d36a48f5825
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187766"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidade de computação do Azure (ACU)
 

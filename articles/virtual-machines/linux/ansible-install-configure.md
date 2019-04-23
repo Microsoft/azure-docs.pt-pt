@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
 ms.openlocfilehash: 38a1ffdc815b357f7bb7ebe2c337b55a738fb6b5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187741"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Instalar o Ansible em máquinas virtuais do Azure
 

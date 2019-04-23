@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
-ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 04/13/2019
+ms.openlocfilehash: d9b9aae8bea323e5aac74a2e317b82d4cb43568f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671692"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118794"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -35,6 +35,12 @@ Pode utilizar as recomendações de reserva para ajudar a determinar as reservas
 - O Assistente do Azure fornece recomendações de compra de assinaturas individuais.  
 - Pode utilizar as APIs para obter recomendações de compra para o âmbito partilhado e o âmbito da subscrição única. Para obter mais informações, consulte [reservados a recomendação de compra de instância APIs para os clientes empresariais](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Para clientes com contrato EA, comprar recomendações para partilhados e âmbitos de subscrição individual estão disponíveis com o [pacote de conteúdos do Power BI do Azure consumo Insights](/power-bi/service-connect-to-azure-consumption-insights).
+
+### <a name="classic-vms-and-cloud-services"></a>As VMs clássicas e de serviços em nuvem
+
+Instâncias reservadas de máquina virtual se aplicam a ambas as VMs clássicas e serviços cloud quando a flexibilidade de tamanho de instância é ativada automaticamente. Não existe qualquer SKUs especiais para as VMs clássicas ou serviços cloud. Os mesmos SKUs de VM aplicam-se aos mesmos.
+
+Por exemplo, pode converter as VMs clássicas ou serviços em nuvem para VMs baseadas no Azure Resource Manager. Neste exemplo, o desconto de reserva automaticamente se aplica a correspondência de VMs. Não é necessário para *exchange* uma instância reservada existente - automaticamente aplica-se.
 
 ### <a name="analyze-your-usage-information"></a>Analisar as suas informações de utilização
 Deve analisar as informações de utilização para ajudar a determinar quais as reservas deve adquirir.
@@ -67,21 +73,15 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
     | Campo      | Descrição|
     |------------|--------------|
     |Name        |O nome desta reserva.|
-    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR - 0023 P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
+    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
     |Âmbito       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva é aplicada a VMs nesta subscrição. </li><li>Partilhado - o desconto de reserva é aplicado a VMs em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.</li></ul>|
     |Região    |A região do Azure que é abrangida pela reserva.|    
     |Tamanho da VM     |O tamanho das instâncias de VM.|
     |Otimizar para     |Flexibilidade de tamanho de instância VM aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Prioridade de capacidade dá prioridade à capacidade do Centro de dados para as suas implementações. Isso oferece a confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas. Prioridade de capacidade apenas está disponível quando o âmbito da reserva é subscrição única. |
     |Termo        |Um ano ou três anos.|
     |Quantidade    |O número de instâncias que está a ser comprado dentro a reserva. A quantidade é o número de instâncias VM que podem obter o desconto de faturação em execução. Por exemplo, se estiver a executar 10 Standard_D2 VMs nos EUA leste, em seguida, tem de especificar quantidade como 10 para maximizar o benefício de todas as máquinas em execução. |
-5. Pode ver o custo da reserva quando seleciona **calcular o custo**.
 
-    ![Captura de ecrã antes de submeter a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Selecione **Comprar**.
-7. Selecione **ver esta reserva** para ver o estado da sua compra.
-
-    ![Captura de tela depois de submeter a compra de reserva](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## <a name="change-a-reservation-after-purchase"></a>Alterar uma reserva após a compra
 

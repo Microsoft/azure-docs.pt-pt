@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: d9f225bd25e07a7d3f88a42864c5b5def0520519
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 188f5c6cfbb4650ad1ff767955d064f8e0c3cb70
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615817"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002651"
 ---
 # <a name="monitor-your-azure-data-box-edge"></a>Monitorizar o seu limite de caixa de dados do Azure
 

@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887425"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011304"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: Como detetar sentimento com análise de texto
 
-A [API de Análise de Sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e devolve uma pontuação de sentimento para cada documento entre 0 (negativo) e 1 (positivo).
+A [API de Análise de Sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e devolve uma pontuação de sentimento para cada documento entre 0 (negativo) e 1 (positivo).
 
 Esta funcionalidade é útil para detetar sentimentos positivos e negativos nas redes sociais, em críticas de clientes e fóruns de discussão. Os conteúdos são fornecidos por si; os modelos e dados de preparação são fornecidos pelo serviço.
 
@@ -37,7 +37,7 @@ A análise de sentimentos é realizada em todo o documento em vez de extrair sen
 
 A análise de sentimentos produz um resultado de qualidade superior quando são fornecidos segmentos de texto mais pequenos. O mesmo já não acontece com a extração de expressões-chave, que tem um melhor desempenho com blocos de texto maiores. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
 
-Tem de ter documentos JSON neste formato: id, texto, idioma
+Tem de ter documentos JSON no seguinte formato: ID, texto, de idioma
 
 Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a análise de sentimentos.
 
@@ -77,16 +77,16 @@ Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter at�
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de análise de sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de análise de sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Definir o ponto final HTTP para análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Definir o ponto final HTTP para análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
 > [!Tip]
-> Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) para estruturar o pedido e publicá-lo no serviço.
+> Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) para estruturar o pedido e publicá-lo no serviço.
 
 ## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
@@ -135,8 +135,8 @@ O seguinte exemplo mostra a resposta para a coleção de documentos neste artigo
 
 Neste artigo, aprendeu conceitos e fluxos de trabalho relativos à análise de sentimentos com recurso à Análise de Texto nos Serviços Cognitivos. Em resumo:
 
-+ A [API de Análise de Sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) está disponível para alguns idiomas.
-+ Os documentos JSON no corpo do pedido incluem um id, texto e código de idioma.
++ A [API de Análise de Sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) está disponível para alguns idiomas.
++ Documentos JSON no corpo do pedido incluem um código de ID, texto e idiomas.
 + O pedido POST refere-se a um ponto final `/sentiment` com recurso a uma [chave de acesso personalizada e um ponto final](text-analytics-how-to-access-key.md) válido para a sua subscrição.
 + O resultado da resposta, que consiste numa pontuação de sentimento para cada ID de documento, pode ser transmitido para qualquer aplicação que aceite JSON, incluindo, por exemplo, o Excel e o Power BI.
 

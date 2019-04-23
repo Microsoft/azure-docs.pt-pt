@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a92c00148d4b612a4360e3843d66503d528928cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700149"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000022"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
@@ -92,4 +92,7 @@ Para fazer uma compilação de cloud, com o Azure DevOps, por exemplo, certifiqu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)
+Neste tutorial, exportar dados de configuração de aplicações do Azure para ser usado num pipeline de implementação. Para saber mais sobre como utilizar a configuração de aplicações, avance para os exemplos da CLI do Azure.
+
+> [!div class="nextstepaction"]
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798951"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003688"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -112,7 +112,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 
 | Dados | Descrição |
 |:---|:---|
-| Monitor do Azure para contentores | Dados de inventário e de desempenho recolhidos pelo [Monitor do Azure para contentores](../insights/container-insights-overview.md). Ver [detalhes de recolha de dados de contentor](../insights/container-insights-analyze.md#container-data-collection-details) para obter uma lista das tabelas. |
+| Azure Monitor para contentores | Dados de inventário e de desempenho recolhidos pelo [Monitor do Azure para contentores](../insights/container-insights-overview.md). Ver [detalhes de recolha de dados de contentor](../insights/container-insights-log-search.md#container-records) para obter uma lista das tabelas. |
 | Azure Monitor para VMs | Dados de mapa e de desempenho recolhidos pelo [do Azure Monitor para VMs](../insights/vminsights-overview.md). Ver [como consultar os registos do Azure Monitor para VMs](../insights/vminsights-log-search.md) para obter detalhes sobre como consultar estes dados. |
 
 ### <a name="custom"></a>Personalizado 

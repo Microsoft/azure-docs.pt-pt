@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab8a231d4d44cfe2bfaf7c003ca57772a7a1814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896541"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010284"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na automatização do Azure
 
@@ -33,7 +33,7 @@ Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir r
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Cria um novo certificado para a automatização do Azure.|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Remove um certificado da automatização do Azure.|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Define as propriedades de um certificado existente, incluindo o carregamento do ficheiro de certificado e definir a palavra-passe para um ficheiro. pfx.|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|Carrega um certificado de serviço para o serviço cloud especificado.|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Carrega um certificado de serviço para o serviço cloud especificado.|
 
 ## <a name="activities"></a>Atividades
 

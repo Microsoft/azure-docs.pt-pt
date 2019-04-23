@@ -1,7 +1,7 @@
 ---
 title: O que é a API de análise de texto? -Capacidades-
 titleSuffix: Azure Cognitive Services
-description: API de análise de texto nos serviços cognitivos do Azure para análise de sentimentos, extração de expressões-chave, deteção de idioma e ligação de entidades.
+description: Utilize a API de análise de texto dos serviços cognitivos do Azure para análise de sentimentos, extração de expressões-chave, deteção de idioma e reconhecimento de entidades.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 054f0cf91904497b77fd08165808f9b4c381ecca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ae1d8f18705b1058c10d4720c64f624ed0ef4a3d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500387"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999064"
 ---
 # <a name="what-is-text-analytics-api"></a>O que é a API de análise de texto?
 
-A API de Análise de Texto é um serviço com base na cloud que fornece capacidades de processamento avançado de linguagem natural em texto não processado. Inclui quatro funções principais: análise de sentimentos, extração de expressões-chave, deteção de idioma e associação de entidades.
+A API de análise de texto é um serviço baseado na nuvem que fornece processamento através de texto não processado avançado de linguagem natural e inclui quatro funções principais: análise de sentimentos, extração de expressões-chave, deteção de idioma e reconhecimento de entidades.
 
 A API é uma parte [serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/), uma coleção de machine learning e algoritmos de IA na cloud para seus projetos de desenvolvimento.
 
@@ -28,16 +28,16 @@ A API é uma parte [serviços cognitivos do Azure](https://docs.microsoft.com/az
 Análise de texto pode ter diferentes significados, mas nos serviços cognitivos, API de análise de texto fornece quatro tipos de análise, conforme descrito abaixo.
 
 ## <a name="sentiment-analysis"></a>Análise de Sentimentos
-Uso [a análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que os clientes pensam da sua marca ou tópico através da análise de texto não processado para dicas sobre o sentimento positivo ou negativo. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo.<br /> Os modelos de análise são pré-preparados com um corpo extenso de texto e tecnologias de linguagem natural da Microsoft. Para os [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) API ou o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Uso [a análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) para descobrir o que os clientes pensam da sua marca ou tópico através da análise de texto não processado para dicas sobre o sentimento positivo ou negativo. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo.<br /> Os modelos de análise são pré-preparados com um corpo extenso de texto e tecnologias de linguagem natural da Microsoft. Para os [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API ou o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
-Automaticamente [extrair expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md) a identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) API aqui ou o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Automaticamente [extrair expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md) a identificar rapidamente os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API aqui ou o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## <a name="language-detection"></a>Deteção de Idioma
-Pode [detetar o idioma que o texto de entrada é escrito em](how-tos/text-analytics-how-to-language-detection.md) e reportar um código de idioma único para cada documento enviado na solicitação para até 120 idiomas. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) API ou o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+Pode [detetar o idioma que o texto de entrada é escrito em](how-tos/text-analytics-how-to-language-detection.md) e reportar um código de idioma único para cada documento enviado na solicitação para até 120 idiomas. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API ou o [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
-## <a name="entity-recognition-preview"></a>Reconhecimento de entidades (pré-visualização)
-[Identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, lugares, organizações, data/hora, quantidades, percentagens, moedas e muito mais. As entidades conhecidas também são reconhecidas e ligadas a mais informações na Web. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API.
+## <a name="named-entity-recognition"></a>Reconhecimento de Entidades Nomeadas
+[Identificar e categorizar entidades](how-tos/text-analytics-how-to-entity-linking.md) no seu texto como pessoas, lugares, organizações, data/hora, quantidades, percentagens, moedas e muito mais. As entidades conhecidas também são reconhecidas e ligadas a mais informações na Web. Pode utilizar o [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API.
 
 ## <a name="use-containers"></a>Utilizar contentores
 
@@ -83,7 +83,7 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é 5,120 carateres para cada documento; Se precisar de analisar documentos maiores, poderá dividi-las em segmentos mais pequenos. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
 
-| Limite | Valor |
+| Limite | Value |
 |------------------------|---------------|
 | Tamanho máximo de um documento único | 5,120 carateres como medido pelas [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |

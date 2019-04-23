@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/02/2019
+ms.date: 04/18/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d6e53c055f3c15c585aeb806c0c243eabdc0f00d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268726"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000832"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
 As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -37,37 +37,34 @@ Para alcançar a continuidade do negócio abrangente no Azure, crie a sua arquit
  
 ![Vista concetual da zona de uma direção para baixo numa região](./media/az-overview/az-graphic-two.png)
 
-## <a name="regions-that-support-availability-zones"></a>Regiões que suportam as zonas de disponibilidade
+## <a name="services-support-by-region"></a>Suporte de serviços por região
 
-- EUA Central
-- EUA Leste
-- EUA Leste 2
-- França Central
-- Europa do Norte
-- Sudeste Asiático 
-- Sul do Reino Unido&#42;
-- Europa Ocidental
-- EUA Oeste 2
+As combinações de serviços do Azure e regiões que suportam as zonas de disponibilidade são:
 
 
+|                                 |Américas |              |           |           | Europa |              |          |              | Ásia-Pacífico |                 |
+|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
+|          |EUA Central|EUA Leste|EUA Leste 2|EUA Oeste 2|França Central|Europa do Norte|Reino Unido Sul|Europa Ocidental|Leste do Japão|Sudeste Asiático|
+| **Computação**                         |            |              |           |           |                |              |          |             |            |                |
+| Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Conjuntos de Dimensionamento de Máquinas Virtuais      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Armazenamento**   |            |              |           |           |                |              |          |             |            |                |
+| Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Armazenamento com redundância de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| **Redes**                     |            |              |           |           |                |              |          |             |            |                |
+| Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Balanceador de Carga Standard     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Gateway de VPN                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Gateway de aplicação (pré-visualização)   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Bases de dados**                     |            |              |           |           |                |              |          |             |            |                |
+| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
+| **Análise**                       |            |              |           |           |                |              |          |             |            |                |
+| Hubs de Eventos                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Integração**                     |            |              |           |           |                |              |          |             |            |                |
+| O Service Bus (apenas no escalão Premium) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
-## <a name="services-that-support-availability-zones"></a>Serviços que suportam as zonas de disponibilidade
-Os serviços do Azure que suportam as zonas de disponibilidade são:
-
-- Máquinas Virtuais do Linux
-- Máquinas Virtuais do Windows
-- Conjuntos de Dimensionamento de Máquinas Virtuais
-- Managed Disks
-- Balanceador de carga Standard&#42;
-- Endereço IP público Standard&#42;
-- Armazenamento com redundância entre zonas
-
-- SQL Database
-- Hubs de Eventos
-- O Service Bus (apenas no escalão Premium)
-- Gateway de VPN
-- ExpressRoute
-- Gateway de aplicação (pré-visualização)
 
 &#42;Recursos criados no sul do Reino Unido, antes de 25 de Março de 2019 em breve será convertido para ser com redundância de zona. Recursos criados após a 25 de Março de 2019 será com redundância de zona imediatamente.
 

@@ -2,18 +2,18 @@
 title: Conceitos de programador do catálogo de dados do Azure
 description: Introdução a conceitos chave no modelo conceitual do catálogo de dados do Azure, como expostos através da API de REST do catálogo.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: bca006ab33379f52281f77fb5a04a24022bac373
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314558"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006697"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de programador do catálogo de dados do Azure
 Microsoft **catálogo de dados do Azure** é um serviço cloud totalmente gerido que fornece capacidades para deteção de origens de dados e para crowdsourcing de metadados de origem de dados. Os programadores podem utilizar o serviço através de suas APIs de REST. Compreender os conceitos implementados no serviço é importante para os programadores integrar com êxito **catálogo de dados do Azure**.
@@ -25,7 +25,7 @@ O **catálogo de dados do Azure** modelo conceitual é baseado em quatro conceit
 
 *Figura 1 – modelo conceitual simplificado de catálogo de dados do Azure*
 
-### <a name="catalog"></a>catálogo
+### <a name="catalog"></a>Catálogo
 R **catálogo** é o contentor de nível superior para todos os metadados de uma organização armazena. Há um **catálogo** permitidas por conta do Azure. Catálogos estão associados a uma subscrição do Azure, mas apenas um **catálogo** podem ser criados para qualquer determinada conta do Azure, mesmo que uma conta pode ter várias subscrições.
 
 Contém um catálogo **usuários** e **ativos**.
@@ -78,14 +78,14 @@ A experiência do Usuário, em seguida, pode escolher como exibir a combinação
 Como a apresentada na secção conceitos chave, o **catálogo de dados do Azure** modelo de objeto inclui itens, que podem ser ativos ou anotações. Itens de ter propriedades, que podem ser obrigatório ou opcional. Algumas propriedades aplicam-se a todos os itens. Algumas propriedades que se aplicam a todos os recursos. Algumas propriedades aplicam-se apenas aos tipos de recurso específico.
 
 ### <a name="system-properties"></a>Propriedades do sistema
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>carimbo de data/hora</td><td>DateTime</td><td>A última vez em que o item foi modificado. Este campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor desta propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>ID</td><td>URI</td><td>Url absoluto do item (só de leitura). É o URI endereçável exclusivo para o item.  O valor desta propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>tipo</td><td>String</td><td>O tipo de recurso (só de leitura).</td></tr><tr><td>etag</td><td>String</td><td>Uma cadeia de caracteres correspondente para a versão do item que pode ser utilizado para controlo de simultaneidade otimista ao realizar operações que atualizam itens no catálogo. "*" pode ser utilizado para corresponder qualquer valor.</td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>A última vez em que o item foi modificado. Este campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor desta propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>ID</td><td>URI</td><td>Url absoluto do item (só de leitura). É o URI endereçável exclusivo para o item.  O valor desta propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>tipo</td><td>String</td><td>O tipo de recurso (só de leitura).</td></tr><tr><td>etag</td><td>String</td><td>Uma cadeia de caracteres correspondente para a versão do item que pode ser utilizado para controlo de simultaneidade otimista ao realizar operações que atualizam itens no catálogo. "*" pode ser utilizado para corresponder qualquer valor.</td></tr></table>
 
 ### <a name="common-properties"></a>Propriedades comuns
 Estas propriedades aplicam-se a todos os tipos de recurso de raiz e todos os tipos de anotação.
 
 <table>
 <tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Booleano</td><td>Indica se os dados do item são derivados de um sistema de origem (como o Sql Server Database, Oracle Database) ou criados por um utilizador.</td></tr>
+<tr><td>fromSourceSystem</td><td>Boolean</td><td>Indica se os dados do item são derivados de um sistema de origem (como o Sql Server Database, Oracle Database) ou criados por um utilizador.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Propriedades comuns de raiz
@@ -105,7 +105,7 @@ Estas propriedades aplicam-se a todos os tipos de anotação não singleton (ano
 ### <a name="root-asset-types"></a>Tipos de recurso de raiz
 Tipos de recurso de raiz são os tipos que representam os vários tipos de recursos de dados que podem ser registados no catálogo. Para cada tipo de raiz, há uma exibição, que descreve os ativos e anotações incluídas na vista. Nome da vista deve ser usado no segmento de url {view_name} correspondente ao publicar um elemento com a REST API.
 
-<table><tr><td><b>Tipo de recurso (nome de exibição)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Anotações permitidas</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela ("tabelas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Especialista<p>Pré-visualização<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentação<p></td><td>Uma tabela representa dados de tabela.  Por exemplo: Tabela SQL, vista de SQL, tabela Tabular de Analysis Services, Analysis Services Multidimensional de dimensão, tabela do Oracle, etc.   </td></tr><tr><td>Medida ("medidas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>medida</td><td>Coluna</td><td></td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booleano</td><td></td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contentor de físico para a medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contentor de físico para a medida</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Uma expressão numérica de MDX ou um cálculo que devolve o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Uma expressão MDX numérica que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Uma expressão MDX que representa o estado do KPI num determinado ponto no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Uma expressão MDX que avalia o valor do KPI ao longo do tempo. A tendência pode ser qualquer critério com base no tempo que é útil num contexto de negócios específicas.</td>
+<table><tr><td><b>Tipo de recurso (nome de exibição)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Anotações permitidas</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela ("tabelas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Especialista<p>Pré-visualização<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentação<p></td><td>Uma tabela representa dados de tabela.  Por exemplo: Tabela SQL, vista de SQL, tabela Tabular de Analysis Services, Analysis Services Multidimensional de dimensão, tabela do Oracle, etc.   </td></tr><tr><td>Medida ("medidas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa uma medida do Analysis Services.</td></tr><tr><td></td><td>medida</td><td>Coluna</td><td></td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contentor de físico para a medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>Contentor de físico para a medida</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>Uma expressão numérica de MDX ou um cálculo que devolve o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>Uma expressão MDX numérica que retorna o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>Uma expressão MDX que representa o estado do KPI num determinado ponto no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>Uma expressão MDX que avalia o valor do KPI ao longo do tempo. A tendência pode ser qualquer critério com base no tempo que é útil num contexto de negócios específicas.</td>
 <tr><td>Relatório ("relatórios")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>Contentor ("contentores")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa um contentor de outros recursos, como uma base de dados SQL, um contentor de Blobs do Azure ou um modelo do Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Tipos de anotação
@@ -115,7 +115,7 @@ Tipos de anotação representam os tipos de metadados que podem ser atribuídos 
 <tr><td><b>Tipo de anotação (nome da vista aninhados)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 
 <tr><td>Descrição ("descrições")</td><td></td><td></td><td>Esta propriedade contém uma descrição para um recurso. Cada utilizador do sistema pode adicionar seus próprios descrição.  Apenas esse utilizador pode editar o objeto de descrição.  (Os proprietários de recursos e os administradores podem eliminar o objeto de descrição, mas não a editá-lo). O sistema mantém as descrições dos utilizadores em separado.  Portanto, é uma matriz de descrições de cada ativo (um para cada utilizador que tem contribuído com seus conhecimentos sobre o elemento, além de, possivelmente, um que contenha informações derivadas da origem de dados).</td></tr>
-<tr><td></td><td>descrição</td><td>string</td><td>Uma breve descrição (linhas 2 e 3) do recurso</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Uma breve descrição (linhas 2 e 3) do recurso</td></tr>
 
 <tr><td>Etiqueta ("etiquetas")</td><td></td><td></td><td>Esta propriedade define uma etiqueta para um recurso. Cada utilizador do sistema pode adicionar várias etiquetas para um recurso.  Apenas o utilizador que criou objetos de marca pode editá-los.  (Os proprietários de recursos e os administradores podem eliminar o objeto de etiqueta, mas não a editá-lo). O sistema mantém as etiquetas dos utilizadores em separado.  Portanto, é uma matriz de objetos de marca de cada ativo.</td></tr>
 <tr><td></td><td>etiqueta</td><td>string</td><td>Uma etiqueta que descrevem o recurso.</td></tr>
@@ -128,7 +128,7 @@ Tipos de anotação representam os tipos de metadados que podem ser atribuídos 
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Esta propriedade contém uma descrição para uma coluna.  Cada utilizador do sistema pode adicionar suas próprias descrições para várias colunas (no máximo um por coluna). Apenas o utilizador que criou objetos ColumnDescription pode editá-los.  (Os proprietários de recursos e os administradores podem eliminar o objeto de ColumnDescription, mas não a editá-lo). O sistema mantém descrições das colunas destes utilizador em separado.  Portanto, é uma matriz de objetos de ColumnDescription de cada ativo (um por coluna para cada utilizador que tem contribuído com seus conhecimentos sobre a coluna além, possivelmente, um que contenha informações derivadas da origem de dados).  O ColumnDescription livremente está vinculado ao esquema para que ele pode ficar dessincronizado. O ColumnDescription poderá descrever uma coluna que já não existe no esquema.  É até o gravador para manter a descrição e o esquema em sincronia.  A origem de dados também pode ter informações de descrição de colunas e esses são objetos de ColumnDescription adicionais que seriam possível criar quando executar a ferramenta.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>O nome da coluna que descrição refere-se a.</td></tr>
-<tr><td></td><td>descrição</td><td>String</td><td>uma breve descrição (linhas 2 e 3) da coluna.</td></tr>
+<tr><td></td><td>description</td><td>String</td><td>uma breve descrição (linhas 2 e 3) da coluna.</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Esta propriedade contém uma etiqueta para uma coluna. Cada utilizador do sistema pode adicionar várias etiquetas para uma determinada coluna e pode adicionar etiquetas para várias colunas. Apenas o utilizador que criou objetos ColumnTag pode editá-los. (Os proprietários de recursos e os administradores podem eliminar o objeto de ColumnTag, mas não a editá-lo). O sistema mantém as etiquetas de coluna dos utilizadores, estes separadamente.  Portanto, é uma matriz de objetos de ColumnTag de cada ativo.  O ColumnTag livremente está vinculado ao esquema para que ele pode ficar dessincronizado. O ColumnTag poderá descrever uma coluna que já não existe no esquema.  É até o gravador para manter a etiqueta de coluna e o esquema em sincronia.</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>O nome da coluna que esta etiqueta refere-se a.</td></tr>
@@ -189,7 +189,7 @@ Tipos comuns podem ser utilizados como os tipos de propriedades, mas não são i
 <tr><td></td><td>tipo</td><td>string</td><td>tipo de dados da coluna ou atributo. Os tipos permitidos dependem sourceType de dados do recurso.  Apenas um subconjunto de tipos é suportado.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou o atributo. Derivada da origem de dados. Apenas aplicável a alguns tipos de origem.</td></tr>
 <tr><td></td><td>precisão</td><td>byte</td><td>A precisão para a coluna ou o atributo. Derivada da origem de dados. Apenas aplicável a alguns tipos de origem.</td></tr>
-<tr><td></td><td>isNullable</td><td>Booleano</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivada da origem de dados. Apenas aplicável a alguns tipos de origem.</td></tr>
+<tr><td></td><td>isNullable</td><td>Boolean</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivada da origem de dados. Apenas aplicável a alguns tipos de origem.</td></tr>
 <tr><td></td><td>expressão</td><td>string</td><td>Se o valor é uma coluna calculada, este campo contém a expressão que expresse o valor. Derivada da origem de dados. Apenas aplicável a alguns tipos de origem.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
@@ -229,7 +229,7 @@ O conjunto de protocolos suportados pode ser estendido por meio de programação
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>nome</td><td>string</td><td>O nome do conjunto de identidade.</td></tr>
-<tr><td></td><td>propriedades</td><td>string[]</td><td>Definir a lista de propriedades de identidade incluído para essa identidade. Não pode conter duplicados. Cada propriedade referenciada pelo conjunto de identidade deve ser definida na lista de "identityProperties" do protocolo.</td></tr>
+<tr><td></td><td>properties</td><td>string[]</td><td>Definir a lista de propriedades de identidade incluído para essa identidade. Não pode conter duplicados. Cada propriedade referenciada pelo conjunto de identidade deve ser definida na lista de "identityProperties" do protocolo.</td></tr>
 
 </table>
 

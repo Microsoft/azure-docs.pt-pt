@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: ccf0ddfd42d6617634ce4a230ba88b76552afef3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692863"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003025"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para separando aplicativos em relação do Service Bus interrupções e desastres
 
@@ -36,7 +36,7 @@ Premium do Service Bus suporta a recuperação após desastre geográfico, ao n�
 O SKU do Service Bus Premium suporta [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas na mesma região do Azure.
 
 > [!NOTE]
-> O suporte de zonas de disponibilidade para o Azure Service Bus Premium só está disponível no [regiões do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) onde as zonas de disponibilidade estão presentes.
+> O suporte de zonas de disponibilidade para o Azure Service Bus Premium só está disponível no [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde as zonas de disponibilidade estão presentes.
 
 Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Barramento de serviço não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 

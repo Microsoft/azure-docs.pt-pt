@@ -2,18 +2,18 @@
 title: Como anotar origens de dados no catálogo de dados do Azure
 description: Artigo que mostra como destacando como anotar recursos de dados no catálogo de dados do Azure, incluindo nomes amigáveis, etiquetas, descrições e especialistas.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 39fd84882b42a1890358991b62afc1e393f6daa9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407837"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011141"
 ---
 # <a name="how-to-annotate-data-sources"></a>Como anotar origens de dados
 ## <a name="introduction"></a>Introdução

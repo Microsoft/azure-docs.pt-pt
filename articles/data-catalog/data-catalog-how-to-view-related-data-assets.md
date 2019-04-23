@@ -2,17 +2,17 @@
 title: Como ver os recursos de dados relacionados no catálogo de dados do Azure
 description: Este artigo explica como ver os recursos de dados relacionados de um recurso de dados selecionados no catálogo de dados do Azure.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958337"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996480"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como ver dados relacionados ativos no catálogo de dados do Azure?
 O catálogo de dados do Azure permite-lhe ver os recursos de dados relacionados com um relações de recurso e da vista de dados selecionados entre eles. 

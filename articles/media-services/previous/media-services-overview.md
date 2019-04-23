@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a98d3acc3f45772f9e28c23a639f495b75bea0a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: efdc3f657712794325f8af6f1b0178915e7a8e6b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850054"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000305"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
 
@@ -75,12 +75,6 @@ Para saber mais sobre os conceitos de Media Services do Azure, consulte [Conceit
 Para obter informações detalhadas, veja [Cenários do AMS e disponibilidade das funcionalidades e dos serviços em todos os datacenters](scenarios-and-availability.md).
 
 ## <a name="service-level-agreement-sla"></a>Contrato de Nível de Serviço (SLA)
-
-* Para Media Services Encoding, podemos garantir 99,9% de disponibilidade das transações da API REST.
-* Para a Transmissão em Fluxo, iremos responder com êxito aos pedidos com 99,9% de disponibilidade garantida para os conteúdos de multimédia existentes quando for comprado um ponto final de transmissão em fluxo standard ou premium.
-* Para Canais em Direto, garantimos que a execução dos Canais terá uma conectividade externa em, pelo menos, 99,9% das vezes.
-* Para Content Protection, garantimos que iremos satisfazer com êxito os pedidos-chave em, pelo menos, 99,9% das vezes.
-* Para o Indexador, iremos satisfazer com êxito os pedidos de Tarefa do Indexador com uma Unidade de Codificação Reservada em, pelo menos, 99,9% das vezes.
 
 Para obter mais informações, consulte [SLA do Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
 

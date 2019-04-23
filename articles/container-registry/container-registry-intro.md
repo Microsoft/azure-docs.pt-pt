@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ce870bfb8d29f7a808962e4d273388ab31186f10
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270528"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997412"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
@@ -48,7 +48,7 @@ O Azure disponibiliza ferramentas que inclui a Interface de linha de comandos do
   * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem utilizada para criar aplicações .NET, partilhadas em todo o departamento de garantias
   * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representa uma imagem Web, agrupada na aplicação de submissões do cliente, que é propriedade do departamento de garantias
 
-* **Imagem** -armazenados num repositório, cada imagem é um instantâneo só de leitura de um contentor compatível com o Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens de contentor, o Azure Container Registry armazena [relacionados com formatos de conteúdo](container-registry-image-formats.md) como [executar Helm gráficos](container-registry-helm-repos.md), utilizado para implementar aplicações no Kubernetes.
+* **Imagem** -armazenados num repositório, cada imagem é um instantâneo só de leitura de um contentor compatível com o Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens de contentor do Docker, registo de contentor do Azure armazena [relacionados com formatos de conteúdo](container-registry-image-formats.md) como [executar Helm gráficos](container-registry-helm-repos.md) e imagens criadas para o [imagem da iniciativa de contentor aberto (OCI) Especificação de formato](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
 * **Contentor** - um contentor define uma aplicação de software e as respetivas dependências, envoltas num sistema de ficheiros completo, que inclui código, tempo de execução, ferramentas do sistema e bibliotecas. Execute os contentores do Docker com base nas imagens do Windows ou do Linux que extrai de um registo de contentores. Os contentores executados num computador individual partilham o kernel do sistema operativo. Os contentores do Docker são totalmente portáteis para as principais distribuições de Linux e para macOS e Windows.
 

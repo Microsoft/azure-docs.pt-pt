@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789727"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002872"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Criar campos personalizados numa área de trabalho do Log Analytics no Azure Monitor
 
@@ -81,7 +81,7 @@ Pode ver uma lista de todos os campos personalizados no seu grupo de gestão a p
 Existem duas formas de remover um campo personalizado.  A primeira é o **remover** opção para cada campo ao visualizar a lista completa, conforme descrito acima.  O outro método é obter um registo e clique no botão à esquerda do campo.  O menu terá uma opção para remover o campo personalizado.
 
 ## <a name="sample-walkthrough"></a>Instruções de exemplo
-A secção seguinte descreve um exemplo completo de criação de um campo personalizado.  Neste exemplo extrai o nome do serviço nos eventos do Windows que indicam um serviço de alterar o estado.  Baseia-se nos eventos criados pelo Gestor de controlo de serviços no início de sessão do sistema em computadores Windows.  Se quiser siga este exemplo, tem de ser [recolha de eventos de informações para o registo do sistema](data-sources-windows-events.md).
+A secção seguinte descreve um exemplo completo de criação de um campo personalizado.  Neste exemplo extrai o nome do serviço nos eventos do Windows que indicam um serviço de alterar o estado.  Baseia-se nos eventos criados pelo Gestor de controlo do serviço durante o arranque do sistema em computadores Windows.  Se quiser siga este exemplo, tem de ser [recolha de eventos de informações para o registo do sistema](data-sources-windows-events.md).
 
 Introduza a seguinte consulta para devolver todos os eventos do Gestor de controlo de serviço que tenha um ID de evento de 7036 que é o evento que indica um serviço de início ou paragem.
 

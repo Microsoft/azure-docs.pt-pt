@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554203"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012506"
 ---
 #### <a name="process-automation"></a>Automatização de processos
 
@@ -22,6 +22,7 @@ ms.locfileid: "57554203"
 | Número máximo de novas tarefas que podem ser submetidos a cada 30 segundos por conta de automatização do Azure (nonscheduled tarefas) |100 |Quando este limite for atingido, os pedidos subsequentes para criar uma tarefa falharem. O cliente recebe uma resposta de erro.|
 | Número máximo de tarefas em execução em simultâneo na mesma instância de tempo por conta de automatização (nonscheduled tarefas) |200 |Quando este limite for atingido, os pedidos subsequentes para criar uma tarefa falharem. O cliente recebe uma resposta de erro.|
 | Tamanho máximo de armazenamento de metadados da tarefa durante um período sem interrupção de 30 dias | 10 GB (cerca de 4 milhões de tarefas)|Quando este limite for atingido, os pedidos subsequentes para criar uma tarefa falharem. |
+| Limite de fluxo de tarefas máxima|1MB|Um único fluxo não pode ser maior do que 1 MB.|
 | Número máximo de módulos que podem ser importados a cada 30 segundos por conta de automatização |5 ||
 | Tamanho máximo de um módulo |100 MB ||
 | Tarefa de tempo de execução, escalão gratuito |500 minutos por subscrição por mês ||

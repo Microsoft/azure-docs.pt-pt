@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: bd945d49949afb679a376ce98b866fc5dee54ade
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699241"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005303"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico ISO 27001 Shared Services
 
@@ -71,7 +71,7 @@ Este esquema atribui três [do Azure Policy](../../../policy/overview.md) defini
 
 ## <a name="a925-review-of-user-access-rights"></a>Revisão A.9.2.5 dos direitos de acesso de utilizador
 
-Azure implementa [controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para ajuda a gerir quem tem acesso a recursos no Azure. Utilizar o portal do Azure, pode rever quem tem acesso aos recursos do Azure e as respetivas permissões. Este esquema atribui quatro [do Azure Policy](../../../policy/overview.md) definições de auditoria a contas que devem ser priorizadas para revisão, incluindo contas depreciadas e as contas externas com permissões elevadas.
+Azure implementa [controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para ajudar a gerir quem tem acesso a recursos no Azure. Utilizar o portal do Azure, pode rever quem tem acesso aos recursos do Azure e as respetivas permissões. Este esquema atribui quatro [do Azure Policy](../../../policy/overview.md) definições de auditoria a contas que devem ser priorizadas para revisão, incluindo contas depreciadas e as contas externas com permissões elevadas.
 
 - [Pré-visualização]: Audit deprecated accounts on a subscription
 - [Pré-visualização]: Audit deprecated accounts with owner permissions on a subscription
@@ -80,7 +80,7 @@ Azure implementa [controlo de acesso baseado em funções](../../../../role-base
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>Remoção de A.9.2.6 ou ajuste dos direitos de acesso
 
-Azure implementa [controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para ajuda a gerir quem tem acesso a recursos no Azure. Usando [do Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e RBAC, pode atualizar funções de utilizador para refletir alterações organizacionais. Quando necessário, contas podem ser impedidas de iniciar sessão (ou removidas), que remove imediatamente direitos de acesso aos recursos do Azure. Este esquema atribui dois [do Azure Policy](../../../policy/overview.md) definições de conta depreciada que deve ser considerada para remoção de auditoria.
+Azure implementa [controlo de acesso baseado em funções](../../../../role-based-access-control/overview.md) (RBAC) para ajudar a gerir quem tem acesso a recursos no Azure. Usando [do Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e RBAC, pode atualizar funções de utilizador para refletir alterações organizacionais. Quando necessário, contas podem ser impedidas de iniciar sessão (ou removidas), que remove imediatamente direitos de acesso aos recursos do Azure. Este esquema atribui dois [do Azure Policy](../../../policy/overview.md) definições de conta depreciada que deve ser considerada para remoção de auditoria.
 
 - [Pré-visualização]: Audit deprecated accounts on a subscription
 - [Pré-visualização]: Audit deprecated accounts with owner permissions on a subscription
@@ -155,7 +155,7 @@ Este esquema ajuda a garantir que os eventos de sistema são registados através
 
 ## <a name="a1244-clock-synchronization"></a>Sincronização do relógio A.12.4.4
 
-Este esquema ajuda a garantir que os eventos de sistema são registados através da atribuição de sete Azure definições de política que que auditoria definições em recursos do Azure de registo. Registos do Azure dependem sincronizados relógios internos para criar um registo de tempo de mensagens em fila de eventos de todos os recursos.
+Este esquema ajuda a garantir que os eventos de sistema são registados através da atribuição de sete definições de política do Azure que auditoria definições de registo nos recursos do Azure. Registos do Azure dependem sincronizados relógios internos para criar um registo de tempo de mensagens em fila de eventos de todos os recursos.
 
 - [Pré-visualização]: Implementação de agente de dependência de auditoria - imagem de VM (SO) não listados
 - [Pré-visualização]: Auditar a implementação de agente de dependência no VMSS - imagem de VM (SO) não listados

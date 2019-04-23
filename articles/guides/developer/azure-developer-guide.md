@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: caddb542e806457e085db096813e504ddc278ac0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108329"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011630"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -154,7 +154,7 @@ O Azure fornece várias formas de utilizar contentores em seus aplicativos.
   > 
   > **Introdução ao**: [Utilizar uma imagem personalizada do Docker para o serviço de aplicações no Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 É fundamental, não apenas saber quem está a utilizar os seus aplicativos, mas também para impedir acesso não autorizado aos seus recursos. O Azure fornece várias formas de autenticar os clientes de aplicação.
 
@@ -281,7 +281,7 @@ O Explorador de recursos do Azure é uma ótima ferramenta para visualizar os re
 
 Ao permitir o acesso aos recursos do Azure, é sempre melhor prática para fornecer aos utilizadores com o menor privilégio necessário para executar uma determinada tarefa.
 
-- **Controlo de acesso baseado em funções (RBAC)**: No Azure, pode conceder acesso a contas de utilizador (principais) com um âmbito especificado: subscrição, grupo de recursos ou recursos individuais. RBAC permite-lhe implementar um conjunto de recursos num grupo de recursos e conceder permissões a um grupo ou utilizador específico. Ele também permitem-lhe limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Também pode conceder acesso a um único recurso, como uma máquina virtual ou a rede virtual. Para conceder acesso, atribuir uma função para o utilizador, grupo ou principal de serviço. Existem muitas funções predefinidas, e também pode definir suas próprias funções personalizadas. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
+- **Controlo de acesso baseado em funções (RBAC)**: No Azure, pode conceder acesso a contas de utilizador (principais) com um âmbito especificado: subscrição, grupo de recursos ou recursos individuais. RBAC permite-lhe implementar um conjunto de recursos num grupo de recursos e conceder permissões a um grupo ou utilizador específico. Ele também permite-lhe limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Também pode conceder acesso a um único recurso, como uma máquina virtual ou a rede virtual. Para conceder acesso, atribuir uma função para o utilizador, grupo ou principal de serviço. Existem muitas funções predefinidas, e também pode definir suas próprias funções personalizadas. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
 
   > **Quando utilizar**: Quando precisa de gestão de acessos detalhada para utilizadores e grupos ou quando precisa fazer um proprietário de uma subscrição de um utilizador.
   > 

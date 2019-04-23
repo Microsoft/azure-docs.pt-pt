@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 95ba3c905541d2168dcbbc1bb2c1bc1d05468cb5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526508"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006425"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implementar o contentor de deteção de idioma para o Azure Kubernetes Service
 
@@ -325,7 +325,7 @@ Esta secção utiliza o **kubectl** CLI para falar com o serviço de Kubernetes 
     |Linha 78<br> `image` Propriedade|Localização de imagem para a imagem de idioma no seu registo de contentor<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |95 de linha<br> `name` Propriedade|Segredo de registo de contentor para a imagem, conhecido como `<client-secret>` numa secção anterior.|
     |Line 91<br> `apiKey` Propriedade|A chave de recurso de análise de texto|
-    |Line 92<br> `billing` Propriedade|O ponto final de faturação para o seu recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |Line 92<br> `billing` Propriedade|O ponto final de faturação para o seu recurso de análise de texto.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Uma vez que o **apiKey** e **ponto final de faturação** estão definidas como parte da definição de orquestração de Kubernetes, o contentor de Web site não precisa saber sobre estes ou passá-los como parte do pedido. O contentor de Web site refere-se para o contentor de deteção de idioma por seu nome de orchestrator `language`. 
 

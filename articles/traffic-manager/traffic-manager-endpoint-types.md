@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
 ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188718"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).

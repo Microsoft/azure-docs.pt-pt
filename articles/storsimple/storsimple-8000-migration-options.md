@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 1e637f58b392b2de67a5ead9d57a6a87ab705b93
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608219"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007243"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opções de migração de dados do StorSimple 5000-7000 série 
 
@@ -43,7 +43,7 @@ Para obter mais informações sobre como migrar dados usando uma série StorSimp
 
 Esta nova opção de migração permite aos clientes armazenar partilhas de ficheiros da sua organização nos ficheiros do Azure. Estas partilhas de ficheiros, em seguida, estão centralizadas para acesso no local com o Azure File Sync (AFS). AFS pode ser implementada num anfitrião Windows Server. A migração de dados real, em seguida, é executada como um anfitrião cópia ou a ferramenta de migração.
 
-Para obter mais informações sobre como migrar dados para sincronização de ficheiros do Azure, aceda a [migrar dados do StorSimple 5000-7000 série para o Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
+Para obter mais informações sobre como migrar dados para sincronização de ficheiros do Azure, aceda a [migrar dados do StorSimple 5000-7000 série para o Azure File Sync](storsimple-5000-7000-afs-migration.md).
 
 ### <a name="third-party-options"></a>Opções de terceiros
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: a88f1d0b2290bc4f5f52827960ea3bed94053c62
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609392"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997228"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início rápido: Analisar uma imagem usando o SDK de visão do computador eC#
 
@@ -24,7 +24,7 @@ Neste início rápido, analisará um tanto localmente como uma imagem remota par
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obter Chaves de Subscrição).
+* Uma chave de assinatura de imagem digitalizada. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de cliente [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário transferir o pacote. Abaixo, são fornecidas as instruções de instalação.
 

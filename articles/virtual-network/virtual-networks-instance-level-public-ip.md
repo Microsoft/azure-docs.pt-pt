@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
 ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60186808"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Instância pública IP (clássico) Descrição geral de nível
 Uma instância IP público ao nível (ILPIP) é um endereço IP público que pode atribuir diretamente para uma instância de função VM ou serviços Cloud, em vez de para o serviço em nuvem que sua instância VM ou função residem em. Um ILPIP não tomar o lugar do IP virtual (VIP) atribuído ao seu serviço cloud. Em vez disso, é um endereço IP adicional que pode utilizar para ligar diretamente à sua instância VM ou função.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com os recursos: [Resource Manager e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação de VMs através do Resource Manager. Certifique-se de que compreende como [endereços IP](virtual-network-ip-addresses-overview-classic.md) profissional no Azure.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos:  [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda a criação de VMs através do Resource Manager. Certifique-se de que compreende como [endereços IP](virtual-network-ip-addresses-overview-classic.md) profissional no Azure.
 
 ![Diferença entre ILPIP e VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 

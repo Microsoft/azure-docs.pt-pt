@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881023"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999455"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
 
@@ -52,7 +52,6 @@ Funcionalidade|Standard|Premium
 ---|---|---
 Gratuitos primeiros 15 dias| Sim |Não
 Débito |Até 600 Mbps quando não for utilizada o CDN do Azure. Dimensiona com CDN.|200 Mbps por unidade (SU) de transmissão em fluxo. Dimensiona com CDN.
-SLA | 99.9|99,9 (200 Mbps por SU).
 CDN|A CDN do Azure, terceiros CDN ou não CDN.|A CDN do Azure, terceiros CDN ou não CDN.
 A faturação é calculada| Diariamente|Diariamente
 Encriptação dinâmica|Sim|Sim
@@ -86,7 +85,7 @@ Esta secção fornece detalhes sobre algumas das propriedades de transmissão em
 
     Seguem-se as zonas DNS esperadas a ser utilizado no registo de verificar para diferentes regiões do Azure.
   
-  - América do Norte, Europa, Singapura, Hong Kong, Japão:
+  - América do Norte, Europa, Singapura, RAE de Hong Kong, Japão:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

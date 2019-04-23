@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501642"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996027"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Melhores práticas para melhoramentos do desempenho através de mensagens do Service Bus
 
@@ -94,6 +94,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
 Criação de batches não afeta o número de operações mensagens a cobrar e está disponível apenas para o Service Bus cliente protocolo a utilizar o [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) biblioteca. O protocolo HTTP não suporta a criação de batches.
+
+> [!NOTE]
+> Definição BatchFlushInterval garante que a criação de batches implícita do ponto de vista do aplicativo. ou seja, o aplicativo faça SendAsync() e CompleteAsync() chama e não faz chamadas específicas do Batch.
+>
+> Criação de batches de lado do cliente explícita pode ser implementada utilizando o abaixo chamada de método - 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> Aqui o tamanho combinado das mensagens tem de ser menor que o tamanho máximo suportado pelo escalão de preço.
 
 ## <a name="batching-store-access"></a>Acesso à loja de criação de batches
 

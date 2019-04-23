@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006357"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996752"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda de caixa de dados do Azure
 
@@ -82,7 +82,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL                      | Componente ou funcionalidade                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registo de contentor da Microsoft (obrigatório)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registo de contentor da Microsoft (obrigatório)               |
 | https://\*.azurecr.io                     | Registos de contentores de pessoal e de terceiros (opcionais) | 
 | https://\*.azure-devices.net              | Acesso do IoT Hub (obrigatório)                             | 
 
@@ -94,7 +94,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL                      | Componente ou funcionalidade                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registo de contentor da Microsoft (obrigatório)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registo de contentor da Microsoft (obrigatório)               |
 | https://\*.azure-devices.us              | Acesso do IoT Hub (obrigatório)           |
 | https://\*.azurecr.us                    | Registos de contentores de pessoal e de terceiros (opcionais) | 
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629600"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149041"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Criar cópias de segurança e restaurar VMs do Azure com o PowerShell
 
@@ -31,7 +31,6 @@ Neste artigo, vai aprender a:
 - [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre cofres dos serviços de recuperação.
 - [Reveja](backup-architecture.md#architecture-direct-backup-of-azure-vms) a arquitetura para a cópia de segurança de VM do Azure, [Saiba mais sobre](backup-azure-vms-introduction.md) o processo de cópia de segurança, e [reveja](backup-support-matrix-iaas.md) pré-requisitos, limitações e suporte.
 - Reveja a hierarquia de objetos do PowerShell para serviços de recuperação.
-
 
 ## <a name="recovery-services-object-hierarchy"></a>Hierarquia de objetos de serviços de recuperação
 
@@ -54,7 +53,7 @@ Para começar:
     ```powershell
     Get-Command *azrecoveryservices*
     ```
- 
+
     Os cmdlets de cópia de segurança do Azure, Azure Site Recovery e o Cofre dos serviços de recuperação e aliases são apresentados. A imagem seguinte é um exemplo de como o que verá. Não é a lista completa de cmdlets.
 
     ![lista de serviços de recuperação](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
@@ -77,9 +76,11 @@ Para começar:
     ```
 
 6. Pode verificar que os fornecedores registado com êxito, com os comandos seguintes:
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
+
     No resultado do comando, o **RegistrationState** deve ser alterado para **registado**. Se não, basta executar o **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet novamente.
 
 
@@ -241,9 +242,49 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Se estiver a utilizar a cloud do Azure Government, em seguida, utilize o ff281ffe-705c-4f53-9f37-a40e6f2c68f3 de valor para o parâmetro ServicePrincipalName no [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
+## <a name="monitoring-a-backup-job"></a>Monitorização de uma tarefa de cópia de segurança
+
+Pode monitorizar as operações de longa execução, como tarefas de cópia de segurança, sem utilizar o portal do Azure. Para obter o estado de uma tarefa em curso, utilize o [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. Este cmdlet obtém as tarefas de cópia de segurança de um cofre específico, e esse cofre é especificado no contexto do cofre. O exemplo seguinte obtém o estado de uma tarefa em curso como uma matriz e armazena o estado na variável $joblist.
+
+```powershell
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
+$joblist[0]
+```
+
+O resultado é semelhante ao seguinte exemplo:
+
+```
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   ----------
+V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+```
+
+Em vez de consultar estas tarefas de conclusão – o que é o código adicional desnecessário - utilizar o [espera AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. Este cmdlet coloca em pausa a execução até que a tarefa é concluída ou for atingido o valor de tempo limite especificado.
+
+```powershell
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+```
+
+## <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
+
 ### <a name="modify-a-protection-policy"></a>Modificar uma política de proteção
 
 Para modificar a política de proteção, utilize [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) para modificar os objetos SchedulePolicy ou RetentionPolicy.
+
+#### <a name="modifying-scheduled-time"></a>Modificar a hora agendada
+
+Quando cria uma política de proteção, que é atribuído uma hora de início por predefinição. Os exemplos a seguir mostra como modificar a hora de início de uma política de proteção.
+
+````powershell
+$SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = $UtcTime.ToUniversalTime()
+$SchPol.ScheduleRunTimes[0] = $UtcTime
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -SchedulePolicy $SchPol
+````
+
+#### <a name="modifying-retention"></a>Modificação de retenção
 
 O exemplo seguinte altera o período de retenção do ponto de recuperação a 365 dias.
 
@@ -267,14 +308,15 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 O valor predefinido será 2, o utilizador pode definir o valor com um mínimo de 1 e máximo de 5. Para as políticas de cópia de segurança semanal, o período é definido como 5 e não pode ser alterado.
 
-## <a name="trigger-a-backup"></a>Acionar uma cópia de segurança
+### <a name="trigger-a-backup"></a>Acionar uma cópia de segurança
 
-Uso [AzRecoveryServicesBackupItem de cópia de segurança](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) para acionar uma tarefa de cópia de segurança. Se estiver a cópia de segurança inicial, é uma cópia de segurança completa. Cópias de segurança subsequentes faça uma cópia incremental. Certifique-se de que usar **[conjunto AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** para definir o contexto do cofre antes de acionar a tarefa de cópia de segurança. O exemplo a seguir supõe que o contexto do cofre já foi definido.
+Uso [AzRecoveryServicesBackupItem de cópia de segurança](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) para acionar uma tarefa de cópia de segurança. Se estiver a cópia de segurança inicial, é uma cópia de segurança completa. Cópias de segurança subsequentes faça uma cópia incremental. O exemplo seguinte é uma VM cópia de segurança retidos por 60 dias.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
 $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzRecoveryServicesBackupItem -Item $item
+$endDate = (Get-Date).AddDays(60).ToUniversalTime()
+$job = Backup-AzRecoveryServicesBackupItem -Item $item -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 O resultado é semelhante ao seguinte exemplo:
@@ -290,28 +332,42 @@ V2VM              Backup              InProgress          4/23/2016             
 >
 >
 
-## <a name="monitoring-a-backup-job"></a>Monitorização de uma tarefa de cópia de segurança
+### <a name="change-policy-for-backup-items"></a>Alterar a política de itens de cópia de segurança
 
-Pode monitorizar as operações de longa execução, como tarefas de cópia de segurança, sem utilizar o portal do Azure. Para obter o estado de uma tarefa em curso, utilize o [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet. Este cmdlet obtém as tarefas de cópia de segurança de um cofre específico, e esse cofre é especificado no contexto do cofre. O exemplo seguinte obtém o estado de uma tarefa em curso como uma matriz e armazena o estado na variável $joblist.
+Utilizador pode modificar a política existente ou alterar a política do item de cópia de segurança de Policy1 para Policy2. Para mudar as políticas para um item de cópia de segurança, simplesmente buscar a política relevante e criar cópias de segurança item e utilizar o [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) comando com o item de cópia de segurança como o parâmetro.
+
+````powershell
+$TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
+$anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType AzureVM -BackupManagementType AzureVM -Name "<BackupItemName>"
+Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
+````
+
+O comando tem de aguardar até que a cópia de segurança de configuração está concluída e devolve o resultado seguinte.
 
 ```powershell
-$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
-$joblist[0]
-```
-
-O resultado é semelhante ao seguinte exemplo:
-
-```
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   ----------
-V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+------------     ---------            ------               ---------                 -------                   -----
+TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-Em vez de consultar estas tarefas de conclusão – o que é o código adicional desnecessário - utilizar o [espera AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet. Este cmdlet coloca em pausa a execução até que a tarefa é concluída ou for atingido o valor de tempo limite especificado.
+### <a name="stop-protection"></a>Parar proteção
 
-```powershell
-Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
-```
+#### <a name="retain-data"></a>Reter dados
+
+Se o utilizador pretende parar a proteção, pode utilizar o [Disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet. Isto irá parar as cópias de segurança agendadas, mas os dados de segurança até agora são mantidos para sempre.
+
+````powershell
+$bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID
+````
+
+#### <a name="delete-backup-data"></a>eliminar dados de cópia de segurança
+
+Para remover completamente os dados de cópia de segurança armazenados no cofre, basta adicionar "-. o sinalizador/mudança dos RemoveRecoveryPoints para o ["desativar"comando proteção](#retain-data).
+
+````powershell
+Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
+````
 
 ## <a name="restore-an-azure-vm"></a>Restaurar uma VM do Azure
 

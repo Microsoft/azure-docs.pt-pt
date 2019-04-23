@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3a7cc7703a6b33eef4c7a10f927b4747bc1d417c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562208"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002702"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
@@ -107,7 +107,7 @@ Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 Suporta o SKU Standard dos Hubs de eventos [zonas de disponibilidade](../availability-zones/az-overview.md), fornecer localizações isoladas de falhas dentro de uma região do Azure. 
 
 > [!NOTE]
-> O suporte de zonas de disponibilidade para o padrão de Hubs de eventos do Azure só está disponível no [regiões do Azure](../availability-zones/az-overview.md#regions-that-support-availability-zones) onde as zonas de disponibilidade estão presentes.
+> O suporte de zonas de disponibilidade para o padrão de Hubs de eventos do Azure só está disponível no [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) onde as zonas de disponibilidade estão presentes.
 
 Pode ativar as zonas de disponibilidade nos novos espaços de nomes apenas, com o portal do Azure. Os Hubs de eventos não suporta a migração de espaços de nomes existentes. Não é possível desativar a redundância de zona após ativá-la no seu espaço de nomes.
 

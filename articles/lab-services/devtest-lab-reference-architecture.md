@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 61e76369a4d73bd171c9e5c2462b3f261681ba00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: bcb154f7cffb92ef23fc2606e1f604bb12f8d1a3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551386"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996616"
 ---
 # <a name="azure-devtest-labs---reference-architecture-for-an-enterprise"></a>O Azure DevTest Labs - arquitetura de referência para uma empresa
 Este artigo fornece uma arquitetura de referência para implantar uma solução baseada no Azure DevTest Labs numa empresa. Ele inclui a conectividade no local através do Expressroute, um gateway de ambiente de trabalho remoto, início de sessão remotamente em máquinas virtuais, a ligação a um repositório de artefactos para artefactos privados e outros serviços de PaaS usados num laboratório.
@@ -37,7 +37,7 @@ Os elementos essenciais numa arquitetura de referência são:
     - Forçar todo o tráfego de rede e para o ambiente de nuvem por meio de uma firewall no local por motivos de segurança/conformidade
 - **Grupos de segurança de rede**: Uma forma comum de restringir o tráfego para o ambiente de nuvem (ou dentro do ambiente de cloud) com base na origem e endereços IP de destino está a utilizar um [grupo de segurança de rede](../virtual-network/security-overview.md). Por exemplo, permitindo que apenas o tráfego de rede com a origem da rede empresarial em redes do laboratório.
 - **Gateway de ambiente de trabalho remoto**:  As empresas normalmente bloqueiam ligações de ambiente de trabalho remotas saída à firewall Corporativo. Para ativar a conectividade para o ambiente com base na cloud no DevTest Labs, existem várias opções, como a utilização uma [gateway de ambiente de trabalho remoto](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture) (lista branca de IP estático para o Balanceador de carga de gateway) ou [direcionar todos recebidos Tráfego RDP](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) através da ligação de Express Route/Site-Site VPN. É uma consideração comuns ao planear uma implementação do DevTest Labs na empresa.
-- **Redes do Azure (VNets, sub-redes)**:  O [redes do Azure](../networking/networking-overview.md) topologia é outro elemento essencial da arquitetura geral do DevTest Labs. Ele permite que os recursos de laboratórios para comunicar (ou não), acesso para o local (ou não) e de acesso à internet (ou não). O diagrama de arquitetura inclui a forma mais comum que os clientes estão a utilizar os laboratórios DevTest (ligados através de todos os laboratórios [VNet Peering](../virtual-network/virtual-network-peering-overview.md) usando um [modelo hub-and-spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke) para a ligação de Express Route/Site-Site VPN para o local), mas, desde o DevTest Labs utiliza redes do Azure diretamente não existem quaisquer restrições sobre como configurar a infraestrutura de rede.
+- **Redes do Azure (VNets, sub-redes)**:  O [redes do Azure](../networking/networking-overview.md) topologia é outro elemento essencial da arquitetura geral do DevTest Labs. Ele permite que os recursos de laboratórios para comunicar (ou não), acesso para o local (ou não) e de acesso à internet (ou não). O diagrama de arquitetura inclui a forma mais comum que os clientes estão a utilizar os laboratórios DevTest (ligados através de todos os laboratórios [VNet Peering](../virtual-network/virtual-network-peering-overview.md) usando um [modelo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para a ligação de Express Route/Site-Site VPN para o local), mas, desde o DevTest Labs utiliza redes do Azure diretamente não existem quaisquer restrições sobre como configurar a infraestrutura de rede.
 - **Os laboratórios DevTest**:  DevTest Labs é uma parte essencial da arquitetura geral. Para saber mais sobre o serviço, veja [sobre o DevTest Labs](devtest-lab-overview.md).
 - **Máquinas virtuais e outros recursos (SaaS, PaaS, IaaS)**:  Uma das cargas de trabalho importantes, suportadas pela DevTest Labs são máquinas de virtuais juntamente com outros recursos do Azure.  Laboratórios Dev/Test torna mais fácil e rápida para uma empresa dar acesso aos recursos do Azure (incluindo máquinas virtuais e outros recursos do Azure).  Saiba mais sobre o acesso ao Azure para [desenvolvedores](devtest-lab-developer-lab.md) e [testadores](devtest-lab-test-env.md).
 

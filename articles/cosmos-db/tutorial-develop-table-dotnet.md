@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880796"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149602"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de tabela do Azure Cosmos DB e tabelas do Azure com o SDK .NET
 
@@ -170,7 +170,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 As entidades mapeiam para C# objetos através de uma classe personalizada derivam [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Para adicionar uma entidade a uma tabela, crie uma classe que define as propriedades de entidade.
 
-Clique com o botão direito do rato no seu projeto **CosmosTableSamples**. Selecione **Add**, **nova pasta** e nomeie-o como **modelo**. Dentro da pasta de modelo, adicione uma classe chamada **CustimerEntity.cs** e adicione o seguinte código ao mesmo.
+Clique com o botão direito do rato no seu projeto **CosmosTableSamples**. Selecione **Add**, **nova pasta** e nomeie-o como **modelo**. Dentro da pasta de modelo, adicione uma classe chamada **CustomerEntity.cs** e adicione o seguinte código ao mesmo.
 
 ```csharp
 namespace CosmosTableSamples.Model

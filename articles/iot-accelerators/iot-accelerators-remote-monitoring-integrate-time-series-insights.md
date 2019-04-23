@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085155"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007479"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
 
@@ -62,7 +62,7 @@ Em seguida, implemente o Time Series Insights como um recurso adicional na sua s
     | Nome do ambiente | Captura de ecrã seguinte utiliza o nome **contorosrmtsi**. Escolha o seu próprio nome exclusivo quando concluir este passo. |
     | Subscrição | Selecione a sua subscrição do Azure na lista pendente. |
     | Grupo de recursos | **Utilizar existente**. Selecione o nome do seu grupo de recursos de monitorização remota existente. |
-    | Localização | Estamos a utilizar **E.U.A. Leste**. Crie o seu ambiente na mesma região que a sua solução de monitorização remota se possível. |
+    | Location | Estamos a utilizar **E.U.A. Leste**. Crie o seu ambiente na mesma região que a sua solução de monitorização remota se possível. |
     | Sku |**S1** |
     | Capacidade | **1** |
 
@@ -236,6 +236,9 @@ Configurar o ambiente de `basic` implementação para os microsserviços atualiz
 1. Navegue para o **serviço de Gestor do ASA** e editar o docker compose ficheiro adicionando `PCS_TELEMETRY_STORAGE_TYPE`.
 
 1. Reinicie os contentores de docker com `sudo ./start.sh` da VM.
+
+> [!NOTE]
+> A configuração acima de variáveis de ambiente é válida para versões de monitorização remota antes 1.0.2
 
 ### <a name="standard-deployments"></a>Implementações padrão
 

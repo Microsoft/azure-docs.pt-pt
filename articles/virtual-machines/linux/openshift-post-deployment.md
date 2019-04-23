@@ -4,7 +4,7 @@ description: Tarefas adicionais para depois de um cluster do OpenShift foi imple
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fba29cd55f2d765faa107de3a8961032ef44deec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903680"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997406"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implementação
 
@@ -151,30 +151,9 @@ Certifique-se de que o texto se alinha corretamente em identityProviders. Encont
 
 Reinicie os serviços de mestres de OpenShift em todos os nós principais:
 
-**OpenShift Container Platform (OCP) com vários modelos de estrutura mestres**
-
 ```bash
-sudo systemctl restart atomic-openshift-master-api
-sudo systemctl restart atomic-openshift-master-controllers
-```
-
-**OpenShift Container Platform com uma única mestra**
-
-```bash
-sudo systemctl restart atomic-openshift-master
-```
-
-**OKD com vários modelos de estrutura mestres**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
-
-**OKD com uma única mestra**
-
-```bash
-sudo systemctl restart origin-master
+sudo /usr/local/bin/master-restart api
+sudo /usr/local/bin/master-restart controllers
 ```
 
 Na consola do OpenShift, verá agora duas opções para a autenticação: htpasswd_auth e [registo da aplicação].
@@ -186,7 +165,7 @@ Existem três formas de adicionar o agente Log Analytics ao OpenShift.
 - Ativar a extensão de VM do Azure Monitor em cada nó do OpenShift
 - Instalar o agente Log Analytics como um daemon-conjunto do OpenShift
 
-As instruções completas estão localizadas aqui: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
+Consulte os [instruções](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) para obter mais detalhes.
 
 ## <a name="configure-metrics-and-logging"></a>Configurar métricas e registo
 
@@ -196,74 +175,9 @@ A oferta do Marketplace do OpenShift Container Platform também fornece uma opç
 
 Se as métricas / registo não foi ativado durante a instalação do cluster, pode facilmente ser ativados após o fato.
 
-### <a name="ansible-inventory-pre-work"></a>Trabalho de pré-lançamento de inventário do Ansible
-
-Verifique se o ficheiro de inventário do ansible (/ etc/ansible/anfitriões) tem as variáveis apropriadas para métricas / registo. O ficheiro de inventário pode ser encontrado em diferentes anfitriões com base no modelo utilizado.
-
-Para o modelo de contentores do OpenShift e a oferta do Marketplace, o ficheiro de inventário está localizado no anfitrião de bastião. Para o modelo OKD, o ficheiro de inventário está localizado no anfitrião master-0 ou o anfitrião de bastião com base no ramo em utilização.
-
-1. Edite o ficheiro de /etc/ansible/hosts e adicione as seguintes linhas depois da secção de fornecedor de identidade (# HTPasswdPasswordIdentityProvider ativar). Se estas linhas já estiverem presentes, não os adicione novamente.
-
-   OpenShift / versões OKD 3.9 e anteriores
-
-   ```yaml
-   # Setup metrics
-   openshift_hosted_metrics_deploy=false
-   openshift_metrics_cassandra_storage_type=dynamic
-   openshift_metrics_start_cluster=true
-   openshift_metrics_hawkular_nodeselector={"type":"infra"}
-   openshift_metrics_cassandra_nodeselector={"type":"infra"}
-   openshift_metrics_heapster_nodeselector={"type":"infra"}
-   openshift_hosted_metrics_public_url=https://metrics.$ROUTING/hawkular/metrics
-
-   # Setup logging
-   openshift_hosted_logging_deploy=false
-   openshift_hosted_logging_storage_kind=dynamic
-   openshift_logging_fluentd_nodeselector={"logging":"true"}
-   openshift_logging_es_nodeselector={"type":"infra"}
-   openshift_logging_kibana_nodeselector={"type":"infra"}
-   openshift_logging_curator_nodeselector={"type":"infra"}
-   openshift_master_logging_public_url=https://kibana.$ROUTING
-   ```
-
-   OpenShift / versões OKD 3.10 e posteriores
-
-   ```yaml
-   # Setup metrics
-   openshift_metrics_install_metrics=false
-   openshift_metrics_start_cluster=true
-   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
-
-   # Setup logging
-   openshift_logging_install_logging=false
-   openshift_logging_fluentd_nodeselector={"logging":"true"}
-   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
-   openshift_logging_master_public_url=https://kibana.$ROUTING
-   ```
-
-3. Substitua a cadeia utilizada para a opção de openshift_master_default_subdomain no mesmo ficheiro /etc/ansible/hosts $ROUTING.
-
 ### <a name="azure-cloud-provider-in-use"></a>Fornecedor de Cloud do Azure em utilização
 
 SSH para o nó de bastion ou o primeiro nó mestre (com base no modelo e o ramo em utilização) utilizando as credenciais fornecidas durante a implementação. Emita o seguinte comando:
-
-**OpenShift Container Platform 3.7 e anterior**
-
-```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True \
--e openshift_hosted_logging_storage_kind=dynamic
-```
-
-**OpenShift Container Platform 3.9 e posterior**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -271,75 +185,17 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metric
 -e openshift_metrics_cassandra_storage_type=dynamic
 
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
--e openshift_logging_install_logging=True \
--e openshift_logging_es_pvc_dynamic=true
-```
-
-**OKD 3.7 e anterior**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True \
--e openshift_hosted_logging_storage_kind=dynamic
-```
-
-**OKD 3.9 e posterior**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True \
--e openshift_metrics_cassandra_storage_type=dynamic
-
-ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
 ### <a name="azure-cloud-provider-not-in-use"></a>Fornecedor de Cloud do Azure não está em utilização
 
-SSH para o nó de bastion ou o primeiro nó mestre (com base no modelo e o ramo em utilização) utilizando as credenciais fornecidas durante a implementação. Emita o seguinte comando:
-
-
-**OpenShift Container Platform 3.7 e anterior**
-
-```bash
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-
-ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True
-```
-
-**OpenShift Container Platform 3.9 e posterior**
-
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
 -e openshift_metrics_install_metrics=True
 
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
--e openshift_logging_install_logging=True
-```
-
-**OKD 3.7 e anterior**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True
-```
-
-**OKD 3.9 e posterior**
-
-```bash
-ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True
-ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 -e openshift_logging_install_logging=True
 ```
 
@@ -348,8 +204,9 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 Abra o Service Broker para o Azure ou o OSBA, permite aprovisionar serviços Cloud do Azure diretamente a partir do OpenShift. OSBA numa implementação de API aberta de Mediador de serviço para o Azure. A API do Mediador de serviço aberta é uma especificação que define uma linguagem comum para fornecedores de aplicativos nativos da cloud podem utilizar para gerir serviços cloud, sem bloqueio-in de nuvem.
 
 Para instalar o OSBA OpenShift, siga as instruções localizadas aqui: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
+> [!NOTE]
+> Apenas conclua os passos da secção de modelo de projeto do OpenShift e não a secção de instalar toda.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução ao OpenShift Container Platform](https://docs.openshift.com/container-platform)
-- [Guia de introdução OKD](https://docs.okd.io/latest)

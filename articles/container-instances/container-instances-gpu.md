@@ -6,20 +6,20 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: cc47ca07a843daf5cc35d23b838761166d39bdcc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351376"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000662"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentor que utilizam recursos GPU
 
 Para executar determinadas cargas de trabalho intensivas de computação no Azure Container Instances, implementar sua [grupos de contentores](container-instances-container-groups.md) com *recursos GPU*. As instâncias de contentores no grupo podem aceder a um ou mais NVIDIA das GPUs Tesla ao executar cargas de trabalho do contentor como CUDA e aprendizagem profunda de aplicativos.
 
-Como é mostrado neste artigo, pode adicionar recursos GPU quando implementar um grupo de contentores com um [ficheiro YAML](container-instances-multi-container-yaml.md) ou [modelo do Resource Manager](container-instances-multi-container-group.md).
+Este artigo mostra como adicionar recursos GPU quando implementar um grupo de contentores com um [ficheiro YAML](container-instances-multi-container-yaml.md) ou [modelo do Resource Manager](container-instances-multi-container-group.md). Também pode especificar os recursos GPU quando implementar uma instância de contentor no portal do Azure.
 
 > [!IMPORTANT]
 > Esta funcionalidade está atualmente em pré-visualização e algumas [limitações aplicam-se](#preview-limitations). As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
@@ -61,7 +61,7 @@ Ao implementar recursos GPU, defina os recursos de CPU e memória adequado para 
 
 * **Preços** - semelhantes para grupos de contentores sem recursos GPU, o Azure cobra pelos recursos consumidos através do *duração* de um grupo de contentores com os recursos GPU. A duração é calculada desde o momento para solicitar a imagem de seu primeiro contentor até que o grupo de contentor termine. Não inclui o tempo para implementar o grupo de contentores.
 
-  O preço é superior para grupos de contentores com os recursos GPU que para grupos de contentores sem. Ver [os detalhes dos preços](https://azure.microsoft.com/pricing/details/container-instances/).
+  Ver [os detalhes dos preços](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **Controladores CUDA** - Container instances com recursos GPU são pré-aprovisionados com controladores de NVIDIA CUDA e tempos de execução do contentor, pelo que pode utilizar imagens de contentor desenvolvido para cargas de trabalho CUDA.
 

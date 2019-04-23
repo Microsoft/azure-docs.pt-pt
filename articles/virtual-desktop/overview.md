@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049443"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004589"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é o Windows Virtual Desktop Preview? 
 
@@ -54,13 +54,16 @@ Também pode atribuir e conectar os usuários a suas áreas de trabalho virtual:
 
 Existem algumas coisas que precisa para configurar a área de Trabalho Virtual do Windows e ligar com êxito os usuários a seus ambientes de trabalho do Windows e aplicativos.
 
-Primeiro, certifique-se de que tem o [apropriado de licenças](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os seus utilizadores com base no ambiente de trabalho e aplicações que planeia implementar:
+Atualmente a área de Trabalho Virtual do Windows só suporta os seguintes dois sistemas operacionais:
+- Windows 10 Enterprise multi-session
+- Windows Server 2016
+
+Planeamos adicionar suporte para os sos seguintes, por isso, certifique-se de que tem o [apropriado de licenças](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os seus utilizadores com base no ambiente de trabalho e aplicações que planeia implementar:
 
 |SO|Licença necessária|
 |---|---|
-|Sessão multi do Windows 10 Enterprise ou Windows 10. o único-sessão|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS cliente de licença de acesso (CAL) com o Software Assurance|
+
+| Sessão multi do Windows 10 Enterprise ou Windows 10 Enterprise | Microsoft E3, E5, A3, A5, empresas<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5 | | Windows Server 2012 R2, 2016, 2019 | RDS cliente de licença de acesso (CAL) com o Software Assurance |
 
 A infraestrutura precisa dos seguintes pontos para oferecer suporte a área de Trabalho Virtual do Windows:
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799478"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149134"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -36,11 +36,11 @@ Registo de dispositivos no Hub de notificação é realizado através de um **Re
 Um registo associa o identificador de serviço de notificação de plataforma (PNS) para um dispositivo com etiquetas e, possivelmente, um modelo. O identificador PNS poderia ser um ChannelURI, o token do dispositivo ou o id de registo do FCM. As etiquetas são utilizadas para encaminhar as notificações para o conjunto correto de identificadores de dispositivo. Para obter mais informações, consulte [encaminhamento e expressões de etiqueta](notification-hubs-tags-segment-push-message.md). Os modelos são utilizados para implementar a transformação de por registo. Para obter mais informações, veja [Templates](notification-hubs-templates-cross-platform-push-messages.md) (Modelos).
 
 > [!NOTE]
-> Os Hubs de notificação do Azure suporta um máximo de 60 etiquetas por registo.
+> Os Hubs de notificação do Azure suporta um máximo de 60 etiquetas por dispositivo.
 
 ### <a name="installations"></a>Instalações
 
-Uma instalação é uma avançada propriedades relacionadas de registo que inclui uma matriz de push. É a abordagem melhor e mais recente para registar os seus dispositivos. No entanto, não é suportado pelo SDK de .NET do lado do cliente ([SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento.  Isso significa que se está a registar a partir do próprio dispositivo cliente, teria de utilizar o [API de REST dos Hubs de notificação](https://msdn.microsoft.com/library/mt621153.aspx) abordagem para dar suporte a instalações. Se estiver a utilizar um serviço de back-end, deverá conseguir utilizar [SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Uma instalação é uma avançada propriedades relacionadas de registo que inclui uma matriz de push. É a abordagem melhor e mais recente para registar os seus dispositivos. No entanto, não é suportado pelo SDK de .NET do lado do cliente ([SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento.  Isso significa que se está a registar a partir do próprio dispositivo cliente, teria de utilizar o [API de REST dos Hubs de notificação](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) abordagem para dar suporte a instalações. Se estiver a utilizar um serviço de back-end, deverá conseguir utilizar [SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Seguem-se algumas vantagens principais para utilizar as instalações:
 
@@ -48,7 +48,7 @@ Seguem-se algumas vantagens principais para utilizar as instalações:
 - O modelo de instalação oferece suporte a um formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação define um ID de instalação do `joe93developer` para este dispositivo específico, um desenvolvedor pode visar este dispositivo ao enviar uma notificação para o `$InstallationId:{joe93developer}` marca. Isto permite-lhe um dispositivo específico de destino sem ter de fazer qualquer codificação adicionais.
 - Utilizar as instalações também lhe permite fazer atualizações parciais de registo. A atualização parcial de uma instalação for pedida com um método PATCH a utilizar o [padrão de JSON-Patch](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não precisa obter o registo completo e, em seguida, reenviar novamente todas as marcas anteriores.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa das propriedades de instalação, consulte [criar ou substituir uma instalação com a REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [das propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa das propriedades de instalação, consulte [criar ou substituir uma instalação com a REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) ou [das propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 ```json
 // Example installation format to show some supported properties

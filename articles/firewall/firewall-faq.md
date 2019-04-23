@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680831"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997568"
 ---
 # <a name="azure-firewall-faq"></a>FAQ de Firewall do Azure
 
@@ -137,7 +137,7 @@ Sim. O firewall, sub-rede, VNet e o endereço IP público, que todos têm de est
 
 Não. Regras NAT implicitamente adicione uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](/articles/firewall/rule-processing.md).
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>Como a carateres universais funcionar num destino de regra de aplicação FQDN?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam num destino de regra de aplicação FQDN carateres universais?
 
 Se configurar ***. contoso.com**, permite *anyvalue*. contoso.com, mas não contoso.com (o vértice do domínio). Se pretender permitir que o vértice do domínio, deve configurá-lo explicitamente como um destino FQDN.
 

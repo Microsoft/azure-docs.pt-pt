@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895042"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004419"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe realojamento em máquinas virtuais do Azure
 
@@ -53,7 +53,7 @@ TmaxSoft OpenFrame é uma solução de rehosting de popular mainframe utilizada 
 Para começar:
 
 - [Introdução ao TmaxSoft OpenFrame](./tmaxsoft/get-started.md)
-- [Transferir o ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-azure/)
+- [Transferir o ebook](https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/)
 
 ## <a name="ibm-zdt-120"></a>IBM zD & T 12.0
 

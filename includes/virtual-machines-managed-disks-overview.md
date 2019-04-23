@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566568"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60118791"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 
@@ -61,7 +61,7 @@ Este disco tem a capacidade máxima de 2048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eventos ou quando [Reimplementar uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante uma reinicialização bem sucedida padrão da VM, irão manter os dados na unidade temporária.
+Cada VM contém um disco temporário, que não é um disco gerido. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eventos ou quando [Reimplementar uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Em VMs do Linux do Azure, o disco temporário é /dev/sdb por padrão e em VMs do Windows o disco temporário é e: por predefinição. Durante uma reinicialização bem sucedida padrão da VM, irão manter os dados no disco temporário.
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerido
 

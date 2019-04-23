@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906128"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998911"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -228,9 +228,9 @@ Escolha o serviço de escuta de como o destino de redirecionamento para redireci
 ![Caixa de diálogo de componentes de Gateway de aplicação](./media/configuration-overview/configure-redirection.png)
 
 Para obter mais informações sobre o redirecionamento de HTTP para HTTPS, consulte:
-- [Redirecionamento de HTTP para HTTP com o portal do Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [Redirecionamento de HTTP para HTTP com o PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Redirecionamento de HTTP para HTTP com a CLI do Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Redirecionamento de HTTP para HTTPS com o portal do Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
+- [Redirecionamento de HTTP para HTTPS com o PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
+- [Redirecionamento de HTTP para HTTPS, utilizando a CLI do Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
 ##### <a name="external-site"></a>Site externo
 

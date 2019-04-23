@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: willzhan
-ms.openlocfilehash: 75073058647f8e27a048e5ba0673a3d7e3f6a465
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 974062b06c58ee23a001066a70a08675e2e94e48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311259"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008125"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10  
 
@@ -27,9 +27,12 @@ ms.locfileid: "58311259"
 > * [Versão 3](../latest/offline-plaready-streaming-for-windows-10.md)
 > * [Versão 2](offline-playready-streaming-windows-10.md)
 
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+
 Serviços de multimédia do Azure suportam offline download/reprodução com proteção DRM. Este artigo aborda o suporte offline de clientes de 10/PlayReady de serviços de multimédia do Azure para Windows. Pode ler sobre o suporte de modo offline para iOS/FairPlay e dispositivos Android/Widevine nos seguintes artigos:
 
-- [Offline FairPlay Streaming para iOS](media-services-protect-hls-with-offline-fairplay.md)
+- [Offline FairPlay Streaming for iOS](media-services-protect-hls-with-offline-fairplay.md) (Transmissão Offline do FairPlay para iOS)
 - [Offline Widevine para transmissão em fluxo para Android](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Descrição geral

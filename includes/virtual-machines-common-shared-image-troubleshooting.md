@@ -9,11 +9,11 @@ ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55736089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60187692"
 ---
 Se se deparar com problemas ao realizar qualquer operação em galerias de imagens partilhadas, definições de imagens e versões de imagens, execute o comando de falha novamente no modo de depuração. Modo de depuração está ativado, passando a **-debug** mudar com a CLI e o **-depurar** mudar com o PowerShell. Depois de ter de localizar o erro, siga este documento para resolver os erros.
 
@@ -107,7 +107,7 @@ A partilha de recursos da versão de imagem, definição de imagem e Galeria de 
 
 Utilize o **, expanda ReplicationStatus** sinalizador para verificar se foi concluída a replicação para todas as regiões de destino especificado. Caso contrário, aguarde a conclusão da tarefa até seis horas. Se falhar, dispara o comando novamente para criar e replicar a versão da imagem. Se existirem muitas regiões de destino replicada para a versão da imagem, optar por fazer a replicação em fases.
 
-## <a name="azure-limits-and-quotas"></a>Quotas e limites do Azure 
+## <a name="azure-limits-and-quotas"></a>Limites e quotas do Azure 
 
 [Quotas e limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits) aplicam-se a todos os Galeria de imagem partilhada, definição de imagem e recursos da versão de imagem. Certifique-se de que está dentro dos limites para as suas subscrições. 
 

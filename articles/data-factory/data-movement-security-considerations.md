@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099989"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996134"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ A tabela seguinte resume a rede e recomendações de configuração do runtime d
 
 | Origem      | Destino                              | Configuração da rede                    | Configuração do runtime de integração                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
-| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (peering privado)           | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
-| Local | Serviços baseados no Azure que tem um ponto final público | ExpressRoute (peering público)            | O runtime de integração autoalojado tem de ser instalado no local. |
+| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | O runtime de integração autoalojado deve ser instalado numa máquina virtual do Azure na rede virtual.  |
+| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (peering privado)           | O runtime de integração autoalojado deve ser instalado numa máquina virtual do Azure na rede virtual.  |
+| Local | Serviços baseados no Azure que tem um ponto final público | ExpressRoute (peering da Microsoft)            | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure. |
 
 As seguintes imagens mostram o uso do runtime de integração autoalojado para mover dados entre uma base de dados no local e serviços do Azure com o ExpressRoute e VPN IPSec (com a rede Virtual do Azure):
 
@@ -174,7 +174,7 @@ A tabela seguinte fornece os requisitos de porta de entrada para o Firewall do W
 
 | Portas de entrada | Descrição                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Necessário para o cmdlet de encriptação do PowerShell, conforme descrito em [encriptar as credenciais para arquivos de dados no local no Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md)e pela aplicação de Gestor de credenciais com segurança definir credenciais para arquivos de dados no local o tempo de execução de integração autoalojado. |
+| 8060 (TCP)    | Necessário para o cmdlet de encriptação do PowerShell, conforme descrito em [encriptar as credenciais para arquivos de dados no local no Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md)e pela aplicação de Gestor de credenciais com segurança definir credenciais para arquivos de dados no local o tempo de execução de integração autoalojado. |
 
 ![Requisitos de porta de gateway](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ Os seguintes arquivos de dados de nuvem necessitam de adicionar o endereço IP d
 
 **O runtime de integração autoalojado pode ser compartilhado entre as fábricas de dados diferentes?**
 
-Podemos ainda não suporta esta funcionalidade. Estamos a trabalhar ativamente no mesmo.
+Sim. Mais detalhes [aqui](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
 **Quais são os requisitos de porta para o runtime de integração autoalojado trabalhar?**
 

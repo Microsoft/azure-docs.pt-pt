@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492206"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004436"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -129,7 +129,7 @@ As propriedades disponíveis para um parâmetro são:
 | maxValue |Não |O valor máximo para os parâmetros de tipo int, este valor é inclusivo. |
 | minLength |Não |O comprimento mínimo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
 | maxLength |Não |O comprimento máximo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
-| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
+| description |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
 
 ### <a name="define-and-use-a-parameter"></a>Definir e utilizar um parâmetro
 
@@ -495,22 +495,22 @@ Define os recursos com a seguinte estrutura:
 |:--- |:--- |:--- |
 | condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. Ver [condição](#condition). |
 | apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
-| tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
-| nome |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. |
+| tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). Para um recurso de subordinado, o formato do tipo depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
+| nome |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. Para um recurso de subordinado, o formato do nome depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
 | localização |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
 | etiquetas |Não |Etiquetas de associado ao recurso. Aplica etiquetas para organizar logicamente os recursos na sua subscrição. |
 | comentários |Não |Suas anotações para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
 | copiar |Não |Se for necessário mais de uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo serial quando não quiser que todos os ou os recursos necessários para implementar ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não |Recursos que devem ser implementados para que este recurso está implementado. Resource Manager avalia as dependências entre os recursos e implementa-as na ordem correta. Quando os recursos não são dependentes entre si, serem implementadas em paralelo. O valor pode ser uma lista separada por vírgulas de um recurso nomes ou identificadores exclusivos de recursos. Lista apenas os recursos que são implementados neste modelo. Recursos que não sejam definidos neste modelo tem de existir. Evite a adição de dependências desnecessárias como podem atrasar a implantação e criar dependências circulares. Para obter orientações sobre as dependências de definição, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md). |
-| propriedades |Não |Definições de configuração de recursos específicos. Os valores para as propriedades são os mesmos que os valores que fornecer no corpo do pedido para a operação de REST API (método PUT) criar o recurso. Também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
+| properties |Não |Definições de configuração de recursos específicos. Os valores para as propriedades são os mesmos que os valores que fornecer no corpo do pedido para a operação de REST API (método PUT) criar o recurso. Também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
 | sku | Não | Alguns recursos permitem que os valores que definem o SKU para implementar. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
 | tipo | Não | Alguns recursos permitem que um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo do Cosmos DB para criar. |
 | plano | Não | Alguns recursos permitem que os valores que definem o plano de implementar. Por exemplo, pode especificar a imagem do marketplace para uma máquina virtual. | 
-| recursos |Não |Recursos de subordinados que dependem do recurso que está a ser definido. Fornece apenas os tipos de recursos que são permitidos pelo esquema do recurso principal. O tipo totalmente qualificado do recurso subordinado inclui o tipo de recurso principal, como **Microsoft.Web/sites/extensions**. Dependência do recurso principal não está implícita. Tem de definir explicitamente essa dependência. |
+| recursos |Não |Recursos de subordinados que dependem do recurso que está a ser definido. Fornece apenas os tipos de recursos que são permitidos pelo esquema do recurso principal. Dependência do recurso principal não está implícita. Tem de definir explicitamente essa dependência. Ver [recursos subordinados](#child-resources). |
 
 ### <a name="condition"></a>Condição
 
-Quando tem de decidir durante a implementação se deve ou não criar um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é criado. Quando o valor for FALSO, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+Quando tem de decidir durante a implementação se deve criar um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é criado. Quando o valor for FALSO, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
 
 Normalmente, utiliza este valor quando pretender criar um novo recurso ou utilize um já existente. Por exemplo, para especificar se é implementada uma nova conta de armazenamento ou uma conta de armazenamento existente, utilize:
 
@@ -652,45 +652,57 @@ Dentro de alguns tipos de recursos, também pode definir uma matriz de recursos 
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-Quando forem aninhadas, o tipo está definido como `databases` mas o tipo de recurso completo é `Microsoft.Sql/servers/databases`. Não fornecer `Microsoft.Sql/servers/` porque é suposto o pai do tipo de recurso. O nome do recurso subordinado está definido como `exampledatabase` , mas o nome completo inclui o nome do principal. Não fornecer `exampleserver` porque é suposto do recurso principal.
-
-O formato do tipo de recurso subordinado é: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-O formato do nome do recurso subordinado é: `{parent-resource-name}/{child-resource-name}`
-
 No entanto, não precisa de definir a base de dados no servidor. Pode definir os recursos filho no nível superior. Pode usar essa abordagem se o recurso de principal não está implementado no mesmo modelo, ou se pretende utilizar `copy` para criar mais do que um recurso de subordinados. Com esta abordagem, tem de fornecer o tipo de recurso completo e incluir o nome do recurso principal no nome do recurso subordinado.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+Os valores que indicar, tipo e nome variam consoante se o recurso de subordinado é definido dentro do recurso principal ou fora do recurso principal.
+
+Quando forem aninhadas no recurso da principal, utilize:
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+Quando definido fora o recurso principal, utilize:
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+Quando forem aninhadas, o tipo está definido como `databases` mas ainda é o tipo de recurso completo `Microsoft.Sql/servers/databases`. Não fornecer `Microsoft.Sql/servers/` porque é suposto o pai do tipo de recurso. O nome do recurso subordinado está definido como `exampledatabase` , mas o nome completo inclui o nome do principal. Não fornecer `exampleserver` porque é suposto do recurso principal.
 
 Ao construir uma referência completamente qualificada para um recurso, a ordem para combinar os segmentos do tipo e o nome não é simplesmente uma concatenação das duas. Em vez disso, depois do espaço de nomes, utilize uma seqüência de *nome do tipo* pares de menos específicos para a mais específica:
 
@@ -724,8 +736,8 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 |:--- |:--- |:--- |
 | outputName |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
 | condition |Não | É devolvido o valor booleano que indica se este valor de saída. Quando `true`, o valor está incluído na saída para a implementação. Quando `false`, o valor de saída é ignorado para esta implementação. Quando não especificado, o valor predefinido é `true`. |
-| tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. |
-| valor |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
+| tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se especificar **securestring** para o tipo de saída, o valor não for apresentado no histórico de implementação e não pode ser obtido a partir de outro modelo. Para utilizar um valor secreto no mais do que um modelo, armazenar o segredo no Cofre de chaves e o segredo no ficheiro de parâmetros de referência. Para obter mais informações, consulte [do Azure com o Key Vault para transmitir o valor do parâmetro segura durante a implementação](resource-manager-keyvault-parameter.md). |
+| value |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
 
 ### <a name="define-and-use-output-values"></a>Definir e utilizar valores de saída
 

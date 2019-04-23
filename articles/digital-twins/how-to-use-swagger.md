@@ -9,21 +9,18 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120959"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001988"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência Swagger de duplos Digital do Azure
 
 Cada instância de duplos Digital do Azure aprovisionada inclui a sua própria documentação de referência do Swagger gerada automaticamente.
 
 [Swagger](https://swagger.io/), ou [OpenAPI](https://www.openapis.org/), une as informações de API complexas num recurso de referência interativa e de linguagem desconhecida. Swagger fornece o material de referência essencial sobre qual conteúdo JSON, métodos HTTP e pontos de extremidade específicos a utilizar para efetuar operações de uma API.
-
-> [!IMPORTANT]
-> Suporte para a autenticação de Swagger está temporariamente desativado durante a pré-visualização pública.
 
 ## <a name="swagger-summary"></a>Resumo do swagger
 
@@ -98,7 +95,42 @@ Os exemplos incluem também os códigos de erro para o ajudar a depurar ou melho
 Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
 
 > [!NOTE]
-> Suporte para a autenticação do OAuth 2.0 está temporariamente desativado durante a pré-visualização pública.
+> O principal de utilizador que criou o recurso de duplos Digital do Azure terão uma atribuição de função de administrador de espaço e será capaz de criar atribuições de função adicionais para outros utilizadores.
+
+1. Siga os passos em [neste início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure AD do tipo ***aplicação Web / API***. Ou pode reutilizar um registo de aplicação existente.
+
+2. Adicione o seguinte url de resposta para o registo de aplicações:
+
+    ```plaintext
+    https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
+    ```
+    | Name  | Substituir | Exemplo |
+    |---------|---------|---------|
+    | YOUR_SWAGGER_URL | O URL de documentação da API REST da gestão encontrado no portal do  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+
+3. Conceder permissões para a sua aplicação aceder aos duplos Digital do Azure. Sob **permissões obrigatórias**, introduza `Azure Digital Twins` e selecione **permissões delegadas**. Em seguida, selecione **conceder permissões**.
+
+    ![Api de adicionar registos de aplicações do Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+4. Configure o manifesto do aplicativo para permitir o fluxo implícito de OAuth 2.0. Clique em **manifesto** para abrir o manifesto do aplicativo para a sua aplicação. Definir *oauth2AllowImplicitFlow* para `true`.
+
+    ![Fluxo implícito de AD do Azure](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+
+5. Copie o ID da sua aplicação do Azure AD.
+
+6. Clique no botão de autorizar na sua página de swagger.
+
+    ![Botão de autorizar do swagger](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+
+7. Cole o ID da aplicação no campo client_id.
+
+    ![Swagger client_id field](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+
+    ![Conceder permissões de aplicação do swagger](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+
+8. Agora, deverá ver o portador token de autenticação transmitido no cabeçalho de autorização e a identidade do utilizador com sessão iniciada apresentada no resultado.
+
+    ![Resultado de token do swagger](../../includes/media/digital-twins-permissions/swagger-token-example.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

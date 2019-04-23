@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c2afc96ca5f7e30d5474f66bdad0cfec88a89580
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700225"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998996"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>Tutorial: Integrar com o Azure managed identidades
 
@@ -194,8 +194,6 @@ Fornecedores de configuração de aplicação para o .NET Framework e Java Sprin
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Neste tutorial, adicionou do Azure para simplificar o acesso à configuração de aplicações e melhorar a gestão de credenciais para a sua aplicação, a identidade de serviço gerido. Para saber mais sobre como utilizar a configuração de aplicações, avance para os exemplos da CLI do Azure.
 
 > [!div class="nextstepaction"]
 > [Amostras de CLI](./cli-samples.md)

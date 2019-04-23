@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 04/01/2019
 ms.author: jehollan
 ms.custom: include file
-ms.openlocfilehash: e3d3c2791cdc87784a20bcfbb3624c0fe0410b2a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f01ad6e1e6444a417300b38009ac9fbbe5cdbc88
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59528666"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012562"
 ---
-1. Ir para o portal do Azure
-2. Adicionar um novo recurso ao clicar o **criar um recurso** botão no portal do Azure
-3. Selecione **Function App sem servidor**
+1. Aceda ao portal do Azure.
+2. Adicionar um novo recurso, selecionando o **criar um recurso** botão no portal do Azure.
+3. Selecione **aplicação de funções sem servidor**.
 4. Introduza todas as suas informações para as definições de criação e defina sua **plano de alojamento** ao **plano do serviço de aplicações**:
     
     ![Criar plano de aplicação de função](./media/functions-premium-create/create-function-app-plan.png)  
 
-    1. Selecione um nível de plano de serviço Premium planear (EP). 
+    1. Selecione um nível de plano (EP) Premium para o plano do serviço. 
         ![Selecione o plano premium](./media/functions-premium-create/hosting-plan.png)  
 
     1. Valide as definições de plano concluída.  
         ![Plano do serviço de aplicação concluída](./media/functions-premium-create/create-app-service-plan.png)  
     
-1. Validar as definições de aplicação e um plano e clique em **Create**
+1. Validar as definições de aplicação e um plano e selecione **criar**.
 
     ![Plano do serviço de aplicação concluída](./media/functions-premium-create/create-function-app.png)  

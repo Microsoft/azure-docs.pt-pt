@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: overview
+ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402206"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007022"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Resolução de problemas do Azure Data Box Gateway 
 

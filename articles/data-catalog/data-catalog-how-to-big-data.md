@@ -2,18 +2,18 @@
 title: Como trabalhar com origens de dados de 'grandes volumes de dados' no catálogo de dados do Azure
 description: Artigo que mostra como realce padrões para o catálogo de dados do Azure com origens de dados de "grandes volumes de dados", incluindo o armazenamento de Blobs do Azure, Azure Data Lake e Hadoop HDFS.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42b002e3494d84084979f2f5b27e9679e61cbeb5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: MT
+ms.openlocfilehash: b6b419d575e2164fc683b8e6b5020572db74d1b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407727"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998673"
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Como trabalhar com origens de macrodados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução

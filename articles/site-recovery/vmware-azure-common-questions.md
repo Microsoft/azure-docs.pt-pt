@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360527"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004776"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -111,7 +111,7 @@ Replicação de novas VMs para uma conta de armazenamento só está disponível 
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Posso alterar o tipo de disco gerido depois do computador está protegido?
 
-Sim, pode facilmente [alterar o tipo de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). No entanto, se puder o tipo de disco gerido, aguarde para pontos de recuperação nova seja gerado se tiver de testar ativação pós-falha ou ativação pós-falha após a alteração.
+Sim, pode facilmente [alterar o tipo de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Antes de alterar o tipo, certifique-se de que revogar o URL de SAS para o disco ao aceder ao recurso de disco gerido do portal do Azure. No painel Descrição geral, cancele a qualquer exportação em curso. Assim que o URL de SAS é revogado, altere o tipo do disco nos próximos minutos. No entanto, se alterar o tipo de disco gerido, aguarde para pontos de recuperação nova seja gerado pelo Azure Site Recovery. Utilize os novos pontos de recuperação para qualquer ativação pós-falha de teste ou uma ativação pós-falha no futuro.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Posso alternar os replicação a partir de discos geridos para discos não geridos?
 

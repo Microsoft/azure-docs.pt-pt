@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497071"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006136"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL
 
@@ -111,7 +111,7 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
 
 > [!IMPORTANT]
-> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Gerido através do Azure Resource Manager as implementações irão falhar se regras de entrada e saídas estão configuradas em separado para cada porta de aprovisionamento da instância. Se estas portas são nas regras separadas, a implementação irá falhar com o código de erro `VnetSubnetConflictWithIntendedPolicy`
+> Certifique-se de que existe apenas uma regra de entrada para portas 9000, 9003, 1438, 1440, 1452 e uma regra de saída para as portas 80, 443, 12000. Gerido através do Azure Resource Manager as implementações irão falhar se as regras de entrada e saídas estão configuradas em separado para cada porta de aprovisionamento da instância. Se estas portas são nas regras separadas, a implementação irá falhar com o código de erro `VnetSubnetConflictWithIntendedPolicy`
 
 \* Sub-rede de MI refere-se para o intervalo de endereços IP para a sub-rede na 10.x.x.x/y formulário. Pode encontrar estas informações no portal do Azure, nas propriedades de sub-rede.
 

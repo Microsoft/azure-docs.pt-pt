@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443050"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008686"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
 Este artigo ajuda-o a utilizar a solução de controlo de alterações para o identificar facilmente as alterações no seu ambiente. A solução controla as alterações ao software do Windows e Linux, Windows e Linux ficheiros, chaves de registo do Windows, serviços do Windows e dos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a localizar problemas operacionais.
 
 Alterações ao software instalado, serviços do Windows, registro do Windows e arquivos e os daemons Linux nos servidores monitorizados são enviadas para o serviço do Azure Monitor na cloud para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados. Ao utilizar as informações no dashboard do controlo de alterações, pode ver facilmente as alterações efetuadas na sua infraestrutura de servidor.
+
+> [!NOTE]
+> Controlo de alterações automatização do Azure regista as alterações nas máquinas virtuais. Para controlar as alterações de propriedade do Azure Resource Manager, consulte o artigo do gráfico de recursos do Azure [histórico de alterações](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
 
@@ -76,7 +79,7 @@ Utilize os seguintes passos para configurar o controlo de ficheiros em computado
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a configuração é aplicada.        |
+|Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro. Por exemplo: "/etc/*.conf"       |
@@ -99,7 +102,7 @@ Utilize os seguintes passos para configurar arquivos de controle em computadores
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a configuração é aplicada.        |
+|Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado.        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente.        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
@@ -131,7 +134,7 @@ Utilize os seguintes passos para configurar o controlo de chave de registo em co
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a configuração é aplicada.        |
+|Enabled     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável da chave do registo a ser monitorizado.        |
 |Grupo     | Um nome de grupo para o agrupamento lógico de chaves do Registro.        |
 |Chave do Registo do Windows   | O caminho para verificar a chave de registo. Por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7c6fda2238aa53c4dc1a0f15ef1aaee263e4a8f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489353"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011697"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de pesquisa Visual do Bing
 
@@ -73,7 +73,7 @@ Os pedidos só podem ser enviados como HTTP POST.
 
 Os parâmetros seguintes são os parâmetros de consulta que o pedido deve especificar. No mínimo, deve incluir o `mkt` parâmetro de consulta:
 
-| Name | Valor | Type | Necessário |
+| Name | Value | Type | Necessário |
 | --- | --- | --- | --- |
 | <a name="cc" />cc  | Um código de país de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | String | Não       |
 | <a name="mkt" />mkt   | O mercado de onde os resultados provêm. <br /><br /> **NOTA:** Deve sempre especificar o mercado, se conhecidos. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | String | Sim      |
@@ -98,7 +98,7 @@ Os cabeçalhos seguintes são os cabeçalhos que o pedido deve especificar. O `C
 | <a name="location" />X-Search-Location   | Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por ponto e vírgula de pares de chaves/valores que descreve a localização geográfica do cliente. O Bing utiliza as informações de localização para determinar o comportamento do safesearch e para devolver conteúdos locais relevantes. Indique o par chave/valor como \<chave\>:\<valor\>. As chaves seguintes são as chaves utilizadas para especificar a localização do utilizador.<br /><br /><ul><li>lat&mdash;Required. A latitude da localização do cliente, em graus. Tem de ser igual ou superior a -90,0 e inferior ou igual a +90,0. Os valores negativos indicam latitudes no hemisfério sul e os positivos latitudes no hemisfério norte.<br /><br /></li><li>long&mdash;Required. A longitude da localização do cliente, em graus. Tem de ser igual ou superior a -180.0 e inferior ou igual a +180.0. Os valores negativos indicam longitudes a ocidente e os positivos a oriente.<br /><br /></li><li>re&mdash;Required. O raio, em metros, que especifica a exatidão horizontal das coordenadas. Transmita o valor que o serviço de localização do dispositivo devolve. Valores típicos podem estar 22 m para GPS/Wi-Fi, os 380 m para triangulação de Torre de célula e 18,000 m para pesquisa IP inversa.<br /><br /></li><li>ts&mdash;Optional. O carimbo de data/hora UNIX UTC de quando o cliente estava na localização (o carimbo de data/hora é o número de segundos desde 1 de janeiro de 1970.)<br /><br /></li><li>head&mdash;Optional. O cabeçalho relativo do cliente ou a direção de deslocamento. Especifique a direção de deslocamento em graus, de 0 a 360, a contar no sentido dos ponteiros do relógio em relação ao norte verdadeiro. Especifique esta chave apenas se a chave `sp` não for zero.<br /><br /></li><li>sp&mdash;Optional. A velocidade horizontal, em metros por segundo, a que o dispositivo cliente se está a deslocar.<br /><br /></li><li>alt&mdash;Optional. A altitude do dispositivo cliente, em metros.<br /><br /></li><li>are&mdash;Optional. O raio, em metros, que especifica a exatidão vertical das coordenadas. Especifique esta chave apenas se especificar a chave `alt`.<br /><br /></li></ul> **NOTA:** Embora muitas das chaves são opcionais, a obter mais informações fornecidas por si, são mais precisas dos resultados de localização.<br /><br /> **NOTA:** Embora seja opcional, é encorajado a sempre especificar a localização geográfica do utilizador. Especificar a localização é particularmente importante se o endereço IP do cliente não refletir, com precisão, a localização física do utilizador (por exemplo, se este utilizar VPN). Para obter melhores resultados, deve incluir esse cabeçalho e o `X-MSEdge-ClientIP` cabeçalho, mas, no mínimo, deve incluir esse cabeçalho.       |
 
 > [!NOTE]
-> Lembre-se de que o [a API de pesquisa do Bing utilizar e apresentam os requisitos](/../bing-web-search/use-display-requirements.md) exigir a conformidade com todas as leis aplicáveis, incluindo relativamente à utilização desses cabeçalhos. Por exemplo, em determinadas jurisdições, como a Europa, há requisitos para obter o consentimento do utilizador antes de colocar certos tipos de dispositivos de monitorização nos dispositivos dos utilizadores.
+> Lembre-se de que o [a API de pesquisa do Bing utilizar e apresentam os requisitos](../../bing-web-search/use-display-requirements.md) exigir a conformidade com todas as leis aplicáveis, incluindo relativamente à utilização desses cabeçalhos. Por exemplo, em determinadas jurisdições, como a Europa, há requisitos para obter o consentimento do utilizador antes de colocar certos tipos de dispositivos de monitorização nos dispositivos dos utilizadores.
 
 <a name="content-form-types" />
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 7e67e7836b1d80e623a11e552c81750bc6133205
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981643"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188366"
 ---
 # <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Pré-visualização: Criar e utilizar imagens partilhadas para conjuntos de dimensionamento de máquina virtual com o Azure PowerShell
 
@@ -42,7 +42,7 @@ O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Pod
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 

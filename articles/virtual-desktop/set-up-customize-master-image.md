@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aff96931f95442c67d08521e72952dd79dad44e2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698320"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999880"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -204,7 +204,7 @@ Eis como instalar o OneDrive no modo de por máquina:
 5. Execute este comando para instalar o OneDrive no modo de por máquina:
 
     ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
+    Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Execute este comando para configurar o OneDrive para iniciar o início de sessão de todos os utilizadores:
@@ -313,7 +313,7 @@ Esta secção abrange a aplicação e a configuração do sistema operativo. Tod
 Para comentários hub coleção de dados telemétricos numa sessão de multi do Windows 10 Enterprise, execute este comando:
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
 ```
 

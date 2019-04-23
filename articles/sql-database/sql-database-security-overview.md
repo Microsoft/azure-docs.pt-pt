@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523703"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001087"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -47,7 +47,7 @@ Regras de firewall do IP concedem acesso a bancos de dados com base no endereço
 > [!IMPORTANT]
 > Gestão de bases de dados e servidores de base de dados no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este artigo, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 A autenticação é o processo de comprovar o usuário é quem eles alegam ser. Base de dados SQL do Azure suporta dois tipos de autenticação:
 
@@ -88,9 +88,9 @@ Base de dados SQL protege os dados dos clientes, fornecendo capacidades de dete�
 
 A auditoria de base de dados SQL controla as atividades de base de dados e ajuda a manter a conformidade com as normas de segurança, registrando eventos de base de dados para uma auditoria iniciar sessão numa conta de armazenamento do Azure pertencentes ao cliente. A auditoria permite aos utilizadores monitorizar atividades de base de dados em curso, bem como analisar e investigar atividade do histórico para identificar potenciais ameaças ou suspeitas abuso e violações de segurança. Para obter mais informações, consulte Introdução à [a auditoria de base de dados SQL](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Deteção de ameaças
+### <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
 
-Tentarem ameaças melhora a deteção de auditoria através da análise de registos de auditoria para comportamentos incomuns e potencialmente prejudiciais de aceder ou explorar bases de dados. Os alertas são criados para atividades suspeitas ou padrões de acesso anómalos, como ataques de injeção de SQL, potenciais infiltração de dados e ataques de palavra-passe de força bruta. Alertas de deteção de ameaças são visualizadas a partir da [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde são fornecidos os detalhes das atividades suspeitas e recomendações para ainda mais investigação fornecida junto com ações para mitigar a ameaça. Deteção de ameaças custa us $15/servidor/mês. É gratuito durante os primeiros 60 dias. Para obter mais informações, consulte [introdução à deteção de ameaças da base de dados de SQL](sql-database-threat-detection.md).
+Proteção avançada contra ameaças é analisar os registos do SQL Server para detetar comportamentos incomuns e potencialmente prejudiciais tentativas de acesso ou exploração de bases de dados. Os alertas são criados para atividades suspeitas, como ataques de força de injeção de SQL, potenciais infiltração de dados e bruta ou para anomalias no acesso utilizam padrões para capturar Escalamentos de privilégios e credenciais infringidas. Alertas são visualizados a partir da [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde são fornecidos os detalhes das atividades suspeitas e recomendações para ainda mais investigação fornecida junto com ações para mitigar a ameaça. Proteção avançada contra ameaças pode ser ativada por servidor para uma taxa adicional. Para obter mais informações, consulte [começar com a proteção de ameaças avançada do SQL da base de dados](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

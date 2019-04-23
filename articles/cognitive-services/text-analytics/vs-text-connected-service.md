@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: a37ea5fdad941e1559e470ccb22303a8e3c7ca3d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: MT
+ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243897"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004249"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Ligar ao serviço de análise de texto com os serviços ligados no Visual Studio
 
@@ -62,7 +62,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
     [6/1/2018 3:04:06.314 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Language' version 1.0.0-preview...
     [6/1/2018 3:04:56.759 PM] Retrieving keys...
     [6/1/2018 3:04:57.822 PM] Updating appsettings.json setting: 'ServiceKey' = '<service key>'
-    [6/1/2018 3:04:57.827 PM] Updating appsettings.json setting: 'ServiceEndPoint' = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0'
+    [6/1/2018 3:04:57.827 PM] Updating appsettings.json setting: 'ServiceEndPoint' = 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.1'
     [6/1/2018 3:04:57.832 PM] Updating appsettings.json setting: 'Name' = 'TextAnalyticsDemo'
     [6/1/2018 3:05:01.840 PM] Successfully added Text Analytics to the project.
     ```

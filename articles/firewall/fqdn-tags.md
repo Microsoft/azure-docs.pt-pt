@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 897ea3856516b5429ffb770164f863d71e7ae0dd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419015"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149772"
 ---
 # <a name="fqdn-tags-overview"></a>Descrição geral de etiquetas FQDN
 
@@ -26,17 +26,20 @@ Não é possível criar suas próprias etiquetas do FQDN, nem pode especificar q
 
 A tabela seguinte mostra as marcas FQDN atuais, que pode utilizar. A Microsoft mantém a essas marcas e pode esperar etiquetas adicionais a ser adicionados periodicamente.
 
+## <a name="current-fqdn-tags"></a>Etiquetas FQDN atuais
+
 |Etiqueta do FQDN  |Descrição  |
 |---------|---------|
 |Windows Update     |Permitir acesso de saída para o Microsoft Update, conforme descrito em [como configurar uma Firewall para atualizações de Software](https://technet.microsoft.com/library/bb693717.aspx).|
 |Diagnóstico do Windows|Permitir acesso de saída a todos [pontos finais de diagnóstico do Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Serviço de Proteção Ativa Microsoft (MAPS)|Permitir acesso de saída [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |Ambiente de serviço de aplicações (ASE)|Permite o acesso de saída para o tráfego de plataforma do ASE. Esta etiqueta não abrange específicas do cliente armazenamento SQL pontos de extremidade e criados pelo ASE. Estas devem ser ativadas através de [pontos finais de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionadas manualmente.<br><br>Para obter mais informações sobre como integrar o Firewall do Azure com o ASE, veja [o bloqueio de um ambiente de serviço de aplicações](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
-|Azure Backup|Permite o acesso de saída para os serviços de cópia de segurança do Azure.
+|Azure Backup|Permite o acesso de saída para os serviços de cópia de segurança do Azure.|
+|Azure HDInsight<br>(Pré-visualização)|Permite o acesso de saída para o tráfego de plataforma HDInsight. Esta etiqueta não abrange o tráfego de armazenamento ou SQL específicas do cliente do HDInsight. Estas estão ativadas por meio [pontos finais de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionadas manualmente.|
 
 > [!NOTE]
 > Ao selecionar a etiqueta do FQDN numa regra de aplicação, o campo de protocolo: porta deve ser definido como **https**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como implementar uma Firewall do Azure, veja [Tutorial: implementar e configurar a Firewall do Azure no portal do Azure](tutorial-firewall-deploy-portal.md).
+Para saber como implementar uma Firewall do Azure, veja [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](tutorial-firewall-deploy-portal.md).

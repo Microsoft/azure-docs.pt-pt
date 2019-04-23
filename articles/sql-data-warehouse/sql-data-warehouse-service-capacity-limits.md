@@ -10,28 +10,28 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250569"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999642"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gestão de cargas de trabalho
-| Categoria | Descrição | Máximo |
+| Category | Descrição | Máximo |
 |:--- |:--- |:--- |
 | [Unidades do Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máx. de DWU para um único armazém de dados SQL | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades do Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Padrão DTU por servidor |54,000<br></br>Por predefinição, cada SQL server (por exemplo, myserver.database.windows.net) tem uma Quota de DTU de 54,000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a quota por [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Quota* como o tipo de pedido.  Para calcular a DTU necessidades, multiplique 7,5 pelo total que necessário DWU ou multiplicar 9.0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7.5 = 45.000 DTUs<br></br>DW6000c x 9.0 = 54,000 DTUs.<br></br>Pode ver o consumo de DTU atual da opção de servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
-| Ligação à base de dados |Sessões abertas em simultâneo |1024<br/><br/>Cada uma das sessões ativas do 1024 pode submeter pedidos para uma base de dados do armazém de dados do SQL ao mesmo tempo. Tenha em atenção que existem limites no número de consultas que podem executar em simultâneo. Quando o limite de simultaneidade for excedido, o pedido vai para uma fila interna em que ele espera para serem processados. |
+| Ligação à base de dados |Máxima simultâneas abra sessões |1024<br/><br/>O número de sessões abertas em simultâneo irá variar consoante a DWU selecionada. DWU500c e acima suporte um máximo de 1024 abra sessões. DWU400c e abaixo dar suporte a um limite de sessão aberta de em simultâneo máximo de 512. Tenha em atenção que existem limites no número de consultas que podem executar em simultâneo. Quando o limite de simultaneidade for excedido, o pedido vai para uma fila interna em que ele espera para serem processados. |
 | Ligação à base de dados |Memória máxima para instruções preparadas |20 MB |
 | [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas em simultâneo máximas |128<br/><br/> O SQL Data Warehouse pode executar um máximo de 128 consultas em simultâneo e filas restantes consultas.<br/><br/>O número de consultas em simultâneo pode diminuir quando os utilizadores são atribuídos aos mais classes de recursos ou quando o SQL Data Warehouse tem um inferior [unidade do armazém de dados](memory-and-concurrency-limits.md) definição. Algumas consultas, como consultas DMV, sempre têm permissão para executar e fazer não afeta o limite de consulta em simultâneo. Para obter mais detalhes sobre a execução de consultas em simultâneo, consulte a [valores máximos de simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums) artigo. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |GB, 399 por DW100. Por isso em DWU1000, tempdb é ajustado para 3.99 TB. |
 
 ## <a name="database-objects"></a>Objetos de base de dados
-| Categoria | Descrição | Máximo |
+| Category | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Base de Dados |Tamanho máximo | Gen1: 240 TB compactado no disco. Este espaço é independente de espaço em tempdb ou de registo e, portanto, este espaço dedicado para tabelas permanentes.  Estima-se em 5 X compressão columnstore em cluster.  Esta compressão permite que a base de dados aumentar de aproximadamente 1 PB quando todas as tabelas columnstore em cluster (o tipo de tabela do padrão). <br/><br/> Gen2: 240TB para rowstore e armazenamento ilimitada para tabelas columnstore |
 | Tabela |Tamanho máximo |60 TB compactado no disco |
@@ -52,12 +52,12 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 | Vista |Colunas por visualização |1,024 |
 
 ## <a name="loads"></a>Cargas
-| Categoria | Descrição | Máximo |
+| Category | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Carregamentos do Polybase |MB por linha |1<br/><br/>O Polybase carrega apenas a linhas que são mais pequeno do que 1 MB e não é possível carregar a varchar (Max), nvarchar (Max) ou varbinary (Max).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
-| Categoria | Descrição | Máximo |
+| Category | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Consulta |Consultas em fila em tabelas de utilizador. |1000 |
 | Consulta |Consultas em simultâneo em vistas de sistema. |100 |

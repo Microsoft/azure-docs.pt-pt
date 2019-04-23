@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861898"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000628"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -85,6 +85,11 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 4. **Aumentar o número de threads/tarefas**
 
     Uma vez que as chamadas para o Azure Cosmos DB são feitas através da rede, poderá variar o grau de paralelismo dos seus pedidos, para que a aplicação cliente passa muito pouco tempo a aguardar entre as solicitações. Por exemplo, se estiver a utilizar. Do NET [Task Parallel Library](https://msdn.microsoft.com//library/dd460717.aspx), criar na ordem 100s das tarefas ler ou escrever para o Azure Cosmos DB.
+
+5. **Ativar o funcionamento em rede acelerado**
+
+   Para reduzir a latência e interferência de CPU, recomendamos que as máquinas virtuais do cliente são accelerated networking ativado. Consulte a [criar uma máquina virtual do Windows com redes aceleradas](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [criar uma máquina virtual Linux com redes aceleradas](../virtual-network/create-vm-accelerated-networking-cli.md) artigos para permitir o funcionamento em rede acelerado.
+
 
 ## <a name="sdk-usage"></a>Utilização do SDK
 1. **Instalar o SDK mais recente**
