@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 854e944d91c5d43131cf6a9c05e69d5684267022
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161805"
 documentType: LandingData
 title: Relatórios e monitorização do Azure Active Directory
 metadata:
-  document_id: 
-  title: Documentação de relatórios e monitorização do Azure Active Directory - Tutoriais, inícios rápidos, conceitos | Microsoft Docs
+  document_id: null
+  title: 'Documentação de relatórios e monitorização do Azure Active Directory - Tutoriais, inícios rápidos, conceitos | Microsoft Docs'
   description: Saiba como configurar e testar soluções de relatórios e monitorização do Azure Active Directory
   services: active-directory
   ms.subservice: report-monitor
@@ -22,33 +16,33 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: Saiba como ver os relatórios de segurança e auditoria para o seu ambiente ou monitorize-os ao longo do tempo para obter informações sobre padrões de utilização. Com os relatórios do Azure Active Directory (Azure AD), pode obter informações sobre os padrões de segurança e utilização no seu ambiente. Por exemplo, responda às seguintes perguntas:<ul><li>Como é que as aplicações ou serviços são utilizados pelos utilizadores?</li><li>Quais são os potenciais riscos que afetam o estado de funcionamento do ambiente</li><li>Como resolver problemas que impedem os utilizadores de trabalharem</li>
+  description: 'Saiba como ver os relatórios de segurança e auditoria para o seu ambiente ou monitorize-os ao longo do tempo para obter informações sobre padrões de utilização. Com os relatórios do Azure Active Directory (Azure AD), pode obter informações sobre os padrões de segurança e utilização no seu ambiente. Por exemplo, responda às seguintes perguntas:<ul><li>Como é que as aplicações ou serviços são utilizados pelos utilizadores?</li><li>Quais são os potenciais riscos que afetam o estado de funcionamento do ambiente</li><li>Como resolver problemas que impedem os utilizadores de trabalharem</li>'
 sections:
-- title: Inícios rápidos de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba como transferir os relatórios de atividade e encaminhar os registos para uma conta de armazenamento do Azure
-  - type: list
-    style: unordered
+  - title: Inícios rápidos de 5 minutos
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Transferir um relatório de início de sessão</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Transferir um relatório de auditoria</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Instalar o pacote de conteúdos do Power BI para relatórios</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Encaminhar registos para a conta de armazenamento</a>
-- title: Tutoriais passo-a-passo
-  items:
-  - type: paragraph
-    text: Saiba como aceder aos seus relatórios e transmitir registos de atividades para o sistema de monitorização da sua preferência
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como transferir os relatórios de atividade e encaminhar os registos para uma conta de armazenamento do Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Transferir um relatório de início de sessão</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Transferir um relatório de auditoria</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Instalar o pacote de conteúdos do Power BI para relatórios</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Encaminhar registos para a conta de armazenamento</a>
+  - title: Tutoriais passo-a-passo
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Aceder programaticamente à API de relatórios com certificados</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Transmitir registos de atividades para um hub de eventos</a>
-- title: Referência
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como aceder aos seus relatórios e transmitir registos de atividades para o sistema de monitorização da sua preferência
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Aceder programaticamente à API de relatórios com certificados</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Transmitir registos de atividades para um hub de eventos</a>
+  - title: Referência
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Códigos de erro de inícios de sessão</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Esquema de registo de auditoria do Azure AD no Azure Monitor</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Esquema de inícios de sessão do Azure AD no Azure Monitor</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Códigos de erro de inícios de sessão</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Esquema de registo de auditoria do Azure AD no Azure Monitor</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Esquema de inícios de sessão do Azure AD no Azure Monitor</a>

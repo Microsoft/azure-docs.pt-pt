@@ -1,52 +1,46 @@
-items:
 - name: Documentação da API de Pesquisa de Comércio Local do Bing
   href: index.yml
   expanded: true
+  items: null
 - name: Descrição geral
-  items:
-  - name: O que é a API de Pesquisa de Comércio Local do Bing?
-    href: overview.md
-  - name: Comparar as APIs de Pesquisa do Bing
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: O que é a API de Pesquisa de Comércio Local do Bing?
+      href: overview.md
+    - name: Comparar as APIs de Pesquisa do Bing
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Inícios rápidos
   items:
-  - name: API REST
-    items:
-    - name: Utilizar C#
-      href: quickstarts/local-quickstart.md
-    - name: Utilizar o Java
-      href: quickstarts/local-search-java-quickstart.md
-    - name: Utilizar o Node
-      href: quickstarts/local-search-node-quickstart.md
-    - name: Utilizar o Python
-      href: quickstarts/local-search-python-quickstart.md
-    expanded: true
+    - name: API REST
+      expanded: true
+      items:
+        - name: 'Utilizar C#'
+          href: quickstarts/local-quickstart.md
+        - name: Utilizar o Java
+          href: quickstarts/local-search-java-quickstart.md
+        - name: Utilizar o Node
+          href: quickstarts/local-search-node-quickstart.md
+        - name: Utilizar o Python
+          href: quickstarts/local-search-python-quickstart.md
 - name: Conceitos
   items:
-  - name: Trabalhar com consultas e respostas
-    href: local-search-query-response.md
-  - name: Filtrar os resultados ao definir limites geográficos
-    href: specify-geographic-search.md
-  - name: Categorias de pesquisa de negócios locais
-    href: local-categories.md
+    - name: Trabalhar com consultas e respostas
+      href: local-search-query-response.md
+    - name: Filtrar os resultados ao definir limites geográficos
+      href: specify-geographic-search.md
+    - name: Categorias de pesquisa de negócios locais
+      href: local-categories.md
 - name: Referência
   items:
-  - name: Requisitos de utilização e de apresentação
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
-  - name: Referência da API de Pesquisa de Negócios Locais
-    href: local-search-reference.md
+    - name: Requisitos de utilização e de apresentação
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: Referência da API de Pesquisa de Negócios Locais
+      href: local-search-reference.md
 - name: Recursos
   items:
-  - name: Experimentar os Serviços Cognitivos
-    href: https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api
-  - name: Informações de preços
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/
-ms.openlocfilehash: 14c891c74accb4cca537e24ddbdcb99ae36618c9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507506"
+    - name: Experimentar os Serviços Cognitivos
+      href: 'https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api'
+    - name: Informações de preços
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/'

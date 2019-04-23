@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4b98648325eaf434d675bfdc1cdd704870912bc3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517220"
 documentType: LandingData
 title: Azure AD Identity Protection
 metadata:
-  document_id: 
-  title: Documentação do Azure Active Directory Identity Protection - Inícios rápidos, conceitos, referências | Microsoft Docs
+  document_id: null
+  title: 'Documentação do Azure Active Directory Identity Protection - Inícios rápidos, conceitos, referências | Microsoft Docs'
   description: Saiba como configurar e testar o Azure Active Directory Identity Protection.
   services: active-directory
   ms.subservice: identity-protection
@@ -22,25 +16,25 @@ metadata:
   ms.date: 09/14/2018
   ms.author: joflore
 abstract:
-  description: Saiba como funciona a deteção de identidades potencialmente comprometidas e como implementar respostas automatizadas para resolvê-las. O Azure Active Directory Identity Protection é uma funcionalidade do Azure AD Premium edição P2 que lhe permite:<ul><li>Detetar potenciais vulnerabilidades que afetam as identidades da sua organização</li><li>Configurar políticas de acesso condicional para responder automaticamente a ações suspeitas relacionadas com as identidades da sua organização</li><li>Investigar incidentes suspeitos e tomar as medidas adequadas para resolvê-los</li></ul><br> Os seguintes recursos ajudam-no a começar rapidamente.
+  description: 'Saiba como funciona a deteção de identidades potencialmente comprometidas e como implementar respostas automatizadas para resolvê-las. O Azure Active Directory Identity Protection é uma funcionalidade do Azure AD Premium edição P2 que lhe permite:<ul><li>Detetar potenciais vulnerabilidades que afetam as identidades da sua organização</li><li>Configurar políticas de acesso condicional para responder automaticamente a ações suspeitas relacionadas com as identidades da sua organização</li><li>Investigar incidentes suspeitos e tomar as medidas adequadas para resolvê-los</li></ul><br> Os seguintes recursos ajudam-no a começar rapidamente.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
     title: Introdução ao Azure AD Identity Protection
-    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    href: 'https://www.youtube.com/watch?v=zI3jn_G0_Ns'
     width: 246
 sections:
-- title: Inícios rápidos de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba como configurar as políticas de acesso condicional de risco de início de sessão para cenários de acesso comuns.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de 5 minutos
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Bloquear o acesso quando é detetado um risco de sessão
-      href: quickstart-sign-in-risk-policy.md
+      - type: paragraph
+        text: Saiba como configurar as políticas de acesso condicional de risco de início de sessão para cenários de acesso comuns.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Bloquear o acesso quando é detetado um risco de sessão
+            href: quickstart-sign-in-risk-policy.md

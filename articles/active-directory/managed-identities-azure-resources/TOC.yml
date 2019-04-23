@@ -1,165 +1,158 @@
-items:
 - name: Identidades geridas para os recursos do Azure
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Acerca das identidades geridas para os recursos do Azure
-    href: overview.md
+    - name: Acerca das identidades geridas para os recursos do Azure
+      href: overview.md
 - name: Inícios rápidos
   items:
-  - name: Utilizar uma identidade gerida de VM para aceder ao Azure Resource Manager
-    items:
-    - name: VM do Windows
-      href: tutorial-windows-vm-access-arm.md
-    - name: VM do Linux
-      href: tutorial-linux-vm-access-arm.md
+    - name: Utilizar uma identidade gerida de VM para aceder ao Azure Resource Manager
+      items:
+        - name: VM do Windows
+          href: tutorial-windows-vm-access-arm.md
+        - name: VM do Linux
+          href: tutorial-linux-vm-access-arm.md
 - name: Tutoriais
   items:
-  - name: VM/VMSS do Windows
-    items:
-    - name: Aceder ao Azure Data Lake Store
-      href: tutorial-windows-vm-access-datalake.md
-    - name: Aceder ao Armazenamento do Azure
-      href: tutorial-vm-windows-access-storage.md
-    - name: Aceder ao Armazenamento do Azure com uma chave de acesso
-      href: tutorial-windows-vm-access-storage.md
-    - name: Aceder ao Armazenamento do Azure com SAS
-      href: tutorial-windows-vm-access-storage-sas.md
-    - name: Aceder ao SQL do Azure
-      href: tutorial-windows-vm-access-sql.md
-    - name: Aceder ao Azure Key Vault
-      href: tutorial-windows-vm-access-nonaad.md
-    - name: Acerca do Azure Cosmos DB
-      href: tutorial-windows-vm-access-cosmos-db.md
-    - name: Aceder à Graph API do Azure AD
-      href: tutorial-windows-vm-access-azure-ad-graph.md
-    - name: Aceder ao Azure Resource Manager com uma identidade gerida atribuída pelo utilizador
-      href: tutorial-windows-vm-ua-arm.md
-  - name: VM/VMSS do Linux
-    items:
-    - name: Aceder ao Azure Data Lake Store
-      href: tutorial-linux-vm-access-datalake.md
-    - name: Aceder ao Armazenamento do Azure
-      href: tutorial-linux-vm-access-storage.md
-    - name: Aceder ao Armazenamento do Azure com uma chave de acesso
-      href: tutorial-linux-vm-access-storage-access-key.md
-    - name: Aceder ao Armazenamento do Azure com SAS
-      href: tutorial-linux-vm-access-storage-sas.md
-    - name: Aceder ao Azure Key Vault
-      href: tutorial-linux-vm-access-nonaad.md
-    - name: Acerca do Azure Cosmos DB
-      href: tutorial-linux-vm-access-cosmos-db.md
-    - name: Aceder ao Azure Container Registry
-      href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-    - name: Aceder à Graph API do Azure AD
-      href: tutorial-linux-vm-access-azure-ad-graph.md
-    - name: Aceder ao Azure Resource Manager com uma identidade gerida atribuída pelo utilizador
-      href: msi-tutorial-linux-vm-access-arm.md
-  - name: Service Bus do Azure
-    href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-  - name: Serviço de Aplicações do Azure e Funções
-    href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-  - name: Azure Event Hubs
-    href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-  - name: Azure Container Instances
-    href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    - name: VM/VMSS do Windows
+      items:
+        - name: Aceder ao Azure Data Lake Store
+          href: tutorial-windows-vm-access-datalake.md
+        - name: Aceder ao Armazenamento do Azure
+          href: tutorial-vm-windows-access-storage.md
+        - name: Aceder ao Armazenamento do Azure com uma chave de acesso
+          href: tutorial-windows-vm-access-storage.md
+        - name: Aceder ao Armazenamento do Azure com SAS
+          href: tutorial-windows-vm-access-storage-sas.md
+        - name: Aceder ao SQL do Azure
+          href: tutorial-windows-vm-access-sql.md
+        - name: Aceder ao Azure Key Vault
+          href: tutorial-windows-vm-access-nonaad.md
+        - name: Acerca do Azure Cosmos DB
+          href: tutorial-windows-vm-access-cosmos-db.md
+        - name: Aceder à Graph API do Azure AD
+          href: tutorial-windows-vm-access-azure-ad-graph.md
+        - name: Aceder ao Azure Resource Manager com uma identidade gerida atribuída pelo utilizador
+          href: tutorial-windows-vm-ua-arm.md
+    - name: VM/VMSS do Linux
+      items:
+        - name: Aceder ao Azure Data Lake Store
+          href: tutorial-linux-vm-access-datalake.md
+        - name: Aceder ao Armazenamento do Azure
+          href: tutorial-linux-vm-access-storage.md
+        - name: Aceder ao Armazenamento do Azure com uma chave de acesso
+          href: tutorial-linux-vm-access-storage-access-key.md
+        - name: Aceder ao Armazenamento do Azure com SAS
+          href: tutorial-linux-vm-access-storage-sas.md
+        - name: Aceder ao Azure Key Vault
+          href: tutorial-linux-vm-access-nonaad.md
+        - name: Acerca do Azure Cosmos DB
+          href: tutorial-linux-vm-access-cosmos-db.md
+        - name: Aceder ao Azure Container Registry
+          href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+        - name: Aceder à Graph API do Azure AD
+          href: tutorial-linux-vm-access-azure-ad-graph.md
+        - name: Aceder ao Azure Resource Manager com uma identidade gerida atribuída pelo utilizador
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Service Bus do Azure
+      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    - name: Serviço de Aplicações do Azure e Funções
+      href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    - name: Azure Event Hubs
+      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+    - name: Azure Container Instances
+      href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: Guias de procedimentos
   items:
-  - name: Configurar identidades geridas em VMs
-    items:
-    - name: Portal
-      href: qs-configure-portal-windows-vm.md
-    - name: CLI
-      href: qs-configure-cli-windows-vm.md
-    - name: PowerShell
-      href: qs-configure-powershell-windows-vm.md
-    - name: Modelo do Azure Resource Manager
-      href: qs-configure-template-windows-vm.md
-    - name: REST
-      href: qs-configure-rest-vm.md
-    - name: SDKs do Azure
-      href: qs-configure-sdk-windows-vm.md
-  - name: Configurar identidades geridas em conjuntos de dimensionamento de máquina virtual
-    items:
-    - name: Portal
-      href: qs-configure-portal-windows-vmss.md
-    - name: CLI
-      href: qs-configure-cli-windows-vmss.md
-    - name: PowerShell
-      href: qs-configure-powershell-windows-vmss.md
-    - name: Modelo do Azure Resource Manager
-      href: qs-configure-template-windows-vmss.md
-    - name: REST
-      href: qs-configure-rest-vmss.md
-  - name: Configurar identidades geridas em VMs
-    items:
-    - name: Adquirir um token de acesso
-      href: how-to-use-vm-token.md
-    - name: Iniciar a sessão no PowerShell e na CLI ao utilizar a Identidade Gerida
-      href: how-to-use-vm-sign-in.md
-    - name: Utilizar com os SDKs do Azure
-      href: how-to-use-vm-sdk.md
-    - name: Parar de utilizar a extensão de VM e começar a utilizar o Azure IMDS
-      href: howto-migrate-vm-extension.md
-  - name: Atribuir um acesso de identidade gerida a outro recurso do Azure
-    items:
-    - name: Portal
-      href: howto-assign-access-portal.md
-    - name: CLI
-      href: howto-assign-access-cli.md
-    - name: PowerShell
-      href: howto-assign-access-powershell.md
-  - name: Gerir identidades geridas atribuídas pelo utilizador
-    items:
-    - name: Portal
-      href: how-to-manage-ua-identity-portal.md
-    - name: CLI
-      href: how-to-manage-ua-identity-cli.md
-    - name: PowerShell
-      href: how-to-manage-ua-identity-powershell.md
-    - name: Modelo do Azure Resource Manager
-      href: how-to-manage-ua-identity-arm.md
-    - name: REST
-      href: how-to-manage-ua-identity-rest.md
-  - name: Ver os principais de serviço de identidade gerida
-    items:
-    - name: Portal
-      href: how-to-view-managed-identity-service-principal-portal.md
-    - name: CLI
-      href: how-to-view-managed-identity-service-principal-cli.md
-    - name: PowerShell
-      href: how-to-view-managed-identity-service-principal-powershell.md
+    - name: Configurar identidades geridas em VMs
+      items:
+        - name: Portal
+          href: qs-configure-portal-windows-vm.md
+        - name: CLI
+          href: qs-configure-cli-windows-vm.md
+        - name: PowerShell
+          href: qs-configure-powershell-windows-vm.md
+        - name: Modelo do Azure Resource Manager
+          href: qs-configure-template-windows-vm.md
+        - name: REST
+          href: qs-configure-rest-vm.md
+        - name: SDKs do Azure
+          href: qs-configure-sdk-windows-vm.md
+    - name: Configurar identidades geridas em conjuntos de dimensionamento de máquina virtual
+      items:
+        - name: Portal
+          href: qs-configure-portal-windows-vmss.md
+        - name: CLI
+          href: qs-configure-cli-windows-vmss.md
+        - name: PowerShell
+          href: qs-configure-powershell-windows-vmss.md
+        - name: Modelo do Azure Resource Manager
+          href: qs-configure-template-windows-vmss.md
+        - name: REST
+          href: qs-configure-rest-vmss.md
+    - name: Configurar identidades geridas em VMs
+      items:
+        - name: Adquirir um token de acesso
+          href: how-to-use-vm-token.md
+        - name: Iniciar a sessão no PowerShell e na CLI ao utilizar a Identidade Gerida
+          href: how-to-use-vm-sign-in.md
+        - name: Utilizar com os SDKs do Azure
+          href: how-to-use-vm-sdk.md
+        - name: Parar de utilizar a extensão de VM e começar a utilizar o Azure IMDS
+          href: howto-migrate-vm-extension.md
+    - name: Atribuir um acesso de identidade gerida a outro recurso do Azure
+      items:
+        - name: Portal
+          href: howto-assign-access-portal.md
+        - name: CLI
+          href: howto-assign-access-cli.md
+        - name: PowerShell
+          href: howto-assign-access-powershell.md
+    - name: Gerir identidades geridas atribuídas pelo utilizador
+      items:
+        - name: Portal
+          href: how-to-manage-ua-identity-portal.md
+        - name: CLI
+          href: how-to-manage-ua-identity-cli.md
+        - name: PowerShell
+          href: how-to-manage-ua-identity-powershell.md
+        - name: Modelo do Azure Resource Manager
+          href: how-to-manage-ua-identity-arm.md
+        - name: REST
+          href: how-to-manage-ua-identity-rest.md
+    - name: Ver os principais de serviço de identidade gerida
+      items:
+        - name: Portal
+          href: how-to-view-managed-identity-service-principal-portal.md
+        - name: CLI
+          href: how-to-view-managed-identity-service-principal-cli.md
+        - name: PowerShell
+          href: how-to-view-managed-identity-service-principal-powershell.md
 - name: Referência
   items:
-  - name: CLI
-    href: /cli/azure/identity
-  - name: PowerShell
-    href: /powershell/module/az.managedserviceidentity#managed_service_identity
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
-  - name: Java
-    href: https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines
-  - name: Python
-    href: /python/api/azure.mgmt.msi
-  - name: Ruby
-    href: https://rubygems.org/gems/azure_mgmt_msi
-  - name: Node.js
-    href: /javascript/api/ms-rest-azure
-  - name: Ir
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi
+    - name: CLI
+      href: /cli/azure/identity
+    - name: PowerShell
+      href: '/powershell/module/az.managedserviceidentity#managed_service_identity'
+    - name: .NET
+      href: '/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet'
+    - name: Java
+      href: 'https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines'
+    - name: Python
+      href: /python/api/azure.mgmt.msi
+    - name: Ruby
+      href: 'https://rubygems.org/gems/azure_mgmt_msi'
+    - name: Node.js
+      href: /javascript/api/ms-rest-azure
+    - name: Ir
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/msi/mgmt/2015-08-31-preview/msi'
 - name: Recursos
   items:
-  - name: FAQ e problemas conhecidos
-    href: known-issues.md
-  - name: Serviços do Azure que suportam identidades geridas para os recursos do Azure
-    href: services-support-managed-identities.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-msi
-  - name: Fórum de Programadores do AAD
-    href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: 29ba42df28aff29b9ff4be873e6549006cc66a88
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336121"
+    - name: FAQ e problemas conhecidos
+      href: known-issues.md
+    - name: Serviços do Azure que suportam identidades geridas para os recursos do Azure
+      href: services-support-managed-identities.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-msi'
+    - name: Fórum de Programadores do AAD
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences'

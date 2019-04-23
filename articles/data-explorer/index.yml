@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 34de58f7a3f9307714ccc4594d9ac92523c55f69
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482222"
 documentType: LandingData
 title: Documentação do Azure Data Explorer
 metadata:
-  title: Documentação do Azure Data Explorer - Inícios rápidos, tutoriais e referências de linguagem e da API
+  title: 'Documentação do Azure Data Explorer - Inícios rápidos, tutoriais e referências de linguagem e da API'
   description: O Azure Data Explorer é uma plataforma de cloud de análise de registos otimizada para consultas de macrodados ad hoc.
   author: orspod
   ms.author: orspodek
@@ -16,68 +10,68 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/24/2019
 abstract:
-  description: <p>O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Pode utilizar o Azure Data Explorer para recolher, armazenar e analisar dados diversos para melhorar produtos, melhorar a experiência do cliente, monitorizar dispositivos e tornar as operações mais eficientes.</p><p>Saiba como utilizar o Azure Data Explorer com os nossos inícios rápidos, tutoriais e conteúdos de referência.</p>
+  description: '<p>O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Pode utilizar o Azure Data Explorer para recolher, armazenar e analisar dados diversos para melhorar produtos, melhorar a experiência do cliente, monitorizar dispositivos e tornar as operações mais eficientes.</p><p>Saiba como utilizar o Azure Data Explorer com os nossos inícios rápidos, tutoriais e conteúdos de referência.</p>'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: O que é o Azure Data Explorer? (19:47)
-    href: https://youtu.be/D_AJk2lAepw
+    title: 'O que é o Azure Data Explorer? (19:47)'
+    href: 'https://youtu.be/D_AJk2lAepw'
     width: 250
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como aprovisionar e utilizar o Azure Data Explorer:'
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/data-explorer/media/index/portal.svg
-      text: Criar um cluster e uma base de dados
-      href: /azure/data-explorer/create-cluster-database-portal
-    - image:
-        src: /azure/data-explorer/media/index/portal.svg
-      text: Ingerir dados de transmissão em fluxo dos Hubs de Eventos
-      href: /azure/data-explorer/ingest-data-event-hub
-    - image:
-        src: /azure/data-explorer/media/index/portal.svg
-      text: Consultar dados com a IU da Web
-      href: /azure/data-explorer/web-query-data
-    - image:
-        src: /azure/data-explorer/media/index/logo-python.svg
-      text: Ingerir dados em fila com o Python
-      href: /azure/data-explorer/python-ingest-data
-    - image:
-        src: /azure/data-explorer/media/index/logo-python.svg
-      text: Consultar dados com o Python
-      href: /azure/data-explorer/python-query-data
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como criar soluções ponto a ponto:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Saiba como aprovisionar e utilizar o Azure Data Explorer:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-explorer/media/index/portal.svg
+            text: Criar um cluster e uma base de dados
+            href: /azure/data-explorer/create-cluster-database-portal
+          - image:
+              src: /azure/data-explorer/media/index/portal.svg
+            text: Ingerir dados de transmissão em fluxo dos Hubs de Eventos
+            href: /azure/data-explorer/ingest-data-event-hub
+          - image:
+              src: /azure/data-explorer/media/index/portal.svg
+            text: Consultar dados com a IU da Web
+            href: /azure/data-explorer/web-query-data
+          - image:
+              src: /azure/data-explorer/media/index/logo-python.svg
+            text: Ingerir dados em fila com o Python
+            href: /azure/data-explorer/python-ingest-data
+          - image:
+              src: /azure/data-explorer/media/index/logo-python.svg
+            text: Consultar dados com o Python
+            href: /azure/data-explorer/python-query-data
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/data-explorer/visualize-power-bi">Visualizar dados do Azure Data Explorer no Power BI</a>
-- title: Vídeo de Formação Gratuita da PluralSight
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Saiba como criar soluções ponto a ponto:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/data-explorer/visualize-power-bi">Visualizar dados do Azure Data Explorer no Power BI</a>
+  - title: Vídeo de Formação Gratuita da PluralSight
     items:
-    - title: Linguagem de consulta do Azure Data Explorer
-      href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
-      image:
-        src: /azure/data-explorer/media/index/logo-pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Linguagem de consulta do Azure Data Explorer
+            href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
+            image:
+              src: /azure/data-explorer/media/index/logo-pluralsight.svg
+              href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
+  - title: Referência
     items:
-    - title: Linguagens e API
-      html: <p><a href="https://aka.ms/kustolangref">Linguagem de consulta, comandos de gestão e APIs</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linguagens e API
+            html: '<p><a href="https://aka.ms/kustolangref">Linguagem de consulta, comandos de gestão e APIs</a>'

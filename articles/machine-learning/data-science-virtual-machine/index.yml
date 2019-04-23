@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 08426b9cb6dee2abd445f2e29eb4bf4d20a6e06d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475686"
 documentType: LandingData
 title: Documentação da Máquina Virtual de Ciência de Dados do Azure
 metadata:
   title: Documentação da Máquina Virtual de Ciência de Dados - Azure
-  description: Saiba como utilizar a Máquina Virtual de Ciência de Dados, um ambiente experimental na cloud do Azure criado especificamente para fazer ciência de dados. Tem muitas ferramentas populares de ciência de dados e outras pré-instaladas e pré-configuradas para permitir a rápida criação de aplicações inteligentes para análises avançadas.
+  description: 'Saiba como utilizar a Máquina Virtual de Ciência de Dados, um ambiente experimental na cloud do Azure criado especificamente para fazer ciência de dados. Tem muitas ferramentas populares de ciência de dados e outras pré-instaladas e pré-configuradas para permitir a rápida criação de aplicações inteligentes para análises avançadas.'
   services: machine-learning
   author: gopitk
   manager: cgronlun
@@ -21,45 +15,45 @@ metadata:
   ms.date: 01/18/2018
   ms.author: gokuma
 abstract:
-  description: As Máquinas Virtuais de Ciência de Dados e de Aprendizagem Profunda são imagens de VM personalizadas no Azure, com um vasto leque de ferramentas de ciência de dados utilizadas para criar aplicações inteligentes para realizar análises avançadas.
+  description: 'As Máquinas Virtuais de Ciência de Dados e de Aprendizagem Profunda são imagens de VM personalizadas no Azure, com um vasto leque de ferramentas de ciência de dados utilizadas para criar aplicações inteligentes para realizar análises avançadas.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como configurar uma VM de Ciência de Dados baseada em Windows ou Linux:'
-  - type: list
-    style: unordered
+  - title: Inícios rápidos de cinco minutos
     items:
-    - html: <a href="provision-vm.md">Windows</a>
-    - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como aprovisionar e utilizar VMs de Ciência de Dados:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Saiba como configurar uma VM de Ciência de Dados baseada em Windows ou Linux:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="provision-vm.md">Windows</a>
+          - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="provision-vm">Aprovisionar uma DSVM do Windows</a>
-    - html: <a href="vm-do-ten-things">Utilizar uma DSVM do Windows</a>
-    - html: <a href="linux-dsvm-intro">Aprovisionar uma DSVM do Linux CentOS</a>
-    - html: <a href="dsvm-ubuntu-intro">Aprovisionar uma DSVM do Linux Ubuntu</a>
-    - html: <a href="linux-dsvm-walkthrough">Utilizar uma DSVM do Linux</a>
-- title: Mais Tecnologias do Azure Machine Learning
-  items:
-  - type: paragraph
-    text: 'Outras tecnologias disponíveis no Azure Machine Learning:'
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Saiba como aprovisionar e utilizar VMs de Ciência de Dados:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="provision-vm">Aprovisionar uma DSVM do Windows</a>
+          - html: <a href="vm-do-ten-things">Utilizar uma DSVM do Windows</a>
+          - html: <a href="linux-dsvm-intro">Aprovisionar uma DSVM do Linux CentOS</a>
+          - html: <a href="dsvm-ubuntu-intro">Aprovisionar uma DSVM do Linux Ubuntu</a>
+          - html: <a href="linux-dsvm-walkthrough">Utilizar uma DSVM do Linux</a>
+  - title: Mais Tecnologias do Azure Machine Learning
     items:
-    - title: Serviço Azure Machine Learning (pré-visualização)
-      href: /azure/machine-learning/service/
-      image:
-        src: media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
+      - type: paragraph
+        text: 'Outras tecnologias disponíveis no Azure Machine Learning:'
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Serviço Azure Machine Learning (pré-visualização)
+            href: /azure/machine-learning/service/
+            image:
+              src: media/index/i_machine-learning.svg
+              href: /azure/machine-learning/service/
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/

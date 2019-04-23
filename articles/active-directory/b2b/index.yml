@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3399ed71635434bc38d0c989118afb68de9fbd4c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338501"
 documentType: LandingData
 title: Documentação do Azure Active Directory B2B
 metadata:
-  document_id: 
+  document_id: null
   title: Documentação do Azure Active Directory B2B - Azure Active Directory | Microsoft Docs
-  description: Utilize os nossos tutoriais, inícios rápidos e guias de instruções para saber mais sobre como utilizar o acesso do utilizador convidado B2B para partilhar e colaborar com parceiros externos.
+  description: 'Utilize os nossos tutoriais, inícios rápidos e guias de instruções para saber mais sobre como utilizar o acesso do utilizador convidado B2B para partilhar e colaborar com parceiros externos.'
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -22,7 +16,7 @@ metadata:
   ms.date: 09/10/2018
   ms.author: mimart
 abstract:
-  description: Saiba como utilizar a colaboração de empresa para empresa (B2B) do Azure AD para partilhar em segurança as aplicações e serviços da sua empresa com utilizadores convidados e parceiros externos de qualquer organização, e manter o controlo sobre os seus próprios dados empresariais.  Seguem-se algumas das principais funcionalidades:<ul><li>Através de um processo de resgate e convite simples, os utilizadores convidados podem começar a colaborar nos recursos que pretendem aceder.</li><li>Os seus utilizadores convidados e parceiros externos gerem as suas próprias identidades através do Azure AD, contas de e-mail de redes sociais ou de qualquer fornecedor de identidade.</li><li>Pode proteger os seus recursos empresariais com funcionalidades do Azure AD, como a autenticação multifator.</li><li>Pode utilizar APIs para personalizar a experiência, por exemplo, através de um portal de inscrição personalizado.</li></ul>Os seguintes recursos ajudam-no a começar rapidamente.
+  description: 'Saiba como utilizar a colaboração de empresa para empresa (B2B) do Azure AD para partilhar em segurança as aplicações e serviços da sua empresa com utilizadores convidados e parceiros externos de qualquer organização, e manter o controlo sobre os seus próprios dados empresariais.  Seguem-se algumas das principais funcionalidades:<ul><li>Através de um processo de resgate e convite simples, os utilizadores convidados podem começar a colaborar nos recursos que pretendem aceder.</li><li>Os seus utilizadores convidados e parceiros externos gerem as suas próprias identidades através do Azure AD, contas de e-mail de redes sociais ou de qualquer fornecedor de identidade.</li><li>Pode proteger os seus recursos empresariais com funcionalidades do Azure AD, como a autenticação multifator.</li><li>Pode utilizar APIs para personalizar a experiência, por exemplo, através de um portal de inscrição personalizado.</li></ul>Os seguintes recursos ajudam-no a começar rapidamente.'
   aside:
     image:
       alt: Imagem em miniatura do vídeo O Azure AD B2B explicado
@@ -30,32 +24,32 @@ abstract:
       src: ./media/index/video.png
       width: 246
     title: O Azure AD B2B explicado
-    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    href: 'https://www.youtube.com/watch?v=AhwrweCBdsc'
     width: 246
 sections:
-- title: Inícios rápidos de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba como convidar utilizadores convidados e começar a utilizar a colaboração B2B.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de 5 minutos
     items:
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Adicionar utilizadores convidados no portal do Azure
-      href: b2b-quickstart-add-guest-users-portal.md
-    - image:
-        alt: 
-        src: ./media/index/i_security-management.png
-      text: Adicionar um utilizador convidado com o PowerShell
-      href: b2b-quickstart-invite-powershell.md
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba mais sobre como configurar a colaboração B2B e proteger os recursos da sua empresa.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como convidar utilizadores convidados e começar a utilizar a colaboração B2B.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Adicionar utilizadores convidados no portal do Azure
+            href: b2b-quickstart-add-guest-users-portal.md
+          - image:
+              alt: null
+              src: ./media/index/i_security-management.png
+            text: Adicionar um utilizador convidado com o PowerShell
+            href: b2b-quickstart-invite-powershell.md
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Convidar utilizadores convidados B2B em massa com o PowerShell</a>
-    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Reforçar autenticação multifator para os utilizadores convidados B2B</a>
+      - type: paragraph
+        text: Saiba mais sobre como configurar a colaboração B2B e proteger os recursos da sua empresa.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Convidar utilizadores convidados B2B em massa com o PowerShell</a>
+          - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Reforçar autenticação multifator para os utilizadores convidados B2B</a>

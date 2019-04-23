@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a22269560d485dcd98aaaabb88dbbba545d26a2d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467913"
 documentType: LandingData
 title: Serviço de Kubernetes do Azure (AKS)
 metadata:
-  document_id: 
-  title: Documentação do Azure Kubernetes Service (AKS) - Tutoriais, Referência da API | Microsoft Docs
-  meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
+  document_id: null
+  title: 'Documentação do Azure Kubernetes Service (AKS) - Tutoriais, Referência da API | Microsoft Docs'
+  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
   services: container-service
   author: carolz
   manager: carolz
@@ -21,90 +15,90 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: O Azure Kubernetes Service (AKS) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
+  description: 'O Azure Kubernetes Service (AKS) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como implementar um cluster do AKS:'
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: CLI do Azure
-      href: /azure/aks/kubernetes-walkthrough
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portal do Azure
-      href: /azure/aks/kubernetes-walkthrough-portal
-  - type: paragraph
-    text: 'Saiba como desenvolver e depurar as aplicações com o AKS:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Saiba como implementar um cluster do AKS:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: CLI do Azure
+            href: /azure/aks/kubernetes-walkthrough
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal do Azure
+            href: /azure/aks/kubernetes-walkthrough-portal
+      - type: paragraph
+        text: 'Saiba como desenvolver e depurar as aplicações com o AKS:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
+            text: Java
+            href: ../dev-spaces/quickstart-java.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
+            text: .NET e VS Code
+            href: ../dev-spaces/quickstart-netcore.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: .NET e Visual Studio
+            href: ../dev-spaces/quickstart-netcore-visualstudio.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
+            text: Node.js
+            href: ../dev-spaces/quickstart-nodejs.md
+  - title: Tutoriais Passo-a-Passo
     items:
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_java.svg
-      text: Java
-      href: ../dev-spaces/quickstart-java.md
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
-      text: .NET e VS Code
-      href: ../dev-spaces/quickstart-netcore.md
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-      text: .NET e Visual Studio
-      href: ../dev-spaces/quickstart-netcore-visualstudio.md
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-      text: Node.js
-      href: ../dev-spaces/quickstart-nodejs.md
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como implementar, gerir e monitorizar aplicações em clusters do AKS.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Saiba como implementar, gerir e monitorizar aplicações em clusters do AKS.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Criar imagens de contentor a partir de uma aplicação</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Carregar imagens de contentor para o Azure Container Registry</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Implementar um cluster do AKS (Deploy an AKS cluster)</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Executar as imagens de contentor no Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Dimensionar uma aplicação e a infraestrutura do Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Atualizar uma aplicação em execução no Kubernetes</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Atualizar um cluster do AKS (Upgrade AKS cluster)</a>
+  - title: Desenvolva as suas competências com o Microsoft Learn
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Criar imagens de contentor a partir de uma aplicação</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Carregar imagens de contentor para o Azure Container Registry</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Implementar um cluster do AKS (Deploy an AKS cluster)</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Executar as imagens de contentor no Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Dimensionar uma aplicação e a infraestrutura do Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Atualizar uma aplicação em execução no Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Atualizar um cluster do AKS (Upgrade AKS cluster)</a>
-- title: Desenvolva as suas competências com o Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introdução aos contentores no Azure
+            href: /learn/modules/intro-to-containers/
+            image:
+              src: /learn/achievements/intro-to-containers.svg
+              href: /learn/modules/intro-to-containers/
+          - title: Executar contentores do Docker com o Azure Container Instances
+            href: /learn/modules/run-docker-with-azure-container-instances/
+            image:
+              src: /learn/achievements/run-docker-with-azure-container-instances.svg
+              href: /learn/modules/run-docker-with-azure-container-instances/
+          - title: Compilar e armazenar imagens de contentor com o Azure Container Registry
+            href: /learn/modules/build-and-store-container-images/
+            image:
+              src: /learn/achievements/build-and-store-container-images.svg
+              href: /learn/modules/build-and-store-container-images/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Mais aprendizagem interativa...</a>
+  - title: Referência
     items:
-    - title: Introdução aos contentores no Azure
-      href: /learn/modules/intro-to-containers/
-      image:
-        src: /learn/achievements/intro-to-containers.svg
-        href: /learn/modules/intro-to-containers/
-    - title: Executar contentores do Docker com o Azure Container Instances
-      href: /learn/modules/run-docker-with-azure-container-instances/
-      image:
-        src: /learn/achievements/run-docker-with-azure-container-instances.svg
-        href: /learn/modules/run-docker-with-azure-container-instances/
-    - title: Compilar e armazenar imagens de contentor com o Azure Container Registry
-      href: /learn/modules/build-and-store-container-images/
-      image:
-        src: /learn/achievements/build-and-store-container-images.svg
-        href: /learn/modules/build-and-store-container-images/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Mais aprendizagem interativa...</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Linha de comandos
-      html: <p><a href="/cli/azure/aks">CLI do Azure</a></p>
-    - title: Linguagens
-      html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/aks">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comandos
+            html: <p><a href="/cli/azure/aks">CLI do Azure</a></p>
+          - title: Linguagens
+            html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/aks">API REST</a></p>

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: acb451634c1105e50798b4a80271e945a4e055ee
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238237"
 documentType: LandingData
 title: Documentação da CDN do Azure
 metadata:
-  title: Documentação da CDN do Azure - Tutoriais, Referência da API | Microsoft Docs
-  description: A Rede de Entrega de Conteúdos (CDN) do Azure é uma solução global de CDN para entregar conteúdo com elevada largura de banda. Pode ser alojada no Azure ou em qualquer outra localização. Com a CDN do Azure, pode colocar em cache objetos estáticos carregados a partir do armazenamento de Blobs do Azure, uma aplicação web ou qualquer outro servidor web publicamente acessível ao utilizar o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede e de encaminhamento.
+  title: 'Documentação da CDN do Azure - Tutoriais, Referência da API | Microsoft Docs'
+  description: 'A Rede de Entrega de Conteúdos (CDN) do Azure é uma solução global de CDN para entregar conteúdo com elevada largura de banda. Pode ser alojada no Azure ou em qualquer outra localização. Com a CDN do Azure, pode colocar em cache objetos estáticos carregados a partir do armazenamento de Blobs do Azure, uma aplicação web ou qualquer outro servidor web publicamente acessível ao utilizar o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede e de encaminhamento.'
   services: cdn
   author: czeumault
   manager: carolz
@@ -20,67 +14,67 @@ metadata:
   ms.date: 06/08/2018
   ms.author: carolz
 abstract:
-  description: A Rede de Entrega de Conteúdos (CDN) do Azure é uma solução global de CDN para entregar conteúdo com elevada largura de banda. Pode ser alojada no Azure ou em qualquer outra localização. Com a CDN do Azure, pode colocar em cache objetos estáticos carregados a partir do armazenamento de Blobs do Azure, uma aplicação web ou qualquer outro servidor web publicamente acessível ao utilizar o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede e de encaminhamento.
+  description: 'A Rede de Entrega de Conteúdos (CDN) do Azure é uma solução global de CDN para entregar conteúdo com elevada largura de banda. Pode ser alojada no Azure ou em qualquer outra localização. Com a CDN do Azure, pode colocar em cache objetos estáticos carregados a partir do armazenamento de Blobs do Azure, uma aplicação web ou qualquer outro servidor web publicamente acessível ao utilizar o servidor de ponto de presença (POP) mais próximo. A CDN do Azure também pode acelerar o conteúdo dinâmico, que não pode ser colocado em cache, ao tirar partido das várias otimizações de rede e de encaminhamento.'
 sections:
-- title: 
-  items:
-  - type: list
-    style: icon48
+  - title: null
     items:
-    - image:
-        src: media/index/cdn.svg
-      text: Saiba mais sobre o Azure CDN
-      href: /azure/cdn/cdn-overview
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Aprenda a ativar a CDN do Azure ao criar um perfil de CDN e um ponto final de CDN.
-  - type: list
-    style: icon48
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cdn.svg
+            text: Saiba mais sobre o Azure CDN
+            href: /azure/cdn/cdn-overview
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: media/index/get-started.svg
-      text: Introdução ao Azure CDN
-      href: /azure/cdn/cdn-create-new-endpoint
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Aprenda a configurar a CDN do Azure para as suas necessidades.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Aprenda a ativar a CDN do Azure ao criar um perfil de CDN e um ponto final de CDN.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/get-started.svg
+            text: Introdução ao Azure CDN
+            href: /azure/cdn/cdn-create-new-endpoint
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Adicionar um domínio personalizado ao ponto final de CDN</a>
-    - html: <a href="/azure/cdn/cdn-custom-ssl">Configurar HTTPS num domínio personalizado</a>
-    - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Definir regras de colocação em cache</a>
-- title: Vídeos
-  items:
-  - type: paragraph
-    text: Veja vídeos que mostram como funciona a CDN do Azure.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: Aprenda a configurar a CDN do Azure para as suas necessidades.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Adicionar um domínio personalizado ao ponto final de CDN</a>
+          - html: <a href="/azure/cdn/cdn-custom-ssl">Configurar HTTPS num domínio personalizado</a>
+          - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Definir regras de colocação em cache</a>
+  - title: Vídeos
     items:
-    - image:
-        src: media/index/video-library.svg
-      text: Biblioteca de vídeos da CDN do Azure
-      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-- title: Amostras
-  items:
-  - type: paragraph
-    text: Encontre scripts para gerir tarefas comuns.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Veja vídeos que mostram como funciona a CDN do Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/video-library.svg
+            text: Biblioteca de vídeos da CDN do Azure
+            href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'
+  - title: Amostras
     items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cdn">Exemplos de código</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Encontre scripts para gerir tarefas comuns.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cdn">Exemplos de código</a>'
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/powershell/module/az.cdn">PowerShell</a></p>
-    - title: Linguagens
-      html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/cdn/">Referência da API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: <p><a href="/powershell/module/az.cdn">PowerShell</a></p>
+          - title: Linguagens
+            html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/cdn/">Referência da API REST</a></p>

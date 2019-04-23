@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048117"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149636"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de mobilidade para VMs de VMware e servidores físicos
 
@@ -115,7 +115,7 @@ Durante a instalação push do agente de mobilidade, os passos seguintes são ex
 #### <a name="installation-settings"></a>Definições de instalação
 **Definição** | **Detalhes**
 --- | ---
-Utilização | . UnifiedAgent.exe /Role < MS|MT > /InstallLocation <Install Location> /Platform "VmWare" /Silent
+Utilização | N. < MS/MT > UnifiedAgent.exe /Role /InstallLocation <Install Location> /Platform "VmWare" /Silent
 Registos de configuração | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parâmetro de instalação obrigatória. Especifica se o serviço de mobilidade (MS) ou o destino mestre (TA) deve ser instalado.
 /InstallLocation| Parâmetro opcional. Especifica a localização de instalação do serviço de mobilidade (qualquer pasta).
@@ -154,7 +154,7 @@ Registos de configuração do agente | Under %ProgramData%\ASRSetupLogs\ASRUnifi
 #### <a name="installation-settings"></a>Definições de instalação
 **Definição** | **Detalhes**
 --- | ---
-Utilização | . /Install -d \<localização de instalação > - r < MS|MT> -v VmWare -q
+Utilização | . /Install -d <Install Location> - r < MS/MT > - v VmWare - q
 -r | Parâmetro de instalação obrigatória. Especifica se o serviço de mobilidade (MS) ou o destino mestre (TA) deve ser instalado.
 -d | Parâmetro opcional. Especifica a localização de instalação do serviço de mobilidade: /usr/local/ASR.
 -v | Obrigatório. Especifica a plataforma em que o serviço de mobilidade está instalado. **VMware** para VMware VMs/servidores físicos; **Azure** para VMs do Azure.

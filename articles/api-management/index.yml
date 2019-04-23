@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Documentação da Gestão de API
 metadata:
-  title: Documentação da Gestão de API do Azure - Tutoriais, Referência da API | Microsoft Docs
-  description: Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.
+  title: 'Documentação da Gestão de API do Azure - Tutoriais, Referência da API | Microsoft Docs'
+  description: 'Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.'
   services: api-management
   author: czeumault
   manager: carolz
@@ -13,51 +13,45 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: carolz
-  ms.openlocfilehash: 627498481ff5e64573478dd736cdd28962036caf
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/12/2018
-  ms.locfileid: "27786701"
 abstract:
-  description: Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.
+  description: 'Saiba como utilizar a Gestão de API para publicar APIs para programadores externos, parceiros e empregados de forma segura e à escala. Tutoriais, referências de API e outra documentação mostram-lhe como criar e gerir modernos gateways de API para os serviços de back-end existentes alojados em qualquer lugar.'
 sections:
-- title: Inícios rápidos de 5 minutos
-  items:
-  - type: paragraph
-    text: Criar uma instância da Gestão de API.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de 5 minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Criar uma instância - Portal
-      href: /azure/api-management/get-started-create-service-instance
-    - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Criar uma instância - PowerShell
-      href: /azure/api-management/powershell-create-service-instance
-- title: Tutoriais passo-a-passo
-  items:
-  - type: paragraph
-    text: Saiba como gerir a Gestão de API.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Criar uma instância da Gestão de API.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Criar uma instância - Portal
+            href: /azure/api-management/get-started-create-service-instance
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg'
+            text: Criar uma instância - PowerShell
+            href: /azure/api-management/powershell-create-service-instance
+  - title: Tutoriais passo-a-passo
     items:
-    - html: <a href="/azure/api-management/import-and-publish">Importar e publicar a sua primeira API</a>
-    - html: <a href="/azure/api-management/api-management-howto-add-products">Criar e publicar um produto</a>
-    - html: <a href="/azure/api-management/mock-api-responses">Respostas de API de teste</a>
-    - html: <a href="/azure/api-management/transform-api">Transformar e proteger a sua API</a>
-    - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitorizar as APIs publicadas</a>
-    - html: <a href="/azure/api-management/api-management-howto-api-inspector">Depurar as suas APIs com o rastreio de pedidos</a>
-    - html: <a href="/azure/api-management/api-management-get-started-revise-api">Utilize revisões para efetuar alterações sem interrupções de forma segura</a>
-    - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publicar várias versões da sua API</a>
-    - html: <a href="/azure/api-management/api-management-customize-styles">Personalizar o estilo das páginas de portal do Programador</a>
-- title: Amostras
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Saiba como gerir a Gestão de API.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/api-management/import-and-publish">Importar e publicar a sua primeira API</a>
+          - html: <a href="/azure/api-management/api-management-howto-add-products">Criar e publicar um produto</a>
+          - html: <a href="/azure/api-management/mock-api-responses">Respostas de API de teste</a>
+          - html: <a href="/azure/api-management/transform-api">Transformar e proteger a sua API</a>
+          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitorizar as APIs publicadas</a>
+          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Depurar as suas APIs com o rastreio de pedidos</a>
+          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Utilize revisões para efetuar alterações sem interrupções de forma segura</a>
+          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publicar várias versões da sua API</a>
+          - html: <a href="/azure/api-management/api-management-customize-styles">Personalizar o estilo das páginas de portal do Programador</a>
+  - title: Amostras
     items:
-    - html: <a href="/azure/api-management/policy-samples">Política</a>
-    - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/api-management/policy-samples">Política</a>
+          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

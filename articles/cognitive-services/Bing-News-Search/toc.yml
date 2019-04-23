@@ -1,118 +1,111 @@
-items:
 - name: Documentação da Pesquisa de Notícias do Bing
   href: index.yml
 - name: Descrição geral
-  items:
-  - name: O que é a API de Pesquisa de Notícias do Bing?
-    href: search-the-web.md
-  - name: Comparar as APIs de Pesquisa do Bing
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: O que é a API de Pesquisa de Notícias do Bing?
+      href: search-the-web.md
+    - name: Comparar as APIs de Pesquisa do Bing
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Inícios rápidos
   items:
-  - name: API REST
-    items:
-    - name: Utilizar C#
-      href: csharp.md
-    - name: Utilizar o Java
-      href: java.md
-    - name: Com Node.js
-      href: nodejs.md
-    - name: Utilizar o PHP
-      href: php.md
-    - name: Utilizar o Python
-      href: python.md
-    - name: Utilizar o Ruby
-      href: ruby.md
-    - name: Utilizar o Go
-      href: go.md
-  - name: SDK
-    items:
-    - name: Utilizar C#
-      href: news-search-sdk-quickstart.md
-    - name: Com Node.js
-      href: news-search-sdk-node-quickstart.md
-    - name: Utilizar o Python
-      href: news-sdk-python-quickstart.md
-    - name: Utilizar o Java
-      href: news-sdk-java-quickstart.md
+    - name: API REST
+      items:
+        - name: 'Utilizar C#'
+          href: csharp.md
+        - name: Utilizar o Java
+          href: java.md
+        - name: Com Node.js
+          href: nodejs.md
+        - name: Utilizar o PHP
+          href: php.md
+        - name: Utilizar o Python
+          href: python.md
+        - name: Utilizar o Ruby
+          href: ruby.md
+        - name: Utilizar o Go
+          href: go.md
+    - name: SDK
+      items:
+        - name: 'Utilizar C#'
+          href: news-search-sdk-quickstart.md
+        - name: Com Node.js
+          href: news-search-sdk-node-quickstart.md
+        - name: Utilizar o Python
+          href: news-sdk-python-quickstart.md
+        - name: Utilizar o Java
+          href: news-sdk-java-quickstart.md
 - name: Tutoriais
   items:
-  - name: Criar uma aplicação web de página única
-    href: tutorial-bing-news-search-single-page-app.md
+    - name: Criar uma aplicação web de página única
+      href: tutorial-bing-news-search-single-page-app.md
 - name: Amostras
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
 - name: Guias de procedimentos
   items:
-  - name: Processar o detetor de ocorrências
-    href: hit-highlighting.md
-  - name: Notícias da página
-    href: paging-news.md
-  - name: Redimensionar e recortar miniaturas
-    href: resize-and-crop-thumbnails.md
-  - name: Atualizar da v5 para a v7 da API
-    href: bing-news-upgrade-guide-v5-to-v7.md
-  - name: Trabalhar com o Visual Studio
-    items:
-    - name: Utilizar o Serviço Ligado da Pesquisa de Notícias do Bing
-      href: vs-bing-news-search-connected-service.md
+    - name: Processar o detetor de ocorrências
+      href: hit-highlighting.md
+    - name: Notícias da página
+      href: paging-news.md
+    - name: Redimensionar e recortar miniaturas
+      href: resize-and-crop-thumbnails.md
+    - name: Atualizar da v5 para a v7 da API
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Trabalhar com o Visual Studio
+      items:
+        - name: Utilizar o Serviço Ligado da Pesquisa de Notícias do Bing
+          href: vs-bing-news-search-connected-service.md
 - name: Conceitos
   items:
-  - name: A enviar consultas de pesquisa
-    href: concepts/send-search-queries.md
-  - name: A pesquisar por notícias
-    href: concepts/search-for-news.md
+    - name: A enviar consultas de pesquisa
+      href: concepts/send-search-queries.md
+    - name: A pesquisar por notícias
+      href: concepts/search-for-news.md
 - name: Referência
   items:
-  - name: API de Pesquisa de Notícias do Bing v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
-  - name: API de Pesquisa de Notícias do Bing v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
-  - name: SDKs
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
-    - name: Ir
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
-  - name: Requisitos de utilização e de apresentação
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: API de Pesquisa de Notícias do Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: API de Pesquisa de Notícias do Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+    - name: SDKs
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/newssearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest'
+        - name: Ir
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch'
+    - name: Requisitos de utilização e de apresentação
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Recursos
   items:
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+news+search
-  - name: Disponibilidade regional
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Base de Dados de Conhecimento
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: Obter chave de API
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
-  - name: Experimente!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: Pontos finais de Pesquisa de Notícias do Bing
-    href: endpoint-news.md
-  - name: Suporte de idioma e região
-    href: language-support.md
-  - name: Análise da API de Pesquisa de Notícias do Bing
-    href: bing-news-stats.md
-ms.openlocfilehash: 2f560504a582de36ccd55c7755d9113e68a8bf4a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306719"
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obter chave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: Experimente!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Pontos finais de Pesquisa de Notícias do Bing
+      href: endpoint-news.md
+    - name: Suporte de idioma e região
+      href: language-support.md
+    - name: Análise da API de Pesquisa de Notícias do Bing
+      href: bing-news-stats.md

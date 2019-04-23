@@ -1,78 +1,71 @@
-items:
 - name: Documentação da Gestão de Dispositivos
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é a gestão de dispositivos no Azure AD?
-    href: overview.md
-  - name: O que é o roaming de estado empresarial?
-    href: enterprise-state-roaming-overview.md
+    - name: O que é a gestão de dispositivos no Azure AD?
+      href: overview.md
+    - name: O que é o roaming de estado empresarial?
+      href: enterprise-state-roaming-overview.md
 - name: Tutoriais
-  items:
-  - name: Configurar a associação híbrida do Azure AD para os domínios geridos
-    href: hybrid-azuread-join-managed-domains.md
-  - name: Configurar a associação híbrida do Azure AD para os domínios federados
-    href: hybrid-azuread-join-federated-domains.md
-  - name: Configurar manualmente a associação ao Azure AD híbrido
-    href: hybrid-azuread-join-manual.md
-  - name: Configurar a associação ao Azure AD durante a experiência de primeira execução do Windows 10
-    href: azuread-joined-devices-frx.md
   expanded: false
+  items:
+    - name: Configurar a associação híbrida do Azure AD para os domínios geridos
+      href: hybrid-azuread-join-managed-domains.md
+    - name: Configurar a associação híbrida do Azure AD para os domínios federados
+      href: hybrid-azuread-join-federated-domains.md
+    - name: Configurar manualmente a associação ao Azure AD híbrido
+      href: hybrid-azuread-join-manual.md
+    - name: Configurar a associação ao Azure AD durante a experiência de primeira execução do Windows 10
+      href: azuread-joined-devices-frx.md
 - name: Conceitos
-  items:
-  - name: Recursos de SSO para o local
-    href: azuread-join-sso.md
   expanded: false
-- name: Guias de procedimentos
   items:
-  - name: Gerir dispositivos com o portal do Azure
-    href: device-management-azure-portal.md
-  - name: Gerir dispositivos obsoletos
-    href: manage-stale-devices.md
-  - name: Planear a sua implementação de associação do Azure AD
-    href: azureadjoin-plan.md
-  - name: Planear a sua implementação de associação ao Azure AD híbrido
-    href: hybrid-azuread-join-plan.md
-  - name: Controlar a associação híbrida do Azure AD dos seus dispositivos
-    href: hybrid-azuread-join-control.md
-  - name: Atribuir administradores locais a dispositivos associados do Azure AD
-    href: assign-local-admin.md
-  - name: Ativar o roaming de estado empresarial
-    href: enterprise-state-roaming-enable.md
-  - name: Resolver problemas de dispositivos atuais do Windows associados ao Azure AD híbrido
-    href: troubleshoot-hybrid-join-windows-current.md
-  - name: Resolver problemas de dispositivos Windows legados associados ao Azure AD híbrido
-    href: troubleshoot-hybrid-join-windows-legacy.md
-  - name: Resolver problemas de roaming de estado empresarial
-    href: enterprise-state-roaming-troubleshooting.md
-  - name: FAQs
-    href: faq.md
-  - name: Perguntas frequentes de ativar o estado empresarial
-    href: enterprise-state-roaming-faqs.md
+    - name: Recursos de SSO para o local
+      href: azuread-join-sso.md
+- name: Guias de procedimentos
   expanded: true
+  items:
+    - name: Gerir dispositivos com o portal do Azure
+      href: device-management-azure-portal.md
+    - name: Gerir dispositivos obsoletos
+      href: manage-stale-devices.md
+    - name: Planear a sua implementação de associação do Azure AD
+      href: azureadjoin-plan.md
+    - name: Planear a sua implementação de associação ao Azure AD híbrido
+      href: hybrid-azuread-join-plan.md
+    - name: Controlar a associação híbrida do Azure AD dos seus dispositivos
+      href: hybrid-azuread-join-control.md
+    - name: Atribuir administradores locais a dispositivos associados do Azure AD
+      href: assign-local-admin.md
+    - name: Ativar o roaming de estado empresarial
+      href: enterprise-state-roaming-enable.md
+    - name: Resolver problemas de dispositivos atuais do Windows associados ao Azure AD híbrido
+      href: troubleshoot-hybrid-join-windows-current.md
+    - name: Resolver problemas de dispositivos Windows legados associados ao Azure AD híbrido
+      href: troubleshoot-hybrid-join-windows-legacy.md
+    - name: Resolver problemas de roaming de estado empresarial
+      href: enterprise-state-roaming-troubleshooting.md
+    - name: FAQs
+      href: faq.md
+    - name: Perguntas frequentes de ativar o estado empresarial
+      href: enterprise-state-roaming-faqs.md
 - name: Referência
   items:
-  - name: Definições do GPO do roaming de estado empresarial
-    href: enterprise-state-roaming-group-policy-settings.md
-  - name: Definições de Windows do roaming de estado empresarial
-    href: enterprise-state-roaming-windows-settings-reference.md
+    - name: Definições do GPO do roaming de estado empresarial
+      href: enterprise-state-roaming-group-policy-settings.md
+    - name: Definições de Windows do roaming de estado empresarial
+      href: enterprise-state-roaming-windows-settings-reference.md
 - name: Recursos
   items:
-  - name: Fórum de comentários do Azure
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Atualizações de serviço
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c55f0c43b8af390d95c0dc3b70ff7037793ac7bc
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388293"
+    - name: Fórum de comentários do Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Atualizações de serviço
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

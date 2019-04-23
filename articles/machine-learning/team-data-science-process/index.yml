@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451925"
 documentType: LandingData
 title: Documentação do Processo de Ciência de Dados de Equipa
 metadata:
@@ -22,24 +16,24 @@ metadata:
 abstract:
   description: O Processo de Ciência de Dados de Equipa é uma metodologia de ciência de dados ágil e iterativa que visa fornecer soluções de análise preditiva e aplicações inteligentes com eficiência. O TDSP ajuda a melhorar a colaboração e a aprendizagem em equipa. Contém uma seleção das melhores práticas e estruturas da Microsoft e de outras empresas do setor para facilitar a implementação de iniciativas de ciência de dados. O objetivo é ajudar as empresas a atingir todo o potencial dos benefícios dos respetivos programas de análise.
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba mais sobre o Processo de Ciência de Dados de Equipa:'
-  - type: list
-    style: unordered
+  - title: Inícios rápidos de cinco minutos
     items:
-    - html: <a href="overview">Descrição geral</a>
-    - html: <a href="lifecycle">Ciclo de vida</a>
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como utilizar o Processo de Ciência de Dados de Equipa em vários cenários:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Saiba mais sobre o Processo de Ciência de Dados de Equipa:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">Descrição geral</a>
+          - html: <a href="lifecycle">Ciclo de vida</a>
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="walkthroughs-spark">Spark com PySpark e Scala</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">Hive com o HDInsight Hadoop</a>
-    - html: <a href="walkthroughs-azure-data-lake">U-SQL com o Azure Data Lake</a>
-    - html: <a href="walkthroughs-sql-server">R, Python e T-SQL com o SQL Server</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python com o SQL DW</a>
+      - type: paragraph
+        text: 'Saiba como utilizar o Processo de Ciência de Dados de Equipa em vários cenários:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">Spark com PySpark e Scala</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">Hive com o HDInsight Hadoop</a>
+          - html: <a href="walkthroughs-azure-data-lake">U-SQL com o Azure Data Lake</a>
+          - html: '<a href="walkthroughs-sql-server">R, Python e T-SQL com o SQL Server</a>'
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL e Python com o SQL DW</a>

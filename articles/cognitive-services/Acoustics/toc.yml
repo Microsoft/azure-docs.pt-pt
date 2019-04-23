@@ -1,52 +1,45 @@
-items:
 - name: Documentação do Projeto Acoustics
 - name: Descrição geral
   items:
-  - name: O que é o Projeto Acoustics?
-    href: what-is-acoustics.md
+    - name: O que é o Projeto Acoustics?
+      href: what-is-acoustics.md
 - name: Inícios rápidos
   items:
-  - name: Início Rápido com o Unity
-    href: unity-quickstart.md
-  - name: Início Rápido com o Unreal
-    href: unreal-quickstart.md
+    - name: Início Rápido com o Unity
+      href: unity-quickstart.md
+    - name: Início Rápido com o Unreal
+      href: unreal-quickstart.md
 - name: Tutoriais
   items:
-  - name: Unidade
-    items:
-    - name: Bake Acústico com o Unity
-      href: unity-baking.md
-    - name: Fluxo de Trabalho de Design no Unity
-      href: unity-workflow.md
-  - name: Unreal/Wwise
-    items:
-    - name: Bake Acústico com o Unreal/Wwise
-      href: unreal-baking.md
-    - name: Fluxo de Trabalho de Design no Unreal/Wwise
-      href: unreal-workflow.md
+    - name: Unidade
+      items:
+        - name: Bake Acústico com o Unity
+          href: unity-baking.md
+        - name: Fluxo de Trabalho de Design no Unity
+          href: unity-workflow.md
+    - name: Unreal/Wwise
+      items:
+        - name: Bake Acústico com o Unreal/Wwise
+          href: unreal-baking.md
+        - name: Fluxo de Trabalho de Design no Unreal/Wwise
+          href: unreal-workflow.md
 - name: Conceitos
   items:
-  - name: Conceitos de Design com Simulação de Acústica
-    href: design-process.md
-  - name: Resolução de bake
-    href: bake-resolution.md
+    - name: Conceitos de Design com Simulação de Acústica
+      href: design-process.md
+    - name: Resolução de bake
+      href: bake-resolution.md
 - name: Procedimentos
   items:
-  - name: Criar uma conta do Azure Batch
-    href: create-azure-account.md
-  - name: Integrar o Projeto Acústica no Unity
-    href: unity-integration.md
-  - name: Integrar o Projeto Acústica no Unreal/Wwise
-    href: unreal-integration.md
+    - name: Criar uma conta do Azure Batch
+      href: create-azure-account.md
+    - name: Integrar o Projeto Acústica no Unity
+      href: unity-integration.md
+    - name: Integrar o Projeto Acústica no Unreal/Wwise
+      href: unreal-integration.md
 - name: Recursos
   items:
-  - name: Perguntas Mais Frequentes
-    href: faq.md
-  - name: Problemas Conhecidos
-    href: known-issues.md
-ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787888"
+    - name: Perguntas Mais Frequentes
+      href: faq.md
+    - name: Problemas Conhecidos
+      href: known-issues.md

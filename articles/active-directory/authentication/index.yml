@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 31c211e6694eb0f02622b3a24d649fe6006df13e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082032"
 documentType: LandingData
 title: Documentação da Autenticação do Azure AD
 metadata:
-  document_id: 
+  document_id: null
   title: Documentação da Autenticação Azure Active Directory
-  description: Saiba como gerir e implementar a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente.
+  description: 'Saiba como gerir e implementar a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente.'
   services: active-directory
   ms.subservice: authentication
   author: MicrosoftGuyJFlo
@@ -22,28 +16,28 @@ metadata:
   ms.date: 07/19/2018
   ms.author: joflore
 abstract:
-  description: Saiba como implementar e gerir a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente. Essas funcionalidades juntam-se para dar uma forma autenticação com uma variedade de métodos de verificação enquando fornece um proceso simples de início de sessão para a sua organização.
+  description: 'Saiba como implementar e gerir a reposição de palavra-passe self-service do Azure Active Directory, o Multi-Factor Authentication, a lista personalizada de palavras-passe banidas e o bloqueio inteligente. Essas funcionalidades juntam-se para dar uma forma autenticação com uma variedade de métodos de verificação enquando fornece um proceso simples de início de sessão para a sua organização.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Saiba como ativar a reposição de palavra-passe self-service para reduzir as chamadas de suporte dos utilizadores.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: ./media/index/i_protect.png
-      text: Ativar a reposição de palavras-passe self-service
-      href: https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como ativar um processo de início de sessão simples e seguro para a sua empresa.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como ativar a reposição de palavra-passe self-service para reduzir as chamadas de suporte dos utilizadores.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_protect.png
+            text: Ativar a reposição de palavras-passe self-service
+            href: 'https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr'
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Ativar um piloto de reposição de palavra-passe self-service</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Exigir o MFA para o portal do Azure</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Ativar a integração local de reposição de palavras-passe self-service</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Ativar a reposição de palavra-passe do Windows 10</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrar com o Azure Identity Protection</a>
+      - type: paragraph
+        text: Saiba como ativar um processo de início de sessão simples e seguro para a sua empresa.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Ativar um piloto de reposição de palavra-passe self-service</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Exigir o MFA para o portal do Azure</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Ativar a integração local de reposição de palavras-passe self-service</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Ativar a reposição de palavra-passe do Windows 10</a>
+          - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrar com o Azure Identity Protection</a>

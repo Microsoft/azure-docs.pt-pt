@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335883"
 documentType: LandingData
 title: Documentação da Gestão de Aplicações
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Office 365 e milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.
+  description: 'O Azure Active Directory fornece acesso seguro e simples às aplicações na cloud e locais. Além disso, não é necessário gerir palavras-passe. Os seus utilizadores finais podem iniciar sessão uma vez para aceder ao Office 365 e milhares de outras aplicações. pastas das orderSaiba como gerir e implementar aplicações com os nossos inícios rápidos, tutoriais e diretrizes.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Proteger o acesso às suas aplicações com o Azure AD (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Proteger o acesso às suas aplicações com o Azure AD (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Saiba como adicionar uma aplicação que os utilizadores acedem através do Azure Active Directory.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Adicionar uma aplicação
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Ver as suas aplicações
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como ativar um processo de início de sessão simples e seguro para as suas aplicações.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como adicionar uma aplicação que os utilizadores acedem através do Azure Active Directory.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Adicionar uma aplicação
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Ver as suas aplicações
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriais de aplicações SaaS</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configure single sign-on</a> (Configurar o início de sessão único)
+      - type: paragraph
+        text: Saiba como ativar um processo de início de sessão simples e seguro para as suas aplicações.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriais de aplicações SaaS</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configure single sign-on</a> (Configurar o início de sessão único)

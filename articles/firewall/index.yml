@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d5e17b3618d179354c9f2a467250b8eb489827ac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460714"
 documentType: LandingData
 title: Documentação do Azure Firewall
 metadata:
-  title: Documentação do Azure Firewall - Tutoriais, Referência da API
-  meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  title: 'Documentação do Azure Firewall - Tutoriais, Referência da API'
+  meta.description: 'Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: firewall
   author: vhorne
   ms.service: firewall
@@ -17,37 +11,37 @@ metadata:
   ms.date: 9/24/2018
   ms.author: victorh
 abstract:
-  description: Saiba como implementar o Azure Firewall, um serviço de segurança de rede com base na cloud. Tutoriais, referências de API e outra documentação mostram-lhe como configurar políticas ao nível da aplicação e ao nível da rede para proteger os seus recursos de rede virtual do Azure.
+  description: 'Saiba como implementar o Azure Firewall, um serviço de segurança de rede com base na cloud. Tutoriais, referências de API e outra documentação mostram-lhe como configurar políticas ao nível da aplicação e ao nível da rede para proteger os seus recursos de rede virtual do Azure.'
 sections:
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como implementar o Azure Firewall
-  - type: list
-    style: unordered
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Implementar e configurar o Azure Firewall com o portal do Azure</a>
-    - html: <a href="/azure/firewall/tutorial-hybrid-ps">Implementar numa rede híbrida</a>
-    - html: <a href="/azure/firewall/tutorial-firewall-dnat">Filtrar o tráfego de entrada com DNAT</a>
-    - html: <a href="/azure/firewall/tutorial-diagnostics">Monitorizar os registos do Azure Firewall</a>
-- title: Amostras
-  items:
-  - type: paragraph
-    text: Exemplos de script para tarefas comuns.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Saiba como implementar o Azure Firewall
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Implementar e configurar o Azure Firewall com o portal do Azure</a>
+          - html: <a href="/azure/firewall/tutorial-hybrid-ps">Implementar numa rede híbrida</a>
+          - html: <a href="/azure/firewall/tutorial-firewall-dnat">Filtrar o tráfego de entrada com DNAT</a>
+          - html: <a href="/azure/firewall/tutorial-diagnostics">Monitorizar os registos do Azure Firewall</a>
+  - title: Amostras
     items:
-    - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Exemplos de script para tarefas comuns.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">CLI do Azure</a></p>
-    - title: Linguagens
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Referência da API REST da Computação</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">CLI do Azure</a></p>
+          - title: Linguagens
+            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/firewall/">Referência da API REST da Computação</a></p>'

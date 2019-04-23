@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 108f737f88f8b470846b3699fb4cccce6e08541f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409096"
 documentType: LandingData
 title: Documentação do ExpressRoute
 metadata:
-  document_id: 
+  document_id: null
   title: ExpressRoute
-  meta.description: Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.
+  meta.description: 'Learn how to use ExpressRoute. Tutorials, REST APIs and other documentation show you how to configure and manage an ExpressRoute circuit.'
   author: cherylmc
   manager: jeconnoc
   ms.service: ExpressRoute
@@ -20,42 +14,42 @@ metadata:
   ms.date: 05/18/2018
   ms.author: cherylmc
 abstract:
-  description: Saiba como utilizar o ExpressRoute para definir uma ligação privada e rápida para serviços cloud da Microsoft a partir da sua infraestrutura no local ou instalações de colocação. Tutoriais, APIs REST e outra documentação ajudam-lhe a configurar e gerir um circuito ExpressRoute.
+  description: 'Saiba como utilizar o ExpressRoute para definir uma ligação privada e rápida para serviços cloud da Microsoft a partir da sua infraestrutura no local ou instalações de colocação. Tutoriais, APIs REST e outra documentação ajudam-lhe a configurar e gerir um circuito ExpressRoute.'
 sections:
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Aprenda a configurar e a gerir um circuito ExpressRoute.
-  - type: list
-    style: unordered
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">Criar e modificar um circuito ExpressRoute</a>
-    - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">Criar e modificar a configuração de peering</a>
-    - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">Ligue uma rede virtual a um circuito do ExpressRoute</a>
-    - html: <a href="/azure/expressroute/how-to-routefilter-portal">Configurar filtros de rota para o peering da Microsoft</a>
-- title: Vídeo de Formação Gratuita da PluralSight
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Aprenda a configurar e a gerir um circuito ExpressRoute.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">Criar e modificar um circuito ExpressRoute</a>
+          - html: <a href="/azure/expressroute/expressroute-howto-routing-portal-resource-manager">Criar e modificar a configuração de peering</a>
+          - html: <a href="/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager">Ligue uma rede virtual a um circuito do ExpressRoute</a>
+          - html: <a href="/azure/expressroute/how-to-routefilter-portal">Configurar filtros de rota para o peering da Microsoft</a>
+  - title: Vídeo de Formação Gratuita da PluralSight
     items:
-    - title: Administrador do Azure
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Arquiteto de Soluções do Azure
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Administrador do Azure
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+          - title: Arquiteto de Soluções do Azure
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">CLI do Azure</a></p>
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Referência da API REST</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referência da API REST Clássica</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: '<p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">CLI do Azure</a></p>'
+          - title: REST
+            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">Referência da API REST</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referência da API REST Clássica</a></p>'

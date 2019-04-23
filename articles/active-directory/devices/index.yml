@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46eb23cf23506b950142068146283345db71a3ea
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520824"
 documentType: LandingData
 title: Documentação da Gestão de Dispositivos no Azure AD
 metadata:
-  document_id: 
-  title: Documentação de Gestão de Dispositivos do Azure Active Directory Device - Tutoriais, conceitos, referencias | Microsoft Docs
+  document_id: null
+  title: 'Documentação de Gestão de Dispositivos do Azure Active Directory Device - Tutoriais, conceitos, referencias | Microsoft Docs'
   description: Saiba como configurar e testar a gestão de dispositivos do Azure Active.
   services: active-directory
   ms.subservice: devices
@@ -22,20 +16,20 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: Através dos dispositivos, os seus utilizadores estão a obter acesso aos seus recursos corporativos. Para proteger os seus recursos corporativos, enquanto administrador de TI, quer controlar esses dispositivos. Isto permite garantir que os seus utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade.<br>A gestão de dispositivos é também a base para cenários de acesso condicional baseado no dispositivo. Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso a recursos no seu ambiente é apenas possível com os dispositivos geridos.
+  description: 'Através dos dispositivos, os seus utilizadores estão a obter acesso aos seus recursos corporativos. Para proteger os seus recursos corporativos, enquanto administrador de TI, quer controlar esses dispositivos. Isto permite garantir que os seus utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade.<br>A gestão de dispositivos é também a base para cenários de acesso condicional baseado no dispositivo. Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso a recursos no seu ambiente é apenas possível com os dispositivos geridos.'
 sections:
-- title: Tutoriais passo-a-passo
-  items:
-  - type: paragraph
-    text: Saiba como integrar os seus dispositivos associados ao AD local com o Azure AD.
-  - type: list
-    style: icon48
+  - title: Tutoriais passo-a-passo
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Domínios geridos
-      href: hybrid-azuread-join-managed-domains.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Domínios Federados
-      href: hybrid-azuread-join-federated-domains.md
+      - type: paragraph
+        text: Saiba como integrar os seus dispositivos associados ao AD local com o Azure AD.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Domínios geridos
+            href: hybrid-azuread-join-managed-domains.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Domínios Federados
+            href: hybrid-azuread-join-federated-domains.md

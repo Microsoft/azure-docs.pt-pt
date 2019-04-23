@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7e320bdc98de75141aed4783d343571971287f37
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052541"
 documentType: LandingData
 title: Documentação do Chef Software no Azure
 metadata:
-  title: Documentação do Chef Software no Azure – Tutoriais, exemplos, referência e recursos
+  title: 'Documentação do Chef Software no Azure – Tutoriais, exemplos, referência e recursos'
   description: O Chef Software fornece uma plataforma de automatização DevOps para Linux e Windows que permite gerir configurações de servidor tanto físicas como virtuais. Saiba como utilizar os produtos Chef Software para automatizar receitas de Infraestrutura como código (IaC) e gerir e implementar máquinas virtuais no Azure com guias de introdução e tutoriais.
   ms.service: chef
-  keywords: chef, azure, devops, tutorials, samples, reference
+  keywords: 'chef, azure, devops, tutorials, samples, reference'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
@@ -25,36 +19,36 @@ abstract:
       height: 133
       width: 48
       src: media/chef.png
-    title: 
+    title: null
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Instale e configure o Chef, utilize-o para criar uma máquina virtual do Linux no Azure.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/media/index/azure_dev-9.svg
-      text: Instalar e configurar o Chef
-      href: ./chef-extension-portal.md
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como utilizar as ferramentas do Chef Software para criar e gerir a computação do Azure e infraestrutura de redes.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Instale e configure o Chef, utilize-o para criar uma máquina virtual do Linux no Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/media/index/azure_dev-9.svg
+            text: Instalar e configurar o Chef
+            href: ./chef-extension-portal.md
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/virtual-machines/windows/chef-automation">Automatizar a implementação das Máquinas Virtuais do Azure com o Chef</a>.
-- title: Recursos e ferramentas
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Saiba como utilizar as ferramentas do Chef Software para criar e gerir a computação do Azure e infraestrutura de redes.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-machines/windows/chef-automation">Automatizar a implementação das Máquinas Virtuais do Azure com o Chef</a>.
+  - title: Recursos e ferramentas
     items:
-    - title: Chef Automate
-      html: <p><a href="https://docs.chef.io/chef_automate.html">Descrição geral do Chef Automate</a></p> <p><a href="https://docs.chef.io/install_chef_automate.html">Guia de instalação do Chef Automate</a></p> <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Chef Automate no Azure Marketplace</a></p>
-    - title: Ferramentas do Chef Automate
-      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Extensão DevOps do Azure do Chef</a></p> <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Extensão DevOps do Azure do Habitat</a></p>
-    - title: Notícias do Chef Software
-      html: <p><a href="https://blog.chef.io/">Blog do Chef Software</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Chef Automate
+            html: '<p><a href="https://docs.chef.io/chef_automate.html">Descrição geral do Chef Automate</a></p> <p><a href="https://docs.chef.io/install_chef_automate.html">Guia de instalação do Chef Automate</a></p> <p><a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate">Chef Automate no Azure Marketplace</a></p>'
+          - title: Ferramentas do Chef Automate
+            html: '<p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks">Extensão DevOps do Azure do Chef</a></p> <p><a href="https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks">Extensão DevOps do Azure do Habitat</a></p>'
+          - title: Notícias do Chef Software
+            html: '<p><a href="https://blog.chef.io/">Blog do Chef Software</a></p>'

@@ -1,340 +1,333 @@
-items:
 - name: Documentação do Azure AD B2C
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Acerca do Azure AD B2C
-    href: active-directory-b2c-overview.md
-    expanded: true
+    - name: Acerca do Azure AD B2C
+      expanded: true
+      href: active-directory-b2c-overview.md
 - name: Inícios rápidos
-  items:
-  - name: Configurar o início de sessão - ASP.NET
-    href: active-directory-b2c-quickstarts-web-app.md
-  - name: Configurar o início de sessão - Ambiente de trabalho
-    href: active-directory-b2c-quickstarts-desktop-app.md
-  - name: Configurar o início de sessão - Página única
-    href: active-directory-b2c-quickstarts-spa.md
   expanded: true
+  items:
+    - name: Configurar o início de sessão - ASP.NET
+      href: active-directory-b2c-quickstarts-web-app.md
+    - name: Configurar o início de sessão - Ambiente de trabalho
+      href: active-directory-b2c-quickstarts-desktop-app.md
+    - name: Configurar o início de sessão - Página única
+      href: active-directory-b2c-quickstarts-spa.md
 - name: Tutoriais
   items:
-  - name: 1 - Criar inquilino do B2C
-    href: tutorial-create-tenant.md
-  - name: 2 - Registar uma aplicação
-    href: tutorial-register-applications.md
-  - name: 3 - Criar fluxos de utilizador
-    href: tutorial-create-user-flows.md
-  - name: Adicionar fornecedores de identidade
-    href: tutorial-add-identity-providers.md
-  - name: Personalizar a IU
-    href: tutorial-customize-ui.md
-  - name: Autenticar contas
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-tutorials-web-app.md
-    - name: Ambiente de trabalho
-      href: active-directory-b2c-tutorials-desktop-app.md
-    - name: Página única
-      href: active-directory-b2c-tutorials-spa.md
-  - name: Conceder acesso à API
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-tutorials-web-api.md
-    - name: Ambiente de trabalho
-      href: active-directory-b2c-tutorials-desktop-app-webapi.md
-    - name: Página única
-      href: active-directory-b2c-tutorials-spa-webapi.md
+    - name: 1 - Criar inquilino do B2C
+      href: tutorial-create-tenant.md
+    - name: 2 - Registar uma aplicação
+      href: tutorial-register-applications.md
+    - name: 3 - Criar fluxos de utilizador
+      href: tutorial-create-user-flows.md
+    - name: Adicionar fornecedores de identidade
+      href: tutorial-add-identity-providers.md
+    - name: Personalizar a IU
+      href: tutorial-customize-ui.md
+    - name: Autenticar contas
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-tutorials-web-app.md
+        - name: Ambiente de trabalho
+          href: active-directory-b2c-tutorials-desktop-app.md
+        - name: Página única
+          href: active-directory-b2c-tutorials-spa.md
+    - name: Conceder acesso à API
+      items:
+        - name: ASP.NET
+          href: active-directory-b2c-tutorials-web-api.md
+        - name: Ambiente de trabalho
+          href: active-directory-b2c-tutorials-desktop-app-webapi.md
+        - name: Página única
+          href: active-directory-b2c-tutorials-spa-webapi.md
 - name: Amostras
   href: code-samples.md
 - name: Conceitos
   items:
-  - name: Tipos de aplicações
-    href: active-directory-b2c-apps.md
-  - name: Protocolos de autenticação
-    href: active-directory-b2c-reference-protocols.md
-  - name: Estrutura de Experiência de Identidade
-    items:
-    - name: Políticas personalizadas
-      href: active-directory-b2c-overview-custom.md
-    - name: Acesso do utilizador
-      href: manage-user-access.md
-  - name: OAuth 2.0
-    href: active-directory-b2c-reference-oauth-code.md
-  - name: OpenID Connect
-    href: active-directory-b2c-reference-oidc.md
-  - name: Início de sessão de página única
-    href: active-directory-b2c-reference-spa.md
-  - name: Tokens
-    href: active-directory-b2c-reference-tokens.md
-  - name: Contas de utilizador
-    href: user-overview.md
-  - name: Dados de utilizador
-    href: manage-user-data.md
-  - name: Fluxos do utilizador
-    href: active-directory-b2c-reference-policies.md
-  - name: Fluxos do utilizador com o JavaScript
-    href: user-flow-javascript-overview.md
-  - name: Personalização da interface de utilizador
-    href: customize-ui-overview.md
+    - name: Tipos de aplicações
+      href: active-directory-b2c-apps.md
+    - name: Protocolos de autenticação
+      href: active-directory-b2c-reference-protocols.md
+    - name: Estrutura de Experiência de Identidade
+      items:
+        - name: Políticas personalizadas
+          href: active-directory-b2c-overview-custom.md
+        - name: Acesso do utilizador
+          href: manage-user-access.md
+    - name: OAuth 2.0
+      href: active-directory-b2c-reference-oauth-code.md
+    - name: OpenID Connect
+      href: active-directory-b2c-reference-oidc.md
+    - name: Início de sessão de página única
+      href: active-directory-b2c-reference-spa.md
+    - name: Tokens
+      href: active-directory-b2c-reference-tokens.md
+    - name: Contas de utilizador
+      href: user-overview.md
+    - name: Dados de utilizador
+      href: manage-user-data.md
+    - name: Fluxos do utilizador
+      href: active-directory-b2c-reference-policies.md
+    - name: Fluxos do utilizador com o JavaScript
+      href: user-flow-javascript-overview.md
+    - name: Personalização da interface de utilizador
+      href: customize-ui-overview.md
 - name: Guias de procedimentos
   items:
-  - name: Aceder aos registos de auditoria
-    href: active-directory-b2c-reference-audit-logs.md
-  - name: Adicionar uma aplicação de API Web
-    href: add-web-application.md
-  - name: Adicionar uma aplicação cliente nativa
-    href: add-native-application.md
-  - name: Configurar o controlo de idade
-    href: basic-age-gating.md
-  - name: Configurar o comportamento da sessão
-    href: session-behavior.md
-  - name: Personalizar idioma
-    href: active-directory-b2c-reference-language-customization.md
-  - name: Personalizar a palavra-passe
-    href: active-directory-b2c-reference-password-complexity.md
-  - name: Definir atributos personalizados
-    href: active-directory-b2c-reference-custom-attr.md
-  - name: Desativar a verificação do e-mail
-    href: active-directory-b2c-reference-disable-ev.md
-  - name: Ativar MFA
-    href: active-directory-b2c-reference-mfa.md
-  - name: Estrutura de Experiência de Identidade
-    items:
-    - name: Recolher registos com o Application Insights
-      href: active-directory-b2c-troubleshoot-custom.md
-    - name: Configurar ROPC
-      href: ropc-custom.md
-    - name: Configurar a entrada do utilizador
-      href: active-directory-b2c-configure-signup-self-asserted-custom.md
-    - name: Criar uma política personalizada
-      href: active-directory-b2c-get-started-custom.md
-    - name: Personalizar a IU
-      href: active-directory-b2c-ui-customization-custom.md
-    - name: Personalizar a IU dinamicamente
-      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Aceder aos registos de auditoria
+      href: active-directory-b2c-reference-audit-logs.md
+    - name: Adicionar uma aplicação de API Web
+      href: add-web-application.md
+    - name: Adicionar uma aplicação cliente nativa
+      href: add-native-application.md
+    - name: Configurar o controlo de idade
+      href: basic-age-gating.md
+    - name: Configurar o comportamento da sessão
+      href: session-behavior.md
+    - name: Personalizar idioma
+      href: active-directory-b2c-reference-language-customization.md
+    - name: Personalizar a palavra-passe
+      href: active-directory-b2c-reference-password-complexity.md
     - name: Definir atributos personalizados
-      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-    - name: Ativar a opção Manter a sessão iniciada
-      href: active-directory-b2c-reference-kmsi-custom.md
-    - name: Integrar APIs RESTful
+      href: active-directory-b2c-reference-custom-attr.md
+    - name: Desativar a verificação do e-mail
+      href: active-directory-b2c-reference-disable-ev.md
+    - name: Ativar MFA
+      href: active-directory-b2c-reference-mfa.md
+    - name: Estrutura de Experiência de Identidade
       items:
-      - name: Validar a intervenção do utilizador
-        href: active-directory-b2c-rest-api-validation-custom.md
-      - name: Obter afirmações adicionais
-        href: active-directory-b2c-rest-api-step-custom.md
-      - name: Adicionar a sua própria API RESTful
-        href: active-directory-b2c-custom-rest-api-netfw.md
-      - name: Proteger APIs RESTful com autenticação básica
-        href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
-      - name: Proteger APIs RESTful com autenticação de certificados
-        href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
-    - name: Fornecedores de OIDC/OAUTH
+        - name: Recolher registos com o Application Insights
+          href: active-directory-b2c-troubleshoot-custom.md
+        - name: Configurar ROPC
+          href: ropc-custom.md
+        - name: Configurar a entrada do utilizador
+          href: active-directory-b2c-configure-signup-self-asserted-custom.md
+        - name: Criar uma política personalizada
+          href: active-directory-b2c-get-started-custom.md
+        - name: Personalizar a IU
+          href: active-directory-b2c-ui-customization-custom.md
+        - name: Personalizar a IU dinamicamente
+          href: active-directory-b2c-ui-customization-custom-dynamic.md
+        - name: Definir atributos personalizados
+          href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+        - name: Ativar a opção Manter a sessão iniciada
+          href: active-directory-b2c-reference-kmsi-custom.md
+        - name: Integrar APIs RESTful
+          items:
+            - name: Validar a intervenção do utilizador
+              href: active-directory-b2c-rest-api-validation-custom.md
+            - name: Obter afirmações adicionais
+              href: active-directory-b2c-rest-api-step-custom.md
+            - name: Adicionar a sua própria API RESTful
+              href: active-directory-b2c-custom-rest-api-netfw.md
+            - name: Proteger APIs RESTful com autenticação básica
+              href: active-directory-b2c-custom-rest-api-netfw-secure-basic.md
+            - name: Proteger APIs RESTful com autenticação de certificados
+              href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
+        - name: Fornecedores de OIDC/OAUTH
+          items:
+            - name: Amazon
+              href: setup-amazon-custom.md
+            - name: Azure AD (único inquilino)
+              href: active-directory-b2c-setup-aad-custom.md
+            - name: Azure AD (multi-inquilino)
+              href: active-directory-b2c-setup-commonaad-custom.md
+            - name: Google
+              href: active-directory-b2c-custom-setup-goog-idp.md
+            - name: LinkedIn
+              href: active-directory-b2c-custom-setup-li-idp.md
+            - name: Conta Microsoft
+              href: active-directory-b2c-custom-setup-msa-idp.md
+            - name: Twitter
+              href: active-directory-b2c-custom-setup-twitter-idp.md
+        - name: Contrato de Página
+          href: page-contract.md
+        - name: Complexidade da palavra-passe
+          href: active-directory-b2c-reference-password-complexity-custom.md
+        - name: Alteração da palavra-passe
+          href: active-directory-b2c-reference-password-change-custom.md
+        - name: Fornecedores de SAML
+          items:
+            - name: ADFS
+              href: active-directory-b2c-custom-setup-adfs2016-idp.md
+            - name: Salesforce
+              href: active-directory-b2c-setup-sf-app-custom.md
+        - name: Tokens
+          items:
+            - name: Personalizar tokens
+              href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+            - name: Passar pelo token de acesso
+              href: idp-pass-through-custom.md
+        - name: Controlar o comportamento do utilizador
+          href: active-directory-b2c-custom-guide-eventlogger-appins.md
+        - name: Referência
+          items:
+            - name: Resoluções de afirmação
+              href: claim-resolver-overview.md
+            - name: Esquema da Estrutura de Experiência de Identidade
+              items:
+                - name: TrustFrameworkPolicy
+                  href: trustframeworkpolicy.md
+                - name: BuildingBlocks
+                  href: buildingblocks.md
+                  items:
+                    - name: ClaimsSchema
+                      href: claimsschema.md
+                    - name: ClaimsTransformations
+                      href: claimstransformations.md
+                      items:
+                        - name: Booleano
+                          href: boolean-transformations.md
+                        - name: Date
+                          href: date-transformations.md
+                        - name: Geral
+                          href: general-transformations.md
+                        - name: Número inteiro
+                          href: integer-transformations.md
+                        - name: JSON
+                          href: json-transformations.md
+                        - name: Contas sociais
+                          href: social-transformations.md
+                        - name: StringCollection
+                          href: stringcollection-transformations.md
+                        - name: String
+                          href: string-transformations.md
+                    - name: Predicados
+                      href: predicates.md
+                    - name: ContentDefinitions
+                      href: contentdefinitions.md
+                    - name: Localização
+                      href: localization.md
+                      items:
+                        - name: Ids de cadeia de localização
+                          href: localization-string-ids.md
+                - name: ClaimsProviders
+                  href: claimsproviders.md
+                  items:
+                    - name: TechnicalProfiles
+                      href: technicalprofiles.md
+                      items:
+                        - name: Sobre os perfis técnicos
+                          href: technical-profiles-overview.md
+                        - name: Azure Active Directory
+                          href: active-directory-technical-profile.md
+                        - name: Transformação de afirmações
+                          href: claims-transformation-technical-profile.md
+                        - name: Emissor de tokens JWT
+                          href: jwt-issuer-technical-profile.md
+                        - name: OAuth1
+                          href: oauth1-technical-profile.md
+                        - name: OAuth2
+                          href: oauth2-technical-profile.md
+                        - name: OpenID Connect
+                          href: openid-connect-technical-profile.md
+                        - name: REST
+                          href: restful-technical-profile.md
+                        - name: SAML
+                          href: saml-technical-profile.md
+                        - name: Autodeclarado
+                          href: self-asserted-technical-profile.md
+                        - name: Sessão de SSO
+                          href: active-directory-b2c-reference-sso-custom.md
+                        - name: Validação
+                          href: validation-technical-profile.md
+                - name: UserJourneys
+                  href: userjourneys.md
+                - name: RelyingParty
+                  href: relyingparty.md
+            - name: Exemplos de JavaScript
+              href: javascript-samples.md
+            - name: Ferramentas do programador
+              href: active-directory-b2c-developer-notes-custom.md
+            - name: Definição da Arquitetura Fidedigna
+              href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+    - name: Fornecedores de identidade
       items:
-      - name: Amazon
-        href: setup-amazon-custom.md
-      - name: Azure AD (único inquilino)
-        href: active-directory-b2c-setup-aad-custom.md
-      - name: Azure AD (multi-inquilino)
-        href: active-directory-b2c-setup-commonaad-custom.md
-      - name: Google
-        href: active-directory-b2c-custom-setup-goog-idp.md
-      - name: LinkedIn
-        href: active-directory-b2c-custom-setup-li-idp.md
-      - name: Conta Microsoft
-        href: active-directory-b2c-custom-setup-msa-idp.md
-      - name: Twitter
-        href: active-directory-b2c-custom-setup-twitter-idp.md
-    - name: Contrato de Página
-      href: page-contract.md
-    - name: Complexidade da palavra-passe
-      href: active-directory-b2c-reference-password-complexity-custom.md
-    - name: Alteração da palavra-passe
-      href: active-directory-b2c-reference-password-change-custom.md
-    - name: Fornecedores de SAML
+        - name: Amazon
+          href: active-directory-b2c-setup-amzn-app.md
+        - name: Azure AD (Inquilino Único)
+          href: active-directory-b2c-setup-oidc-azure-active-directory.md
+        - name: Conta Microsoft
+          href: active-directory-b2c-setup-msa-app.md
+        - name: Facebook
+          href: active-directory-b2c-setup-fb-app.md
+        - name: GitHub
+          href: active-directory-b2c-setup-github-app.md
+        - name: Google
+          href: active-directory-b2c-setup-goog-app.md
+        - name: LinkedIn
+          href: active-directory-b2c-setup-li-app.md
+        - name: OpenID Connect
+          href: active-directory-b2c-setup-oidc-idp.md
+        - name: Twitter
+          href: active-directory-b2c-setup-twitter-app.md
+    - name: Migrar utilizadores
+      href: active-directory-b2c-user-migration.md
+    - name: Migrar os utilizadores com identidades sociais
+      href: active-directory-b2c-social-migration.md
+    - name: Aplicações móveis e de ambiente de trabalho
       items:
-      - name: ADFS
-        href: active-directory-b2c-custom-setup-adfs2016-idp.md
-      - name: Salesforce
-        href: active-directory-b2c-setup-sf-app-custom.md
+        - name: iOS ObjC com a Autenticação da Aplicação
+          href: active-directory-b2c-devquickstarts-ios.md
+        - name: Android com a Autenticação da Aplicação
+          href: active-directory-b2c-devquickstarts-android.md
+    - name: Comunicar utilização
+      href: active-directory-b2c-reference-usage-reporting-api.md
+    - name: Credenciais de palavra-passe do proprietário do recurso
+      href: configure-ropc.md
+    - name: Configurar o início de sessão direto
+      href: direct-signin.md
+    - name: Configurar a reposição personalizada de palavra-passe
+      href: active-directory-b2c-reference-sspr.md
     - name: Tokens
       items:
-      - name: Personalizar tokens
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Passar pelo token de acesso
-        href: idp-pass-through-custom.md
-    - name: Controlar o comportamento do utilizador
-      href: active-directory-b2c-custom-guide-eventlogger-appins.md
+        - name: Configurar tokens
+          href: configure-tokens.md
+        - name: Passar pelo token de acesso
+          href: idp-pass-through-user-flow.md
+        - name: Pedir token de acesso
+          href: active-directory-b2c-access-tokens.md
+    - name: Utilizar b2clogin.com
+      href: b2clogin.md
+    - name: Utilizar a Graph API do Azure AD
+      href: active-directory-b2c-devquickstarts-graph-dotnet.md
     - name: Referência
       items:
-      - name: Resoluções de afirmação
-        href: claim-resolver-overview.md
-      - name: Esquema da Estrutura de Experiência de Identidade
-        items:
-        - name: TrustFrameworkPolicy
-          href: trustframeworkpolicy.md
-        - name: BuildingBlocks
-          href: buildingblocks.md
-          items:
-          - name: ClaimsSchema
-            href: claimsschema.md
-          - name: ClaimsTransformations
-            href: claimstransformations.md
-            items:
-            - name: Booleano
-              href: boolean-transformations.md
-            - name: Date
-              href: date-transformations.md
-            - name: Geral
-              href: general-transformations.md
-            - name: Número inteiro
-              href: integer-transformations.md
-            - name: JSON
-              href: json-transformations.md
-            - name: Contas sociais
-              href: social-transformations.md
-            - name: StringCollection
-              href: stringcollection-transformations.md
-            - name: String
-              href: string-transformations.md
-          - name: Predicados
-            href: predicates.md
-          - name: ContentDefinitions
-            href: contentdefinitions.md
-          - name: Localização
-            href: localization.md
-            items:
-            - name: Ids de cadeia de localização
-              href: localization-string-ids.md
-        - name: ClaimsProviders
-          href: claimsproviders.md
-          items:
-          - name: TechnicalProfiles
-            href: technicalprofiles.md
-            items:
-            - name: Sobre os perfis técnicos
-              href: technical-profiles-overview.md
-            - name: Azure Active Directory
-              href: active-directory-technical-profile.md
-            - name: Transformação de afirmações
-              href: claims-transformation-technical-profile.md
-            - name: Emissor de tokens JWT
-              href: jwt-issuer-technical-profile.md
-            - name: OAuth1
-              href: oauth1-technical-profile.md
-            - name: OAuth2
-              href: oauth2-technical-profile.md
-            - name: OpenID Connect
-              href: openid-connect-technical-profile.md
-            - name: REST
-              href: restful-technical-profile.md
-            - name: SAML
-              href: saml-technical-profile.md
-            - name: Autodeclarado
-              href: self-asserted-technical-profile.md
-            - name: Sessão de SSO
-              href: active-directory-b2c-reference-sso-custom.md
-            - name: Validação
-              href: validation-technical-profile.md
-        - name: UserJourneys
-          href: userjourneys.md
-        - name: RelyingParty
-          href: relyingparty.md
-      - name: Exemplos de JavaScript
-        href: javascript-samples.md
-      - name: Ferramentas do programador
-        href: active-directory-b2c-developer-notes-custom.md
-      - name: Definição da Arquitetura Fidedigna
-        href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
-  - name: Fornecedores de identidade
-    items:
-    - name: Amazon
-      href: active-directory-b2c-setup-amzn-app.md
-    - name: Azure AD (Inquilino Único)
-      href: active-directory-b2c-setup-oidc-azure-active-directory.md
-    - name: Conta Microsoft
-      href: active-directory-b2c-setup-msa-app.md
-    - name: Facebook
-      href: active-directory-b2c-setup-fb-app.md
-    - name: GitHub
-      href: active-directory-b2c-setup-github-app.md
-    - name: Google
-      href: active-directory-b2c-setup-goog-app.md
-    - name: LinkedIn
-      href: active-directory-b2c-setup-li-app.md
-    - name: OpenID Connect
-      href: active-directory-b2c-setup-oidc-idp.md
-    - name: Twitter
-      href: active-directory-b2c-setup-twitter-app.md
-  - name: Migrar utilizadores
-    href: active-directory-b2c-user-migration.md
-  - name: Migrar os utilizadores com identidades sociais
-    href: active-directory-b2c-social-migration.md
-  - name: Aplicações móveis e de ambiente de trabalho
-    items:
-    - name: iOS ObjC com a Autenticação da Aplicação
-      href: active-directory-b2c-devquickstarts-ios.md
-    - name: Android com a Autenticação da Aplicação
-      href: active-directory-b2c-devquickstarts-android.md
-  - name: Comunicar utilização
-    href: active-directory-b2c-reference-usage-reporting-api.md
-  - name: Credenciais de palavra-passe do proprietário do recurso
-    href: configure-ropc.md
-  - name: Configurar o início de sessão direto
-    href: direct-signin.md
-  - name: Configurar a reposição personalizada de palavra-passe
-    href: active-directory-b2c-reference-sspr.md
-  - name: Tokens
-    items:
-    - name: Configurar tokens
-      href: configure-tokens.md
-    - name: Passar pelo token de acesso
-      href: idp-pass-through-user-flow.md
-    - name: Pedir token de acesso
-      href: active-directory-b2c-access-tokens.md
-  - name: Utilizar b2clogin.com
-    href: b2clogin.md
-  - name: Utilizar a Graph API do Azure AD
-    href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Referência
-    items:
-    - name: Exemplos de código
-      href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
-    - name: Definições de cookies
-      href: cookie-definitions.md
-    - name: Disponibilidade de região e residência dos dados
-      href: active-directory-b2c-reference-tenant-type.md
-    - name: Ativar faturação
-      href: active-directory-b2c-how-to-enable-billing.md
-    - name: Gestão de ameaças
-      href: active-directory-b2c-reference-threat-management.md
-    - name: Aplicação de extensões
-      href: active-directory-b2c-reference-extensions-app.md
-    - name: Versões de fluxo de utilizador
-      href: user-flow-versions.md
+        - name: Exemplos de código
+          href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+        - name: Definições de cookies
+          href: cookie-definitions.md
+        - name: Disponibilidade de região e residência dos dados
+          href: active-directory-b2c-reference-tenant-type.md
+        - name: Ativar faturação
+          href: active-directory-b2c-how-to-enable-billing.md
+        - name: Gestão de ameaças
+          href: active-directory-b2c-reference-threat-management.md
+        - name: Aplicação de extensões
+          href: active-directory-b2c-reference-extensions-app.md
+        - name: Versões de fluxo de utilizador
+          href: user-flow-versions.md
 - name: Recursos
   items:
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Perguntas mais frequentes
-    href: active-directory-b2c-faqs.md
-  - name: Obter ajuda
-    href: /azure/active-directory/develop/developer-support-help-options
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/active-directory-b2c/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=active-directory-b2c
-  - name: Soluções e formação
-    href: solution-articles.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
-  - name: Suporte
-    href: active-directory-b2c-support.md
-  - name: Vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681136"
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Perguntas mais frequentes
+      href: active-directory-b2c-faqs.md
+    - name: Obter ajuda
+      href: /azure/active-directory/develop/developer-support-help-options
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/active-directory-b2c/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=active-directory-b2c'
+    - name: Soluções e formação
+      href: solution-articles.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework'
+    - name: Suporte
+      href: active-directory-b2c-support.md
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

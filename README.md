@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344094"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentação do Microsoft Azure
 

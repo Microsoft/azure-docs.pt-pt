@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368544"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentação de gestão de custos e faturação do Azure
 

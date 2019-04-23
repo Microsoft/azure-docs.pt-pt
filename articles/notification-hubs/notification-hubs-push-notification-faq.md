@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524196"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998928"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 
@@ -53,17 +53,6 @@ Para os escalões básico e Standard dos Hubs de notificação, as aplicações 
 
 > [!NOTE]
 > Uma vez notificações push dependem de sistemas de notificação de plataforma de terceiros (por exemplo, o APNS da Apple e o Google FCM), não há nenhuma garantia de SLA para o fornecimento dessas mensagens. Depois dos Hubs de notificação envia os lotes para sistemas de notificação de plataforma (a garantia de SLA), é da responsabilidade dos sistemas de notificação de plataforma para fornecer os pushes (nenhum SLA garantido).
-
-### <a name="which-customers-are-using-notification-hubs"></a>Quais os clientes estão a utilizar os Hubs de notificação?
-
-Muitos clientes utilizam os Hubs de notificação. Alguns dos importantes estão listados aqui:
-
-* Sochi 2014: Centenas de grupos de interesses, 3 + milhões de dispositivos e distribuídos nas duas semanas de 150 + milhões de notificações. [Estudo de caso: Sochi]
-* Skanska: [Estudo de caso: Skanska]
-* Tempos de Seattle: [Estudo de caso: Tempos de Seattle]
-* Mural.ly: [Estudo de caso: Mural.ly]
-* 7Digital: [Estudo de caso: 7Digital]
-* Aplicações do Bing: Dezenas de milhões de dispositivos enviam notificações de 3 milhões por dia.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Como posso atualizar ou mudar o meu hub ou espaço de nomes para um escalão diferente?
 
@@ -219,11 +208,6 @@ Pode também acessar programaticamente métricas. Para obter mais informações,
 [Portal do Azure]: https://portal.azure.com
 [Preços dos Hubs de notificação]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Estudo de caso: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Estudo de caso: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Estudo de caso: Tempos de Seattle]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Estudo de caso: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Estudo de caso: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [REST APIs dos Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Tutoriais de introdução aos Hubs de notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Tutorial de aplicações do Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

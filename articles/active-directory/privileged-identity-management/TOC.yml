@@ -1,100 +1,93 @@
-items:
 - name: Documentação do Privileged Identity Management
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o Azure AD PIM?
-    href: pim-configure.md
+    - name: O que é o Azure AD PIM?
+      href: pim-configure.md
 - name: Conceitos
   items:
-  - name: Requisitos de licença
-    href: subscription-requirements.md
-  - name: Funções que não pode gerir
-    href: pim-roles.md
-  - name: Proteger o acesso privilegiado
-    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: MFA e o PIM
-    href: pim-how-to-require-mfa.md
-  - name: Dashboards de descrição geral
-    href: pim-resource-roles-overview-dashboards.md
-  - name: Notificações por e-mail
-    href: pim-email-notifications.md
-  - name: Microsoft Graph APIs
-    href: pim-apis.md
+    - name: Requisitos de licença
+      href: subscription-requirements.md
+    - name: Funções que não pode gerir
+      href: pim-roles.md
+    - name: Proteger o acesso privilegiado
+      href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: MFA e o PIM
+      href: pim-how-to-require-mfa.md
+    - name: Dashboards de descrição geral
+      href: pim-resource-roles-overview-dashboards.md
+    - name: Notificações por e-mail
+      href: pim-email-notifications.md
+    - name: Microsoft Graph APIs
+      href: pim-apis.md
 - name: Guias de procedimentos
-  items:
-  - name: Implementar o PIM
-    href: pim-deployment-plan.md
-  - name: Comece a utilizar o PIM
-    href: pim-getting-started.md
-  - name: Ativar as minhas funções
-    items:
-    - name: Ativar as minhas funções do Azure AD
-      href: pim-how-to-activate-role.md
-    - name: Ativar as minhas funções de recursos do Azure
-      href: pim-resource-roles-activate-your-roles.md
-  - name: Configurar o PIM
-    items:
-    - name: Assistente de segurança
-      href: pim-security-wizard.md
-    - name: Descubra os recursos do Azure
-      href: pim-resource-roles-discover-resources.md
-    - name: Conceder acesso a outras pessoas para gerir o PIM
-      href: pim-how-to-give-access-to-pim.md
-    - name: Elevar acesso para gerir todas as subscrições
-      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
-  - name: Gerir funções do Azure AD
-    items:
-    - name: Atribuir funções
-      href: pim-how-to-add-role-to-user.md
-    - name: Aprovar pedidos
-      href: azure-ad-pim-approval-workflow.md
-    - name: Configurar as definições de função
-      href: pim-how-to-change-default-settings.md
-    - name: Configurar alertas
-      href: pim-how-to-configure-security-alerts.md
-    - name: Ver histórico de auditoria
-      href: pim-how-to-use-audit-log.md
-  - name: Gerir as funções de recursos do Azure
-    items:
-    - name: Atribuir funções
-      href: pim-resource-roles-assign-roles.md
-    - name: Convidar utilizadores externos
-      href: pim-resource-roles-external-users.md
-    - name: Aprovar pedidos
-      href: pim-resource-roles-approval-workflow.md
-    - name: Expandir ou renovar funções
-      href: pim-resource-roles-renew-extend.md
-    - name: Configurar as definições de função
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Configurar alertas
-      href: pim-resource-roles-configure-alerts.md
-    - name: Ver a atividade e o histórico de auditorias
-      href: azure-pim-resource-rbac.md
-    - name: Utilizar funções personalizadas
-      href: pim-resource-roles-custom-role-policy.md
-  - name: Rever acesso
-    items:
-    - name: Funções do Azure AD
-      items:
-      - name: Rever as minhas funções do Azure AD
-        href: pim-how-to-perform-security-review.md
-      - name: Iniciar uma revisão de acesso
-        href: pim-how-to-start-security-review.md
-      - name: Concluir uma revisão de acesso
-        href: pim-how-to-complete-review.md
-    - name: Funções de recursos do Azure
-      items:
-      - name: Consultar as minhas funções de recursos do Azure
-        href: pim-resource-roles-perform-access-review.md
-      - name: Iniciar uma revisão de acesso
-        href: pim-resource-roles-start-access-review.md
-      - name: Concluir uma revisão de acesso
-        href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 6ccd7b75b356fef6f7c167873e7b00429c6f28a3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575798"
+  items:
+    - name: Implementar o PIM
+      href: pim-deployment-plan.md
+    - name: Comece a utilizar o PIM
+      href: pim-getting-started.md
+    - name: Ativar as minhas funções
+      items:
+        - name: Ativar as minhas funções do Azure AD
+          href: pim-how-to-activate-role.md
+        - name: Ativar as minhas funções de recursos do Azure
+          href: pim-resource-roles-activate-your-roles.md
+    - name: Configurar o PIM
+      items:
+        - name: Assistente de segurança
+          href: pim-security-wizard.md
+        - name: Descubra os recursos do Azure
+          href: pim-resource-roles-discover-resources.md
+        - name: Conceder acesso a outras pessoas para gerir o PIM
+          href: pim-how-to-give-access-to-pim.md
+        - name: Elevar acesso para gerir todas as subscrições
+          href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Gerir funções do Azure AD
+      items:
+        - name: Atribuir funções
+          href: pim-how-to-add-role-to-user.md
+        - name: Aprovar pedidos
+          href: azure-ad-pim-approval-workflow.md
+        - name: Configurar as definições de função
+          href: pim-how-to-change-default-settings.md
+        - name: Configurar alertas
+          href: pim-how-to-configure-security-alerts.md
+        - name: Ver histórico de auditoria
+          href: pim-how-to-use-audit-log.md
+    - name: Gerir as funções de recursos do Azure
+      items:
+        - name: Atribuir funções
+          href: pim-resource-roles-assign-roles.md
+        - name: Convidar utilizadores externos
+          href: pim-resource-roles-external-users.md
+        - name: Aprovar pedidos
+          href: pim-resource-roles-approval-workflow.md
+        - name: Expandir ou renovar funções
+          href: pim-resource-roles-renew-extend.md
+        - name: Configurar as definições de função
+          href: pim-resource-roles-configure-role-settings.md
+        - name: Configurar alertas
+          href: pim-resource-roles-configure-alerts.md
+        - name: Ver a atividade e o histórico de auditorias
+          href: azure-pim-resource-rbac.md
+        - name: Utilizar funções personalizadas
+          href: pim-resource-roles-custom-role-policy.md
+    - name: Rever acesso
+      items:
+        - name: Funções do Azure AD
+          items:
+            - name: Rever as minhas funções do Azure AD
+              href: pim-how-to-perform-security-review.md
+            - name: Iniciar uma revisão de acesso
+              href: pim-how-to-start-security-review.md
+            - name: Concluir uma revisão de acesso
+              href: pim-how-to-complete-review.md
+        - name: Funções de recursos do Azure
+          items:
+            - name: Consultar as minhas funções de recursos do Azure
+              href: pim-resource-roles-perform-access-review.md
+            - name: Iniciar uma revisão de acesso
+              href: pim-resource-roles-start-access-review.md
+            - name: Concluir uma revisão de acesso
+              href: pim-resource-roles-complete-access-review.md

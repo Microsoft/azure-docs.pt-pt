@@ -1,235 +1,228 @@
-items:
 - name: Documentação do ExpressRoute
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o ExpressRoute?
-    href: expressroute-introduction.md
+    - name: O que é o ExpressRoute?
+      href: expressroute-introduction.md
 - name: Tutoriais
   items:
-  - name: Criar e modificar um circuito
-    href: expressroute-howto-circuit-portal-resource-manager.md
-  - name: Criar e modificar a configuração de peering
-    href: expressroute-howto-routing-portal-resource-manager.md
-  - name: Ligar uma rede virtual a um circuito ExpressRoute
-    href: expressroute-howto-linkvnet-portal-resource-manager.md
-  - name: Configurar filtros de rota para o peering da Microsoft
-    href: how-to-routefilter-portal.md
+    - name: Criar e modificar um circuito
+      href: expressroute-howto-circuit-portal-resource-manager.md
+    - name: Criar e modificar a configuração de peering
+      href: expressroute-howto-routing-portal-resource-manager.md
+    - name: Ligar uma rede virtual a um circuito ExpressRoute
+      href: expressroute-howto-linkvnet-portal-resource-manager.md
+    - name: Configurar filtros de rota para o peering da Microsoft
+      href: how-to-routefilter-portal.md
 - name: Conceitos
   items:
-  - name: Modelos de conectividade
-    href: expressroute-connectivity-models.md
-  - name: Circuitos e peering
-    href: expressroute-circuit-peerings.md
-  - name: Localizações e parceiros
-    href: expressroute-locations.md
-    items:
-    - name: Fornecedores por Localização
-      href: expressroute-locations-providers.md
-    - name: Localizações por Fornecedor
+    - name: Modelos de conectividade
+      href: expressroute-connectivity-models.md
+    - name: Circuitos e peering
+      href: expressroute-circuit-peerings.md
+    - name: Localizações e parceiros
       href: expressroute-locations.md
-  - name: Sobre os gateways de rede virtual
-    href: expressroute-about-virtual-network-gateways.md
-  - name: Pré-requisitos
-    href: expressroute-prerequisites.md
-  - name: Fluxos de trabalho
-    href: expressroute-workflows.md
-  - name: Requisitos do encaminhamento
-    href: expressroute-routing.md
-  - name: BFD através do ExpressRoute
-    href: expressroute-bfd.md
-  - name: Requisitos de QoS
-    href: expressroute-qos.md
-  - name: Acerca de mover circuitos do clássico para o Resource Manager
-    href: expressroute-move.md
-  - name: Sobre o ExpressRoute Direct
-    href: expressroute-erdirect-about.md
-  - name: Sobre o Alcance Global do ExpressRoute
-    href: expressroute-global-reach.md
-  - name: Interoperabilidade de Conectividade de Back-end
-    items:
-    - name: Prefácio e Configuração de Teste
-      href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Configuração de Teste
-      href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Análise do Plano de Controlo
-      href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
-    - name: Análise do Plano de Dados
-      href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
-  - name: Conectividade entre redes
-    href: cross-network-connectivity.md
+      items:
+        - name: Fornecedores por Localização
+          href: expressroute-locations-providers.md
+        - name: Localizações por Fornecedor
+          href: expressroute-locations.md
+    - name: Sobre os gateways de rede virtual
+      href: expressroute-about-virtual-network-gateways.md
+    - name: Pré-requisitos
+      href: expressroute-prerequisites.md
+    - name: Fluxos de trabalho
+      href: expressroute-workflows.md
+    - name: Requisitos do encaminhamento
+      href: expressroute-routing.md
+    - name: BFD através do ExpressRoute
+      href: expressroute-bfd.md
+    - name: Requisitos de QoS
+      href: expressroute-qos.md
+    - name: Acerca de mover circuitos do clássico para o Resource Manager
+      href: expressroute-move.md
+    - name: Sobre o ExpressRoute Direct
+      href: expressroute-erdirect-about.md
+    - name: Sobre o Alcance Global do ExpressRoute
+      href: expressroute-global-reach.md
+    - name: Interoperabilidade de Conectividade de Back-end
+      items:
+        - name: Prefácio e Configuração de Teste
+          href: ../networking/connectivty-interoperability-preface.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Configuração de Teste
+          href: ../networking/connectivty-interoperability-configuration.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Análise do Plano de Controlo
+          href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
+        - name: Análise do Plano de Dados
+          href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Conectividade entre redes
+      href: cross-network-connectivity.md
 - name: Guias de procedimentos
   items:
-  - name: Criar e modificar um circuito
-    items:
-    - name: Portal do Azure
-      href: expressroute-howto-circuit-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-circuit-arm.md
-    - name: CLI do Azure
-      href: howto-circuit-cli.md
-  - name: Criar e modificar a configuração de peering
-    items:
-    - name: Portal do Azure
-      href: expressroute-howto-routing-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-routing-arm.md
-    - name: CLI do Azure
-      href: howto-routing-cli.md
-  - name: Ligar uma rede virtual a um circuito ExpressRoute
-    items:
-    - name: Portal do Azure
-      href: expressroute-howto-linkvnet-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-linkvnet-arm.md
-    - name: CLI do Azure
-      href: howto-linkvnet-cli.md
-  - name: Encriptar tráfego por circuitos
-    items:
-    - name: Configurar uma VPN de site a site através do peering da Microsoft
-      href: site-to-site-vpn-over-microsoft-peering.md
-    - name: Configurar o modo de transporte IPsec para os anfitriões do Windows
-      href: expressroute-howto-ipsec-transport-private-windows.md
-  - name: Configurar o Alcance Global do ExpressRoute
-    items:
-    - name: Azure PowerShell
-      href: expressroute-howto-set-global-reach.md
-    - name: CLI do Azure
-      href: expressroute-howto-set-global-reach-cli.md
-  - name: Configurar um gateway de rede virtual para o ExpressRoute
-    items:
-    - name: Portal do Azure
-      href: expressroute-howto-add-gateway-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-add-gateway-resource-manager.md
-  - name: Configurar ligações coexistentes do ExpressRoute e de site a site
-    href: expressroute-howto-coexist-resource-manager.md
-  - name: Configurar o ExpressRoute Direct
-    items:
-    - name: Azure PowerShell
-      href: expressroute-howto-erdirect.md
-    - name: CLI do Azure
-      href: expressroute-howto-expressroute-direct-cli.md
-  - name: Configurar filtros de rota para o peering da Microsoft
-    items:
-    - name: Portal do Azure
-      href: how-to-routefilter-portal.md
-    - name: Azure PowerShell
-      href: how-to-routefilter-powershell.md
-    - name: CLI do Azure
-      href: how-to-routefilter-cli.md
-  - name: Ativar e desativar peerings
-    href: expressroute-howto-reset-peering.md
-  - name: Mover de peering público para o peering da Microsoft
-    href: how-to-move-peering.md
-  - name: Mover um circuito de clássico para Resource Manager
-    href: expressroute-howto-move-arm.md
-  - name: Migrar redes virtuais associadas do clássico para o Resource Manager
-    href: expressroute-migration-classic-resource-manager.md
-  - name: Criar um gateway de VNet com redundância entre zonas nas Zonas de Disponibilidade do Azure
-    href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
-  - name: Configurar um router para o ExpressRoute
-    items:
-    - name: Configurar um router
-      href: expressroute-config-samples-routing.md
-    - name: Exemplos de configuração de router para NAT
-      href: expressroute-config-samples-nat.md
-  - name: Monitorização
-    items:
-    - name: Monitorização, métricas e alertas do ExpressRoute
-      href: expressroute-monitoring-metrics-alerts.md
-    - name: Configurar o Monitor de Desempenho de Rede para o ExpressRoute
-      href: how-to-npm.md
-  - name: Artigos sobre o modelo de implementação clássica
-    items:
-    - name: Modificar um circuito
-      href: expressroute-howto-circuit-classic.md
+    - name: Criar e modificar um circuito
+      items:
+        - name: Portal do Azure
+          href: expressroute-howto-circuit-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-circuit-arm.md
+        - name: CLI do Azure
+          href: howto-circuit-cli.md
     - name: Criar e modificar a configuração de peering
-      href: expressroute-howto-routing-classic.md
+      items:
+        - name: Portal do Azure
+          href: expressroute-howto-routing-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-routing-arm.md
+        - name: CLI do Azure
+          href: howto-routing-cli.md
     - name: Ligar uma rede virtual a um circuito ExpressRoute
-      href: expressroute-howto-linkvnet-classic.md
-    - name: Configurar ligações coexistentes do ExpressRoute e S2S
-      href: expressroute-howto-coexist-classic.md
-    - name: Adicionar um gateway a uma VNet
-      href: expressroute-howto-add-gateway-classic.md
-  - name: Melhores práticas
-    items:
-    - name: Melhores práticas para segurança de rede e serviços em nuvem
-      href: ../best-practices-network-security.md
-    - name: Otimizar o encaminhamento
-      href: expressroute-optimize-routing.md
-    - name: Encaminhamento assimétrico
-      href: expressroute-asymmetric-routing.md
-    - name: NAT para ExpressRoute
-      href: expressroute-nat.md
-  - name: Resolução de problemas
-    items:
-    - name: Verificar a conectividade do ExpressRoute
-      href: expressroute-troubleshooting-expressroute-overview.md
-    - name: Resolver problemas de desempenho de rede
-      href: expressroute-troubleshooting-network-performance.md
-    - name: Repor um circuito com falhas
-      href: reset-circuit.md
-    - name: Obter tabelas ARP
-      href: expressroute-troubleshooting-arp-resource-manager.md
-    - name: Obter tabelas ARP (Clássicas)
-      href: expressroute-troubleshooting-arp-classic.md
+      items:
+        - name: Portal do Azure
+          href: expressroute-howto-linkvnet-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-linkvnet-arm.md
+        - name: CLI do Azure
+          href: howto-linkvnet-cli.md
+    - name: Encriptar tráfego por circuitos
+      items:
+        - name: Configurar uma VPN de site a site através do peering da Microsoft
+          href: site-to-site-vpn-over-microsoft-peering.md
+        - name: Configurar o modo de transporte IPsec para os anfitriões do Windows
+          href: expressroute-howto-ipsec-transport-private-windows.md
+    - name: Configurar o Alcance Global do ExpressRoute
+      items:
+        - name: Azure PowerShell
+          href: expressroute-howto-set-global-reach.md
+        - name: CLI do Azure
+          href: expressroute-howto-set-global-reach-cli.md
+    - name: Configurar um gateway de rede virtual para o ExpressRoute
+      items:
+        - name: Portal do Azure
+          href: expressroute-howto-add-gateway-portal-resource-manager.md
+        - name: Azure PowerShell
+          href: expressroute-howto-add-gateway-resource-manager.md
+    - name: Configurar ligações coexistentes do ExpressRoute e de site a site
+      href: expressroute-howto-coexist-resource-manager.md
+    - name: Configurar o ExpressRoute Direct
+      items:
+        - name: Azure PowerShell
+          href: expressroute-howto-erdirect.md
+        - name: CLI do Azure
+          href: expressroute-howto-expressroute-direct-cli.md
+    - name: Configurar filtros de rota para o peering da Microsoft
+      items:
+        - name: Portal do Azure
+          href: how-to-routefilter-portal.md
+        - name: Azure PowerShell
+          href: how-to-routefilter-powershell.md
+        - name: CLI do Azure
+          href: how-to-routefilter-cli.md
+    - name: Ativar e desativar peerings
+      href: expressroute-howto-reset-peering.md
+    - name: Mover de peering público para o peering da Microsoft
+      href: how-to-move-peering.md
+    - name: Mover um circuito de clássico para Resource Manager
+      href: expressroute-howto-move-arm.md
+    - name: Migrar redes virtuais associadas do clássico para o Resource Manager
+      href: expressroute-migration-classic-resource-manager.md
+    - name: Criar um gateway de VNet com redundância entre zonas nas Zonas de Disponibilidade do Azure
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: Configurar um router para o ExpressRoute
+      items:
+        - name: Configurar um router
+          href: expressroute-config-samples-routing.md
+        - name: Exemplos de configuração de router para NAT
+          href: expressroute-config-samples-nat.md
+    - name: Monitorização
+      items:
+        - name: 'Monitorização, métricas e alertas do ExpressRoute'
+          href: expressroute-monitoring-metrics-alerts.md
+        - name: Configurar o Monitor de Desempenho de Rede para o ExpressRoute
+          href: how-to-npm.md
+    - name: Artigos sobre o modelo de implementação clássica
+      items:
+        - name: Modificar um circuito
+          href: expressroute-howto-circuit-classic.md
+        - name: Criar e modificar a configuração de peering
+          href: expressroute-howto-routing-classic.md
+        - name: Ligar uma rede virtual a um circuito ExpressRoute
+          href: expressroute-howto-linkvnet-classic.md
+        - name: Configurar ligações coexistentes do ExpressRoute e S2S
+          href: expressroute-howto-coexist-classic.md
+        - name: Adicionar um gateway a uma VNet
+          href: expressroute-howto-add-gateway-classic.md
+    - name: Melhores práticas
+      items:
+        - name: Melhores práticas para segurança de rede e serviços em nuvem
+          href: ../best-practices-network-security.md
+        - name: Otimizar o encaminhamento
+          href: expressroute-optimize-routing.md
+        - name: Encaminhamento assimétrico
+          href: expressroute-asymmetric-routing.md
+        - name: NAT para ExpressRoute
+          href: expressroute-nat.md
+    - name: Resolução de problemas
+      items:
+        - name: Verificar a conectividade do ExpressRoute
+          href: expressroute-troubleshooting-expressroute-overview.md
+        - name: Resolver problemas de desempenho de rede
+          href: expressroute-troubleshooting-network-performance.md
+        - name: Repor um circuito com falhas
+          href: reset-circuit.md
+        - name: Obter tabelas ARP
+          href: expressroute-troubleshooting-arp-resource-manager.md
+        - name: Obter tabelas ARP (Clássicas)
+          href: expressroute-troubleshooting-arp-classic.md
 - name: Referência
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.network#expressroute
-  - name: CLI do Azure
-    href: /cli/azure/network/express-route
-  - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt586720
-  - name: REST (clássico)
-    href: https://msdn.microsoft.com/library/azure/dn606310
+    - name: Azure PowerShell
+      href: '/powershell/module/az.network#expressroute'
+    - name: CLI do Azure
+      href: /cli/azure/network/express-route
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+    - name: REST (clássico)
+      href: 'https://msdn.microsoft.com/library/azure/dn606310'
 - name: Recursos
   items:
-  - name: FAQ do ExpressRoute
-    href: expressroute-faqs.md
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Casos de Estudo
-    href: https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products
-  - name: Blogue de Redes
-    href: https://azure.microsoft.com/blog/topics/networking/
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/expressroute/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=expressroute
-  - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/
-  - name: Subscrição e Limites do Serviço
-    href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
-  - name: ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
-    href: expressroute-for-cloud-solution-providers.md
-  - name: Vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=expressroute
-    items:
-    - name: Ligar um gateway de rede virtual a um circuito
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/
-    - name: Criar uma rede virtual para o ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/
-    - name: Criar um gateway de rede virtual para o ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/
-    - name: Criar um circuito do ExpressRoute
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/
-    - name: Desenvolver a sua infraestrutura de rede para fins de conectividade
-      href: https://go.microsoft.com/fwlink/p/?LinkId=615124
-    - name: Como configurar o peering privado para o seu circuito
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/
-    - name: 'Parcerias híbridas: permitir cenários no local'
-      href: https://go.microsoft.com/fwlink/p/?LinkId=615125
-    - name: Configurar o Peering da Microsoft para o seu circuito
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
-    - name: Configurar o Peering Público para o seu circuito
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 920e0a4f1497378b8f04d52e38392635aaa0a136
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791203"
+    - name: FAQ do ExpressRoute
+      href: expressroute-faqs.md
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Casos de Estudo
+      href: 'https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products'
+    - name: Blogue de Redes
+      href: 'https://azure.microsoft.com/blog/topics/networking/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/expressroute/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=expressroute'
+    - name: SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: Subscrição e Limites do Serviço
+      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+    - name: ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
+      href: expressroute-for-cloud-solution-providers.md
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=expressroute'
+      items:
+        - name: Ligar um gateway de rede virtual a um circuito
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/'
+        - name: Criar uma rede virtual para o ExpressRoute
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/'
+        - name: Criar um gateway de rede virtual para o ExpressRoute
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/'
+        - name: Criar um circuito do ExpressRoute
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/'
+        - name: Desenvolver a sua infraestrutura de rede para fins de conectividade
+          href: 'https://go.microsoft.com/fwlink/p/?LinkId=615124'
+        - name: Como configurar o peering privado para o seu circuito
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/'
+        - name: 'Parcerias híbridas: permitir cenários no local'
+          href: 'https://go.microsoft.com/fwlink/p/?LinkId=615125'
+        - name: Configurar o Peering da Microsoft para o seu circuito
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/'
+        - name: Configurar o Peering Público para o seu circuito
+          href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/'

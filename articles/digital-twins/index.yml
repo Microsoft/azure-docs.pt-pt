@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 65845d3f46732772a0e181b6409554b64075fe30
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274375"
 documentType: LandingData
 title: Documentação do Azure Digital Twins
 metadata:
-  title: Documentação do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs
+  title: 'Documentação do Azure Digital Twins - Tutoriais, Referência da API | Microsoft Docs'
   description: Utilize o Azure Digital Twins para criar soluções espaciais inteligentes.
   author: dsk-2015
   manager: timlt
@@ -18,20 +12,20 @@ metadata:
   ms.date: 10/15/2018
   ms.author: dkshir
 abstract:
-  description: Saiba como utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial. Veja o Início Rápido e os Tutoriais para monitorizar um edifício inteligente imaginário, aprender conceitos aprofundados e criar uma solução de IoT da próxima geração que modele o seu ambiente físico.
+  description: 'Saiba como utilizar o Azure Digital Twins para ligar pessoas, lugares e coisas e para criar soluções de IoT com inteligência espacial. Veja o Início Rápido e os Tutoriais para monitorizar um edifício inteligente imaginário, aprender conceitos aprofundados e criar uma solução de IoT da próxima geração que modele o seu ambiente físico.'
 sections:
-- title: Início Rápido de 5 Minutos
-  items:
-  - type: paragraph
-    text: Saiba como <a href="quickstart-view-occupancy-dotnet">encontrar salas disponíveis com boa qualidade de ar com os exemplos em .NET do Azure Digital Twins</a>.
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como personalizar e utilizar a sua solução do Azure Digital Twins para monitorizar as suas instalações.
-  - type: list
-    style: ordered
+  - title: Início Rápido de 5 Minutos
     items:
-    - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Aprovisionar um edifício de exemplo</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitorizar as condições no seu edifício</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-events">Receber notificações do seu edifício</a>
-    - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analisar eventos do seu edifício</a>
+      - type: paragraph
+        text: Saiba como <a href="quickstart-view-occupancy-dotnet">encontrar salas disponíveis com boa qualidade de ar com os exemplos em .NET do Azure Digital Twins</a>.
+  - title: Tutoriais Passo-a-Passo
+    items:
+      - type: paragraph
+        text: Saiba como personalizar e utilizar a sua solução do Azure Digital Twins para monitorizar as suas instalações.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Aprovisionar um edifício de exemplo</a>
+          - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitorizar as condições no seu edifício</a>
+          - html: <a href="/azure/digital-twins/tutorial-facilities-events">Receber notificações do seu edifício</a>
+          - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analisar eventos do seu edifício</a>
