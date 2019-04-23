@@ -80,9 +80,9 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Paginação|[Paginação](api-management-template-data-model-reference.md#Paging) entidade.|As informações de paginação para a coleção de produtos.|  
-|Filtragem|[Filtragem](api-management-template-data-model-reference.md#Filtering) entidade.|As informações de filtragem para a página de lista de produtos.|  
-|Produtos|Coleção de [produto](api-management-template-data-model-reference.md#Product) entidades.|Os produtos visíveis ao utilizador atual.|  
+|Paging|[Paginação](api-management-template-data-model-reference.md#Paging) entidade.|As informações de paginação para a coleção de produtos.|  
+|Filtering|[Filtragem](api-management-template-data-model-reference.md#Filtering) entidade.|As informações de filtragem para a página de lista de produtos.|  
+|Products|Coleção de [produto](api-management-template-data-model-reference.md#Product) entidades.|Os produtos visíveis ao utilizador atual.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -205,15 +205,15 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Produto|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
+|Product|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscribed|boolean|Se o utilizador atual está subscrito neste produto.|  
 |SubscriptionState|número|O estado da subscrição. Estados possíveis são:<br /><br /> -   `0 - suspended` – a subscrição está bloqueada e o subscritor não é possível chamar qualquer API do produto.<br />-   `1 - active` – a subscrição está ativa.<br />-   `2 - expired` – a subscrição atingiu a respetiva data de expiração e foi desativada.<br />-   `3 - submitted` – o pedido de subscrição foi efetuado pelo desenvolvedor, mas ainda não foi aprovado ou rejeitado.<br />-   `4 - rejected` – o pedido de subscrição foi negado por um administrador.<br />-   `5 - cancelled` – a subscrição foi cancelada pelo desenvolvedor ou administrador.|  
-|Limites|array|Esta propriedade foi preterida e não deve ser utilizada.|  
+|Limits|array|Esta propriedade foi preterida e não deve ser utilizada.|  
 |DelegatedSubscriptionEnabled|boolean|Se [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está ativada para esta subscrição.|  
 |DelegatedSubscriptionUrl|cadeia|Se a delegação estiver ativada, o URL de assinatura de delegado.|  
 |IsAgreed|boolean|Se o produto tem termos, se o utilizador atual tem aceitou os termos.|  
-|Subscrições|Coleção de [resumo da subscrição](api-management-template-data-model-reference.md#SubscriptionSummary) entidades.|As subscrições ao produto.|  
-|APIs|Coleção de [API](api-management-template-data-model-reference.md#API) entidades.|As APIs neste produto.|  
+|Subscriptions|Coleção de [resumo da subscrição](api-management-template-data-model-reference.md#SubscriptionSummary) entidades.|As subscrições ao produto.|  
+|Apis|Coleção de [API](api-management-template-data-model-reference.md#API) entidades.|As APIs neste produto.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolean|Se o utilizador atual é elegível para subscrever este produto em relação ao limite de subscrição.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Se o utilizador atual é elegível para subscrever este produto em relação a várias subscrições que está a ser permitido ou não.|  
   
