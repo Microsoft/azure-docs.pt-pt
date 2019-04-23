@@ -315,7 +315,7 @@ Fazer visita guiada pelos serviços e funcionalidades do Azure </a>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/principles-cloud-computing.svg" alt="">
-Fundamentos da informática na cloud </a>
+Fundamentos da computação na cloud </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/control-azure-services-with-cli/">

@@ -8,14 +8,14 @@ ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
 ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2019
 ms.locfileid: "56989324"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT for Azure? 
 
-O Avere vFXT for Azure é uma solução de colocação na cache do sistema de ficheiros para tarefas de computação de alto desempenho (HPC) intensivas em termos de dados. Permite tirar partido da escalabilidade de informática na cloud para tornar os seus dados acessíveis quando e onde forem necessários, até mesmo para dados armazenados no seu próprio hardware no local.
+O Avere vFXT for Azure é uma solução de colocação na cache do sistema de ficheiros para tarefas de computação de alto desempenho (HPC) intensivas em termos de dados. Permite tirar partido da escalabilidade de computação na cloud para tornar os seus dados acessíveis quando e onde forem necessários, até mesmo para dados armazenados no seu próprio hardware no local.
 
 O Avere vFXT suporta os seguintes cenários de computação comuns: 
 

@@ -13,7 +13,7 @@ ms.author: v-jansko
 ms.custom: seodec18
 ms.openlocfilehash: cc795d6b164a97351ec8806c6b7c8bed0c0c1266
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59793994"
@@ -26,7 +26,7 @@ Para receber informações de alinhamento, utilize o método Translate e inclua 
 ## <a name="alignment-information-format"></a>Formato de informações de alinhamento
 Alinhamento é retornado como um valor de cadeia de caracteres no seguinte formato para todas as palavras da origem. As informações para cada palavra são separadas por um espaço, incluindo o não-separadas por espaços linguagens (scripts), como o chinês:
 
-[[SourceTextStartIndex]: [SourceTextEndIndex]-[TgtTextStartIndex]: [TgtTextEndIndex]] *
+[[SourceTextStartIndex]\:[SourceTextEndIndex]-[TgtTextStartIndex]: [TgtTextEndIndex]] *
 
 Cadeia de alinhamento de exemplo: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
