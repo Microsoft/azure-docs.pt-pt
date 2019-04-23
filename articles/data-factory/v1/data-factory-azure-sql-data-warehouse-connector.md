@@ -153,7 +153,7 @@ GO
 | rejectSampleValue |Determina o número de linhas para obter antes do PolyBase recalcula a porcentagem das linhas rejeitadas. |1, 2, … |Sim, se **rejectType** é **percentagem** |
 | useTypeDefault |Especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção argumentos na [criar ficheiro de formato externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (predefinição) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize |Número inteiro (número de linhas) |Não (predefinição: 10000) |
-| writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera. |Período de tempo<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
+| writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 
 #### <a name="sqldwsink-example"></a>Exemplo de SqlDWSink
 
@@ -276,9 +276,9 @@ A tabela seguinte fornece exemplos sobre como especificar a **tableName** propri
 
 | Esquema da BD | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ou dbo. MyTable ou [dbo].[MyTable] |
-| dbo1 |MyTable |dbo1.MyTable ou [dbo1].[MyTable] |
-| dbo |My.Table |[My.Table] ou [dbo].[My.Table] |
+| dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
+| dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
+| dbo |My.Table |[My.Table] ou [dbo]. [My.Table] |
 | dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se vir o seguinte erro, pode ser um problema com o valor especificado para a propriedade tableName. Consulte a tabela para a maneira correta de especificar valores para a propriedade JSON tableName.
@@ -306,26 +306,26 @@ Data Factory cria a tabela no arquivo de destino com o mesmo nome de tabela no a
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| Bit | Bit |
+| bit | bit |
 | Decimal | Decimal |
 | Numeric | Decimal |
 | Float | Float |
-| Money | Money |
+| money | money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binary | Binary |
+| Binário | Binário |
 | Varbinary | Varbinary (até 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Time | Time |
+| Hora | Hora |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (até 8000) |
 | NText | NVarChar (até 4000) |
 | Image | VarBinary (até 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| Char | Char |
+| char | char |
 | NChar | NChar |
 | VarChar | VarChar (até 8000) |
 | NVarChar | NVarChar (até 4000) |
@@ -361,7 +361,7 @@ O mapeamento é igual a [mapeamento do tipo de dados do SQL Server para o ADO.NE
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numérico |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -369,12 +369,12 @@ O mapeamento é igual a [mapeamento do tipo de dados do SQL Server para o ADO.NE
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object * |
-| text |String, Char[] |
+| texto |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
-| varbinary |Byte[] |
+| Varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

@@ -1,81 +1,75 @@
-items:
 - name: Documentação da Máquina Virtual de Ciência de Dados
   href: index.yml
+  items: null
 - name: Descrição geral
   items:
-  - name: O que é a VM de Ciência de Dados?
-    href: overview.md
-  - name: O que é a VM de Aprendizagem Profunda?
-    href: deep-learning-dsvm-overview.md
-  - name: O que é a VM de Ciência de Dados de IA Geográfica?
-    href: geo-ai-dsvm-overview.md
+    - name: O que é a VM de Ciência de Dados?
+      href: overview.md
+    - name: O que é a VM de Aprendizagem Profunda?
+      href: deep-learning-dsvm-overview.md
+    - name: O que é a VM de Ciência de Dados de IA Geográfica?
+      href: geo-ai-dsvm-overview.md
 - name: Inícios rápidos
-  items:
-  - name: Criar uma VM de Ciência de Dados do Windows
-    href: provision-vm.md
-  - name: Criar uma VM de Ciência de Dados do Ubuntu
-    href: dsvm-ubuntu-intro.md
-  - name: Criar uma VM de Ciência de Dados do CentOS
-    href: linux-dsvm-intro.md
-  - name: Criar uma VM de Aprendizagem Profunda
-    href: provision-deep-learning-dsvm.md
-  - name: Criar uma VM de Ciência de Dados de IA Geográfica
-    href: provision-geo-ai-dsvm.md
   expanded: true
+  items:
+    - name: Criar uma VM de Ciência de Dados do Windows
+      href: provision-vm.md
+    - name: Criar uma VM de Ciência de Dados do Ubuntu
+      href: dsvm-ubuntu-intro.md
+    - name: Criar uma VM de Ciência de Dados do CentOS
+      href: linux-dsvm-intro.md
+    - name: Criar uma VM de Aprendizagem Profunda
+      href: provision-deep-learning-dsvm.md
+    - name: Criar uma VM de Ciência de Dados de IA Geográfica
+      href: provision-geo-ai-dsvm.md
 - name: Conceitos
   items:
-  - name: Detetar a DSVM
-    href: dsvm-tools-overview.md
-  - name: Arquiteturas de Aprendizagem Profunda e AI
-    href: dsvm-deep-learning-ai-frameworks.md
-  - name: Ferramentas de LM e ciência de dados
-    href: dsvm-ml-data-science-tools.md
-  - name: Linguagens
-    href: dsvm-languages.md
-  - name: Ferramentas de programação
-    href: dsvm-tools-development.md
-  - name: Ferramentas de ingestão de dados
-    href: dsvm-tools-ingestion.md
-  - name: Ferramentas de exploração e visualização de dados
-    href: dsvm-tools-explore-and-visualize.md
-  - name: Plataformas de dados
-    href: dsvm-data-platforms.md
-  - name: Exemplos e instruções
-    href: dsvm-samples-and-walkthroughs.md
+    - name: Detetar a DSVM
+      href: dsvm-tools-overview.md
+    - name: Arquiteturas de Aprendizagem Profunda e AI
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: Ferramentas de LM e ciência de dados
+      href: dsvm-ml-data-science-tools.md
+    - name: Linguagens
+      href: dsvm-languages.md
+    - name: Ferramentas de programação
+      href: dsvm-tools-development.md
+    - name: Ferramentas de ingestão de dados
+      href: dsvm-tools-ingestion.md
+    - name: Ferramentas de exploração e visualização de dados
+      href: dsvm-tools-explore-and-visualize.md
+    - name: Plataformas de dados
+      href: dsvm-data-platforms.md
+    - name: Exemplos e instruções
+      href: dsvm-samples-and-walkthroughs.md
 - name: Guias de procedimentos
   items:
-  - name: Utilizar uma VM de Ciência de Dados do Windows
-    href: vm-do-ten-things.md
-  - name: Utilizar uma VM de Ciência de Dados do Linux
-    href: linux-dsvm-walkthrough.md
-  - name: Utilizar uma VM de Aprendizagem Profunda
-    href: use-deep-learning-dsvm.md
-  - name: Utilizar uma VM de Ciência de Dados de IA Geográfica
-    href: use-geo-ai-dsvm.md
-  - name: Diretrizes empresariais
-    items:
-    - name: Descrição geral
-      href: dsvm-enterprise-overview.md
-    - name: Dimensionamento
-      href: dsvm-pools.md
-    - name: Integração com o Active Directory
-      href: dsvm-common-identity.md
-    - name: Proteger credenciais de acesso aos recursos
-      href: dsvm-secure-access-keys.md
+    - name: Utilizar uma VM de Ciência de Dados do Windows
+      href: vm-do-ten-things.md
+    - name: Utilizar uma VM de Ciência de Dados do Linux
+      href: linux-dsvm-walkthrough.md
+    - name: Utilizar uma VM de Aprendizagem Profunda
+      href: use-deep-learning-dsvm.md
+    - name: Utilizar uma VM de Ciência de Dados de IA Geográfica
+      href: use-geo-ai-dsvm.md
+    - name: Diretrizes empresariais
+      items:
+        - name: Descrição geral
+          href: dsvm-enterprise-overview.md
+        - name: Dimensionamento
+          href: dsvm-pools.md
+        - name: Integração com o Active Directory
+          href: dsvm-common-identity.md
+        - name: Proteger credenciais de acesso aos recursos
+          href: dsvm-secure-access-keys.md
 - name: Recursos
   items:
-  - name: Guia para programadores de R
-    href: /azure/architecture/data-guide/technology-choices/r-developers-guide
-    maintainContext: true
-  - name: Blogue
-    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
-  - name: Fórum do MSDN
-    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: edb96d185e829cfe76eda4a42776e3b5cfea0153
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495605"
+    - name: Guia para programadores de R
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide
+      maintainContext: true
+    - name: Blogue
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: Fórum do MSDN
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=dsvm'

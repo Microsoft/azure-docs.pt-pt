@@ -10,11 +10,11 @@ ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862731"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796281"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte de módulo de AZ na automatização do Azure
 

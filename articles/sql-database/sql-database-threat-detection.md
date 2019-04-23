@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793782"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797214"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Deteção de ameaças de base de dados SQL do Azure para as bases de dados individuais ou agrupadas
 

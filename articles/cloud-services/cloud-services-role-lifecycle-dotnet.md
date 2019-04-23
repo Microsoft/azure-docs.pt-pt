@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916313"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798020"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o Ciclo de Vida de uma função Web ou de Trabalho em .NET
 Quando cria uma função de trabalho, estender o [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) classe que fornece métodos para substituição que lhe permitem responder a eventos de ciclo de vida. Para funções da web essa classe é opcional, para que deve usá-lo para responder a eventos de ciclo de vida.

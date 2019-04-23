@@ -1,120 +1,113 @@
-items:
 - name: Documentação do Azure Blueprints
   href: index.yml
 - name: Descrição geral
-  items:
-  - name: Descrição Geral do Azure Blueprints
-    displayName: templates, policy, definition, assignment, rbac
-    href: overview.md
   expanded: true
+  items:
+    - name: Descrição Geral do Azure Blueprints
+      displayName: 'templates, policy, definition, assignment, rbac'
+      href: overview.md
 - name: Inícios rápidos
-  items:
-  - name: Criar um esquema - Portal
-    displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-portal.md
-  - name: Criar um esquema - API REST
-    displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-rest-api.md
   expanded: true
+  items:
+    - name: Criar um esquema - Portal
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-portal.md
+    - name: Criar um esquema - API REST
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-rest-api.md
 - name: Tutoriais
-  items:
-  - name: Criar a partir de um exemplo de esquema
-    displayName: template, resource group, rbac, role assignment
-    href: ./tutorials/create-from-sample.md
-  - name: Proteger recursos novos com bloqueios de recursos de esquema
-    displayName: read only, do not delete, lock assignment
-    href: ./tutorials/protect-new-resources.md
   expanded: true
+  items:
+    - name: Criar a partir de um exemplo de esquema
+      displayName: 'template, resource group, rbac, role assignment'
+      href: ./tutorials/create-from-sample.md
+    - name: Proteger recursos novos com bloqueios de recursos de esquema
+      displayName: 'read only, do not delete, lock assignment'
+      href: ./tutorials/protect-new-resources.md
 - name: Amostras
-  items:
-  - name: Índice
-    displayName: list, examples
-    href: ./samples/index.md
-  - name: ISO 27001 - Serviços Partilhados
-    items:
-    - name: Descrição geral
-      displayName: standards, iso, 27001, shared services
-      href: ./samples/iso27001-shared/index.md
-    - name: Mapeamento de controlo
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-shared/control-mapping.md
-    - name: Passos para implementar
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-shared/deploy.md
-  - name: ISO 27001 - Carga de Trabalho do ASE/SQL
-    items:
-    - name: Descrição geral
-      displayName: standards, iso, 27001, shared services
-      href: ./samples/iso27001-ase-sql-workload/index.md
-    - name: Mapeamento de controlo
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-ase-sql-workload/control-mapping.md
-    - name: Passos para implementar
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001-ase-sql-workload/deploy.md
   expanded: true
+  items:
+    - name: Índice
+      displayName: 'list, examples'
+      href: ./samples/index.md
+    - name: ISO 27001 - Serviços Partilhados
+      items:
+        - name: Descrição geral
+          displayName: 'standards, iso, 27001, shared services'
+          href: ./samples/iso27001-shared/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-shared/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-shared/deploy.md
+    - name: ISO 27001 - Carga de Trabalho do ASE/SQL
+      items:
+        - name: Descrição geral
+          displayName: 'standards, iso, 27001, shared services'
+          href: ./samples/iso27001-ase-sql-workload/index.md
+        - name: Mapeamento de controlo
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-ase-sql-workload/control-mapping.md
+        - name: Passos para implementar
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001-ase-sql-workload/deploy.md
 - name: Conceitos
-  items:
-  - name: Ciclo de vida de um esquema
-    displayName: publish, edit, delete, assignments
-    href: ./concepts/lifecycle.md
-  - name: Fases da implementação de um esquema
-    displayName: assign, managed identity
-    href: ./concepts/deployment-stages.md
-  - name: Parâmetros dinâmicos num esquema
-    displayName: secureString, secureObject, static
-    href: ./concepts/parameters.md
-  - name: Sequenciar a ordem de implementação do esquema
-    displayName: customize
-    href: ./concepts/sequencing-order.md
-  - name: Bloqueio de recursos no Blueprints
-    displayName: mode, state, read only, edit, denyAssignments
-    href: ./concepts/resource-locking.md
   expanded: true
+  items:
+    - name: Ciclo de vida de um esquema
+      displayName: 'publish, edit, delete, assignments'
+      href: ./concepts/lifecycle.md
+    - name: Fases da implementação de um esquema
+      displayName: 'assign, managed identity'
+      href: ./concepts/deployment-stages.md
+    - name: Parâmetros dinâmicos num esquema
+      displayName: 'secureString, secureObject, static'
+      href: ./concepts/parameters.md
+    - name: Sequenciar a ordem de implementação do esquema
+      displayName: customize
+      href: ./concepts/sequencing-order.md
+    - name: Bloqueio de recursos no Blueprints
+      displayName: 'mode, state, read only, edit, denyAssignments'
+      href: ./concepts/resource-locking.md
 - name: Guias de procedimentos
-  items:
-  - name: Gerir atribuições com o PowerShell
-    displayName: create, update, remove
-    href: ./how-to/manage-assignments-ps.md
-  - name: Atualizar atribuições existentes a partir do portal
-    displayName: lock, errors
-    href: ./how-to/update-existing-assignments.md
-  - name: Gerir Esquemas como Código (comunidade)
-    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
   expanded: true
+  items:
+    - name: Gerir atribuições com o PowerShell
+      displayName: 'create, update, remove'
+      href: ./how-to/manage-assignments-ps.md
+    - name: Atualizar atribuições existentes a partir do portal
+      displayName: 'lock, errors'
+      href: ./how-to/update-existing-assignments.md
+    - name: Gerir Esquemas como Código (comunidade)
+      href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: Resolução de problemas
-  displayName: errors, violation
+  displayName: 'errors, violation'
   href: ./troubleshoot/general.md
 - name: Referências
-  items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.blueprint/#blueprint
-  - name: SDK do Azure para .NET
-    href: /dotnet/api/overview/azure/blueprints/management
-  - name: REST
-    href: /rest/api/blueprints/
-  - name: PSGallery (módulo Az.Blueprint)
-    href: https://www.powershellgallery.com/packages/Az.Blueprint
-  - name: PSGallery (módulo de comunidade)
-    href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
   expanded: true
+  items:
+    - name: Azure PowerShell
+      href: '/powershell/module/az.blueprint/#blueprint'
+    - name: SDK do Azure para .NET
+      href: /dotnet/api/overview/azure/blueprints/management
+    - name: REST
+      href: /rest/api/blueprints/
+    - name: PSGallery (módulo Az.Blueprint)
+      href: 'https://www.powershellgallery.com/packages/Az.Blueprint'
+    - name: PSGallery (módulo de comunidade)
+      href: 'https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint'
 - name: Recursos
   items:
-  - name: GitHub - Exemplos do Azure Blueprints
-    href: https://github.com/Azure/azure-blueprints
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Canal do YouTube sobre Governação
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Azure Friday - Descrição Geral do Azure Blueprints
-    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: f55ec759cac8ace468bc4216a30aef765f9d213a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358580"
+    - name: GitHub - Exemplos do Azure Blueprints
+      href: 'https://github.com/Azure/azure-blueprints'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+    - name: Canal do YouTube sobre Governação
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Azure Friday - Descrição Geral do Azure Blueprints
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'

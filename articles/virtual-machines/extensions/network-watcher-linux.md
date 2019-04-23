@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879017"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798781"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual do agente do observador de rede para Linux
 

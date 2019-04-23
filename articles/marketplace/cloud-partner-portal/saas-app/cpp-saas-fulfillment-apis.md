@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: pbutlerm
 ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009450"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59798741"
 ---
 # <a name="saas-fulfillment-apis"></a>SaaS Fulfillment APIs
 

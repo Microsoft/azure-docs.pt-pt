@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919324"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59804832"
 ---
 >[!NOTE]
 >Para obter recursos que não estão corrigidos, abra um pedido de suporte para pedir um aumento de quotas. Não crie contas de serviços de multimédia do Azure adicionais numa tentativa de obter limites superiores.

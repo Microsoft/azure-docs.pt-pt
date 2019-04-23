@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: anzaman
 ms.openlocfilehash: b491120639421d85d2fbb1a0efb2b6dd09ec1d4c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893899"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794645"
 ---
 # <a name="customize-a-person-model-in-video-indexer"></a>Personalizar um modelo de pessoa Video Indexer
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 3364ff6bcf824e5f7d925fdb6d0826d5c3c32369
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862255"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794597"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 

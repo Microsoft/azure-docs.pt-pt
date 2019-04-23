@@ -243,7 +243,7 @@ As propriedades de agendas de tarefas são descritas na tabela seguinte.
 | Propriedade | Descrição |
 |:--- |:--- |
 | schedule name |Único **nome** entidade com o nome da agenda. |
-| runbook name |Único **nome** entidade com o nome do runbook.  |
+| runbook name  |Único **nome** entidade com o nome do runbook.  |
 
 
 

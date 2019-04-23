@@ -1,90 +1,83 @@
-items:
 - name: Documentação do Spatial Anchors
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Sobre o Spatial Anchors
-    href: overview.md
+    - name: Sobre o Spatial Anchors
+      href: overview.md
 - name: Inícios rápidos
   items:
-  - name: Criar aplicação do Unity
-    href: unity-overview.yml
-    items:
-    - name: HoloLens
-      href: quickstarts/get-started-unity-hololens.md
-    - name: Android
-      href: quickstarts/get-started-unity-android.md
-    - name: iOS
-      href: quickstarts/get-started-unity-ios.md
-    expanded: true
-  - name: Criar aplicação de iOS
-    href: quickstarts/get-started-ios.md
-  - name: Criar aplicação de Android
-    href: quickstarts/get-started-android.md
-  - name: Criar aplicação de HoloLens
-    href: quickstarts/get-started-hololens.md
+    - name: Criar aplicação do Unity
+      href: unity-overview.yml
+      expanded: true
+      items:
+        - name: HoloLens
+          href: quickstarts/get-started-unity-hololens.md
+        - name: Android
+          href: quickstarts/get-started-unity-android.md
+        - name: iOS
+          href: quickstarts/get-started-unity-ios.md
+    - name: Criar aplicação de iOS
+      href: quickstarts/get-started-ios.md
+    - name: Criar aplicação de Android
+      href: quickstarts/get-started-android.md
+    - name: Criar aplicação de HoloLens
+      href: quickstarts/get-started-hololens.md
 - name: Tutoriais
   items:
-  - name: Partilhar no Unity
-    href: tutorials/tutorial-share-anchors-across-devices.md
-  - name: Partilhar no Unity com o Azure Cosmos DB
-    href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
-  - name: Começar uma nova aplicação Android
-    href: tutorials/tutorial-new-android-app.md
+    - name: Partilhar no Unity
+      href: tutorials/tutorial-share-anchors-across-devices.md
+    - name: Partilhar no Unity com o Azure Cosmos DB
+      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - name: Começar uma nova aplicação Android
+      href: tutorials/tutorial-new-android-app.md
 - name: Procedimentos
   items:
-  - name: Criar e localizar âncoras
-    href: create-locate-anchors-overview.md
-    items:
-    - name: Em Unity
-      href: how-tos/create-locate-anchors-unity.md
-    - name: Em Objective-C
-      href: how-tos/create-locate-anchors-objc.md
-    - name: Em Swift
-      href: how-tos/create-locate-anchors-swift.md
-    - name: Em Java
-      href: how-tos/create-locate-anchors-java.md
-    - name: Em C++ /NDK
-      href: how-tos/create-locate-anchors-cpp-ndk.md
-    - name: Em C++ /WinRT
-      href: how-tos/create-locate-anchors-cpp-winrt.md
+    - name: Criar e localizar âncoras
+      href: create-locate-anchors-overview.md
+      items:
+        - name: Em Unity
+          href: how-tos/create-locate-anchors-unity.md
+        - name: Em Objective-C
+          href: how-tos/create-locate-anchors-objc.md
+        - name: Em Swift
+          href: how-tos/create-locate-anchors-swift.md
+        - name: Em Java
+          href: how-tos/create-locate-anchors-java.md
+        - name: Em C++ /NDK
+          href: how-tos/create-locate-anchors-cpp-ndk.md
+        - name: Em C++ /WinRT
+          href: how-tos/create-locate-anchors-cpp-winrt.md
 - name: Amostras
   items:
-  - name: Exemplos do Spatial Anchors do Azure (GitHub)
-    href: https://github.com/Azure/azure-spatial-anchors-samples
+    - name: Exemplos do Spatial Anchors do Azure (GitHub)
+      href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Conceitos
   items:
-  - name: Relações de âncora
-    href: concepts/anchor-relationships-way-finding.md
-  - name: Diretrizes de experiência
-    href: concepts/guidelines-effective-anchor-experiences.md
-  - name: Registo e diagnóstico
-    href: concepts/logging-diagnostics.md
+    - name: Relações de âncora
+      href: concepts/anchor-relationships-way-finding.md
+    - name: Diretrizes de experiência
+      href: concepts/guidelines-effective-anchor-experiences.md
+    - name: Registo e diagnóstico
+      href: concepts/logging-diagnostics.md
 - name: Referências
   items:
-  - name: SDK para Unity
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
-  - name: SDK para Objective-C no iOS
-    href: https://docs.microsoft.com/objectivec/api/spatial-anchors/
-  - name: SDK para Java no Android
-    href: https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/
-  - name: SDK para NDK no Android
-    href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
-  - name: SDK para C++/WinRT no HoloLens
-    href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+    - name: SDK para Unity
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/'
+    - name: SDK para Objective-C no iOS
+      href: 'https://docs.microsoft.com/objectivec/api/spatial-anchors/'
+    - name: SDK para Java no Android
+      href: 'https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/'
+    - name: SDK para NDK no Android
+      href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/'
+    - name: SDK para C++/WinRT no HoloLens
+      href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
 - name: Recursos
   items:
-  - name: FAQ
-    href: spatial-anchor-faq.md
-  - name: Fornecer comentários sobre o produto
-    href: https://feedback.azure.com/forums/919252-azure-spatial-anchors
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
-  - name: Suporte
-    href: spatial-anchor-support.md
-ms.openlocfilehash: 69465b1f2184476f8c18738474a6585fdd681bb2
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915854"
+    - name: FAQ
+      href: spatial-anchor-faq.md
+    - name: Fornecer comentários sobre o produto
+      href: 'https://feedback.azure.com/forums/919252-azure-spatial-anchors'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
+    - name: Suporte
+      href: spatial-anchor-support.md
