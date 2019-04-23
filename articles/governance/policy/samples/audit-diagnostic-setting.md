@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 66c9c1c21cad7fb4058a91be826a50059691877c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268165"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59797776"
 ---
 # <a name="sample---audit-diagnostic-setting"></a>A definição de exemplo - diagnóstico de auditoria
 

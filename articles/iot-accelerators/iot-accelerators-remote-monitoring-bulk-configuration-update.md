@@ -10,7 +10,7 @@ ms.date: 11/29/2018
 ms.author: adugar
 ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59799045"

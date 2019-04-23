@@ -13,7 +13,7 @@ ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6661cee8ba6176bd706d31a10a8f20549e29e4d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59795054"

@@ -10,7 +10,7 @@ manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: a94fe86cd9c2a6e775be1ec4b3d14798e4cac693
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59795872"
