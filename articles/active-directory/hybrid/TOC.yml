@@ -1,349 +1,344 @@
-items:
 - name: Documentação de identidade híbrida
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é a identidade híbrida?
-    href: whatis-hybrid-identity.md
-    maintainContext: true
+    - name: O que é a identidade híbrida?
+      href: whatis-hybrid-identity.md
+      maintainContext: true
 - name: Tutoriais
-  items:
-  - name: Integrar um ambiente AD de floresta AD único na cloud com o PHS
-    href: tutorial-password-hash-sync.md
-  - name: Integrar um ambiente AD de floresta AD único na cloud com o PTA
-    href: tutorial-passthrough-authentication.md
-  - name: Federar um ambiente de floresta AD único na cloud
-    href: tutorial-federation.md
-  - name: Configurar o PHS como cópia de segurança do AD FS no Azure AD Connect
-    href: tutorial-phs-backup.md
   expanded: true
+  items:
+    - name: Integrar um ambiente AD de floresta AD único na cloud com o PHS
+      href: tutorial-password-hash-sync.md
+    - name: Integrar um ambiente AD de floresta AD único na cloud com o PTA
+      href: tutorial-passthrough-authentication.md
+    - name: Federar um ambiente de floresta AD único na cloud
+      href: tutorial-federation.md
+    - name: Configurar o PHS como cópia de segurança do AD FS no Azure AD Connect
+      href: tutorial-phs-backup.md
 - name: Conceitos
   items:
-  - name: Azure AD Connect e Connect Health
-    items:
-    - name: O que são o Azure AD Connect e o Connect Health?
-      href: whatis-azure-ad-connect.md
-    - name: Escolher a autenticação correta
-      href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
-    - name: Sincronização de identidades e resiliência de atributos duplicados
-      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
-  - name: Sincronização de hash de palavra-passe
-    items:
-    - name: O que é a sincronização de hash de palavra-passe?
-      href: whatis-phs.md
-    - name: Como funciona a sincronização de hash de palavra-passe
-      href: how-to-connect-password-hash-synchronization.md
-  - name: Autenticação pass-through
-    items:
-    - name: O que é a autenticação pass-through?
-      href: how-to-connect-pta.md
-    - name: Como funciona a autenticação pass-through
-      href: how-to-connect-pta-how-it-works.md
-    - name: Limitações atuais da autenticação pass-through
-      href: how-to-connect-pta-current-limitations.md
-    - name: Informações detalhadas sobre a segurança na autenticação pass-through
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Privacidade de utilizador e autenticação pass-through
-      href: how-to-connect-pta-user-privacy.md
-  - name: de Federação
-    items:
-    - name: O que é a federação?
-      href: whatis-fed.md
-    - name: Como funciona a federação
-      href: how-to-connect-fed-whatis.md
-    - name: Lista de compatibilidades de federação do Azure AD
-      href: how-to-connect-fed-compatibility.md
-  - name: Início de sessão único
-    items:
-    - name: O que é o Início de Sessão Único?
-      href: how-to-connect-sso.md
-    - name: Como funciona o Início de Sessão Único
-      href: how-to-connect-sso-how-it-works.md
-    - name: Início de Sessão Único e privacidade do utilizador
-      href: how-to-connect-sso-user-privacy.md
-  - name: Azure AD Connect Sync
-    items:
-    - name: O que é o Azure AD Connect Sync?
-      href: how-to-connect-sync-whatis.md
-    - name: Funcionalidades de Sincronização do Azure AD Connect
-      href: how-to-connect-syncservice-features.md
-    - name: O que é o gestor do serviço de Sincronização do Azure AD Connect?
-      href: how-to-connect-sync-service-manager-ui.md
-    - name: Conceitos técnicos da Sincronização do Azure AD Connect
-      href: how-to-connect-sync-technical-concepts.md
-    - name: Compreender a arquitetura da Sincronização do Azure AD Connect
-      href: concept-azure-ad-connect-sync-architecture.md
-    - name: Compreender o Aprovisionamento Declarativo
-      href: concept-azure-ad-connect-sync-declarative-provisioning.md
-    - name: Compreender as Expressões de Aprovisionamento Declarativas
-      href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-    - name: Entender a configuração predefinida
-      href: concept-azure-ad-connect-sync-default-configuration.md
-    - name: Entender utilizadores e contactos
-      href: concept-azure-ad-connect-sync-user-and-contacts.md
-    - name: Compreender os atributos de sombra
-      href: how-to-connect-syncservice-shadow-attributes.md
+    - name: Azure AD Connect e Connect Health
+      items:
+        - name: O que são o Azure AD Connect e o Connect Health?
+          href: whatis-azure-ad-connect.md
+        - name: Escolher a autenticação correta
+          href: 'https://docs.microsoft.com/azure/security/azure-ad-choose-authn'
+        - name: Sincronização de identidades e resiliência de atributos duplicados
+          href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+    - name: Sincronização de hash de palavra-passe
+      items:
+        - name: O que é a sincronização de hash de palavra-passe?
+          href: whatis-phs.md
+        - name: Como funciona a sincronização de hash de palavra-passe
+          href: how-to-connect-password-hash-synchronization.md
+    - name: Autenticação pass-through
+      items:
+        - name: O que é a autenticação pass-through?
+          href: how-to-connect-pta.md
+        - name: Como funciona a autenticação pass-through
+          href: how-to-connect-pta-how-it-works.md
+        - name: Limitações atuais da autenticação pass-through
+          href: how-to-connect-pta-current-limitations.md
+        - name: Informações detalhadas sobre a segurança na autenticação pass-through
+          href: how-to-connect-pta-security-deep-dive.md
+        - name: Privacidade de utilizador e autenticação pass-through
+          href: how-to-connect-pta-user-privacy.md
+    - name: de Federação
+      items:
+        - name: O que é a federação?
+          href: whatis-fed.md
+        - name: Como funciona a federação
+          href: how-to-connect-fed-whatis.md
+        - name: Lista de compatibilidades de federação do Azure AD
+          href: how-to-connect-fed-compatibility.md
+    - name: Início de sessão único
+      items:
+        - name: O que é o Início de Sessão Único?
+          href: how-to-connect-sso.md
+        - name: Como funciona o Início de Sessão Único
+          href: how-to-connect-sso-how-it-works.md
+        - name: Início de Sessão Único e privacidade do utilizador
+          href: how-to-connect-sso-user-privacy.md
+    - name: Azure AD Connect Sync
+      items:
+        - name: O que é o Azure AD Connect Sync?
+          href: how-to-connect-sync-whatis.md
+        - name: Funcionalidades de Sincronização do Azure AD Connect
+          href: how-to-connect-syncservice-features.md
+        - name: "O que é o gestor do serviço de Sincronização do Azure\_AD Connect?"
+          href: how-to-connect-sync-service-manager-ui.md
+        - name: Conceitos técnicos da Sincronização do Azure AD Connect
+          href: how-to-connect-sync-technical-concepts.md
+        - name: Compreender a arquitetura da Sincronização do Azure AD Connect
+          href: concept-azure-ad-connect-sync-architecture.md
+        - name: Compreender o Aprovisionamento Declarativo
+          href: concept-azure-ad-connect-sync-declarative-provisioning.md
+        - name: Compreender as Expressões de Aprovisionamento Declarativas
+          href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+        - name: Entender a configuração predefinida
+          href: concept-azure-ad-connect-sync-default-configuration.md
+        - name: Entender utilizadores e contactos
+          href: concept-azure-ad-connect-sync-user-and-contacts.md
+        - name: Compreender os atributos de sombra
+          href: how-to-connect-syncservice-shadow-attributes.md
 - name: Guias de procedimentos
   items:
-  - name: Instalação e atualização
-    items:
-    - name: Mapa de Objetivos de Instalação
-      href: how-to-connect-install-roadmap.md
-    - name: Pré-requisitos de Instalação
-      href: how-to-connect-install-prerequisites.md
-    - name: Escolha o tipo de instalação
-      href: how-to-connect-install-select-installation.md
-    - name: Instalar o Azure AD Connect com as definições Expresso (Sincronização de Hash de Palavra-passe)
-      href: how-to-connect-install-express.md
-    - name: Instalar Federação do Azure AD Connect ou outras definições Personalizadas
-      href: how-to-connect-install-custom.md
-    - name: Instalar o Azure AD Connect com a Autenticação Pass-through (PTA)
-      href: how-to-connect-pta-quick-start.md
-    - name: Instalar o Azure AD Connect Health
-      href: how-to-connect-health-agent-install.md
-    - name: Atualização automática
-      href: how-to-connect-install-automatic-upgrade.md
-    - name: Executar o assistente de instalação pela segunda vez
-      href: how-to-connect-installation-wizard.md
-    - name: Atualizar para uma nova versão do Azure AD Connect
-      href: how-to-upgrade-previous-version.md
-    - name: Atualizar do DirSync ou do Azure AD Sync
-      href: how-to-dirsync-upgrade-get-started.md
-    - name: Instalar com uma base de dados ADSync existente
-      href: how-to-connect-install-existing-database.md
-    - name: Instalar com permissões de administrador delegadas do SQL
-      href: how-to-connect-install-sql-delegation.md
-    - name: Atualizar agentes de pré-visualização para PTA
-      href: how-to-connect-pta-upgrade-preview-authentication-agents.md
-    - name: Mova a base de dados do Azure AD Connect do SQL Express para o SQL Server
-      href: how-to-connect-install-move-db.md
-    - name: Se já tiver o Azure AD
-      href: how-to-connect-install-existing-tenant.md
-    - name: Tarefas de pós-instalação
-      href: how-to-connect-post-installation.md
-  - name: Planear e conceber
-    items:
-    - name: Conceitos de design
-      href: plan-connect-design-concepts.md
-    - name: Topologias do Azure AD Connect
-      href: plan-connect-topologies.md
-    - name: Fatores a influenciar o desempenho do Azure AD Connect
-      href: plan-connect-performance-factors.md
-    - name: Como irão os utilizadores iniciar sessão
-      href: plan-connect-user-signin.md
-    - name: População UserPrincipalName do Azure AD
-      href: plan-connect-userprincipalname.md
-    - name: Considerações especiais sobre instâncias
-      href: reference-connect-instances.md
-    - name: Migração
+    - name: Instalação e atualização
       items:
-      - name: Migrar da federação para PHS
-        href: plan-migrate-adfs-password-hash-sync.md
-      - name: Migrar da federação para PTA
-        href: plan-migrate-adfs-pass-through-authentication.md
-    - name: Considerações de Design da Identidade Híbrida
+        - name: Mapa de Objetivos de Instalação
+          href: how-to-connect-install-roadmap.md
+        - name: Pré-requisitos de Instalação
+          href: how-to-connect-install-prerequisites.md
+        - name: Escolha o tipo de instalação
+          href: how-to-connect-install-select-installation.md
+        - name: Instalar o Azure AD Connect com as definições Expresso (Sincronização de Hash de Palavra-passe)
+          href: how-to-connect-install-express.md
+        - name: Instalar Federação do Azure AD Connect ou outras definições Personalizadas
+          href: how-to-connect-install-custom.md
+        - name: Instalar o Azure AD Connect com a Autenticação Pass-through (PTA)
+          href: how-to-connect-pta-quick-start.md
+        - name: Instalar o Azure AD Connect Health
+          href: how-to-connect-health-agent-install.md
+        - name: Atualização automática
+          href: how-to-connect-install-automatic-upgrade.md
+        - name: Executar o assistente de instalação pela segunda vez
+          href: how-to-connect-installation-wizard.md
+        - name: Atualizar para uma nova versão do Azure AD Connect
+          href: how-to-upgrade-previous-version.md
+        - name: Atualizar do DirSync ou do Azure AD Sync
+          href: how-to-dirsync-upgrade-get-started.md
+        - name: Instalar com uma base de dados ADSync existente
+          href: how-to-connect-install-existing-database.md
+        - name: Instalar com permissões de administrador delegadas do SQL
+          href: how-to-connect-install-sql-delegation.md
+        - name: Atualizar agentes de pré-visualização para PTA
+          href: how-to-connect-pta-upgrade-preview-authentication-agents.md
+        - name: Mova a base de dados do Azure AD Connect do SQL Express para o SQL Server
+          href: how-to-connect-install-move-db.md
+        - name: Se já tiver o Azure AD
+          href: how-to-connect-install-existing-tenant.md
+        - name: Tarefas de pós-instalação
+          href: how-to-connect-post-installation.md
+    - name: Planear e conceber
       items:
-      - name: Descrição Geral das Considerações de Design da Identidade Híbrida
-        href: plan-hybrid-identity-design-considerations-overview.md
-      - name: Determinar requisitos de identidade
-        href: plan-hybrid-identity-design-considerations-business-needs.md
-      - name: Determinar requisitos de sincronização
-        href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
-      - name: Determinar requisitos de autenticação multifator
-        href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
-      - name: Determinar estratégia de adoção de ciclo de vida
-        href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
-      - name: Definir uma estratégia de proteção de dados
-        href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
-      - name: Planear requisitos de proteção de dados
-        href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
-      - name: Determinar requisitos de gestão de conteúdos
-        href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
-      - name: Determinar requisitos do controlo de acesso
-        href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
-      - name: Determinar requisitos de resposta a incidentes
-        href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
-      - name: Planear para ciclo de vida da identidade híbrida
-        href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
-      - name: Definir uma estratégia de adoção
-        href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
-      - name: Considerações de design da identidade híbrida – Próximos Passos
-        href: plan-hybrid-identity-design-considerations-nextsteps.md
-      - name: Comparação de ferramentas de identidade híbrida
-        href: plan-hybrid-identity-design-considerations-tools-comparison.md
-  - name: Gerir o Azure AD Connect
-    items:
-    - name: Ativar a repetição de escrita do dispositivo
-      href: how-to-connect-device-writeback.md
-    - name: Opções do dispositivo
-      href: how-to-connect-device-options.md
-    - name: Funcionalidades adicionais no Azure AD Connect
-      href: how-to-connect-preview.md
-    - name: Impedir eliminações acidentais
-      href: how-to-connect-sync-feature-prevent-accidental-deletes.md
-    - name: Ativar a reciclagem do AD
-      href: how-to-connect-sync-recycle-bin.md
-    - name: Configurar a conta do Conector do AD DS
-      href: how-to-connect-configure-ad-ds-connector-account.md
-    - name: Alterar a palavra-passe da conta do serviço Azure AD Sync
-      href: how-to-connect-sync-change-serviceacct-pass.md
-    - name: Alterar a conta do Conector Azure AD
-      href: how-to-connect-azureadaccount.md
-    - name: Alterar a palavra-passe do Conector do AD DS
-      href: how-to-connect-sync-change-addsacct-pass.md
-  - name: Gerir autenticação Pass-through
-    items:
-    - name: Introdução à autenticação pass-through
-      href: how-to-connect-pta-quick-start.md
-    - name: FAQ da autenticação pass-through
-      href: how-to-connect-pta-faq.md
-  - name: Gerir os Serviços de Federação
-    items:
-    - name: Gerir a federação com o Azure AD Connect
-      href: how-to-connect-fed-management.md
-    - name: Suporte para vários domínios para federação
-      href: how-to-connect-install-multiple-domains.md
-    - name: Federar várias instâncias do Azure AD com uma instância única do AD FS
-      href: how-to-connect-fed-single-adfs-multitenant-federation.md
-    - name: Renovar certificados de federação do O365 e do Azure AD
-      href: how-to-connect-fed-o365-certs.md
-    - name: Atualizar o certificado SSL para o AD FS
-      href: how-to-connect-fed-ssl-update.md
-    - name: Gerir a confiança do AD FS com o Azure AD
-      href: how-to-connect-azure-ad-trust.md
-    - name: Configurar afirmações de grupo para aplicações
-      href: how-to-connect-fed-group-claims.md
-    - name: Alterar o algoritmo de hash para o O365 RP
-      href: how-to-connect-fed-sha256-guidance.md
-    - name: Utilizar um servidor SAML 2.0 como o Idp
-      href: how-to-connect-fed-saml-idp.md
-    - name: Publicar tarefas de configuração para associação ao Azure AD Híbrido
-      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
-  - name: Gerir o início de sessão único
-    items:
-    - name: Introdução ao Início de Sessão Único
-      href: how-to-connect-sso-quick-start.md
-    - name: FAQ do Início de Sessão Único
-      href: how-to-connect-sso-faq.md
-  - name: Gerir o Azure AD Connect Health
-    items:
-    - name: Operações do Azure AD Connect Health
-      href: how-to-connect-health-operations.md
-    - name: Utilizar o Azure AD Connect Health com o AD FS
-      href: how-to-connect-health-adfs.md
-    - name: Relatório de IP de risco do Azure AD Connect Health com o AD FS
-      href: how-to-connect-health-adfs-risky-ip.md
-    - name: Utilizar o Azure AD Connect Health para sincronização
-      href: how-to-connect-health-sync.md
-    - name: Utilizar o Azure AD Connect Health com o AD DS
-      href: how-to-connect-health-adds.md
-    - name: Dados do serviço de estado de funcionamento desatualizados
-      href: how-to-connect-health-data-freshness.md
-    - name: Diagnosticar erros de sincronização de atributos duplicados
-      href: how-to-connect-health-diagnose-sync-errors.md
-    - name: Catálogo de alertas do Azure AD Connect Health
-      href: how-to-connect-health-alert-catalog.md
-  - name: Gerir o Azure AD Connect Sync
-    items:
-    - name: Testar o servidor e a recuperação após desastre
-      href: how-to-connect-sync-staging-server.md
-    - name: Melhores práticas para alterar a configuração predefinida
-      href: how-to-connect-sync-best-practices-changing-default-configuration.md
-    - name: Alterar a configuração predefinida
-      href: how-to-connect-sync-change-the-configuration.md
-    - name: Corrigir as regras predefinidas modificadas
-      href: how-to-connect-fix-default-rules.md
-    - name: Configurar extensões de diretórios
-      href: how-to-connect-sync-feature-directory-extensions.md
-    - name: Configurar localização de dados preferencial
-      href: how-to-connect-sync-feature-preferreddatalocation.md
-    - name: Configurar a filtragem
-      href: how-to-connect-sync-configure-filtering.md
-    - name: Gerir o agendador
-      href: how-to-connect-sync-feature-scheduler.md
-    - name: Criar e personalizar uma regra de sincronização
-      href: how-to-connect-create-custom-sync-rule.md
-    - name: Gestor do serviço de Sincronização do Azure AD Connect
+        - name: Conceitos de design
+          href: plan-connect-design-concepts.md
+        - name: Topologias do Azure AD Connect
+          href: plan-connect-topologies.md
+        - name: Fatores a influenciar o desempenho do Azure AD Connect
+          href: plan-connect-performance-factors.md
+        - name: Como irão os utilizadores iniciar sessão
+          href: plan-connect-user-signin.md
+        - name: População UserPrincipalName do Azure AD
+          href: plan-connect-userprincipalname.md
+        - name: Considerações especiais sobre instâncias
+          href: reference-connect-instances.md
+        - name: Migração
+          items:
+            - name: Migrar da federação para PHS
+              href: plan-migrate-adfs-password-hash-sync.md
+            - name: Migrar da federação para PTA
+              href: plan-migrate-adfs-pass-through-authentication.md
+        - name: Considerações de Design da Identidade Híbrida
+          items:
+            - name: Descrição Geral das Considerações de Design da Identidade Híbrida
+              href: plan-hybrid-identity-design-considerations-overview.md
+            - name: Determinar requisitos de identidade
+              href: plan-hybrid-identity-design-considerations-business-needs.md
+            - name: Determinar requisitos de sincronização
+              href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+            - name: Determinar requisitos de autenticação multifator
+              href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+            - name: Determinar estratégia de adoção de ciclo de vida
+              href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+            - name: Definir uma estratégia de proteção de dados
+              href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
+            - name: Planear requisitos de proteção de dados
+              href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+            - name: Determinar requisitos de gestão de conteúdos
+              href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+            - name: Determinar requisitos do controlo de acesso
+              href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+            - name: Determinar requisitos de resposta a incidentes
+              href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
+            - name: Planear para ciclo de vida da identidade híbrida
+              href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+            - name: Definir uma estratégia de adoção
+              href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+            - name: Considerações de design da identidade híbrida – Próximos Passos
+              href: plan-hybrid-identity-design-considerations-nextsteps.md
+            - name: Comparação de ferramentas de identidade híbrida
+              href: plan-hybrid-identity-design-considerations-tools-comparison.md
+    - name: Gerir o Azure AD Connect
       items:
-      - name: Gerir o separador de operações do gestor de serviço
-        href: how-to-connect-sync-service-manager-ui-operations.md
-      - name: Utilizar conectores com o gestor de serviço
-        href: how-to-connect-sync-service-manager-ui-connectors.md
-      - name: Estruturador de metaversos
-        href: how-to-connect-sync-service-manager-ui-mvdesigner.md
-      - name: Pesquisa de metaversos
-        href: how-to-connect-sync-service-manager-ui-mvsearch.md
-  - name: Resolução de problemas
-    items:
-    - name: O que é o Agente de Administração do Azure AD Connect?
-      href: whatis-aadc-admin-agent.md
-    - name: O que é o módulo do ADConnectivityTools PowerShell?
-      href: how-to-connect-adconnectivitytools.md
-    - name: Conectividade
-      href: tshoot-connect-connectivity.md
-    - name: Erros durante a sincronização
-      href: tshoot-connect-sync-errors.md
-    - name: O objeto não está sincronizado
-      href: tshoot-connect-object-not-syncing.md
-    - name: Sincronização de objetos com a tarefa de resolução de problemas
-      href: tshoot-connect-objectsync.md
-    - name: Sincronização de hash de palavra-passe
-      href: tshoot-connect-password-hash-synchronization.md
-    - name: Autenticação pass-through
-      href: tshoot-connect-pass-through-authentication.md
-    - name: Início de sessão único
-      href: tshoot-connect-sso.md
-    - name: Erro de LargeObject causado por userCertificate
-      href: tshoot-connect-largeobjecterror-usercertificate.md
-    - name: Como recuperar a partir do limite de 10 GB de LocalDB
-      href: tshoot-connect-recover-from-localdb-10gb-limit.md
-    - name: Conectividade de SQL
-      href: tshoot-connect-tshoot-sql-connectivity.md
-    - name: Sincronização de atributos
-      href: tshoot-connect-attribute-not-syncing.md
-    - name: Problemas de instalação
-      href: tshoot-connect-install-issues.md
+        - name: Ativar a repetição de escrita do dispositivo
+          href: how-to-connect-device-writeback.md
+        - name: Opções do dispositivo
+          href: how-to-connect-device-options.md
+        - name: Funcionalidades adicionais no Azure AD Connect
+          href: how-to-connect-preview.md
+        - name: Impedir eliminações acidentais
+          href: how-to-connect-sync-feature-prevent-accidental-deletes.md
+        - name: Ativar a reciclagem do AD
+          href: how-to-connect-sync-recycle-bin.md
+        - name: Configurar a conta do Conector do AD DS
+          href: how-to-connect-configure-ad-ds-connector-account.md
+        - name: Alterar a palavra-passe da conta do serviço Azure AD Sync
+          href: how-to-connect-sync-change-serviceacct-pass.md
+        - name: Alterar a conta do Conector Azure AD
+          href: how-to-connect-azureadaccount.md
+        - name: Alterar a palavra-passe do Conector do AD DS
+          href: how-to-connect-sync-change-addsacct-pass.md
+    - name: Gerir autenticação Pass-through
+      items:
+        - name: Introdução à autenticação pass-through
+          href: how-to-connect-pta-quick-start.md
+        - name: FAQ da autenticação pass-through
+          href: how-to-connect-pta-faq.md
+    - name: Gerir os Serviços de Federação
+      items:
+        - name: Gerir a federação com o Azure AD Connect
+          href: how-to-connect-fed-management.md
+        - name: Suporte para vários domínios para federação
+          href: how-to-connect-install-multiple-domains.md
+        - name: Federar várias instâncias do Azure AD com uma instância única do AD FS
+          href: how-to-connect-fed-single-adfs-multitenant-federation.md
+        - name: Renovar certificados de federação do O365 e do Azure AD
+          href: how-to-connect-fed-o365-certs.md
+        - name: Atualizar o certificado SSL para o AD FS
+          href: how-to-connect-fed-ssl-update.md
+        - name: Gerir a confiança do AD FS com o Azure AD
+          href: how-to-connect-azure-ad-trust.md
+        - name: Configurar afirmações de grupo para aplicações
+          href: how-to-connect-fed-group-claims.md
+        - name: Alterar o algoritmo de hash para o O365 RP
+          href: how-to-connect-fed-sha256-guidance.md
+        - name: Utilizar um servidor SAML 2.0 como o Idp
+          href: how-to-connect-fed-saml-idp.md
+        - name: Publicar tarefas de configuração para associação ao Azure AD Híbrido
+          href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+    - name: Gerir o início de sessão único
+      items:
+        - name: Introdução ao Início de Sessão Único
+          href: how-to-connect-sso-quick-start.md
+        - name: FAQ do Início de Sessão Único
+          href: how-to-connect-sso-faq.md
+    - name: Gerir o Azure AD Connect Health
+      items:
+        - name: Operações do Azure AD Connect Health
+          href: how-to-connect-health-operations.md
+        - name: "Utilizar o Azure AD Connect Health com o AD\_FS"
+          href: how-to-connect-health-adfs.md
+        - name: Relatório de IP de risco do Azure AD Connect Health com o AD FS
+          href: how-to-connect-health-adfs-risky-ip.md
+        - name: Utilizar o Azure AD Connect Health para sincronização
+          href: how-to-connect-health-sync.md
+        - name: "Utilizar o Azure AD Connect Health com o AD\_DS"
+          href: how-to-connect-health-adds.md
+        - name: Dados do serviço de estado de funcionamento desatualizados
+          href: how-to-connect-health-data-freshness.md
+        - name: Diagnosticar erros de sincronização de atributos duplicados
+          href: how-to-connect-health-diagnose-sync-errors.md
+        - name: Catálogo de alertas do Azure AD Connect Health
+          href: how-to-connect-health-alert-catalog.md
+    - name: Gerir o Azure AD Connect Sync
+      items:
+        - name: Testar o servidor e a recuperação após desastre
+          href: how-to-connect-sync-staging-server.md
+        - name: Melhores práticas para alterar a configuração predefinida
+          href: how-to-connect-sync-best-practices-changing-default-configuration.md
+        - name: Alterar a configuração predefinida
+          href: how-to-connect-sync-change-the-configuration.md
+        - name: Corrigir as regras predefinidas modificadas
+          href: how-to-connect-fix-default-rules.md
+        - name: Configurar extensões de diretórios
+          href: how-to-connect-sync-feature-directory-extensions.md
+        - name: Configurar localização de dados preferencial
+          href: how-to-connect-sync-feature-preferreddatalocation.md
+        - name: Configurar a filtragem
+          href: how-to-connect-sync-configure-filtering.md
+        - name: Gerir o agendador
+          href: how-to-connect-sync-feature-scheduler.md
+        - name: Criar e personalizar uma regra de sincronização
+          href: how-to-connect-create-custom-sync-rule.md
+        - name: "Gestor do serviço de Sincronização do Azure\_AD Connect"
+          items:
+            - name: Gerir o separador de operações do gestor de serviço
+              href: how-to-connect-sync-service-manager-ui-operations.md
+            - name: Utilizar conectores com o gestor de serviço
+              href: how-to-connect-sync-service-manager-ui-connectors.md
+            - name: Estruturador de metaversos
+              href: how-to-connect-sync-service-manager-ui-mvdesigner.md
+            - name: Pesquisa de metaversos
+              href: how-to-connect-sync-service-manager-ui-mvsearch.md
+    - name: Resolução de problemas
+      items:
+        - name: O que é o Agente de Administração do Azure AD Connect?
+          href: whatis-aadc-admin-agent.md
+        - name: O que é o módulo do ADConnectivityTools PowerShell?
+          href: how-to-connect-adconnectivitytools.md
+        - name: Conectividade
+          href: tshoot-connect-connectivity.md
+        - name: Erros durante a sincronização
+          href: tshoot-connect-sync-errors.md
+        - name: O objeto não está sincronizado
+          href: tshoot-connect-object-not-syncing.md
+        - name: Âncora de origem durante a instalação
+          href: tshoot-connect-source-anchor.md
+        - name: Sincronização de objetos com a tarefa de resolução de problemas
+          href: tshoot-connect-objectsync.md
+        - name: Sincronização de hash de palavra-passe
+          href: tshoot-connect-password-hash-synchronization.md
+        - name: Autenticação pass-through
+          href: tshoot-connect-pass-through-authentication.md
+        - name: Início de sessão único
+          href: tshoot-connect-sso.md
+        - name: Erro de LargeObject causado por userCertificate
+          href: tshoot-connect-largeobjecterror-usercertificate.md
+        - name: Como recuperar a partir do limite de 10 GB de LocalDB
+          href: tshoot-connect-recover-from-localdb-10gb-limit.md
+        - name: Conectividade de SQL
+          href: tshoot-connect-tshoot-sql-connectivity.md
+        - name: Sincronização de atributos
+          href: tshoot-connect-attribute-not-syncing.md
+        - name: Problemas de instalação
+          href: tshoot-connect-install-issues.md
 - name: Referência
   items:
-  - name: Portas e Protocolos Necessários para a Identidade Híbrida
-    href: reference-connect-ports.md
-  - name: Histórico das versões do Azure AD Connect
-    href: reference-connect-version-history.md
-  - name: Histórico das versões do Azure AD Connect Health
-    href: reference-connect-health-version-history.md
-  - name: Histórico das versões do conector
-    href: reference-connect-sync-connector-version-history.md
-  - name: Contas e permissões
-    href: reference-connect-accounts-permissions.md
-  - name: FAQ do Azure AD Connect
-    href: reference-connect-faq.md
-  - name: FAQ do Azure AD Connect Health
-    href: reference-connect-health-faq.md
-  - name: Privacidade do utilizador do Azure AD Connect
-    href: reference-connect-user-privacy.md
-  - name: Privacidade do utilizador do Azure AD Connect Health
-    href: reference-connect-health-user-privacy.md
-  - name: Azure AD Connect na Alemanha
-    href: reference-connect-germany.md
-  - name: Descontinuação de Deprecation
-    href: reference-connect-dirsync-deprecated.md
-  - name: Atributos sincronizados
-    href: reference-connect-sync-attributes-synchronized.md
-  - name: Referência das Funções
-    href: reference-connect-sync-functions-reference.md
-  - name: Lista de compatibilidades de federação do Azure AD
-    href: how-to-connect-fed-compatibility.md
-  - name: Imposição de TLS 1.2
-    href: reference-connect-tls-enforcement.md
-  - name: Referência de ADSyncConfig
-    href: reference-connect-adsyncconfig.md
-  - name: Referência de ADSyncTools
-    href: reference-connect-adsynctools.md
-  - name: Referência de ADConnectivityTools
-    href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: aac9615fde8547493851ba513156ec860c51c13c
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498286"
+    - name: Portas e Protocolos Necessários para a Identidade Híbrida
+      href: reference-connect-ports.md
+    - name: Histórico das versões do Azure AD Connect
+      href: reference-connect-version-history.md
+    - name: Histórico das versões do Azure AD Connect Health
+      href: reference-connect-health-version-history.md
+    - name: Histórico das versões do conector
+      href: reference-connect-sync-connector-version-history.md
+    - name: Contas e permissões
+      href: reference-connect-accounts-permissions.md
+    - name: FAQ do Azure AD Connect
+      href: reference-connect-faq.md
+    - name: FAQ do Azure AD Connect Health
+      href: reference-connect-health-faq.md
+    - name: Privacidade do utilizador do Azure AD Connect
+      href: reference-connect-user-privacy.md
+    - name: Privacidade do utilizador do Azure AD Connect Health
+      href: reference-connect-health-user-privacy.md
+    - name: Azure AD Connect na Alemanha
+      href: reference-connect-germany.md
+    - name: Descontinuação de Deprecation
+      href: reference-connect-dirsync-deprecated.md
+    - name: Atributos sincronizados
+      href: reference-connect-sync-attributes-synchronized.md
+    - name: Referência das Funções
+      href: reference-connect-sync-functions-reference.md
+    - name: Lista de compatibilidades de federação do Azure AD
+      href: how-to-connect-fed-compatibility.md
+    - name: Imposição de TLS 1.2
+      href: reference-connect-tls-enforcement.md
+    - name: Referência de ADSyncConfig
+      href: reference-connect-adsyncconfig.md
+    - name: Referência de ADSyncTools
+      href: reference-connect-adsynctools.md
+    - name: Referência de ADConnectivityTools
+      href: reference-connect-adconnectivitytools.md

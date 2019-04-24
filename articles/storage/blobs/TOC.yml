@@ -317,10 +317,10 @@
                       href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autenticar com o Azure AD
                   items:
+                    - name: Autenticar com uma identidade gerida
+                      href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Autenticar a partir de uma aplicação
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Autenticar com identidades geridas
-                      href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autorizar com a Chave Partilhada
                   items:
                     - name: Configurar cadeias de ligação
@@ -552,7 +552,7 @@
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI do Sistema de Ficheiros de Blobs do Azure
           href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Serviço de Espaço de Nomes Hierárquico
+        - name: Acerca dos espaços de nomes hierárquicos
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Melhores práticas
           href: data-lake-storage-best-practices.md

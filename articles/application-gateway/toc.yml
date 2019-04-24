@@ -1,246 +1,243 @@
-items:
 - name: Documentação do Gateway de Aplicação
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Sobre os gateways de aplicação
-    href: overview.md
-  - name: Novidades
-    href: whats-new.md
+    - name: Sobre os gateways de aplicação
+      href: overview.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
-  items:
-  - name: Criar um Gateway de Aplicação - Portal
-    href: quick-create-portal.md
-  - name: Criar um Gateway de Aplicação - PowerShell
-    href: quick-create-powershell.md
-  - name: Criar um Gateway de Aplicação - CLI do Azure
-    href: quick-create-cli.md
   expanded: true
+  items:
+    - name: Criar um Gateway de Aplicação - Portal
+      href: quick-create-portal.md
+    - name: Criar um Gateway de Aplicação - PowerShell
+      href: quick-create-powershell.md
+    - name: Criar um Gateway de Aplicação - CLI do Azure
+      href: quick-create-cli.md
 - name: Tutoriais
   items:
-  - name: Ativar firewall de aplicações Web
-    href: application-gateway-web-application-firewall-portal.md
-  - name: Proteger com SSL
-    href: create-ssl-portal.md
-  - name: Alojar múltiplos sites
-    href: create-multiple-sites-portal.md
-  - name: Encaminhar pelo URL
-    href: create-url-route-portal.md
-  - name: Redirecionar tráfego da web
-    href: tutorial-url-redirect-cli.md
-  - name: Dimensionamento automático e redundância de zona
-    href: tutorial-autoscale-ps.md
+    - name: Ativar firewall de aplicações Web
+      href: application-gateway-web-application-firewall-portal.md
+    - name: Proteger com SSL
+      href: create-ssl-portal.md
+    - name: Alojar múltiplos sites
+      href: create-multiple-sites-portal.md
+    - name: Encaminhar pelo URL
+      href: create-url-route-portal.md
+    - name: Redirecionar tráfego da web
+      href: tutorial-url-redirect-cli.md
+    - name: Dimensionamento automático e redundância de zona
+      href: tutorial-autoscale-ps.md
 - name: Amostras
   items:
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: CLI do Azure
-    href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: CLI do Azure
+      href: cli-samples.md
 - name: Conceitos
   items:
-  - name: Noções básicas
-    items:
-    - name: Como funciona o Gateway de Aplicação
-      href: how-application-gateway-works.md
-    - name: Componentes do Gateway de Aplicação
-      href: application-gateway-components.md
-    - name: Descrição geral da configuração
-      href: configuration-overview.md
-  - name: Encaminhamento
-    items:
-    - name: Alojamento de vários sites
-      href: multiple-site-overview.md
-    - name: Encaminhamento do URL
-      href: url-route-overview.md
-    - name: Redirecionamento
-      href: redirect-overview.md
-    - name: Rescrever cabeçalhos HTTP
-      href: rewrite-http-headers.md
-    - name: Páginas de erro personalizadas
-      href: custom-error.md
-  - name: SSL
-    items:
-    - name: Terminação SSL e SSL ponto a ponto
-      href: ssl-overview.md
-    - name: Descrição geral da política SSL
-      href: application-gateway-ssl-policy-overview.md
-  - name: WAF
-    items:
-    - name: Firewall de aplicação Web
-      href: waf-overview.md
-    - name: Configuração do WAF
-      href: application-gateway-waf-configuration.md
-  - name: Monitorização do estado de funcionamento
-    items:
-    - name: Sonda de estado de funcionamento
-      href: application-gateway-probe-overview.md
-    - name: Diagnóstico
-      href: application-gateway-diagnostics.md
-  - name: Dimensionamento automático e redundância de zona
-    href: application-gateway-autoscaling-zone-redundant.md
-  - name: Aplicação Web do serviço de aplicações e suporte multi-inquilino
-    href: application-gateway-web-app-overview.md
-  - name: Suporte do WebSocket
-    href: application-gateway-websocket.md
-  - name: FAQ
-    href: application-gateway-faq.md
+    - name: Noções básicas
+      items:
+        - name: Como funciona o Gateway de Aplicação
+          href: how-application-gateway-works.md
+        - name: Componentes do Gateway de Aplicação
+          href: application-gateway-components.md
+        - name: Descrição geral da configuração
+          href: configuration-overview.md
+    - name: Encaminhamento
+      items:
+        - name: Alojamento de vários sites
+          href: multiple-site-overview.md
+        - name: Encaminhamento do URL
+          href: url-route-overview.md
+        - name: Redirecionamento
+          href: redirect-overview.md
+        - name: Rescrever cabeçalhos HTTP
+          href: rewrite-http-headers.md
+        - name: Páginas de erro personalizadas
+          href: custom-error.md
+    - name: SSL
+      items:
+        - name: Terminação SSL e SSL ponto a ponto
+          href: ssl-overview.md
+        - name: Descrição geral da política SSL
+          href: application-gateway-ssl-policy-overview.md
+        - name: Utilizar o Key Vault
+          href: key-vault-certs.md
+    - name: WAF
+      items:
+        - name: Firewall de aplicação Web
+          href: waf-overview.md
+        - name: Configuração do WAF
+          href: application-gateway-waf-configuration.md
+    - name: Monitorização do estado de funcionamento
+      items:
+        - name: Sonda de estado de funcionamento
+          href: application-gateway-probe-overview.md
+        - name: Diagnóstico
+          href: application-gateway-diagnostics.md
+    - name: Dimensionamento automático e redundância de zona
+      href: application-gateway-autoscaling-zone-redundant.md
+    - name: Aplicação Web do serviço de aplicações e suporte multi-inquilino
+      href: application-gateway-web-app-overview.md
+    - name: Suporte do WebSocket
+      href: application-gateway-websocket.md
+    - name: FAQ
+      href: application-gateway-faq.md
 - name: Guias de procedimentos
   items:
-  - name: Alojar um único site
-    items:
-    - name: Azure PowerShell
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: CLI do Azure
-      href: tutorial-manage-web-traffic-cli.md
-    - name: Modelo
-      href: create-vmss-template.md
-  - name: Configurar o balanceador de carga interno
-    items:
-    - name: Portal do Azure
-      href: configure-application-gateway-with-private-frontend-ip.md
-    - name: Azure PowerShell
-      href: application-gateway-ilb-arm.md
-  - name: Configurar o SSL
-    items:
-    - name: Terminação de SSL
+    - name: Alojar um único site
       items:
-      - name: Terminação de SSL - PowerShell
-        href: tutorial-ssl-powershell.md
-      - name: Terminação de SSL - CLI do Azure
-        href: tutorial-ssl-cli.md
-    - name: SSL de ponto a ponto
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
+        - name: CLI do Azure
+          href: tutorial-manage-web-traffic-cli.md
+        - name: Modelo
+          href: create-vmss-template.md
+    - name: Configurar o balanceador de carga interno
       items:
-      - name: SSL de ponta a ponta - Portal
-        href: end-to-end-ssl-portal.md
-      - name: SSL de ponta a ponta - PowerShell
-        href: application-gateway-end-to-end-ssl-powershell.md
-    - name: Gerir certificados
+        - name: Portal do Azure
+          href: configure-application-gateway-with-private-frontend-ip.md
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: Configurar o SSL
       items:
-      - name: Criar certificados para o back-end da lista de permissões
-        href: certificates-for-backend-authentication.md
-      - name: Renovar certificados
-        href: renew-certificates.md
-    - name: Política de SSL
+        - name: Terminação de SSL
+          items:
+            - name: Terminação de SSL - PowerShell
+              href: tutorial-ssl-powershell.md
+            - name: Terminação de SSL - CLI do Azure
+              href: tutorial-ssl-cli.md
+            - name: Configurar o Key Vault - PowerShell
+              href: configure-keyvault-ps.md
+        - name: SSL de ponto a ponto
+          items:
+            - name: SSL de ponta a ponta - Portal
+              href: end-to-end-ssl-portal.md
+            - name: SSL de ponta a ponta - PowerShell
+              href: application-gateway-end-to-end-ssl-powershell.md
+        - name: Gerir certificados
+          items:
+            - name: Criar certificados para o back-end da lista de permissões
+              href: certificates-for-backend-authentication.md
+            - name: Renovar certificados
+              href: renew-certificates.md
+        - name: Política de SSL
+          items:
+            - name: Configurar a política do SSL
+              href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Configurar a Firewall de Aplicações Web
       items:
-      - name: Configurar a política do SSL
-        href: application-gateway-configure-ssl-policy-powershell.md
-  - name: Configurar a Firewall de Aplicações Web
-    items:
-    - name: Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: CLI do Azure
-      href: tutorial-restrict-web-traffic-cli.md
-  - name: Configurar conjuntos de regras WAF
-    items:
-    - name: Portal do Azure
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: CLI do Azure
-      href: application-gateway-customize-waf-rules-cli.md
-  - name: Encaminhar pelo URL
-    items:
-    - name: Azure PowerShell
-      href: tutorial-url-route-powershell.md
-    - name: CLI do Azure
-      href: tutorial-url-route-cli.md
-  - name: Alojar múltiplos sites
-    items:
-    - name: Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
-    - name: CLI do Azure
-      href: tutorial-multiple-sites-cli.md
-  - name: Redirecionar tráfego
-    items:
-    - name: Tráfego externo
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
+        - name: CLI do Azure
+          href: tutorial-restrict-web-traffic-cli.md
+    - name: Configurar conjuntos de regras WAF
       items:
-      - name: Azure PowerShell
-        href: redirect-external-site-powershell.md
-      - name: CLI do Azure
-        href: redirect-external-site-cli.md
-    - name: HTTP para HTTPS
+        - name: Portal do Azure
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: CLI do Azure
+          href: application-gateway-customize-waf-rules-cli.md
+    - name: Encaminhar pelo URL
       items:
-      - name: Portal do Azure
-        href: redirect-http-to-https-portal.md
-      - name: Azure PowerShell
-        href: redirect-http-to-https-powershell.md
-      - name: CLI do Azure
-        href: redirect-http-to-https-cli.md
-    - name: Redirecionar o tráfego interno
+        - name: Azure PowerShell
+          href: tutorial-url-route-powershell.md
+        - name: CLI do Azure
+          href: tutorial-url-route-cli.md
+    - name: Alojar múltiplos sites
       items:
-      - name: Azure PowerShell
-        href: redirect-internal-site-powershell.md
-      - name: CLI do Azure
-        href: redirect-internal-site-cli.md
-    - name: Redirecionar o tráfego da web com o Azure PowerShell
-      href: tutorial-url-redirect-powershell.md
-  - name: Rescrever cabeçalhos HTTP
-    items:
-    - name: Portal do Azure
-      href: rewrite-http-headers-portal.md
-    - name: Azure PowerShell
-      href: add-http-header-rewrite-rule-powershell.md
-  - name: Configurar Aplicação Web do serviço de aplicações e serviço multi-inquilino
-    items:
-    - name: Portal
-      href: configure-web-app-portal.md
-    - name: Azure PowerShell
-      href: create-web-app.md
-  - name: Configurar pesquisas personalizadas
-    items:
-    - name: Portal
-      href: application-gateway-create-probe-portal.md
-    - name: PowerShell Clássico
-      href: application-gateway-create-probe-classic-ps.md
-    - name: Resource Manager PowerShell
-      href: application-gateway-create-probe-ps.md
-  - name: Resolução de problemas
-    items:
-    - name: ILB com um Ambiente do Serviço de Aplicações
-      href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: Redirecionar para o URL do Serviço de Aplicações
-      href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: Problemas na afinidade da sessão
-      href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: Erros de Mau Gateway (502)
-      href: application-gateway-troubleshooting-502.md
+        - name: Azure PowerShell
+          href: tutorial-multiple-sites-powershell.md
+        - name: CLI do Azure
+          href: tutorial-multiple-sites-cli.md
+    - name: Redirecionar tráfego
+      items:
+        - name: Tráfego externo
+          items:
+            - name: Azure PowerShell
+              href: redirect-external-site-powershell.md
+            - name: CLI do Azure
+              href: redirect-external-site-cli.md
+        - name: HTTP para HTTPS
+          items:
+            - name: Portal do Azure
+              href: redirect-http-to-https-portal.md
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: CLI do Azure
+              href: redirect-http-to-https-cli.md
+        - name: Redirecionar o tráfego interno
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: CLI do Azure
+              href: redirect-internal-site-cli.md
+        - name: Redirecionar o tráfego da web com o Azure PowerShell
+          href: tutorial-url-redirect-powershell.md
+    - name: Rescrever cabeçalhos HTTP
+      items:
+        - name: Portal do Azure
+          href: rewrite-http-headers-portal.md
+        - name: Azure PowerShell
+          href: add-http-header-rewrite-rule-powershell.md
+    - name: Configurar Aplicação Web do serviço de aplicações e serviço multi-inquilino
+      items:
+        - name: Portal
+          href: configure-web-app-portal.md
+        - name: Azure PowerShell
+          href: create-web-app.md
+    - name: Configurar pesquisas personalizadas
+      items:
+        - name: Portal
+          href: application-gateway-create-probe-portal.md
+        - name: PowerShell Clássico
+          href: application-gateway-create-probe-classic-ps.md
+        - name: Resource Manager PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: Resolução de problemas
+      items:
+        - name: ILB com um Ambiente do Serviço de Aplicações
+          href: create-gateway-internal-load-balancer-app-service-environment.md
+        - name: Redirecionar para o URL do Serviço de Aplicações
+          href: troubleshoot-app-service-redirection-app-service-url.md
+        - name: Problemas na afinidade da sessão
+          href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
+        - name: Erros de Mau Gateway (502)
+          href: application-gateway-troubleshooting-502.md
 - name: Referência
   items:
-  - name: Regras de CRS
-    href: application-gateway-crs-rulegroups-rules.md
-  - name: CLI do Azure
-    href: /cli/azure/network/application-gateway
-  - name: Azure PowerShell
-    href: /powershell/azure/overview
-  - name: .NET
-    href: /dotnet/api
-  - name: Java
-    href: /java/api
-  - name: Node.js
-    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
-  - name: Python
-    href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/applicationgateway
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    - name: Regras de CRS
+      href: application-gateway-crs-rulegroups-rules.md
+    - name: CLI do Azure
+      href: /cli/azure/network/application-gateway
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/applicationgateway
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
 - name: Recursos
   items:
-  - name: Modelos de autor
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Modelos da comunidade
-    href: https://azure.microsoft.com/documentation/templates
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/#Linux
-  - name: Disponibilidade regional
-    href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 26ec063b5ad05325eb654a3b112eb5dd6ef23bcc
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547385"
+    - name: Modelos de autor
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modelos da comunidade
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-application-gateway'
