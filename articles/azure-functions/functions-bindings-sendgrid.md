@@ -255,7 +255,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**|| Necessário - tem de ser definido como `sendGrid`.|
+|**type**|| Necessário - tem de ser definido como `sendGrid`.|
 |**direção**|| Necessário - tem de ser definido como `out`.|
 |**name**|| Necessário - o nome da variável no código de função para a pedido ou corpo do pedido. Este valor é ```$return``` quando existe apenas um valor de retorno. |
 |**apiKey**|**ApiKey**| O nome de uma definição de aplicação que contém a chave de API. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsSendGridApiKey".|
@@ -288,7 +288,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|de|n/d|Endereço de e-mail do remetente em todas as funções.| 
+|from|n/d|Endereço de e-mail do remetente em todas as funções.| 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
