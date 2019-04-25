@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619225"
 documentType: LandingData
 title: Documentação do portal do Azure
 metadata:
@@ -23,29 +17,29 @@ metadata:
   ms.date: 10/08/2018
   ms.author: kfollis
 abstract:
-  description: O portal do Azure é uma consola unificada baseada na web que lhe permite criar, gerir e monitorizar tudo, desde simples aplicações web a aplicações complexas na cloud. Inclui um dashboard personalizável e opções de acessibilidade.
+  description: 'O portal do Azure é uma consola unificada baseada na web que lhe permite criar, gerir e monitorizar tudo, desde simples aplicações web a aplicações complexas na cloud. Inclui um dashboard personalizável e opções de acessibilidade.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>Execute o portal do Azure em todos os computadores modernos, dispositivos tablet e browsers.</p>
-      title: Dispositivos e browsers suportados
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>Altere o esquema de cores ou o contraste no portal do Azure.</p>
-      title: Ativar o contraste elevado
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>Saiba mais sobre os atalhos de teclado que funcionam no portal do Azure.</p>
-      title: Atalhos de teclado
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>Criar vários dashboards e partilhá-los com outros que tenham acesso às suas subscrições do Azure.</p>
-      title: Criar e partilhar dashboards do Azure
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>Publicar e partilhar um dashboard com outros utilizadores na sua organização.</p>
-      title: Partilhar dashboards ao utilizar o RBAC
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>Criar e publicar programaticamente os dashboards para a sua organização</p>
-      title: Criar programaticamente dashboards do Azure
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: '<p>Execute o portal do Azure em todos os computadores modernos, dispositivos tablet e browsers.</p>'
+            title: Dispositivos e browsers suportados
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>Altere o esquema de cores ou o contraste no portal do Azure.</p>
+            title: Ativar o contraste elevado
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>Saiba mais sobre os atalhos de teclado que funcionam no portal do Azure.</p>
+            title: Atalhos de teclado
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>Criar vários dashboards e partilhá-los com outros que tenham acesso às suas subscrições do Azure.</p>
+            title: Criar e partilhar dashboards do Azure
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>Publicar e partilhar um dashboard com outros utilizadores na sua organização.</p>
+            title: Partilhar dashboards ao utilizar o RBAC
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>Criar e publicar programaticamente os dashboards para a sua organização</p>
+            title: Criar programaticamente dashboards do Azure
