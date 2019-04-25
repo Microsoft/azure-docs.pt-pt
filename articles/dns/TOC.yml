@@ -1,158 +1,151 @@
-items:
 - name: Documentação do DNS
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o DNS do Azure?
-    href: dns-overview.md
+    - name: O que é o DNS do Azure?
+      href: dns-overview.md
 - name: Inícios rápidos
-  items:
-  - name: Resolução de nomes - portal
-    href: dns-getstarted-portal.md
-  - name: Resolução de nomes - PowerShell
-    href: dns-getstarted-powershell.md
-  - name: Resolução de nomes - CLI
-    href: dns-getstarted-cli.md
   expanded: true
+  items:
+    - name: Resolução de nomes - portal
+      href: dns-getstarted-portal.md
+    - name: Resolução de nomes - PowerShell
+      href: dns-getstarted-powershell.md
+    - name: Resolução de nomes - CLI
+      href: dns-getstarted-cli.md
 - name: Tutoriais
   items:
-  - name: Aloje o seu domínio no DNS do Azure
-    href: dns-delegate-domain-azure-dns.md
-  - name: Criar registos DNS personalizados para uma aplicação web
-    href: dns-web-sites-custom-domain.md
-  - name: Criar zona e um registo DNS privados
-    href: private-dns-getstarted-powershell.md
-  - name: Registos de alias para o Gestor de Tráfego
-    href: tutorial-alias-tm.md
-  - name: Registos de alias para Endereços IP Públicos
-    href: tutorial-alias-pip.md
-  - name: Registos de alias para registos de zona
-    href: tutorial-alias-rr.md
+    - name: Aloje o seu domínio no DNS do Azure
+      href: dns-delegate-domain-azure-dns.md
+    - name: Criar registos DNS personalizados para uma aplicação web
+      href: dns-web-sites-custom-domain.md
+    - name: Criar zona e um registo DNS privados
+      href: private-dns-getstarted-powershell.md
+    - name: Registos de alias para o Gestor de Tráfego
+      href: tutorial-alias-tm.md
+    - name: Registos de alias para Endereços IP Públicos
+      href: tutorial-alias-pip.md
+    - name: Registos de alias para registos de zona
+      href: tutorial-alias-rr.md
 - name: Amostras
   items:
-  - name: CLI do Azure
-    href: cli-samples.md
+    - name: CLI do Azure
+      href: cli-samples.md
 - name: Conceitos
   items:
-  - name: Zonas e registos
-    href: dns-zones-records.md
-  - name: Registos de alias
-    href: dns-alias.md
-  - name: Delegação com o DNS do Azure
-    href: dns-domain-delegation.md
-  - name: FAQ
-    href: dns-faq.md
-  - name: Utilizar zonas DNS privadas
-    href: private-dns-overview.md
-  - name: Cenários de DNS privado
-    href: private-dns-scenarios.md
-  - name: Métricas e alertas de DNS
-    href: dns-alerts-metrics.md
-  - name: DNS Inverso
-    href: dns-reverse-dns-overview.md
-  - name: Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
-    href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Zonas e registos
+      href: dns-zones-records.md
+    - name: Registos de alias
+      href: dns-alias.md
+    - name: Delegação com o DNS do Azure
+      href: dns-domain-delegation.md
+    - name: FAQ
+      href: dns-faq.md
+    - name: Utilizar zonas DNS privadas
+      href: private-dns-overview.md
+    - name: Cenários de DNS privado
+      href: private-dns-scenarios.md
+    - name: Métricas e alertas de DNS
+      href: dns-alerts-metrics.md
+    - name: DNS Inverso
+      href: dns-reverse-dns-overview.md
+    - name: Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedimento
   items:
-  - name: Criar zona e registo de DNS privado - CLI do Azure
-    href: private-dns-getstarted-cli.md
-  - name: Registos de alias para aplicações web de carga balanceada
-    href: dns-alias-appservice.md
-  - name: Gerir zonas DNS
-    items:
-    - name: Portal do Azure
-      href: dns-operations-dnszones-portal.md
-    - name: Azure PowerShell
-      href: dns-operations-dnszones.md
-    - name: CLI do Azure
-      href: dns-operations-dnszones-cli.md
-  - name: Gerir registos DNS
-    items:
-    - name: Portal do Azure
-      href: dns-operations-recordsets-portal.md
-    - name: Azure PowerShell
-      href: dns-operations-recordsets.md
-    - name: CLI do Azure
-      href: dns-operations-recordsets-cli.md
-  - name: Gerir DNS inverso
-    items:
-    - name: Zonas de pesquisa inversa de anfitrião no DNS do Azure
-      href: dns-reverse-dns-hosting.md
-    - name: Gerir registos DNS inversos para serviços do Azure
-      href: dns-reverse-dns-for-azure-services.md
-  - name: Importar e exportar um ficheiro de zona DNS
-    href: dns-import-export.md
-  - name: Delegar um subdomínio
-    href: delegate-subdomain.md
-  - name: Delegar um subdomínio com o PowerShell
-    href: delegate-subdomain-ps.md
-  - name: Integrar com outros serviços do Azure
-    href: dns-for-azure-services.md
-  - name: Proteger zonas e registos DNS
-    href: dns-protect-zones-recordsets.md
-  - name: Automatizar as operações DNS com o SDK do .NET
-    href: dns-sdk.md
-  - name: Domínios personalizados para os recursos do Azure
-    href: dns-custom-domain.md
-  - name: Resolução de problemas
-    items:
-    - name: Guia de resolução de problemas
-      href: dns-troubleshoot.md
+    - name: Criar zona e registo de DNS privado - CLI do Azure
+      href: private-dns-getstarted-cli.md
+    - name: Registos de alias para aplicações web de carga balanceada
+      href: dns-alias-appservice.md
+    - name: Gerir zonas DNS
+      items:
+        - name: Portal do Azure
+          href: dns-operations-dnszones-portal.md
+        - name: Azure PowerShell
+          href: dns-operations-dnszones.md
+        - name: CLI do Azure
+          href: dns-operations-dnszones-cli.md
+    - name: Gerir registos DNS
+      items:
+        - name: Portal do Azure
+          href: dns-operations-recordsets-portal.md
+        - name: Azure PowerShell
+          href: dns-operations-recordsets.md
+        - name: CLI do Azure
+          href: dns-operations-recordsets-cli.md
+    - name: Gerir DNS inverso
+      items:
+        - name: Zonas de pesquisa inversa de anfitrião no DNS do Azure
+          href: dns-reverse-dns-hosting.md
+        - name: Gerir registos DNS inversos para serviços do Azure
+          href: dns-reverse-dns-for-azure-services.md
+    - name: Importar e exportar um ficheiro de zona DNS
+      href: dns-import-export.md
+    - name: Delegar um subdomínio
+      href: delegate-subdomain.md
+    - name: Delegar um subdomínio com o PowerShell
+      href: delegate-subdomain-ps.md
+    - name: Integrar com outros serviços do Azure
+      href: dns-for-azure-services.md
+    - name: Proteger zonas e registos DNS
+      href: dns-protect-zones-recordsets.md
+    - name: Automatizar as operações DNS com o SDK do .NET
+      href: dns-sdk.md
+    - name: Domínios personalizados para os recursos do Azure
+      href: dns-custom-domain.md
+    - name: Resolução de problemas
+      items:
+        - name: Guia de resolução de problemas
+          href: dns-troubleshoot.md
 - name: Referência
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=dns
-  - name: Azure PowerShell
-    href: /powershell/module/az.dns
-  - name: CLI do Azure
-    href: /cli/azure/network/dns
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.dns.models
-  - name: Java
-    href: /java/api/com.microsoft.azure.management.dns
-  - name: Node.js
-    href: https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/
-  - name: Ruby
-    href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
-  - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
-  - name: REST
-    href: /rest/api/dns/
-  - name: Modelo do Resource Manager
-    href: /azure/templates/microsoft.network/dns-allversions
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=dns'
+    - name: Azure PowerShell
+      href: /powershell/module/az.dns
+    - name: CLI do Azure
+      href: /cli/azure/network/dns
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.dns.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.dns
+    - name: Node.js
+      href: 'https://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/'
+    - name: Ruby
+      href: 'https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html'
+    - name: REST
+      href: /rest/api/dns/
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.network/dns-allversions
 - name: Relacionado
   items:
-  - name: Gateway de Aplicação
-    href: /azure/application-gateway/
-  - name: Rede Virtual
-    href: /azure/virtual-network/
-  - name: Máquina Virtual
-    href: /azure/virtual-machines/
-  - name: Balanceador de Carga
-    href: /azure/load-balancer/
-  - name: Gestor de Tráfego
-    href: /azure/traffic-manager/
-  - name: Web Apps
-    href: /azure/app-service/
+    - name: Gateway de Aplicação
+      href: /azure/application-gateway/
+    - name: Rede Virtual
+      href: /azure/virtual-network/
+    - name: Máquina Virtual
+      href: /azure/virtual-machines/
+    - name: Balanceador de Carga
+      href: /azure/load-balancer/
+    - name: Gestor de Tráfego
+      href: /azure/traffic-manager/
+    - name: Web Apps
+      href: /azure/app-service/
 - name: Recursos
   items:
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Pedidos de funcionalidades
-    href: https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
-  - name: Blogue de Redes
-    href: https://azure.microsoft.com/blog/topics/networking
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/dns/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=dns
-ms.openlocfilehash: 57c57ba6d03f45eb585e98e8d5706a94d72d8886
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794414"
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Pedidos de funcionalidades
+      href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Blogue de Redes
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/dns/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=dns'

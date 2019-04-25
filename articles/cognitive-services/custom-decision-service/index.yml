@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6768d2a313a1d781c6db23dff404aed2efc99f31
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228343"
 documentType: LandingData
 title: Documentação do Serviço de Decisão Personalizada
 metadata:
-  title: Documentação do Serviço de Decisão Personalizada – Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs
-  meta.description: Learn how to create a contextual, decision-making API that improves with experience
+  title: 'Documentação do Serviço de Decisão Personalizada – Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs'
+  meta.description: 'Learn how to create a contextual, decision-making API that improves with experience'
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -21,34 +15,34 @@ metadata:
   ms.date: 05/01/2018
   ms.author: nolachar
 abstract:
-  description: O Serviço de Decisão Personalizada do Azure permite-lhe criar sistemas inteligentes com uma API com base na cloud, com tomada de decisões contextuais que fica mais precisa com a experiência. O Serviço de Decisão Personalizada usa a potência da aprendizagem por reforço e adapta o conteúdo em sua aplicação para maximizar o envolvimento global dos utilizadores. O sistema incorpora comentários dos usuários em suas decisões em tempo real e responde às tendências emergentes e histórias de última hora, em questão de minutos. Por meio destes inícios rápidos, saiba como registar a sua aplicação e chamar a API por meio de um browser ou aplicação. Em seguida, personalize seus artigos e represente o conteúdo como "funcionalidades" prontas para a aprendizagem automática com os tutoriais.
+  description: 'O Serviço de Decisão Personalizada do Azure permite-lhe criar sistemas inteligentes com uma API com base na cloud, com tomada de decisões contextuais que fica mais precisa com a experiência. O Serviço de Decisão Personalizada usa a potência da aprendizagem por reforço e adapta o conteúdo em sua aplicação para maximizar o envolvimento global dos utilizadores. O sistema incorpora comentários dos usuários em suas decisões em tempo real e responde às tendências emergentes e histórias de última hora, em questão de minutos. Por meio destes inícios rápidos, saiba como registar a sua aplicação e chamar a API por meio de um browser ou aplicação. Em seguida, personalize seus artigos e represente o conteúdo como "funcionalidades" prontas para a aprendizagem automática com os tutoriais.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Registe a sua aplicação e chame a API de Serviço de Decisão Personalizada do Azure diretamente do seu browser ou da aplicação para smartphone:'
-  - type: list
-    style: unordered
+  - title: Inícios rápidos de cinco minutos
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Registar a sua aplicação</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Chamar a API de um browser</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Chamar a API de uma aplicação</a>
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Personalize os seus artigos na página frontal de um site e especifique seu conteúdo como "recursos" prontos para a aprendizagem automática usando as APIs de Serviço de Decisão Personalizada:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Registe a sua aplicação e chame a API de Serviço de Decisão Personalizada do Azure diretamente do seu browser ou da aplicação para smartphone:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Registar a sua aplicação</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Chamar a API de um browser</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Chamar a API de uma aplicação</a>
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">Personalização de artigos</a>
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
-- title: Referência
-  items:
-  - type: paragraph
-    text: Essas APIs funcionam em conjunto. Existem três APIs na referência de API que contribuem para a tomada de decisão personalizada. A API de Experimentação faz uso dos ficheiros de registo gerados pela API LogDownloader. Cenários detalhados são partilhados nos artigos.
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Personalize os seus artigos na página frontal de um site e especifique seu conteúdo como "recursos" prontos para a aprendizagem automática usando as APIs de Serviço de Decisão Personalizada:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-news">Personalização de artigos</a>
+          - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-tutorial-ml">Machine Learning</a>
+  - title: Referência
     items:
-    - title: APIs
-      html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Experimentação</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>
+      - type: paragraph
+        text: Essas APIs funcionam em conjunto. Existem três APIs na referência de API que contribuem para a tomada de decisão personalizada. A API de Experimentação faz uso dos ficheiros de registo gerados pela API LogDownloader. Cenários detalhados são partilhados nos artigos.
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: APIs
+            html: <p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Experimentação</a></p><p><a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a><p>

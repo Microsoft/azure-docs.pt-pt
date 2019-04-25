@@ -1,51 +1,44 @@
-items:
 - name: Documentação do Detetor de Anomalias
   href: index.yml
 - name: Descrição geral
-  items:
-  - name: O que é a API do Detetor de Anomalias?
-    href: overview.md
   expanded: true
+  items:
+    - name: O que é a API do Detetor de Anomalias?
+      href: overview.md
 - name: Inícios rápidos
-  items:
-  - name: Detetar Anomalias nos seus dados
-    items:
-    - name: Utilizar C#
-      href: quickstarts/detect-data-anomalies-csharp.md
-    - name: Utilizar o Java
-      href: quickstarts/detect-data-anomalies-java.md
-    - name: Utilizar o Python
-      href: quickstarts/detect-data-anomalies-python.md
   expanded: true
+  items:
+    - name: Detetar Anomalias nos seus dados
+      items:
+        - name: 'Utilizar C#'
+          href: quickstarts/detect-data-anomalies-csharp.md
+        - name: Utilizar o Java
+          href: quickstarts/detect-data-anomalies-java.md
+        - name: Utilizar o Python
+          href: quickstarts/detect-data-anomalies-python.md
 - name: Guias de procedimentos
   items:
-  - name: Identificar anomalias nos seus dados
-    href: how-to/identify-anomalies.md
+    - name: Identificar anomalias nos seus dados
+      href: how-to/identify-anomalies.md
 - name: Conceitos
   items:
-  - name: Melhores práticas da API do Detetor de Anomalias
-    href: concepts/anomaly-detection-best-practices.md
+    - name: Melhores práticas da API do Detetor de Anomalias
+      href: concepts/anomaly-detection-best-practices.md
 - name: Referência
   items:
-  - name: Referência da API REST
-    href: https://aka.ms/anomaly-detector-rest-api-ref
-  - name: SDKs
-    items:
-    - name: .NET
-      href: https://aka.ms/anomaly-detector-dotnet-ref
+    - name: Referência da API REST
+      href: 'https://aka.ms/anomaly-detector-rest-api-ref'
+    - name: SDKs
+      items:
+        - name: .NET
+          href: 'https://aka.ms/anomaly-detector-dotnet-ref'
 - name: Recursos
   items:
-  - name: Preços
-    href: https://aka.ms/anomaly-detector-pricing
-  - name: Disponibilidade regional
-    href: https://aka.ms/anomaly-detector-region
-  - name: Arquitetura de soluções de referência
-    href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-anomaly-detection
-ms.openlocfilehash: 84e9317e3eb20181dcf1003718eb33acddbd84fa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786986"
+    - name: Preços
+      href: 'https://aka.ms/anomaly-detector-pricing'
+    - name: Disponibilidade regional
+      href: 'https://aka.ms/anomaly-detector-region'
+    - name: Arquitetura de soluções de referência
+      href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-anomaly-detection'

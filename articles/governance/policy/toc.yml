@@ -1,351 +1,344 @@
-items:
 - name: Documentação do Azure Policy
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Descrição Geral do Azure Policy
-    displayName: rbac, assign, initiative, parameters, count
-    href: overview.md
+    - name: Descrição Geral do Azure Policy
+      displayName: 'rbac, assign, initiative, parameters, count'
+      href: overview.md
 - name: Inícios rápidos
-  items:
-  - name: Atribuir uma política - Portal
-    displayName: assign, compliance
-    href: assign-policy-portal.md
-  - name: Atribuir uma política - PowerShell
-    displayName: assign, compliance
-    href: assign-policy-powershell.md
-  - name: Atribuir uma política - CLI do Azure
-    displayName: assign, compliance
-    href: assign-policy-azurecli.md
-  - name: Atribuir uma política - modelo
-    displayName: assign, compliance, resource manager, ARM
-    href: assign-policy-template.md
   expanded: true
+  items:
+    - name: Atribuir uma política - Portal
+      displayName: 'assign, compliance'
+      href: assign-policy-portal.md
+    - name: Atribuir uma política - PowerShell
+      displayName: 'assign, compliance'
+      href: assign-policy-powershell.md
+    - name: Atribuir uma política - CLI do Azure
+      displayName: 'assign, compliance'
+      href: assign-policy-azurecli.md
+    - name: Atribuir uma política - modelo
+      displayName: 'assign, compliance, resource manager, ARM'
+      href: assign-policy-template.md
 - name: Tutoriais
   items:
-  - name: Criar e gerir o Azure Policy
-    displayName: assign, definition, compliance, exempt, exclusion
-    href: ./tutorials/create-and-manage.md
-  - name: Criar uma definição de política personalizada
-    displayName: disabled, parameters, rule, mode
-    href: ./tutorials/create-custom-policy-definition.md
-  - name: Laboratórios Práticos- A explorar o Azure Policy
-    displayName: create, policy, training, learn
-    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
+    - name: Criar e gerir o Azure Policy
+      displayName: 'assign, definition, compliance, exempt, exclusion'
+      href: ./tutorials/create-and-manage.md
+    - name: Criar uma definição de política personalizada
+      displayName: 'disabled, parameters, rule, mode'
+      href: ./tutorials/create-custom-policy-definition.md
+    - name: Laboratórios Práticos- A explorar o Azure Policy
+      displayName: 'create, policy, training, learn'
+      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Amostras
   items:
-  - name: Índice
-    displayName: list, examples
-    href: ./samples/index.md
-  - name: Geral
-    items:
-    - name: Atribuição de nomes
+    - name: Índice
+      displayName: 'list, examples'
+      href: ./samples/index.md
+    - name: Geral
       items:
-      - name: Permitir múltiplos padrões de nome
-        displayName: deny, indexed
-        href: samples/allow-multiple-name-patterns.md
-      - name: Exigir padrão like
-        displayName: deny, indexed
-        href: samples/enforce-like-pattern.md
-      - name: Exigir padrão de correspondência
-        displayName: deny, indexed
-        href: samples/enforce-match-pattern.md
-      - name: Exigir padrão de correspondência de etiqueta
-        displayName: deny, all
-        href: samples/enforce-tag-match-pattern.md
-    - name: Etiquetas
+        - name: Atribuição de nomes
+          items:
+            - name: Permitir múltiplos padrões de nome
+              displayName: 'deny, indexed'
+              href: samples/allow-multiple-name-patterns.md
+            - name: Exigir padrão like
+              displayName: 'deny, indexed'
+              href: samples/enforce-like-pattern.md
+            - name: Exigir padrão de correspondência
+              displayName: 'deny, indexed'
+              href: samples/enforce-match-pattern.md
+            - name: Exigir padrão de correspondência de etiqueta
+              displayName: 'deny, all'
+              href: samples/enforce-tag-match-pattern.md
+        - name: Etiquetas
+          items:
+            - name: Aplicar etiqueta e o respetivo valor predefinido
+              displayName: 'append, builtin, concat'
+              href: samples/apply-tag-default-value.md
+            - name: Iniciativa de política de etiquetas de faturação
+              href: samples/billing-tags-policy-initiative.md
+            - name: Impor etiqueta e o respetivo valor
+              displayName: 'deny, concat, builtin'
+              href: samples/enforce-tag-value.md
+            - name: Impor a etiqueta e o respetivo valor em grupos de recursos
+              displayName: 'deny, concat'
+              href: samples/enforce-tag-on-resource-groups.md
+        - name: Localizações
+          items:
+            - name: Localizações permitidas
+              displayName: 'deny, builtin, location'
+              href: samples/allowed-locations.md
+        - name: Tipos de recurso
+          items:
+            - name: Tipos de recursos permitidos
+              displayName: 'deny, builtin, resourceTypes'
+              href: samples/allowed-resource-types.md
+            - name: Tipos de recursos não permitidos
+              displayName: 'deny, builtin, resourceTypes'
+              href: samples/not-allowed-resource-types.md
+    - name: Computação
       items:
-      - name: Aplicar etiqueta e o respetivo valor predefinido
-        displayName: append, builtin, concat
-        href: samples/apply-tag-default-value.md
-      - name: Iniciativa de política de etiquetas de faturação
-        href: samples/billing-tags-policy-initiative.md
-      - name: Impor etiqueta e o respetivo valor
-        displayName: deny, concat, builtin
-        href: samples/enforce-tag-value.md
-      - name: Impor a etiqueta e o respetivo valor em grupos de recursos
-        displayName: deny, concat
-        href: samples/enforce-tag-on-resource-groups.md
-    - name: Localizações
+        - name: Máquinas virtuais
+          items:
+            - name: Permitir que a imagem de VM personalizada seja de um grupo de recursos
+              displayName: 'deny, concat, ExistingResourceGroups'
+              href: samples/allow-custom-vm-image.md
+            - name: SKUs permitidos para contas de armazenamento e máquinas virtuais
+              displayName: 'initiative, vmSKUs, storageSKUs'
+              href: samples/allowed-skus-storage.md
+            - name: Imagens de VM aprovadas
+              displayName: deny
+              href: samples/allowed-custom-images.md
+            - name: Auditar se a extensão não existir
+              displayName: auditIfNotExists
+              href: samples/audit-extension-not-exist.md
+            - name: Extensões de VM não permitidas
+              displayName: deny
+              href: samples/not-allowed-vm-extension.md
+        - name: Conjuntos de dimensionamento de máquinas virtuais
+          items:
+            - name: Auditar quando a VM não utiliza discos geridos
+              displayName: audit
+              href: samples/create-vm-managed-disk.md
+            - name: Criar VM com discos geridos
+              displayName: deny
+              href: samples/use-managed-disk-vm.md
+            - name: Negar o benefício de utilização híbrida
+              displayName: deny
+              href: samples/deny-hybrid-use.md
+            - name: Permitir apenas uma determinada imagem da plataforma de VM
+              displayName: deny
+              href: samples/allow-certain-vm-image.md
+    - name: Data Lake
       items:
-      - name: Localizações permitidas
-        displayName: deny, builtin, location
-        href: samples/allowed-locations.md
-    - name: Tipos de recurso
+        - name: Aplicar encriptação do Data Lake Store
+          displayName: deny
+          href: samples/enforce-data-lake-store-encryption.md
+    - name: Configuração de Convidado
       items:
-      - name: Tipos de recursos permitidos
-        displayName: deny, builtin, resourceTypes
-        href: samples/allowed-resource-types.md
-      - name: Tipos de recursos não permitidos
-        displayName: deny, builtin, resourceTypes
-        href: samples/not-allowed-resource-types.md
-  - name: Computação
-    items:
-    - name: Máquinas virtuais
+        - name: Auditar as aplicações instaladas no Linux
+          displayName: 'audit, vm'
+          href: samples/guest-configuration-applications-installed-linux.md
+    - name: Cofres de Chaves
       items:
-      - name: Permitir que a imagem de VM personalizada seja de um grupo de recursos
-        displayName: deny, concat, ExistingResourceGroups
-        href: samples/allow-custom-vm-image.md
-      - name: SKUs permitidos para contas de armazenamento e máquinas virtuais
-        displayName: initiative, vmSKUs, storageSKUs
-        href: samples/allowed-skus-storage.md
-      - name: Imagens de VM aprovadas
-        displayName: deny
-        href: samples/allowed-custom-images.md
-      - name: Auditar se a extensão não existir
-        displayName: auditIfNotExists
-        href: samples/audit-extension-not-exist.md
-      - name: Extensões de VM não permitidas
-        displayName: deny
-        href: samples/not-allowed-vm-extension.md
-    - name: Conjuntos de dimensionamento de máquinas virtuais
+        - name: Auditar cofres que não tenham pontos finais de rede virtual
+          displayName: 'audit, KeyVault, indexed'
+          href: samples/keyvault-no-vnet-rules.md
+    - name: Monitorização
       items:
-      - name: Auditar quando a VM não utiliza discos geridos
-        displayName: audit
-        href: samples/create-vm-managed-disk.md
-      - name: Criar VM com discos geridos
-        displayName: deny
-        href: samples/use-managed-disk-vm.md
-      - name: Negar o benefício de utilização híbrida
-        displayName: deny
-        href: samples/deny-hybrid-use.md
-      - name: Permitir apenas uma determinada imagem da plataforma de VM
-        displayName: deny
-        href: samples/allow-certain-vm-image.md
-  - name: Data Lake
-    items:
-    - name: Aplicar encriptação do Data Lake Store
-      displayName: deny
-      href: samples/enforce-data-lake-store-encryption.md
-  - name: Configuração de Convidado
-    items:
-    - name: Auditar as aplicações instaladas no Linux
-      displayName: audit, vm
-      href: samples/guest-configuration-applications-installed-linux.md
-  - name: Cofres de Chaves
-    items:
-    - name: Auditar cofres que não tenham pontos finais de rede virtual
-      displayName: audit, KeyVault, indexed
-      href: samples/keyvault-no-vnet-rules.md
-  - name: Monitorização
-    items:
-    - name: Definição de diagnóstico de auditoria
-      displayName: auditIfNotExists, resourceTypes
-      href: samples/audit-diagnostic-setting.md
-  - name: Rede
-    items:
-    - name: Interfaces de rede
+        - name: Definição de diagnóstico de auditoria
+          displayName: 'auditIfNotExists, resourceTypes'
+          href: samples/audit-diagnostic-setting.md
+    - name: Rede
       items:
-      - name: NSG X em cada NIC
-        displayName: deny
-        href: samples/nsg-on-nic.md
-      - name: Utilizar sub-rede aprovada para interfaces de rede de VM
-        displayName: deny
-        href: samples/use-approved-subnet-vm-nics.md
-      - name: Utilizar vNet aprovada para interfaces de rede de VM
-        displayName: deny, concat
-        href: samples/use-approved-vnet-vm-nics.md
-    - name: Redes virtuais
+        - name: Interfaces de rede
+          items:
+            - name: NSG X em cada NIC
+              displayName: deny
+              href: samples/nsg-on-nic.md
+            - name: Utilizar sub-rede aprovada para interfaces de rede de VM
+              displayName: deny
+              href: samples/use-approved-subnet-vm-nics.md
+            - name: Utilizar vNet aprovada para interfaces de rede de VM
+              displayName: 'deny, concat'
+              href: samples/use-approved-vnet-vm-nics.md
+        - name: Redes virtuais
+          items:
+            - name: SKUs de gateways de aplicação permitidos
+              displayName: deny
+              href: samples/allowed-app-gateway-sku.md
+            - name: SKUs de gateway de vNet permitidos
+              displayName: deny
+              href: samples/allowed-vnet-gateway-sku.md
+            - name: SKUs de balanceadores de carga permitido
+              displayName: deny
+              href: samples/allowed-load-balancer-skus.md
+            - name: Sem peering de rede à rede de ER
+              displayName: 'deny, all, concat, ExistingResourceGroups'
+              href: samples/no-peering-express-route-network.md
+            - name: Nenhuma tabela de rotas definida pelo utilizador
+              displayName: 'deny, all'
+              href: samples/no-user-defined-route-table.md
+            - name: NSG X em cada sub-rede
+              displayName: 'deny, all'
+              href: samples/nsg-on-subnet.md
+            - name: Utilizar sub-rede aprovada para interfaces de rede de VM
+              displayName: deny
+              href: samples/use-approved-subnet-vm-nics.md
+            - name: Utilizar vNet aprovada para interfaces de rede de VM
+              displayName: deny
+              href: samples/use-approved-vnet-vm-nics.md
+        - name: Grupos de segurança de rede
+          items:
+            - name: NSG X em cada NIC
+              displayName: deny
+              href: samples/nsg-on-nic.md
+            - name: NSG X em cada sub-rede
+              displayName: 'deny, all'
+              href: samples/nsg-on-subnet.md
+        - name: ExpressRoute
+          items:
+            - name: Largura de banda do ExpressRoute permitida
+              displayName: deny
+              href: samples/allowed-express-route-bandwidth.md
+            - name: SKUs do ExpressRoute permitidos
+              displayName: deny
+              href: samples/allowed-express-route-skus.md
+            - name: Localizações de peering do ExpressRoute permitidas
+              displayName: 'deny, Location'
+              href: samples/allowed-express-route-peering.md
+        - name: Observadores de Rede
+          items:
+            - name: Auditar se os Observadores de Rede não estiverem ativados para a região
+              displayName: 'auditIfNotExists, Location'
+              href: samples/network-watcher-not-enabled.md
+        - name: Gateways de aplicação
+          items:
+            - name: SKUs de gateways de aplicação permitidos
+              displayName: deny
+              href: samples/allowed-app-gateway-sku.md
+    - name: SQL
       items:
-      - name: SKUs de gateways de aplicação permitidos
-        displayName: deny
-        href: samples/allowed-app-gateway-sku.md
-      - name: SKUs de gateway de vNet permitidos
-        displayName: deny
-        href: samples/allowed-vnet-gateway-sku.md
-      - name: SKUs de balanceadores de carga permitido
-        displayName: deny
-        href: samples/allowed-load-balancer-skus.md
-      - name: Sem peering de rede à rede de ER
-        displayName: deny, all, concat, ExistingResourceGroups
-        href: samples/no-peering-express-route-network.md
-      - name: Nenhuma tabela de rotas definida pelo utilizador
-        displayName: deny, all
-        href: samples/no-user-defined-route-table.md
-      - name: NSG X em cada sub-rede
-        displayName: deny, all
-        href: samples/nsg-on-subnet.md
-      - name: Utilizar sub-rede aprovada para interfaces de rede de VM
-        displayName: deny
-        href: samples/use-approved-subnet-vm-nics.md
-      - name: Utilizar vNet aprovada para interfaces de rede de VM
-        displayName: deny
-        href: samples/use-approved-vnet-vm-nics.md
-    - name: Grupos de segurança de rede
+        - name: SQL Servers
+          items:
+            - name: Auditar se não existir um administrador do Azure Active Directory
+              displayName: auditIfNotExists
+              href: samples/audit-no-aad-admin.md
+            - name: Auditar a definição de deteção de ameaças ao nível do Servidor
+              displayName: auditIfNotExists
+              href: samples/audit-sql-server-threat-detection-setting.md
+            - name: Auditar as definições de auditoria do SQL Server
+              displayName: 'auditIfNotExists, builtin'
+              href: samples/sql-server-audit.md
+            - name: Auditar a definição de auditoria do nível do SQL Server
+              displayName: auditIfNotExists
+              href: samples/audit-sql-server-audit-setting.md
+            - name: Requer a Versão do SQL Server 12.0
+              displayName: 'deny, builtin'
+              href: samples/require-sql-12.md
+        - name: Bases de Dados SQL
+          items:
+            - name: SKUs de BD SQL permitidos
+              displayName: deny
+              href: samples/allowed-sql-db-skus.md
+            - name: Auditar a definição de deteção de ameaças ao nível da BD SQL
+              displayName: auditIfNotExists
+              href: samples/audit-db-threat-detection-setting.md
+            - name: Auditar a encriptação da BD SQL
+              displayName: 'auditIfNotExists, disabled, indexed, builtin'
+              href: samples/sql-database-encryption-audit.md
+            - name: Auditar a definição de auditoria do nível de BD SQL
+              displayName: auditIfNotExists
+              href: samples/audit-sql-db-audit-setting.md
+    - name: Armazenamento
       items:
-      - name: NSG X em cada NIC
-        displayName: deny
-        href: samples/nsg-on-nic.md
-      - name: NSG X em cada sub-rede
-        displayName: deny, all
-        href: samples/nsg-on-subnet.md
-    - name: ExpressRoute
-      items:
-      - name: Largura de banda do ExpressRoute permitida
-        displayName: deny
-        href: samples/allowed-express-route-bandwidth.md
-      - name: SKUs do ExpressRoute permitidos
-        displayName: deny
-        href: samples/allowed-express-route-skus.md
-      - name: Localizações de peering do ExpressRoute permitidas
-        displayName: deny, Location
-        href: samples/allowed-express-route-peering.md
-    - name: Observadores de Rede
-      items:
-      - name: Auditar se os Observadores de Rede não estiverem ativados para a região
-        displayName: auditIfNotExists, Location
-        href: samples/network-watcher-not-enabled.md
-    - name: Gateways de aplicação
-      items:
-      - name: SKUs de gateways de aplicação permitidos
-        displayName: deny
-        href: samples/allowed-app-gateway-sku.md
-  - name: SQL
-    items:
-    - name: SQL Servers
-      items:
-      - name: Auditar se não existir um administrador do Azure Active Directory
-        displayName: auditIfNotExists
-        href: samples/audit-no-aad-admin.md
-      - name: Auditar a definição de deteção de ameaças ao nível do Servidor
-        displayName: auditIfNotExists
-        href: samples/audit-sql-server-threat-detection-setting.md
-      - name: Auditar as definições de auditoria do SQL Server
-        displayName: auditIfNotExists, builtin
-        href: samples/sql-server-audit.md
-      - name: Auditar a definição de auditoria do nível do SQL Server
-        displayName: auditIfNotExists
-        href: samples/audit-sql-server-audit-setting.md
-      - name: Requer a Versão do SQL Server 12.0
-        displayName: deny, builtin
-        href: samples/require-sql-12.md
-    - name: Bases de Dados SQL
-      items:
-      - name: SKUs de BD SQL permitidos
-        displayName: deny
-        href: samples/allowed-sql-db-skus.md
-      - name: Auditar a definição de deteção de ameaças ao nível da BD SQL
-        displayName: auditIfNotExists
-        href: samples/audit-db-threat-detection-setting.md
-      - name: Auditar a encriptação da BD SQL
-        displayName: auditIfNotExists, disabled, indexed, builtin
-        href: samples/sql-database-encryption-audit.md
-      - name: Auditar a definição de auditoria do nível de BD SQL
-        displayName: auditIfNotExists
-        href: samples/audit-sql-db-audit-setting.md
-  - name: Armazenamento
-    items:
-    - name: SKUs permitidos para a conta de armazenamento e VMs
-      displayName: initiative, vmSKUs, storageSKUs
-      href: samples/allowed-skus-storage.md
-    - name: SKUs de contas de armazenamento permitidos
-      displayName: deny, builtin, storageSKUs
-      href: samples/allowed-storage-account-skus.md
-    - name: Negar camadas de acesso esporádico para contas de armazenamento
-      displayName: deny, all
-      href: samples/deny-cool-access-tiering.md
-    - name: Assegurar o tráfego HTTPS apenas para a conta de armazenamento
-      displayName: deny, all
-      href: samples/ensure-https-storage-account.md
-    - name: Assegurar a encriptação de ficheiros de armazenamento
-      displayName: deny, all
-      href: samples/ensure-storage-file-encryption.md
-    - name: Requerer a encriptação de contas de armazenamento
-      displayName: deny, builtin
-      href: samples/require-storage-account-encryption.md
+        - name: SKUs permitidos para a conta de armazenamento e VMs
+          displayName: 'initiative, vmSKUs, storageSKUs'
+          href: samples/allowed-skus-storage.md
+        - name: SKUs de contas de armazenamento permitidos
+          displayName: 'deny, builtin, storageSKUs'
+          href: samples/allowed-storage-account-skus.md
+        - name: Negar camadas de acesso esporádico para contas de armazenamento
+          displayName: 'deny, all'
+          href: samples/deny-cool-access-tiering.md
+        - name: Assegurar o tráfego HTTPS apenas para a conta de armazenamento
+          displayName: 'deny, all'
+          href: samples/ensure-https-storage-account.md
+        - name: Assegurar a encriptação de ficheiros de armazenamento
+          displayName: 'deny, all'
+          href: samples/ensure-storage-file-encryption.md
+        - name: Requerer a encriptação de contas de armazenamento
+          displayName: 'deny, builtin'
+          href: samples/require-storage-account-encryption.md
 - name: Conceitos
   items:
-  - name: Estrutura de definição do Azure Policy
-    displayName: parameters, location, rule, alias, initiatives
-    href: ./concepts/definition-structure.md
-  - name: Compreender os efeitos do Policy
-    displayName: order, evaluation
-    href: ./concepts/effects.md
-  - name: Auditar VMs com a Configuração de Convidado
-    displayName: provider, tools, definition
-    href: ./concepts/guest-configuration.md
+    - name: Estrutura de definição do Azure Policy
+      displayName: 'parameters, location, rule, alias, initiatives'
+      href: ./concepts/definition-structure.md
+    - name: Compreender os efeitos do Policy
+      displayName: 'order, evaluation'
+      href: ./concepts/effects.md
+    - name: Auditar VMs com a Configuração de Convidado
+      displayName: 'provider, tools, definition'
+      href: ./concepts/guest-configuration.md
 - name: Guias de procedimentos
   items:
-  - name: Criar políticas programaticamente
-    displayName: assign, definition
-    href: ./how-to/programmatically-create.md
-  - name: Políticas de autor para propriedades de matriz
-    displayName: array property, alias, aliases, in, notIn, type, defaultValue
-    href: ./how-to/author-policies-for-arrays.md
-  - name: Obter dados de conformidade
-    displayName: evaluation, scan, summarize, query, events, log analytics
-    href: ./how-to/get-compliance-data.md
-  - name: Determinar as causas da não conformidade
-    displayName: reasons, compliance details
-    href: ./how-to/determine-non-compliance.md
-  - name: Identificar recursos em não conformidade
-    displayName: managed identity, task, definition, roleDefinitionIds
-    href: ./how-to/remediate-resources.md
+    - name: Criar políticas programaticamente
+      displayName: 'assign, definition'
+      href: ./how-to/programmatically-create.md
+    - name: Políticas de autor para propriedades de matriz
+      displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
+      href: ./how-to/author-policies-for-arrays.md
+    - name: Obter dados de conformidade
+      displayName: 'evaluation, scan, summarize, query, events, log analytics'
+      href: ./how-to/get-compliance-data.md
+    - name: Determinar as causas da não conformidade
+      displayName: 'reasons, compliance details'
+      href: ./how-to/determine-non-compliance.md
+    - name: Identificar recursos em não conformidade
+      displayName: 'managed identity, task, definition, roleDefinitionIds'
+      href: ./how-to/remediate-resources.md
 - name: Referência
   items:
-  - name: CLI do Azure
-    href: /cli/azure/policy
-  - name: Azure PowerShell
-    items:
-    - name: Política
-      href: /powershell/module/az.resources/#policies
-    - name: Informações da Política
-      href: /powershell/module/az.policyinsights#policy_insights
-    - name: Configuração de Convidado
-      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
-  - name: REST
-    items:
-    - name: Eventos
-      href: /rest/api/policy-insights/policyevents
-    - name: Estados
-      href: /rest/api/policy-insights/policystates
-    - name: Atribuições
-      href: /rest/api/resources/policyassignments
-    - name: Definições de Política
-      href: /rest/api/resources/policydefinitions
-    - name: Definições de Iniciativas
-      href: /rest/api/resources/policysetdefinitions
-    - name: Recursos Controlados por Política
-      href: /rest/api/policy-insights/policytrackedresources
-    - name: Remediações
-      href: /rest/api/policy-insights/remediations
-    - name: Configuração de Convidado
-      href: /rest/api/guestconfiguration/
-  - name: Modelos do Resource Manager
-    items:
-    - name: Atribuições
-      href: /azure/templates/microsoft.authorization/policyassignments
-    - name: Definições de Política
-      href: /azure/templates/microsoft.authorization/policydefinitions
-    - name: Definições de Iniciativas
-      href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: CLI do Azure
+      href: /cli/azure/policy
+    - name: Azure PowerShell
+      items:
+        - name: Política
+          href: '/powershell/module/az.resources/#policies'
+        - name: Informações da Política
+          href: '/powershell/module/az.policyinsights#policy_insights'
+        - name: Configuração de Convidado
+          href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
+    - name: REST
+      items:
+        - name: Eventos
+          href: /rest/api/policy-insights/policyevents
+        - name: Estados
+          href: /rest/api/policy-insights/policystates
+        - name: Atribuições
+          href: /rest/api/resources/policyassignments
+        - name: Definições de Política
+          href: /rest/api/resources/policydefinitions
+        - name: Definições de Iniciativas
+          href: /rest/api/resources/policysetdefinitions
+        - name: Recursos Controlados por Política
+          href: /rest/api/policy-insights/policytrackedresources
+        - name: Remediações
+          href: /rest/api/policy-insights/remediations
+        - name: Configuração de Convidado
+          href: /rest/api/guestconfiguration/
+    - name: Modelos do Resource Manager
+      items:
+        - name: Atribuições
+          href: /azure/templates/microsoft.authorization/policyassignments
+        - name: Definições de Política
+          href: /azure/templates/microsoft.authorization/policydefinitions
+        - name: Definições de Iniciativas
+          href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Recursos
   items:
-  - name: GitHub - Exemplos do Azure Policy
-    href: https://github.com/Azure/azure-policy
-  - name: Vídeo - Build 2018
-    href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: Canal do YouTube sobre Governação
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Vídeos da Configuração de Convidado
-    items:
-    - name: Introdução
-      href: https://www.youtube.com/watch?v=mjJw9_EIyHo
-    - name: Noções básicas sobre as Iniciativas
-      href: https://www.youtube.com/watch?v=4JZH3kuG8bI
-    - name: Atribuir Política
-      href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
-    - name: Tarefa de Remediação
-      href: https://www.youtube.com/watch?v=URE4DUYMgmg
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 730222484658019c78fb2dfef94c474f3031769b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226135"
+    - name: GitHub - Exemplos do Azure Policy
+      href: 'https://github.com/Azure/azure-policy'
+    - name: Vídeo - Build 2018
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Canal do YouTube sobre Governação
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Vídeos da Configuração de Convidado
+      items:
+        - name: Introdução
+          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+        - name: Noções básicas sobre as Iniciativas
+          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+        - name: Atribuir Política
+          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+        - name: Tarefa de Remediação
+          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'

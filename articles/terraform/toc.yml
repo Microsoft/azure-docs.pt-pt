@@ -1,96 +1,89 @@
-items:
 - name: Documentação do Terraform no Azure
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Acerca do Terraform no Azure
-    href: terraform-overview.md
+    - name: Acerca do Terraform no Azure
+      href: terraform-overview.md
 - name: Inícios rápidos
-  items:
-  - name: Criar uma aplicação de vários serviços
-    href: terrafom-quickstart.md
-  - name: Instalar e configurar o Terraform (Install and configure Terraform)
-    href: /azure/virtual-machines/linux/terraform-install-configure
-    maintainContext: true
-  - name: Criar uma VM do Linux
-    href: /azure/virtual-machines/linux/terraform-create-complete-vm
-    maintainContext: true
   expanded: true
+  items:
+    - name: Criar uma aplicação de vários serviços
+      href: terrafom-quickstart.md
+    - name: Instalar e configurar o Terraform (Install and configure Terraform)
+      href: /azure/virtual-machines/linux/terraform-install-configure
+      maintainContext: true
+    - name: Criar uma VM do Linux
+      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      maintainContext: true
 - name: Tutoriais
   items:
-  - name: Serviço de Aplicações
-    items:
-    - name: Blocos de implementação de fornecedor do Terraform e do Azure
-      href: terraform-slot-walkthru.md
-  - name: Contentores
-    items:
-    - name: Criar um cluster do Kubernetes com o AKS
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Criar um cluster do Kubernetes com o Gateway de Aplicação como controlador de entrada com o AKS
-      href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
-  - name: Infraestrutura
-    items:
-    - name: Criar uma VM do Terraform com o MSI ativado
-      href: terraform-vm-msi.md
-    - name: Criar um cluster de VMs com módulos do Terraform (Create a VM cluster with Terraform modules)
-      href: terraform-create-vm-cluster-module.md
-    - name: Criar um cluster de VMs com o Terraform e o HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Aprovisionar conjunto de dimensionamento de VMs com infraestrutura (Provision VM scale set with infrastructure)
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Fornecer o conjunto de dimensionamento de VM a partir de uma imagem personalizada Packer
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-  - name: Redes
-    items:
-    - name: Topologia hub-and-spoke
+    - name: Serviço de Aplicações
       items:
-      - name: 1. Criar topologia hub-and-spoke
-        href: terraform-hub-spoke-introduction.md
-      - name: 2. Criar uma rede virtual no local
-        href: terraform-hub-spoke-on-prem.md
-      - name: 3. Criar uma rede virtual em hub
-        href: terraform-hub-spoke-hub-network.md
-      - name: 4. Criar uma aplicação de rede virtual em hub
-        href: terraform-hub-spoke-hub-nva.md
-      - name: 5. Criar rede spoke
-        href: terraform-hub-spoke-spoke-network.md
-      - name: 6. Validar a conectividade da topologia de rede
-        href: terraform-hub-spoke-validation.md
-  - name: Ferramentas
-    items:
-    - name: Instalar a extensão do Terraform no Visual Studio Code
-      href: terraform-vscode-extension.md
-    - name: Criar um modelo de base do Terraform com o Yeoman
-      href: terraform-vscode-module-generator.md
-    - name: Testar os módulos do Terraform com o Terratest
-      href: terratest-in-terraform-modules.md
+        - name: Blocos de implementação de fornecedor do Terraform e do Azure
+          href: terraform-slot-walkthru.md
+    - name: Contentores
+      items:
+        - name: Criar um cluster do Kubernetes com o AKS
+          href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: Criar um cluster do Kubernetes com o Gateway de Aplicação como controlador de entrada com o AKS
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+    - name: Infraestrutura
+      items:
+        - name: Criar uma VM do Terraform com o MSI ativado
+          href: terraform-vm-msi.md
+        - name: Criar um cluster de VMs com módulos do Terraform (Create a VM cluster with Terraform modules)
+          href: terraform-create-vm-cluster-module.md
+        - name: Criar um cluster de VMs com o Terraform e o HCL
+          href: terraform-create-vm-cluster-with-infrastructure.md
+        - name: Aprovisionar conjunto de dimensionamento de VMs com infraestrutura (Provision VM scale set with infrastructure)
+          href: terraform-create-vm-scaleset-network-disks-hcl.md
+        - name: Fornecer o conjunto de dimensionamento de VM a partir de uma imagem personalizada Packer
+          href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+    - name: Redes
+      items:
+        - name: Topologia hub-and-spoke
+          items:
+            - name: 1. Criar topologia hub-and-spoke
+              href: terraform-hub-spoke-introduction.md
+            - name: 2. Criar uma rede virtual no local
+              href: terraform-hub-spoke-on-prem.md
+            - name: 3. Criar uma rede virtual em hub
+              href: terraform-hub-spoke-hub-network.md
+            - name: 4. Criar uma aplicação de rede virtual em hub
+              href: terraform-hub-spoke-hub-nva.md
+            - name: 5. Criar rede spoke
+              href: terraform-hub-spoke-spoke-network.md
+            - name: 6. Validar a conectividade da topologia de rede
+              href: terraform-hub-spoke-validation.md
+    - name: Ferramentas
+      items:
+        - name: Instalar a extensão do Terraform no Visual Studio Code
+          href: terraform-vscode-extension.md
+        - name: Criar um modelo de base do Terraform com o Yeoman
+          href: terraform-vscode-module-generator.md
+        - name: Testar os módulos do Terraform com o Terratest
+          href: terratest-in-terraform-modules.md
 - name: Amostras
   items:
-  - name: Modelos de configuração
-    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
+    - name: Modelos de configuração
+      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
 - name: Conceitos
   items:
-  - name: Integração no Azure Cloud Shell
-    href: terraform-cloud-shell.md
+    - name: Integração no Azure Cloud Shell
+      href: terraform-cloud-shell.md
 - name: Guias de procedimentos
   items:
-  - name: Estado de armazenamento no Armazenamento do Azure
-    href: terraform-backend.md
+    - name: Estado de armazenamento no Armazenamento do Azure
+      href: terraform-backend.md
 - name: Referência
   items:
-  - name: Registo de modelos do Azure (Azure module registry)
-    href: https://registry.terraform.io/modules/Azure
-  - name: Referência do Terraform (Terraform reference)
-    href: https://aka.ms/terraform
+    - name: Registo de modelos do Azure (Azure module registry)
+      href: 'https://registry.terraform.io/modules/Azure'
+    - name: Referência do Terraform (Terraform reference)
+      href: 'https://aka.ms/terraform'
 - name: Recursos
   items:
-  - name: Azure e o Terraform
-    href: https://azure.microsoft.com/solutions/devops/terraform/
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d83e1cbd4f3cd5d8a0a9ec167e197b53f20e0630
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999439"
+    - name: Azure e o Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

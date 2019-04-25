@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 05/25/2018
 ms.author: carolz
 ms.openlocfilehash: 5adf1f12bd2c7757bfde1408c52b0753bff64797
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851572"
 ---
 # <a name="mobile-apps-documentation"></a>Documentação das Aplicações Móveis
 

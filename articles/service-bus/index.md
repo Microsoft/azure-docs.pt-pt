@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 04/11/2019
 ms.author: spelluru
 ms.openlocfilehash: 32cdfabc894213c6c0d05f4b0ed7fdc31e5dc282
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789976"
 ---
 # <a name="service-bus-documentation"></a>Documentação do Service Bus
 
