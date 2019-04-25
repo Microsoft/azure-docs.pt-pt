@@ -229,7 +229,7 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |referenceCode|cadeia|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
-|Código de erro|cadeia|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
+|errorCode|cadeia|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
 |emailBody|cadeia|E-mail body gerado se esta página foi apresentada como resultado de um erro interno.|  
 |requestedUrl|cadeia|O URL solicitado quando a página não foi encontrada.|  
 |referrerUrl|cadeia|O URL de referência para o URL pedido.|  
