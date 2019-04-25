@@ -183,17 +183,17 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 | Propriedade  | Tipo | Descrição |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
-| hora | date-time | Carimbo de data/hora da receção do pedido HTTP por parte do gateway |
+| time | date-time | Carimbo de data/hora da receção do pedido HTTP por parte do gateway |
 | operationName | string | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
-| categoria | string | Valor constante “GatewayLogs” |
+| category | string | Valor constante “GatewayLogs” |
 | durationMs | inteiro | Número de milissegundos a partir do momento em que o gateway recebeu o pedido até ao momento em que a resposta é enviada integralmente |
 | callerIpAddress | string | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
 | correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
-| localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
+| location | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
 | httpStatusCodeCategory | string | Categoria do código de estado de resposta de http: Bem-sucedida (301 ou menos ou 304 ou 307), não autorizado (401, 403, 429), errado (400, entre 500 e 600), outros |
 | resourceId | string | ID do recurso de gestão de API /SUBSCRIPTIONS/\<subscrição > /RESOURCEGROUPS/\<grupo de recursos >/fornecedores/MICROSOFT. APIMANAGEMENT/SERVICE/\<nome > |
-| propriedades | objeto | Propriedades do pedido atual |
-| método | string | Método HTTP do pedido a receber |
+| properties | objeto | Propriedades do pedido atual |
+| method | string | Método HTTP do pedido a receber |
 | url | string | URL do pedido a receber |
 | clientProtocol | string | Versão do protocolo HTTP do pedido a receber |
 | responseCode | número inteiro | Código de estado da resposta  HTTP enviada para um cliente |
@@ -213,7 +213,7 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 | userId | string | Identificador da entidade de utilizador do pedido atual | 
 | apimSubscriptionId | string | Identificador da entidade de subscrição do pedido atual | 
 | backendId | string | Identificador da entidade de back-end do pedido atual | 
-| LastError | objeto | Último erro de processamento de pedido | 
+| lastError | objeto | Último erro de processamento de pedido | 
 | elapsed | inteiro | Número de milissegundos decorridos desde que o Gateway recebeu o pedido até ao momento em que o erro ocorreu | 
 | source | string | Nome da política ou processador interno provocou o erro | 
 | scope | string | Âmbito do documento da política que contém a política que provocou o erro | 
