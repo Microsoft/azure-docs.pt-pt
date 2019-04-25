@@ -135,9 +135,9 @@ Diagnóstico da automatização do Azure cria duas categorias de registros nos r
 | DscReportStatus |Se a verificação de conformidade foi executado com êxito. |
 | ConfigurationMode | Como a configuração é aplicada ao nó. Os valores possíveis são __"ApplyOnly"__,__"ApplyandMonitior"__, e __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC aplica-se a configuração e não faz nada além disso, a menos que uma nova configuração é enviada por push para o nó de destino ou quando uma nova configuração é obtida a partir de um servidor. Depois de aplicativo inicial de uma nova configuração, DSC não verifica se desviam de um estado anteriormente configurado. DSC tenta aplicar a configuração, até que seja bem-sucedida __ApplyOnly__ entra em vigor. </li><li> __ApplyAndMonitor__: Este é o valor predefinido. O LCM aplica-se quaisquer configurações de novo. Após a aplicação inicial de uma configuração de novo, se o nó de destino drifts do estado pretendido, o DSC relatórios discrepância nos registos. DSC tenta aplicar a configuração, até que seja bem-sucedida __ApplyAndMonitor__ entra em vigor.</li><li>__ApplyAndAutoCorrect__: DSC aplica-se quaisquer configurações de novo. Depois de aplicativo inicial de uma nova configuração, se o nó de destino drifts do estado pretendido, DSC relatórios discrepância nos registos e, em seguida, volta a aplicar a configuração atual.</li></ul> |
 | HostName_s | O nome do nó gerido. |
-| iPAddress | O endereço IPv4 do nó gerido. |
-| Categoria | DscNodeStatus |
-| Recurso | O nome da conta de automatização do Azure. |
+| IPAddress | O endereço IPv4 do nó gerido. |
+| Category | DscNodeStatus |
+| Resource | O nome da conta de automatização do Azure. |
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | NodeId_g |GUID que identifica o nó gerido. |
 | DscReportId_g |GUID que identifica o relatório. |
@@ -162,8 +162,8 @@ Diagnóstico da automatização do Azure cria duas categorias de registros nos r
 | OperationName |DscResourceStatusData|
 | ResultType |Se o recurso está em conformidade. |
 | NodeName_s |O nome do nó gerido. |
-| Categoria | DscNodeStatus |
-| Recurso | O nome da conta de automatização do Azure. |
+| Category | DscNodeStatus |
+| Resource | O nome da conta de automatização do Azure. |
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | NodeId_g |GUID que identifica o nó gerido. |
 | DscReportId_g |GUID que identifica o relatório. |
