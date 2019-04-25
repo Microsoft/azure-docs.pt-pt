@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Descrição geral da implementação do Azure Stack
-              href: /azure-stack/asdk/asdk-download
+              href: ../../azure-stack/azure-stack-deploy-overview.md
         - name: Azure Backup
           items:
             - name: Cópia de segurança de uma VM no Portal do Azure

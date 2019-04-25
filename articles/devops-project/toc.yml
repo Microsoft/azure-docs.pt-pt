@@ -1,54 +1,47 @@
-items:
 - name: Documentação dos Azure DevOps Projects
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o Azure DevOps Projects?
-    href: overview.md
+    - name: O que é o Azure DevOps Projects?
+      href: overview.md
 - name: Inícios rápidos
-  items:
-  - name: .NET
-    href: /azure/devops-project/azure-devops-project-aspnet-core
-    maintainContext: true
-  - name: Node.js
-    href: /azure/devops-project/azure-devops-project-nodejs
-    maintainContext: true
-  - name: Java
-    href: /azure/devops-project/azure-devops-project-java
-    maintainContext: true
-  - name: Python
-    href: /azure/devops-project/azure-devops-project-python
-    maintainContext: true
-  - name: PHP
-    href: /azure/devops-project/azure-devops-project-php
-    maintainContext: true
-  - name: Ruby
-    href: /azure/devops-project/azure-devops-project-ruby
-    maintainContext: true
-  - name: Ir
-    href: /azure/devops-project/azure-devops-project-go
-    maintainContext: true
   expanded: true
+  items:
+    - name: .NET
+      href: /azure/devops-project/azure-devops-project-aspnet-core
+      maintainContext: true
+    - name: Node.js
+      href: /azure/devops-project/azure-devops-project-nodejs
+      maintainContext: true
+    - name: Java
+      href: /azure/devops-project/azure-devops-project-java
+      maintainContext: true
+    - name: Python
+      href: /azure/devops-project/azure-devops-project-python
+      maintainContext: true
+    - name: PHP
+      href: /azure/devops-project/azure-devops-project-php
+      maintainContext: true
+    - name: Ruby
+      href: /azure/devops-project/azure-devops-project-ruby
+      maintainContext: true
+    - name: Ir
+      href: /azure/devops-project/azure-devops-project-go
+      maintainContext: true
 - name: Tutoriais
   items:
-  - name: 1 - GitHub e o DevOps Projects
-    href: azure-devops-project-github.md
-    maintainContext: true
-  - name: 2 - Implementar em VMs
-    href: azure-devops-project-vms.md
-    maintainContext: true
-  - name: 3 - Implementar na Base de Dados SQL do Azure
-    href: azure-devops-project-sql-database.md
-    maintainContext: true
-  - name: 4 - Implementar no AKS
-    href: azure-devops-project-aks.md
-    maintainContext: true
-  - name: 5 - Implementar no Azure Service Fabric
-    href: azure-devops-project-service-fabric.md
-    maintainContext: true
-ms.openlocfilehash: 110ed59f1232336fc250b9ef8a66e36b20fe025f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282622"
+    - name: 1 - GitHub e o DevOps Projects
+      href: azure-devops-project-github.md
+      maintainContext: true
+    - name: 2 - Implementar em VMs
+      href: azure-devops-project-vms.md
+      maintainContext: true
+    - name: 3 - Implementar na Base de Dados SQL do Azure
+      href: azure-devops-project-sql-database.md
+      maintainContext: true
+    - name: 4 - Implementar no AKS
+      href: azure-devops-project-aks.md
+      maintainContext: true
+    - name: 5 - Implementar no Azure Service Fabric
+      href: azure-devops-project-service-fabric.md
+      maintainContext: true

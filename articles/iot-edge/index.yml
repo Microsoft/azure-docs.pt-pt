@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f0d4a689e783f8c460ee54b3613ac0fe432b59ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862799"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  title: Azure IoT Edge - Tutoriais, Referência de API
+  title: 'Azure IoT Edge - Tutoriais, Referência de API'
   description: Utilize o Azure IoT Edge para implementar serviços do Azure e lógica de negócio personalizada em dispositivos de ponta.
   author: kgremban
   manager: philmea
@@ -18,46 +12,46 @@ metadata:
   ms.date: 03/13/2019
   ms.author: kgremban
 abstract:
-  description: O Azure IoT Edge é um serviço da Internet das Coisas (IoT) criado sobre o Hub IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou seja, "no limite", em vez de na cloud. Ao mover as partes da sua carga de trabalho para a extremidade, os seus dispositivos podem gastar menos tempo a enviar mensagens para a cloud e reagir mais depressa a alterações do estado.
+  description: 'O Azure IoT Edge é um serviço da Internet das Coisas (IoT) criado sobre o Hub IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou seja, "no limite", em vez de na cloud. Ao mover as partes da sua carga de trabalho para a extremidade, os seus dispositivos podem gastar menos tempo a enviar mensagens para a cloud e reagir mais depressa a alterações do estado.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/iot-edge-thumbnail.png
       width: 250
-    title: Creating the intelligent edge with Azure IoT Edge (6:59) (Criar a periferia inteligente com o Azure IoT Edge)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
+    title: 'Creating the intelligent edge with Azure IoT Edge (6:59) (Criar a periferia inteligente com o Azure IoT Edge)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge'
     width: 250
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Criar uma máquina virtual do Azure, configurá-la para ser executada como um dispositivo IoT Edge e implementar código na mesma:'
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows
-      href: /azure/iot-edge/quickstart
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
-      text: Linux
-      href: /azure/iot-edge/quickstart-linux
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como instalar e configurar o IoT Edge, implementar módulos e utilizar os serviços do Azure como o Stream Analytics e a Visão Personalizada no edge.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Criar uma máquina virtual do Azure, configurá-la para ser executada como um dispositivo IoT Edge e implementar código na mesma:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
+            text: Windows
+            href: /azure/iot-edge/quickstart
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_linux-color.svg'
+            text: Linux
+            href: /azure/iot-edge/quickstart-linux
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrar mensagens com as Funções do Azure</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Encontrar médias com o Azure Stream Analytics como um módulo</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Classificar dados com o Azure Machine Learning como um módulo</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Classificar imagens com o Serviço de Visão Personalizada como módulo</a>
-    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filtrar dados com um módulo de C#</a>
-    - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrar dados com um módulo de Python</a>
-    - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrar dados com um módulo de Node.js</a>
-    - html: <a href="/azure/iot-edge/tutorial-java-module">Filtrar dados com um módulo de Java</a>
-    - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrar dados com um módulo de C</a>
-    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Armazenar dados no Edge com o SQL Server</a>
+      - type: paragraph
+        text: 'Saiba como instalar e configurar o IoT Edge, implementar módulos e utilizar os serviços do Azure como o Stream Analytics e a Visão Personalizada no edge.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrar mensagens com as Funções do Azure</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Encontrar médias com o Azure Stream Analytics como um módulo</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Classificar dados com o Azure Machine Learning como um módulo</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Classificar imagens com o Serviço de Visão Personalizada como módulo</a>
+          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Filtrar dados com um módulo de C#</a>'
+          - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrar dados com um módulo de Python</a>
+          - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrar dados com um módulo de Node.js</a>
+          - html: <a href="/azure/iot-edge/tutorial-java-module">Filtrar dados com um módulo de Java</a>
+          - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrar dados com um módulo de C</a>
+          - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Armazenar dados no Edge com o SQL Server</a>

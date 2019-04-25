@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4bfb09a9a0d50c3259d942bc60e0c35046a11254
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989734"
 documentType: LandingData
 title: Documentação da Base de Dados do Azure para MySQL
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
-  title: Documentação do MySQL do Azure - Tutoriais, Referência da API | Microsoft Docs
+  title: 'Documentação do MySQL do Azure - Tutoriais, Referência da API | Microsoft Docs'
   description: A Base de Dados do Azure para MySQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores com base no motor de base de dados MySQL de código aberto.
   author: ajlam
   ms.author: andrela
@@ -17,50 +11,50 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/25/2019
 abstract:
-  description: A Base de Dados do Azure para MySQL é um serviço de base de dados relacional baseado no motor do MySQL Server de código aberto.  É uma oferta de base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível e escalabilidade dinâmica. Programe aplicações com a Base de Dados do Azure para MySQL ao tirar partido das ferramentas de código aberto e da plataforma da sua preferência. Saiba como utilizar a Base de Dados do Azure para MySQL com os nossos guias de introdução, tutoriais e amostras.
+  description: 'A Base de Dados do Azure para MySQL é um serviço de base de dados relacional baseado no motor do MySQL Server de código aberto.  É uma oferta de base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível e escalabilidade dinâmica. Programe aplicações com a Base de Dados do Azure para MySQL ao tirar partido das ferramentas de código aberto e da plataforma da sua preferência. Saiba como utilizar a Base de Dados do Azure para MySQL com os nossos guias de introdução, tutoriais e amostras.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Aprenda a criar uma base de dados MySQL no Azure com:'
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Portal do Azure
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Aprenda a estruturar a base de dados e desenvolver aplicações:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Aprenda a criar uma base de dados MySQL no Azure com:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: CLI do Azure
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: Estruturar uma base de dados &#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Portal do Azure</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">CLI do Azure</a>
-    - html: Criar uma Aplicação Web &#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - CLI do Azure</a>
-- title: Amostras
-  items:
-  - type: paragraph
-    text: Encontre scripts para gerir tarefas comuns.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Aprenda a estruturar a base de dados e desenvolver aplicações:'
+      - type: list
+        style: ordered
+        items:
+          - html: 'Estruturar uma base de dados &#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Portal do Azure</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">CLI do Azure</a>'
+          - html: 'Criar uma Aplicação Web &#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - CLI do Azure</a>'
+  - title: Amostras
     items:
-    - html: <a href="/azure/mysql/sample-scripts-azure-cli">CLI do Azure</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Encontre scripts para gerir tarefas comuns.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/mysql/sample-scripts-azure-cli">CLI do Azure</a>
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/cli/azure/mysql">CLI do Azure</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mysql">API REST</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Modelos do Resource Manager</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: <p><a href="/cli/azure/mysql">CLI do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/mysql">API REST</a></p>
+          - title: Azure Resource Manager
+            html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Modelos do Resource Manager</a></p>

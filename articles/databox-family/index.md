@@ -12,11 +12,11 @@ ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.openlocfilehash: c0c5ea8dc069d24d01313bb68c0afb7c7aac1a33
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456629"
 ---
 <div id="main" class="v2">
 <h1>Azure Data Box</h1>

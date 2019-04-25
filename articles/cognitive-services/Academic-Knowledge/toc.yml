@@ -1,51 +1,44 @@
-items:
 - name: Documentação de Conhecimento Académico
 - name: Descrição geral
   items:
-  - name: Saiba mais sobre a API de Conhecimento Académico
-    href: Home.md
+    - name: Saiba mais sobre a API de Conhecimento Académico
+      href: Home.md
 - name: Guias de Procedimentos
   items:
-  - name: Atributos da entidade
-    href: EntityAttributes.md
-    items:
-    - name: Artigo
-      href: PaperEntityAttributes.md
-    - name: Autor
-      href: AuthorEntityAttributes.md
-    - name: Afiliação
-      href: AffiliationEntityAttributes.md
-    - name: Campo de estudo
-      href: FieldsOfStudyEntityAttributes.md
-    - name: Série de conferências
-      href: ConferenceSeriesEntityAttributes.md
-    - name: Instância da conferência
-      href: ConferenceInstanceEntityAttributes.md
-    - name: Diário
-      href: JournalEntityAttributes.md
-  - name: Métodos
-    items:
-    - name: CalcHistogram
-      href: CalcHistogramMethod.md
-    - name: Avaliar
-      href: EvaluateMethod.md
-    - name: Interpretar
-      href: InterpretMethod.md
-    - name: Semelhança
-      href: SimilarityMethod.md
-  - name: Sintaxe da expressão de consulta
-    href: QueryExpressionSyntax.md
+    - name: Atributos da entidade
+      href: EntityAttributes.md
+      items:
+        - name: Artigo
+          href: PaperEntityAttributes.md
+        - name: Autor
+          href: AuthorEntityAttributes.md
+        - name: Afiliação
+          href: AffiliationEntityAttributes.md
+        - name: Campo de estudo
+          href: FieldsOfStudyEntityAttributes.md
+        - name: Série de conferências
+          href: ConferenceSeriesEntityAttributes.md
+        - name: Instância da conferência
+          href: ConferenceInstanceEntityAttributes.md
+        - name: Diário
+          href: JournalEntityAttributes.md
+    - name: Métodos
+      items:
+        - name: CalcHistogram
+          href: CalcHistogramMethod.md
+        - name: Avaliar
+          href: EvaluateMethod.md
+        - name: Interpretar
+          href: InterpretMethod.md
+        - name: Semelhança
+          href: SimilarityMethod.md
+    - name: Sintaxe da expressão de consulta
+      href: QueryExpressionSyntax.md
 - name: Referência
   items:
-  - name: Referência da API Labs
-    href: https://dev.labs.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97
+    - name: Referência da API Labs
+      href: 'https://dev.labs.cognitive.microsoft.com/docs/services/56332331778daf02acc0a50b/operations/565d9001ca73072048922d97'
 - name: Recursos
   items:
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 877d2504ff6ec044a6bdcc4e1f046dd13f87f5a6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238323"
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

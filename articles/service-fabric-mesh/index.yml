@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: eaceb3170e3b3f7bd155f42521102365401f0421
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337456"
 documentType: LandingData
 title: Documentação do Azure Service Fabric mesh
 metadata:
-  title: Documentação do Azure Service Fabric mesh - Tutoriais, Referência da API | Microsoft Docs
-  meta.description: Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Learn how to use Service Fabric Mesh with our quickstarts and tutorials.
+  title: 'Documentação do Azure Service Fabric mesh - Tutoriais, Referência da API | Microsoft Docs'
+  meta.description: 'Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Learn how to use Service Fabric Mesh with our quickstarts and tutorials.'
   services: service-fabric-mesh
   author: dkkapur
   manager: timlt
@@ -20,37 +14,37 @@ metadata:
   ms.date: 07/26/2018
   ms.author: dekapur
 abstract:
-  description: O Azure Service Fabric mesh é um serviço totalmente gerido que permite aos programadores criar e implementar aplicações críticas sem que seja preciso gerir qualquer infraestrutura.  Utilize o Service Fabric mesh para criar e executar aplicações de microsserviços seguras e distribuídas que podem ser dimensionadas a pedido. Saiba como utilizar o Service Fabric mesh com os nossos guias de introdução e tutoriais.  Para saber mais, leia a <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">descrição geral do Service Fabric Mesh</a> e as <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">perguntas frequentes</a>.
+  description: 'O Azure Service Fabric mesh é um serviço totalmente gerido que permite aos programadores criar e implementar aplicações críticas sem que seja preciso gerir qualquer infraestrutura.  Utilize o Service Fabric mesh para criar e executar aplicações de microsserviços seguras e distribuídas que podem ser dimensionadas a pedido. Saiba como utilizar o Service Fabric mesh com os nossos guias de introdução e tutoriais.  Para saber mais, leia a <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">descrição geral do Service Fabric Mesh</a> e as <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">perguntas frequentes</a>.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Saiba como implementar aplicações e contentores do Service Fabric no Service Fabric mesh
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Implementar o Hello World no Service Fabric mesh
-      href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_netcore.svg
-      text: Criar e implementar uma aplicação web no Service Fabric Mesh
-      href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como criar e implementar uma aplicação de Mesh com o Visual Studio ou com a CLI do Azure.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como implementar aplicações e contentores do Service Fabric no Service Fabric mesh
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Implementar o Hello World no Service Fabric mesh
+            href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_netcore.svg'
+            text: Criar e implementar uma aplicação web no Service Fabric Mesh
+            href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Criar, depurar, implementar e atualizar uma aplicação com vários serviços no Service Fabric Mesh com o Visual Studio.</a>
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Implementar, dimensionar e atualizar uma aplicação do Service Fabric Mesh através de um modelo.</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Saiba como criar e implementar uma aplicação de Mesh com o Visual Studio ou com a CLI do Azure.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Criar, depurar, implementar e atualizar uma aplicação com vários serviços no Service Fabric Mesh com o Visual Studio.</a>'
+          - html: '<a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Implementar, dimensionar e atualizar uma aplicação do Service Fabric Mesh através de um modelo.</a>'
+  - title: Referência
     items:
-    - title: REST
-      html: <p><a href="/rest/api/servicefabric/sfmeshrp-index">APIs do Fornecedor de Recursos do Service Fabric Mesh</a></p><p><a href="/rest/api/servicefabric/sfclient-index#service-fabric-resource-model">APIs do Recurso de Cliente do Service Fabric</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="/rest/api/servicefabric/sfmeshrp-index">APIs do Fornecedor de Recursos do Service Fabric Mesh</a></p><p><a href="/rest/api/servicefabric/sfclient-index#service-fabric-resource-model">APIs do Recurso de Cliente do Service Fabric</a></p>'

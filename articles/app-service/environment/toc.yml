@@ -1,133 +1,126 @@
-items:
 - name: Ambiente do Serviço de Aplicações
 - name: Descrição geral
   items:
-  - name: Acerca dos Ambientes do Serviço de Aplicações
-    href: intro.md
+    - name: Acerca dos Ambientes do Serviço de Aplicações
+      href: intro.md
 - name: Inícios rápidos
-  items:
-  - name: Criar ASE externo
-    href: create-external-ase.md
-  - name: Criar ASE interno
-    href: create-ilb-ase.md
   expanded: true
+  items:
+    - name: Criar ASE externo
+      href: create-external-ase.md
+    - name: Criar ASE interno
+      href: create-ilb-ase.md
 - name: Tutoriais
   items:
-  - name: Integrar com uma WAF
-    href: app-service-app-service-environment-web-application-firewall.md
-  - name: Configurar TLS
-    href: app-service-app-service-environment-custom-settings.md
+    - name: Integrar com uma WAF
+      href: app-service-app-service-environment-web-application-firewall.md
+    - name: Configurar TLS
+      href: app-service-app-service-environment-custom-settings.md
 - name: Amostras
   items:
-  - name: CLI do Azure
-    href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Azure PowerShell
-    href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: CLI do Azure
+      href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Azure PowerShell
+      href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Conceitos
   items:
-  - name: Arquitetura de rede
-    href: network-info.md
-  - name: Escala distribuída geograficamente
-    href: app-service-app-service-environment-geo-distributed-scale.md
-  - name: ASEv1
-    href: app-service-app-service-environment-intro.md
-  - name: Diagnóstico
-    href: ../overview-diagnostics.md
-  - name: Certificados
-    href: certificates.md
+    - name: Arquitetura de rede
+      href: network-info.md
+    - name: Escala distribuída geograficamente
+      href: app-service-app-service-environment-geo-distributed-scale.md
+    - name: ASEv1
+      href: app-service-app-service-environment-intro.md
+    - name: Diagnóstico
+      href: ../overview-diagnostics.md
+    - name: Certificados
+      href: certificates.md
 - name: Guias de Procedimentos
   items:
-  - name: Utilizar uma ASE
-    href: using-an-ase.md
-  - name: Integrar com o Gateway de Aplicação
-    href: integrate-with-application-gateway.md
-  - name: Criar ASE a partir de um modelo
-    href: create-from-template.md
-  - name: Configuração de imposição de túnel
-    href: forced-tunnel-support.md
-  - name: Integração da firewall
-    href: firewall-integration.md
+    - name: Utilizar uma ASE
+      href: using-an-ase.md
+    - name: Integrar com o Gateway de Aplicação
+      href: integrate-with-application-gateway.md
+    - name: Criar ASE a partir de um modelo
+      href: create-from-template.md
+    - name: Configuração de imposição de túnel
+      href: forced-tunnel-support.md
+    - name: Integração da firewall
+      href: firewall-integration.md
 - name: Referência
   items:
-  - name: Endereços de gestão
-    href: management-addresses.md
-  - name: Documentação do ASEv1
-    items:
-    - name: Criar ASEv1
-      href: app-service-web-how-to-create-an-app-service-environment.md
-    - name: Configurar ASEv1
-      href: app-service-web-configure-an-app-service-environment.md
-    - name: Criar ASEv1 interno
-      href: app-service-environment-with-internal-load-balancer.md
-    - name: Criar ASEv1 interno a partir de um modelo
-      href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-    - name: Configurar o Dimensionamento Automático no ASEv1
-      href: app-service-environment-auto-scale.md
-    - name: Aumentar uma aplicação horizontalmente no ASEv1
-      href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
-    - name: Arquitetura de rede
-      href: app-service-app-service-environment-network-architecture-overview.md
-    - name: Criar aplicação web na ASEv1
-      href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-    - name: Ligar ao back-end
-      href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
-    - name: Configurar o ExpressRoute
-      href: app-service-app-service-environment-network-configuration-expressroute.md
-    - name: Controlar o tráfego de entrada para a aplicação pública
-      href: app-service-app-service-environment-control-inbound-traffic.md
-    - name: Utilizar segurança em camadas
-      href: app-service-app-service-environment-layered-security.md
+    - name: Endereços de gestão
+      href: management-addresses.md
+    - name: Documentação do ASEv1
+      items:
+        - name: Criar ASEv1
+          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: Configurar ASEv1
+          href: app-service-web-configure-an-app-service-environment.md
+        - name: Criar ASEv1 interno
+          href: app-service-environment-with-internal-load-balancer.md
+        - name: Criar ASEv1 interno a partir de um modelo
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+        - name: Configurar o Dimensionamento Automático no ASEv1
+          href: app-service-environment-auto-scale.md
+        - name: Aumentar uma aplicação horizontalmente no ASEv1
+          href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
+        - name: Arquitetura de rede
+          href: app-service-app-service-environment-network-architecture-overview.md
+        - name: Criar aplicação web na ASEv1
+          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
+        - name: Ligar ao back-end
+          href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
+        - name: Configurar o ExpressRoute
+          href: app-service-app-service-environment-network-configuration-expressroute.md
+        - name: Controlar o tráfego de entrada para a aplicação pública
+          href: app-service-app-service-environment-control-inbound-traffic.md
+        - name: Utilizar segurança em camadas
+          href: app-service-app-service-environment-layered-security.md
 - name: Recursos
   items:
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/app-service/
-  - name: Informações sobre a Quota
-    href: ../../azure-subscription-service-limits.md#app-service-limits
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=app-service
-  - name: Melhores práticas
-    href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Amostras
-    href: https://azure.microsoft.com/resources/samples/?service=app-service
-  - name: Vídeos
-    items:
-    - name: Vídeos do Azure
-      href: https://azure.microsoft.com/resources/videos/index/?services=app-service
-    - name: PaaS Principal Moderna para o Enterprise com o Serviço de Aplicações do Azure
-      href: https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player
-    - name: Implementar Aplicações altamente dimensionáveis e seguras
-      href: https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player
-    - name: Executar Aplicações Móveis e Web Enterprise no Serviço de Aplicações do Azure
-      href: https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player
-  - name: Cookbooks
-    items:
-    - name: Scripts de Implementação
-      href: https://azure.microsoft.com/documentation/scripts/
-  - name: Resolução de problemas
-    items:
-    - name: Resolver problemas com o Visual Studio
-      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Resolver problemas da aplicação Node.js
-      href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Resolver erros de HTTP 502 e 503
-      href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Resolver problemas de desempenho
-      href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: FAQ
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/app-service/'
+    - name: Informações sobre a Quota
+      href: '../../azure-subscription-service-limits.md#app-service-limits'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Melhores práticas
+      href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    - name: Amostras
+      href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
+    - name: Vídeos
       items:
-      - name: FAQ sobre disponibilidade, desempenho e aplicações
-        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-      - name: FAQ sobre implementação
-        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-      - name: FAQ sobre tecnologias de código aberto
-        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-      - name: FAQ sobre configuração e gestão
-        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-ms.openlocfilehash: ddb677f58f0df8c15c3fc1c9972f83aedfbe469e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716672"
+        - name: Vídeos do Azure
+          href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
+        - name: PaaS Principal Moderna para o Enterprise com o Serviço de Aplicações do Azure
+          href: 'https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player'
+        - name: Implementar Aplicações altamente dimensionáveis e seguras
+          href: 'https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player'
+        - name: Executar Aplicações Móveis e Web Enterprise no Serviço de Aplicações do Azure
+          href: 'https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player'
+    - name: Cookbooks
+      items:
+        - name: Scripts de Implementação
+          href: 'https://azure.microsoft.com/documentation/scripts/'
+    - name: Resolução de problemas
+      items:
+        - name: Resolver problemas com o Visual Studio
+          href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Resolver problemas da aplicação Node.js
+          href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Resolver erros de HTTP 502 e 503
+          href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: Resolver problemas de desempenho
+          href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        - name: FAQ
+          items:
+            - name: 'FAQ sobre disponibilidade, desempenho e aplicações'
+              href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: FAQ sobre implementação
+              href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: FAQ sobre tecnologias de código aberto
+              href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+            - name: FAQ sobre configuração e gestão
+              href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

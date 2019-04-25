@@ -12,11 +12,11 @@ ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
 ms.openlocfilehash: f0885199717d388b68b0e835d54cc571592a5e06
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61077339"
 ---
 # <a name="sql-data-warehouse-documentation"></a>Documentação do SQL Data Warehouse
 

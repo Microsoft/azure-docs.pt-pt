@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: angrobe
-ms.openlocfilehash: 3dc46c72a77935e4069866107d3504f4f3ecfa9f
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 19db982b06285e465bfc7393a696181d2ca4bba4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811825"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996856"
 ---
 # <a name="support-information"></a>Informações de suporte

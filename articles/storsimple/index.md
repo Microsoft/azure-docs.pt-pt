@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 11/01/2018
 ms.author: carolz
 ms.openlocfilehash: b98106d1a440a30345a2f63bf5fa60384c41627e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60930016"
 ---
 # <a name="storsimple-documentation"></a>Documentação do StorSimple
 

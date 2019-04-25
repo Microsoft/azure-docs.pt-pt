@@ -10,11 +10,11 @@ ms.author: nitinme
 ms.date: 02/21/2019
 ms.topic: hub-page
 ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61294323"
 ---
 <div id="main" class="v2">
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>

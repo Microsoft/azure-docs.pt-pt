@@ -1,127 +1,120 @@
-items:
 - name: Azure Digital Twins
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Acerca do Azure Digital Twins
-    href: about-digital-twins.md
+    - name: Acerca do Azure Digital Twins
+      href: about-digital-twins.md
 - name: Inícios rápidos
   items:
-  - name: Encontrar salas disponíveis
-    href: quickstart-view-occupancy-dotnet.md
+    - name: Encontrar salas disponíveis
+      href: quickstart-view-occupancy-dotnet.md
 - name: Tutoriais
   items:
-  - name: Monitorizar um edifício com o Digital Twins
-    items:
-    - name: Implementar e configurar
-      href: tutorial-facilities-setup.md
-    - name: Aprovisionar e monitorizar condições
-      href: tutorial-facilities-udf.md
-    - name: Notificar com o Logic Apps
-      href: tutorial-facilities-events.md
-    - name: Visualizar eventos com o TSI
-      href: tutorial-facilities-analyze.md
+    - name: Monitorizar um edifício com o Digital Twins
+      items:
+        - name: Implementar e configurar
+          href: tutorial-facilities-setup.md
+        - name: Aprovisionar e monitorizar condições
+          href: tutorial-facilities-udf.md
+        - name: Notificar com o Logic Apps
+          href: tutorial-facilities-events.md
+        - name: Visualizar eventos com o TSI
+          href: tutorial-facilities-analyze.md
 - name: Conceitos
   items:
-  - name: Gráfico de modelo de objetos e inteligência espacial do Digital Twins
-    href: concepts-objectmodel-spatialgraph.md
-  - name: Entrada de conectividade e telemetria de dispositivo
-    href: concepts-device-ingress.md
-  - name: Processamento de dados e funções definidas pelo utilizador
-    href: concepts-user-defined-functions.md
-  - name: Encaminhar eventos e mensagens
-    href: concepts-events-routing.md
-  - name: Limites do serviço de pré-visualização pública
-    href: concepts-service-limits.md
-  - name: Segurança
-    items:
-    - name: Melhores práticas de segurança
-      href: security-best-practices.md
-    - name: Controlo de acesso baseado em funções
-      href: security-role-based-access-control.md
-    - name: Criar e gerir atribuições de funções
-      href: security-create-manage-role-assignments.md
-    - name: Autenticação de APIs de gestão
-      href: security-authenticating-apis.md
+    - name: Gráfico de modelo de objetos e inteligência espacial do Digital Twins
+      href: concepts-objectmodel-spatialgraph.md
+    - name: Entrada de conectividade e telemetria de dispositivo
+      href: concepts-device-ingress.md
+    - name: Processamento de dados e funções definidas pelo utilizador
+      href: concepts-user-defined-functions.md
+    - name: Encaminhar eventos e mensagens
+      href: concepts-events-routing.md
+    - name: Limites do serviço de pré-visualização pública
+      href: concepts-service-limits.md
+    - name: Segurança
+      items:
+        - name: Melhores práticas de segurança
+          href: security-best-practices.md
+        - name: Controlo de acesso baseado em funções
+          href: security-role-based-access-control.md
+        - name: Criar e gerir atribuições de funções
+          href: security-create-manage-role-assignments.md
+        - name: Autenticação de APIs de gestão
+          href: security-authenticating-apis.md
 - name: Guias de procedimentos
   items:
-  - name: Ativar aplicações multi-inquilino
-    href: how-to-multitenant-applications.md
-  - name: Criar funções definidas pelo utilizador
-    href: how-to-user-defined-functions.md
-  - name: Encaminhar eventos e mensagens através de pontos finais
-    href: how-to-egress-endpoints.md
-  - name: Adicionar blobs a objetos
-    href: how-to-add-blobs.md
-  - name: Utilizar o Swagger do Digital Twins
-    href: how-to-use-swagger.md
-  - name: Depurar funções definidas pelo utilizador
-    href: how-to-diagnose-user-defined-functions.md
-  - name: Configurar a monitorização
-    href: how-to-configure-monitoring.md
-  - name: Consultar APIs do Digital Twins
-    items:
-    - name: Configurar o Postman
-      href: how-to-configure-postman.md
-    - name: Utilizar APIs do Digital Twins
-      href: how-to-navigate-apis.md
-    - name: Padrões de consulta comuns
-      href: how-to-query-common-apis.md
+    - name: Ativar aplicações multi-inquilino
+      href: how-to-multitenant-applications.md
+    - name: Criar funções definidas pelo utilizador
+      href: how-to-user-defined-functions.md
+    - name: Encaminhar eventos e mensagens através de pontos finais
+      href: how-to-egress-endpoints.md
+    - name: Adicionar blobs a objetos
+      href: how-to-add-blobs.md
+    - name: Utilizar o Swagger do Digital Twins
+      href: how-to-use-swagger.md
+    - name: Depurar funções definidas pelo utilizador
+      href: how-to-diagnose-user-defined-functions.md
+    - name: Configurar a monitorização
+      href: how-to-configure-monitoring.md
+    - name: Consultar APIs do Digital Twins
+      items:
+        - name: Configurar o Postman
+          href: how-to-configure-postman.md
+        - name: Utilizar APIs do Digital Twins
+          href: how-to-navigate-apis.md
+        - name: Padrões de consulta comuns
+          href: how-to-query-common-apis.md
 - name: Referência
   items:
-  - name: Biblioteca de cliente de funções definidas pelo utilizador
-    href: reference-user-defined-functions-client-library.md
+    - name: Biblioteca de cliente de funções definidas pelo utilizador
+      href: reference-user-defined-functions-client-library.md
 - name: Relacionado
   items:
-  - name: Soluções
-    items:
-    - name: Aceleradores de soluções IoT
-      href: /azure/iot-accelerators
-    - name: Centro de IoT
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Serviços de Plataforma
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
-      href: /azure/iot-dps
-    - name: SDKs do Serviço de IoT
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Maps
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Microsoft Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: SDKs do Dispositivo IoT
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+    - name: Soluções
+      items:
+        - name: Aceleradores de soluções IoT
+          href: /azure/iot-accelerators
+        - name: Centro de IoT
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+    - name: Serviços de Plataforma
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+          href: /azure/iot-dps
+        - name: SDKs do Serviço de IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Microsoft Edge
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: SDKs do Dispositivo IoT
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Recursos
   items:
-  - name: Exemplos do Azure Digital Twins para C# (.NET)
-    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
-  - name: API REST do Azure Digital Twins
-    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/digital-twins/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Visualizador de Grafo do Azure Digital Twins
-    href: https://github.com/Azure/azure-digital-twins-graph-viewer
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
-  - name: Histórias dos clientes
-    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
-  - name: Centro de Programadores do Azure IoT
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Vídeos
-    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 0a76dbffc41106af5df540d29c1d7171f1506202
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664867"
+    - name: 'Exemplos do Azure Digital Twins para C# (.NET)'
+      href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
+    - name: API REST do Azure Digital Twins
+      href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Visualizador de Grafo do Azure Digital Twins
+      href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+    - name: Histórias dos clientes
+      href: 'https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/'
+    - name: Centro de Programadores do Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
+    - name: Vídeos
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'

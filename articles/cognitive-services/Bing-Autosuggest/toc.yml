@@ -1,84 +1,77 @@
-items:
 - name: Documentação da Sugestão Automática do Bing
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é a Sugestão Automática do Bing?
-    href: get-suggested-search-terms.md
-  - name: Comparar as APIs de Pesquisa do Bing
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: O que é a Sugestão Automática do Bing?
+      href: get-suggested-search-terms.md
+    - name: Comparar as APIs de Pesquisa do Bing
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Inícios Rápidos da API REST
-  items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
   expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
 - name: Tutoriais
   items:
-  - name: Aplicação Web de página única
-    href: tutorials/autosuggest.md
+    - name: Aplicação Web de página única
+      href: tutorials/autosuggest.md
 - name: Guias de procedimentos
   items:
-  - name: Atualizar da v5 para v7
-    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+    - name: Atualizar da v5 para v7
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Conceitos
   items:
-  - name: Sugerir termos de consulta
-    href: concepts/get-suggestions.md
-  - name: Enviar pedidos
-    href: concepts/sending-requests.md
+    - name: Sugerir termos de consulta
+      href: concepts/get-suggestions.md
+    - name: Enviar pedidos
+      href: concepts/sending-requests.md
 - name: Referência
   items:
-  - name: API de Sugestão Automática do Bing v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
-  - name: API de Sugestão Automática do Bing v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
-  - name: SDKs
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
-    - name: Ir
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
-  - name: Requisitos de utilização e de apresentação
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: API de Sugestão Automática do Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: API de Sugestão Automática do Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+    - name: SDKs
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable'
+        - name: Ir
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest'
+    - name: Requisitos de utilização e de apresentação
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Recursos
   items:
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+autosuggest
-  - name: Disponibilidade regional
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Base de Dados de Conhecimento
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: Obter chave de API
-    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
-  - name: Experimente!
-    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Suporte de idioma e região
-    href: language-support.md
-  - name: Análise da API de Sugestão Automática do Bing
-    href: bing-autosuggest-stats.md
-ms.openlocfilehash: 5e0a0f0734b694a098cc6685e337aa24b41962d5
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011539"
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Base de Dados de Conhecimento
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obter chave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: Experimente!
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Suporte de idioma e região
+      href: language-support.md
+    - name: Análise da API de Sugestão Automática do Bing
+      href: bing-autosuggest-stats.md

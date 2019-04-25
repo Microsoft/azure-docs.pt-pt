@@ -12,11 +12,11 @@ ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
 ms.openlocfilehash: f3e26701a5764169b6d459d28c5d70227386c6bf
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456537"
 ---
 <div class="content">
    <h1>Docker no Azure</h1>   
