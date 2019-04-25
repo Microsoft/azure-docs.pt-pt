@@ -1,103 +1,96 @@
-items:
 - name: Documentação do Azure Migrate
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Acerca do Azure Migrate
-    href: migrate-overview.md
+    - name: Acerca do Azure Migrate
+      href: migrate-overview.md
 - name: Tutoriais
   items:
-  - name: Descobrir e avaliar VMs VMware
-    href: tutorial-assessment-vmware.md
+    - name: Descobrir e avaliar VMs VMware
+      href: tutorial-assessment-vmware.md
 - name: Conceitos
   items:
-  - name: Sobre o recoletor
-    href: concepts-collector.md
-  - name: Atualizações de versão do recoletor
-    href: concepts-collector-upgrade.md
-  - name: Cálculos de avaliação
-    href: concepts-assessment-calculation.md
-  - name: Sobre a visualização de dependência
-    href: concepts-dependency-visualization.md
+    - name: Sobre o recoletor
+      href: concepts-collector.md
+    - name: Atualizações de versão do recoletor
+      href: concepts-collector-upgrade.md
+    - name: Cálculos de avaliação
+      href: concepts-assessment-calculation.md
+    - name: Sobre a visualização de dependência
+      href: concepts-dependency-visualization.md
 - name: Guias de procedimentos
   items:
-  - name: Melhores práticas de migração
-    items:
-    - name: Melhores práticas para segurança e gestão após a migração
-      href: migrate-best-practices-security-management.md
-    - name: Melhores práticas para funcionamento em rede após a migração
-      href: migrate-best-practices-networking.md
-    - name: Melhores práticas para avaliar custos e dimensionar após a migração
-      href: migrate-best-practices-costs.md
-  - name: Série de migração do Contoso
-    items:
-    - name: 1. Contoso-Descrição geral da migração
-      href: contoso-migration-overview.md
-    - name: 2. Contoso-Implementar uma infraestrutura do Azure
-      href: contoso-migration-infrastructure.md
-    - name: 3. Contoso-Avaliar recursos no local para migração para o Azure
-      href: contoso-migration-assessment.md
-    - name: 4. Contoso-Realojar uma aplicação em VMs do Azure e Instância Gerida da Base de Dados SQL do Azure
-      href: contoso-migration-rehost-vm-sql-managed-instance.md
-    - name: 5. Contoso-Realojar uma aplicação em VMs do Azure
-      href: contoso-migration-rehost-vm.md
-    - name: 6. Contoso-Realojar uma aplicação em VMs do Azure e nos Grupos de Disponibilidade AlwaysOn do Azure SQL Server
-      href: contoso-migration-rehost-vm-sql-ag.md
-    - name: 7. Contoso-Realojar uma aplicação de Linux nas VMs do Azure
-      href: contoso-migration-rehost-linux-vm.md
-    - name: 8. Contoso-Realojar uma aplicação de Linux nas VMs do Azure e no MySQL do Azure
-      href: contoso-migration-rehost-linux-vm-mysql.md
-    - name: 9. Contoso-Refatorizar uma aplicação nas Aplicações Web do Azure e na Base de Dados SQL do Azure
-      href: contoso-migration-refactor-web-app-sql.md
-    - name: 10. Contoso-Refatorizar uma aplicação do Linux nas Aplicações Web do Azure e no MySQL do Azure
-      href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso-Migrar o TFS para os Serviços do Azure DevOps
-      href: contoso-migration-tfs-vsts.md
-    - name: 12. Contoso-Rearquitetar uma aplicação nos Contentores do Azure e na Base de Dados SQL do Azure
-      href: contoso-migration-rearchitect-container-sql.md
-    - name: 13. Contoso-Recriar uma aplicação no Azure
-      href: contoso-migration-rebuild.md
-    - name: 14. Contoso-Dimensionar uma migração
-      href: contoso-migration-scale.md
-  - name: Descobrir e avaliar um ambiente de grandes dimensões
-    href: how-to-scale-assessment.md
-  - name: Agrupar máquinas
-    href: how-to-create-a-group.md
-  - name: Agrupar máquinas através de dependências de máquina
-    href: how-to-create-group-machine-dependencies.md
-  - name: Refinar um grupo através de dependências de grupo
-    href: how-to-create-group-dependencies.md
-  - name: Personalizar uma avaliação
-    href: how-to-modify-assessment.md
-  - name: Migrar máquinas após a avaliação
-    href: how-to-get-migration-tool.md
-  - name: Automatizar a migração de um elevado número de VMs
-    href: how-to-migrate-at-scale.md
-  - name: Resolver problemas do Azure Migrate
-    href: troubleshooting-general.md
+    - name: Melhores práticas de migração
+      items:
+        - name: Melhores práticas para segurança e gestão após a migração
+          href: migrate-best-practices-security-management.md
+        - name: Melhores práticas para funcionamento em rede após a migração
+          href: migrate-best-practices-networking.md
+        - name: Melhores práticas para avaliar custos e dimensionar após a migração
+          href: migrate-best-practices-costs.md
+    - name: Série de migração do Contoso
+      items:
+        - name: 1. Contoso-Descrição geral da migração
+          href: contoso-migration-overview.md
+        - name: 2. Contoso-Implementar uma infraestrutura do Azure
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso-Avaliar recursos no local para migração para o Azure
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso-Realojar uma aplicação em VMs do Azure e Instância Gerida da Base de Dados SQL do Azure
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso-Realojar uma aplicação em VMs do Azure
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso-Realojar uma aplicação em VMs do Azure e nos Grupos de Disponibilidade AlwaysOn do Azure SQL Server
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso-Realojar uma aplicação de Linux nas VMs do Azure
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso-Realojar uma aplicação de Linux nas VMs do Azure e no MySQL do Azure
+          href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso-Refatorizar uma aplicação nas Aplicações Web do Azure e na Base de Dados SQL do Azure
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso-Refatorizar uma aplicação do Linux nas Aplicações Web do Azure e no MySQL do Azure
+          href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso-Migrar o TFS para os Serviços do Azure DevOps
+          href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso-Rearquitetar uma aplicação nos Contentores do Azure e na Base de Dados SQL do Azure
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso-Recriar uma aplicação no Azure
+          href: contoso-migration-rebuild.md
+        - name: 14. Contoso-Dimensionar uma migração
+          href: contoso-migration-scale.md
+    - name: Descobrir e avaliar um ambiente de grandes dimensões
+      href: how-to-scale-assessment.md
+    - name: Agrupar máquinas
+      href: how-to-create-a-group.md
+    - name: Agrupar máquinas através de dependências de máquina
+      href: how-to-create-group-machine-dependencies.md
+    - name: Refinar um grupo através de dependências de grupo
+      href: how-to-create-group-dependencies.md
+    - name: Personalizar uma avaliação
+      href: how-to-modify-assessment.md
+    - name: Migrar máquinas após a avaliação
+      href: how-to-get-migration-tool.md
+    - name: Automatizar a migração de um elevado número de VMs
+      href: how-to-migrate-at-scale.md
+    - name: Resolver problemas do Azure Migrate
+      href: troubleshooting-general.md
 - name: Recursos
   items:
-  - name: FAQ
-    href: resources-faq.md
-  - name: API REST
-    href: https://docs.microsoft.com/rest/api/migrate/
-  - name: Modelo do Resource Manager
-    href: /azure/templates/microsoft.migrate/allversions
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/azure-migrate/
-  - name: UserVoice
-    href: https://aka.ms/AzureMigrateUservoice
-  - name: Fórum
-    href: https://aka.ms/AzureMigrateForum
-  - name: Blogue
-    href: https://azure.microsoft.com/blog/tag/azure-migrate/
-  - name: Azure Migrate
-    href: https://azure.microsoft.com/migrate
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: d07d8e94f15dc6ba549d96c5950931963e5bbfc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837675"
+    - name: FAQ
+      href: resources-faq.md
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/migrate/'
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/azure-migrate/'
+    - name: UserVoice
+      href: 'https://aka.ms/AzureMigrateUservoice'
+    - name: Fórum
+      href: 'https://aka.ms/AzureMigrateForum'
+    - name: Blogue
+      href: 'https://azure.microsoft.com/blog/tag/azure-migrate/'
+    - name: Azure Migrate
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'

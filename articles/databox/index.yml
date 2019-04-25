@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5191d259c24a30b6e435fdb2adb93a4345f6ae77
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159099"
 documentType: LandingData
 title: Documentação do Azure Data Box - Transferência Offline
 metadata:
   title: Documentação do Azure Data Box - Transferência Offline
-  description: Utilize os dispositivos do Data Box para transferência de dados offline para o Azure quando existirem limitações de tempo, de rede ou de custos.
+  description: 'Utilize os dispositivos do Data Box para transferência de dados offline para o Azure quando existirem limitações de tempo, de rede ou de custos.'
   services: databox
   author: alkohli
   manager: twooley
@@ -19,32 +13,32 @@ metadata:
   ms.date: 01/09/2019
   ms.author: alkohli
 abstract:
-  description: A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilize os dispositivos do Data Box para transferência de dados offline quando existirem limitações de tempo, de rede ou de custos.<p>Conforme o tamanho dos dados, escolha entre Data Box Disk, Data Box ou Data Box Heavy<SUP>Pré-visualização</SUP>. Para cada dispositivo, a transferência para o Azure ocorre em 4 passos simples – pedido, receção, cópia dos dados para o dispositivo e devolução do dispositivo de para o Azure. No centro de dados do Azure, os dados são carregados e, em seguida, apagados.</p><p>Saiba como tirar partido do Data Box para a transferência de dados offline com os nossos guias de início rápido e tutoriais.</p>
+  description: 'A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilize os dispositivos do Data Box para transferência de dados offline quando existirem limitações de tempo, de rede ou de custos.<p>Conforme o tamanho dos dados, escolha entre Data Box Disk, Data Box ou Data Box Heavy<SUP>Pré-visualização</SUP>. Para cada dispositivo, a transferência para o Azure ocorre em 4 passos simples – pedido, receção, cópia dos dados para o dispositivo e devolução do dispositivo de para o Azure. No centro de dados do Azure, os dados são carregados e, em seguida, apagados.</p><p>Saiba como tirar partido do Data Box para a transferência de dados offline com os nossos guias de início rápido e tutoriais.</p>'
 sections:
-- title: Início Rápido
-  items:
-  - type: list
-    style: icon48
+  - title: Início Rápido
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Configurar o Data Box no portal do Azure
-      href: /azure/databox/data-box-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Configurar o Data Box Disk no portal do Azure
-      href: /azure/databox/data-box-disk-quickstart-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_quick-start.svg
-      text: Inscrever-se no Data Box Heavy<SUP>Pré-visualização</SUP>
-      href: /azure/databox/data-box-heavy-overview#sign-up
-- title: Tutoriais
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: Configurar o Data Box no portal do Azure
+            href: /azure/databox/data-box-quickstart-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: Configurar o Data Box Disk no portal do Azure
+            href: /azure/databox/data-box-disk-quickstart-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
+            text: Inscrever-se no Data Box Heavy<SUP>Pré-visualização</SUP>
+            href: '/azure/databox/data-box-heavy-overview#sign-up'
+  - title: Tutoriais
     items:
-    - title: Para o Data Box
-      html: <p><a href="/azure/databox/data-box-deploy-ordered">Encomendar o Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Instalar e ligar os cabos do Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copiar dados para o Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Devolver o Azure Data Box e verificar o carregamento</a></p>
-    - title: Para o Data Box Disk
-      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Encomendar o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Desembalar, ligar e bloquear o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copiar dados para o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Devolver o Azure Data Box Disk e verificar o carregamento</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Para o Data Box
+            html: <p><a href="/azure/databox/data-box-deploy-ordered">Encomendar o Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Instalar e ligar os cabos do Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copiar dados para o Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Devolver o Azure Data Box e verificar o carregamento</a></p>
+          - title: Para o Data Box Disk
+            html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Encomendar o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Desembalar, ligar e bloquear o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copiar dados para o Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Devolver o Azure Data Box Disk e verificar o carregamento</a></p>'

@@ -1,115 +1,108 @@
-items:
 - name: Documentação das Aplicações Geridas do Azure
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Acerca das aplicações geridas
-    href: overview.md
+    - name: Acerca das aplicações geridas
+      href: overview.md
 - name: Inícios rápidos
-  items:
-  - name: Publicar a definição da aplicação
-    href: publish-managed-app-definition-quickstart.md
-  - name: Implementar a aplicação do catálogo de serviços
-    href: deploy-service-catalog-quickstart.md
   expanded: true
+  items:
+    - name: Publicar a definição da aplicação
+      href: publish-managed-app-definition-quickstart.md
+    - name: Implementar a aplicação do catálogo de serviços
+      href: deploy-service-catalog-quickstart.md
 - name: Tutoriais
   items:
-  - name: Criar ficheiros de definição
-    href: publish-service-catalog-app.md
-  - name: Publicar a aplicação do marketplace
-    href: publish-marketplace-app.md
+    - name: Criar ficheiros de definição
+      href: publish-service-catalog-app.md
+    - name: Publicar a aplicação do marketplace
+      href: publish-marketplace-app.md
 - name: Amostras
   items:
-  - name: CLI do Azure
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Soluções de aplicação gerida
-    href: sample-projects.md
+    - name: CLI do Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Soluções de aplicação gerida
+      href: sample-projects.md
 - name: Guias de procedimentos
   items:
-  - name: Editores
-    items:
-    - name: Criar interface do portal
-      href: create-uidefinition-overview.md
-    - name: Testar interface do portal
-      href: test-createuidefinition.md
-    - name: Atualizar recursos geridos
-      href: update-managed-resources.md
-    - name: Utilizar o portal para publicar a definição da aplicação
-      href: publish-portal.md
-    - name: Utilizar segredo do Key Vault
-      href: key-vault-access.md
-  - name: Consumidores
-    items:
-    - name: Monitorizar uma aplicação gerida
-      href: monitor-managed-application-portal.md
+    - name: Editores
+      items:
+        - name: Criar interface do portal
+          href: create-uidefinition-overview.md
+        - name: Testar interface do portal
+          href: test-createuidefinition.md
+        - name: Atualizar recursos geridos
+          href: update-managed-resources.md
+        - name: Utilizar o portal para publicar a definição da aplicação
+          href: publish-portal.md
+        - name: Utilizar segredo do Key Vault
+          href: key-vault-access.md
+    - name: Consumidores
+      items:
+        - name: Monitorizar uma aplicação gerida
+          href: monitor-managed-application-portal.md
 - name: Referência
   items:
-  - name: CLI do Azure
-    href: /cli/azure/managedapp
-  - name: PowerShell
-    href: /powershell/module/az.resources
-  - name: REST
-    href: /rest/api/resources/
-  - name: Funções da interface de utilizador
-    href: create-uidefinition-functions.md
-  - name: Elementos da interface de utilizador
-    href: create-uidefinition-elements.md
-    items:
-    - name: Common
+    - name: CLI do Azure
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/az.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: Funções da interface de utilizador
+      href: create-uidefinition-functions.md
+    - name: Elementos da interface de utilizador
+      href: create-uidefinition-elements.md
       items:
-      - name: DropDown
-        href: microsoft-common-dropdown.md
-      - name: FileUpload
-        href: microsoft-common-fileupload.md
-      - name: InfoBox
-        href: microsoft-common-infobox.md
-      - name: OptionsGroup
-        href: microsoft-common-optionsgroup.md
-      - name: PasswordBox
-        href: microsoft-common-passwordbox.md
-      - name: Section
-        href: microsoft-common-section.md
-      - name: TextBlock
-        href: microsoft-common-textblock.md
-      - name: TextBox
-        href: microsoft-common-textbox.md
-    - name: Computação
-      items:
-      - name: CredentialsCombo
-        href: microsoft-compute-credentialscombo.md
-      - name: SizeSelector
-        href: microsoft-compute-sizeselector.md
-      - name: UserNameTextBox
-        href: microsoft-compute-usernametextbox.md
-    - name: Rede
-      items:
-      - name: PublicIPAddressCombo
-        href: microsoft-network-publicipaddresscombo.md
-      - name: VirtualNetworkCombo
-        href: microsoft-network-virtualnetworkcombo.md
-    - name: Armazenamento
-      items:
-      - name: MultiStorageAccountCombo
-        href: microsoft-storage-multistorageaccountcombo.md
-      - name: StorageAccountSelector
-        href: microsoft-storage-storageaccountselector.md
+        - name: Common
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: InfoBox
+              href: microsoft-common-infobox.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: Section
+              href: microsoft-common-section.md
+            - name: TextBlock
+              href: microsoft-common-textblock.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: Computação
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: Rede
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: Armazenamento
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
 - name: Recursos
   items:
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/managed-applications/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Melhores práticas do modelo do Resource Manager
-    href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: e5ed2bab25c8140d12517e4757c028a7c6dd85d9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402019"
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Melhores práticas do modelo do Resource Manager
+      href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

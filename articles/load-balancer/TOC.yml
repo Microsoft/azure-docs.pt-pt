@@ -1,200 +1,193 @@
-items:
 - name: Documentação do Load Balancer
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o Balanceador de Carga?
-    href: load-balancer-overview.md
+    - name: O que é o Balanceador de Carga?
+      href: load-balancer-overview.md
 - name: Início Rápido
   items:
-  - name: Criar um Balanceador de Carga Básico - Portal
-    href: quickstart-create-basic-load-balancer-portal.md
-  - name: Criar um Balanceador de Carga Básico - CLI do Azure
-    href: quickstart-create-basic-load-balancer-cli.md
-  - name: Criar um Balanceador de Carga Básico - Azure PowerShell
-    href: quickstart-create-basic-load-balancer-powershell.md
-  - name: Criar um Balanceador de Carga Standard - Portal
-    href: quickstart-load-balancer-standard-public-portal.md
-  - name: Criar um Balanceador de Carga Standard - CLI do Azure
-    href: quickstart-load-balancer-standard-public-cli.md
-  - name: Criar um Balanceador de Carga Standard - Azure PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
+    - name: Criar um Balanceador de Carga Básico - Portal
+      href: quickstart-create-basic-load-balancer-portal.md
+    - name: Criar um Balanceador de Carga Básico - CLI do Azure
+      href: quickstart-create-basic-load-balancer-cli.md
+    - name: Criar um Balanceador de Carga Básico - Azure PowerShell
+      href: quickstart-create-basic-load-balancer-powershell.md
+    - name: Criar um Balanceador de Carga Standard - Portal
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: Criar um Balanceador de Carga Standard - CLI do Azure
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: Criar um Balanceador de Carga Standard - Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutoriais
   items:
-  - name: Balancear carga de tráfego de internet para VMs
-    href: tutorial-load-balancer-standard-manage-portal.md
-  - name: Balancear carga de tráfego interno para VMs
-    href: tutorial-load-balancer-basic-internal-portal.md
-  - name: Balancear carga de VMs por zonas de disponibilidade
-    href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
-  - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
-    href: tutorial-load-balancer-standard-public-zonal-portal.md
-  - name: Configurar o reencaminhamento de portas no Balanceador de Carga
-    href: tutorial-load-balancer-port-forwarding-portal.md
+    - name: Balancear carga de tráfego de internet para VMs
+      href: tutorial-load-balancer-standard-manage-portal.md
+    - name: Balancear carga de tráfego interno para VMs
+      href: tutorial-load-balancer-basic-internal-portal.md
+    - name: Balancear carga de VMs por zonas de disponibilidade
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica
+      href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Configurar o reencaminhamento de portas no Balanceador de Carga
+      href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Amostras
   items:
-  - name: CLI do Azure
-    href: cli-samples.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
+    - name: CLI do Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: Conceitos
   items:
-  - name: O que é o Balanceador de Carga Standard?
-    href: load-balancer-standard-overview.md
-  - name: Sondas do estado de funcionamento
-    href: load-balancer-custom-probe-overview.md
-  - name: Portas de Elevada Disponibilidade
-    href: load-balancer-ha-ports-overview.md
-  - name: Suporte para IPv6
-    href: load-balancer-ipv6-overview.md
-  - name: Vários front-ends
-    href: load-balancer-multivip-overview.md
-  - name: Ligações de saída
-    href: load-balancer-outbound-connections.md
-  - name: Regras de Saída
-    href: load-balancer-outbound-rules-overview.md
-  - name: Reposição de TCP em tempo limite de inatividade
-    href: load-balancer-tcp-reset.md
-  - name: Balanceador de Carga Standard e Zonas de Disponibilidade
-    href: load-balancer-standard-availability-zones.md
-  - name: Métricas e diagnósticos do Balanceador de Carga Standard
-    href: load-balancer-standard-diagnostics.md
+    - name: O que é o Balanceador de Carga Standard?
+      href: load-balancer-standard-overview.md
+    - name: Sondas do estado de funcionamento
+      href: load-balancer-custom-probe-overview.md
+    - name: Portas de Elevada Disponibilidade
+      href: load-balancer-ha-ports-overview.md
+    - name: Suporte para IPv6
+      href: load-balancer-ipv6-overview.md
+    - name: Vários front-ends
+      href: load-balancer-multivip-overview.md
+    - name: Ligações de saída
+      href: load-balancer-outbound-connections.md
+    - name: Regras de Saída
+      href: load-balancer-outbound-rules-overview.md
+    - name: Reposição de TCP em tempo limite de inatividade
+      href: load-balancer-tcp-reset.md
+    - name: Balanceador de Carga Standard e Zonas de Disponibilidade
+      href: load-balancer-standard-availability-zones.md
+    - name: Métricas e diagnósticos do Balanceador de Carga Standard
+      href: load-balancer-standard-diagnostics.md
 - name: Procedimento
   items:
-  - name: Criar um Balanceador de Carga público com redundância de zona
-    href: load-balancer-get-started-internet-az-portal.md
-    items:
-    - name: Criar um Standard Balanceador de Carga público com redundância de zona (PowerShell)
-      href: load-balancer-get-started-internet-az-powershell.md
-    - name: Criar um Balanceador de Carga Standard público com redundância de zona (CLI)
-      href: load-balancer-get-started-internet-az-cli.md
-  - name: Criar um Balanceador de Carga Standard público zonal
-    href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
-    items:
-    - name: Criar um Balanceador de Carga Standard público zonal (PowerShell)
-      href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
-    - name: Criar um Balanceador de Carga Standard público redundante zonal (CLI)
-      href: load-balancer-get-started-internet-availability-zones-zonal-cli.md
-  - name: Balancear carga de VMs por zonas de disponibilidade (CLI)
-    href: load-balancer-standard-public-zone-redundant-cli.md
-  - name: Balancear carga de VMs dentro de uma zona (CLI)
-    href: load-balancer-standard-public-zonal-cli.md
-  - name: Configurar as regras de saída
-    href: configure-load-balancer-outbound-cli.md
-  - name: Criar um balanceador de carga do Azure com a API REST
-    href: create-load-balancer-rest-api.md
-  - name: Criar Balanceador de Carga Básico (Modelo)
-    href: load-balancer-get-started-internet-arm-template.md
-  - name: Criar Balanceador de Carga público com o IPv6
-    href: load-balancer-ipv6-internet-ps.md
-    items:
-    - name: Criar Balanceador de Carga público com o IPv6 (CLI)
-      href: load-balancer-ipv6-internet-cli.md
-    - name: Criar Balanceador de Carga público com o IPv6 (Modelo)
-      href: load-balancer-ipv6-internet-template.md
-  - name: Configurar o Balanceador de Carga interno
-    items:
-    - name: Configurar o Balanceador de Carga interno (PowerShell)
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Configurar o Balanceador de Carga interno (CLI)
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Configurar o Balanceador de Carga interno (Modelo)
-      href: load-balancer-get-started-ilb-arm-template.md
-  - name: Configurar o tempo limite de inatividade de TCP para o Balanceador de Carga
-    href: load-balancer-tcp-idle-timeout.md
-  - name: Configurar o modo de distribuição do Balanceador de Carga
-    href: load-balancer-distribution-mode.md
-  - name: Combinar serviços de balanceamento de carga
-    href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
-  - name: Utilizar várias configurações de IP
-    href: load-balancer-multiple-ip.md
-    items:
-    - name: Utilizar várias configurações de IP (CLI)
-      href: load-balancer-multiple-ip-cli.md
-    - name: Utilizar várias configurações de IP (PowerShell)
-      href: load-balancer-multiple-ip-powershell.md
-  - name: Registos do Azure Monitor para o Balanceador de Carga do Azure
-    href: load-balancer-monitor-log.md
-  - name: Obter métricas do Balanceador de Carga com REST
-    href: load-balancer-query-metrics-rest-api.md
-  - name: Configurar Portas de Elevada Disponibilidade para o Balanceador de Carga Interno
-    href: load-balancer-configure-ha-ports.md
-  - name: Resolução de problemas
-    items:
-    - name: Resolver problemas do Balanceador de Carga do Azure
-      href: load-balancer-troubleshoot.md
-  - name: Artigos sobre o modelo de implementação clássica
-    items:
-    - name: Ligações de saída (clássicas)
-      href: load-balancer-outbound-connections-classic.md
-  - name: Configurar vários VIPs para o serviço em nuvem
-    href: load-balancer-multivip.md
-    items:
-    - name: Configurar o Balanceador de Carga interno para Serviços Cloud
-      href: load-balancer-get-started-ilb-classic-cloud.md
+    - name: Criar um Balanceador de Carga público com redundância de zona
+      href: load-balancer-get-started-internet-az-portal.md
       items:
-      - name: Configurar o Balanceador de Carga interno para Serviços Cloud (PowerShell)
-        href: load-balancer-get-started-ilb-classic-ps.md
-      - name: Configurar o Balanceador de Carga interno para Serviços Cloud (CLI)
-        href: load-balancer-get-started-ilb-classic-cli.md
-    - name: Configurar o Balanceador de Carga público (PowerShell clássico)
-      href: load-balancer-get-started-internet-classic-ps.md
+        - name: Criar um Standard Balanceador de Carga público com redundância de zona (PowerShell)
+          href: load-balancer-get-started-internet-az-powershell.md
+        - name: Criar um Balanceador de Carga Standard público com redundância de zona (CLI)
+          href: load-balancer-get-started-internet-az-cli.md
+    - name: Criar um Balanceador de Carga Standard público zonal
+      href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
       items:
-      - name: Configurar o Balanceador de Carga público (Cloud clássica)
-        href: load-balancer-get-started-internet-classic-cloud.md
-      - name: Configurar o Balanceador de Carga público (CLI clássica)
-        href: load-balancer-get-started-internet-classic-cli.md
+        - name: Criar um Balanceador de Carga Standard público zonal (PowerShell)
+          href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Criar um Balanceador de Carga Standard público redundante zonal (CLI)
+          href: load-balancer-get-started-internet-availability-zones-zonal-cli.md
+    - name: Balancear carga de VMs por zonas de disponibilidade (CLI)
+      href: load-balancer-standard-public-zone-redundant-cli.md
+    - name: Balancear carga de VMs dentro de uma zona (CLI)
+      href: load-balancer-standard-public-zonal-cli.md
+    - name: Configurar as regras de saída
+      href: configure-load-balancer-outbound-cli.md
+    - name: Criar um balanceador de carga do Azure com a API REST
+      href: create-load-balancer-rest-api.md
+    - name: Criar Balanceador de Carga Básico (Modelo)
+      href: load-balancer-get-started-internet-arm-template.md
+    - name: Criar Balanceador de Carga público com o IPv6
+      href: load-balancer-ipv6-internet-ps.md
+      items:
+        - name: Criar Balanceador de Carga público com o IPv6 (CLI)
+          href: load-balancer-ipv6-internet-cli.md
+        - name: Criar Balanceador de Carga público com o IPv6 (Modelo)
+          href: load-balancer-ipv6-internet-template.md
+    - name: Configurar o Balanceador de Carga interno
+      items:
+        - name: Configurar o Balanceador de Carga interno (PowerShell)
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Configurar o Balanceador de Carga interno (CLI)
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Configurar o Balanceador de Carga interno (Modelo)
+          href: load-balancer-get-started-ilb-arm-template.md
+    - name: Configurar o tempo limite de inatividade de TCP para o Balanceador de Carga
+      href: load-balancer-tcp-idle-timeout.md
+    - name: Configurar o modo de distribuição do Balanceador de Carga
+      href: load-balancer-distribution-mode.md
+    - name: Combinar serviços de balanceamento de carga
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Utilizar várias configurações de IP
+      href: load-balancer-multiple-ip.md
+      items:
+        - name: Utilizar várias configurações de IP (CLI)
+          href: load-balancer-multiple-ip-cli.md
+        - name: Utilizar várias configurações de IP (PowerShell)
+          href: load-balancer-multiple-ip-powershell.md
+    - name: Registos do Azure Monitor para o Balanceador de Carga do Azure
+      href: load-balancer-monitor-log.md
+    - name: Obter métricas do Balanceador de Carga com REST
+      href: load-balancer-query-metrics-rest-api.md
+    - name: Configurar Portas de Elevada Disponibilidade para o Balanceador de Carga Interno
+      href: load-balancer-configure-ha-ports.md
+    - name: Resolução de problemas
+      items:
+        - name: Resolver problemas do Balanceador de Carga do Azure
+          href: load-balancer-troubleshoot.md
+    - name: Artigos sobre o modelo de implementação clássica
+      items:
+        - name: Ligações de saída (clássicas)
+          href: load-balancer-outbound-connections-classic.md
+    - name: Configurar vários VIPs para o serviço em nuvem
+      href: load-balancer-multivip.md
+      items:
+        - name: Configurar o Balanceador de Carga interno para Serviços Cloud
+          href: load-balancer-get-started-ilb-classic-cloud.md
+          items:
+            - name: Configurar o Balanceador de Carga interno para Serviços Cloud (PowerShell)
+              href: load-balancer-get-started-ilb-classic-ps.md
+            - name: Configurar o Balanceador de Carga interno para Serviços Cloud (CLI)
+              href: load-balancer-get-started-ilb-classic-cli.md
+        - name: Configurar o Balanceador de Carga público (PowerShell clássico)
+          href: load-balancer-get-started-internet-classic-ps.md
+          items:
+            - name: Configurar o Balanceador de Carga público (Cloud clássica)
+              href: load-balancer-get-started-internet-classic-cloud.md
+            - name: Configurar o Balanceador de Carga público (CLI clássica)
+              href: load-balancer-get-started-internet-classic-cli.md
 - name: Referência
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=load-balancer
-  - name: Azure PowerShell
-    href: /powershell/module/az.network
-  - name: CLI do Azure
-    href: /cli/azure/network/lb
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.network.models
-  - name: Java
-    href: /java/api/com.microsoft.azure.management.network
-  - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html
-  - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers
-  - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations
-  - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt163651.aspx
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: CLI do Azure
+      href: /cli/azure/network/lb
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.network.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.network
+    - name: Node.js
+      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
 - name: Relacionado
   items:
-  - name: Gateway de Aplicação
-    href: /azure/application-gateway/
-  - name: ExpressRoute
-    href: /azure/expressroute/
-  - name: Rede Virtual
-    href: /azure/virtual-network/
-  - name: Gateway de VPN
-    href: /azure/vpn-gateway/
-  - name: Máquina Virtual
-    href: /azure/virtual-machines/
-  - name: Gestor de Tráfego
-    href: /azure/traffic-manager/
-  - name: DNS
-    href: /azure/dns/
+    - name: Gateway de Aplicação
+      href: /azure/application-gateway/
+    - name: ExpressRoute
+      href: /azure/expressroute/
+    - name: Rede Virtual
+      href: /azure/virtual-network/
+    - name: Gateway de VPN
+      href: /azure/vpn-gateway/
+    - name: Máquina Virtual
+      href: /azure/virtual-machines/
+    - name: Gestor de Tráfego
+      href: /azure/traffic-manager/
+    - name: DNS
+      href: /azure/dns/
 - name: Recursos
   items:
-  - name: Desenvolva as suas competências com o Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/load-balancer/
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=load-balancer
-ms.openlocfilehash: be96720e5dd488c9a5baf722a26901b9620f861d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790700"
+    - name: Desenvolva as suas competências com o Microsoft Learn
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=load-balancer'

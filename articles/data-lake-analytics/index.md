@@ -9,11 +9,11 @@ layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.openlocfilehash: c628e4a1caca76cbd52b99c07027d1df97d94ac1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811760"
 ---
 # <a name="azure-data-lake-analytics-documentation"></a>Documentação do Azure Data Lake Analytics
 

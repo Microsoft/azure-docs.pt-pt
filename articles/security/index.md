@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/16/2019
 ms.author: angrobe
-ms.openlocfilehash: e83a49f83fd8ac890a6c89eba3ef1c4a88f52df0
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 10b4c6bfb9c79ee933feadec2ee41e52c86df76e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607718"
 ---
 # <a name="azure-security-documentation"></a>Documentação da Segurança do Azure
 

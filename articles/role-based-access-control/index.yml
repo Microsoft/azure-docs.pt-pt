@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f0465b954e48822470374abeadb13e90a03fa3a
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408736"
 documentType: LandingData
 title: Documentação do RBAC para os recursos do Azure
 metadata:
-  document_id: 
+  document_id: null
   title: Documentação do Controlo de acesso baseado em funções (RBAC) para os recursos do Azure | Microsoft Docs
-  description: Saiba mais sobre o controlo de acesso baseado em funções (RBAC) para gerir quem tem acesso aos recursos do Azure, o que fazem com esses recursos e a que áreas têm acesso.
+  description: 'Saiba mais sobre o controlo de acesso baseado em funções (RBAC) para gerir quem tem acesso aos recursos do Azure, o que fazem com esses recursos e a que áreas têm acesso.'
   services: active-directory
   author: rolyon
   manager: mtillman
@@ -21,42 +15,42 @@ metadata:
   ms.date: 02/16/2019
   ms.author: rolyon
 abstract:
-  description: O controlo de acesso baseado em funções (RBAC) é um sistema que fornece uma gestão de acessos pormenorizada dos recursos do Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
+  description: 'O controlo de acesso baseado em funções (RBAC) é um sistema que fornece uma gestão de acessos pormenorizada dos recursos do Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-get-started.png
       width: 200
-    title: Bloquear o acesso ao Azure (1:16)
-    href: https://www.youtube.com/embed/FKBoWWKRnvI
+    title: 'Bloquear o acesso ao Azure (1:16)'
+    href: 'https://www.youtube.com/embed/FKBoWWKRnvI'
     width: 200
 sections:
-- title: Inícios rápidos de 5 minutos
-  items:
-  - type: list
-    style: unordered
+  - title: Inícios rápidos de 5 minutos
     items:
-    - html: <a href="/azure/role-based-access-control/check-access">Ver o acesso de um utilizador</a>
-- title: Tutoriais passo-a-passo
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/role-based-access-control/check-access">Ver o acesso de um utilizador</a>
+  - title: Tutoriais passo-a-passo
     items:
-    - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Conceder acesso a um utilizador - Portal</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Conceder acesso a um grupo - PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Criar uma função personalizada - PowerShell</a>
-    - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Criar uma função personalizada - CLI</a>
-- title: Desenvolva as suas competências com o Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Conceder acesso a um utilizador - Portal</a>
+          - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Conceder acesso a um grupo - PowerShell</a>
+          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Criar uma função personalizada - PowerShell</a>
+          - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Criar uma função personalizada - CLI</a>
+  - title: Desenvolva as suas competências com o Microsoft Learn
     items:
-    - title: Proteja os seus recursos do Azure com controlo de acesso baseado em funções (RBAC)
-      href: /learn/modules/secure-azure-resources-with-rbac/
-      image:
-        src: /learn/achievements/secure-azure-resources-with-rbac.svg
-        href: /learn/modules/secure-azure-resources-with-rbac/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-active-directory">Mais aprendizagem interativa...</a>
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Proteja os seus recursos do Azure com controlo de acesso baseado em funções (RBAC)
+            href: /learn/modules/secure-azure-resources-with-rbac/
+            image:
+              src: /learn/achievements/secure-azure-resources-with-rbac.svg
+              href: /learn/modules/secure-azure-resources-with-rbac/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-active-directory">Mais aprendizagem interativa...</a>

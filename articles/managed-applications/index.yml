@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107349"
 documentType: LandingData
 title: Documentação das Aplicações Geridas do Azure
 metadata:
-  title: Documentação das Aplicações Geridas do Azure - Tutoriais, Referência da API
+  title: 'Documentação das Aplicações Geridas do Azure - Tutoriais, Referência da API'
   description: Utilize as Aplicações Geridas do Azure para publicar soluções cloud que os consumidores têm mais facilidade em manter.
   services: managed-applications
   author: tfitzmac
@@ -20,37 +14,37 @@ metadata:
   ms.date: 10/25/2017
   ms.author: tomfitz
 abstract:
-  description: As Aplicações Geridas do Azure permitem-lhe oferecer as suas soluções cloud a clientes internos e externos. Pode definir a infraestrutura para a solução, bem como os termos da gestão contínua da mesma. A faturação da solução é processada através da faturação do Azure.
+  description: 'As Aplicações Geridas do Azure permitem-lhe oferecer as suas soluções cloud a clientes internos e externos. Pode definir a infraestrutura para a solução, bem como os termos da gestão contínua da mesma. A faturação da solução é processada através da faturação do Azure.'
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Saiba como publicar e implementar uma aplicação gerida.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/managed-applications/media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como desenvolver aplicações geridas e como disponibilizá-las através do Azure Marketplace.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Saiba como publicar e implementar uma aplicação gerida.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: CLI do Azure
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publicar uma aplicação gerida para utilizadores internos</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Publicar uma aplicação gerida para utilizadores externos</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Saiba como desenvolver aplicações geridas e como disponibilizá-las através do Azure Marketplace.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publicar uma aplicação gerida para utilizadores internos</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">Publicar uma aplicação gerida para utilizadores externos</a>
+  - title: Referência
     items:
-    - title: Linha de Comandos
-      html: <p><a href="/cli/azure/managedapp">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: APIs REST
-      html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: Interface de utilizador
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementos da IU</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funções da IU</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de Comandos
+            html: <p><a href="/cli/azure/managedapp">CLI do Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
+          - title: APIs REST
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: Interface de utilizador
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementos da IU</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funções da IU</a></p>

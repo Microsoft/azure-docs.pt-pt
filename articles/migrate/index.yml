@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentação do Azure Migrate
 metadata:
-  title: Documentação do Azure Migrate - Tutoriais, Referência da API | Microsoft Docs
+  title: 'Documentação do Azure Migrate - Tutoriais, Referência da API | Microsoft Docs'
   description: Saiba como avaliar máquinas no local para migração para o Azure
   services: migration-planner
   author: rayne-wiselman
@@ -13,20 +13,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
-  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
-  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-  ms.translationtype: HT
-  ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/27/2017
-  ms.locfileid: "25927123"
 abstract:
   description: O Azure Migrate ajuda-o a descobrir e avaliar a adequação das máquinas no local para migração para o Azure e fornece estimativas de dimensionamento e custos para executar VMs do Azure.
 sections:
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como avaliar VMs VMware para migração para o Azure
-  - type: list
-    style: unordered
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="tutorial-assessment-vmware">Descobrir e avaliar VMs VMware no local</a>
+      - type: paragraph
+        text: Saiba como avaliar VMs VMware para migração para o Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Descobrir e avaliar VMs VMware no local</a>

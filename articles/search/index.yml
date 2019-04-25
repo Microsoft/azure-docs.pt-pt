@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199874"
 documentType: LandingData
 title: Documentação do Azure Search
 metadata:
-  document_id: 
-  title: Documentação do Azure Search – Tutoriais, inícios rápidos, referências da API
-  description: Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários.
+  document_id: null
+  title: 'Documentação do Azure Search – Tutoriais, inícios rápidos, referências da API'
+  description: 'Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários.'
   services: search
   author: HeidiSteen
   manager: cgronlun
@@ -20,55 +14,55 @@ metadata:
   ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nova pré-visualização de pesquisa cognitiva.</b></a> Utilize uma API REST de pré-lançamento para o enlace de algoritmos com tecnologia de IA para o pipeline de indexação. Extrair dados, invocar linguagem natural e processamento de imagens para transformar conteúdo não estruturado bruto em conteúdo pesquisável num índice do Azure Search. <p/>Explore a pesquisa cognitiva com <a href="/azure/search/cognitive-search-quickstart-blob">recursos e dados de exemplo</a> ou saiba mais em <a href="/azure/search/cognitive-search-concept-intro">Conceitos</a>.
+  description: 'Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nova pré-visualização de pesquisa cognitiva.</b></a> Utilize uma API REST de pré-lançamento para o enlace de algoritmos com tecnologia de IA para o pipeline de indexação. Extrair dados, invocar linguagem natural e processamento de imagens para transformar conteúdo não estruturado bruto em conteúdo pesquisável num índice do Azure Search. <p/>Explore a pesquisa cognitiva com <a href="/azure/search/cognitive-search-quickstart-blob">recursos e dados de exemplo</a> ou saiba mais em <a href="/azure/search/cognitive-search-concept-intro">Conceitos</a>.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
       width: 250
-    title: O que é o Azure Search (1:27)
-    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    title: 'O que é o Azure Search (1:27)'
+    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
     width: 250
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: Comece com um serviço de Pesquisa no portal e, em seguida, defina, carregue e consulte índices em C# ou REST.
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/search/media/index/portal.svg
-      text: Portal do Azure
-      href: https://docs.microsoft.com/azure/search/search-create-service-portal
-    - image:
-        src: /azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image:
-        src: /azure/search/media/index/rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Codifique em .NET ou REST ou tente o portal para fins de teste de conceito rápido.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Comece com um serviço de Pesquisa no portal e, em seguida, defina, carregue e consulte índices em C# ou REST.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/search/media/index/portal.svg
+            text: Portal do Azure
+            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
+          - image:
+              src: /azure/search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
+          - image:
+              src: /azure/search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.microsoft.com/azure/search/search-fiddler'
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexar com IA (Serviços Cognitivos)</a>
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">Como utilizar o Azure Search com .NET</a>
-    - html: <a href="/azure/search/search-indexer-tutorial">Indexar conteúdo da Base de Dados SQL do Azure com .NET</a>
-    - html: <a href="/azure/search/search-semi-structured-data">Indexar dados semiestruturados no armazenamento de Blobs do Azure com REST</a>
-    - html: <a href="/azure/search/search-get-started-portal">Utilizar o portal para indexação e teste de consultas</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Codifique em .NET ou REST ou tente o portal para fins de teste de conceito rápido.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexar com IA (Serviços Cognitivos)</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Como utilizar o Azure Search com .NET</a>
+          - html: <a href="/azure/search/search-indexer-tutorial">Indexar conteúdo da Base de Dados SQL do Azure com .NET</a>
+          - html: <a href="/azure/search/search-semi-structured-data">Indexar dados semiestruturados no armazenamento de Blobs do Azure com REST</a>
+          - html: <a href="/azure/search/search-get-started-portal">Utilizar o portal para indexação e teste de consultas</a>
+  - title: Referência
     items:
-    - title: Linguagens
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Gestão)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Gestão)</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/searchservice">Referência da API de Serviço</a></p><p><a href="/rest/api/searchmanagement">Referência da API de Gestão</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linguagens
+            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Gestão)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Gestão)</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/searchservice">Referência da API de Serviço</a></p><p><a href="/rest/api/searchmanagement">Referência da API de Gestão</a></p>

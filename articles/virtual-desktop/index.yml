@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400252"
 documentType: LandingData
 title: Documentação da Pré-visualização do Windows Virtual Desktop
 metadata:
-  title: Documentação da Pré-visualização do Windows Virtual Desktop - Tutoriais, inícios rápidos, referências de API | Microsoft Docs
+  title: 'Documentação da Pré-visualização do Windows Virtual Desktop - Tutoriais, inícios rápidos, referências de API | Microsoft Docs'
   description: A Pré-visualização do Windows Virtual Desktop para o Azure é uma experiência virtualizada do Windows 10 Enterprise com vários utilizadores na cloud.
   author: Heidilohr
   manager: daveba
@@ -18,30 +12,30 @@ metadata:
   ms.date: 02/20/2019
   ms.author: helohr
 abstract:
-  description: Proporcione uma experiência de ambiente de trabalho virtual e aplicações remotas a qualquer dispositivo. Combine o Microsoft 365 e o Azure para fornecer aos utilizadores a única experiência do Windows 10 para vários utilizadores, com dimensionamento excecional e custos de TI reduzidos.
+  description: 'Proporcione uma experiência de ambiente de trabalho virtual e aplicações remotas a qualquer dispositivo. Combine o Microsoft 365 e o Azure para fornecer aos utilizadores a única experiência do Windows 10 para vários utilizadores, com dimensionamento excecional e custos de TI reduzidos.'
 sections:
-- title: Descrição geral
-  items:
-  - type: paragraph
-    text: Saiba mais sobre a Pré-visualização do Windows Virtual Desktop e como usá-lo. Tutoriais, guias de instruções, conteúdos de referência e muito mais mostram-lhe como configurar conjuntos de anfitrião e inquilinos, bem como atribuir funções a utilizadores para o seu ambiente do Windows Virtual Desktop.
-  - type: list
-    style: unordered
+  - title: Descrição geral
     items:
-    - html: <a href="/azure/virtual-desktop/overview">O que é a Pré-visualização do Windows Virtual Desktop?</a>
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: Saiba como instalar e configurar o Windows Virtual Desktop e como se pode ligar ao cliente quando estiver pronto.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Saiba mais sobre a Pré-visualização do Windows Virtual Desktop e como usá-lo. Tutoriais, guias de instruções, conteúdos de referência e muito mais mostram-lhe como configurar conjuntos de anfitrião e inquilinos, bem como atribuir funções a utilizadores para o seu ambiente do Windows Virtual Desktop.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">O que é a Pré-visualização do Windows Virtual Desktop?</a>
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Criar um inquilino no Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Criar um conjunto de anfitriões com o Azure Marketplace</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Gerir grupos de aplicações do Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Criar principais de serviço e atribuições de funções com o PowerShell</a>
-- title: Referência
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como instalar e configurar o Windows Virtual Desktop e como se pode ligar ao cliente quando estiver pronto.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Criar um inquilino no Windows Virtual Desktop</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Criar um conjunto de anfitriões com o Azure Marketplace</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">Gerir grupos de aplicações do Windows Virtual Desktop</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Criar principais de serviço e atribuições de funções com o PowerShell</a>
+  - title: Referência
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

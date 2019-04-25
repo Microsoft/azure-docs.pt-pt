@@ -12,11 +12,11 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861808"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ajuda do utilizador para autenticação, aplicações e gestão de dispositivos
 

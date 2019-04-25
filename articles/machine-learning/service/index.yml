@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371161"
 documentType: LandingData
 title: Documentação do Serviço Azure Machine Learning
 metadata:
-  title: Documentação do Serviço Azure Machine Learning – Tutoriais, referência da API | Microsoft Docs
-  description: O serviço Azure Machine Learning fornece SDKs e serviços que permite preparar dados rapidamente, bem como preparar e implementar modelos de machine learning. Melhore a produtividade e reduza os custos através de computação e pipelines com dimensionamento automático. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn. Comece com os nossos inícios rápidos e tutoriais.
+  title: 'Documentação do Serviço Azure Machine Learning – Tutoriais, referência da API | Microsoft Docs'
+  description: 'O serviço Azure Machine Learning fornece SDKs e serviços que permite preparar dados rapidamente, bem como preparar e implementar modelos de machine learning. Melhore a produtividade e reduza os custos através de computação e pipelines com dimensionamento automático. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn. Comece com os nossos inícios rápidos e tutoriais.'
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -22,60 +16,60 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: O serviço Azure Machine Learning fornece SDKs e serviços que permite preparar dados rapidamente, bem como preparar e implementar modelos de machine learning. Melhore a produtividade e reduza os custos através de computação e pipelines com dimensionamento automático. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn. Comece com os nossos inícios rápidos e tutoriais.
+  description: 'O serviço Azure Machine Learning fornece SDKs e serviços que permite preparar dados rapidamente, bem como preparar e implementar modelos de machine learning. Melhore a produtividade e reduza os custos através de computação e pipelines com dimensionamento automático. Utilize estas capacidades com arquiteturas Python de código aberto como o PyTorch, TensorFlow e Scikit-learn. Comece com os nossos inícios rápidos e tutoriais.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 130
       src: media/index/video.png
       width: 250
-    title: Ver o vídeo (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    title: 'Ver o vídeo (9:58)'
+    href: 'https://www.youtube.com/watch?v=GBDSBInvz08'
     width: 250
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Depois de   <a href="setup-create-workspace">criar uma área de trabalho</a> para o serviço Azure Machine Learning, pode começar a utilizar estes inícios rápidos:'
-  - type: list
-    style: unordered
+  - title: Inícios rápidos de cinco minutos
     items:
-    - html: <a href="quickstart-run-cloud-notebook">Executar uma experiência na cloud</a> (não é necessária a instalação).
-    - html: <a href="quickstart-run-local-notebook">Executar uma experiência com um servidor de bloco de notas local</a> (instalação para SDK local).
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como preparar dados, configurar experiências, preparar e operacionalizar os seus modelos de machine learning:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: "Depois de \_ <a href=\"setup-create-workspace\">criar uma área de trabalho</a> para o serviço Azure Machine Learning, pode começar a utilizar estes inícios rápidos:"
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="quickstart-run-cloud-notebook">Executar uma experiência na cloud</a> (não é necessária a instalação).
+          - html: <a href="quickstart-run-local-notebook">Executar uma experiência com um servidor de bloco de notas local</a> (instalação para SDK local).
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="tutorial-train-models-with-aml">Prepare</a> e <a href="tutorial-deploy-models-with-aml">implemente</a> modelos de classificação de imagens (<b>série em duas partes</b>).
-    - html: <a href="tutorial-data-prep">Prepare dados</a> e <a href="tutorial-auto-train-models">utilize aprendizagem automática automatizada</a> para preparar e otimizar modelos de regressão (<b>série em duas partes</b>).
-- title: Amostras
-  items:
-  - type: paragraph
-    text: Encontre <a href="samples-notebooks">blocos de notas do Jupyter</a> para ajudar a explorar o serviço no GitHub.
-- title: Referência
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Saiba como preparar dados, configurar experiências, preparar e operacionalizar os seus modelos de machine learning:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-train-models-with-aml">Prepare</a> e <a href="tutorial-deploy-models-with-aml">implemente</a> modelos de classificação de imagens (<b>série em duas partes</b>).
+          - html: <a href="tutorial-data-prep">Prepare dados</a> e <a href="tutorial-auto-train-models">utilize aprendizagem automática automatizada</a> para preparar e otimizar modelos de regressão (<b>série em duas partes</b>).
+  - title: Amostras
     items:
-    - html: '<a href="https://aka.ms/aml-sdk">SDK Python Principal</a>: funcionalidade principal, aprendizagem automática, pipelines e muito mais'
-    - html: 'SDK Python de <a href="https://aka.ms/data-prep-sdk">Preparação de Dados</a>: prepare e transforme os seus dados'
-    - html: 'SDK Python de <a href="https://aka.ms/aml-monitoring-sdk">Monitorização</a>: recolha dados sobre serviços Web implementados'
-- title: Outras tecnologias do Azure Machine Learning
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: Encontre <a href="samples-notebooks">blocos de notas do Jupyter</a> para ajudar a explorar o serviço no GitHub.
+  - title: Referência
     items:
-    - title: Azure Machine Learning Studio
-      href: /azure/machine-learning/studio/
-      image:
-        src: media/index/machine-learning-studio.svg
-        href: /azure/machine-learning/studio/
-    - title: Máquina Virtual de Ciência de Dados
-      href: /azure/machine-learning/data-science-virtual-machine/
-      image:
-        src: media/index/virtual-machines.svg
-        href: /azure/machine-learning/data-science-virtual-machine/
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/aml-sdk">SDK Python Principal</a>: funcionalidade principal, aprendizagem automática, pipelines e muito mais'
+          - html: 'SDK Python de <a href="https://aka.ms/data-prep-sdk">Preparação de Dados</a>: prepare e transforme os seus dados'
+          - html: 'SDK Python de <a href="https://aka.ms/aml-monitoring-sdk">Monitorização</a>: recolha dados sobre serviços Web implementados'
+  - title: Outras tecnologias do Azure Machine Learning
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Azure Machine Learning Studio
+            href: /azure/machine-learning/studio/
+            image:
+              src: media/index/machine-learning-studio.svg
+              href: /azure/machine-learning/studio/
+          - title: Máquina Virtual de Ciência de Dados
+            href: /azure/machine-learning/data-science-virtual-machine/
+            image:
+              src: media/index/virtual-machines.svg
+              href: /azure/machine-learning/data-science-virtual-machine/

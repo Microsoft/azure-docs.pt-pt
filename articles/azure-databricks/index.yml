@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0a1c495362ef38723c61eace25ebb13ec9ed3a6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883649"
 documentType: LandingData
 title: Documentação do Azure Databricks
 metadata:
@@ -17,48 +11,48 @@ metadata:
   ms.date: 03/19/2018
   ms.author: mamccrea
 abstract:
-  description: Saiba como utilizar o Azure Databricks, uma plataforma de análise baseada no Apache Spark com configuração de um clique, fluxos de trabalho simplificados e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas de negócios. Os inícios rápidos e os tutoriais mostram-lhe como começar a utilizar o Azure Databricks e integrar com outros serviços do Azure.
+  description: 'Saiba como utilizar o Azure Databricks, uma plataforma de análise baseada no Apache Spark com configuração de um clique, fluxos de trabalho simplificados e uma área de trabalho interativa que permite a colaboração entre cientistas de dados, engenheiros de dados e analistas de negócios. Os inícios rápidos e os tutoriais mostram-lhe como começar a utilizar o Azure Databricks e integrar com outros serviços do Azure.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Introdução ao Azure Databricks (3:38)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    title: 'Introdução ao Azure Databricks (3:38)'
+    href: 'https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/'
     width: 250
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como criar uma área de trabalho do Azure Databricks, um cluster do Spark, e, em seguida, execute tarefas com:'
-  - type: list
-    style: icon48
+  - title: Inícios rápidos de cinco minutos
     items:
-    - image:
-        src: /azure/azure-databricks/media/index/portal.svg
-      text: Portal do Azure
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-    - image:
-        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
-      text: Modelo do Resource Manager
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
-- title: Tutoriais Passo-a-Passo
-  items:
-  - type: paragraph
-    text: 'Saiba como trabalhar com o Azure Databricks:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Saiba como criar uma área de trabalho do Azure Databricks, um cluster do Spark, e, em seguida, execute tarefas com:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/azure-databricks/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+          - image:
+              src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+            text: Modelo do Resource Manager
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+  - title: Tutoriais Passo-a-Passo
     items:
-    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extrair, transformar e carregar dados</a>
-    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Transmitir dados a partir dos Hubs de Eventos</a>
-    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Análise de sentimentos com os Serviços Cognitivos</a>
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Transmitir dados a partir do HDInsight Kafka</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Saiba como trabalhar com o Azure Databricks:'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extrair, transformar e carregar dados</a>'
+          - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Transmitir dados a partir dos Hubs de Eventos</a>
+          - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Análise de sentimentos com os Serviços Cognitivos</a>
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Transmitir dados a partir do HDInsight Kafka</a>'
+  - title: Referência
     items:
-    - title: REST
-      html: <p><a href="/rest/api/databricks">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/databricks">API REST</a></p>
