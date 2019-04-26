@@ -16,11 +16,11 @@ ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 481cb560daa26e59de2c78cc64bab9fb168eed58
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307510"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Graph API do Azure AD
 

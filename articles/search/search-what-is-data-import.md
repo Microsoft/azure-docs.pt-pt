@@ -10,11 +10,11 @@ ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307969"
 ---
 # <a name="data-import-overview---azure-search"></a>Importação de dados descrição geral - Azure Search
 

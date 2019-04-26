@@ -19,11 +19,11 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250846"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço a serviço chama essa identidade de utilizador delegada de utilização no fluxo em-nome-de
 

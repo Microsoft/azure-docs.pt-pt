@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297782"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de fim de sessão único
 

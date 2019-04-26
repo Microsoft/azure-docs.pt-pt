@@ -15,11 +15,11 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250929"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adicionar um Azure Active Directory com os serviços ligados no Visual Studio
 

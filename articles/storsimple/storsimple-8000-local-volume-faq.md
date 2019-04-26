@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: aa69d8b07d31b5cf0386e34c113475cbf4191891
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319552"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumes do StorSimple localmente afixados: Perguntas mais frequentes sobre (FAQ)
 ## <a name="overview"></a>Descrição geral

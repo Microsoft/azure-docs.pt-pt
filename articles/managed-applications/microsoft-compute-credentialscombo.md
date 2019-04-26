@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251404"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interface do Usuário de Microsoft.Compute.CredentialsCombo
 Um grupo de controles de validação incorporada para as palavras-passe do Windows e Linux e chaves públicas SSH.
@@ -27,7 +27,7 @@ Um grupo de controles de validação incorporada para as palavras-passe do Windo
 
 Para Windows, os utilizadores veem:
 
-![Windows Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
 Para Linux com a palavra-passe selecionada, os utilizadores veem:
 

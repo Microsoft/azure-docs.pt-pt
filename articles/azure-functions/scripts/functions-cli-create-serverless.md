@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a41f6582879387352a65978049261a3f3ce55b47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 265c4fa3c28783f0d9e5d789348c3cd2e249eb29
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325726"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Criar uma aplicação de funções para execução de código sem servidor
 
@@ -49,7 +49,7 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria uma Conta de armazenamento do Azure. |
 | [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria uma aplicação de funções. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

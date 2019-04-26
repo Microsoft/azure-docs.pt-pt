@@ -16,11 +16,11 @@ ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e927aa4b407103b1efed33a4305532c590780d9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60282316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Active Directory do Azure com Brightspace por Desire2Learn
 

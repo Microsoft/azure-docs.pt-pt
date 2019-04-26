@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242383"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Autenticação de pass-through do Active Directory do Azure e de privacidade do utilizador
 

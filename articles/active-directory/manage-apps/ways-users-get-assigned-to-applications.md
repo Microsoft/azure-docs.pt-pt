@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be36bfeb0991dc4a4b7fce723cadb6b508c0d6a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291029"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Como atribuir utilizadores a aplicações
 

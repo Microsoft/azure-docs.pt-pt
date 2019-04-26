@@ -3,7 +3,7 @@ title: Tutorial - conceder acesso a uma API web ASP.NET Core através de um apli
 description: Tutorial sobre como utilizar o Active Directory B2C para proteger uma API Web .NET Core e chamá-la a partir de uma aplicação de página única.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 13cbf1e81e0d203c181efb0881ec2a437cbaef24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315665"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API web ASP.NET Core a partir de uma aplicação de página única com o Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Este tutorial mostra-lhe como chamar um Azure Active Directory (Azure AD) B2C AS
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Adicionar uma aplicação API da web
+> * Adicionar uma aplicação de API Web
 > * Configurar âmbitos para uma API web
 > * Conceder permissões para a API web
 > * Configurar o exemplo a utilizar a aplicação
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 Conclua os passos e a pré-requisitos no [Tutorial: Ativar a autenticação de aplicação de página única com contas através do Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
 
-## <a name="add-a-web-api-application"></a>Adicionar uma aplicação API da web
+## <a name="add-a-web-api-application"></a>Adicionar uma aplicação de API Web
 
 Recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a pedidos de recursos protegidos por aplicações cliente que apresentam um token de acesso.
 
@@ -174,7 +174,7 @@ Depois de se inscrever ou iniciar sessão com uma conta de utilizador, o exemplo
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Adicionar uma aplicação API da web
+> * Adicionar uma aplicação de API Web
 > * Configurar âmbitos para uma API web
 > * Conceder permissões para a API web
 > * Configurar o exemplo a utilizar a aplicação

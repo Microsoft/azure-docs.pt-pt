@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251667"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações web com OpenID Connect e Azure Active Directory
 
@@ -92,7 +92,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| inquilino |obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de independente de inquilino |
+| tenant |obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de independente de inquilino |
 | client_id |obrigatório |O ID de aplicação atribuída à aplicação quando registou com o Azure AD. Pode encontrar isto no portal do Azure. Clique em **do Azure Active Directory**, clique em **registos das aplicações**, escolha a aplicação e localize o ID da aplicação na página de aplicativo. |
 | response_type |obrigatório |Tem de incluir `id_token` OpenID Connect para início de sessão. Também pode incluir outros response_types, tal como `code` ou `token`. |
 | scope | Recomendado | A especificação de OpenID Connect exige que o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Este e outros âmbitos OIDC são ignorados no ponto final da versão 1.0, mas ainda é uma prática recomendada para clientes compatíveis com os padrões. |

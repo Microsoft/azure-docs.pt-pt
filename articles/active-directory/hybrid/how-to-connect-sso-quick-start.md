@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242592"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 

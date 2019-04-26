@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 192db67f481f3a4c420c19be7ce1febe55342050
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60276704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Active Directory do Azure com o Gra Pe
 

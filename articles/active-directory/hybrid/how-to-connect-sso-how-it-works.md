@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 907abe3b09f9999b30703281f7e4ff286e2bae14
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60242317"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>O Azure Active Directory totalmente integrada início de sessão único: Análise técnica aprofundada
 

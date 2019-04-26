@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: yexu
 ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314573"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilizar a ferramenta Copiar Dados para copiar dados
 

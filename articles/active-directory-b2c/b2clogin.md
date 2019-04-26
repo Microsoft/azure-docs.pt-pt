@@ -3,7 +3,7 @@ title: Conjunto redirecionar URLs para b2clogin.com - Azure Active Directory B2C
 description: Saiba mais sobre como utilizar b2clogin.com no seu redirecionamento URLs para o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314587"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Conjunto redirecionar URLs b2clogin.com para o Azure Active Directory B2C
 

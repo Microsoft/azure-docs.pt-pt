@@ -1,6 +1,6 @@
 ---
-title: Elemento de IU TextBlock do Azure | Microsoft Docs
-description: Descreve o elemento de IU Microsoft.Common.TextBlock para o portal do Azure.
+title: Elemento de interface do Usuário do TextBlock do Azure | Documentos da Microsoft
+description: Descreve o elemento de interface do Usuário de Microsoft.Common.TextBlock para o portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: cd4d1aed666b2c64ade700a768df0525029b392c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0dcd8ba1b1bacd990c91ce90ef0013caac446cdc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251578"
 ---
-# <a name="microsoftcommontextblock-ui-element"></a>Elemento de IU Microsoft.Common.TextBlock
-Um controlo que pode ser utilizado para adicionar o texto a interface do portal.
+# <a name="microsoftcommontextblock-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.TextBlock
+Um controlo que pode ser utilizado para adicionar texto à interface do portal.
 
-## <a name="ui-sample"></a>Exemplo de IU
+## <a name="ui-sample"></a>Exemplo de interface do Usuário
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
 ## <a name="schema"></a>Esquema
@@ -49,5 +49,5 @@ Um controlo que pode ser utilizado para adicionar o texto a interface do portal.
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

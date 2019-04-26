@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 620255896e02319675928396c3d6e5e0d9865c0c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244380"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314232"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerir recursos do IBM DB2 no Azure Logic Apps
 
@@ -29,7 +29,7 @@ O conector de DB2 inclui um cliente da Microsoft que comunica com servidores rem
 
 O conector de DB2 da IBM oferece suporte a essas plataformas de IBM DB2 e versões, juntamente com o IBM DB2 compatíveis produtos, como o IBM Bluemix dashDB, que oferecem suporte a versões de Gestor de acesso de SQL de distribuídas relacional da base de dados arquitetura (DRDA) (SQLAM), 10 e 11:
 
-| Plataforma | Versão | 
+| Plataforma | Version | 
 |----------|---------|
 | IBM DB2 para z/OS | 11.1, 10.1 |
 | IBM DB2 para eu | 7.3, 7.2, 7.1 |

@@ -17,11 +17,11 @@ ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b57d87a9a00213945a09f380a74b129226c4017e
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291106"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Ver as aplicações do seu inquilino do Azure Active Directory
 

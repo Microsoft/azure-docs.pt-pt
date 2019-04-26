@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 07912369179a1d1226c750a8e86837fdc6887922
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6ea98792e6a1b7fef32e3be1ddfbb29743f50c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250767"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Pré-visualização: Criar uma galeria de imagem partilhada com o Azure PowerShell 
 
@@ -40,7 +40,7 @@ O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Pod
 | **Definição de imagem** | As imagens são definidas dentro de uma galeria e transportar informações sobre a imagem e os requisitos para utilizá-lo internamente. Isto inclui se a imagem é Windows ou Linux, notas de versão e os requisitos de memória mínimos e máximos. É uma definição de um tipo de imagem. |
 | **Versão da imagem** | Uma **versão da imagem** é o que utiliza para criar uma VM ao utilizar uma galeria. Pode ter várias versões de uma imagem, conforme necessário para o seu ambiente. Como uma imagem gerida, quando utiliza um **versão da imagem** para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. Versões de imagem podem ser utilizadas várias vezes. |
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
