@@ -54,7 +54,7 @@ As seguintes propriedades são suportadas para o serviço ligado de tabela da We
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Web** |Sim |
+| type | A propriedade de tipo tem de ser definida como: **Web** |Sim |
 | url | URL para a origem da Web |Sim |
 | authenticationType | O valor permitido é: **Anónimo**. |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -86,9 +86,9 @@ Para copiar dados de tabela da Web, defina a propriedade de tipo de conjunto de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **WebTable** | Sim |
-| caminho |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. |
-| índice |O índice da tabela no recurso. Ver [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **WebTable** | Sim |
+| path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. |
+| index |O índice da tabela no recurso. Ver [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 
