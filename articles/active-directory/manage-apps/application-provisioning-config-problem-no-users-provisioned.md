@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443220"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Não existem utilizadores estão a ser aprovisionados para um aplicativo de galeria do Azure AD
 Após o aprovisionamento automático foi configurado para uma aplicação (incluindo a verificar que as credenciais de aplicação fornecidas para o Azure AD para ligar à aplicação são válidas), em seguida, os utilizadores e/ou grupos são aprovisionados para a aplicação. Aprovisionamento é determinado através dos seguintes pontos:

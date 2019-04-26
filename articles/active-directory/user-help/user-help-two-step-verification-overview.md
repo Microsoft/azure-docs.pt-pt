@@ -13,11 +13,11 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472769"
 ---
 # <a name="two-step-verification-overview"></a>Descrição geral da verificação de dois passos
 

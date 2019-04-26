@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488948"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de gestão de dados - elevada disponibilidade e escalabilidade (pré-visualização)
 > [!NOTE]
@@ -170,7 +170,7 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 - Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados SSL.
 - Usando a CNG de certificado não são suportadas chaves.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>FAQ: Quando eu não permitiria esta encriptação?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>PERGUNTAS FREQUENTES: Quando eu não permitiria esta encriptação?
 Ativar a encriptação pode adicionar determinados custos à sua infra-estrutura (proprietário certificado público), por conseguinte, pode ignorar a ativação da encriptação no abaixo casos:
 - Quando o integration runtime está em execução numa rede fidedigna ou uma rede com a encriptação transparente, como o IP/seg. Uma vez que esta comunicação de canal é apenas limitada dentro da rede fidedigna, talvez não seja necessária encriptação adicional.
 - Quando o integration runtime não está em execução num ambiente de produção. Isto pode ajudar a reduzir o custo de certificado TLS/SSL.
@@ -188,7 +188,7 @@ Propriedade de monitorização | Descrição
 :------------------ | :---------- 
 Name | Nome do gateway lógico e nós associado ao gateway.  
 Estado | Estado do gateway lógico e os nós de gateway. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte [estado do Gateway](#gateway-status) secção. 
-Versão | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração de gateway lógico, apenas os nós com o mesmo número de versão e a função de gateway lógico corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). 
+Version | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração de gateway lógico, apenas os nós com o mesmo número de versão e a função de gateway lógico corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). 
 Memória disponível | Memória disponível num nó de gateway. Este valor é um instantâneo de quase em tempo real. 
 Utilização da CPU | Utilização da CPU de um nó de gateway. Este valor é um instantâneo de quase em tempo real. 
 Funcionamento em rede (entrada/saída) | Utilização de um nó de gateway de rede. Este valor é um instantâneo de quase em tempo real. 

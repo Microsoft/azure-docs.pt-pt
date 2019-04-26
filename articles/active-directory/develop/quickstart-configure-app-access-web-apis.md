@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443609"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Início rápido: Configurar uma aplicação de cliente para aceder a APIs (pré-visualização) para a web
 
@@ -39,7 +39,7 @@ Além disso, antes de um cliente poder aceder a uma API Web exposta por uma apli
 Neste início rápido, vamos mostrar-lhe como configurar a sua app para:
 
 * [Adicionar URIs de redirecionamento à aplicação](#add-redirect-uris-to-your-application)
-* [Adicionar credenciais à aplicação Web](#add-credentials-to-your-web-application)
+* [Adicionar credenciais ao seu aplicativo web](#add-credentials-to-your-web-application)
 * [Adicionar permissões para aceder a APIs Web](#add-permissions-to-access-web-apis)
 
 ## <a name="prerequisites"></a>Pré-requisitos

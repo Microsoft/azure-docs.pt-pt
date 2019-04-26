@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483234"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar a sua aplicação no Portal de publicação
 
@@ -106,7 +106,7 @@ Esta é a descrição que aparecerá na página de detalhes da aplicação. Máx
 
 Selecione o setor melhor alinhado à sua aplicação. Se tiver a sua aplicação está relacionado com vários setores, pode deixar em branco.
 
-### <a name="categories"></a>Categorias
+### <a name="categories"></a>Categories
 
 Selecione as categorias que são relevantes para a sua aplicação. Selecione um máximo de 3.
 

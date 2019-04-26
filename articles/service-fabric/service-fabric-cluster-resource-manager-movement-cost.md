@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516578"
 ---
 # <a name="service-movement-cost"></a>Custo de movimento de serviço
 Um fator que o Gestor de recursos de Cluster do Service Fabric tem em conta quando tentar determinar o que é alterado para fazer a um cluster é o custo dessas alterações. A noção de "Custo" prol contra quanto o cluster pode ser melhorado. Custo é fatorado quando a transferência dos serviços de balanceamento de desfragmentação e outros requisitos. O objetivo é cumprir os requisitos da forma menos interrupções ou dispendiosa. 

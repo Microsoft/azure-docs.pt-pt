@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: reference
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: bb8c6814a959cb9e96a3c4565603d634c250b02a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498853"
 ---
-# <a name="86-category-taxonomy"></a>Taxonomia da categoria 86
+# <a name="computer-vision-86-category-taxonomy"></a>Taxonomia da categoria de 86 do computador visão
 
 abstract_
 

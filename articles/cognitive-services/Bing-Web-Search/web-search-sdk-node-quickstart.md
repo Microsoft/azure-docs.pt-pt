@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498921"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Início rápido: Utilizar a SDK de pesquisa Web Bing para node. js
 

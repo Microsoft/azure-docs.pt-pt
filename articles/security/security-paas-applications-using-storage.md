@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
 ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445422"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger o PaaS web e móveis com o armazenamento do Azure
 Neste artigo, discutimos a uma coleção de segurança de armazenamento do Azure melhores práticas para proteger a sua plataforma-como-serviço (PaaS) aplicações web e móveis. Essas práticas recomendadas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como.

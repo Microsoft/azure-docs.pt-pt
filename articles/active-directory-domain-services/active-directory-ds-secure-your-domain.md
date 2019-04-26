@@ -1,6 +1,6 @@
 ---
 title: Proteger o seu domínio gerido do Azure Active Directory Domain Services | Documentos da Microsoft
-description: Proteger o seu domínio gerido
+description: Proteja o seu domínio gerido
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
 ms.openlocfilehash: 3797c76f1537f86357f7ca68ffed4758eb1bdc9a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416505"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Proteger o seu domínio gerido do Azure AD Domain Services
 Este artigo ajuda-o a proteger o seu domínio gerido. Pode desativar a utilização de conjuntos de cifras fraco e desativar a sincronização de hashes de credencial NTLM.

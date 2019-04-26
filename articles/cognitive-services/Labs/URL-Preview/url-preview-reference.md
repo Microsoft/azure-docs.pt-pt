@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462593"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
 
@@ -114,7 +114,7 @@ Define as informações sobre uma página da Web em pré-visualização.
 |----------|-----------|----------|
 |nome|O título da página, não necessariamente o título do HTML|String|
 |url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|
-|descrição|Breve descrição da página e conteúdo|String|
+|description|Breve descrição da página e conteúdo|String|
 |isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|boolean|
 |primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|String|
 

@@ -13,19 +13,19 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7cd7897e3a0b940bbc636b2fbc3dbbc13b7cf540
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505570"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Passos de resolução de problemas específicos para cenários de falha de alocação no modelo de implementação clássica
 
 Seguem-se cenários comuns de alocação que fazem com que uma solicitação de alocação ser afixado. Vamos mergulhar em cada cenário neste artigo.
 
 - Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço cloud existente
-- Reinício parcialmente parada (desalocadas) de VMs
-- Reiniciar VMs (desalocadas) totalmente paradas
+- Reiniciar VMs parcialmente paradas (desalocadas)
+- Reiniciar VMs completamente paradas (desalocadas)
 - Implementações de teste e produção (plataforma como serviço apenas)
 - Grupo de afinidade (VM ou de proximidade de serviço)
 - Rede virtual baseada em afinidade – grupo
@@ -40,7 +40,7 @@ O diagrama seguinte apresenta a taxonomia dos cenários de alocação (afixados)
 ![Taxonomia de alocação afixado](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
 ## <a name="resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço cloud existente
-**Erro**
+**Error**
 
 Upgrade_VMSizeNotSupported ou GeneralError
 
@@ -54,8 +54,8 @@ Se o erro é Upgrade_VMSizeNotSupported *, experimente um tamanho VM diferente. 
 
 Se o erro é GeneralError *, é provável que o tipo de recurso (por exemplo, um determinado tamanho VM) é suportado pelo cluster, mas o cluster não tem recursos gratuitos no momento. À semelhança cenário acima, adicione o recurso de computação pretendido através da criação de um novo serviço cloud (Observe que o novo serviço cloud tem de utilizar um VIP diferente) e utilizar uma rede virtual regional para ligar os serviços cloud.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Reinício parcialmente parada (desalocadas) de VMs
-**Erro**
+## <a name="restart-partially-stopped-deallocated-vms"></a>Reiniciar VMs parcialmente paradas (desalocadas)
+**Error**
 
 GeneralError *
 
@@ -70,8 +70,8 @@ Se ele é aceitável para utilizar um VIP diferente, elimine as VMs paradas (des
 * Se o seu serviço cloud existente utiliza uma rede virtual regional, basta adicione o novo serviço de nuvem à mesma rede virtual.
 * Se o seu serviço cloud existente não utiliza uma rede virtual regional, crie uma nova rede virtual para o novo serviço de nuvem e, em seguida [ligar a sua rede virtual existente para a nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Veja mais informações sobre [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Reiniciar VMs (desalocadas) totalmente paradas
-**Erro**
+## <a name="restart-fully-stopped-deallocated-vms"></a>Reiniciar VMs completamente paradas (desalocadas)
+**Error**
 
 GeneralError *
 
@@ -84,7 +84,7 @@ Significa de Desalocação completo que parada (desalocada) todas as VMs de um s
 Se for aceitável para utilizar um VIP diferente, elimine as parada (desalocadas) das VMs originais (mas não os discos associados) e eliminar o serviço de nuvem correspondente (os recursos de computação associado já foram liberados quando parada (desalocada) as VMs). Crie um novo serviço cloud para adicionar as VMs de volta.
 
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Implementações de teste/produção (plataforma como serviço apenas)
-**Erro**
+**Error**
 
 New_General * ou New_VMSizeNotSupported *
 
@@ -97,7 +97,7 @@ A implementação de teste e a implementação de produção de um serviço em n
 Elimine a primeira implementação e o serviço em nuvem original e volte a implementar o serviço em nuvem. Esta ação pode direcionado para a primeira implementação num cluster que tem recursos suficientes gratuitos, de acordo com ambas as implementações ou num cluster que suporte os tamanhos VM que pediu.
 
 ## <a name="affinity-group-vmservice-proximity"></a>Grupo de afinidade (proximidade VM/serviço)
-**Erro**
+**Error**
 
 New_General * ou New_VMSizeNotSupported *
 
@@ -110,13 +110,13 @@ Qualquer computação recursos atribuídos a um grupo de afinidade está associa
 Se um grupo de afinidades não seja necessário, não utilize um grupo de afinidade ou agrupar seus recursos de computação em vários grupos de afinidade.
 
 ## <a name="affinity-group-based-virtual-network"></a>Baseado em grupo de afinidade de rede virtual
-**Erro**
+**Error**
 
 New_General * ou New_VMSizeNotSupported *
 
 **Causa de fixação de cluster**
 
-Antes de serem introduzidos redes virtuais regionais, era necessário para associar uma rede virtual um grupo de afinidades. Como resultado, a computação colocados num grupo de afinidade de recursos estão vinculados pelas mesmas restrições quanto, conforme descrito no "o cenário de alocação: grupo de afinidade (proximidade VM/serviços)" secção acima. Os recursos de computação estão associados a um cluster.
+Antes de serem introduzidos redes virtuais regionais, era necessário para associar uma rede virtual um grupo de afinidades. Como resultado, a computação colocados num grupo de afinidade de recursos estão vinculados pelas mesmas restrições quanto, conforme descrito no "o cenário de alocação: Grupo de afinidade (proximidade VM/serviços) "secção acima. Os recursos de computação estão associados a um cluster.
 
 **Solução**
 

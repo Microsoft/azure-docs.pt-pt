@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: d9376a3f241cfd43d8e9a8d4ed3d18de31f997b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60509638"
 ---
 # <a name="sample---no-network-peering-to-express-route-network"></a>Exemplo - não existe nenhuma rede peering para a rede de Express Route
 

@@ -1,6 +1,6 @@
 ---
-title: Modificar os prefixos de endereço IP de gateway de rede local e o endereço IP do VPN Gateway | Azure | PowerShell | Microsoft Docs
-description: Este artigo explica como alterar os prefixos de endereços IP para o gateway de rede local com o PowerShell
+title: Modificar os prefixos de endereço IP de gateway de rede local e o endereço IP do Gateway de VPN | Azure | PowerShell | Documentos da Microsoft
+description: Este artigo explica-lhe alterar os prefixos de endereços IP para o seu gateway de rede local com o PowerShell
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2a095b96a8c352abeca72640d37c0d629b447763
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 923c478909e0393f36da06802023b3f40ee63a3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23885106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419173"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificar as definições do gateway de rede local com o PowerShell
 
-Por vezes, as definições para o gateway de rede local AddressPrefix ou GatewayIPAddress alterar. Este artigo mostra como modificar as definições do gateway de rede local. Também pode modificar estas definições utilizando um método diferente selecionando uma opção diferente na lista seguinte:
+Por vezes, alterar as definições para o seu gateway de rede local AddressPrefix ou GatewayIPAddress. Este artigo mostra como modificar as definições do gateway de rede local. Também pode modificar essas configurações usando um método diferente ao selecionar uma opção diferente na lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-modify-local-network-gateway-portal.md)
@@ -37,7 +37,7 @@ Por vezes, as definições para o gateway de rede local AddressPrefix ou Gateway
 
 Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Veja [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter mais informações sobre como instalar os cmdlets PowerShell.
 
-## <a name="ipaddprefix"></a>Modificar os prefixos de endereço IP
+## <a name="ipaddprefix"></a>Modificar prefixos de endereços IP
 
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
@@ -47,4 +47,4 @@ Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manag
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode verificar a ligação de gateway. Consulte [verificar uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).
+Pode verificar a ligação de gateway. Ver [Certifique-se de uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).

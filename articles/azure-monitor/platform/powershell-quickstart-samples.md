@@ -9,11 +9,11 @@ ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452726"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure PowerShell de Monitor
 Este artigo será apresentado exemplo de comandos do PowerShell para o ajudar a aceder aos recursos do Azure Monitor.
@@ -140,7 +140,7 @@ Pode criar propriedades de e-mail e webhook usando `New-AzAlertRuleEmail` e `New
 
 A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta através de uma métrica.
 
-| parâmetro | valor |
+| parâmetro | value |
 | --- | --- |
 | Name |simpletestdiskwrite |
 | Localização desta regra de alerta |EUA Leste |

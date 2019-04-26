@@ -15,13 +15,13 @@ ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477890"
 ---
-# <a name="operations-model-and-responsibilities"></a>Modelo de operações e responsabilidades
+# <a name="operations-model-and-responsibilities"></a>Modelo e responsabilidades de operações
 
 O serviço fornecido com o SAP HANA no Azure (instâncias grandes) é alinhado com os serviços de IaaS do Azure. Obtém uma instância de uma instância grande do HANA com um sistema operativo instalado que está otimizado para o SAP HANA. Como com as VMs de IaaS do Azure, a maioria das tarefas de sistema de proteção do sistema operacional, instalar software adicional, instalar o HANA, operar o sistema operacional e HANA e a atualizar o sistema operacional e HANA é sua responsabilidade. Microsoft não força a atualizações do SO ou atualizações do HANA com.
 

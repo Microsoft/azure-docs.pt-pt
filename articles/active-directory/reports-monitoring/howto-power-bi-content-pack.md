@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437671"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o pacote de conteúdos do Azure Active Directory Power BI
 
@@ -59,7 +59,7 @@ Também pode filtrar os resultados ao selecionar uma data ou localização espec
 
 - Nome de Utilizador
 - Endereço IP
-- Localização 
+- Location 
 - Estado de início de sessão 
 
 **Funil SSPR**: Este relatório ajuda a compreender como a ferramenta SSPR é utilizada na sua organização. Pode ver a palavra-passe quantas reposições foram tentadas com a ferramenta SSPR e quantas foram bem-sucedidas. Também pode aprofundar mais as falhas de reposições de palavra-passe e compreender por que motivo ocorreram determinadas falhas. 

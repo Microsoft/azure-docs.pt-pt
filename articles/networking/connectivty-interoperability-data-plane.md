@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60425539"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidade nas funcionalidades de conectividade de back-end do Azure: Análise de plano de dados
 

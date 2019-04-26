@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60450765"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros de SFTP ao utilizar o Azure Logic Apps
 
@@ -30,7 +30,7 @@ Para automatizar as tarefas que monitorizarem, criarem, enviarem e recebem arqui
 Pode usar acionadores que monitorar eventos em seu servidor SFTP e disponibilizar a saída para outras ações. Pode utilizar ações que executar diversas tarefas no seu servidor SFTP. Pode também ter outras ações na sua aplicação lógica a utilizar a saída de ações de SFTP. Por exemplo, se recuperar regularmente ficheiros a partir do seu servidor SFTP, pode enviar alertas por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com.
 Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 
 * Ações de SFTP podem ler ou gravar arquivos que estão *50 MB ou mais pequeno* a menos que utilize [mensagem divisão na ações](../logic-apps/logic-apps-handle-large-messages.md), que permitem-lhe exceder este limite. Atualmente, os acionadores SFTP não suportam a segmentação.
 

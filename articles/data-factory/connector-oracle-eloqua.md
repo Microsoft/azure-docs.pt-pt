@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405958"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiar dados de Eloqua Oracle com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Eloqua Oracle ligad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Eloqua** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Eloqua** | Sim |
 | endpoint | O ponto final do servidor Eloqua. Eloqua oferece suporte a vários centros de dados, para determinar o ponto final, o início de sessão https://login.eloqua.com com a credencial, em seguida, copie o **URL de base** parte da URL redirecionada com o padrão de `xxx.xxx.eloqua.com`. | Sim |
 | o nome de utilizador | O nome do site e o nome de utilizador da sua conta de Eloqua sob a forma: `SiteName\Username` por exemplo, `Eloqua\Alice`.  | Sim |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -79,7 +79,7 @@ Para copiar dados do Oracle Eloqua, defina a propriedade de tipo de conjunto de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **EloquaObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **EloquaObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -108,7 +108,7 @@ Para copiar dados do Oracle Eloqua, defina o tipo de origem na atividade de cóp
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **EloquaSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **EloquaSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

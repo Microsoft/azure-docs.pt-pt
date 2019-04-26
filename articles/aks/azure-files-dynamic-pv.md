@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467379"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamicamente criar e utilizar um volume persistente com ficheiros do Azure no Azure Kubernetes Service (AKS)
 
@@ -198,7 +198,7 @@ Volumes:
 
 Predefinido *fileMode* e *dirMode* valores diferentes entre versões do Kubernetes, conforme descrito na tabela seguinte.
 
-| versão | valor |
+| versão | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

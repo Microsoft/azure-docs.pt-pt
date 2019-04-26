@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eaed7357221f5b766bfb8b9e1a9031c08854ac9a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477285"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>Aplicações de acesso e a utilização no portal minhas aplicações
 Pode utilizar a sua conta escolar ou profissional com baseada na web **as minhas aplicações** portal, para ver e iniciar a muitas das aplicações de base na cloud da sua organização, para atualizar algumas das suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **as revisões de acesso** para as aplicações e grupos. Se não tiver acesso para o **as minhas aplicações** portal, tem de contactar o suporte técnico para obter permissão.

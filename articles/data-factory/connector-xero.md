@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445439"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Copiar dados do Xero com o Azure Data Factory (pré-visualização)
 
@@ -49,7 +49,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Xero:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Xero** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Xero** | Sim |
 | anfitrião | O ponto final do servidor Xero (`api.xero.com`).  | Sim |
 | consumerKey | A chave de consumidor associada à aplicação Xero. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | privateKey | A chave privada a partir do ficheiro. pem que foi gerado para a sua aplicação privada Xero, consulte [criar um par de chaves públicas/privadas](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Tenha em atenção a **gerar privatekey.pem com numbits 512** usando `openssl genrsa -out privatekey.pem 512`; 1024 não é suportada. Incluem todo o texto do ficheiro. pem, incluindo o endings(\n) de linha de Unix, consulte o exemplo abaixo.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -95,7 +95,7 @@ Para copiar dados do Xero, defina a propriedade de tipo de conjunto de dados par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **XeroObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **XeroObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -124,7 +124,7 @@ Para copiar dados do Xero, defina o tipo de origem na atividade de cópia para *
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **XeroSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **XeroSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Contacts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

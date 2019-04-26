@@ -3,7 +3,7 @@ title: Definir um perfil de técnicas de validação numa política personalizad
 description: Defina um perfil técnico do Azure Active Directory numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418295"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnicas de validação numa política personalizada do Azure Active Directory B2C
 

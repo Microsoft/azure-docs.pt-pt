@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452828"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>Em risco (utilizador)

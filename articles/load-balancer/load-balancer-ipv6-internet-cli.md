@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516687"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com o IPv6 com a CLI do Azure
 
@@ -46,11 +46,11 @@ Os passos seguintes mostram como criar um balanceador de carga público com CLI 
 
 Para implementar um balanceador de carga, crie e configure os seguintes objetos:
 
-* **Configuração de IP Front-end**: contém os endereços IP públicos para o tráfego de rede recebido.
-* **Conjunto de endereços de back-end**: contém interfaces de rede (NICs) para as máquinas virtuais receber o tráfego de rede do Balanceador de carga.
-* **Regras de balanceamento de carga**: contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no conjunto de endereços de back-end.
-* **Regras NAT de entrada**: contém regras de tradução (NAT) de endereços de rede que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no conjunto de endereços de back-end.
-* **Sondas**: contém sondas utilizadas para verificar a disponibilidade de instâncias de máquina virtual no conjunto de endereços de back-end.
+* **Configuração de IP Front-end**: Contém os endereços IP públicos para tráfego de rede recebido.
+* **Conjunto de endereços de back-end**: Contém interfaces de rede (NICs) para as máquinas virtuais receber o tráfego de rede do Balanceador de carga.
+* **Regras de balanceamento de carga**: Contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no conjunto de endereços de back-end.
+* **Regras NAT de entrada**: Contém regras de tradução (NAT) de endereços de rede que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no conjunto de endereços de back-end.
+* **Sondas**: Contém sondas de estado de funcionamento que são utilizadas para verificar a disponibilidade de instâncias de máquina virtual no conjunto de endereços de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 

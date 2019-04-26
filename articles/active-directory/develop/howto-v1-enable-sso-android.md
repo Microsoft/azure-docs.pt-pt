@@ -19,11 +19,11 @@ ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410370"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos Android através da ADAL
 

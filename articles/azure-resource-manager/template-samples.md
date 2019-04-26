@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 11/16/2018
 ms.author: tomfitz
 ms.openlocfilehash: fe7804428a429ac705bdcb2932726f366a17a3b3
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390329"
 ---
 # <a name="azure-resource-manager-templates-for-management-features"></a>Modelos do Azure Resource Manager para as funcionalidades de gestão
 

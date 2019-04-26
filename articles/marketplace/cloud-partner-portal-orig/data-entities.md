@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397299"
 ---
 # <a name="data-entities"></a>Entidades de dados
 

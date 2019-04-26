@@ -9,11 +9,11 @@ ms.date: 03/19/2016
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396143"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
 Serviços cloud, máquinas virtuais, os conjuntos de dimensionamento de máquinas virtuais e recursos de infraestrutura do serviço de todos os utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, pode também todos os de pipe ou um subconjunto dos dados para outras localizações com a extensão de diagnóstico do Azure versão 1.5 ou posterior.

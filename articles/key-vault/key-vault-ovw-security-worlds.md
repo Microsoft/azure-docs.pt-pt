@@ -1,5 +1,4 @@
 ---
-ms.assetid: ''
 title: Mundos de segurança do Azure Key Vault | Documentos da Microsoft
 ms.service: key-vault
 ms.topic: conceptual
@@ -8,11 +7,11 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 07/03/2017
 ms.openlocfilehash: 86438ab7ebecc53aa716e72662965276b19f1b96
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461302"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mundos de segurança do Cofre de chaves do Azure e limites geográficos
 

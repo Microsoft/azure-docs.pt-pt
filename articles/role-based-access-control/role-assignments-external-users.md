@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345387"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gerir o acesso aos recursos do Azure para utilizadores externos através do RBAC
 

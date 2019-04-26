@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bce8a9e4018f24022fcc45733d64ce47d07ba771
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471353"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomes para grupos do Office 365 no Azure Active Directory
 
@@ -73,7 +73,7 @@ Os administradores selecionados podem ser dispensados destas políticas, em toda
 - Parceiro de suporte de escalão 1
 - Parceiro de suporte de camada 2
 - Administrador de utilizadores
-- Escritores de diretórios
+- Escritores em diretórios
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Instalar os cmdlets do PowerShell para configurar uma política de nomes
 

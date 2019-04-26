@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
 ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534819"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights
 
@@ -65,7 +65,7 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
 
 1. Selecione o **grupo de consumidores** botão na parte superior e introduza um nome, tal como **tsievents** para o grupo de consumidores. Selecione **Criar**.
 
-    ![Grupo de consumidor do Hub de Eventos](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    ![Grupo de consumidores do Hub de Eventos](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
    Depois de criar o grupo de consumidores, ele aparece na lista na parte inferior do hub de eventos **descrição geral** painel.
 

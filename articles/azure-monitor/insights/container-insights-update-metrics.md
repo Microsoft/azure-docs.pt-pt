@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 15be0039006d322c3d5e19d4ef141d1543c7b1c0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494852"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contentores para ativar as métricas
 Monitor do Azure para contentores disponibiliza suporte para recolher métricas de nós de clusters de serviços de Kubernetes do Azure (AKS) e pods e escrevê-los para o arquivo de métricas do Azure Monitor. Esta alteração destina-se para fornecer pontualidade melhorada ao apresentar cálculos agregados (média, contagem, Max, Min, soma) em gráficos de desempenho, suporte afixar nos dashboards do portais do Azure, os gráficos do desempenho e alertas de métricas de suporte.
@@ -35,7 +35,7 @@ A atualizar o cluster para suportar estas novas capacidades pode ser executada n
 A processar atribui a **Editor de métricas de monitorização** função ao principal de serviço do cluster para que os dados recolhidos pelo agente pode ser publicada para o recurso de clusters. Publicador de métricas de monitorização tem a permissão apenas para as métricas de push para o recurso, ele não pode alterar qualquer Estado, atualizar o recurso ou ler todos os dados. Para obter mais informações sobre a função, veja [função de publicador de métricas de monitorização](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Antes de começar, certifique-se de que é um membro do **[proprietário](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** função no recurso de cluster do AKS para ativar a recolha de nó e pod métricas de desempenho personalizados. 
+Antes de começar, certifique-se de que é um membro do **[proprietário](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** função no recurso de cluster do AKS para ativar a recolha de nó e pod métricas de desempenho personalizados. 
 
 Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.59 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

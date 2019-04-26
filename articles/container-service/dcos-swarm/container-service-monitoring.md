@@ -10,11 +10,11 @@ ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508120"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(PRETERIDO) Monitorizar um cluster DC/OS do Azure Container Service com o Datadog
 

@@ -16,11 +16,11 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60431761"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento automático de utilizadores
 

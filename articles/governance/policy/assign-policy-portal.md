@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499040"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Criar uma atribuição de política para identificar recursos incompatíveis
 

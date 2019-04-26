@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
 ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482648"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Como: Depurar os contentores do Windows no Azure Service Fabric com o Visual Studio 2017
 

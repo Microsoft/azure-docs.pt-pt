@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
 ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537960"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager do Azure Container Instances
 

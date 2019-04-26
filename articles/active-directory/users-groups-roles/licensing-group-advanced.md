@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471901"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
 
@@ -216,7 +216,7 @@ Se utilizar o licenciamento baseado em grupo, é uma boa idéia para se familiar
 
 - A funcionalidade só pode ser utilizada com grupos de segurança e grupos do Office 365 com securityEnabled = TRUE.
 
-- O [portal de administração do Office 365](https://portal.office.com ) não suporta atualmente licenciamento baseado em grupo. Se um utilizador herda uma licença de um grupo, esta licença é apresentado no portal de administração do Office como uma licença de utilizador normal. Se tentar modificar essa licença ou tente remover a licença, o portal devolve uma mensagem de erro. Não não possível modificar licenças herdadas de grupo diretamente num utilizador.
+- O [Centro de administração do Microsoft 365](https://admin.microsoft.com) não suporta atualmente licenciamento baseado em grupo. Se um utilizador herda uma licença de um grupo, esta licença é apresentado no portal de administração do Office como uma licença de utilizador normal. Se tentar modificar essa licença ou tente remover a licença, o portal devolve uma mensagem de erro. Não não possível modificar licenças herdadas de grupo diretamente num utilizador.
 
 - Quando as licenças são atribuídas ou modificadas durante um grande grupo (por exemplo, 100 000 utilizadores), ele poderia afetar o desempenho. Especificamente, o volume de alterações gerado pela automatização do Azure AD pode afetar negativamente o desempenho da sua sincronização de diretórios entre o Azure AD e sistemas no local.
 

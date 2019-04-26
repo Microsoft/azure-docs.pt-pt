@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: adbe101455bc200bc6be439920736b756f08b695
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dfe08152f986ccac3dabe7b3bb21e7653ee812a4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394409"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse do Service Fabric e descreve os principais conceitos, modelos, ciclo de vida do aplicativo, teste, clusters e monitorização de estado de funcionamento de programação. Leitura a [descrição geral](service-fabric-overview.md) e [o que são microsserviços?](service-fabric-overview-microservices.md) para uma introdução e como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista de conteúdo abrangente, mas associar à descrição geral e ao obter os artigos de introdução para todas as áreas do Service Fabric. 
@@ -165,7 +165,7 @@ Geração de relatórios pode ser feita em:
 * Watchdogs internos que executam em nós de Service Fabric, mas não são implementados como serviços do Service Fabric.
 * Watchdogs externos que o recurso de fora do cluster do Service Fabric (por exemplo, serviço de monitoramento, como Gomez) de sonda.
 
-Imediato, componentes do Service Fabric comunicam o estado de funcionamento em todas as entidades no cluster. [Relatórios de estado de funcionamento do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) proporcionar visibilidade para aplicações e clusters funcionalidade e o sinalizador de problemas por meio do Estado de funcionamento. Para aplicações e serviços, relatórios de estado de funcionamento do sistema Certifique-se de que as entidades são implementadas e estão se comportando corretamente da perspectiva do runtime do Service Fabric. Os relatórios não fornecem qualquer monitorização de estado de funcionamento da lógica comercial do serviço ou detectar processos bloqueados. Para adicionar informações de estado de funcionamento específicas a lógica do seu serviço, [implementar relatórios de estado de funcionamento personalizado](service-fabric-report-health.md) nos seus serviços.
+Imediato, componentes do Service Fabric comunicam o estado de funcionamento em todas as entidades no cluster. [Relatórios de estado de funcionamento do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) proporcionar visibilidade para aplicações e clusters funcionalidade e o sinalizador de problemas por meio do Estado de funcionamento. Para aplicações e serviços, relatórios de estado de funcionamento do sistema Certifique-se de que as entidades são implementadas e estão se comportando corretamente da perspectiva do runtime do Service Fabric. Os relatórios não fornecem qualquer monitorização de estado de funcionamento da lógica comercial do serviço ou detectar processos que deixaram de responder. Para adicionar informações de estado de funcionamento específicas a lógica do seu serviço, [implementar relatórios de estado de funcionamento personalizado](service-fabric-report-health.md) nos seus serviços.
 
 O Service Fabric fornece várias formas de [ver relatórios de estado de funcionamento](service-fabric-view-entities-aggregated-health.md) agregados no arquivo de estado de funcionamento:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização.

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461030"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware num ambiente de vários inquilinos com o programa de fornecedor de soluções Cloud (CSP)
 
@@ -39,7 +39,7 @@ Para configurar a replicação de VMware, terá de fazer o seguinte:
 
     ![A página de informações de conta](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Em seguida, clique em **seguinte: subscrições**.
+5. Em seguida, clique em **seguinte: Subscrições**.
 6. Na página de seleção de subscrições, selecione **Microsoft Azure** caixa de verificação. Pode adicionar outras assinaturas agora ou em qualquer outra altura.
 7. Sobre o **revisão** página, confirme os detalhes de inquilino e, em seguida, clique em **submeter**.
 8. Depois de criar a conta de inquilino, é apresentada uma página de confirmação, exibindo os detalhes da conta padrão e a palavra-passe para essa subscrição. Guarde as informações e alterar a palavra-passe mais tarde, se necessário, através do portal do Azure início de sessão na página.
@@ -89,11 +89,11 @@ Agora pode executar e gerir todas as operações de recuperação de Site para o
 
 Existem três modelos principais de multi-inquilinos:
 
-* **Partilhado do fornecedor de serviços de alojamento (HSP)**: O parceiro é o proprietário a infraestrutura física e utiliza partilhado recursos (vCenter, centros de dados, armazenamento físico e assim por diante) para alojar vários inquilinos VMs na mesma infraestrutura. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode ser proprietário recuperação após desastre como uma solução de self-service.
+* **Fornecedor de serviços de alojamento (HSP) partilhados**: O parceiro é o proprietário a infraestrutura física e utiliza partilhado recursos (vCenter, centros de dados, armazenamento físico e assim por diante) para alojar vários inquilinos VMs na mesma infraestrutura. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode ser proprietário recuperação após desastre como uma solução de self-service.
 
-* **Dedicado que aloja fornecedor de serviços**: O parceiro é proprietário a infraestrutura física, mas utiliza recursos dedicados (vários vCenters, arquivos de dados físicos e assim por diante) para hospedar VMs de cada inquilino numa infraestrutura separada. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode possuí-lo como uma solução de self-service.
+* **Fornecedor de serviços de alojamento de dedicado**: O parceiro é proprietário a infraestrutura física, mas usa recursos dedicados (vários vCenters, arquivos de dados físicos e assim por diante) para hospedar VMs de cada inquilino numa infraestrutura separada. O parceiro pode fornecer gestão de recuperação após desastre como um serviço gerido ou o inquilino pode possuí-lo como uma solução de self-service.
 
-* **Geridos pelo fornecedor de serviços (MSP)**: O cliente possui a infraestrutura física que aloja as VMs e o parceiro fornece gestão e de ativação de recuperação após desastre.
+* **Fornecedor de serviços (MSP) gerido**: O cliente possui a infraestrutura física que aloja as VMs e o parceiro fornece à habilitação da recuperação após desastre e gestão.
 
 Ao configurar subscrições de inquilino, conforme descrito neste artigo, pode começar rapidamente que permite aos clientes em qualquer um dos modelos de multi-inquilinos relevantes. Pode saber mais sobre os diferentes modelos de multi-inquilinos e habilitando-controlos de acesso no local [aqui](vmware-azure-multi-tenant-overview.md).
 

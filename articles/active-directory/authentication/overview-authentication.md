@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414002"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Que métodos de autenticação estão disponíveis?
 

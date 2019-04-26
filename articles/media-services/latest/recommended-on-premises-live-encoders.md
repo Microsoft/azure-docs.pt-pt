@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405363"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Recomendado codificadores de transmissão em fluxo em direto
 
@@ -31,19 +31,19 @@ Para obter informações detalhadas sobre o live encoding com Media Services, co
 
 ## <a name="live-encoders-that-output-rtmp"></a>Codificadores em direto que transmitem RTMP
 
-Serviços de multimédia recomenda o uso de um dos seguintes codificadores em direto que tenham RTMP como saída. Os esquemas de URL suportados são `rtmp://` ou `rtmps://`.
+Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os esquemas de URL suportados são `rtmp://` ou `rtmps://`.
 
 > [!NOTE]
-> Quando a transmissão em fluxo através de RTMP, verifique as definições de firewall e/ou proxy para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
+> Ao transmitir em fluxo através de RTMP, verifique as definições da firewall e/ou do proxy, para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
 
-- Suporte de dados de Adobe Flash Live Encoder 3.2
+- Adobe Flash Media Live Encoder 3.2
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
-- Comutador Studio (iOS)
-- Telestream Wirecast 8.1 +
+- Switcher Studio (iOS)
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
-- Setor de Teradek 756
+- Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - VMIX
@@ -55,10 +55,10 @@ Serviços de multimédia recomenda o uso de um dos seguintes codificadores em di
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental em direto
-- Envivio 4Caster C4 fins III
+- Elemental Live
+- Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
-- Suporte de dados do Excel Hero em direto e Hero 4K (UHD/HEVC)
+- Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configurar definições no local codificador em direto
 

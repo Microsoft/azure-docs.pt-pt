@@ -7,11 +7,11 @@ ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409197"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>VFTX do Azure para documentos técnicos do Azure e outros recursos 
 
@@ -29,7 +29,7 @@ Este guia fornece orientações passo a passo para instalar o Agisoft PhotoScan 
 
 Este relatório de duas páginas tem informações básicas e diagramas que explicam como utilizar Avere vFXT para o Azure em vários casos de utilização.
 
-## <a name="hybrid-cloud-for-file-based-workloads"></a>Cloud híbrida para cargas de trabalho baseados em ficheiros
+## <a name="hybrid-cloud-for-file-based-workloads"></a>cloud híbrida para cargas de trabalho baseadas em ficheiros
 
 **Link:** [Infografia: Criar uma cloud híbrida para cargas de trabalho baseados em ficheiros](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) 
 

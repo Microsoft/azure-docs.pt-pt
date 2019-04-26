@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a4110ceddb55de1990d85597f8c1a9618743f946
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292729"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Uma aplicação de Proxy da aplicação demora demasiado tempo a carregar
 

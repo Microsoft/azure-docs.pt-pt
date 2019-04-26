@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464431"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: danlep
 ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430814"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminar imagens de contentor no Azure Container Registry
 

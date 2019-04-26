@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
 ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58495991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403526"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Deteção de dados de base de dados SQL e SQL Data Warehouse e classificação do Azure
 

@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343434"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos dos Hubs de eventos com o Apache Storm
 

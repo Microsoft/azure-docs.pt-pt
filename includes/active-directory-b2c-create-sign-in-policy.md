@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456035"
 ---
 Se pretender ativar apenas o início de sessão na sua aplicação, utilize um **início de sessão** fluxo de utilizador. Este fluxo de utilizador descreve as experiências que os clientes terão durante o início de sessão e os conteúdos de tokens que a aplicação receberá nos inícios de sessão com êxito.
 
@@ -39,3 +40,4 @@ Clique em **executar o fluxo de utilizador**. É aberto um novo separador do bro
 > [!NOTE]
 > Demoram até um minuto para criação de fluxos de utilizador e atualizações em vigor.
 >
+

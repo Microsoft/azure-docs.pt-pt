@@ -1,6 +1,6 @@
 ---
-title: Stream registos do Azure Active Directory para registos do Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Saiba como integrar registos do Azure Active Directory com os registos do Azure Monitor (pré-visualização)
+title: Stream registos do Azure Active Directory para registos do Azure Monitor | Documentos da Microsoft
+description: Saiba como integrar registos do Azure Active Directory com os registos do Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437321"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integrar registos do Azure AD com os registos do Azure Monitor (pré-visualização)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar registos do Azure AD com os registos do Azure Monitor
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Registos de Monitor do Azure permite-lhe dados de consulta para encontrar eventos específicos, analisar tendências e efetuar a correlação entre várias origens de dados. Com a integração do Azure AD registos de atividades nos registos do Azure Monitor, agora pode realizar tarefas como:
 
@@ -37,8 +39,6 @@ O vídeo seguinte a partir de uma sessão Ignite demonstra as vantagens da utili
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com o Azure Monitor.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Relatórios suportados
 
@@ -60,7 +60,7 @@ Para utilizar esta funcionalidade, precisa de:
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
 * Uma área de trabalho do Log Analytics na sua subscrição do Azure. Saiba como [criar uma área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para os registos do Azure Monitor
+## <a name="send-logs-to-azure-monitor"></a>Enviar registos para o Azure Monitor
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
@@ -80,7 +80,7 @@ Para utilizar esta funcionalidade, precisa de:
 
 7. Depois de cerca de 15 minutos, certifique-se de que os eventos são transmitidas em fluxo à sua área de trabalho do Log Analytics.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Azure AD de analisar os registos de atividades com os registos do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
 * [Instalar e utilizar os modos de exibição do log analytics do Azure Active Directory](howto-install-use-log-analytics-views.md)

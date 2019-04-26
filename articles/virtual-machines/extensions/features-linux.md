@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387289"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões de máquina virtual e funcionalidades para Linux
 
@@ -72,7 +72,7 @@ Para redirecionar os pedidos de tráfego do agente, o agente do Linux tem suport
 
 ## <a name="discover-vm-extensions"></a>Descubra as extensões de VM
 
-Muitos diferentes extensões VM estão disponíveis para utilização com as VMs do Azure. Para ver uma lista completa, utilize [lista de imagens de extensão de vm de az](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo seguinte lista todas as extensões disponíveis no *westus* localização:
+Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Para ver uma lista completa, utilize [lista de imagens de extensão de vm de az](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo seguinte lista todas as extensões disponíveis no *westus* localização:
 
 ```azurecli
 az vm extension image list --location westus --output table

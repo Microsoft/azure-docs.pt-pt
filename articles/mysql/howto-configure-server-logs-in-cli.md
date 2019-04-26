@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525482"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos de servidor com a CLI do Azure
 Pode baixar a base de dados do Azure para os registos do servidor MySQL com a CLI do Azure, o utilitário de linha de comandos do Azure.

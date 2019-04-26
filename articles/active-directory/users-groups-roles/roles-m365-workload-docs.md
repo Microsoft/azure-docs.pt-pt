@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468186"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Funções de administrador para cargas de trabalho do Microsoft 365
 

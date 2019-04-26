@@ -12,11 +12,11 @@ ms.date: 09/08/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3bd996f23c7253dde0a55198068d8535a62bf127
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60514926"
 ---
 # <a name="support"></a>Suporte
 

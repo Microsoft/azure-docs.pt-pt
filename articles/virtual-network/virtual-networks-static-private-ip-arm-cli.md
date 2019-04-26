@@ -3,8 +3,8 @@ title: Configurar endereços IP privados para as VMs - CLI do Azure | Documentos
 description: Saiba como configurar os endereços IP privados para máquinas virtuais com a interface de linha de comandos (CLI) do Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
@@ -14,14 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
+ms.author: kumud
 ms.openlocfilehash: 06016cf7a8ba10a9a8f49f90da99a26aaa072441
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516457"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurar endereços IP privados para uma máquina virtual utilizando a CLI do Azure
 

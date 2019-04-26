@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447608"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos finais HTTP ou HTTPS com o Azure Logic Apps
 
@@ -77,7 +77,7 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
 
 1. Quando tiver terminado, certifique-se de que guardar a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**. 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Para configurar a autenticação, escolha **Mostrar opções avançadas** dentro da ação ou acionador. Para obter mais informações sobre os tipos de autenticação disponíveis para ações e acionadores HTTP, consulte [referência de tipos de Acionador e ação](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475727"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Definir informações de segurança (pré-visualização) para utilizar uma aplicação de autenticação
 Pode seguir estes passos para adicionar a verificação de dois fatores e métodos de reposição de palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.

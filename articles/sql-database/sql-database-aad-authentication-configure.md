@@ -13,11 +13,11 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390584"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
 

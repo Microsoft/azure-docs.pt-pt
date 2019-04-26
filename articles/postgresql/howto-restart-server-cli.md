@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/28/2019
 ms.openlocfilehash: 51b3011c040db8576c13868f9fac26cb1e431515
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420330"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-the-azure-cli"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL com a CLI do Azure
 Este tópico descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL. Terá de reiniciar o servidor por motivos de manutenção, o que faz com que uma interrupção curta como o servidor executa a operação.

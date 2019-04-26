@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389497"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integração do projeto Acoustics Unity
 Nesta explicação de procedimento explica a integração do plug-in do projeto Acoustics Unity em seu projeto Unity.

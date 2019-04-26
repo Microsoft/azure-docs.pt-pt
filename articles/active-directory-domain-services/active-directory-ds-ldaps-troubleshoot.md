@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: 97a2ee23435d0b29565bc3bf1dcb426e9e83fd31
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416760"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Resolver problemas de LDAP seguro (LDAPS) para um domínio gerido do Azure AD Domain Services
 

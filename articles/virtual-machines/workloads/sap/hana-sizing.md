@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0d72a9ef592579b21d082111ab8ad00f8995de2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7d403c284eefc1351aabb632977832f2bf11757a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477127"
 ---
 # <a name="sizing"></a>Dimensionamento
 
@@ -27,7 +27,7 @@ Dimensionamento para a instância grande do HANA não é diferente de dimensiona
 
 - [A nota SAP #1793345 - Dimensionar para SAP Suite em HANA](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP Note #1872170 - Suite em HANA e S/4 HANA relatório de dimensionamento](https://launchpad.support.sap.com/#/notes/1872170)
-- [A nota SAP #2121330 - FAQ: SAP BW em HANA relatório de dimensionamento](https://launchpad.support.sap.com/#/notes/2121330)
+- [Nota SAP #2121330 - FAQ: SAP BW em HANA relatório de dimensionamento](https://launchpad.support.sap.com/#/notes/2121330)
 - [SAP Note #1736976 - relatório de dimensionamento para BW em HANA](https://launchpad.support.sap.com/#/notes/1736976)
 - [SAP Note #2296290 - Dimensionar novo relatório para BW em HANA](https://launchpad.support.sap.com/#/notes/2296290)
 

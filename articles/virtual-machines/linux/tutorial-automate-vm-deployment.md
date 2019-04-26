@@ -17,11 +17,11 @@ ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478812"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -45,7 +45,7 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 
 Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade atual do cloud-init nas imagens de plataforma do Azure:
 
-| Alias | Publicador | Oferta | SKU | Versão |
+| Alias | Publicador | Oferta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canónico |UbuntuServer |16.04-LTS |mais recente |
 | UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |mais recente |

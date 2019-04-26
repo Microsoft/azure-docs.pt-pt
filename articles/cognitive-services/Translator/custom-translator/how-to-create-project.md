@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: 2e49a8c40396b03c231fa7fd484331b0e28d4cf6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513487"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 

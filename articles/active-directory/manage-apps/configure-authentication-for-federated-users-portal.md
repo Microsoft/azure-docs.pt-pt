@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443101"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento de uma aplicação com uma política de deteção de Realm Inicial
 

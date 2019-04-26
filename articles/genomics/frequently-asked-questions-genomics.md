@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445554"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas comuns
 
@@ -73,6 +73,7 @@ A chave de conta de armazenamento é utilizada para criar tokens de acesso de cu
 ## <a name="what-genome-references-can-i-use"></a>Faz referência a quais genoma posso utilizar?
 
 Estas referências são suportadas:
+
  |Referência              | Valor de `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -84,15 +85,15 @@ Estas referências são suportadas:
 
 msgen compreende arquivos de configuração no seguinte formato:
 * Todas as opções são fornecidas como pares chave-valor com valores separados a partir das chaves por uma vírgula.
-Espaço em branco é ignorado.
+  Espaço em branco é ignorado.
 * Linhas que começam com `#` são ignorados.
 * Qualquer argumento da linha de comandos no formato longo pode ser convertido numa chave de remoção de seu travessões líderes do setor e substituindo travessões entre as palavras com carateres de sublinhado. Aqui estão alguns exemplos de conversão:
 
- |Argumento da linha de comandos            | Linha do ficheiro de configuração |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Argumento da linha de comandos            | Linha do ficheiro de configuração |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

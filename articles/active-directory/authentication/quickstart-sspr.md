@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414070"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início rápido: Reposição personalizada de palavra-passe
 

@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
 ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428150"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
 
@@ -59,7 +59,7 @@ Para ativar uma identidade gerida atribuído de sistema para a sua aplicação l
 
    ![GUIDs para o ID de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------| 
    | **ID de objeto** | <*identity-resource-ID*> | Um identificador exclusivo global (GUID) que representa o atribuído de sistema gerido identidade para a sua aplicação lógica no inquilino do Azure AD | 
    ||| 
@@ -111,7 +111,7 @@ Quando o Azure cria a aplicação lógica, a definição de fluxo de trabalho es
 }
 ```
 
-| Propriedade | Valor | Descrição | 
+| Propriedade | Value | Descrição | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Um identificador exclusivo global (GUID) que representa a aplicação lógica no inquilino do Azure AD e, às vezes, é apresentada como uma "ID de objeto" ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Um identificador exclusivo global (GUID) que representa o inquilino do Azure AD em que a aplicação lógica agora é um membro. Dentro de inquilino do Azure AD, o principal de serviço tem o mesmo nome que a instância da aplicação lógica. | 

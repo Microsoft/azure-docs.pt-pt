@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: cbe14066cfd7493806176e834373e952daf19339
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537654"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comandos numa instância de contentor para substituir a operação de linha de comandos padrão
 
@@ -63,7 +63,7 @@ Para ver o resultado do [aci/microsoft-wordcount] [ aci-wordcount] contentor ao 
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --environment-variables NumWords=3 MinLength=5 \
     --restart-policy OnFailure
 ```
@@ -88,7 +88,7 @@ Por exemplo, para determinar a parte superior 3 palavras que são, pelo menos, c
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -111,7 +111,7 @@ Saída:
 Cenários de baseado em tarefas, como um grande conjunto de dados com vários contentores, de processamento em lote podem beneficiar de linhas de comando personalizadas em tempo de execução. Para obter mais informações sobre a execução de contentores com base em tarefas, consulte [executar tarefas em contentores com políticas de reinício](container-instances-restart-policy.md).
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

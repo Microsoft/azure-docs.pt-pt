@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: davidmu
 ms.custom: include file
-ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: adeaed3625ce42087d874e67cd6cb91d406e8fae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51208245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455675"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: c93f80ba93e84c93ddf58b46b4bbcf98c53478d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482357"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar a ligação a um site secundário no local após a ativação pós-falha de endereçamento IP
 

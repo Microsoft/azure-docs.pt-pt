@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
 ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465347"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e utilizar Istio no Azure Kubernetes Service (AKS)
 

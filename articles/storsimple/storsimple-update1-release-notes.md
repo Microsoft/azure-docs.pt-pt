@@ -16,11 +16,11 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531000"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar notas de versão 1.2 do seu dispositivo da série StorSimple 8000
 
@@ -67,7 +67,7 @@ A tabela seguinte fornece um resumo dos problemas que foram corrigidas em atuali
 | Não. | Funcionalidade | Problema | Corrigido na atualização | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell para StorSimple |Quando um utilizador aceder remotamente o dispositivo StorSimple com o Windows PowerShell para StorSimple e, em seguida, iniciar o Assistente de configuração, uma falha ocorreu logo que dados 0 IP foi introduzido. Esse bug agora é corrigido em atualização 1. |Atualização 1 |Sim |Sim |
-| 2 |Reposição de fábrica |Em alguns casos, quando efetuar uma reposição de fábrica, o dispositivo StorSimple tornou-se com dificuldades e apresentada esta mensagem: **reposição de fábrica está em curso (fase 8)**. Isto aconteceu se premir CTRL + C, enquanto o cmdlet estava em curso. Esse bug agora é corrigido. |Atualização 1 |Sim |Não |
+| 2 |Reposição de fábrica |Em alguns casos, quando efetuar uma reposição de fábrica, o dispositivo StorSimple tornou-se com dificuldades e apresentada esta mensagem: **Reposição de fábrica está em curso (fase 8)**. Isto aconteceu se premir CTRL + C, enquanto o cmdlet estava em curso. Esse bug agora é corrigido. |Atualização 1 |Sim |Não |
 | 3 |Reposição de fábrica |Depois de repor um alocador de controlador dupla com falha, eram permitidos para continuar o registo do dispositivo. Isso resultou numa configuração de sistema não suportado. Na atualização 1, é apresentada uma mensagem de erro e registo é bloqueado num dispositivo que tem uma falha na reposição de fábrica. |Atualização 1 |Sim |Não |
 | 4 |Reposição de fábrica |Em alguns casos, foram geradas alertas de erro de correspondência de positivo FALSO. Já não serão gerados alertas de erro de correspondência incorreto em dispositivos com o Update 1. |Atualização 1 |Sim |Não |
 | 5 |Reposição de fábrica |Se uma reposição de fábrica foi interrompida antes da conclusão, o dispositivo introduziu o modo de recuperação e não permitia que acesse Windows PowerShell para StorSimple. Esse bug agora é corrigido. |Atualização 1 |Sim |Não |
@@ -92,7 +92,7 @@ A tabela seguinte fornece um resumo dos problemas conhecidos nesta versão.
 | 6 |Proxy da Web |Se a sua configuração de proxy da web tiver HTTPS como o protocolo especificado, em seguida, a comunicação de serviço a dispositivo será afetada e o dispositivo irá ficar offline. Pacotes de suporte também serão gerados no processo de consumir recursos significativos no seu dispositivo. |Certifique-se de que o URL de proxy de web tem HTTP como o protocolo especificado. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](storsimple-configure-web-proxy.md). |Sim |Não |
 | 7 |Proxy da Web |Se configura e ativar o proxy da web num dispositivo registado, terá de reiniciar o controlador ativo no seu dispositivo. | |Sim |Não |
 | 8 |Latência de nuvem de alta e a carga de trabalho de e/s elevada |Quando o dispositivo StorSimple encontra uma combinação de latências de cloud muito elevada (ordem de segundos) e a carga de trabalho de e/s elevada, os volumes do dispositivo entram num Estado degradado e o e/s pode falhar com um erro de "dispositivo não está pronto". |Terá de reiniciar os controladores de dispositivo ou efetuar uma ativação pós-falha do dispositivo para recuperar a partir desta situação manualmente. |Sim |Não |
-| 9 |Azure PowerShell |Quando utiliza o cmdlet do StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - primeiro 1 - Wait** para selecionar o primeiro objeto para que possa criar um novo **VolumeContainer** objeto, o cmdlet devolve todos os objetos. |Moldar o cmdlet parênteses, da seguinte forma: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - First 1 - Wait** |Sim |Sim |
+| 9 |Azure PowerShell |Quando utiliza o cmdlet do StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - primeiro 1 - Wait** para selecionar o primeiro objeto para que possa criar um novo **VolumeContainer** objeto, o cmdlet devolve todos os objetos. |Moldar o cmdlet parênteses da seguinte forma: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sim |Sim |
 | 10 |Migração |Quando vários contentores de volume são passados para a migração, a ETA para cópia de segurança mais recente é preciso apenas para o primeiro contentor de volume. Além disso, a migração paralela será iniciado depois das primeiros 4 cópias de segurança no contentor de volume do primeiro são migradas. |Recomendamos que migre um contentor de volumes cada vez. |Sim |Não |
 | 11 |Migração |Após o restauro, os volumes de mensagens em fila não são adicionados para a política de cópia de segurança ou o grupo de disco virtual. |Terá de adicionar estes volumes para uma política de cópia de segurança para criar cópias de segurança. |Sim |Sim |
 | 12 |Migração |Após a migração estar concluída, o dispositivo da 5000/7000 série não têm de aceder os contentores de dados migrados. |Recomendamos que elimine os contentores de dados migrados após a migração estar concluída e defendemos. |Sim |Não |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443930"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ligar a sua aplicação da Barracuda 
 

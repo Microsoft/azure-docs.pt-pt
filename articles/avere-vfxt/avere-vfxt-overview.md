@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409436"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT for Azure? 
 

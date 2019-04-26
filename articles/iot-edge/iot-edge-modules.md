@@ -3,18 +3,19 @@ title: Saiba como módulos de executar a lógica nos seus dispositivos - Azure I
 description: Os módulos do Azure IoT Edge são unidades em contentores de lógica que podem ser implementados e geridos remotamente para que possam executar lógica de negócios do IoT Edge dispositivos
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/21/2019
+ms.author: v-yiso
+origin.date: 03/21/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445048"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos do Azure IoT Edge
 
@@ -43,7 +44,6 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Identidades do módulo
 
 Quando é criada uma nova instância de módulo pelo runtime do IoT Edge, a instância está associada uma identidade de módulo correspondente. A identidade do módulo é armazenada no IoT Hub e como o âmbito de endereçamento e segurança para todos os locais e comunicações da cloud para essa instância do módulo específico.
-
 A identidade associada uma instância de módulo depende da identidade do dispositivo no qual a instância está em execução e o nome fornecidos para esse módulo na sua solução. Por exemplo, se chamar `insight` um módulo que utiliza um Azure Stream Analytics e implementá-la num dispositivo chamado `Hannover01`, o runtime do IoT Edge cria uma identidade de módulo correspondente, chamada `/devices/Hannover01/modules/insight`.
 
 Sem dúvida, em cenários quando precisa implantar uma imagem de módulo várias vezes no mesmo dispositivo, pode implementar a mesma imagem várias vezes com nomes diferentes.
@@ -83,3 +83,12 @@ Módulos do IoT Edge podem ser offline por períodos prolongados, desde que são
  - [Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge](module-development.md)
  - [Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura](iot-edge-runtime.md)
 
+<!-- Images -->
+[1]: ./media/iot-edge-modules/image_instance.png
+[2]: ./media/iot-edge-modules/identity.png
+
+<!-- Links -->
+[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md
