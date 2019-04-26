@@ -52,13 +52,13 @@ Para gerir o custo e a complexidade, registos de ligação não representam cone
 
 | Propriedade | Descrição |
 |:--|:--|
-|Direção |Direção da conexão, o valor é *entrada* ou *saída* |
-|Máquina |O FQDN do computador |
-|Processo |Identidade de processo ou grupos de processos, iniciar/aceitar a ligação |
+|Direction |Direção da conexão, o valor é *entrada* ou *saída* |
+|Machine |O FQDN do computador |
+|Process |Identidade de processo ou grupos de processos, iniciar/aceitar a ligação |
 |SourceIp |Endereço IP de origem |
 |DestinationIp |Endereço IP de destino |
 |DestinationPort |Número de porta de destino |
-|Protocolo |Protocolo utilizado para a ligação.  É de valores *tcp*. |
+|Protocol |Protocolo utilizado para a ligação.  É de valores *tcp*. |
 
 Para levar em conta o impacto de agrupamento, são fornecidas informações sobre o número de ligações físicos agrupados nas seguintes propriedades do registo:
 
@@ -77,7 +77,7 @@ Para além das métricas de contagem de ligação, informações sobre o volume 
 |:--|:--|
 |BytesSent |Número total de bytes que foram enviados durante a janela de tempo de criação de relatórios |
 |BytesReceived |Número total de bytes que foram recebidos durante a janela de tempo de criação de relatórios |
-|Respostas |O número de respostas foi observada durante a janela de tempo de criação de relatórios. 
+|Responses |O número de respostas foi observada durante a janela de tempo de criação de relatórios. 
 |ResponseTimeMax |O maior tempo de resposta (milissegundos) foi observado durante a janela de tempo de criação de relatórios. Se nenhum valor, a propriedade está em branco.|
 |ResponseTimeMin |O menor tempo de resposta (milissegundos) foi observado durante a janela de tempo de criação de relatórios. Se nenhum valor, a propriedade está em branco.|
 |ResponseTimeSum |A soma de todos os tempos de resposta (milissegundos) foi observada durante a janela de tempo de criação de relatórios. Se nenhum valor, a propriedade está em branco.|
@@ -112,10 +112,10 @@ Cada propriedade RemoteIp *VMConnection* tabela é comparada com um conjunto de 
 |:--|:--|
 |MaliciousIp |O endereço de RemoteIp |
 |IndicatorThreadType |Indicador de ameaça detetada é um dos seguintes valores *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *software maligno*, *Phishing*, *Proxy*, *PUA*, *Lista de observação*.   |
-|Descrição |Descrição da ameaça observada. |
+|Description |Descrição da ameaça observada. |
 |TLPLevel |Nível de protocolo de semáforo (TLP) é um dos valores definidos, *White*, *verde*, *Amber*, *Red*. |
-|Confiança |Os valores são *0 – 100*. |
-|Gravidade |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não for grave em todos os. Valor predefinido é *3*.  |
+|Confidence |Os valores são *0 – 100*. |
+|Severity |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não for grave em todos os. Valor predefinido é *3*.  |
 |FirstReportedDateTime |Na primeira vez que o fornecedor reportou o indicador. |
 |LastReportedDateTime |A última vez que o indicador foi visto por Interflow. |
 |IsActive |Indica a indicadores são desativados com *True* ou *falso* valor. |
@@ -136,10 +136,10 @@ Cada registro em VMBoundPort é identificado pelos seguintes campos:
 
 | Propriedade | Descrição |
 |:--|:--|
-|Processo | Identidade do processo (ou grupos de processos) com a qual está associada a porta.|
+|Process | Identidade do processo (ou grupos de processos) com a qual está associada a porta.|
 |Ip | Endereço IP da porta (IP de caráter universal, é possível *0.0.0.0*) |
-|Porta |O número da porta |
-|Protocolo | O protocolo.  Exemplo, *tcp* ou *udp* (apenas *tcp* é atualmente suportado).|
+|Port |O número da porta |
+|Protocol | O protocolo.  Exemplo, *tcp* ou *udp* (apenas *tcp* é atualmente suportado).|
  
 A identidade de uma porta é derivada de cinco campos acima e é armazenada na propriedade PortId. Esta propriedade pode ser utilizada para encontrar rapidamente os registos para uma porta específica para sempre. 
 
@@ -204,7 +204,7 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 | CommandLine_s | A linha de comandos |
 | ExecutablePath _s | O caminho para o ficheiro executável |
 | WorkingDirectory_s | O diretório de trabalho |
-| Nome de Utilizador | A conta sob a qual o processo está em execução |
+| UserName | A conta sob a qual o processo está em execução |
 | UserDomain | O domínio em que o processo está em execução |
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
