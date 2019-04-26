@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313087"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET
 

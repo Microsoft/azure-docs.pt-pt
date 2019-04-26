@@ -13,11 +13,11 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295382"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
 
@@ -104,7 +104,7 @@ O tempo de execução do processo de sincronização tem as seguintes caracterí
 * A exportação também é linear.
 * A sincronização irá aumentar exponencialmente com base no número de objetos com referências a outros objetos. Membros de grupo e de grupos aninhados têm o impacto no desempenho principal, porque seus membros fazem referência a objetos de utilizador ou outros grupos. Estas referências tem de ser encontradas e referenciadas para objetos reais na MV para concluir o ciclo de sincronização.
 
-### <a name="filtering"></a>Filtragem
+### <a name="filtering"></a>Filtering
 
 O tamanho da topologia do Active Directory que pretende importar é o número um fator de influenciar o desempenho e o tempo total que os componentes internos do mecanismo de provisionamento irão demorar.
 

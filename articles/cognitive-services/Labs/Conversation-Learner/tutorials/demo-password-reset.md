@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227340"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313158"
 ---
 # <a name="demo-password-reset"></a>Demonstração: Reposição de palavras-passe
 Este tutorial demonstra um bot de suporte técnico simples que pode ajudar na reposições de palavra-passe com tecnologia de aprendiz de conversação. Modelo do bot pode saber mais fluxos de caixa de diálogo não trivial e ative a multi sequências incluindo um classes de fora do domínio. A tarefa pode ser feita sem código ou entidades.

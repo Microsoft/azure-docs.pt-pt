@@ -16,11 +16,11 @@ ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323965"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início rápido: Criar um perfil de CDN do Azure e o ponto de extremidade usando o modelo do Resource Manager
 

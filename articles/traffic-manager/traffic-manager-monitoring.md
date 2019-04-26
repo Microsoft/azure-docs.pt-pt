@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329926"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -69,12 +69,12 @@ Estado do monitor de ponto final é um valor gerado pelo Gestor de tráfego, que
 
 | Estado do perfil | Estado do ponto final  | Estado do monitor de ponto final | Notas |
 | --- | --- | --- | --- |
-| Desativado |Ativado |Inativa |O perfil foi desativado. Embora o estado de ponto final estiver ativado, o estado do perfil (desativado) tem precedência. Pontos finais nos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
+| Desativado |Enabled |Inativa |O perfil foi desativado. Embora o estado de ponto final estiver ativado, o estado do perfil (desativado) tem precedência. Pontos finais nos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
 | &lt;any&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos de extremidade desativados não são monitorizados. O ponto final não está incluído nas respostas DNS, por conseguinte, não receber o tráfego. |
-| Ativado |Ativado |Online |O ponto final está a ser monitorizado e está em bom estado. Ele está incluído nas respostas DNS e pode receber o tráfego. |
-| Ativado |Ativado |Degradado |Ponto final de monitorização do Estado de funcionamento verificações estão a falhar. O ponto final não está incluído nas respostas DNS e não recebe o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todas elas são consideradas a ser devolvido na resposta da consulta).</br>|
-| Ativado |Ativado |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto de extremidade no perfil. Um ponto de extremidade neste estado está incluído nas respostas DNS e pode receber o tráfego. |
-| Ativado |Ativado |Parada |A aplicação de web ou serviço cloud que o ponto final aponta para não está em execução. Verifique as definições de aplicação de web ou serviço cloud. Também pode acontecer se o ponto final é do tipo aninhado ponto de extremidade e o perfil de subordinado está desativado ou está inativo. <br>Um ponto final com um estado parado, não é monitorizado. Ele não está incluído nas respostas DNS e não recebe o tráfego. Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles serão considerados a ser devolvido na resposta da consulta.</br>|
+| Enabled |Enabled |Online |O ponto final está a ser monitorizado e está em bom estado. Ele está incluído nas respostas DNS e pode receber o tráfego. |
+| Enabled |Enabled |Degradado |Ponto final de monitorização do Estado de funcionamento verificações estão a falhar. O ponto final não está incluído nas respostas DNS e não recebe o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todas elas são consideradas a ser devolvido na resposta da consulta).</br>|
+| Enabled |Enabled |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto de extremidade no perfil. Um ponto de extremidade neste estado está incluído nas respostas DNS e pode receber o tráfego. |
+| Enabled |Enabled |Parada |A aplicação de web ou serviço cloud que o ponto final aponta para não está em execução. Verifique as definições de aplicação de web ou serviço cloud. Também pode acontecer se o ponto final é do tipo aninhado ponto de extremidade e o perfil de subordinado está desativado ou está inativo. <br>Um ponto final com um estado parado, não é monitorizado. Ele não está incluído nas respostas DNS e não recebe o tráfego. Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles serão considerados a ser devolvido na resposta da consulta.</br>|
 
 Para obter detalhes sobre como o estado do monitor de ponto final é calculado para aninhados pontos de extremidade, consulte [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md).
 
@@ -88,10 +88,10 @@ O estado do monitor de perfil é uma combinação do Estado do perfil configurad
 | Estado do perfil (conforme configurado) | Estado do monitor de ponto final | Estado do monitor de perfil | Notas |
 | --- | --- | --- | --- |
 | Desativado |&lt;qualquer&gt; ou um perfil com não existem pontos finais definidos. |Desativado |O perfil foi desativado. |
-| Ativado |O estado de, pelo menos, um ponto final está degradado. |Degradado |Reveja os valores de estado do ponto de extremidade individuais para determinar quais pontos de extremidade ainda mais necessitam de atenção. |
-| Ativado |O estado de, pelo menos, um ponto final é Online. Não existem pontos finais possuem um status de Degraded. |Online |O serviço está a aceitar o tráfego. Não são necessárias mais ações. |
-| Ativado |O estado de, pelo menos, um ponto final é CheckingEndpoint. Não existem pontos finais estão em Estado Online ou Degraded. |CheckingEndpoints |O estado de transição ocorre quando um perfil se criadas ou ativadas. O estado de funcionamento do ponto final está a ser verificado pela primeira vez. |
-| Ativado |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidos pontos finais. |Inativa |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
+| Enabled |O estado de, pelo menos, um ponto final está degradado. |Degradado |Reveja os valores de estado do ponto de extremidade individuais para determinar quais pontos de extremidade ainda mais necessitam de atenção. |
+| Enabled |O estado de, pelo menos, um ponto final é Online. Não existem pontos finais possuem um status de Degraded. |Online |O serviço está a aceitar o tráfego. Não são necessárias mais ações. |
+| Enabled |O estado de, pelo menos, um ponto final é CheckingEndpoint. Não existem pontos finais estão em Estado Online ou Degraded. |CheckingEndpoints |O estado de transição ocorre quando um perfil se criadas ou ativadas. O estado de funcionamento do ponto final está a ser verificado pela primeira vez. |
+| Enabled |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidos pontos finais. |Inativa |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Ativação pós-falha do ponto final e recuperação
 

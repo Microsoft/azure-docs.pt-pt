@@ -3,7 +3,7 @@ title: Tutorial - conceder acesso a uma API web ASP.NET - Azure Active Directory
 description: Tutorial sobre como utilizar o Active Directory B2C para proteger uma API web ASP.NET e chamá-lo a partir de uma aplicação web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315600"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API através do Azure Active Directory B2C web ASP.NET
 
@@ -24,7 +24,7 @@ Este tutorial mostra-lhe como chamar um recurso de API web protegido no Azure Ac
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Adicionar uma aplicação API da web
+> * Adicionar uma aplicação de API Web
 > * Configurar âmbitos para uma API web
 > * Conceder permissões para a API web
 > * Configurar o exemplo a utilizar a aplicação
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 Conclua os passos e a pré-requisitos no [Tutorial: Ativar autenticação numa aplicação web através do Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
 
-## <a name="add-a-web-api-application"></a>Adicionar uma aplicação API da web
+## <a name="add-a-web-api-application"></a>Adicionar uma aplicação de API Web
 
 Recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a pedidos de recursos protegidos por aplicações cliente que apresentam um token de acesso.
 
@@ -152,7 +152,7 @@ Quando cria um item de lista de tarefas, o aplicativo web faz um pedido para a A
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Adicionar uma aplicação API da web
+> * Adicionar uma aplicação de API Web
 > * Configurar âmbitos para uma API web
 > * Conceder permissões para a API web
 > * Configurar o exemplo a utilizar a aplicação

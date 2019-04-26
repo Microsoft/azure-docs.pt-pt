@@ -1,5 +1,5 @@
 ---
-title: 'Configurar um gateway de VNet para ExpressRoute - clássico: Azure PowerShell | Documentos da Microsoft'
+title: 'Configure um gateway de VNet para ExpressRoute - clássico: O Azure PowerShell | Documentos da Microsoft'
 description: Configurar um gateway de VNet para uma implementação clássica VNet com o PowerShell para uma configuração de ExpressRoute do modelo.
 services: expressroute
 author: charwen
@@ -9,11 +9,11 @@ ms.date: 11/05/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 101e03d07a15e9058ef236a575251b052017db32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60365154"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Configurar um gateway de rede virtual para o ExpressRoute com o PowerShell (clássico)
 > [!div class="op_single_selector"]

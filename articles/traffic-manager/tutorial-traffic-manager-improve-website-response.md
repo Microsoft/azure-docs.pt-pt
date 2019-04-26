@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329854"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta do Web site utilizando o Gestor de tráfego
 
@@ -61,7 +61,7 @@ Nesta secção, irá criar duas VMs, *myIISVMEastUS* e *myIISVMWEurope*, nas reg
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Novo** e digite *myResourceGroupTM1*.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Location| Selecione **E.U.A. Leste**.|
     |||
 
 4. Selecione um tamanho de VM em **Escolher um tamanho**.
@@ -81,7 +81,7 @@ Nesta secção, irá criar duas VMs, *myIISVMEastUS* e *myIISVMWEurope*, nas reg
     |Definição|Value|
     |---|---|
     |Grupo de recursos | Selecione **Novo** e introduza *myResourceGroupTM2*|
-    |Localização|Europa Ocidental|
+    |Location|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet2*; para sub-rede, introduza *mySubnet*.|
     |||
@@ -175,7 +175,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
     | Método de encaminhamento          | Selecione o **desempenho** método de encaminhamento.                                       |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **criar novo** e introduza *myResourceGroupTM1*. |
-    | Localização                | Selecione **E.U.A. Leste**. Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.                              |
+    | Location                | Selecione **E.U.A. Leste**. Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.                              |
     |
 
     ![Criar um perfil do Gestor de Tráfego](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/24/2018
 ms.author: banders
 ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371350"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Concluir tarefas de contrato Enterprise em sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -31,7 +31,7 @@ O diagrama a seguir descreve como a faturação é organizada na sua nova conta 
 
 ![Imagem dos ea-mca-post-transição-hierarquia](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-| Enterprise Agreement   | Contrato de Cliente Microsoft    |
+| Contrato Enterprise   | Contrato de Cliente Microsoft    |
 |------------------------|--------------------------------------------------------|
 | Inscrição            | Utilize um perfil de faturação para gerenciar a cobrança para sua organização, semelhante à sua inscrição de Enterprise Agreement. Administradores da empresa tornam-se os proprietários do perfil de faturação. Para saber mais sobre os perfis de faturas, veja [compreender os perfis de faturas](billing-mca-overview.md#understand-billing-profiles).
 | Departamento            | Utilize uma seção de nota fiscal para organizar os custos, semelhantes a departamentos em sua inscrição de Enterprise Agreement. Departamento torna-se em secções de nota fiscal e os administradores de departamento tornam-se proprietários das seções de nota fiscal respectivos. Para saber mais sobre as secções de nota fiscal, veja [secções de nota fiscal de compreender](billing-mca-overview.md#understand-invoice-sections). |

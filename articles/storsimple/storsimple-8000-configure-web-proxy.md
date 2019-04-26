@@ -1,5 +1,5 @@
 ---
-title: Configurar o proxy web para dispositivos de série 8000 do StorSimple | Microsoft Docs
+title: Configurar proxy web para dispositivo da série StorSimple 8000 | Documentos da Microsoft
 description: Saiba como utilizar o Windows PowerShell para StorSimple para configurar definições de proxy web para o dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -14,78 +14,78 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 1109e44ed9c6aa8a0f7305b8a50410316711589c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362497"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar o proxy web para o dispositivo StorSimple
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial descreve como utilizar o Windows PowerShell para StorSimple para configurar e ver as definições de proxy web para o dispositivo StorSimple. As definições de proxy web são utilizadas pelo dispositivo StorSimple ao comunicar com a nuvem. Um servidor proxy web é utilizado para adicionar outra camada de segurança, conteúdo de filtro, cache facilidade requisitos de largura de banda ou até mesmo ajuda com a análise.
+Este tutorial descreve como utilizar o Windows PowerShell para StorSimple para configurar e ver as definições de proxy web para o dispositivo StorSimple. As definições de proxy web são utilizadas pelo dispositivo StorSimple ao comunicar com a cloud. Um servidor web proxy é utilizado para adicionar outra camada de segurança, filtro de conteúdo, cache de requisitos de largura de banda de facilidade ou até mesmo ajuda com a análise.
 
-As orientações neste tutorial aplica-se apenas a dispositivos físicos de série 8000 do StorSimple. A configuração do Web proxy não é suportada no dispositivo de nuvem de StorSimple (8010 e 8020).
+As orientações neste tutorial aplica-se apenas a dispositivos físicos da série StorSimple 8000. Configuração de proxy da Web não é suportada no StorSimple Cloud Appliance (8010 e 8020).
 
-O proxy Web é um _opcional_ configuração para o dispositivo StorSimple. Pode configurar o proxy de web apenas através do Windows PowerShell para StorSimple. A configuração é um processo de dois passos da seguinte forma:
+O proxy Web é um _opcional_ configuração do dispositivo StorSimple. É possível configurar proxy web apenas através do Windows PowerShell para StorSimple. A configuração é um processo de dois passos da seguinte forma:
 
-1. Configurar definições de proxy web através do Assistente de configuração ou o Windows PowerShell para StorSimple cmdlets primeiro.
-2. Em seguida, ative as definições de proxy web configurada através do Windows PowerShell para StorSimple cmdlets.
+1. Configurar definições de proxy de web através do Assistente de configuração ou o Windows PowerShell para StorSimple cmdlets pela primeira vez.
+2. Em seguida, ativar as definições de proxy de web configurado através do Windows PowerShell para StorSimple cmdlets.
 
-Depois de concluída a configuração de proxy web, pode ver as definições de proxy web configuradas no serviço do Gestor de dispositivos do Microsoft Azure StorSimple e o Windows PowerShell para StorSimple.
+Depois de concluída a configuração de proxy da web, pode ver as definições de proxy da web configurado no serviço do Microsoft Azure StorSimple Device Manager e o Windows PowerShell para StorSimple.
 
 Depois de ler este tutorial, será capaz de:
 
-* Configure o web proxy utilizando o Assistente de configuração e os cmdlets.
-* Ative o proxy da web através de cmdlets.
-* Ver as definições de proxy web no portal do Azure.
-* Resolva os erros durante a configuração do proxy web.
+* Configure o proxy de web utilizando o Assistente de configuração e os cmdlets.
+* Ative o proxy da web utilizando os cmdlets.
+* Ver as definições de proxy da web no portal do Azure.
+* Resolva erros durante a configuração de proxy da web.
 
 
-## <a name="configure-web-proxy-via-windows-powershell-for-storsimple"></a>Configurar o proxy web através do Windows PowerShell para StorSimple
+## <a name="configure-web-proxy-via-windows-powershell-for-storsimple"></a>Configurar o proxy de web através do Windows PowerShell para StorSimple
 
-Utilize o seguinte para configurar as definições de proxy web:
+Utilize o seguinte para configurar definições de proxy da web:
 
 * Assistente de configuração para ajudá-lo durante os passos de configuração.
-* Cmdlets do Windows PowerShell para StorSimple.
+* Cmdlets no Windows PowerShell para StorSimple.
 
-Cada um destes métodos é abordada nas secções seguintes.
+Cada um desses métodos é abordada nas seções a seguir.
 
-## <a name="configure-web-proxy-via-the-setup-wizard"></a>Configurar o proxy web através do Assistente de configuração
+## <a name="configure-web-proxy-via-the-setup-wizard"></a>Configurar o proxy da web através do Assistente de configuração
 
-Utilize o Assistente de configuração para ajudá-lo através dos passos para configuração do proxy web. Execute os seguintes passos para configurar o web proxy no seu dispositivo.
+Utilize o Assistente de configuração para orientá-lo através dos passos para configuração de proxy da web. Execute os seguintes passos para configurar o proxy da web no seu dispositivo.
 
-#### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>Para configurar o proxy web através do Assistente de configuração
+#### <a name="to-configure-web-proxy-via-the-setup-wizard"></a>Configurar proxy web através do Assistente de configuração
 
 1. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total** e forneça o **palavra-passe de administrador do dispositivo**. Escreva o seguinte comando para iniciar uma sessão de Assistente de configuração:
    
     `Invoke-HcsSetupWizard`
-2. Se esta for a primeira vez que utiliza o Assistente de configuração para o registo do dispositivo, terá de configurar todas as definições de rede necessários até chegar a configuração de proxy web. Se o dispositivo já está registado, aceite todas as definições de rede configurados até chegar a configuração de proxy web. No Assistente de configuração, quando lhe for pedido para configurar as definições de proxy web, escreva **Sim**.
-3. Para o **URL do Web Proxy**, especifique o endereço IP ou o nome de domínio completamente qualificado (FQDN) do servidor proxy web e a porta TCP número que pretende que o seu dispositivo para utilizar quando comunicar com a nuvem. Utilize o seguinte formato:
+2. Se esta for a primeira vez que utiliza o Assistente de configuração para o registo do dispositivo, terá de configurar todas as definições de rede necessária, até chegar a configuração de proxy da web. Se o seu dispositivo já está registado, aceite todas as definições de rede configuradas até chegar a configuração de proxy da web. No Assistente de configuração, quando lhe for pedido para configurar definições de proxy da web, escreva **Sim**.
+3. Para o **URL de Proxy Web**, especifique o endereço IP ou o nome de domínio completamente qualificado (FQDN) do seu servidor de proxy da web e a porta TCP número que pretende que o seu dispositivo para utilizar ao comunicar com a cloud. Utilize o seguinte formato:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
-    Por predefinição, é especificado o número da porta TCP 8080.
-4. Escolha o tipo de autenticação como **NTLM**, **básico**, ou **nenhum**. Básica é a autenticação menos segura para a configuração do servidor proxy. NT LAN Manager (NTLM) é um protocolo de autenticação altamente seguro e complexas que utiliza um sistema de mensagens de três vias (por vezes, quatro se for necessária a integridade adicional) para autenticar um utilizador. A autenticação de predefinido é NTLM. Para obter mais informações, consulte [básico](http://hc.apache.org/httpclient-3.x/authentication.html) e [autenticação NTLM](http://hc.apache.org/httpclient-3.x/authentication.html). 
+    Por predefinição, o número da porta TCP 8080 está especificado.
+4. Escolha o tipo de autenticação como **NTLM**, **básica**, ou **None**. Básica é a autenticação menos segura para a configuração do servidor proxy. NT LAN Manager (NTLM) é um protocolo de autenticação altamente seguro e complexas que utiliza um sistema de mensagens de três vias (às vezes, quatro se for necessária a adicionais de integridade) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, consulte [básica](http://hc.apache.org/httpclient-3.x/authentication.html) e [autenticação NTLM](http://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **O serviço do Gestor de dispositivos do StorSimple, os gráficos de monitorização de dispositivos não funcionam quando básica ou autenticação NTLM está ativada na configuração do servidor proxy para o dispositivo. Para os gráficos monitorização funcione, tem de garantir que a autenticação está definida como NONE.**
+   > **No serviço StorSimple Device Manager, os gráficos de monitorização de dispositivos não funcionam quando básica ou autenticação NTLM está ativada na configuração do servidor proxy para o dispositivo. Para os gráficos de monitorização funcionar, terá de garantir que a autenticação está definida como NONE.**
   
-5. Se tiver ativado a autenticação, fornecer um **nome de utilizador de Proxy de Web** e um **palavra-passe do Web Proxy**. Terá também de confirmar a palavra-passe.
+5. Se ativou a autenticação, forneça uma **o nome de utilizador do Web Proxy** e uma **palavra-passe do Web Proxy**. Também terá de confirmar a palavra-passe.
    
     ![Configurar o Web Proxy Device1 do StorSimple](./media/storsimple-configure-web-proxy/IC751830.png)
 
-Se estiver a registar o seu dispositivo pela primeira vez, continue com o registo. Se o dispositivo já estava registado, sai do assistente. As definições configuradas são guardadas.
+Se estiver a registar o seu dispositivo pela primeira vez, avance para o registo. Se o dispositivo já foi registado, o assistente é encerrado. As definições configuradas são guardadas.
 
-Web proxy está agora ativado. Pode ignorar o [ativar o web proxy](#enable-web-proxy) passo e aceder diretamente à [ver as definições de proxy web no portal do Azure](#view-web-proxy-settings-in-the-azure-portal).
+Proxy da Web agora está ativado. Pode ignorar o [ativar o proxy da web](#enable-web-proxy) passo e aceda diretamente à [ver as definições de proxy da web no portal do Azure](#view-web-proxy-settings-in-the-azure-portal).
 
-## <a name="configure-web-proxy-via-windows-powershell-for-storsimple-cmdlets"></a>Configurar o proxy web através do Windows PowerShell para StorSimple cmdlets
+## <a name="configure-web-proxy-via-windows-powershell-for-storsimple-cmdlets"></a>Configurar o proxy da web através do Windows PowerShell para StorSimple cmdlets
 
-É uma forma alternativa para configurar as definições de proxy web através do Windows PowerShell para StorSimple cmdlets. Execute os seguintes passos para configurar o web proxy.
+Outra forma de configurar as definições de proxy da web é através do Windows PowerShell para StorSimple cmdlets. Execute os seguintes passos para configurar o proxy da web.
 
-#### <a name="to-configure-web-proxy-via-cmdlets"></a>Para configurar o proxy web através de cmdlets
+#### <a name="to-configure-web-proxy-via-cmdlets"></a>Configurar proxy web através de cmdlets
 1. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**. Quando solicitado, forneça o **palavra-passe de administrador do dispositivo**. A palavra-passe predefinida é `Password1`.
 2. Na linha de comandos, escreva:
    
@@ -95,65 +95,65 @@ Web proxy está agora ativado. Pode ignorar o [ativar o web proxy](#enable-web-p
    
     ![Configurar o Web Proxy Device3 do StorSimple](./media/storsimple-configure-web-proxy/IC751831.png)
 
-O proxy web já está configurado e tem de ser ativado.
+O proxy da web já está configurado e tem de ser ativada.
 
 ## <a name="enable-web-proxy"></a>Ativar o proxy da web
 
-Web proxy está desativado por predefinição. Depois de configurar as definições de proxy web no dispositivo StorSimple, utilize o Windows PowerShell para StorSimple para ativar as definições de proxy web.
+Proxy da Web está desativado por predefinição. Depois de configurar as definições de proxy da web no dispositivo StorSimple, utilize o Windows PowerShell para StorSimple para ativar as definições de proxy da web.
 
 > [!NOTE]
-> **Este passo não é necessário se tiver utilizado o Assistente de configuração para configurar o web proxy. Web proxy automaticamente está ativado por predefinição, depois de uma sessão de Assistente de configuração.**
+> **Este passo não é necessário se tiver utilizado o Assistente de configuração para configurar o proxy da web. Proxy da Web é ativado automaticamente por predefinição depois de uma sessão de Assistente de configuração.**
 
 
-Execute os seguintes passos no Windows PowerShell para StorSimple ativar o proxy web no seu dispositivo:
+Execute os seguintes passos no Windows PowerShell para StorSimple ativar o proxy da web no seu dispositivo:
 
-#### <a name="to-enable-web-proxy"></a>Para ativar o web proxy
+#### <a name="to-enable-web-proxy"></a>Para ativar o proxy da web
 1. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**. Quando solicitado, forneça o **palavra-passe de administrador do dispositivo**. A palavra-passe predefinida é `Password1`.
 2. Na linha de comandos, escreva:
    
     `Enable-HcsWebProxy`
    
-    Agora ter ativada a configuração de proxy web no dispositivo StorSimple.
+    Agora, ativou a configuração de proxy da web no dispositivo StorSimple.
    
     ![Configurar o Web Proxy Device4 do StorSimple](./media/storsimple-configure-web-proxy/IC751832.png)
 
-## <a name="view-web-proxy-settings-in-the-azure-portal"></a>Ver as definições de proxy web no portal do Azure
+## <a name="view-web-proxy-settings-in-the-azure-portal"></a>Ver as definições de proxy da web no portal do Azure
 
-As definições de proxy web são configuradas através da interface do Windows PowerShell e não podem ser alteradas de no portal. No entanto, podem ver estas definições configuradas no portal. Execute os seguintes passos para ver o web proxy.
+As definições de proxy web estão configuradas por meio da interface do Windows PowerShell e não podem ser alteradas no portal do. No entanto, pode, ver essas definições configuradas no portal. Execute os seguintes passos para ver o proxy da web.
 
 #### <a name="to-view-web-proxy-settings"></a>Para ver as definições de proxy web
-1. Navegue para **serviço StorSimple Manager do dispositivo > dispositivos**. Selecione e clique no dispositivo e, em seguida, aceda a **definições do dispositivo > rede**.
+1. Navegue para **serviço StorSimple Device Manager > dispositivos**. Selecione e clique num dispositivo e, em seguida, aceda a **definições do dispositivo > rede**.
 
     ![Clique em rede](./media/storsimple-8000-configure-web-proxy/view-web-proxy-1.png)
 
-2. No **as definições de rede** painel, clique em de **Web proxy** mosaico.
+2. Na **as definições de rede** painel, clique nas **Web proxy** mosaico.
 
     ![Clique em web proxy](./media/storsimple-8000-configure-web-proxy/view-web-proxy-2.png)
 
-3. No **Web proxy** painel, reveja as definições de proxy web configuradas no dispositivo StorSimple.
+3. Na **Web proxy** painel, reveja as definições de proxy da web configurado no dispositivo StorSimple.
    
-    ![Ver definições de proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
+    ![Ver definições de proxy da web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
 
 
 ## <a name="errors-during-web-proxy-configuration"></a>Erros durante a configuração do proxy web
 
-Se as definições de proxy web foram configuradas incorretamente, são apresentadas mensagens de erro para o utilizador no Windows PowerShell para StorSimple. A tabela seguinte explica alguns destas mensagens de erro, as causas prováveis e ações recomendadas.
+Se as definições de proxy da web foram configuradas incorretamente, são apresentadas mensagens de erro para o usuário no Windows PowerShell para StorSimple. A tabela seguinte explica algumas das seguintes mensagens de erro, suas causas prováveis e ações recomendadas.
 
-| Série não. | Erro HRESULT código | Causa possível | Ação recomendada |
+| Não Serial. | Código de erro de HRESULT | Causa possível | Ação recomendada |
 |:--- |:--- |:--- |:--- |
-| 1. |0x80070001 |Comando é executado a partir do controlador de passivo e não é capaz de comunicar com o controlador de Active Directory. |Execute o comando no controlador ativo. Para executar o comando a partir do controlador de passivo, é necessário corrigir a conectividade do passivo ao controlador ativo. Tem de interagir com Support da Microsoft se este conectividade está danificada. |
-| 2. |0x800710dd - o identificador da operação não é válido |Definições de proxy não são suportadas no dispositivo de nuvem do StorSimple. |Definições de proxy não são suportadas no dispositivo de nuvem do StorSimple. Só podem ser configurados num dispositivo físico StorSimple. |
-| 3. |0x80070057 - parâmetro inválido |Um dos parâmetros fornecidos para as definições de proxy não é válido. |O URI não é fornecido no formato correto. Utilize o seguinte formato:`http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
-| 4. |0x800706BA - servidor de RPC não está disponível |A causa raiz é um dos seguintes:</br></br>Cluster não está operacional. </br></br>Serviço de DataPath não está em execução.</br></br>O comando é executado a partir do controlador passivo e não é capaz de comunicar com o controlador de Active Directory. |Interagir com Support da Microsoft para garantir que o cluster está operacional e datapath serviço está em execução.</br></br>Execute o comando a partir do controlador ativo. Se pretender executar o comando a partir do controlador de passivo, certifique-se de que o controlador passivo consegue comunicar com o controlador de Active Directory. Tem de interagir com Support da Microsoft se este conectividade está danificada. |
-| 5. |0x800706be - falha de chamada RPC |Cluster está inativo. |Interagir com Support da Microsoft para se certificar de que o cluster está operacional. |
-| 6. |0x8007138f - recurso de cluster não encontrado |Recurso de cluster do serviço de plataforma não foi encontrado. Isto pode acontecer quando a instalação não estava correta. |Terá de efetuar uma reposição de fábrica no dispositivo. Terá de criar um recurso de plataforma. Contacte Support da Microsoft para passos seguintes. |
-| 7. |0x8007138c - recurso de cluster não online |Plataforma ou datapath recursos do cluster não estão online. |Contacte Support da Microsoft para ajudar a garantir que o recurso de serviço de plataforma e datapath estão online. |
+| 1. |0x80070001 |Comando é executado a partir do controlador passivo e não conseguir comunicar com o controlador ativo. |Execute o comando no controlador ativo. Para executar o comando de controlador passivo, tem de corrigir a conectividade da passivo para o controlador ativo. Deve fazer Support da Microsoft se essa conectividade está quebrada. |
+| 2. |0x800710dd - o identificador de operação não é válido |Definições de proxy não são suportadas no StorSimple Cloud Appliance. |Definições de proxy não são suportadas no StorSimple Cloud Appliance. Apenas podem ser configurados num dispositivo físico StorSimple. |
+| 3. |0x80070057 – um parâmetro inválido |Um dos parâmetros fornecidos para que as definições de proxy não é válido. |O URI não é fornecido no formato correto. Utilize o seguinte formato: `http://<IP address or FQDN of the web proxy server>:<TCP port number>` |
+| 4. |0x800706BA - servidor RPC não está disponível |A causa raiz é um dos seguintes:</br></br>Cluster não está ativo. </br></br>Serviço de DataPath não está em execução.</br></br>O comando é executado a partir do controlador passivo e não conseguir comunicar com o controlador ativo. |Interaja com Support da Microsoft para se certificar de que o cluster está ativo e datapath serviço está em execução.</br></br>Execute o comando a partir do controlador ativo. Se quiser executar o comando de controlador passivo, certifique-se de que o controlador passivo consegue comunicar com o controlador ativo. Deve fazer Support da Microsoft se essa conectividade está quebrada. |
+| 5. |0x800706be - falhada de chamada RPC |Cluster está inativo. |Interaja com Support da Microsoft para se certificar de que o cluster está ativo. |
+| 6. |0x8007138f - recurso de cluster não encontrado |Não foi encontrado o recurso de cluster do serviço de plataforma. Isto pode acontecer quando a instalação não estava correta. |Terá de efetuar uma reposição de fábrica no dispositivo. Terá de criar um recurso de plataforma. Contacte o Suporte da Microsoft para saber quais os próximos passos. |
+| 7. |0x8007138c - recurso de cluster não online |Recursos de cluster de plataforma ou datapath não estão online. |Entre em contato com Support da Microsoft para ajudar a garantir que o recurso de serviço de plataforma e datapath estão online. |
 
 > [!NOTE]
-> * Não é exaustiva da lista acima das mensagens de erro.
-> * Erros relacionados com as definições de proxy web não serão apresentados no portal do Azure no seu serviço do Gestor de dispositivos do StorSimple. Se houver um problema com o web proxy depois de concluída a configuração, o estado do dispositivo será alterado para **Offline** no portal clássico. |
+> * A lista acima das mensagens de erro não é exaustiva.
+> * Erros relacionados com as definições de proxy da web não serão apresentados no portal do Azure no seu serviço StorSimple Device Manager. Se houver um problema com o web proxy depois de concluída a configuração, o estado do dispositivo será alterado para **Offline** no portal clássico. |
 
-## <a name="next-steps"></a>Passos Seguintes
-* Se ocorrer algum problema ao implementar o seu dispositivo ou configurar as definições de proxy web, consulte [resolver problemas relacionados com a implementação do dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
-* Para saber como utilizar o serviço do Gestor de dispositivos do StorSimple, aceda à [utilizar o serviço do Gestor de dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+## <a name="next-steps"></a>Próximos Passos
+* Se encontrar algum problema ao implementar o seu dispositivo ou configurar definições de proxy da web, consulte [resolver problemas relacionados com a implementação de dispositivos do StorSimple](storsimple-troubleshoot-deployment.md).
+* Para saber como utilizar o serviço StorSimple Device Manager, aceda à [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

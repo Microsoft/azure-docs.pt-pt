@@ -13,11 +13,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576825"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311670"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados através da execução de um bloco de notas do Databricks
 
@@ -60,7 +60,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 |Propriedade|Descrição|Necessário|
 |---|---|---|
 |nome|Nome da atividade no pipeline.|Sim|
-|descrição|Texto que descreve o que faz a atividade.|Não|
+|description|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Notebook, o tipo de atividade é DatabricksNotebook.|Sim|
 |linkedServiceName|Nome do serviço ligado do Databricks em que é executado o bloco de notas do Databricks. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |notebookPath|O caminho absoluto do bloco de notas para ser executado na área de trabalho do Databricks. Este caminho tem de começar com uma barra.|Sim|

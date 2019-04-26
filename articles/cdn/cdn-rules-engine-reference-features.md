@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324275"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas dos recursos disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -185,7 +185,7 @@ Name | Objetivo
 
 Value|Resultado
 --|--
-Ativado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
+Enabled | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 Desativado | O cabeçalho de resposta de idade está excluído da resposta enviada para o autor do pedido.
 
 **Predefinição de comportamento**: Desativado.
@@ -202,7 +202,7 @@ Parâmetros de limitação de largura de banda determinam se a taxa de transfer�
 
 Value|Resultado
 --|--
-Ativado|Permite que os POPs que respeite os pedidos de limitação de largura de banda.
+Enabled|Permite que os POPs que respeite os pedidos de limitação de largura de banda.
 Desativado|Faz com que os POPs ignorar os parâmetros de limitação de largura de banda. O conteúdo solicitado é atendido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento predefinido:** ativada.
@@ -234,7 +234,7 @@ Segundos de Prebuf|Defina esta opção para o número de segundos para os POPs a
 
 Value|Resultado
 --|--
-Ativado|Faz com que todos os pedidos para enquadram-se por meio de para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
+Enabled|Faz com que todos os pedidos para enquadram-se por meio de para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
 Desativado|Faz com que POPs para cache recursos de acordo com a política de cache definida no respetivos cabeçalhos de resposta.
 
 **Comportamento predefinido:**
@@ -433,7 +433,7 @@ Mantenha a configuração predefinida para a plataforma HTTP grandes, pois ele r
 
 Value|Resultado
 --|--
-Ativado|Restaura o comportamento padrão. O comportamento padrão é forçar o POP para iniciar uma obtenção de plano de fundo do elemento do servidor de origem. Depois disso, o elemento será na cache local do POP.
+Enabled|Restaura o comportamento padrão. O comportamento padrão é forçar o POP para iniciar uma obtenção de plano de fundo do elemento do servidor de origem. Depois disso, o elemento será na cache local do POP.
 Desativado|Impede que um preenchimento de realizar uma busca em segundo plano para o elemento. O resultado é que a próxima solicitação para esse elemento em que região faz com que um preenchimento de solicitá-la a partir do servidor de origem do cliente.
 
 **Comportamento predefinido:** ativada.
@@ -536,7 +536,7 @@ EC-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Value|Resultado
 -|-
-Ativado|Pedidos para cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
+Enabled|Pedidos para cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
 Desativado|O cabeçalho de resposta de EC-X-Debug será excluído da resposta.
 
 **Comportamento predefinido:** desativado.
@@ -593,7 +593,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 
 Value | Resultado
 ------|-------
-Ativado| Faz com que todos os pedidos que satisfazem os critérios de correspondência para ser rejeitada com uma resposta de proibido 403.
+Enabled| Faz com que todos os pedidos que satisfazem os critérios de correspondência para ser rejeitada com uma resposta de proibido 403.
 Desativado| Restaura o comportamento padrão. O comportamento padrão é permitir que o servidor de origem para determinar o tipo de resposta que vai ser devolvido.
 
 **Predefinição de comportamento**: Desativado
@@ -653,7 +653,7 @@ Informações da chave:
 
 Value|Resultado
 -|-
-Ativado|Pedidos podem ser redirecionados.
+Enabled|Pedidos podem ser redirecionados.
 Desativado|Pedidos não serão redirecionados.
 
 **Comportamento predefinido:** desativado.
@@ -726,7 +726,7 @@ Um pedido de cache não ocorre quando o cliente HTTP envia um `Cache-Control: n
 
 Value|Resultado
 --|--
-Ativado|Permite que os pedidos de não-cache de um cliente HTTP para serem reencaminhados para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo por meio do POP de volta para o cliente HTTP.
+Enabled|Permite que os pedidos de não-cache de um cliente HTTP para serem reencaminhados para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo por meio do POP de volta para o cliente HTTP.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é impedir que os pedidos de cache não sejam encaminhados para o servidor de origem.
 
 Para todo o tráfego de produção, recomendamos deixar esse recurso em seu estado padrão desativada. Caso contrário, não serão possível proteger servidores de origem dos utilizadores finais que inadvertidamente poderão acionar o número de pedidos não-cache durante a atualização de páginas da web ou a partir de muitos reprodutores de mídia populares, que estão codificadas para enviar um cabeçalho de cache não com cada solicitação de vídeo. No entanto, esta funcionalidade pode ser útil para aplicar a determinados não seja de produção de teste ou de teste de diretórios, para permitir que o conteúdo novo sob demanda obtidas a partir do servidor de origem.
@@ -788,7 +788,7 @@ Por predefinição, este código de estado é devolvido quando a solicitação d
 
 Value|Resultado
 -|-
-Ativado|Impede que os POPs a responder a uma solicitação de intervalo de bytes inválido com um código de estado de pedidos gama não Satisfiable 416. Em vez disso, os servidores irão fornecer o recurso solicitado e retornar um 200 OK ao cliente.
+Enabled|Impede que os POPs a responder a uma solicitação de intervalo de bytes inválido com um código de estado de pedidos gama não Satisfiable 416. Em vez disso, os servidores irão fornecer o recurso solicitado e retornar um 200 OK ao cliente.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é que respeite o código de estado de pedidos gama não Satisfiable 416.
 
 **Comportamento predefinido:** desativado.
@@ -849,7 +849,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 
 Value|Resultado
 -|-
-Ativado|Permite que o armazenamento de cadeias de caracteres de consulta durante o registro de URLs no registo de acesso. Se um URL não contém uma cadeia de consulta, em seguida, esta opção não terá um efeito.
+Enabled|Permite que o armazenamento de cadeias de caracteres de consulta durante o registro de URLs no registo de acesso. Se um URL não contém uma cadeia de consulta, em seguida, esta opção não terá um efeito.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é ignorar cadeias de consulta durante o registro de URLs no registo de acesso.
 
 **Comportamento predefinido:** desativado.
@@ -967,7 +967,7 @@ Esta cache parcial, em seguida, pode ser utilizado para satisfazer novas solicit
 
 Value|Resultado
 -|-
-Ativado|Pedidos podem gerar conteúdo parcialmente em cache.
+Enabled|Pedidos podem gerar conteúdo parcialmente em cache.
 Desativado|Pedidos só podem gerar uma versão totalmente armazenada em cache do conteúdo pedido.
 
 **Comportamento predefinido:** desativado.
@@ -1025,7 +1025,7 @@ Valores válidos são:
 
 Value|Resultado
 --|--
-Ativado|Faz com que o POP de refetch o elemento a partir do servidor de origem.
+Enabled|Faz com que o POP de refetch o elemento a partir do servidor de origem.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é servir a ativos de cache válido mediante pedido.
 
 Esta funcionalidade não é necessária para a colocação em cache correta e de entrega de conteúdos, mas pode ser útil como uma solução alternativa. Por exemplo, geradores de conteúdo dinâmicos nos servidores de origem inadvertidamente podem resultar em respostas de 0 bytes enviadas para os POPs. Esses tipos de respostas são normalmente colocadas em cache pelos POPs. Se sabe que uma resposta de 0 bytes nunca é uma resposta válida 
@@ -1088,7 +1088,7 @@ Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum
 
 Value|Resultado
 -|-
-Ativado|Conteúdo obsoleto é fornecido ao solicitante quando ocorre um erro durante uma ligação para um servidor de origem.
+Enabled|Conteúdo obsoleto é fornecido ao solicitante quando ocorre um erro durante uma ligação para um servidor de origem.
 Desativado|Erro de servidor de origem é reencaminhado para o autor do pedido.
 
 **Comportamento predefinido:** desativado
@@ -1128,7 +1128,7 @@ Esta funcionalidade tem precedência sobre a maioria dos recursos com a exceçã
 
 Value | Resultado
 ------|---------
-Ativado | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas as solicitações de clientes que fornecem um token válido e cumprem os requisitos serão cumpridas. Transações de FTP são excluídas da autenticação baseada em tokens.
+Enabled | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas as solicitações de clientes que fornecem um token válido e cumprem os requisitos serão cumpridas. Transações de FTP são excluídas da autenticação baseada em tokens.
 Desativado| Restaura o comportamento padrão. O comportamento padrão é permitir que a configuração da autenticação baseada em tokens determinar se um pedido esteja protegido.
 
 #### <a name="compatibility"></a>Compatibilidade
@@ -1170,7 +1170,7 @@ Redirecionamento de URL só é aplicável para códigos de resposta de 3xx.
 
 A opção de valor de cabeçalho opcional suporta carateres alfanuméricos e espaços entre aspas duplas.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autenticação
 
 Esta funcionalidade suporta a capacidade de incluir o cabeçalho WWW-Authenticate em resposta a um pedido não autorizado para conteúdo protegido pela autenticação baseada em Token. Se o cabeçalho WWW-Authenticate foi definido como "básico" na sua configuração, será solicitado o utilizador não autorizado para as credenciais da conta.
 
@@ -1200,7 +1200,7 @@ Valores válidos são:
 
 Value|Resultado
 ---|----
-Ativado|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
+Enabled|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é para comparações de URL para a autenticação de Token seja maiúsculas e minúsculas.
 
 **Comportamento predefinido:** desativado.
@@ -1221,7 +1221,7 @@ Informações da chave:
 
 Value|Resultado
 ----|----
-Ativado|A opção de valor define o nome de parâmetro de cadeia de caracteres de consulta através dos quais os tokens devem ser definidos.
+Enabled|A opção de valor define o nome de parâmetro de cadeia de caracteres de consulta através dos quais os tokens devem ser definidos.
 Desativado|Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta não definido no URL do pedido.
 
 **Comportamento predefinido:** desativado. Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta não definido no URL do pedido.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: dc27ea0552c6135d01256586b1746219caac17f1
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307432"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Utilize as ferramentas remotas para resolver problemas de VM do Azure
 
@@ -43,7 +43,7 @@ psexec \\<computer>-u user -s cmd
 >* O parâmetro -s certifica-se de que o comando for chamado com a conta de sistema (permissão de administrador).
 >* PsExec utiliza as portas TCP 135 e 445. Portanto, as duas portas têm de ser aberta na Firewall.
 
-## <a name="run-commands"></a>Comandos de Execução
+## <a name="run-commands"></a>Comandos Executar
 
 Ver [scripts do PowerShell de executar na sua VM do Windows com o comando executar](../windows/run-command.md) para obter mais informações sobre como utilizar a funcionalidade de executar comandos para executar scripts na VM.
 
@@ -91,7 +91,7 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### <a name="for-v2-vms"></a>Para V2 VMs
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 #Setup the basic variables

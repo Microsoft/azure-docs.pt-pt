@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318483"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma origem HTTP utilizando o Azure Data Factory
 
@@ -69,7 +69,7 @@ Definir **authenticationType** ao **básica**, **Digest**, ou **Windows**. Para 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | o nome de utilizador | O nome de utilizador a utilizar para aceder ao ponto final HTTP. | Sim |
-| palavra-passe | A palavra-passe para o utilizador (**nome de utilizador**). | Sim |
+| password | A palavra-passe para o utilizador (**nome de utilizador**). | Sim |
 
 **Exemplo: Utilizar a autenticação básica, Digest ou do Windows**
 
@@ -98,7 +98,7 @@ Para utilizar a autenticação básica, defina **authenticationType** ao **Clien
 | --- | --- | --- |
 | embeddedCertData | O conteúdo de dados binários do ficheiro PFX com codificação Base64. | Especifique **embeddedCertData** ou **certThumbprint** |
 | certThumbprint | O thumbprint do certificado que foi instalado no arquivo de certificados do seu computador de gateway. Aplicam-se apenas quando copiar dados a partir de uma origem HTTP no local. | Especifique **embeddedCertData** ou **certThumbprint** |
-| palavra-passe | A palavra-passe associada ao certificado. | Não |
+| password | A palavra-passe associada ao certificado. | Não |
 
 Se usar **certThumbprint** para autenticação e o certificado está instalado no arquivo pessoal do computador local, conceda permissões de leitura para o serviço de gateway:
 
@@ -161,10 +161,10 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados. 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** do conjunto de dados deve ser definida como **Http**. | Sim |
-| relativeUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. <br><br> Para construir um URL em dinâmico, pode utilizar [funções de Data Factory e variáveis de sistema](data-factory-functions-variables.md). Exemplo: **relativeUrl**: **$$Text.Format ("relatório/my /? mês = {0: yyyy}-{0:MM} & fmt = csv", SliceStart)**. | Não |
+| relativeUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. <br><br> Para construir um URL em dinâmico, pode utilizar [funções de Data Factory e variáveis de sistema](data-factory-functions-variables.md). Example: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Não |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** e **POST**. | Não <br />(a predefinição é **obter**) |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
-| RequestBody | O corpo do pedido HTTP. | Não |
+| requestBody | O corpo do pedido HTTP. | Não |
 | Formato | Se quiser *recuperar os dados de um ponto de final HTTP como-é* sem analisá-lo, ignore o **formato** definição. <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Não |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis de suporte: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
@@ -223,7 +223,7 @@ Atualmente, quando a origem na atividade de cópia é do **HttpSource** escreve,
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não<br />(valor predefinido: **00: 01:40**) |
+| httpRequestTimeout | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não<br />(valor predefinido: **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 

@@ -10,35 +10,35 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332657"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
 Quando em direto de transmissão em fluxo com os serviços de multimédia do Azure, pode especificar como pretende que o canal para receber o fluxo de entrada. Se optar por utilizar um codificador de locais com um canal de codificação em direto, o seu codificador deve enviar um fluxo de velocidade única de alta qualidade como saída. Se optar por utilizar um codificador de locais com um pass-through canal, seu codificador deve enviar um fluxo de velocidade de transmissão como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão em fluxo em direto com no local codificadores](media-services-live-streaming-with-onprem-encoders.md).
 
 Serviços de multimédia do Azure recomenda a utilização de um dos seguintes codificadores em direto que tenham RTMP como saída:
-- Suporte de dados de Adobe Flash Live Encoder 3.2
+- Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1 +
+- Telestream Wirecast 8.1+
 - Telestream Wirecast S
-- Setor de Teradek 756
+- Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - OBS Studio
 - VMIX
 - xStream
-- Comutador Studio (iOS)
+- Switcher Studio (iOS)
 
 Serviços de multimédia do Azure recomenda a utilização de um dos seguintes codificadores em direto com velocidade de transmissão-MP4 fragmentado (Smooth Streaming) como saída:
-- Suporte de dados do Excel Hero em direto e Hero 4K (UHD/HEVC)
+- Media Excel Hero Live and Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental em direto
-- Envivio 4Caster C4 fins III
+- Elemental Live
+- Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
 > [!NOTE]

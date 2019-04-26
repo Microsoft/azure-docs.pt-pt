@@ -17,11 +17,11 @@ ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300992"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos
 
@@ -66,7 +66,7 @@ Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao rec
 
    Se não vir a subscrição que procura, selecione **filtro de subscrições global**. Certifique-se a subscrição que pretende está selecionado para o portal. 
 
-1. Selecione **controlo de acesso (IAM)**.
+1. Selecione **Controlo de acesso (IAM)**.
 1. Selecione **adicionar atribuição de função**.
 
    ![Selecione adicionar atribuição de função](./media/howto-create-service-principal-portal/select-add.png)

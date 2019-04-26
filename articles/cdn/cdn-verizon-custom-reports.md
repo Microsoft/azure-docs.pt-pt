@@ -1,6 +1,6 @@
 ---
 title: Relatórios personalizados da Verizon | Documentos da Microsoft
-description: 'Pode ver padrões de utilização da sua CDN utilizando os seguintes relatórios: largura de banda, os dados transferidos, acertos, Estados de Cache, taxa de acessos de Cache, IPV4/IPV6 dados transferidos.'
+description: 'Pode ver padrões de utilização da sua CDN utilizando os seguintes relatórios: Largura de banda, os dados transferidos, visitas, Estados de Cache, a taxa, dados de IPV4/IPV6 transferidos de acerto na Cache.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323607"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 
@@ -45,11 +45,11 @@ Registo de dados de relatório personalizado começa uma hora depois de ativar a
 
 Gere um relatório personalizado, definindo as seguintes opções de relatório:
 
-- Métricas: As opções seguintes são suportadas:
+- Métricas: São suportadas as seguintes opções:
 
-   - Acertos: Indica o número total de pedidos que são direcionados para um CNAME de borda em que a capacidade de relatórios personalizada está ativada. Esta métrica não inclui o código de estado devolvido ao cliente.
+   - Resultados: Indica o número total de pedidos que são direcionados para um CNAME de borda em que a capacidade de relatórios personalizada está ativada. Esta métrica não inclui o código de estado devolvido ao cliente.
 
-   - Dados Transferred: Indica a quantidade total de dados transferidos a partir de servidores de borda para os clientes HTTP (por exemplo, os navegadores da web) para pedidos que são direcionados para um CNAME de borda em que a capacidade de relatórios personalizada está ativada. A quantidade de dados transferidos é calculada ao adicionar cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real.
+   - Dados transferidos: Indica a quantidade total de dados transferidos a partir de servidores de borda para os clientes HTTP (por exemplo, os navegadores da web) para pedidos que são direcionados para um CNAME de borda em que a capacidade de relatórios personalizada está ativada. A quantidade de dados transferidos é calculada ao adicionar cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real.
 
 - Agrupamentos: Determina o tipo de estatísticas que são apresentados abaixo o gráfico de barras. São suportadas as seguintes opções:
 
@@ -73,7 +73,7 @@ Pode exportar os dados no formato Excel clicando no símbolo de Excel à direita
 | 2xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado 2xx HTTP (por exemplo, 200 OK). |
 | 3xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 3xx (por exemplo, 302 encontrado ou 304 não modificado. |
 | 4xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 4xx (por exemplo, 400 pedido inválido, 403 proibido ou 404 não encontrado). |
-| 5XX                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 5xx (por exemplo, 500 Erro de servidor interno ou 502 Gateway incorreto). |
+| 5xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 5xx (por exemplo, 500 Erro de servidor interno ou 502 Gateway incorreto). |
 | % De acertos na cache               | Indica a percentagem de pedidos em cache que foram fornecidos diretamente a partir da cache para o autor do pedido. |
 | Acertos na Cache                | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num acertos na cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um problema de cache ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores de borda para clientes HTTP (navegadores da web) para o edge CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real. |

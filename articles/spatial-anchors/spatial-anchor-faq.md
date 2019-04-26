@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 68ba7916a6ff8dd40f5037e57059733d74374954
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303307"
 ---
-# <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes sobre as âncoras espaciais do Azure
+# <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes acerca do Azure Spatial Anchors
 
 Âncoras espaciais do Azure é um serviço cloud gerido e experiências de plataforma de desenvolvedor que permite a realidade mista spatially com para o reconhecimento de vários utilizador em dispositivos Android, iOS e HoloLens.
 
@@ -85,7 +85,7 @@ Datas de disponibilidade (GA) geral serão anunciadas em breve.
 
 **R:** Pode criar uma conta de âncoras espaciais do Azure hoje mesmo na região do Azure Leste E.u.a. 2. Isso significa é que ambos de computação e armazenamento que alimenta este serviço está nesta região. Dito isso, não há restrições sobre onde se encontram os seus clientes. No futuro, posteriormente, iremos abordar disponibilidade regional do serviço para todas as regiões do Azure principal.
 
-**P: É cobrado para âncoras espaciais do Azure? Nunca cobrar?**
+**P: Existe algum custo associado ao Azure Spatial Anchors? Nunca cobrar?**
 
 **R:** Pode encontrar detalhes sobre os preços durante a pré-visualização em nosso [página de preços](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 

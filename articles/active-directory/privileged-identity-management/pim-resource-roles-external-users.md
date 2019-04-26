@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60289023"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Convidar utilizadores e atribuir funções de recursos do Azure no PIM
 

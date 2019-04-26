@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 93be58ac231ff2b88c6618c549c9d1975977b91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/16/2019
+ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60340796"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como utilizar uma instância gerida na base de dados do Azure SQL
 
@@ -36,7 +36,7 @@ Neste artigo, pode encontrar várias guias, scripts e explicação que pode ajud
 - [Configurar a VNet existente e a sub-rede para uma instância gerida](sql-database-managed-instance-configure-vnet-subnet.md) – se quiser configurar a sua VNet existente e a sub-rede para implementar as instâncias geridas dentro, aqui pode encontrar o script que verifica o [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements) e marca configura a sua sub-rede, de acordo com os requisitos.
 - [Configurar DNS personalizado](sql-database-managed-instance-custom-dns.md) – tem de configurar o DNS personalizado para aceder a recursos externos sobre os domínios personalizados da sua instância gerida através do servidor ligado de perfis de correio de db.
 - [Configuração de rede sincronizada](sql-database-managed-instance-sync-network-configuration.md) -isso pode acontecer que embora [integrado a sua aplicação com uma rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md), pode&#39;t estabelecer ligação a uma instância gerida. É uma coisa que pode tentar atualizar a configuração de rede para o seu plano de serviço.
-- [Encontrar o endereço IP do ponto final de gestão](sql-database-managed-instance-find-management-endpoint-ip-address.md) – instância gerida utiliza o ponto final público gestão-apenas para fins. Pode determinar o endereço IP do ponto final de gestão a utilizar o script descrito aqui.
+- [Encontrar o endereço IP do ponto final de gestão](sql-database-managed-instance-find-management-endpoint-ip-address.md) – instância gerida utiliza o ponto final público para fins de gestão. Pode determinar o endereço IP do ponto final de gestão a utilizar o script descrito aqui.
 - [Verificar a proteção de firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) – instância gerida está protegida com firewall interno que permite o tráfego apenas nas portas necessárias. Pode verificar e verifique se as regras de firewall interno usando o script descrito neste guia.
 - [Ligar aplicações](sql-database-managed-instance-connect-app.md) – instância gerida é colocada na sua própria VNet privada do Azure com o endereço IP privado. Saiba mais sobre os padrões diferentes para ligar as aplicações à sua instância gerida.
 

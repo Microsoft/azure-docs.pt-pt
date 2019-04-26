@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311305"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 para o separador de detalhes de Vitrine de envolvimento do cliente
 
@@ -52,7 +52,7 @@ Em que a tabela seguinte descreve os campos neste separador:
 |    **Campo**          |  **Descrição**               |
 |  ---------------      |  ---------------               |
 |  Setores           | Selecione os setores (dois máximo), a aplicação melhor ajustado a. Se nenhum aplica-se, pode selecionar as opções de zero.  |
-|  Categorias           | Selecione as categorias que são relevantes para a aplicação. Selecione entre um e três opções.  |
+|  Categories           | Selecione as categorias que são relevantes para a aplicação. Selecione entre um e três opções.  |
 |  Tipo de aplicação             | Selecione o tipo de versão de avaliação que está ativada para a aplicação no AppSource. **Gratuito** indica a sua aplicação pode ser utilizada sem custos; **Avaliação** indica que os clientes podem experimentar a aplicação durante um curto período sem custos; e **contactar-me** indica que os clientes podem solicitar uma versão de avaliação da aplicação no AppSource.  |
 | Ligação de ajuda para a sua aplicação | URL para a documentação online ou outro recurso de ajuda para a aplicação.  |
 | Países/regiões suportados | Uma caixa de diálogo de pop-up permite a seleção das regiões geográficas em que a aplicação está disponível.  Distribuição em todo o mundo é o padrão. |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: b90e87310bf6dec505176b7f4d4cb9e15ac57c20
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891815"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307782"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens do Service Bus
 Este artigo lista algumas exceções geradas pelo APIs de mensagens do Microsoft Azure Service Bus. Esta referência está sujeitas a alterações, por isso, verifique novamente a existência de atualizações.

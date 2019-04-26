@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303376"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opções de suporte do Azure âncoras espaciais
 
@@ -32,7 +32,7 @@ Para abrir um pedido de suporte técnico no Portal do Azure para as âncoras esp
 1. Quando concluir os campos de pedido de suporte: 
 
 - Tipo de problema: Técnico
-- Serviço: Âncoras espaciais
+- Serviço: Spatial Anchors
 
 ![Campos de pedido de suporte do portal do Azure](./media/spatial-anchor-support3.png)
 

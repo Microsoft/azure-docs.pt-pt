@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
 ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329756"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do Estado no Gestor de tráfego do Azure degradado
 

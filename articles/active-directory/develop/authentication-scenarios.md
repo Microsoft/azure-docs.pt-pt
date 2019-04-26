@@ -19,11 +19,11 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299893"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -130,7 +130,7 @@ Uma breve descrição de cada tipo de afirmação emitido pela plataforma de ide
 | ID do inquilino | Contém um identificador exclusivo imutável do inquilino do diretório que emitiu o token. |
 | Duração do Token | Define o intervalo de tempo durante o qual um token é válido. |
 | Nome Principal de Utilizador | Contém o nome principal de utilizador do requerente. |
-| Versão | Contém o número de versão do token. |
+| Version | Contém o número de versão do token. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

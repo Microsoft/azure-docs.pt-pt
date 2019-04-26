@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bac0e78c53657cda1716dd8ab6ffd0e2453290f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294026"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Uma aplicação atribuída não é apresentada no painel de acesso
 

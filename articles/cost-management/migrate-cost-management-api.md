@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311955"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do contrato Enterprise para APIs de contrato de cliente da Microsoft
 
@@ -187,7 +187,7 @@ Alterar o nome de propriedade que contém a matriz de registos de utilização d
 | ExtendedCost e custo | costInBillingCurrency | &nbsp;  |
 | Id da Instância | resourceId | &nbsp;  |
 | É Taxa Periódica | Nenhuma | &nbsp;  |
-| Localização | localização | &nbsp;  |
+| Location | localização | &nbsp;  |
 | Categoria do Medidor | meterCategory | Valores de cadeia exacta poderão diferir. |
 | Id do Medidor | meterId | Valores de cadeia exacta diferentes. |
 | Nome do Medidor | meterName | Valores de cadeia exacta poderão diferir. |
@@ -199,7 +199,7 @@ Alterar o nome de propriedade que contém a matriz de registos de utilização d
 | Número de Encomenda | Nenhuma | &nbsp;  |
 | PartNumber | Nenhuma | Utilize meterId e productOrderName para identificar exclusivamente os preços. |
 | Nome do Plano | productOrderName | &nbsp;  |
-| Produto | Produto |   |
+| Product | Product |   |
 | Id do Produto | productId | Valores de cadeia exacta diferentes. |
 | Nome do Publicador | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |

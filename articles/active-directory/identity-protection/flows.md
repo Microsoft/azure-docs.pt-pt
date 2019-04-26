@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60295356"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de início de sessão com o Azure AD Identity Protection
 Com o Azure Active Directory Identity Protection, pode:

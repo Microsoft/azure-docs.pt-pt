@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323829"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis para a rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
@@ -752,7 +752,7 @@ Informações da chave:
 
 As configurações de exemplo na tabela seguinte partem do princípio de que esta condição de correspondência for cumprida, quando o padrão de URL especificado corresponde a um pedido:
 
-Valor                   | Caminho relativo    | Resultado 
+Value                   | Caminho relativo    | Resultado 
 ------------------------|----------------|-------
 */test.html */test.php  | Origem ou de raiz | Este padrão é correspondido com pedidos de recursos com o nome "Test" ou "test.php" em qualquer pasta.
 / 80ABCD/origem/texto / *   | Raiz           | Este padrão é correspondido quando o recurso solicitado cumpre os seguintes critérios: <br />--Tem de residir numa origem do cliente chamada "origem". <br />-O caminho relativo tem de começar com uma pasta chamada "text". Ou seja, o recurso solicitado ou pode residir na pasta de "text" ou uma das respetivas subpastas recursiva.
@@ -868,7 +868,7 @@ Informações da chave:
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 O exemplo seguinte demonstra como esta opção funciona em situações específicas:
 
-Name  | Valor |  Resultado
+Name  | Value |  Resultado
 ------|-------|--------
 Utilizador  | João   | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido é "? utilizador = joe."
 Utilizador  | *     | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de utilizador.
@@ -895,7 +895,7 @@ Informações da chave:
     
 - Determinados caracteres exigem codificação do URL. Utilize o símbolo de percentagem para URL codificar os seguintes carateres:
 
-   Caráter | Codificação do URL | Valor
+   Caráter | Codificação do URL | Value
    ----------|--------------|------
    Espaço     | %20          | \%20
    &         | %25          | \%25
@@ -906,7 +906,7 @@ Informações da chave:
 
    Por exemplo:
 
-   Valor | Interpretado como 
+   Value | Interpretado como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+

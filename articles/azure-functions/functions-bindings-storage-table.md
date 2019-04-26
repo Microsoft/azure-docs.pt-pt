@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306754"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -56,7 +56,7 @@ Veja o exemplo de idioma específico:
 * [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
 
-### <a name="input---c-example---one-entity"></a>Uma entidade de entrada – exemplo C #-
+### <a name="input---c-example---one-entity"></a>Entrada - C# exemplo - uma entidade
 
 A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que lê uma única linha da tabela. 
 
@@ -83,7 +83,7 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example---iqueryable"></a>Entrada – exemplo C # - IQueryable
+### <a name="input---c-example---iqueryable"></a>Entrada - C# exemplo - IQueryable
 
 A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que lê várias linhas de tabela. Tenha em atenção que o `MyPoco` classe deriva de `TableEntity`.
 
@@ -109,7 +109,7 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example---cloudtable"></a>Entrada – exemplo C # - CloudTable
+### <a name="input---c-example---cloudtable"></a>Entrada - C# exemplo - CloudTable
 
 `IQueryable` Não é suportado no [tempo de execução do funções v2](functions-versions.md). Uma alternativa é usar um `CloudTable` parâmetro do método para ler a tabela com o SDK de armazenamento do Azure. Eis um exemplo de uma função de 2.x consulta uma tabela de registo de funções do Azure:
 
@@ -504,7 +504,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tipo** | n/d | Tem de ser definido como `table`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure.|
 |**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
-|**tableName** | **TableName** | O nome da tabela.| 
+|**tableName** | **TableName** | Nome da tabela.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de tabela para ler. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de tabela para ler. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**take** |**Take** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
@@ -764,7 +764,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tipo** | n/d | Tem de ser definido como `table`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure.|
 |**direção** | n/d | Tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável no código de função que representa a tabela ou entidade. Definido como `$return` para referenciar o valor de retorno da função.| 
-|**tableName** |**TableName** | O nome da tabela.| 
+|**tableName** |**TableName** | Nome da tabela.| 
 |**partitionKey** |**PartitionKey** | A chave de partição da entidade de tabela para escrever. Consulte a [secção utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | A chave de linha da entidade de tabela para escrever. Consulte a [secção utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**ligação** |**ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.|

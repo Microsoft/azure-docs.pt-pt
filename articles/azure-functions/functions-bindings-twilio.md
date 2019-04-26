@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306687"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação do Twilio para as funções do Azure
 
@@ -207,7 +207,7 @@ module.exports = function (context, myQueueItem) {
 
 Veja o exemplo de idioma específico:
 
-* [2.x c#](#2x-c-example)
+* [2.x C#](#2x-c-example)
 * [2.x c# script (. csx)](#2x-c-script-example)
 * [2.x JavaScript](#2x-javascript-example)
 
@@ -404,11 +404,11 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tipo**|**tipo**| Tem de ser definido como `twilioSms`.|
 |**direção**|**direção**| Tem de ser definido como `out`.|
 |**name**|**name**| Nome da variável no código de função para a mensagem de texto Twilio SMS. |
-|**accountSid**|**accountSidSetting**| **accountSidSetting**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o Sid de conta do Twilio por exemplo, TwilioAccountSid. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsTwilioAccountSid". |
-|**authToken**|**authTokenSetting**|**authTokenSetting**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o token de autenticação de Twilio por exemplo, TwilioAccountAuthToken. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsTwilioAuthToken". |
-|**Para**| N/d – especificar no código | **Para**| Este valor é definido como o número de telefone que o texto SMS é enviado para.|
-|**De**|**De** | **De**| Este valor é definido como o número de telefone que o texto SMS é enviado do.|
-|**Corpo**|**Corpo** | **Corpo**| Este valor pode ser usado para codificar duro a mensagem de texto SMS se não precisa defini-la dinamicamente no código para a função. |  
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o Sid de conta do Twilio por exemplo, TwilioAccountSid. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsTwilioAccountSid". |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o token de autenticação de Twilio por exemplo, TwilioAccountAuthToken. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsTwilioAuthToken". |
+|**to**| N/d – especificar no código | **Para**| Este valor é definido como o número de telefone que o texto SMS é enviado para.|
+|**from**|**from** | **De**| Este valor é definido como o número de telefone que o texto SMS é enviado do.|
+|**body**|**body** | **Corpo**| Este valor pode ser usado para codificar duro a mensagem de texto SMS se não precisa defini-la dinamicamente no código para a função. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b675ab9663be674ec2439bfe9139b7c79c144cbd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 07b5b039e0069702b613619c54eb7eda46bf3051
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313231"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Início rápido: Criar uma fábrica de dados do Azure com o PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: 'Mover circuitos da implementação clássica para Resource Manager - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Mover circuitos de clássico para Resource Manager - ExpressRoute: Azure | Microsoft Docs'
 description: Descrição geral do protocolo de bridge clássica e os modelos de implementação do Resource Manager.
 services: expressroute
 author: ganesr
@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363847"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mover circuitos ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager
 Este artigo fornece uma descrição geral sobre o que significa mover um circuito Azure ExpressRoute do modelo de implementação clássica Azure Resource Manager.

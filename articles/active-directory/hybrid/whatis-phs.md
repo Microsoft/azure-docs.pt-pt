@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f588115e38ded07b79568c91b8d166949b34a886
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294951"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>O que é a sincronização de hash de palavra-passe com o Azure AD?
 Sincronização de hash de palavra-passe é uma dos métodos de início de sessão utilizados para realizar a identidade híbrida. Azure AD Connect sincroniza um hash, do hash, de uma senha de usuários de uma instância do Active Directory no local para um Azure AD com base na cloud de instância.

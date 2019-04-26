@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8ae9062a5e154f457f86dd7f3fbed7bda8580c88
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306938"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilizar a consola de série para chamadas SysRq e NMI
 
 ## <a name="system-request-sysrq"></a>Pedido de sistema (SysRq)
-Um SysRq é uma sequência de chaves abrangidos pelo kernel de sistema de operação do Linux, que pode acionar um conjunto de ações predefinidas. Estes comandos, muitas vezes, são utilizados quando a resolução de problemas de máquina virtual ou de recuperação não pode ser efetuada através de administração tradicional (por exemplo, se a VM estiver suspenso). Utilizar a funcionalidade de SysRq da consola de série do Azure irão imitar prima da chave de SysRq e os carateres introduzidos num teclado físico.
+Um SysRq é uma sequência de chaves abrangidos pelo kernel de sistema de operação do Linux, que pode acionar um conjunto de ações predefinidas. Estes comandos, muitas vezes, são utilizados quando a resolução de problemas de máquina virtual ou de recuperação não pode ser efetuada através de administração tradicional (por exemplo, se a VM não está a responder). Utilizar a funcionalidade de SysRq da consola de série do Azure irão imitar prima da chave de SysRq e os carateres introduzidos num teclado físico.
 
 Assim que a sequência de SysRq é enviada, a configuração de kernel irá controlar como o sistema responde. Para informações sobre como ativar e desativar SysRq, consulte a *Guia do administrador do SysRq* [texto](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
@@ -99,7 +99,7 @@ Para obter documentação de distribuição específicos sobre SysRq e os passos
 - [Recolher registos de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="non-maskable-interrupt-nmi"></a>Interrupção não Maskable (NMI) 
-Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não será ignorada. Historicamente, NMIs foram utilizadas para monitorizar a existência de problemas de hardware em sistemas que exigem tempos de resposta específica.  Hoje, os programadores e administradores de sistema utilizam frequentemente NMI como um mecanismo para depurar ou resolver problemas de sistemas que estão a ser suspenso.
+Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o software numa máquina virtual não será ignorada. Historicamente, NMIs foram utilizadas para monitorizar a existência de problemas de hardware em sistemas que exigem tempos de resposta específica.  Hoje, os programadores e administradores de sistema utilizam frequentemente NMI como um mecanismo para depurar ou resolver problemas de sistemas que não estão a responder.
 
 A consola de série pode ser utilizada para enviar um NMI para uma máquina virtual do Azure com o ícone de teclado na barra de comando mostrada abaixo. Depois do NMI é enviado, a configuração de máquina virtual irá controlar como o sistema responde.  Linux podem ser configurados para falhas de sistemas operacionais e criar um despejo de memória do sistema operativo recebe um NMI.
 

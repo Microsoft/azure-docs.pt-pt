@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335308"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizar a biblioteca de clientes de bases de dados elásticas com o Dapper
 Este documento é para desenvolvedores que contam com o Dapper a criação de aplicativos, mas também querem adotar [ferramentas de bases de dados elásticas](sql-database-elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para aumentar horizontalmente as camadas de dados.  Este documento ilustra as alterações nos aplicativos baseados no Dapper que são necessários para integrar em ferramentas de bases de dados elásticas. É nosso foco irá incidir na composição da gestão de partições horizontais de bases de dados elásticas e encaminhamento dependente de dados com o Dapper. 

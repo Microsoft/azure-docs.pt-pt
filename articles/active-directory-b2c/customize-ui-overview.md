@@ -3,7 +3,7 @@ title: Sobre a personalização da interface de utilizador no Azure Active Direc
 description: Saiba mais sobre como personalizar a interface do usuário para as suas aplicações que utilizam o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313294"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface de utilizador no Azure Active Directory B2C
 

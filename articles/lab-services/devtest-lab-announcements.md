@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311527"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicar um anúncio a um laboratório no Azure DevTest Labs
 
@@ -37,8 +37,8 @@ A funcionalidade de anúncio destina-se a ser utilizado para notificações temp
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. (Seu laboratório já pode ser mostrado no Dashboard sob **todos os recursos**).
-1. Na lista de laboratórios, selecione o laboratório em que pretende publicar um anúncio.  
-1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.  
+1. Na lista de laboratórios, selecione o laboratório em que pretende publicar um anúncio.
+1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.
 
     ![Botão de configuração e políticas](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Quando já não pretende mostrar este anúncio aos utilizadores de laboratório,
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Pode especificar um anúncio como parte de um modelo Azure Resource Manager, conforme mostrado no exemplo a seguir: 
+Pode especificar um anúncio como parte de um modelo Azure Resource Manager, conforme mostrado no exemplo a seguir:
 
 ```json
 {
@@ -119,7 +119,7 @@ Pode especificar um anúncio como parte de um modelo Azure Resource Manager, con
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Pode implementar um modelo Azure Resource Manager ao utilizar uma das seguintes 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Se alterar ou definir uma política de laboratório, pode querer publicar um anúncio para informar os utilizadores. [Definir políticas e agendas](devtest-lab-set-lab-policy.md) fornece informações sobre como aplicar restrições e convenções na sua subscrição ao utilizar políticas personalizadas.
-* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
