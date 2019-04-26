@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
 ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232768"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -259,7 +259,7 @@ Para atingir destinos de escalabilidade no armazenamento Premium, em todos os di
 
 As distribuições de Linux seguintes foram validadas para armazenamento Premium do Azure. Para obter um melhor desempenho e estabilidade com o armazenamento Premium, recomendamos que Atualize as suas VMs para um destas versões, no mínimo (ou para uma versão posterior). Algumas das versões requerem o mais recente Linux Integration Services (LIS), v4.0, para o Azure. Para transferir e instalar uma distribuição, siga o link listado na tabela seguinte. Podemos adicionar imagens à lista, à medida que concluir a validação. Tenha em atenção que o nosso validações mostram que o desempenho varia para cada imagem. Desempenho depende de características de carga de trabalho e as definições de imagem. Diferentes imagens otimizadas para diferentes tipos de cargas de trabalho.
 
-| Distribuição | Versão | Kernel suportada | Detalhes |
+| Distribuição | Version | Kernel suportada | Detalhes |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

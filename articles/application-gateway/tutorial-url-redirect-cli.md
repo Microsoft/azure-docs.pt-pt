@@ -11,11 +11,11 @@ ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60233111"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicação com o redirecionamento baseado no caminho de URL com a CLI do Azure
 

@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195034"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Funções personalizadas para recursos do Azure
 
@@ -106,12 +106,12 @@ Tal como funções incorporadas, o `AssignableScopes` propriedade especifica os 
 
 | Tarefa | Operação | Descrição |
 | --- | --- | --- |
-| Criar/eliminar uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os utilizadores que recebem esta operação em todos os `AssignableScopes` da função personalizada pode criar (ou eliminar) funções personalizadas para utilização nesses âmbitos. Por exemplo, [proprietários](built-in-roles.md#owner) e [administradores do acesso de utilizador](built-in-roles.md#user-access-administrator) de subscrições, grupos de recursos e recursos. |
-| Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os utilizadores que recebem esta operação em todos os `AssignableScopes` da função personalizada, pode atualizar funções personalizadas nesses âmbitos. Por exemplo, [proprietários](built-in-roles.md#owner) e [administradores do acesso de utilizador](built-in-roles.md#user-access-administrator) de subscrições, grupos de recursos e recursos. |
-| Ver uma função personalizada | `Microsoft.Authorization/ roleDefinition/read` | Os utilizadores que são concedidos esta operação com um âmbito podem ver as funções personalizadas que estão disponíveis para atribuição nesse âmbito. Todas as funções incorporadas que funções personalizadas estar disponível para atribuição. |
+| Criar/eliminar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os utilizadores que recebem esta operação em todos os `AssignableScopes` da função personalizada pode criar (ou eliminar) funções personalizadas para utilização nesses âmbitos. Por exemplo, [proprietários](built-in-roles.md#owner) e [administradores do acesso de utilizador](built-in-roles.md#user-access-administrator) de subscrições, grupos de recursos e recursos. |
+| Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os utilizadores que recebem esta operação em todos os `AssignableScopes` da função personalizada, pode atualizar funções personalizadas nesses âmbitos. Por exemplo, [proprietários](built-in-roles.md#owner) e [administradores do acesso de utilizador](built-in-roles.md#user-access-administrator) de subscrições, grupos de recursos e recursos. |
+| Ver uma função personalizada | `Microsoft.Authorization/ roleDefinitions/read` | Os utilizadores que são concedidos esta operação com um âmbito podem ver as funções personalizadas que estão disponíveis para atribuição nesse âmbito. Todas as funções incorporadas que funções personalizadas estar disponível para atribuição. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Criar funções personalizadas para recursos do Azure com o Azure PowerShell](custom-roles-powershell.md)
-- [Criar funções personalizadas para recursos do Azure com a CLI do Azure](custom-roles-cli.md)
+- [Create custom roles for Azure resources using Azure PowerShell](custom-roles-powershell.md) (Utilizar o Azure PowerShell para criar funções personalizadas para recursos do Azure)
+- [Create custom roles for Azure resources using Azure CLI](custom-roles-cli.md) (Utilizar a CLI do Azure para criar funções personalizadas para recursos do Azure)
 - [Compreender as definições de funções para recursos do Azure](role-definitions.md)
 - [Resolver problemas relacionados com o RBAC para recursos do Azure](troubleshooting.md)

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195712"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analisar dados de geração 1 de armazenamento do Azure Data Lake ao utilizar o Power BI
 Neste artigo, aprenderá como usar o ambiente de trabalho do Power BI para analisar e visualizar os dados armazenados na geração 1 de armazenamento do Azure Data Lake.
