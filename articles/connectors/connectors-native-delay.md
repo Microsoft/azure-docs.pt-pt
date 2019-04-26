@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448034"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Comece com o atraso e o atraso-até ações
 Ao utilizar o atraso e "atraso-até" ações, pode completar cenários de fluxo de trabalho.
@@ -68,9 +68,9 @@ A * significa que é um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Ano * |carimbo de data/hora |Ano até à atraso até (GMT) |
-| Mês * |carimbo de data/hora |O mês de atraso até (GMT) |
-| Dia * |carimbo de data/hora |O dia de atraso até (GMT) |
+| Ano * |timestamp |Ano até à atraso até (GMT) |
+| Mês * |timestamp |O mês de atraso até (GMT) |
+| Dia * |timestamp |O dia de atraso até (GMT) |
 
 <br>
 

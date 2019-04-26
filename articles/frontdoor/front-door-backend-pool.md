@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193718"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Conjuntos de back-ends e back-end no serviço de porta de entrada do Azure
 Este artigo descreve conceitos sobre como mapear a sua implementação de aplicação com o serviço de porta de entrada do Azure. Explica também os termos diferentes na configuração de porta de entrada em torno de back-ends de aplicação.
@@ -26,7 +26,7 @@ Um back-end é igual a instância de implementação de uma aplicação numa reg
 
 Consulte o back-ends de serviço de porta de entrada para o nome de anfitrião ou IP público da sua aplicação, que pode servir pedidos de cliente. Back-ends não devem ser confundida com a sua camada de base de dados, camada de armazenamento e assim por diante. Back-ends devem ser exibida como o ponto final público do seu back-end de aplicação. Ao adicionar um back-end num conjunto de back-end de porta de entrada, tem também de adicionar o seguinte:
 
-- **Tipo de anfitrião de back-end**. O tipo de recurso que pretende adicionar. O serviço de porta de entrada suporta a descoberta automática do seu back-ends de aplicação se partir do serviço de aplicações, serviço cloud ou armazenamento. Se pretender que um recurso diferente no Azure ou até mesmo um backend não pertencente ao Azure, selecione **anfitrião personalizado**.
+- **Tipo de anfitrião de back-end**. O tipo de recurso que pretende adicionar. Serviço de porta de entrada suporta a descoberta automática do seu back-ends de aplicação do serviço de aplicações, serviço cloud ou armazenamento. Se pretender que um recurso diferente no Azure ou até mesmo um backend não pertencente ao Azure, selecione **anfitrião personalizado**.
 
     >[!IMPORTANT]
     >Durante a configuração, as APIs não validam se o back-end não está acessível a partir de ambientes de porta de entrada. Certifique-se de que a porta da frente consegue contactar o back-end.
@@ -83,7 +83,7 @@ Definições de balanceamento de carga para o conjunto de back-end definem como 
 
 - **Tamanho de exemplo**. Identifica o número de amostras de sondas de estado de funcionamento que precisamos considerar para avaliação de estado de funcionamento do back-end.
 
-- **Tamanho da amostra bem-sucedida**. Define o tamanho da amostra conforme mencionado anteriormente, o número de amostras com êxito necessários para chamar o back-end em bom estado de funcionamento. Por exemplo, suponha que um intervalo de sonda de estado de funcionamento de porta de entrada é de 30 segundos, tamanho da amostra é de 5 segundos e tamanho de exemplo com êxito é 3 segundos. Sondas de cada vez Avaliamos o estado de funcionamento para o back-end, vamos ver os últimos cinco exemplos mais de 150 segundos (5 x 30). Sondas com êxito, pelo menos, três são necessários para declarar o back-end como bom estado de funcionamento.
+- **Tamanho da amostra bem-sucedida**. Define o tamanho da amostra conforme mencionado anteriormente, o número de amostras com êxito necessários para chamar o back-end em bom estado de funcionamento. Por exemplo, suponha que um intervalo de sonda de estado de funcionamento de porta de entrada é de 30 segundos, tamanho da amostra é 5 e 3 de é de tamanho de exemplo com êxito. Sondas de cada vez Avaliamos o estado de funcionamento para o back-end, vamos ver os últimos cinco exemplos mais de 150 segundos (5 x 30). Sondas com êxito, pelo menos, três são necessários para declarar o back-end como bom estado de funcionamento.
 
 - **A sensibilidade de latência (latência adicional)**. Define se pretende que a porta de entrada para enviar o pedido para o back-ends dentro do intervalo de sensibilidade de medição de latência ou reencaminhar o pedido para o back-end mais próximo.
 

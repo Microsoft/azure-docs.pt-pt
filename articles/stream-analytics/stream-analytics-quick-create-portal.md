@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398305"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início rápido: Criar uma tarefa de Stream Analytics com o portal do Azure
 
 Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics. Neste início rápido, vai definir uma tarefa de Stream Analytics que lê dados de transmissão em fluxo em tempo real e filtros de mensagens com uma temperatura superior a 27. A tarefa de Stream Analytics irá ler dados a partir de um dispositivo do IoT Hub, transformá-los e escrever os dados de volta para um contentor no armazenamento de Blobs. Os dados de entrada utilizados neste início rápido são gerados por um simulador online Raspberry Pi. 
 
@@ -44,7 +44,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Selecione **seguinte: definir o tamanho e a escala**.
+4. Selecione **seguinte: Definir o tamanho e a escala**.
 
 5. Selecione o seu **Escalão de preço e dimensionamento**. Neste início rápido, selecione o **F1 - gratuito** camada se ela ainda está disponível na sua subscrição. Para obter mais informações, consulte [preços do IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -91,7 +91,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
    |Nome da tarefa   |  MyASAJob   |   Introduza um nome para identificar a tarefa do Stream Analytics. O nome da tarefa do Stream Analytics só pode conter carateres alfanuméricos, hífenes e carateres de sublinhado e tem de ter entre 3 a 63 carateres. |
    |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que quer utilizar para esta tarefa. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione o mesmo grupo de recursos como o seu IoT Hub. |
-   |Localização  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione a localização geográfica onde pode alojar a tarefa do Stream Analytics. Utilize a localização mais próxima dos seus utilizadores para um melhor desempenho e reduzir os custos de transferência de dados. |
+   |Location  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione a localização geográfica onde pode alojar a tarefa do Stream Analytics. Utilize a localização mais próxima dos seus utilizadores para um melhor desempenho e reduzir os custos de transferência de dados. |
    |Unidades de transmissão em fluxo  | 1  |   As unidades de transmissão em fluxo representam os recursos informáticos que são necessários para executar uma tarefa. Por predefinição, este valor está definido como 1. Para saber mais sobre o dimensionamento de unidades de transmissão em fluxo, veja o artigo [Compreender e ajustar as unidades de transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).   |
    |Ambiente de alojamento  |  Nuvem  |   As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A cloud permite-lhe implementar no Azure Cloud e o Edge permite-lhe implementar num dispositivo do IoT Edge. |
 

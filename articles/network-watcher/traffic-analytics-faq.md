@@ -3,8 +3,8 @@ title: Análise de tráfego do Azure perguntas mais frequentes | Documentos da M
 description: Obtenha respostas para algumas das perguntas mais frequentes sobre a análise de tráfego.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236607"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -130,12 +130,6 @@ Não. Pode armazenar os registos não processados em qualquer conta de armazenam
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não é possível configurar um NSG para análise de tráfego devido a um erro "Não encontrada"?
 
 Selecione uma região suportada. Se selecionar uma região sem suporte, receberá um erro "Não encontrado". As regiões suportadas são apresentadas anteriormente neste artigo.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>Por que eu ganho o erro "Falha ao atualizar as definições de registos de fluxo para... InternalServerError..." Quando ativar NSG em Virgínia gov (US)?
-
-Isso é devido a um erro em que o fornecedor de recursos "Microsoft. Network" não é novamente registado para obter uma subscrição em Virgínia gov (US). A equipe está trabalhando na correção. Como solução, precisaria [manualmente voltar a registar 'Microsoft. Network"RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Contacte o suporte se o problema persistir. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>E se estou a obter o estado "Falha ao carregar," sob a página de registos de fluxo NSG?
 

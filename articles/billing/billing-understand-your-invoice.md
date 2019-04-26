@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369965"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
 
@@ -31,7 +31,7 @@ Alguns aspetos a ter em conta:
 
 -   Até 24 horas de utilização no final do período de faturação anterior pode aparecer na sua fatura atual.
 
--   Os custos apresentados nos extratos de faturação dos clientes internacionais destinam-se apenas a estimativas. Bancos podem ter custos diferentes para as taxas de câmbio.
+-   Os custos apresentados nos extratos de faturação dos clientes internacionais destinam-se apenas a estimativas. Os bancos poderão ter custos diferentes para as taxas de câmbio.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 

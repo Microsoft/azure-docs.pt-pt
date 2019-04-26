@@ -15,11 +15,11 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194368"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Vista de negar atribuições para recursos do Azure no portal do Azure
 

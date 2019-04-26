@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398060"
 ---
 <a name="app-publishing-steps"></a>Passos de publicação de aplicações
 ====================
@@ -84,7 +84,7 @@ Estes passos, normalmente, podem assumir uma semana, e não é necessário para 
 A oferta está a passar por parte do processamento final. Seu aplicativo passou a validação de marketing e técnica, mas agora precisa passar por parte do processamento final para torná-lo pronto para a origem de aplicação.
 
 
-**Em direto**
+**Live**
 
 A oferta está agora em direto no AppSource e os clientes poderão ver e implementar a sua aplicação nas suas subscrições do Microsoft Dynamics 365 Business Central. Receberá um email de nós, notificá-lo que a aplicação se tornou pública na origem de aplicação. Em qualquer momento, pode clicar na guia todas as ofertas e ver o estado para todas as suas ofertas listadas na coluna da direita. Pode clicar no estado para ver o estado de fluxo de publicação em detalhes para a sua oferta.
 

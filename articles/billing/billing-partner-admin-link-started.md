@@ -5,18 +5,18 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 03/12/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371296"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro a suas contas do Azure
 
@@ -57,29 +57,29 @@ Quando tem acesso aos recursos do cliente, utilize o portal do Azure, PowerShell
 1. Instalar o [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) módulo do PowerShell.
 
 2. Inicie sessão no inquilino do cliente com a conta de utilizador ou o principal de serviço. Para obter mais informações, consulte [iniciar sessão com o PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. Ligação para o novo ID de parceiro. O parceiro ID é o [Microsoft Partner Network](https://partner.microsoft.com/) ID para a sua organização.
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>Obter o ID de parceiro ligadas
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>Atualizar o ID de parceiro ligadas
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>Eliminar o ID de parceiro ligadas
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Utilizar a CLI do Azure para ligar a um novo ID de parceiro
@@ -87,13 +87,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. Inicie sessão no inquilino do cliente com a conta de utilizador ou o principal de serviço. Para obter mais informações, consulte [iniciar sessão com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. Ligação para o novo ID de parceiro. O parceiro ID é o [Microsoft Partner Network](https://partner.microsoft.com/) ID para a sua organização.
 
@@ -104,17 +104,17 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### <a name="get-the-linked-partner-id"></a>Obter o ID de parceiro ligadas
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### <a name="update-the-linked-partner-id"></a>Atualizar o ID de parceiro ligadas
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### <a name="delete-the-linked-partner-id"></a>Eliminar o ID de parceiro ligadas
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -136,12 +136,12 @@ A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cli
 
 **Podem outros parceiros ou clientes, editar ou remover a ligação para o ID de parceiro?**
 
-A ligação está associada ao nível da conta de utilizador. Apenas pode editar ou remover a ligação para o ID de parceiro. O cliente e outros parceiros que não é possível alterar a ligação para o ID de parceiro. 
+A ligação está associada ao nível da conta de utilizador. Apenas pode editar ou remover a ligação para o ID de parceiro. O cliente e outros parceiros que não é possível alterar a ligação para o ID de parceiro.
 
 
 **O ID MPN posso utilizar se a minha empresa tem vários?**
 
-Pode utilizar qualquer ID MPN válido, exceto históricos orgnization(v-org) ID do MPN. A maioria dos parceiros optarem por utilizar o ID MPN para a geografia onde baseia-se o cliente ou serviços estão a ser entregue.
+Pode utilizar qualquer ID MPN válido, exceto organization(v-org) virtual ID do MPN. A maioria dos parceiros optarem por utilizar o ID MPN para a geografia onde baseia-se o cliente ou serviços estão a ser entregue.
 
 **Onde posso encontrar influenciada receita, geração de relatórios para o ID de parceiro ligado?**
 
@@ -158,4 +158,3 @@ Não é possível ver o cliente nos relatórios de devido aos motivos seguintes
 **Ligar partner que ID funciona com o Azure Stack?**
 
 Sim, pode ligar o seu ID de parceiro para o Azure Stack.
-

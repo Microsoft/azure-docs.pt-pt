@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: ergreenl
 ms.openlocfilehash: cde5fb8a423f2ee9da2021b371f26ffef2ffd403
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359709"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Software de terceiros compatível com o Azure AD Domain Services
 

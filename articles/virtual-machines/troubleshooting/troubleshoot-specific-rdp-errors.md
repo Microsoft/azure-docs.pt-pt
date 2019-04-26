@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318702"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas a uma VM do Windows no Azure
 Poderá receber uma mensagem de erro específico ao utilizar a ligação de ambiente de trabalho remoto a uma máquina virtual de Windows (VM) no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com passos para resolvê-los de resolução de problemas. Se estiver a ter problemas de ligação à sua VM através de RDP mas não encontrar uma mensagem de erro específica, consulte a [guia para o ambiente de trabalho remoto de resolução de problemas](troubleshoot-rdp-connection.md).
@@ -31,7 +31,7 @@ Para obter informações sobre mensagens de erro específicas, consulte o seguin
 * [A sessão remota foi desligada porque existem não existem servidores de licença de ambiente de trabalho remoto disponíveis para fornecer uma licença](#rdplicense).
 * [Ambiente de trabalho remoto não é possível localizar o computador "name"](#rdpname).
 * [Ocorreu um erro de autenticação. Não é possível contactar a autoridade de segurança Local](#rdpauth).
-* [Erro de segurança do Windows: as suas credenciais não funcionavam](#wincred).
+* [Erro de segurança do Windows: As suas credenciais não funcionavam](#wincred).
 * [Este computador não é possível ligar ao computador remoto](#rdpconnect).
 
 <a id="rdplicense"></a>
@@ -70,7 +70,7 @@ A parte do endereço deste ficheiro RDP tem:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ocorreu um erro de autenticação. Não é possível contactar a autoridade de segurança Local.
 Causa: A VM de destino não é possível localizar a autoridade de segurança na parte do nome do usuário das credenciais.
 
-Quando o seu nome de utilizador está no formato *SecurityAuthority*\\*nome de utilizador* (exemplo: CORP\User1), o *SecurityAuthority* parte é a VM nome do computador (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando o seu nome de utilizador está no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\User1), o *SecurityAuthority* parte é o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Possíveis soluções:
 
@@ -80,7 +80,7 @@ Possíveis soluções:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Erro de segurança do Windows: as suas credenciais não funcionava.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Erro de segurança do Windows: As suas credenciais não funcionava.
 Causa: A VM de destino não é possível validar o nome de conta e palavra-passe.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou uma conta de domínio.

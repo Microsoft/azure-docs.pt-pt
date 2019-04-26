@@ -12,11 +12,11 @@ ms.date: 09/19/2017
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 7ac8b9e28996c14e702730b72265fd6165798227
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201298"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript de API de visão do computador
 

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348285"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação a utilizar para o Azure AD Connect
 O Azure AD Connect tem dois tipos de instalação para a nova instalação: Expressa e personalizada. Este tópico ajuda-o a decidir a opção a utilizar durante a instalação.
@@ -35,7 +35,7 @@ Parte do princípio:
 - Tem uma conta de administrador de empresa que pode utilizar para a instalação.
 - Tiver menos de 100 000 objetos no Active Directory no local.
 
-Obtém:
+Vai obter:
 
 - [Sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) no local ao Azure AD para início de sessão único.
 - Uma configuração de que sincroniza [os utilizadores, grupos, contactos e computadores Windows 10](concept-azure-ad-connect-sync-default-configuration.md).

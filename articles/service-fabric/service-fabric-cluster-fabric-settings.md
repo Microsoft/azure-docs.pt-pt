@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386827"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -378,7 +378,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|Ativado |Bool, a predefinição é falso |Estático|O sinalizador ativado para ImageStoreService. Predefinição: Falso |
+|Enabled |Bool, a predefinição é falso |Estático|O sinalizador ativado para ImageStoreService. Predefinição: Falso |
 |MinReplicaSetSize | Int, a predefinição é 3 |Estático|O MinReplicaSetSize para ImageStoreService. |
 |PlacementConstraints | cadeia de caracteres, a predefinição é "" |Estático| O PlacementConstraints para ImageStoreService. |
 |QuorumLossWaitDuration | Tempo em segundos, a predefinição é MaxValue |Estático| Especifique o período de tempo em segundos. O QuorumLossWaitDuration para ImageStoreService. |

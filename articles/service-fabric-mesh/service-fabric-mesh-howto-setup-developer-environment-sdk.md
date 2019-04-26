@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
 ms.openlocfilehash: 70c32f5e54fa7e71c0884ceba48c84af782b3f41
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419021"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurar o ambiente de desenvolvimento Windows para compilar aplicações do Service Fabric Mesh
 
@@ -42,7 +42,7 @@ Precisa do Visual Studio 2017 para implementar aplicações do Service Fabric Me
 * Desenvolvimento ASP.NET e Web
 * Desenvolvimento do Azure
 
-## <a name="install-docker"></a>Instalar Docker
+## <a name="install-docker"></a>Instalar o Docker
 
 Se já tiver o Docker instalado, certifique-se de que tem a versão mais recente. Docker pode solicitar-lhe quando uma nova versão já foi lançada, mas verifique manualmente para se certificar de que tem a versão mais recente.
 

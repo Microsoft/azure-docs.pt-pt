@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397946"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Como preencha os detalhes de loja
 ===========================================
@@ -42,7 +42,7 @@ Esta descrição será apresentada no AppSource, logo abaixo sua **resumo oferec
 
 Selecione o setor melhor alinhado à sua aplicação. Se o aplicativo se relaciona para vários setores, pode deixar em branco
 
-### <a name="categories"></a>Categorias
+### <a name="categories"></a>Categories
 
 Selecione as categorias que são relevantes para a sua aplicação. Selecione, pelo menos, uma categoria e um máximo de três. Escolha cuidadosamente, porque os clientes podem pesquisar no AppSource, com base em categorias
 
@@ -101,7 +101,7 @@ Pode carregar documentos máximos de três em formato PDF. Para cada documento q
 ![Carregar documentos](./media/d365-financials/image010.png)
 
 
-### <a name="screenshots"></a>Capturas de ecrã
+### <a name="screenshots"></a>Capturas de Ecrã
 
 Um mínimo de três capturas de ecrã é necessário, até um máximo de cinco são permitidos. Tirar capturas de ecrã na sandbox do financeiro e escolha capturas de ecrã que incluem dados de demonstração realista e dizer um bom, como utilizar a história.
 

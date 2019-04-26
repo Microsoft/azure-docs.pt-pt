@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810894"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362378"
 ---
 <a name="seller-insights-faq"></a>FAQ do vendedor Insights
 ===================
@@ -36,7 +36,7 @@ As definições de valores de métrica no ficheiro de transação são encontrad
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Ver detalhes do cliente de transações para o qual eu já foi paga
 -------------------------------------------------------------
 
-Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **dividendos estado**e aplique o filtro para apresentar apenas o valor "pago de saída." As seguintes colunas aparecerá que contém os detalhes do cliente: **nome da empresa**, **cliente de E-Mail**, **país do cliente**, **deestadodecliente**, e **Código Postal do cliente**.
+Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **dividendos estado**e aplique o filtro para apresentar apenas o valor "pago de saída." As seguintes colunas serão exibido contendo os detalhes do cliente: **Nome da empresa**, **cliente de E-Mail**, **país de cliente**, **estado do cliente**, e **Código Postal do cliente**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcular o meu Abra Contas a receber
@@ -48,7 +48,7 @@ Depois de transferir suas transações do módulo dividendos, localize a coluna 
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcular a receita por período de utilização do cliente
 ------------------------------------------
 
-Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **estado de transação**e o valor "Pago" do filtro.   Para cada transação listada, a coluna intitulada **dividendos quantidade (PC)** representa a quantidade que foram pagas.  Para estimar o período de utilização associado à transação, utilize a coluna **data de cobrança**, que é uma aproximação do último dia de utilização para o período a que se aplique a transação.
+Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **estado de transação**e o valor "Pago" do filtro.   Para cada transação listada, a coluna intitulada **dividendos quantidade (PC)** representa a quantidade que foram pagas.  Para estimar o período de utilização associado à transação, utilize a coluna **data de cobrança**, que é uma aproximação do último dia de utilização para o período a que se aplique a transação.
 
 
 <a name="calculate-your-bad-debt"></a>Calcular a sua dívida incorreto

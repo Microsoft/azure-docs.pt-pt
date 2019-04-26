@@ -3,7 +3,7 @@ title: Configurar o fluxo de credenciais de palavra-passe de proprietário do re
 description: Saiba como configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313366"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C
 
@@ -71,8 +71,8 @@ Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma cham
 | Chave | Value |
 | --- | ----- |
 | o nome de utilizador | leadiocl@outlook.com |
-| palavra-passe | Passxword1 |
-| grant_type | palavra-passe |
+| password | Passxword1 |
+| grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |

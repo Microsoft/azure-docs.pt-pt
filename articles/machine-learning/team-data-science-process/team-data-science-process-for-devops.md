@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a339b0a063312e7f68c8b88d63d83621b9402ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253057"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processo de ciência de dados de equipa para operações de programador
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255859"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 
@@ -84,7 +84,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |FailedRequests|Pedidos de Gateway com falhas|Contagem|Total|Número de falhas em pedidos do gateway|Localização, nome de anfitrião|
 |OtherRequests|Outros pedidos de Gateway|Contagem|Total|Número de outros pedidos de gateway|Localização, nome de anfitrião|
 |Duração|Duração geral dos pedidos de Gateway|Milissegundos|Média|Geral duração dos pedidos do Gateway em milissegundos|Localização, nome de anfitrião|
-|Capacidade|Capacidade|Percentagem|Média|Métrica de utilização para o serviço de ApiManagement|Localização|
+|Capacidade|Capacidade|Percentagem|Média|Métrica de utilização para o serviço de ApiManagement|Location|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -506,10 +506,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |---|---|---|---|---|---|
 |JobEndedSuccess|Tarefas concluídas com êxito|Contagem|Total|Contagem de tarefas concluídas com êxito.|Nenhuma dimensão|
 |JobEndedFailure|Tarefas falhadas|Contagem|Total|Contagem de tarefas com falhas.|Nenhuma dimensão|
-|JobEndedCancelled|Trabalhos cancelados|Contagem|Total|Contagem de trabalhos cancelados.|Nenhuma dimensão|
+|JobEndedCanceled|Tarefas canceladas|Contagem|Total|Contagem de tarefas foi canceladas.|Nenhuma dimensão|
 |JobAUEndedSuccess|Tempo de AU com êxito|Segundos|Total|Tempo total de AU para tarefas concluídas com êxito.|Nenhuma dimensão|
 |JobAUEndedFailure|Tempo de AU falhadas|Segundos|Total|Tempo total de AU para tarefas com falhas.|Nenhuma dimensão|
-|JobAUEndedCancelled|Tempo de AU canceladas|Segundos|Total|Tempo total de AU para as tarefas canceladas.|Nenhuma dimensão|
+|JobAUEndedCanceled|Tempo de AU canceladas|Segundos|Total|Tempo total de AU para as tarefas canceladas.|Nenhuma dimensão|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |RunsCompleted|Execuções Concluídas|Contagem|Total|Número de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
 |RunsSucceeded|Execuções com Êxito|Contagem|Total|Número de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
 |RunsFailed|Execuções Falhadas|Contagem|Total|Número de execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
-|RunsCancelled|Execuções Canceladas|Contagem|Total|Número de execuções de fluxo de trabalho canceladas.|Nenhuma dimensão|
+|RunsCanceled|Execuções canceladas|Contagem|Total|Número de fluxo de trabalho é executado foi cancelado.|Nenhuma dimensão|
 |RunLatency|Latência de Execução|Segundos|Média|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
 |RunSuccessLatency|Latência de Execução com Êxito|Segundos|Média|Latência de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
 |RunThrottledEvents|Eventos Limitados em relação à Execução|Contagem|Total|Número de eventos limitados em relação à ação ou acionador de fluxo de trabalho.|Nenhuma dimensão|
@@ -1092,8 +1092,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |registration.get|Operações de Leitura de Registo|Contagem|Total|Contagem de todas as consultas de registo com êxito.|Nenhuma dimensão|
 |registration.delete|Operações de Eliminação de Registo|Contagem|Total|Contagem de todas as eliminações de registo com êxito.|Nenhuma dimensão|
 |entrada|Mensagens Recebidas|Contagem|Total|Contagem de todas as chamadas à API enviadas com êxito. |Nenhuma dimensão|
-|incoming.scheduled|Notificações Push Agendadas Enviadas|Contagem|Total|Notificações Push Agendadas Canceladas|Nenhuma dimensão|
-|incoming.scheduled.cancel|Notificações Push Agendadas Canceladas|Contagem|Total|Notificações Push Agendadas Canceladas|Nenhuma dimensão|
+|incoming.scheduled|Notificações Push Agendadas Enviadas|Contagem|Total|Notificações Push agendadas canceladas|Nenhuma dimensão|
+|incoming.scheduled.cancel|Notificações Push agendadas canceladas|Contagem|Total|Notificações Push agendadas canceladas|Nenhuma dimensão|
 |scheduled.pending|Notificações Agendadas Pendentes|Contagem|Total|Notificações Agendadas Pendentes|Nenhuma dimensão|
 |installation.all|Operações de Gestão de Instalação|Contagem|Total|Operações de Gestão de Instalação|Nenhuma dimensão|
 |installation.get|Obter Operações de Instalação|Contagem|Total|Obter Operações de Instalação|Nenhuma dimensão|
@@ -1513,7 +1513,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Http5xx|Erros de Servidor http|Contagem|Total|Erros de Servidor http|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
-|FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Total|Unidades de Execução de Funções|Instância|
+|FunctionExecutionUnits|Unidades de Execução de Funções|MB / milissegundos|Total|[Unidades de execução de função](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Total|Contagem de Execuções de Função|Instância|
 |PrivateBytes|Bytes Privados|Bytes|Média|Bytes Privados|Instância|
 |IoReadBytesPerSecond|Ler Bytes Por Segundo de E/S|BytesPerSecond|Total|Ler Bytes Por Segundo de E/S|Instância|

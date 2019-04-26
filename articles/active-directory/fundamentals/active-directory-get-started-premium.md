@@ -14,11 +14,11 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249685"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se para as edições do Azure Active Directory Premium
 Pode comprar e associar as edições Premium do Azure Active Directory (Azure AD) com a sua subscrição do Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.

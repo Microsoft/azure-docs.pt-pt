@@ -1,7 +1,6 @@
 ---
 title: APIs para a automatização de reserva do Azure | Documentos da Microsoft
 description: Saiba mais sobre as APIs do Azure que pode utilizar para obter informações sobre a reserva programaticamente.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371211"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automatização de reserva do Azure
 
@@ -55,7 +54,7 @@ Se achar que as reservas da sua organização estão a ser utilizada:
 
 - Certifique-se as máquinas virtuais que sua organização cria correspondem o tamanho da VM que está a reserva.
 - Certifique-se de flexibilidade de tamanho de instância está ativada. Para obter mais informações, consulte [Gerir reservas - alteração otimizar a definição para instâncias de VM reservadas](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
-- Altere o âmbito da reserva compartilhado, para que ele aplica-se mais amplamente. Para obter mais informações, consulte [Gerir reservas - alterar o âmbito de uma reserva](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+- Altere o âmbito da reserva compartilhado, para que ele aplica-se mais amplamente. Para obter mais informações, consulte [Gerir reservas - alterar o âmbito de uma reserva](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 - A quantidade não utilizada do Exchange. Para obter mais informações, consulte [Gerir reservas - cancelamentos e trocas](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
 
 ## <a name="give-access-to-reservations"></a>Conceder acesso ao reservas
@@ -68,7 +67,7 @@ Obter a lista de todas as reservas que um utilizador tem acesso ao utilizar o [r
 
 ## <a name="split-or-merge-reservation"></a>Reserva de dividir ou unir
 
-Depois de comprar mais do que uma instância de recurso dentro de uma reserva, pode querer atribuir instâncias dentro desse reserva a subscrições diferentes. Pode alterar o âmbito de reserva para que seja aplicado a todas as subscrições no mesmo contexto de faturação. Mas para fins de gestão ou o orçamento de custo, talvez queira manter o âmbito como "subscrição individual" e atribuir as instâncias de reserva de uma subscrição específica. 
+Depois de comprar mais do que uma instância de recurso dentro de uma reserva, pode querer atribuir instâncias dentro desse reserva a subscrições diferentes. Pode alterar o âmbito de reserva para que seja aplicado a todas as subscrições no mesmo contexto de faturação. Mas para fins de gestão ou o orçamento de custo, talvez queira manter o âmbito como "subscrição individual" e atribuir as instâncias de reserva de uma subscrição específica.
 
 Para dividir uma reserva, use a API [dividir reserva -](/rest/api/reserved-vm-instances/reservation/split). Também pode dividir uma reserva com o PowerShell. Para obter mais informações, consulte [Gerir reservas - reserva dividido em duas reservas](billing-manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 
@@ -76,7 +75,7 @@ Para intercalar duas reservas numa reserva, use a API [reserva - Merge](/rest/ap
 
 ## <a name="change-scope-for-a-reservation"></a>Alterar o âmbito de uma reserva
 
-O âmbito de uma reserva pode ser subscrição única ou todas as subscrições no seu contexto de faturação. Se definir o âmbito para cada subscrição individual, a reserva é correspondida à execução de recursos na subscrição selecionada. Se definir o escopo compartilhado, o Azure corresponde a reserva de recursos que são executados em todas as subscrições dentro do contexto de faturação. O contexto de faturação é dependente da subscrição que utilizou para comprar a reserva. Para obter mais informações, consulte [Gerir reservas - alterar o âmbito](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+O âmbito de uma reserva pode ser subscrição única ou todas as subscrições no seu contexto de faturação. Se definir o âmbito para cada subscrição individual, a reserva é correspondida à execução de recursos na subscrição selecionada. Se definir o escopo compartilhado, o Azure corresponde a reserva de recursos que são executados em todas as subscrições dentro do contexto de faturação. O contexto de faturação é dependente da subscrição que utilizou para comprar a reserva. Para obter mais informações, consulte [Gerir reservas - alterar o âmbito](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Para alterar o âmbito por meio de programação, use a API [reserva - atualização](/rest/api/reserved-vm-instances/reservation/update).
 

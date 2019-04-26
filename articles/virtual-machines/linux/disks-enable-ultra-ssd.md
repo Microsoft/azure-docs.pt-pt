@@ -13,10 +13,10 @@ ms.author: rogarana
 ms.custom: seodec18
 ms.subservice: disks
 ms.openlocfilehash: c0642b9985b987b479da1d426a504e652cdee0b9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204023"
 ---
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343230"
 ---
 # <a name="virtual-machine-support-tab"></a>Guia de suporte de máquina virtual
 
-O **suportar** separador da **nova oferta** página permite-lhe fornecer técnicas e de utilizador recursos de suporte para a sua oferta.  Ele é dividido em três áreas: **engenharia**, **suporte ao cliente**, e **URLs de suporte**.
+O **suportar** separador da **nova oferta** página permite-lhe fornecer técnicas e de utilizador recursos de suporte para a sua oferta.  Ele é dividido em três áreas: **Engenharia**, **suporte ao cliente**, e **suporta URLs**.
 
 ![Guia de suporte do formulário de nova oferta de mensagens em fila para máquinas virtuais](./media/publishvm_012.png)
 

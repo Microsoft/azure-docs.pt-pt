@@ -3,7 +3,7 @@ title: ClaimsTransformations - Azure Active Directory B2C | Documentos da Micros
 description: Definição do elemento ClaimsTransformations na identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313822"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -96,7 +96,7 @@ O **InputParameters** elemento contém o seguinte elemento:
 | --------- | ----------- |----------- |
 | Id | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de afirmações. Cada método de transformação de afirmações tem seus próprios valores. Consulte a tabela de transformação de afirmações para uma lista completa dos valores disponíveis. |
 | Tipo de dados | Sim | O tipo de dados do parâmetro, como cadeia, booleano, Int ou DateTime de acordo com a enumeração de tipo de dados no esquema XML de política personalizada. Este tipo é utilizado para efetuar operações aritméticas corretamente. Cada transformação de afirmações tem seus próprios valores. Consulte a [referência de transformação de afirmações](#claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
-| Valor | Sim | Um valor que é passado textual para a transformação. Alguns dos valores são arbitrárias, alguns deles é selecionar o método de transformação de afirmações. |
+| Value | Sim | Um valor que é passado textual para a transformação. Alguns dos valores são arbitrárias, alguns deles é selecionar o método de transformação de afirmações. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

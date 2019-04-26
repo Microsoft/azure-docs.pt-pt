@@ -1,5 +1,4 @@
 ---
-ms.assetid: ''
 title: Pontos finais de serviço de rede virtual para o Azure Key Vault, Azure Key Vault | Documentos da Microsoft
 description: Descrição geral dos pontos finais de serviço de rede virtual para o Key Vault
 services: key-vault
@@ -8,14 +7,13 @@ ms.author: ambapat
 manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201266"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
 

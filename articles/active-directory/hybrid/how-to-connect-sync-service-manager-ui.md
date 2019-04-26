@@ -4,25 +4,25 @@ description: Compreenda o Synchronization Service Manager para o Azure AD Connec
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.subservice: hybrid
-ms.author: billmath
+ms.topic: article
+origin.date: 07/13/2017
+ms.date: 01/03/2019
+ms.component: hybrid
+ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3a03b2320caa7facc04f589993907ab9b3a7703
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381540"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução ao Azure AD Connect da IU do Gestor do serviço de sincronização
 
@@ -40,3 +40,5 @@ Saiba mais sobre a interface do Usuário do Synchronization Service Manager, inc
 Saiba mais sobre o [do Azure AD Connect](how-to-connect-sync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

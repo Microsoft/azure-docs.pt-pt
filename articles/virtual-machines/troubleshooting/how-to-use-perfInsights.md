@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318418"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -82,7 +82,7 @@ Este cenário é executada uma captura de contador de desempenho especial, junta
 |              | Média de seg/escrita                |
 | Tamanho de e/s      | Média Pedido de bytes/dados       |
 |              | Média Bytes/Read               |
-|              | Média Bytes/escrita              |
+|              | Média Bytes/Write              |
 | Débito   | Bytes de dados/seg                |
 |              | Bytes lidos/seg                |
 |              | Bytes escritos/seg               |
@@ -119,9 +119,9 @@ Informações sobre a VM do Windows, discos ou configuração de agrupamentos de
 | Configuração da firewall            | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Configuração do SQL Server          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreios de diagnóstico de desempenho *  | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Rastreio de contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreio de contador do SMB **              |                            |                                    |                          | Sim                  |                      |
-| Rastreio de contador do SQL Server **       |                            |                                    | Sim                      |                      | Sim                  |
+| Rastreio de contador de desempenho * *      |                            |                                    | Sim                      |                      | Sim                  |
+| Rastreio de contador do SMB * *              |                            |                                    |                          | Sim                  |                      |
+| Rastreio de contador do SQL Server * *       |                            |                                    | Sim                      |                      | Sim                  |
 | Rastreio de XPerf                       |                            |                                    |                          |                      | Sim                  |
 | Rastreio de StorPort                    |                            |                                    |                          |                      | Sim                  |
 | Rastreio de rede                     |                            |                                    |                          | Sim                  | Sim                  |
@@ -132,15 +132,15 @@ Informações sobre a VM do Windows, discos ou configuração de agrupamentos de
 
 Executa um mecanismo baseado em regras em segundo plano para recolher dados e diagnosticar problemas de desempenho em curso. Atualmente são suportadas as seguintes regras:
 
-- Regra de HighCpuUsage: Deteta períodos de utilização elevados da CPU e mostra os principais consumidores de utilização da CPU durante esses períodos.
-- Regra de HighDiskUsage: Deteta períodos de utilização de disco elevados em discos físicos e mostra os consumidores de utilização de disco superior durante esses períodos.
-- Regra de HighResolutionDiskMetric: mostra métricas de latência IOPS, débito e e/s por 50 milissegundos para cada disco físico. Ele ajuda a identificar rapidamente os períodos de limitação do disco.
-- Regra de HighMemoryUsage: Deteta períodos de utilização de memória elevada e mostra os consumidores de utilização de memória superior durante esses períodos.
+- Regra de HighCpuUsage: Deteta os períodos de utilização elevados da CPU e mostra os principais consumidores de utilização da CPU durante esses períodos.
+- Regra de HighDiskUsage: Deteta os períodos de utilização de disco elevados em discos físicos e mostra os consumidores de utilização de disco superior durante esses períodos.
+- Regra de HighResolutionDiskMetric: Mostra as métricas de latência IOPS, débito e e/s por 50 milissegundos para cada disco físico. Ele ajuda a identificar rapidamente os períodos de limitação do disco.
+- Regra de HighMemoryUsage: Deteta os períodos de utilização de memória elevada e mostra os consumidores de utilização de memória superior durante esses períodos.
 
 > [!NOTE] 
 > Atualmente, são suportadas versões do Windows que incluem o .NET Framework 4.5 ou versões posteriores.
 
-### <a name="performance-counter-trace-"></a>Rastreio de contador de desempenho (\*\*)
+### <a name="performance-counter-trace-"></a>Rastreio de contador de desempenho (*)
 
 Recolhe os seguintes contadores de desempenho:
 
@@ -150,13 +150,13 @@ Recolhe os seguintes contadores de desempenho:
 
 #### <a name="for-sql-server-instances"></a>Para instâncias do SQL Server
 - Gestor de servidor: memória intermédia \SQL, estatísticas de conjunto de \SQLServer:Resource e \SQLServer:SQL Statistics\
-- \SQLServer:Locks, \SQLServer:General, as estatísticas
+- \SQLServer:Locks, \SQLServer:General, Statistics
 - Métodos de \SQLServer:Access
 
 #### <a name="for-azure-files"></a>Para os ficheiros do Azure
 Partilhas de cliente \SMB
 
-### <a name="diskspd-benchmark-trace-"></a>Rastreio de benchmark de Diskspd (\*\*\*)
+### <a name="diskspd-benchmark-trace-"></a>Rastreio de benchmark de Diskspd (*)
 Testes de carga de trabalho de e/s de Diskspd (disco do SO [escrita] e unidades de agrupamento [leitura/escrita])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Execute a ferramenta de PerfInsights na sua VM
@@ -300,7 +300,7 @@ O **diagnóstico** guia contém informações sobre principais consumidores de C
 
 O Diskspd é um armazenamento load generator e desempenho ferramenta de teste da Microsoft. Para obter mais informações, consulte [Diskspd](https://github.com/Microsoft/diskspd).
 
-### <a name="xperf"></a>XPerf
+### <a name="xperf"></a>Xperf
 
 XPerf é uma ferramenta de linha de comando para capturar rastreios a partir do Kit de ferramentas de desempenho do Windows. Para obter mais informações, consulte [ferramentas de desempenho do Windows – Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 

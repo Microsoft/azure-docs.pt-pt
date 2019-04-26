@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5a985e43c097dbea2861a5eb9fa10c526cbf089a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59697873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203794"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -38,6 +38,17 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
 ## <a name="create-an-app-configuration-store"></a>Criar um arquivo de configuração de aplicação
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecione **Explorador de chave/valor** > **+ criar** para adicionar os seguintes pares de chave-valor:
+
+    | Chave | Value |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | Branco |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Preto |
+    | TestApp:Settings:Message | Dados de configuração de aplicações do Azure |
+
+    Deixe **rótulo** e **tipo de conteúdo** branco por agora.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
 
@@ -93,7 +104,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 
     Este segredo é acessado com a API de configuração. Dois pontos (:) funciona no nome da configuração com a API de configuração nas plataformas suportadas. Ver [configuração pelo ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Open *Program.cs*e adicione uma referência a um fornecedor de configuração de configuração de aplicações .NET Core.
+4. Open *Program.cs*e adicione uma referência para o fornecedor de configuração de aplicações do .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -191,4 +202,4 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação web do ASP.NET Core através da [fornecedor de configuração de aplicação](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

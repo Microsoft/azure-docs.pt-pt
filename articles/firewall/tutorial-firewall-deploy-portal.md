@@ -9,11 +9,11 @@ ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194229"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -102,7 +102,7 @@ Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter** na lista Destaques.
 3. Introduza estes valores para a máquina virtual:
 
-   |Definição  |Valor  |
+   |Definição  |Value  |
    |---------|---------|
    |Grupo de recursos     |**Test-FW-RG**|
    |Nome da máquina virtual     |**Srv-Jump**|
@@ -123,7 +123,7 @@ Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque
 
 Utilize as informações na tabela seguinte para configurar outra máquina virtual com o nome **Srv trabalho**. O resto da configuração é igual à da máquina virtual Srv-Jump.
 
-|Definição  |Valor  |
+|Definição  |Value  |
 |---------|---------|
 |Subrede|**SN da carga de trabalho**|
 |IP público|**Nenhum**|
@@ -143,7 +143,7 @@ Implemente a firewall na VNet.
    |Subscrição     |\<a sua subscrição\>|
    |Grupo de recursos     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
-   |Localização     |Selecionar a mesma localização que utilizou anteriormente|
+   |Location     |Selecionar a mesma localização que utilizou anteriormente|
    |Escolher uma rede virtual     |**Utilizar existente**: **Test-FW-VN**|
    |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
 

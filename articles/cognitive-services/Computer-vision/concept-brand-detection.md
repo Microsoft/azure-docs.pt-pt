@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/26/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: d32beaa51471ccab19804122bfbcb33a6b1a5e3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203039"
 ---
-# <a name="brand-detection"></a>Deteção de marca
+# <a name="detect-popular-brands-in-images"></a>Detectar marcas populares em imagens
 
 Deteção de marca é um modo especializado de [deteção de objeto](concept-object-detection.md) que utiliza uma base de dados de milhares de logotipos global para identificar marcas comerciais em imagens ou vídeos. Pode utilizar esta funcionalidade, por exemplo, para descobrir quais marcas são mais populares nas redes sociais ou mais predominante no posicionamento de produto do suporte de dados.
 

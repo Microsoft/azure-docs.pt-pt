@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371615"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar secções na sua fatura para organizar os seus custos
 
@@ -30,7 +30,7 @@ Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
@@ -38,7 +38,7 @@ Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. Na parte superior da página, selecione **adicionar**.
+4. Na parte superior da página, selecione **Adicionar**.
 
 5. Introduza o nome da secção de nota fiscal.
 

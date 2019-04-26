@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836951"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371313"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua utilização do Azure e os encargos de CSV para um contrato de cliente da Microsoft
 
@@ -42,8 +42,8 @@ Se fosse num cliente EA, observará que os termos no perfil de faturação fiche
 | Mês| date |
 | Dia | date |
 | Ano | date |
-| Produto | produto |
-| Id do Medidor | meterID |
+| Product | produto |
+| Id do Medidor | IDmedidor |
 | Categoria do Medidor | meterCategory |
 | Sub-categoria do Medidor | meterSubCategory |
 | Região do Medidor | meterRegion |

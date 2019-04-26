@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371806"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -205,11 +205,11 @@ Para concluir a configuração, precisa de acesso para a nova conta de faturaç�
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecione o perfil de faturação. Consoante o acesso, terá de selecionar uma conta de cobrança. A partir da conta de cobrança, selecione **perfis de faturação** e, em seguida, o perfil de faturação.
+3. Selecione o perfil de faturação. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação. A partir da conta de cobrança, selecione **perfis de faturação** e, em seguida, o perfil de faturação.
 
 4. Selecione **subscrições do Azure** do lado esquerdo.
 
@@ -221,11 +221,11 @@ Subscrições do Azure que são transferidas da sua inscrição do contrato Ente
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecione uma secção de nota fiscal. Consoante o acesso, terá de selecionar uma conta de cobrança ou um perfil de faturação.  O perfil de faturação ou conta de cobrança, selecione **secções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Selecione uma secção de nota fiscal. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação ou um perfil de faturação.  O perfil de faturação ou conta de cobrança, selecione **secções de nota fiscal** e, em seguida, uma seção de nota fiscal.
 
     ![Captura de ecrã que mostra a lista de transição de postagem de seção de nota fiscal](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -241,11 +241,11 @@ Reservas do Azure que são movidas do seu registro do Enterprise Agreement para 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecione o perfil de faturação criado para a sua inscrição. Consoante o acesso, terá de selecionar uma conta de cobrança.  A partir da conta de cobrança, selecione **perfis de faturação** e, em seguida, o perfil de faturação.
+3. Selecione o perfil de faturação criado para a sua inscrição. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação.  A partir da conta de cobrança, selecione **perfis de faturação** e, em seguida, o perfil de faturação.
 
 4. Selecione **controlo de acesso (IAM)** do lado esquerdo.
 
@@ -257,7 +257,7 @@ Os administradores empresariais são listados como faturação proprietários de
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

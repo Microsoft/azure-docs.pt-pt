@@ -18,11 +18,11 @@ ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300432"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 

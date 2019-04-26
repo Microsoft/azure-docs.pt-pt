@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0826614c22809eba7a86f683aa970a664ed9825
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288091"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -189,7 +189,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - ID da aplicação
 - Aplicação
 - Cliente
-- Localização
+- Location
 - Endereço IP
 - Date
 - MFA Necessário

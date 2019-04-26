@@ -12,11 +12,11 @@ ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344211"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como fazer referência a anotações num conjunto de capacidades de pesquisa cognitiva
 

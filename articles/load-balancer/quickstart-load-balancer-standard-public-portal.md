@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405529"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início rápido: Criar um Balanceador de Carga Standard para fazer o balanceamento de carga das VMs com o Portal do Azure
 
@@ -78,7 +78,7 @@ Para permitir que o Balanceador de carga monitorizar o estado da sua aplicação
     | Name | Introduza *myHealthProbe*. |
     | Protocolo | Selecione **HTTP**. |
     | Porta | Enter *80*.|
-    | Intervalo | Introduza *15* para o número de **intervalo** em segundos, entre tentativas da sonda. |
+    | Interval | Introduza *15* para o número de **intervalo** em segundos, entre tentativas da sonda. |
     | Limiar com funcionamento incorreto | Selecione *2* para o número de **limiar de mau estado de funcionamento** ou falhas consecutivas da sonda que devem ocorrer antes de uma VM é considerada em mau estado de funcionamento.|
     | Sonda de estado de funcionamento | Selecione *myHealthProbe*. |
 4. Selecione **OK**.
@@ -116,7 +116,7 @@ Nesta secção, criar uma rede virtual, duas máquinas virtuais para o conjunto 
     | Espaço de endereços | Enter *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione o recurso existente - *myResourceGroupSLB*. |
-    | Localização | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede - nome | Introduza *myBackendSubnet*. |
     | Sub-rede - Intervalo de endereços | Enter *10.1.0.0/24*. |
 1. Deixe o resto dos padrões e selecione **criar**.

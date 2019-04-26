@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Active Directory do Azure com Coupa
 
@@ -114,16 +114,16 @@ Para configurar o Azure AD início de sessão único com Coupa, execute os segui
 
     | Ambiente  | do IdP |
     |:-------------|----|
-    | Sandbox | `devsso35.coupahost.com`|
-    | Produção | `prdsso40.coupahost.com`|
+    | Sandbox | `sso-stg1.coupahost.com`|
+    | Produção | `sso-prd1.coupahost.com`|
     | | |
 
     c. Na **URL de resposta** caixa de texto, escreva um URL:
 
     | Ambiente | do IdP |
     |------------- |----|
-    | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Produção | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Sandbox | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Produção | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.

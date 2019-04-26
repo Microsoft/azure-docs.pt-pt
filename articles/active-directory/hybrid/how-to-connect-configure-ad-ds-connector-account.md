@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245530"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -69,13 +69,19 @@ Get-Command -Module AdSyncConfig
 
 Cada cmdlet tem os mesmos parâmetros de entrada a conta de conector do AD DS e um comutador de AdminSDHolder. Para especificar a sua conta de conector do AD DS, pode fornecer o nome da conta e domínio ou apenas a conta DN (nome distinto),
 
-p. ex.: 
+p. ex.:
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
+```
 
-Ou; 
+Ou;
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
+```
+
+Certifique-se de substituir `<ADAccountName>`, `<ADDomainName>` e `<ADAccountDN>` pelos valores adequados para o seu ambiente.
 
 No caso de não pretender modificar as permissões no contêiner AdminSDHolder, use a opção `-SkipAdminSdHolders`. 
 

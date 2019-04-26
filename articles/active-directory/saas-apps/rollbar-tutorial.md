@@ -17,11 +17,11 @@ ms.date: 1/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ebedddf5e62e41bd0ef2d4c426df448a81a1e2d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60349802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Active Directory do Azure com Rollbar
 

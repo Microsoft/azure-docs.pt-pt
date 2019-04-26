@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372261"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Acompanhar o saldo de crédito do Azure para o contrato de cliente da Microsoft
 
@@ -33,11 +33,11 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa no portal de gestão de custos + faturação](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Vá para o perfil de faturação. Consoante o acesso, terá de selecionar uma conta de cobrança. A partir da conta de cobrança, selecione **perfis de faturação** e, em seguida, um perfil de faturação.
+3. Aceda ao perfil de faturação. Dependendo do seu acesso, pode ser preciso selecionar uma conta de faturação. A partir da conta de cobrança, selecione **perfis de faturação** e, em seguida, um perfil de faturação.
 
 4. Selecione **créditos do Azure**.
 
@@ -76,7 +76,7 @@ Créditos do Azure são um dos métodos de pagamento. Obtém crédito da Microso
 
  Os seguintes produtos não são abrangidos por créditos do Azure. É-lhe cobrado para usar esses produtos, independentemente do seu saldo de crédito:
 
-- Canonical
+- Canónico
 - Citrix XenApp Essentials
 - Citrix XenDesktop 
 - Utilizador registado

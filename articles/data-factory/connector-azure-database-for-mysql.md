@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 99a29536ccf9d4ad87bcd0aa29659306c3553972
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4c388f012cd52f0adea93ae62cc31832488fca74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387915"
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados da base de dados do Azure para MySQL com o Azure Data Factory
 
@@ -41,7 +41,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **AzureMySql** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **AzureMySql** | Sim |
 | connectionString | Especifica as informações necessárias para ligar à base de dados do Azure para a instância do MySQL. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault e obter o `password` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -110,7 +110,7 @@ Para copiar dados da base de dados do Azure para MySQL, defina a propriedade de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AzureMySqlTable** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **AzureMySqlTable** | Sim |
 | tableName | Nome da tabela na base de dados MySQL. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -141,8 +141,9 @@ Para copiar dados da base de dados do Azure para MySQL, defina o tipo de origem 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzureMySqlSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzureMySqlSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| queryCommandTimeout | O tempo de espera antes do pedido de consulta exceder o tempo limite. A predefinição é 120 minutos (02: 00:00) | Não |
 
 **Exemplo:**
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 070a2675b67c0d52bd9e3e3cb951fa9052112ad4
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: d610c42e82c1e7f01b5eb9b1c588219c20d77073
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391553"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Exemplos da CLI do Azure para o armazenamento de Blobs do Azure
 

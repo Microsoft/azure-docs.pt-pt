@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353113"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controlar a associação híbrida do Azure AD dos seus dispositivos
 

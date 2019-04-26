@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397826"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Como preencher o formulário de definições da oferta
 =======================================
@@ -42,7 +42,7 @@ Se, por exemplo, o parceiro "Contoso" Criar um ID de oferta chamado "a aplicaç�
 Essa área suspensa permite-lhe escolher o perfil do publicador que pretende publicar esta oferta em. Este campo está bloqueado assim que uma oferta entra no ar.
 
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 Este é o nome a apresentar para a sua aplicação/oferta, que será apresentado no Microsoft [AppSource](https://appsource.microsoft.com/). Pode ter um máximo de 50 carateres.
 

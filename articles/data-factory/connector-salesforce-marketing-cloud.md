@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: jingwang
 ms.openlocfilehash: de472cd25997b0c48f258927b2617c2399b2bb21
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405448"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiar dados do Salesforce Marketing Cloud, com o Azure Data Factory (pré-visualização)
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para o serviço Cloud de Marketing de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SalesforceMarketingCloud** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **SalesforceMarketingCloud** | Sim |
 | clientId | O ID de cliente associado à aplicação Salesforce Marketing Cloud.  | Sim |
 | clientSecret | O segredo do cliente associado à aplicação Salesforce Marketing Cloud. Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar extração de atividade a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
@@ -84,7 +84,7 @@ Para copiar dados do Salesforce Marketing Cloud, defina a propriedade de tipo de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SalesforceMarketingCloudObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **SalesforceMarketingCloudObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -113,7 +113,7 @@ Para copiar dados do Salesforce Marketing Cloud, defina o tipo de origem na ativ
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SalesforceMarketingCloudSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SalesforceMarketingCloudSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

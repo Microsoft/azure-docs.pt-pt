@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196223"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 
@@ -99,7 +99,7 @@ Para fazer o machine learning, o LUIS divide uma expressão em [tokens](luis-glo
 
 As culturas seguintes têm versões atomizador personalizado:
 
-|Cultura|Versão|Objetivo|
+|Cultura|Version|Objetivo|
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Divide as palavras, dividindo-los usando um atomizador de baseados em aprendizagem de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, ele é transformado `Ich fahre einen kranken wagen`. Permitir que a marcação de `kranken` e `wagen` independentemente como entidades diferentes.|
 |Alemão<br>`de-de`|1.0.1|Divide as palavras, dividindo-los em espaços.<br> Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único token. Assim, `krankenwagen` está marcado como uma única entidade. |

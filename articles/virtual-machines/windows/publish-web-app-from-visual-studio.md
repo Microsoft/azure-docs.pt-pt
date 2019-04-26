@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204421"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar uma aplicação ASP.NET Web para uma VM do Azure a partir do Visual Studio
 
@@ -106,7 +106,7 @@ As definições de devem ter um aspeto semelhante ao seguinte:
 
 - Se pretender certificar-se de que o servidor web tem uma cópia limpa do aplicativo web após cada carregamento (e que não existem outros ficheiros restantes desligar-se em torno de uma implementação anterior), pode verificar o **remover ficheiros adicionais no destino** caixa de seleção de **definições** separador.
 
-- Aviso: A publicação com esta definição elimina todos os ficheiros que existem no servidor web (diretório wwwroot). Certifique-se de que sabe o estado da máquina antes de publicar com esta opção ativada. 
+- Aviso: Publicação com esta definição elimina todos os ficheiros que existem no servidor web (diretório wwwroot). Certifique-se de que sabe o estado da máquina antes de publicar com esta opção ativada. 
 
 ![Definições - página de definições de publicação]
 

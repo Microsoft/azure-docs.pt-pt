@@ -1,23 +1,24 @@
 ---
 title: Efetue o pré-pagamento de máquinas virtuais do Azure poupar dinheiro | Documentos da Microsoft
 description: Saiba como comprar o Azure instâncias de Máquina Virtual reservadas para poupar nos custos de computação.
-services: virtual-machines-windows
+services: virtual-machines-linux
 documentationcenter: ''
-author: yashar
-manager: yashar
+author: vikramdesai01
+manager: vikramdesai01
 editor: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/13/2019
-ms.author: banders
+ms.date: 10/30/2017
+ms.author: vikdesai
 ms.openlocfilehash: e0fc5935790640cd30bbd52a2d2f93d18a7249f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406873"
 ---
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
+

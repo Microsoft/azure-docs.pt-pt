@@ -1,7 +1,6 @@
 ---
 title: Planeamento de capacidade no Azure HDInsight do cluster
 description: Como especificar um cluster do HDInsight para a capacidade e desempenho.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
 ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253308"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 

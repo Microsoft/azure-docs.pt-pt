@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236434"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Ligar ao Azure Databricks a partir do Excel, Python ou R
 
@@ -54,13 +54,13 @@ Um nome de origem de dados (DSN) contém as informações sobre uma origem de da
 
     A tabela seguinte fornece informações sobre os valores a fornecer na caixa de diálogo.
     
-    |Campo  | Valor  |
+    |Campo  | Value  |
     |---------|---------|
     |**Nome da origem de dados**     | Forneça um nome para a origem de dados.        |
-    |**Anfitriões**     | Forneça o valor que copiou a partir da área de trabalho do Databricks para *nome de anfitrião do servidor*.        |
-    |**Porta**     | Introduza *443*.        |
+    |**Host(s)**     | Forneça o valor que copiou a partir da área de trabalho do Databricks para *nome de anfitrião do servidor*.        |
+    |**Porta**     | Enter *443*.        |
     |**Autenticação** > **mecanismo**     | Selecione *nome de utilizador e palavra-passe*.        |
-    |**Nome de utilizador**     | Introduza *token*.        |
+    |**Nome de utilizador**     | Enter *token*.        |
     |**Palavra-passe**     | Introduza o valor do token que copiou a partir da área de trabalho do Databricks. |
     
     Execute os seguintes passos adicionais na caixa de diálogo de configuração de DSN.
@@ -82,7 +82,7 @@ Nesta seção, extrair dados do Azure Databricks para o Microsoft Excel usando o
 
 2. Na **de ODBC** caixa de diálogo, selecione o DSN que criou anteriormente e clique em **OK**.
 
-    ![Selecione DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "selecione DSN")
+    ![Select DSN](./media/connect-databricks-excel-python-r/excel-select-dsn.png "Select DSN")
 
 3. Se lhe forem pedidas as credenciais, no nome de utilizador introduza **token**. Palavra-passe, forneça o valor do token obtidos a partir da área de trabalho do Databricks.
 

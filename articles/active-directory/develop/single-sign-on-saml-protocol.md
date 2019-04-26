@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250511"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início de sessão único
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | ID | Necessário | Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. ID não tem de começar com um número, portanto, uma estratégia comum é preceder uma cadeia de caracteres como "id" para a representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
-| Versão | Necessário | Este parâmetro deve ser definido como **2.0**. |
+| Version | Necessário | Este parâmetro deve ser definido como **2.0**. |
 | IssueInstant | Necessário | Esta é uma cadeia de DateTime com um valor de UTC e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor de DateTime deste tipo, mas não avaliar ou utilize o valor. |
 | AssertionConsumerServiceUrl | Opcional | Se for fornecido, este parâmetro tem de corresponder a `RedirectUri` do serviço cloud no Azure AD. |
 | ForceAuthn | Opcional | Este é um valor booleano. Se for VERDADEIRO, significa que o utilizador será forçado a autenticar novamente, mesmo que tenham uma sessão válida com o Azure AD. |
@@ -100,7 +100,7 @@ Se for fornecido, não incluem o `ProxyCount` atributo, `IDPListOption` ou `Requ
 ### <a name="signature"></a>Assinatura
 Não inclua uma `Signature` elemento no `AuthnRequest` elementos, como o Azure AD suporta assinados pedidos de autenticação.
 
-### <a name="subject"></a>Requerente
+### <a name="subject"></a>Subject
 O Azure AD ignora a `Subject` elemento de `AuthnRequest` elementos.
 
 ## <a name="response"></a>Resposta
@@ -211,7 +211,7 @@ Para gerar esta assinatura digital, o Azure AD utiliza a chave de assinatura no 
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Requerente
+#### <a name="subject"></a>Subject
 
 Esta ação Especifica o principal que é o assunto das instruções na asserção. Contém um `NameID` elemento, que representa o usuário autenticado. O `NameID` valor é um identificador de destino que é direcionado apenas para o fornecedor de serviço que é o público-alvo para o token. Ele é persistente - ele pode ser revogado, mas nunca é reatribuído. Também são opaca, pois ele não expõe nada sobre o utilizador e não pode ser utilizado como um identificador para consultas de atributo.
 

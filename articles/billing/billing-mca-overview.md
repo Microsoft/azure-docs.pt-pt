@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371469"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Introdução à sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -30,7 +30,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 Sua conta de cobrança para o contrato de cliente da Microsoft contém um ou mais perfis de faturas que permitem-lhe gerir os seus métodos de pagamento e notas fiscais. Cada perfil de faturação contém um ou mais secções de nota fiscal que permitem-lhe organizar os custos de nota fiscal do perfil de faturação.
 
-O diagrama seguinte mostra a relação entre uma conta de cobrança, os perfis de faturas e seções de nota fiscal.
+O diagrama seguinte mostra a relação entre uma conta de faturação, os perfis de faturação e as secções da fatura.
 
 ![Diagrama que mostra a hierarquia de faturação para o contrato de cliente da Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
@@ -71,8 +71,8 @@ Os planos do Azure são ativados automaticamente quando cria um perfil de fatura
 
 | Planear             | Definição  |
 |------------------|-------------|
-|Microsoft Azure Plan   | Permitir aos utilizadores criar subscrições que podem ser executadas quaisquer cargas de trabalho. Para obter mais informações, consulte [plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Plano do Microsoft Azure para programação/teste | Permitir que os subscritores do Visual Studio criar as subscrições que estão limitadas para desenvolvimento ou teste de cargas de trabalho. Estas subscrições obtém benefícios, como as menores taxas e acesso a imagens de máquina de virtual exclusivo no portal do Azure. Para obter mais informações, consulte [plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Plano do Microsoft Azure   | Permitir aos utilizadores criar subscrições que podem ser executadas quaisquer cargas de trabalho. Para obter mais informações, consulte [plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
+|Plano do Microsoft Azure para Programador/Teste | Permitir que os subscritores do Visual Studio criar as subscrições que estão limitadas para desenvolvimento ou teste de cargas de trabalho. Estas subscrições obtém benefícios, como as menores taxas e acesso a imagens de máquina de virtual exclusivo no portal do Azure. Para obter mais informações, consulte [plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Compreender as secções de nota fiscal
 

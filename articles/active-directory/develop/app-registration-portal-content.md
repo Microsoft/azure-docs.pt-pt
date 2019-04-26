@@ -2,20 +2,20 @@
 title: O Azure Active Directory orientada passos de configurações
 description: Portal de registo de aplicação conteúdo
 author: CelesteDG
-ms.author: celested
+ms.author: v-junlch
 manager: mtillman
-ms.date: 10/25/2018
+origin.date: 10/25/2018
+ms.date: 12/03/2018
 ms.topic: article
-ms.subservice: develop
+ms.component: develop
 ms.service: active-directory
 ROBOTS: NOINDEX,NOFOLLOW
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9da94a72f4beb176c552964230cc2362f313bdeb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300636"
 ---
 # <a name="azure-active-directory-guided-setup-steps"></a>O Azure Active Directory orientada passos de configuração
 
@@ -24,3 +24,4 @@ ms.locfileid: "56185875"
 [!INCLUDE [active-directory-develop-guidedsetup-ios-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-ios-configure-arp.md)]
 [!INCLUDE [active-directory-develop-guidedsetup-javascriptspa-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-javascriptspa-configure-arp.md)]
 [!INCLUDE [active-directory-develop-guidedsetup-windesktop-configure-arp.md](../../../includes/active-directory-develop-guidedsetup-windesktop-configure-arp.md)]
+

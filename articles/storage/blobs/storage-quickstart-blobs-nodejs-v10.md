@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
 ms.openlocfilehash: f5f6e6dc1e8c0df88d69f9edbbdaf6e3421548df
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392352"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Início rápido: Carregar, transferir, lista e eliminar blobs com o SDK do armazenamento do Azure v10 para JavaScript
 

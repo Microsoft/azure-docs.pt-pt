@@ -17,11 +17,11 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a53e7b4652434b77341488d03b99163e15f5139
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250546"
 ---
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-android-introduction.md)]
 [!INCLUDE [2. Setup](../../../includes/active-directory-develop-guidedsetup-android-setup.md)]

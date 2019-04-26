@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60235136"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como realizar ações complexos com alertas do Azure Monitor
 
@@ -281,11 +281,11 @@ O processo para criar um alerta de métrica é semelhante à [criar um alerta de
        
        !["Condição de payload de alerta de métrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "condição de payload de alerta de métrica")
 
-  1. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
+  2. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
 
       !["Ação de postagem de métrica condição verdadeiro do alerta"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ação de postagem de condições verdadeiro alerta de métricas")
 
-  1. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
+  3. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
 
       !["Ação de postagem de condições de Falso alerta métricas"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ação de postagem de condições falso alerta de métricas")
 
@@ -298,4 +298,3 @@ O Logic Apps tem uma série de conectores diferentes que permitem-lhe realizar a
 * Obter um [descrição geral dos alertas de registo de atividades do Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas quando for lançada uma notificação do Azure Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
-

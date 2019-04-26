@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193922"
 ---
 # <a name="application-layer-security-with-front-door"></a>Segurança de camada de aplicação com a porta de entrada
 Serviço de porta de entrada do Azure fornece a capacidade de proteção de aplicações web para salvaguardar os seus aplicativos web de ataques de rede e explorações de vulnerabilidades web comuns, como Injeção de SQL ou Cross Site XSS (script). Ativada para http (s) front-ends, segurança de camada de aplicativos da porta de entrada é distribuída globalmente e sempre, ataques maliciosos de parar na rede do Azure de borda, longe do seu back-ends. Com maior segurança e a otimização de desempenho, desde início rápido fornece e experiências na web segura aos seus utilizadores finais.

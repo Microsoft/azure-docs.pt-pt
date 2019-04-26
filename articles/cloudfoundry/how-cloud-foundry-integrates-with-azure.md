@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198978"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
@@ -48,7 +48,7 @@ Por predefinição, o Balanceador de carga básico do Azure é utilizado para pe
 ### <a name="azure-standard-load-balancer-"></a>Balanceador de carga Standard do Azure *
 O Balanceador de carga do Azure é um balanceador de carga de camada 4. É utilizado para distribuir o tráfego entre instâncias de serviços num conjunto com balanceamento de carga. A versão standard fornece [funcionalidades avançadas](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) sobre a versão básica. Por exemplo, 1. O limite máximo do conjunto de back-end é gerado de 100 a 1000 VMs.  2. Os pontos finais agora suportam vários conjuntos de disponibilidade em vez de conjunto de disponibilidade única.  3. Funcionalidades adicionais, como portas HA, dados de monitorização mais avançados e assim por diante. Se estiver a mover para a zona de disponibilidade do Azure, o Balanceador de carga standard é necessário. Para uma nova implementação, recomendamos que comece com o Balanceador de carga Standard do Azure. 
 
-## <a name="3-authentication"></a>3. Authentication 
+## <a name="3-authentication"></a>3. Autenticação 
 [Cloud Foundry conta de utilizador e autenticação](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) é o serviço de gestão de identidade central para CF e seus diversos componentes. [O Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é multi-inquilino, com base na cloud diretório e identidade do serviço de gestão da Microsoft. Por predefinição, o UAA é utilizado para autenticação de Cloud Foundry. Como uma opção avançada, UAA também oferece suporte do Azure AD como um arquivo de utilizador externo. Utilizadores do Azure AD podem aceder à Cloud Foundry usando a identidade LDAP, sem uma conta do Cloud Foundry. Siga estes passos para [configurar o Azure AD para UAA no PCF](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Armazenamento de dados para o sistema de tempo de execução do Cloud Foundry

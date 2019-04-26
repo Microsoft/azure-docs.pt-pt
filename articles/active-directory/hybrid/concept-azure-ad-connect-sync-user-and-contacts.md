@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245482"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização do Azure AD Connect: Entender utilizadores, grupos e contactos
 Existem vários motivos diferentes por que teria de várias florestas do Active Directory e existem várias topologias de implementação diferentes. Modelos comuns incluem uma implementação de recurso de conta e GAL sync'ed florestas depois de uma fusão e aquisição. Mas, mesmo se existirem modelos puros, modelos híbridos são comuns também. A configuração predefinida do Azure AD Connect não assume qualquer modelo específico, mas dependendo de como a correspondência de utilizador tiver sido selecionada no guia de instalação, podem ser observados comportamentos diferentes.

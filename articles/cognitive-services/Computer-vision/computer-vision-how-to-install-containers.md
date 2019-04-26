@@ -12,11 +12,11 @@ ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203215"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
 
@@ -89,7 +89,7 @@ Assim que o contentor estiver no [computador anfitrião](#the-host-computer), ut
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar o contentor. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível no Azure `Cognitive Services` página chaves.  |
 |{BILLING_ENDPOINT_URI} | O ponto final faturação valor do URI. Exemplo é: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|

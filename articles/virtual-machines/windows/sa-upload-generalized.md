@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250745"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado para o Azure para criar uma nova VM
 
@@ -31,7 +31,7 @@ Se quiser criar uma VM a partir de um VHD especializado numa conta de armazename
 
 Este tópico explica como utilizar contas de armazenamento, mas recomendamos que os clientes mudem para utilizar discos geridos em vez disso. Para obter uma descrição completa dos como preparar, carregar e criar uma nova VM com discos geridos, consulte [criar uma nova VM a partir de um VHD generalizado carregada para o Azure com o Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 

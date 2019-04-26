@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: alkohli
 ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405567"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implementar o Azure Data Box através do portal do Azure
 

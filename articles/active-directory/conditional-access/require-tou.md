@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302334"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud
 
@@ -102,7 +102,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. O
 
 Na sua política, defina:
 
-| Definição | Valor |
+| Definição | Value |
 | --- | --- |
 | Utilizadores e grupos | Isabella Simonsen |
 | Aplicações na cloud | Microsoft Azure Management |

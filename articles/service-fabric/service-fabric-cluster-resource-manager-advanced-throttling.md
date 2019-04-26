@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 4abc3e4a28b8b98070affe19b7b7ca38f904c45b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384974"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>O Gestor de recursos de Cluster do Service Fabric de limitação
 Mesmo se tiver configurado o Gestor de recursos de Cluster corretamente, o cluster pode obter interrompido. Por exemplo, pode haver falhas simultâneas de nó e com falha domínio - o que aconteceria se de que ocorreu durante uma atualização? O Gestor de recursos de Cluster sempre tenta corrigir tudo, consumindo recursos do cluster tentando reorganizar e corrigir o cluster. Limitações do ajudar a fornecer uma opção para que o cluster pode utilizar os recursos para estabilizar - os nós voltam atrás, as partições de rede tratá-lo, bits corrigidos implementados.

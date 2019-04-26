@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Neste início rápido, vai aprender a criar uma rede virtual com o Portal do Azure. Uma rede virtual permite que os recursos do Azure, como as máquinas virtuais, comuniquem em privado entre si e com a internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391420"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Início rápido: Criar uma rede virtual com o portal do Azure
 
@@ -39,13 +39,13 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *myVirtualNetwork*. |
-    | Espaço de endereços | Introduza *10.1.0.0/16*. |
+    | Name | Introduza *myVirtualNetwork*. |
+    | Espaço de endereços | Enter *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione **criar novo**, introduza *myResourceGroup*, em seguida, selecione **OK**. |
-    | Localização | Selecione **E.U.A. Leste**.|
+    | Location | Selecione **E.U.A. Leste**.|
     | Sub-rede - nome | Introduza *myVirtualSubnet*. |
-    | Sub-rede - Intervalo de endereços | Introduza *10.1.0.0/24*. |
+    | Sub-rede - Intervalo de endereços | Enter *10.1.0.0/24*. |
 
 1. Deixe o resto dos padrões e selecione **criar**.
 
@@ -59,7 +59,7 @@ Crie duas VMs na rede virtual:
 
 1. Na **criar uma máquina virtual - Noções básicas**, introduza ou selecione estas informações:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | **DETALHES DO PROJETO** | |
     | Subscrição | Selecione a sua subscrição. |
@@ -68,7 +68,7 @@ Crie duas VMs na rede virtual:
     | Nome da máquina virtual | Introduza *myVm1*. |
     | Região | Selecione **E.U.A. Leste**. |
     | Opções de disponibilidade | Deixe a predefinição **nenhuma redundância de infraestrutura necessária**. |
-    | Imagem | Deixe a predefinição **Windows Server 2016 Datacenter**. |
+    | Image | Deixe a predefinição **Windows Server 2016 Datacenter**. |
     | Tamanho | Deixe a predefinição **Standard DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
@@ -93,7 +93,7 @@ Crie duas VMs na rede virtual:
     | Portas de segurança de rede | Selecione **permitir portas selecionadas**. |
     | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.
 
-1. Selecione **seguinte: Gestão**.
+1. Selecione **seguinte: Management**.
 
 1. Na **criar uma máquina virtual - gerenciamento**, para **conta de armazenamento de diagnóstico**, selecione **criar novo**.
 
@@ -101,7 +101,7 @@ Crie duas VMs na rede virtual:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome | Introduza *myvmstorageaccount*. |
+    | Name | Introduza *myvmstorageaccount*. |
     | Tipo de conta | Deixe a predefinição **armazenamento (v1 de fins gerais)**. |
     | Desempenho | Deixe a predefinição **padrão**. |
     | Replicação | Deixe a predefinição **armazenamento localmente redundante (LRS)**. |

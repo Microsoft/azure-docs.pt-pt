@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: b5fdcb3269a63e6f0d961bf2ab9f5f2a4a4005ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398339"
 ---
 # <a name="dynamics-365-business-central-offer"></a>Oferta de Dynamics 365 Business Central
 

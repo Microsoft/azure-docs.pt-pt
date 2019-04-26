@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341647"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
 
@@ -27,9 +27,9 @@ ms.locfileid: "55990075"
 |Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
 ||Conjunto elástico|[Conjunto elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerida](sql-database-managed-instance.md)|
-|Objetos de servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
+|Objetos do servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
 ||Servidor de instância gerida da base de dados SQL, o servidor de instância gerida ou o servidor de instância|[Instância gerida](sql-database-managed-instance.md)|
-objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
+Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
 ||Base de dados individual|Uma base de dados criado com a opção de implementação de base de dados|
 ||Bases de dados agrupadas|Uma base de dados criada dentro ou movido para um conjunto elástico|
 ||Base de dados de instância|Uma base de dados criada dentro de uma instância gerida|

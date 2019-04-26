@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
 ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194465"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua aplicação do Active Directory, treinada para um ponto de final de preparo ou de produção
 

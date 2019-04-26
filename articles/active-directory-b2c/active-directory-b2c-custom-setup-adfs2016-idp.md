@@ -3,19 +3,19 @@ title: Adicionar o ADFS como um fornecedor de identidade com as políticas perso
 description: Configurar 2016 AD FS com o protocolo SAML e as políticas personalizadas no Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0462ae68194fa22d99339b2ef369e3bbe3deabb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 85a339d2638e2223815a4ae539f37c439a4eac91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387108"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como ativar o início de sessão para uma conta de utiliz
 Precisa armazenar o certificado no seu inquilino do Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
 4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
@@ -71,7 +71,7 @@ Pode definir uma conta ADFS como um fornecedor de afirmações ao adicioná-la p
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="userPrincipalName" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
@@ -128,13 +128,13 @@ O **ClaimsProviderSelection** elemento é semelhante a um botão do fornecedor d
 Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, neste caso, é para o Azure AD B2C comunicar com uma conta do AD FS para receber um token.
 
 1. Encontrar o **OrchestrationStep** que inclua `Order="2"` no percurso do utilizador.
-2. Adicione as seguintes **ClaimsExchange** elemento certificar-se de que usar o mesmo valor para **Id** que utilizou para **TargetClaimsExchangeId**:
+2. Adicione as seguintes **ClaimsExchange** elemento certificar-se de que utiliza o mesmo valor para o ID que utilizou para **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="Contoso-SAML2" />
     ```
     
-    Atualize o valor de **TechnicalProfileReferenceId** para o **Id** do perfil técnico que criou anteriormente. Por exemplo, `Contoso-SAML2`.
+    Atualize o valor de **TechnicalProfileReferenceId** para o ID do perfil técnico que criou anteriormente. Por exemplo, `Contoso-SAML2`.
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.
 
@@ -151,7 +151,7 @@ Substitua os valores seguintes:
 
 - **o inquilino** com o nome de inquilino, como seu tenant.onmicrosoft.com.
 - **sua política** com o nome da sua política. Por exemplo, B2C_1A_signup_signin_adfs.
-- **seu perfil técnico** com o nome de tha do seu perfil de técnica de fornecedor de identidade SAML. Por exemplo, Contoso-SAML2.
+- **seu perfil técnico** com o nome do seu perfil de técnica de fornecedor de identidade SAML. Por exemplo, Contoso-SAML2.
  
 Abra um browser e navegue para o URL. Certifique-se de que digite a URL correta e de que tem acesso para o ficheiro de metadados XML. Para adicionar uma nova confiança da entidade confiadora, utilizando o snap-in Gestão do AD FS e configurar manualmente as definições, execute o seguinte procedimento num servidor de Federação. A associação **administradores** ou equivalente no computador local é o mínimo requerido para concluir este procedimento.
 

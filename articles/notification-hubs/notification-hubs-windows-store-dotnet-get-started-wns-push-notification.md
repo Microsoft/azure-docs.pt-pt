@@ -1,6 +1,6 @@
 ---
 title: Enviar notificações para aplicações da Plataforma Universal do Windows com os Hubs de Notificação do Azure | Microsoft Docs
-description: Neste tutorial, irá aprender a utilizar os Hubs de Notificação do Azure para enviar notificações push para uma aplicação da Plataforma Universal do Windows.
+description: Saiba como utilizar Notification Hubs do Azure para enviar notificações push para uma aplicação plataforma Universal do Windows.
 services: notification-hubs
 documentationcenter: windows
 author: jwargo
@@ -15,23 +15,23 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9fa54a24c5d96f0d3ad48034907f2c6fe5cb385
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60426890"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para aplicações da plataforma Universal do Windows com os Hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Neste tutorial, vai criar um hub de notificação para enviar notificações push para uma aplicação da Plataforma Universal do Windows (UWP). Vai criar uma aplicação da Loja Windows em branco que recebe notificações push com o Serviço de Notificações Push do Windows (WNS). Em seguida, pode utilizar o seu hub de notificação para difundir notificações push para todos os dispositivos que executem a sua aplicação.
+Neste tutorial, vai criar um hub de notificação para enviar notificações push para uma aplicação da Plataforma Universal do Windows (UWP). Vai criar uma aplicação da Loja Windows em branco que recebe notificações push com o Serviço de Notificações Push do Windows (WNS). Em seguida, utilizar o notification hub para difundir notificações push para todos os dispositivos que executem a sua aplicação.
 
 > [!NOTE]
 > O código concluído deste artigo está disponível no [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
-Neste tutorial, siga os passos seguintes:
+Siga os passos seguintes:
 
 > [!div class="checklist"]
 > * Criar uma aplicação na Loja Windows
@@ -45,6 +45,11 @@ Neste tutorial, siga os passos seguintes:
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) ou posterior.
 - [Ferramentas de desenvolvimento de aplicações do UWP instaladas](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Uma conta ativa da Loja Windows
+- Confirme que **receber notificações a partir de aplicações e outros remetentes** definição está ativada. 
+    - Inicie **definições** janela no seu computador.
+    - Selecione o **sistema** mosaico.
+    - Selecione **notificações e ações** no menu à esquerda. 
+    - Confirme que o **receber notificações a partir de aplicações e outros remetentes** definição está ativada. Se não estiver ativada, tem de ativá-la. 
 
 A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais dos Hubs de Notificação para aplicações do UWP.
 
@@ -170,8 +175,7 @@ Pode testar rapidamente a receção das notificações na sua aplicação ao env
     ![Mensagem de notificação](./media/notification-hubs-windows-store-dotnet-get-started/test-notification-message.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Neste tutorial, enviou notificações de difusão para todos os seus dispositivos Windows através do portal ou de uma aplicação de consola. Para saber como enviar notificações push para dispositivos específicos, avance para o tutorial seguinte:
+Enviou notificações de difusão para todos os dispositivos Windows com o portal ou de uma aplicação de consola. Para saber como enviar notificações push para dispositivos específicos, avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
 >[Enviar notificações push para dispositivos específicos](

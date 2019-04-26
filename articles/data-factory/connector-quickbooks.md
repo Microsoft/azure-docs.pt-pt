@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 8f5e3958588a597bde04ae1c8e4873006b281458
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405822"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks Online com o Azure Data Factory (pré-visualização)
 
@@ -46,7 +46,7 @@ As seguintes propriedades são suportadas para o serviço ligado de QuickBooks:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **QuickBooks** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **QuickBooks** | Sim |
 | endpoint | O ponto final do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | Sim |
 | companyId | O ID de empresa da empresa para autorizar o QuickBooks. Para informações sobre como localizar o ID da empresa, veja [como posso encontrar minha ID da empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sim |
 | consumerKey | A chave de consumidor para a autenticação OAuth 1.0. | Sim |
@@ -92,7 +92,7 @@ Para copiar dados do QuickBooks Online, defina a propriedade de tipo de conjunto
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -121,7 +121,7 @@ Para copiar dados do QuickBooks Online, defina o tipo de origem na atividade de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **QuickBooksSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **QuickBooksSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

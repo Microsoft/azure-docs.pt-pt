@@ -3,18 +3,19 @@ title: Script do Azure PowerShell - replicação de várias regiões para o Azur
 description: Exemplo do Script do Azure PowerShell - Replicação de várias regiões para o Azure Cosmos DB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-author: SnehaGunda
-ms.author: sngun
+author: rockboyfor
+ms.author: v-yeche
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 05/10/2017
+origin.date: 05/10/2017
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 02628401bed6e65784bf7ddc4a7082f617640cf9
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448474"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>Replicar uma conta de base de dados do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha com o Azure PowerShell
 
@@ -26,7 +27,80 @@ Este exemplo replica qualquer tipo de conta de base de dados do Azure Cosmos DB 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/replicate-database-multiple-regions/replicate-database-multiple-regions.ps1?highlight=37-44,47-48,51-55 "Replicate an Azure Cosmos DB account across multiple regions")]
+<!--First make chinaeast2 as wirte region-->
+<!--Second make chinanorth as write region-->
+<!--Last add chinanorth2 new region-->
+
+```powershell
+# Set the Azure resource group name and location
+$resourceGroupName = "myResourceGroup"
+$resourceGroupLocation = "chinaeast2"
+
+# Database name
+$DBName = "testdb"
+# Distribution locations
+$locations = @(@{"locationName"="chinaeast"; 
+                 "failoverPriority"=2},
+               @{"locationName"="chinanorth"; 
+                 "failoverPriority"=1},
+               @{"locationName"="chinaeast2"; 
+                 "failoverPriority"=0})
+
+
+# Create the resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+
+# Consistency policy
+$consistencyPolicy = @{"maxIntervalInSeconds"="10"; 
+                       "maxStalenessPrefix"="200"}
+
+# DB properties
+$DBProperties = @{"databaseAccountOfferType"="Standard";
+                  "Kind"="GlobalDocumentDB"; 
+                  "locations"=$locations; 
+                  "consistencyPolicy"=$consistencyPolicy;}
+
+# Create the database
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+                    -ApiVersion "2015-04-08" `
+                    -ResourceGroupName $resourceGroupName `
+                    -Location $resourceGroupLocation `
+                    -Name $DBName `
+                    -PropertyObject $DBProperties
+
+# Update failoverpolicy to make China North as a write region
+$NewfailoverPolicies = @(@{"locationName"="chinanorth"; "failoverPriority"=0}, @{"locationName"="chinaeast2"; "failoverPriority"=1}, @{"locationName"="chinaeast"; "failoverPriority"=2} )
+
+Invoke-AzResourceAction `
+    -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName `
+    -Name $DBName `
+    -Parameters @{"failoverPolicies"=$NewfailoverPolicies}
+
+# Add a new locations with priorities
+$newLocations = @(@{"locationName"="chinanorth"; 
+                 "failoverPriority"=0},
+               @{"locationName"="chinaeast"; 
+                 "failoverPriority"=1},
+               @{"locationName"="chinanorth2"; 
+                 "failoverPriority"=2},
+               @{"locationName"="chinaeast2";
+                 "failoverPriority"=3})
+
+# Updated properties
+$updateDBProperties = @{"databaseAccountOfferType"="Standard";
+                        "locations"=$newLocations;}
+
+# Update the database with the properties
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName `
+    -Name $DBName `
+    -PropertyObject $UpdateDBProperties
+
+```
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
@@ -53,3 +127,5 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
 Pode ver exemplos do script do Azure PowerShell Cosmos DB adicionais nos [scripts do PowerShell do Azure Cosmos DB](../powershell-samples.md).
+
+<!-- Update_Description: update meta properties -->

@@ -9,16 +9,16 @@ ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 03/12/2018
-ms.author: ghogen
+origin.date: 03/12/2018
+ms.date: 09/03/2018
+ms.author: v-junlch
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: 662d958fc7ef6fe5c9d0e61a1d8e48983d10196f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353810"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introdução ao Azure Active Directory (aos projetos WebApi)
 
@@ -38,3 +38,5 @@ Todos os controladores no seu projeto foram adornados com o `[Authorize]` atribu
 
 - [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
 - [Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)
+
+<!-- Update_Description: link update -->

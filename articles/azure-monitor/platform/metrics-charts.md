@@ -1,19 +1,19 @@
 ---
 title: Recursos avançados do Explorador de métricas do Azure
 description: Saiba mais sobre funcionalidades avançadas do Explorador de métricas do Azure Monitor
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: vitalyg
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256807"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Explorador de métricas do Azure
 
@@ -149,4 +149,3 @@ Veja esta [artigo](alerts-metric.md) para saber mais sobre como configurar alert
 ## <a name="next-steps"></a>Passos Seguintes
 
   Leia [criar dashboards de KPI personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para a criação de dashboards passíveis de ação com a métrica.
-

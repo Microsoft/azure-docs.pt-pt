@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60315562"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início rápido: Criar uma fábrica de dados com a IU do Azure Data Factory
 

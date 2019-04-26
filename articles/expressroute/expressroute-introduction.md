@@ -1,5 +1,5 @@
 ---
-title: 'Expanda a sua rede no local para o Azure através de uma ligação privada - descrição geral do ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Expanda a sua rede no local para o Azure através de uma ligação privada - descrição geral do ExpressRoute: Azure | Microsoft Docs'
 description: A Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
 services: expressroute
 author: mialdrid
@@ -9,11 +9,11 @@ ms.date: 10/18/2018
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364351"
 ---
 # <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
 O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365.

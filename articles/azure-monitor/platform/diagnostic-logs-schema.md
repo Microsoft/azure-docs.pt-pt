@@ -9,11 +9,11 @@ ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236169"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -25,12 +25,12 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 | Name | Obrigatório/opcional | Descrição |
 |---|---|---|
-| hora | Necessário | O carimbo de hora (UTC) do evento. |
+| time | Necessário | O carimbo de hora (UTC) do evento. |
 | resourceId | Necessário | O ID de recurso do recurso que o evento de emitidos. Para os serviços de inquilino, esta é a de /tenants/tenant-id/providers/provider-name o formulário. |
 | tenantId | Necessário para os registos de inquilino | O ID de inquilino do que este evento está associado ao inquilino do Active Directory. Esta propriedade só é utilizada para os registos de nível de inquilino, não é apresentado nos registos ao nível do recurso. |
 | operationName | Necessário | O nome da operação representada por este evento. Se o evento representa uma operação de RBAC, este é o nome da operação de RBAC (ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Modelada normalmente na forma de uma operação do Gestor de recursos, mesmo que não sejam operações de Gestor de recursos de documentado real (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A api-version associada à operação, se o operationName foi executada com uma API (por exemplo. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver nenhuma API que corresponde a esta operação, a versão representa a versão dessa operação, caso as propriedades associadas a operação mudar no futuro. |
-| categoria | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que são apresentados no blob de propriedades de um evento são os mesmos dentro de um tipo de categoria e recursos de log específico. Categorias de registo típicos são "Auditoria" "operacional" "Execução" e "Pedido." |
+| category | Necessário | A categoria de registo do evento. Categoria é a granularidade na qual pode ativar ou desativar os registos num determinado recurso. As propriedades que são apresentados no blob de propriedades de um evento são os mesmos dentro de um tipo de categoria e recursos de log específico. Categorias de registo típicos são "Auditoria" "operacional" "Execução" e "Pedido." |
 | resultType | Opcional | O estado do evento. Valores típicos incluem iniciado, em curso, com êxito, falha, Active Directory e resolvido. |
 | resultSignature | Opcional | O estado de sub-rotina do evento. Se esta operação corresponde a uma chamada à REST API, este é o código de estado HTTP da chamada REST correspondente. |
 | resultDescription | Opcional | A descrição de texto estático desta operação, por exemplo. "Obter o ficheiro de armazenamento." |
@@ -40,7 +40,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 | identidade | Opcional | Um blob JSON que descreve a identidade do utilizador ou aplicação que executou a operação. Normalmente, isto incluirá a autorização e afirmações / token JWT do Active Directory. |
 | Nível | Opcional | O nível de gravidade do evento. Tem de ser informativo, aviso, erro ou crítico. |
 | localização | Opcional | A região do recurso emite o evento, por exemplo. "Este dos E.U.A." ou "Sul de França" |
-| propriedades | Opcional | Quaisquer propriedades relacionadas com esta categoria específica de eventos de estendidas. Todas as propriedades personalizadas/exclusivo tiver de ser colocadas dentro deste "B de parte" do esquema. |
+| properties | Opcional | Quaisquer propriedades relacionadas com esta categoria específica de eventos de estendidas. Todas as propriedades personalizadas/exclusivo tiver de ser colocadas dentro deste "B de parte" do esquema. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Esquemas de serviços específicos para os registos de diagnóstico de recursos
 O esquema para os registos de diagnóstico de recursos varia consoante a categoria de recursos e de registo. Esta lista mostra todos os serviços que tornam os registos de diagnóstico disponíveis e links para o serviço e o esquema de categorias específicas que estiverem disponíveis.
@@ -81,7 +81,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | Gateways de Rede Virtual | Esquema não está disponível. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Suportado categorias de registo por tipo de recurso
-|Tipo de Recurso|Categoria|Nome de exibição de categoria|
+|Tipo de Recurso|Category|Nome de exibição de categoria|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Serviço|Serviço|
@@ -199,7 +199,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 |Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de espera de Store de consulta|
 |Microsoft.Sql/managedInstances/databases|Erros|Erros|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
-|Microsoft.StreamAnalytics/streamingjobs|Criação de conteúdos|Criação de conteúdos|
+|Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
 |microsoft.web/sites|FunctionExecutionLogs|Registos de execução de função|
 |microsoft.web/sites/slots|FunctionExecutionLogs|Registos de execução de função|
 

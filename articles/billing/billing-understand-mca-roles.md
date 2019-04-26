@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370972"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do contrato de cliente da Microsoft no Azure
 
@@ -163,7 +163,7 @@ As tabelas seguintes mostram que função tem de concluir as tarefas no contexto
 |Gerir a faturação de produtos para a secção de nota fiscal como cancelar, desativar a renovação automática e muito mais|✔|✔|✘|✘|✘|✘|✘|
 |Secção de nota fiscal de alteração para os produtos|✔|✔|✘|✘|✘|✘|✘|
 
-### <a name="manage-subscriptions-for-invoice-section"></a>Gerir subscrições para a secção de nota fiscal
+### <a name="manage-subscriptions-for-invoice-section"></a>Gerir subscrições da secção de fatura
 
 |Tarefas|Proprietário da secção de fatura|Contribuinte da secção de fatura|Leitor da secção de fatura|Criador da subscrição do Azure|Proprietário da conta de faturação|Contribuinte da conta de faturação|Leitor da conta de faturação
 |---|---|---|---|---|---|---|---|
@@ -185,7 +185,7 @@ A tabela seguinte mostra que função tem de concluir as tarefas no contexto de 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335444"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -340,7 +340,7 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | CHAR |String |
 | VARCHAR |String |
 | DATA |DateTime |
-| TIMESTAMP |DateTime |
+| CARIMBO DE DATA/HORA |DateTime |
 | TEXTO |String |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink

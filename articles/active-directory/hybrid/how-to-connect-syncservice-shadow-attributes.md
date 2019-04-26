@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839173"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384722"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do cópias de sombra de serviço de sincronização do Azure AD Connect
 A maioria dos atributos são representados da mesma maneira no Azure AD, como estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente daquelas que o Azure AD Connect sincroniza.
@@ -42,7 +43,7 @@ Um utilizador tem os seguintes valores de atributo num domínio não verificado:
 | --- | --- |
 | userPrincipalName no local | lee.sperry@fabrikam.com |
 | O Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
-| UserPrincipalName do Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
+| UserPrincipalName do Azure AD | lee.sperry@fabrikam.partner.onmschina.cn |
 
 O atributo userPrincipalName é o valor visto quando utilizar o PowerShell.
 
@@ -77,3 +78,5 @@ Atributos de cópias de sombra também são utilizados quando existem valores de
 ## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

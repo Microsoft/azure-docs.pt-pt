@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386864"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo no Windows Server
 Pode utilizar o Azure Service Fabric para criar clusters do Service Fabric em máquinas virtuais ou computadores que executam o Windows Server. Isso significa que pode implementar e executar aplicações do Service Fabric em qualquer ambiente que contém um conjunto de computadores do Windows Server interconectadas, seja no local ou com qualquer fornecedor de cloud. O Service Fabric fornece um pacote de configuração para criar clusters do Service Fabric chamados pacote autónomo do Windows Server.

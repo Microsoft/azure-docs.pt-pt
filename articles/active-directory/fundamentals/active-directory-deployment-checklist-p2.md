@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249714"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de recursos do Azure Active Directory
 

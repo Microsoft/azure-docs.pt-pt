@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239164"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -63,7 +63,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Azure Database for MariaDB
 * Base de Dados do Azure para MySQL
 * Base de Dados do Azure para PostgreSQL
-* DevOps do Azure - as organizações de DevOps do Azure com a extensão de não-Microsoft compras obrigatória [cancelar as suas compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder avançar a conta em várias subscrições.
+* DevOps do Azure - siga os passos para [alterar a subscrição do Azure utilizada para faturação](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Azure Maps
 * Registos do Azure Monitor
 * Reencaminhamento do Azure
@@ -74,7 +74,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * CDN
 * Serviços cloud - veja [limitações da implementação clássica](#classic-deployment-limitations)
 * Serviços Cognitivos
-* Registo de contentor - não é possível mover um registo de contentor quando a georreplicação está ativada.
+* Registo de Contentor
 * Content Moderator
 * Gestão de Custos
 * Informações do Cliente

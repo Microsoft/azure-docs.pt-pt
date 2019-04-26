@@ -16,11 +16,11 @@ ms.date: 06/17/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5d83ab0c14da772551a8f33704e0e776be5ebb6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60274861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: Integração do Active Directory do Azure com a plataforma de gestão de contrato a Icertis
 

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60238028"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Registos de diagnóstico do Azure Stream à área de trabalho do Log Analytics no Azure Monitor
 
@@ -107,7 +107,7 @@ Uma vez que muitos recursos enviar tipos de dados são enviados para a mesma tab
  
 A tabela de AzureDiagnostics será semelhante ao seguinte, com alguns dados de exemplo:  
  
-| ResourceProvider | Categoria | A | B | C | D | E | F | G | H | I |
+| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
 | Microsoft.Resource2 | ErrorLogs | | | | q1 | W1 | e1 |
@@ -124,7 +124,7 @@ O Azure Data Factory, devido a um conjunto muito detalhado de registos, é um re
 - *Parâmetros de utilizador definidos em relação a qualquer atividade no seu pipeline*: haverá uma nova coluna criada para cada parâmetro exclusivamente-com o nome de utilizador em relação a qualquer atividade. 
 - *Atividade entradas e saídas*: estas variam de atividade para atividade e gerar uma grande quantidade de devido a respetiva natureza verbosa. 
  
-Como com as mais amplas propostas de solução abaixo, é recomendado para isolar os registos do ADF para sua própria área de trabalho para minimizar a possibilidade destes registos afetar outros tipos de registos recolhidos em suas áreas de trabalho. Esperamos ter organizado os registos do Azure Data Factory pela mid-Abril de 2019.
+Como com as mais amplas propostas de solução abaixo, é recomendado para isolar os registos do ADF para sua própria área de trabalho para minimizar a possibilidade destes registos afetar outros tipos de registos recolhidos em suas áreas de trabalho. Esperamos que tenha mantido registos do Azure Data Factory em breve.
  
 #### <a name="workarounds"></a>Soluções alternativas
 Curta duração, até que o limite de 500 coluna é redefinido, é recomendável separar os tipos de dados verboso em áreas de trabalho separadas para reduzir a possibilidade de atingir o limite.

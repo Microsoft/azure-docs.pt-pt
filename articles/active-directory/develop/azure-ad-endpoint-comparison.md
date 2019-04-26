@@ -19,11 +19,11 @@ ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, d
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410672"
 ---
 # <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Comparação entre o ponto final de plataforma de identidade do Microsoft e o ponto final de versão 1.0 do Azure AD
 

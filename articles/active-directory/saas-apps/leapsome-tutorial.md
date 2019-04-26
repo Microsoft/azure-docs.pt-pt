@@ -16,11 +16,11 @@ ms.date: 06/22/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60260101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Active Directory do Azure com Leapsome
 

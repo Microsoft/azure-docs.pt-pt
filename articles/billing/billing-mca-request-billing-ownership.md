@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371962"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Obter a propriedade das subscrições do Azure com outros usuários de faturação
 
@@ -35,16 +35,16 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Vá para a secção de nota fiscal. Consoante o acesso, terá de selecionar uma conta de cobrança ou o perfil de faturação. A partir da conta de faturação ou um perfil, selecione **secções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Aceda à secção de fatura. Consoante o acesso, terá de selecionar uma conta de cobrança ou o perfil de faturação. A partir da conta de faturação ou um perfil, selecione **secções de nota fiscal** e, em seguida, uma seção de nota fiscal.
    <!-- Todo - Add a screenshot -->
 
 4. Selecione **pedidos de transferência** no lado inferior esquerdo.
 
-5. Na parte superior da página, selecione **adicionar**.
+5. Na parte superior da página, selecione **Adicionar**.
 
 6. Introduza o endereço de e-mail do utilizador que está solicitando a propriedade de faturação do. O utilizador tem de ser um administrador de conta numa conta de cobrança do programa de serviço Online da Microsoft ou um proprietário da conta num contrato Enterprise. Para obter mais informações, consulte [ver as suas contas de faturas no portal do Azure](billing-view-all-accounts.md).
 
@@ -64,11 +64,11 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Vá para a secção de nota fiscal. Consoante o acesso, terá de selecionar uma conta de cobrança ou o perfil de faturação. A partir da conta de faturação ou um perfil, selecione **secções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Aceda à secção de fatura. Consoante o acesso, terá de selecionar uma conta de cobrança ou o perfil de faturação. A partir da conta de faturação ou um perfil, selecione **secções de nota fiscal** e, em seguida, uma seção de nota fiscal.
    <!-- Todo - Add a screenshot -->
 
 4. Selecione **pedidos de transferência** no lado inferior esquerdo.

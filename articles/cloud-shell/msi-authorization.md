@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: damaerte
 ms.openlocfilehash: 7cadaaf67f9c6923ee9e9eb2596941aa8e1f0c9b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60199487"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Utilizar identidades geridas para recursos do Azure no Azure Cloud Shell
 

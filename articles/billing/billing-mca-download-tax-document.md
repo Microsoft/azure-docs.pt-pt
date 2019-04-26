@@ -16,11 +16,11 @@ ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371551"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Ver os documentos de imposto para o seu contrato de cliente da Microsoft
 
@@ -31,7 +31,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 Tem de ser o proprietário, Contribuidor, leitor ou o Gerenciador de faturas do perfil de faturação para ver e transferir documentos de imposto. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 <!-- TO DO: add link to manage access doc for MCA -->
 
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 2. Selecione um perfil de faturação.
 3. Selecione **Faturas**.
 4. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente para o documento de imposto sobre que pretende transferir.

@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e08c8c4c576f9dd0ee6896b7adf53279afc9f53c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60340343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Tutorial: Integração do Active Directory do Azure com o SECURE entregar
 

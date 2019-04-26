@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
 ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329691"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutorial: Controlar o encaminhamento de tráfego com pontos de extremidade ponderados utilizando o Gestor de tráfego
 
@@ -58,7 +58,7 @@ Nesta secção, irá criar duas VMs, (*myIISVMEastUS* e *myIISVMWEurope*), nas r
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Novo** e introduza **myResourceGroupTM1**.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Location| Selecione **E.U.A. Leste**.|
     |||
 
 4. Selecione um tamanho de VM em **Escolher um tamanho**.
@@ -78,7 +78,7 @@ Nesta secção, irá criar duas VMs, (*myIISVMEastUS* e *myIISVMWEurope*), nas r
     |Definição|Value|
     |---|---|
     |Grupo de recursos | Selecione **Novo** e introduza **myResourceGroupTM2**.|
-    |Localização|Introduza **Europa Ocidental**.|
+    |Location|Introduza **Europa Ocidental**.|
     |Nome da VM | Introduza **myIISVMWEurope**.|
     |Rede virtual | Selecione **Rede virtual**. Em **Criar rede virtual**, para **Nome**, introduza **myVNet2**. Para a **Sub-rede**, introduza **mySubnet**.|
     |||

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391236"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de trabalho Web) de serviços
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -96,7 +96,7 @@ Pode usar **QueueTrigger** com os seguintes tipos:
 ## <a name="polling-algorithm"></a>Algoritmo de consulta
 O SDK implementa um aleatório exponencial término algoritmo para minimizar o efeito da fila de inatividade de consulta nos custos de transação de armazenamento.  Quando é encontrada uma mensagem, o SDK tem de aguardar dois segundos e, em seguida, verifica a existência de outra mensagem; Quando não é encontrada nenhuma mensagem que ele espera cerca de quatro segundos antes de tentar novamente. Depois de tentativas falhadas subsequentes para obter uma mensagem de fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, o que está predefinida para um minuto. [O tempo de espera máximo é configurável](#how-to-set-configuration-options).
 
-## <a name="multiple-instances"></a>Várias instâncias
+## <a name="multiple-instances"></a>Múltiplas instâncias
 Se a sua aplicação web é executado em várias instâncias, um WebJobs contínuos é executado em cada máquina, e cada máquina irá esperar para acionadores e tentar executar as funções. Então, em alguns cenários, que isso pode levar a algumas funções de processar os mesmos dados duas vezes, as funções devem de ser idempotentes (escrito para que a chamá-los repetidamente com os mesmos dados de entrada não produz resultados duplicados).  
 
 ## <a name="parallel-execution"></a>Execução paralela

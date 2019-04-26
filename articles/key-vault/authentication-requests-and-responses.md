@@ -2,23 +2,19 @@
 title: Autenticação, Pedidos e Respostas
 description: Autenticar com o AD para utilizar o Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201351"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -91,7 +87,7 @@ Este tópico aborda informações específicas para o serviço Azure Key Vault. 
 
 ```  
 
-## <a name="authentication"></a>Authentication  
+## <a name="authentication"></a>Autenticação  
  Todos os pedidos para o Azure Key Vault tem de ser autenticado. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos com OAuth2 [[especificação RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Para obter mais informações sobre a registar a aplicação e da autenticação a utilizar o Azure Key Vault, consulte [registar a sua aplicação de cliente com o Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

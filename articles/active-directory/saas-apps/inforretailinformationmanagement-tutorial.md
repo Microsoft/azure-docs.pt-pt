@@ -17,11 +17,11 @@ ms.date: 07/25/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7c4ac61caae371ebce7c273a4b48244a45c3519
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60273317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integração do Active Directory do Azure com o Infor revenda – gerenciamento de informações
 

@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250048"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e de protocolo do OpenID Connect
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 O `{tenant}` pode efetuar uma das quatro valores:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | `common` |Os utilizadores com uma conta Microsoft pessoal e uma conta escolar ou profissional do Azure AD podem iniciar sessão para a aplicação. |
 | `organizations` |Ou profissional de apenas os utilizadores com contas escolares do Azure AD podem iniciar sessão na aplicação. |

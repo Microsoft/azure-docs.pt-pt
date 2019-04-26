@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 0d79e53f731c20777ffa2fb57b3b8149fe4e60ab
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239951"
 ---
 # <a name="configure-android-device-messaging-adm-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar definições de Android Device Messaging (ADM) para um hub de notificação no portal do Azure
 Este artigo mostra-lhe como configurar definições de Android Device Messaging (ADM) para um hub de notificação do Azure com o portal do Azure. 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como configurar definições de Android Device Messaging 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se ainda não tiver criado um hub de notificação, crie uma agora. Para obter mais informações, consulte [criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
 
-## <a name="configure-android-device-messaging"></a>Configurar mensagens de dispositivo Android
+## <a name="configure-android-device-messaging"></a>Configurar o Android Device Messaging
 
 O procedimento seguinte dá-lhe os passos para configurar as definições do Amazon Device Messaging (ADM) para um hub de notificação: 
 

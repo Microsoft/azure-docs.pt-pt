@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: yegu
 ms.openlocfilehash: d02d3196c2cbc130a2e88061df514b0bf681b1bf
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240780"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Eliminar a Cache do Azure para Redis
 

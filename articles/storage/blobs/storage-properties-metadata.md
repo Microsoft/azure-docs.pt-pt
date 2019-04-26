@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392403"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Definir e obter propriedades e metadados
 
@@ -27,7 +27,7 @@ Recuperando valores de propriedade e os metadados de um recurso de armazenamento
 > [!IMPORTANT]
 > Se achar que não tenham sido populados valores de propriedade ou metadados para um recurso de armazenamento, em seguida, verifique que o seu código chama o **FetchAttributes** ou **FetchAttributesAsync** método.
 >
-> Pares de nome/valor de metadados são cabeçalhos HTTP válidos e, por isso, devem cumprir todas as restrições que regem os cabeçalhos HTTP. Os nomes dos metadados tem de ser válidos nomes de cabeçalho HTTP, podem conter apenas caracteres ASCII e devem ser tratados como maiúsculas de minúsculas. Os valores de metadados que contém carateres não ASCII devem ser codificada em Base64 ou com codificação URL.
+> Pares de nome/valor de metadados são cabeçalhos HTTP válidos e, por isso, devem cumprir todas as restrições que regem os cabeçalhos HTTP. Nomes de metadados têm de ser válidos nomes de cabeçalho HTTP e válido C# identificadores, pode conter apenas carateres ASCII e devem ser tratados como maiúsculas de minúsculas. Os valores de metadados que contém carateres não ASCII devem ser codificada em Base64 ou com codificação URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Configurando e recuperando propriedades
 Para obter valores de propriedade, chamar o **FetchAttributesAsync** método no blob ou contentor para preencher as propriedades, em seguida, leia os valores.

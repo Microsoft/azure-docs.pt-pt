@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: jowargo
 ms.openlocfilehash: 99ea21b3eb01a674a89c70a1b923f02e600cc3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234474"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar o escalão de preço de um espaço de nomes de hubs de notificação do Azure
 Os Hubs de notificação são disponibilizados em três escalões: **gratuita**, **básica**, e **padrão**. Este artigo mostra-lhe como alterar o escalão de preço para um espaço de nomes de Hubs de notificação do Azure. 

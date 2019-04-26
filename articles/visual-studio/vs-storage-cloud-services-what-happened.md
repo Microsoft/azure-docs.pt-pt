@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: e823bc16c500dfee44312a774d5e3bd6622e5fae
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b0adceb42109f07658e56cebde3fbc4401478a1e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391094"
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto de serviços cloud (serviço ligado do armazenamento do Azure do Visual Studio)?
 ## <a name="references-added"></a>Referências adicionadas

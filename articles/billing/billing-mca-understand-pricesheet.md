@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371364"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua folha de preços para um contrato de cliente da Microsoft
 
@@ -40,7 +40,7 @@ A secção seguinte descreve os termos de importantes exibidos na sua folha de p
 | billingProfileName  | Nome do perfil de faturação que está configurado para receber as notas fiscais. Os preços indicados na tabela de preços estão associados este perfil de faturação. |
 | productOrderName  | Nome do plano do produto comprado. |
 | serviceFamily  | Tipo de serviço do Azure. Por exemplo: Segurança de computação, análise, |
-| Produto  | Nome do produto a acumular os custos. Por exemplo: Básicos SQL DB vs padrão SQL DB  |
+| Product  | Nome do produto a acumular os custos. Por exemplo: Básicos SQL DB vs padrão SQL DB  |
 | productId  | Identificador exclusivo para o produto cuja medidor é consumido. |
 | unitOfMeasure  | Identifica as unidades de medida para uma faturação para o serviço. Por exemplo, os serviços de computação são faturados por hora. |
 | meterId  | Identificador exclusivo para o medidor. |
@@ -53,7 +53,7 @@ A secção seguinte descreve os termos de importantes exibidos na sua folha de p
 | tierMinimumUnits  | Define o limite inferior do intervalo de camada para o qual os preços são definidos. Por exemplo, se o intervalo de 0 a 100, tierMinimumUnits seria 0.  |
 | effectiveStartDate  | Quando entra em vigor o preço de data de início. |
 | effectiveEndDate  | Data de fim do preço em vigor. |
-| unitPrice  | Preço por unidade no momento da faturação (não o preço combinado eficaz) o mais específico para um nome de ordem de medidor e o produto.  Nota: O preço unitário não é o mesmo como o preço em vigor nos detalhes de utilização downloads em caso de serviços que têm preços diferenciais em escalões.  Em caso de serviços com várias camadas de preços, o preço em vigor é uma taxa combinada em todas as camadas e não mostra um preço de unidade do escalão específico. O preço combinado ou preço efetiva é o preço líquido para a distribuição de quantidade consumida em várias camadas (em que cada escalão tem um preço de unidade específica). |
+| preçoUnitário  | Preço por unidade no momento da faturação (não o preço combinado eficaz) o mais específico para um nome de ordem de medidor e o produto.  Nota: O preço unitário não é o mesmo como o preço em vigor nos detalhes de utilização downloads em caso de serviços que têm preços diferenciais em escalões.  Em caso de serviços com várias camadas de preços, o preço em vigor é uma taxa combinada em todas as camadas e não mostra um preço de unidade do escalão específico. O preço combinado ou preço efetiva é o preço líquido para a distribuição de quantidade consumida em várias camadas (em que cada escalão tem um preço de unidade específica). |
 | basePrice  | O preço de mercado no momento em que o cliente inicia sessão ou o preço de mercado no momento o medidor de serviço inicia se for após o início de sessão.   |
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft

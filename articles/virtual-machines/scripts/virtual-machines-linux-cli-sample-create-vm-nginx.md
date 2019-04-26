@@ -17,11 +17,11 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 5aa682af11744389739a539e900924ed93a3bbd6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304315"
 ---
 # <a name="create-a-vm-with-nginx"></a>Criar uma VM com o NGINX
 

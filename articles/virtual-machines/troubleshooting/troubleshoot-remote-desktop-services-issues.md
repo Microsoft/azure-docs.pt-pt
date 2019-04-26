@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 5458a02c09a3600875c7300b27c5a87a735b2f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650758"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318905"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Não é a partir de serviços de ambiente de trabalho remoto numa VM do Azure
 
@@ -57,7 +57,7 @@ Quando tentar ligar a uma VM, ocorrer os seguintes cenários:
 Este problema ocorre porque os serviços de ambiente de trabalho remoto não está em execução na VM. A causa pode depender dos seguintes cenários: 
 
 - O serviço de TermService está definido como **desativado**. 
-- O serviço de TermService está a falhar ou desligar-se. 
+- O serviço de TermService está a falhar ou não responde. 
 - O TermService não está a iniciar devido uma configuração incorreta.
 
 ## <a name="solution"></a>Solução

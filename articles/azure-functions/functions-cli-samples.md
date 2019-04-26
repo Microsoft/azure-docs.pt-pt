@@ -12,11 +12,11 @@ ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: ba0ecda0ec24bf0a07acbf1bf5bfef494c3eabdd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306433"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 

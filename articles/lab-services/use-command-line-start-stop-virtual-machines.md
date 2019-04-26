@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236683"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Utilize ferramentas de linha de comandos para iniciar e parar máquinas de virtuais do Azure DevTest Labs
 Este artigo mostra-lhe como utilizar o Azure PowerShell ou a CLI do Azure para iniciar ou parar máquinas virtuais num laboratório no Azure DevTest Labs. Pode criar scripts do PowerShell/CLI para automatizar essas operações. 
@@ -34,7 +34,7 @@ No entanto, em alguns cenários, talvez queira automatizar iniciar e parar de VM
 - Utilize-o como uma tarefa dentro de um fluxo de trabalho de CI/CD para começar do início do fluxo, utilize a VMs como máquinas de compilação, testar máquinas, nem a infraestrutura, em seguida, pare as VMs quando o processo estiver concluído. Um exemplo disso seria a fábrica de imagem personalizada com o Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-O seguinte script do PowerShell inicia uma VM num laboratório. [AzResourceAction invocar](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0) é o foco principal deste script. O **ResourceId** parâmetro é o ID de recurso completamente qualificado para a VM no laboratório. O **ação** parâmetro é o local onde o **iniciar** ou **parar** são definidas opções consoante o que é necessário.
+O seguinte script do PowerShell inicia uma VM num laboratório. [AzResourceAction invocar](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) é o foco principal deste script. O **ResourceId** parâmetro é o ID de recurso completamente qualificado para a VM no laboratório. O **ação** parâmetro é o local onde o **iniciar** ou **parar** são definidas opções consoante o que é necessário.
 
 ```powershell
 # The id of the subscription

@@ -13,11 +13,11 @@ ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329586"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Descrição geral de medidas de utilizadores reais do Gestor de tráfego
 

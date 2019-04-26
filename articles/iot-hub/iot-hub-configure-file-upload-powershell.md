@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 4f1a5d59c340a02dcdc0291046ef6361c6f41c86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318465"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar o IoT Hub, carregamentos de ficheiros com o PowerShell
 

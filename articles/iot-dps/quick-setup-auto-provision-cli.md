@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363721"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com a CLI do Azure
 
@@ -26,8 +26,6 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 > Tanto o hub IoT, como o Serviço Aprovisionamento, que criar neste Início Rápido serão detetáveis publicamente como pontos finais DNS. Se optar por alterar os nomes utilizadores para os recursos, evite informações confidenciais.
 >
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -131,7 +129,7 @@ Para eliminar um grupo de recursos e todos os respetivos recursos, execute o com
 az group delete --name my-sample-resource-group
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste Início Rápido, implementou um hub do IoT e uma instância do Serviço Aprovisionamento de Dispositivos e ligou ambos os recursos. Para saber como utilizar esta configuração para aprovisionar um dispositivo simulado, avance para o Início Rápido para a criação de dispositivos simulados.
 

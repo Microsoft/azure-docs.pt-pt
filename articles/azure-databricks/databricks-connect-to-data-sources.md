@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
 ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240352"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Ligar a origens de dados do Azure Databricks
 

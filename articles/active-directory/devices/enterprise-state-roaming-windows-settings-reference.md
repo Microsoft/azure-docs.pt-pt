@@ -18,11 +18,11 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353262"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidas ou uma cópia de segurança no Windows 10. 
@@ -76,7 +76,7 @@ As definições que não são carregados ou sincronização não irão pertencer
 | **Lista de aplicações**: lista de aplicações instaladas |X |cópia de segurança |Outros |
 | **Bluetooth**: todas as definições de Bluetooth |X |X | |
 | **Linha de comandos**: Definições de "Predefinições" prompts de comando |sync |X |Interno |
-| **credenciais**: Cacifo de credenciais |sync |sync |palavra-passe |
+| **credenciais**: Cacifo de credenciais |sync |sync |password |
 | **Data, hora e região**: tempo automática (sincronização de hora da Internet) |sync |sync |language |
 | **Data, hora e região**: relógio de 24 horas |sync |X |language |
 | **Data, hora e região**: data e hora |sync |X |language |

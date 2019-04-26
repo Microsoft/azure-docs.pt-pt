@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: yegu
 ms.openlocfilehash: 8b4c0311f935fa141170206f51e01b90eb4b98ae
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240303"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Obter os detalhes de uma Cache do Azure para Redis
 

@@ -10,11 +10,11 @@ ms.date: 3/29/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ms.openlocfilehash: 7f313af75e78db8a60fe6864c41cd8e6c5a3ad9b
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193039"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -54,7 +54,7 @@ As etiquetas de serviço representam um grupo de prefixos de endereços IP, que 
 
 ### <a name="threat-intelligence"></a>Informações sobre ameaças
 
-Filtragem de baseada em inteligência de ameaças pode ser ativada para a firewall para o alertar e negar o tráfego de/para endereços IP maliciosos e conhecidos domínios. Os endereços IP e os domínios são originados da Microsoft informações sobre ameaças do feed.
+A filtragem com base em informações sobre ameaças pode ser ativada para que a sua firewall alerte e negue tráfego de/para endereços e domínios de IP maliciosos. Os endereços e domínios de IP são obtidos no feed de Informações sobre Ameaças da Microsoft.
 
 ### <a name="outbound-snat-support"></a>Suporte SNAT de saída
 

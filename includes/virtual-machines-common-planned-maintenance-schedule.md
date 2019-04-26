@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232799"
 ---
 ## <a name="multi-and-single-instance-vms"></a>Múltiplas e VMs de instância única
 Muitos clientes executando em conta a contagem do Azure-críticos que pode agendar quando as respetivas VMs entrar em manutenção planeada devido ao tempo de inatividade, cerca de 15 minutos, que ocorre durante a manutenção. Pode utilizar os conjuntos de disponibilidade para ajudar a controlar quando as VMs aprovisionadas recebem a manutenção planeada.

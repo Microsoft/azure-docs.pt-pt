@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319330"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -110,9 +110,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | workspaceId | Tipo complexo | Matriz de Detalhamento de métrica de tempo e suas diretivas de retenção. Atualmente, esta propriedade está vazia. |
 |métricas| Valores de parâmetros de execução para ser transmitido para pipeline invocado do pipeline| Um objeto JSON mapear nomes de parâmetros para valores de argumento |
 | registos| Tipo complexo| Nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, primeiro execute uma operação de obtenção de definições de diagnóstico. |
-| categoria| String| Matriz de categorias de registo e suas diretivas de retenção |
+| category| String| Matriz de categorias de registo e suas diretivas de retenção |
 | timeGrain | String | A granularidade de métricas que são capturadas no formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
-| enabled| Booleano | Especifica se a coleção dessa categoria de métrica ou registo está ativada para este recurso|
+| enabled| Boolean | Especifica se a coleção dessa categoria de métrica ou registo está ativada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou registo. Utilizado para a opção de conta de armazenamento apenas.|
 | dias| Int| Número de dias a manter a métricas ou registos. Um valor de 0 mantém os registos indefinidamente. Utilizado para a opção de conta de armazenamento apenas. |
 
@@ -277,11 +277,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nível |String | Nível dos registos de diagnóstico. Nível 4 é sempre o caso dos registos de execução da atividade. | `4`  |
 | correlationId |String | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| hora | String | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| ID de execução de atividade | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| String| ID de execução do pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoria| String | Categoria de registos de diagnóstico. Definir esta propriedade para "ActivityRuns" | `ActivityRuns` |
+|category| String | Categoria de registos de diagnóstico. Definir esta propriedade para "ActivityRuns" | `ActivityRuns` |
 |nível| String | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
 |operationName| String |Nome da atividade com o estado. Se o estado é a pulsação de início, é `MyActivity -`. Se o estado é o heartbeat do fim, é `MyActivity - Succeeded` com o estado final | `MyActivity - Succeeded` |
 |pipelineName| String | Nome do pipeline | `MyPipeline` |
@@ -323,10 +323,10 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nível |String | Nível dos registos de diagnóstico. Nível 4 é o caso dos registos de execução da atividade. | `4`  |
 | correlationId |String | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| hora | String | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| ID de execução do pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoria| String | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
+|category| String | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
 |nível| String | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
 |operationName| String |Nome do pipeline com o estado. "Pipeline - foi concluída com êxito" com o estado final aquando da conclusão da execução de pipeline| `MyPipeline - Succeeded` |
 |pipelineName| String | Nome do pipeline | `MyPipeline` |
@@ -367,10 +367,10 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nível |String | Nível dos registos de diagnóstico. Definida como nível 4 para registos de execução da atividade. | `4`  |
 | correlationId |String | ID exclusivo para controlar um pedido específico ponto-a-ponto | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| hora | String | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Hora do evento no período de tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| String| ID da execução do acionador | `08587023010602533858661257311` |
 |resourceId| String | ID do recurso associado para o recurso de fábrica de dados | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoria| String | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
+|category| String | Categoria de registos de diagnóstico. Definir esta propriedade para "PipelineRuns" | `PipelineRuns` |
 |nível| String | Nível dos registos de diagnóstico. Definir esta propriedade para "Informativo" | `Informational` |
 |operationName| String |Nome do acionador com o estado final se com êxito disparado. "MyTrigger - foi concluída com êxito" se o heartbeat foi concluída com êxito| `MyTrigger - Succeeded` |
 |triggerName| String | Nome do acionador | `MyTrigger` |

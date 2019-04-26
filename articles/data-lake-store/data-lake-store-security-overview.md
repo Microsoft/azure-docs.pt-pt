@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195326"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 Muitas empresas estão a tirar partido da análise de macrodados para as informações de negócio para os ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos usuários. É fundamental para uma empresa para se certificar de que a dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. Geração de armazenamento 1 do Azure Data Lake foi concebido para ajudar a satisfazer esses requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança de geração 1 de armazenamento do Data Lake, incluindo:
 
-* Authentication
+* Autenticação
 * Autorização
 * Isolamento de rede
 * Proteção de dados

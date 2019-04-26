@@ -3,7 +3,7 @@ title: Registos de auditoria exemplos e definições no Azure Active Directory B
 description: Guia e exemplos sobre como acessar os registos de auditoria do Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317704"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Registos de auditoria do acesso ao Azure AD B2C
 
@@ -34,7 +34,7 @@ O **B2C** categoria nos registos de auditoria contém os seguintes tipos de ativ
 |Aplicação | Operações CRUD em aplicações B2C |
 |Chave |Operações CRUD em chaves armazenadas no contentor de chaves do B2C |
 |Recurso |Operações de CRUD nos recursos de B2C (por exemplo, políticas e fornecedores de identidade)
-|Authentication |Validação de credenciais de utilizador e a emissão de token|
+|Autenticação |Validação de credenciais de utilizador e a emissão de token|
 
 > [!NOTE]
 > Para atividades CRUD do objeto de utilizador, consulte a **diretório principal** categoria.

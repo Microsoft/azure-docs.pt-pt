@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
 ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318623"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
 

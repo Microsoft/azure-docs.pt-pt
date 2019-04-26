@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357482"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
@@ -142,7 +142,7 @@ Se sua organização não tiver clientes legados, não deve permitir que os util
 > [!NOTE]
 > Autenticação moderna para clientes do Office 2013
 >
-> As palavras-passe de aplicação são necessárias apenas para aplicações que não suportam a autenticação moderna. Os clientes do Office 2013 suportam protocolos de autenticação moderna, mas têm de ser configurados. Clientes mais recentes do Office suportam automaticamente os protocolos de autenticação moderna. Para obter mais informações, consulte a [anúncio de pré-visualização pública de autenticação moderna do Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> As palavras-passe de aplicação são necessárias apenas para aplicações que não suportam a autenticação moderna. Os clientes do Office 2013 suportam protocolos de autenticação moderna, mas têm de ser configurados. Agora a autenticação moderna está disponível para todos os clientes a executar a atualização de Março de 2015 ou posterior do Office 2013. Para obter mais informações, consulte a [Office 2013 autenticação moderna pré-visualização pública anunciada](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **P: Os meus utilizadores dizem que às vezes, não receber a mensagem de texto, ou eles respondem às mensagens de texto bidirecional, mas a verificação de exceder o tempo limite.**
 

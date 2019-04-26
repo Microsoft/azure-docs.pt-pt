@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204066"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Ativar o registo de diagnóstico no Gestor de tráfego do Azure
 

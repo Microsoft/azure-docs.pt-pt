@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393334"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleções com o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -83,14 +83,15 @@ Adicione um novo recurso de armazenamento para o modelo ao adicionar a secção 
 
 ```json
 {
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Storage/storageAccounts",
-  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
-  "location": "[parameters('computeLocation')]",
-  "sku": {
-    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+    "location": "[parameters('computeLocation')]",
+    "sku": {
+    "name": "[parameters('applicationDiagnosticsStorageAccountType')]"
+    "tier": "standard"
   },
-  "tags": {
+    "tags": {
     "resourceType": "Service Fabric",
     "clusterName": "[parameters('clusterName')]"
   }
