@@ -10,11 +10,11 @@ ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
 ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330814"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 

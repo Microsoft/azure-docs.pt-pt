@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515329"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
 
@@ -174,7 +174,7 @@ Os clientes *tem* enviar um `speech.config` mensagem imediatamente depois de est
 
 | Campo | Descrição |
 |----|----|
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Corpo | O payload como uma estrutura JSON |
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
@@ -307,7 +307,7 @@ Os clientes tem de confirmar o fim de uma vez através do envio de um `telemetry
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `telemetry` |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | `application/json` |
@@ -329,7 +329,7 @@ O `speech.startDetected` mensagem indica que o serviço de voz detetado fala no 
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Corpo | A estrutura JSON que contém informações sobre as condições de quando foi detetado o início da voz. O *deslocamento* campo nesta estrutura Especifica o deslocamento (em unidades de 100 nanossegundos) quando a conversão de voz foi detetada no fluxo de áudio, em relação ao início da transmissão em fluxo. |
@@ -354,7 +354,7 @@ Durante o reconhecimento de fala, o serviço de voz periodicamente gera hipótes
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `speech.hypothesis` |
 | X-RequestId | UUID no formato de "não-dash" |
 | Content-Type | application/json |
@@ -386,7 +386,7 @@ Quando o serviço de voz determina a que tem informações suficientes para prod
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `speech.phrase` |
 | Content-Type | application/json |
 | Corpo | A frase de voz estrutura JSON |
@@ -414,7 +414,7 @@ O `speech.endDetected` mensagem Especifica que a aplicação cliente deverá ser
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `speech.endDetected` |
 | Corpo | A estrutura JSON que contém o deslocamento quando o final de voz foi detetado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é utilizado para reconhecimento. |
 | Content-Type | application/json; charset=utf-8 |
@@ -439,7 +439,7 @@ O `turn.start` sinaliza o início de uma mão da perspectiva do serviço. O `tur
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Corpo | Estrutura JSON |
@@ -466,7 +466,7 @@ O `turn.end` sinaliza o término de uma mão da perspectiva do serviço. O `turn
 
 | Campo | Descrição |
 | ------------- | ---------------- |
-| Codificação de mensagens do WebSocket | Texto |
+| Codificação de mensagens do WebSocket | Text |
 | Caminho | `turn.end` |
 | Corpo | Nenhuma |
 

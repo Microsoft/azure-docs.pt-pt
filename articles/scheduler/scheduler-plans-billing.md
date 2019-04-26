@@ -9,23 +9,23 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344313"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planos e faturação do Azure Scheduler
 
 > [!IMPORTANT]
-> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [Experimente o Azure Logic Apps antes](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="job-collection-plans"></a>Planos de recolha de tarefa
 
 No agendador do Azure, uma coleção de tarefas contém um número específico de tarefas. A coleção de tarefas é a entidade faturável e é fornecida nos planos Standard, P10 Premium e P20 Premium, que são descritos aqui: 
 
-| Plano de recolha de tarefa | Máximo de tarefas por coleção | Periodicidade máxima | Coleções de tarefas máxima por subscrição | Limites | 
+| Plano de recolha de tarefa | Máximo de tarefas por coleção | Periodicidade máxima | Coleções de tarefas máxima por subscrição | Limits | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 tarefas por coleção | Um minuto. Não é possível executar tarefas com mais frequência do que um minuto. | Cada subscrição do Azure pode ter até 100 coleções de tarefas padrão. | Acesso ao conjunto de todas as funcionalidades do Scheduler | 
 | **P10 Premium** | 50 tarefas por coleção | Um minuto. Não é possível executar tarefas com mais frequência do que um minuto. | Cada subscrição do Azure pode ter até 10 000 coleções de tarefas P10 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">contacte-nos</a>. | Acesso ao conjunto de todas as funcionalidades do Scheduler |
@@ -82,6 +82,6 @@ Coleções de tarefas P20 Premium fornecem as mesmas capacidades do coleções d
 
 ## <a name="see-also"></a>Consulte também
 
-* [O que é o agendador do Azure?](scheduler-intro.md)
+* [O que é o Microsoft Azure Scheduler?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
 * [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)

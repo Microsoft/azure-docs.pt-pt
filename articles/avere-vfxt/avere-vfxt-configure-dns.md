@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410149"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
 

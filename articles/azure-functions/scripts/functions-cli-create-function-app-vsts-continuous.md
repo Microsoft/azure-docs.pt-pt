@@ -10,11 +10,11 @@ ms.topic: sample
 ms.service: azure-functions
 ms.custom: mvc
 ms.openlocfilehash: 7fe68090773902248dbcdd63fbbdbbdb06b307cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325563"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Criar uma Function App e implementar código de função a partir do Azure DevOps
 

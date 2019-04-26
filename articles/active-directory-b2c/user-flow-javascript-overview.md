@@ -3,7 +3,7 @@ title: JavaScript e página Contrato versões para fluxos de utilizador no Azure
 description: Saiba como ativar o JavaScript e usar as versões de contrato de página para personalizar um fluxo de utilizador no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360253"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Como utilizar versões de contrato de página e JavaScript num fluxo de utilizador
 

@@ -11,17 +11,20 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 28bb6fbc3b6b9552850244d608e6587e8a9052de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/19/2019
+ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330964"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave
 
 [Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) com o Azure Key Vault permite a integração para encriptar a chave de encriptação da base de dados (DEK) com uma chave assimétrica gerida pelo cliente chamada Protetor de TDE. Isso também geralmente é chamado para suportar a como Bring Your Own Key (BYOK) para encriptação de dados transparente.  No cenário BYOK, o Protetor de TDE é armazenado numa propriedade de cliente e geridos [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. Pode ser o Protetor de TDE [gerado](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) pelo Cofre de chaves ou [transferidos](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) ao Cofre de chaves de um dispositivo HSM no local. O DEK TDE, que é armazenado na página de arranque de uma base de dados, é encriptado e é desencriptado pelo Protetor TDE armazenados no Azure Key Vault, que nunca sai.  Base de dados SQL tem de ser concedidas permissões para o Cofre de chaves pertencentes ao cliente para desencriptar e encriptar o DEK. Se as permissões do servidor SQL lógico para o Cofre de chaves são revogadas, uma base de dados ficarão inacessível e todos os dados são encriptados. Para a base de dados SQL do Azure, o protetor de TDE está definido ao nível do servidor lógico da SQL e é herdado por todas as bases de dados associados a esse servidor. Para [instância gerida do SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), o protetor de TDE está definido ao nível da instância e esta é herdada por todos os *encriptados* bases de dados nessa instância. O termo *servidor* refere-se tanto ao servidor e a instância em todo este documento, a menos que indicado de forma diferente.
+
+> [!NOTE]
+> Encriptação de dados transparente com a integração do Azure Key Vault (traga a sua própria chave) para a instância gerida da base de dados SQL do Azure está em pré-visualização.
 
 Com TDE com a integração do Azure Key Vault, os utilizadores podem controlar as tarefas de gestão de chaves, incluindo rotações de chave, as permissões do Cofre de chaves, as cópias de segurança de chaves e ativar a auditoria/relatórios sobre todos os protetores de TDE com a funcionalidade do Azure Key Vault. Key Vault fornece gestão de chaves central, tira partido de módulos de segurança de rigidamente monitorizados de hardware (HSMs) e permite a separação de funções entre a gestão de chaves e dados para o ajudar a cumprir a conformidade com as políticas de segurança.  
 

@@ -14,12 +14,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 50882fc383d4dfab85b5afb919b24c7940eb5ee0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 127b411f4de0bceff98f1c81f6a4ca8c1fc4fb3b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391029"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager
 

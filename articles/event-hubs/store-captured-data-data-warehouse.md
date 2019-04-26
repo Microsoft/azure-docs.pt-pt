@@ -10,11 +10,11 @@ ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.openlocfilehash: 234febe92727e5a47d4cfc5b836cd5593e99b5b5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369101"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrar dados de Hubs de eventos capturados para um SQL Data Warehouse com o Event Grid e as funções do Azure
 

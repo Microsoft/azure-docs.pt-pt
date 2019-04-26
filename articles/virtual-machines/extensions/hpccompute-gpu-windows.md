@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388680"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
@@ -35,7 +35,7 @@ Uma extensão também está disponível para instalar controladores NVIDIA GPU n
 
 Esta extensão oferece suporte a OSs seguintes:
 
-| Distribuição | Versão |
+| Distribuição | Version |
 |---|---|
 | Windows 10 (até versão 1803)| Principal |
 | Windows Server 2016 | Principal |

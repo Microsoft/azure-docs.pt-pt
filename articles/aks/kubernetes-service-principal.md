@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: iainfou
 ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464939"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 

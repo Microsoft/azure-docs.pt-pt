@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420347"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.

@@ -3,7 +3,7 @@ title: Selecione um contrato de página no Azure Active Directory B2C | Document
 description: Saiba mais sobre como selecionar um contrato de página no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361052"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selecione um contrato de página com as políticas personalizadas no Azure Active Directory B2C
 

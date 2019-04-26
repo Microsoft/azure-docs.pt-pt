@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9a39c5c7269fabae11d9b7c29a6484dfe5458723
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f35ce1e239b90c6adcfecd770a0feef777ee523
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409027"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) com a API REST e cURL na visão do computador
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [cURL](https://curl.haxx.se/windows).
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 
 ## <a name="create-and-run-the-sample-command"></a>Criar e executar o comando de exemplo
 

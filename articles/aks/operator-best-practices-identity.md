@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
 ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464496"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Melhores práticas para autenticação e autorização no Azure Kubernetes Service (AKS)
 

@@ -3,25 +3,25 @@ title: Definir um perfil técnico de OAuth1 numa política personalizada no Azur
 description: Defina um perfil técnico de OAuth1 numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361103"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de OAuth1 em políticas personalizadas do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory (Azure AD) B2C fornece suporte para o [protocolo OAuth 1.0](https://tools.ietf.org/html/rfc5849) fornecedor de identidade. Este artigo descreve as especificações de um perfil técnico da interagir com um fornecedor de afirmações que suporte esse protocolo padronizado. Com OAuth1 o perfil técnico, pode federar com um OAuth1 baseada fornecedor de identidade, como o Twitter, que lhe permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
+O Azure Active Directory (Azure AD) B2C fornece suporte para o [protocolo OAuth 1.0](https://tools.ietf.org/html/rfc5849) fornecedor de identidade. Este artigo descreve as especificações de um perfil técnico da interagir com um fornecedor de afirmações que suporte esse protocolo padronizado. Com um perfil de técnico de OAuth1, pode federar com um fornecedor de identidade com base de OAuth1, como o Twitter. Federação com o fornecedor de identidade permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -46,7 +46,7 @@ O **OutputClaimsTransformations** elemento pode conter uma coleção de **Output
 
 O exemplo seguinte mostra as afirmações devolvidas pelo fornecedor de identidade de Twitter:
 
-- O **user_id** afirmação que está mapeada para o **socialIdpUserId** de afirmação.
+- O **user_id** afirmação que está mapeada para o **issuerUserId** de afirmação.
 - O **screen_name** afirmação que está mapeada para o **displayName** de afirmação.
 - O **e-mail** sem mapeamento de nome de afirmação.
 
@@ -57,7 +57,7 @@ O perfil técnico também retorna afirmações que não são devolvidas pelo for
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ O **CryptographicKeys** elemento contém o atributo seguinte:
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento
 
-Quando configurar o URL de redirecionamento do seu fornecedor de identidade, introduza `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir **inquilino** pelo nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e **policyId** com o identificador da sua política (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de ser em letras minúsculas. Deve adicionar um redirecionamento UR para todas as políticas que utilizam o início de sessão do fornecedor de identidade. 
+Quando configurar o URL de redirecionamento do seu fornecedor de identidade, introduza `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir **inquilino** pelo nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e **policyId** com o identificador da sua política (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de ser em letras minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizam o início de sessão do fornecedor de identidade. 
 
 Se estiver a utilizar o **b2clogin.com** domínio em vez de **login.microsoftonline.com** certificar-se de que utilizar b2clogin.com em vez de login.microsoftonline.com.
 

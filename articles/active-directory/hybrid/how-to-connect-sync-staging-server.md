@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381591"
 ---
-# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de preparação e recuperação após desastre
+# <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Testar o servidor e a recuperação após desastre
 Com um servidor no modo de teste, pode efetuar alterações à configuração e visualizar as alterações antes de tornar o servidor Active Directory. Ele também permite a execução de importação completa e uma sincronização completa para verificar que todas as alterações esperadas antes de efetuar estas alterações no seu ambiente de produção.
 
 ## <a name="staging-mode"></a>Modo de teste
@@ -73,8 +73,8 @@ Agora tem testado exportação muda para o Azure AD e AD no local (se estiver a 
 
 #### <a name="verify"></a>Verificar
 1. Iniciar um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do conector pode ser encontrado no serviço de sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
-3. Execute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Possui um arquivo em % temp % com o nome export.csv que pode ser examinada no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportado.
+2. Execução: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do conector pode ser encontrado no serviço de sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
+3. Execução: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Possui um arquivo em % temp % com o nome export.csv que pode ser examinada no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportado.
 4. Faça as alterações necessárias para a configuração ou de dados e executar estes passos novamente (importar e sincronizar e certifique-se) até que a espera-se que as alterações que estão prestes a ser exportado.
 
 **Noções básicas sobre o ficheiro de export.csv** maioria do ficheiro é auto-explicativa. Alguns abreviações para compreender o conteúdo:

@@ -19,11 +19,11 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299214"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Início rápido: Criar uma aplicação de página única AngularJS para início de sessão e fim de sessão no Azure Active Directory
 

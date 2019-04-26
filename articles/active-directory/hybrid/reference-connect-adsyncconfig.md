@@ -11,11 +11,11 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381200"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADSyncConfig
 A seguinte documentação fornece informações de referência para o módulo do PowerShell ADSyncConfig.psm1 que está incluído com o Azure AD Connect.

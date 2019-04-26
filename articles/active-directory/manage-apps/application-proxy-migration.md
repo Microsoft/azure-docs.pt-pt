@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292797"
 ---
 # <a name="compare-remote-access-solutions"></a>Compare as soluções de acesso remoto
 

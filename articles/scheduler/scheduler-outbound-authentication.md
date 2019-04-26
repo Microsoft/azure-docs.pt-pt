@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344353"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída do agendador do Azure
 
 > [!IMPORTANT]
-> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [Experimente o Azure Logic Apps antes](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 Tarefas do Scheduler do Azure poderão ter de chamar serviços que necessitem de autenticação, como outros serviços do Azure, Salesforce.com, Facebook e Web sites personalizados seguros. O serviço chamado pode determinar se a tarefa do Scheduler pode acessar os recursos de pedido. 
 
@@ -48,7 +48,7 @@ Ao adicionar a autenticação com o `ClientCertificate` modelar, especifique ess
 |---------|----------|-------------|
 | **autenticação** (elemento principal) | O objeto de autenticação para utilizar um certificado de cliente SSL |
 | **tipo** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
-| **PFX** | Sim | O conteúdo do ficheiro PFX codificada em base64 |
+| **pfx** | Sim | O conteúdo do ficheiro PFX codificada em base64 |
 | **password** | Sim | A palavra-passe para aceder ao ficheiro PFX |
 ||| 
 
@@ -288,8 +288,8 @@ Ao adicionar a autenticação com o `ActiveDirectoryOAuth` modelar, especifique 
 | **tipo** | Sim | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
 | **tenant** | Sim | O identificador do inquilino para o inquilino do Azure AD. Para localizar o identificador do inquilino para o inquilino do Azure AD, execute `Get-AzureAccount` no Azure PowerShell. |
 | **Público-alvo** | Sim | Este valor é definido como `https://management.core.windows.net/`. | 
-| **ID de cliente** | Sim | O identificador de cliente para a aplicação do Azure AD | 
-| **Segredo** | Sim | O segredo do cliente que está a pedir o token | 
+| **clientId** | Sim | O identificador de cliente para a aplicação do Azure AD | 
+| **secret** | Sim | O segredo do cliente que está a pedir o token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo de resposta - OAuth do Active Directory
@@ -302,7 +302,7 @@ Quando é enviado um pedido com informações de autenticação, a resposta cont
 | **tipo** | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 | **tenant** | O identificador do inquilino para o inquilino do Azure AD |
 | **Público-alvo** | Este valor é definido como `https://management.core.windows.net/`. |
-| **ID de cliente** | O identificador de cliente para a aplicação do Azure AD |
+| **clientId** | O identificador de cliente para a aplicação do Azure AD |
 ||| 
 
 ### <a name="sample-rest-request---active-directory-oauth"></a>Pedido de REST de exemplo - OAuth do Active Directory
@@ -405,7 +405,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 
 ## <a name="see-also"></a>Consulte também
 
-* [O que é o agendador do Azure?](scheduler-intro.md)
+* [O que é o Microsoft Azure Scheduler?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)
 * [Limites, predefinições e códigos de erro do Azure Scheduler](scheduler-limits-defaults-errors.md)
 * [API REST do agendador do Azure](https://msdn.microsoft.com/library/mt629143)

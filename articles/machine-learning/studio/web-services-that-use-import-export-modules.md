@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345146"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web Azure Machine Learning Studio que utilizam módulos importar dados e exportação de dados
 

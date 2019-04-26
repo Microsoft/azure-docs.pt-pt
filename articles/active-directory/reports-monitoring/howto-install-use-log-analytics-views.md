@@ -1,6 +1,6 @@
 ---
-title: Como instalar e utilizar os modos de exibição do log analytics do Azure Active Directory (pré-visualização) | Documentos da Microsoft
-description: Saiba como instalar e utilizar os modos de exibição do log analytics do Azure Active Directory (pré-visualização)
+title: Como instalar e utilizar os modos de exibição do log analytics do Azure Active Directory | Documentos da Microsoft
+description: Saiba como instalar e utilizar os modos de exibição do log analytics do Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d1b2262f8f57b2ad180650fa6d4c08fbabfef5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 92a5d9539d254eb7d52e3277691c9d8ff5a41821
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286763"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e utilizar os modos de exibição do log analytics do Azure Active Directory
 

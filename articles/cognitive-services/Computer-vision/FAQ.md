@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498785"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>API de imagem digitalizada perguntas mais frequentes
 

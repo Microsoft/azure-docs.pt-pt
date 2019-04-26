@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388816"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Utilizar o Habitat para implementar a aplicação no Azure
 [Habitat](https://www.habitat.sh/) é um sistema de tempo de execução e empacotamento de aplicativo que agrupa em conjunto, como a unidade de implementação do aplicativo e sua automação. Esta ação cria o ultimate portabilidade da aplicação, permitindo que ele devem ser implantados nos contentores, máquinas virtuais, bare-metal ou PaaS, sem uma reescrita ou o reempacotamento.

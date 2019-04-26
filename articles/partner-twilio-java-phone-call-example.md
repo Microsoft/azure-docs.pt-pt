@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422683"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefónica, utilizar o Twilio numa aplicação de Java no Azure
 O exemplo seguinte mostra como pode utilizar o Twilio para fazer uma chamada de uma página da web alojadas no Azure. O aplicativo resultante pedirá ao utilizador para os valores de chamada telefónica, conforme mostrado na captura de ecrã seguinte.

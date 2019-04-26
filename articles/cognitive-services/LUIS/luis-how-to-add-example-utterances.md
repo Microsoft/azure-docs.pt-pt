@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198018"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 

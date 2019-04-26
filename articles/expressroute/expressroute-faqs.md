@@ -9,11 +9,11 @@ ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
 ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367886"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 

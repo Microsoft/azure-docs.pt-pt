@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337634"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 Este artigo fornece orientações de resolução de problemas para o ajudar a diagnosticar a causa do desempenho de cópia de segurança lenta de ficheiros e pastas quando estiver usando a cópia de segurança do Azure. Quando utiliza o agente de cópia de segurança do Azure para fazer backup de arquivos, o processo de cópia de segurança poderá demorar mais do que esperado. Este atraso pode ser causado por uma ou mais dos seguintes procedimentos:

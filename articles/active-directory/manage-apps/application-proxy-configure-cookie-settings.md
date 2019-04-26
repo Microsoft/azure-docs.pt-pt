@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440535"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Definições de cookies para aceder a aplicações no local no Azure Active Directory
 

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 5b70a16d1da8f939a23bf7a96a03098463cfc529
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417168"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Junte-se a uma máquina virtual do Windows Server a um domínio gerido com um modelo do Resource Manager
 Este artigo mostra-lhe como associar uma máquina virtual do Windows Server a um domínio gerido do Azure AD Domain Services com modelos do Resource Manager.
@@ -100,7 +100,7 @@ Depois de concluída a implementação com êxito, as máquinas de virtuais do W
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Descrição geral do Azure PowerShell](/powershell/azure/overview)
+* [Overview of Azure PowerShell](/powershell/azure/overview)
 * [Modelo de início rápido do Azure - associação de domínio uma VM nova](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Modelo de início rápido do Azure - VMs existentes de associação de domínio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
 ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478264"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar cartões de interface de rede virtual e utilizar o DNS interno para resolução de nomes VM no Azure
 

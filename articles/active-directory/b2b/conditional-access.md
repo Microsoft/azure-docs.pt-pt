@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5234443e234d232a9711274bea2f73427266f6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60355816"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
 

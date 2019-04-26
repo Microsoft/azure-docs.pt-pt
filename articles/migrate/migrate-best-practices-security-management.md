@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
 ms.openlocfilehash: afcd180146bc349bda9375f10eb56f85f67ccb52
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252997"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Melhores práticas para proteger e gerenciar as cargas de trabalho migradas para o Azure
 

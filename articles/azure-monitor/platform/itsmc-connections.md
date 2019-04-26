@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395653"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar produtos/serviços de ITSM com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](../../azure-monitor/platform/itsmc-overview.md).
@@ -103,7 +103,7 @@ Execute o script, fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
-- Localização
+- Location
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo do nome do site para a sua aplicação Web
 - Espaço de nomes do ServiceBus.
@@ -185,11 +185,12 @@ As secções seguintes fornecem detalhes sobre como ligar o seu produto do Servi
 ### <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
 - ITSMC instalado. Mais informações: [Adicionar o IT a solução de conector de gestão de serviço](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versões suportadas do ServiceNow: Kingston, Jacarta, Istambul, Helsínquia, Geneva.
+- Versões suportadas do ServiceNow: Londres, Kingston, Jacarta, Istambul, Helsínquia, Geneva.
 
 **Os administradores do ServiceNow necessário efetuar o seguinte na sua instância do ServiceNow**:
 - Gere ID de cliente e segredo do cliente para o produto do ServiceNow. Para obter informações sobre como gerar ID de cliente e o segredo, consulte as seguintes informações conforme necessário:
 
+    - [Configurar o OAuth para Londres](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Jacarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Istambul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

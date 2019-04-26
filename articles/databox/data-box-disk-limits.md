@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400631"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados do Azure
 

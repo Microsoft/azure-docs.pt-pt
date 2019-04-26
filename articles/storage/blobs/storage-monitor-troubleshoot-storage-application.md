@@ -9,11 +9,11 @@ ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
 ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392777"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorizar e resolver problemas de uma aplicação de armazenamento na cloud
 

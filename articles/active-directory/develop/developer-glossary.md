@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410389"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de programador do Microsoft identity platform
 
@@ -192,7 +192,7 @@ A função de início de sessão de um aplicativo é normalmente utilizada para 
 
 O processo de unauthenticating um utilizador final, desanexar o estado do utilizador associada a [aplicação de cliente](#client-application) sessão durante [início de sessão](#sign-in)
 
-## <a name="tenant"></a>inquilino
+## <a name="tenant"></a>tenant
 
 Uma instância de um diretório do Azure AD é referida como um inquilino do Azure AD. Ele fornece vários recursos, incluindo:
 

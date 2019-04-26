@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 0609cabd5a9898900580580d1f5f412722637bcf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407045"
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Utilizar a Máquina Virtual de aprendizagem profunda
 

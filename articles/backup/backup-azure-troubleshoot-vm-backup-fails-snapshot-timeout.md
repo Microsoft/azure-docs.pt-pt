@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
 ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337749"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 

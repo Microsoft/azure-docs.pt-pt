@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332318"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais
 
@@ -58,8 +58,8 @@ Dimensionamento elástico suporta os seguintes tipos como chaves de fragmentaç�
 | longa |longa |
 | GUID |uuid |
 | byte[]  |byte[] |
-| datetime | carimbo de data/hora |
-| Período de tempo | duração|
+| datetime | timestamp |
+| TimeSpan | duração|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Mapas de partições horizontais de lista e o intervalo

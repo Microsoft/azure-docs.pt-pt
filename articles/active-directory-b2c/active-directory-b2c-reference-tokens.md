@@ -3,7 +3,7 @@ title: Descrição geral de tokens - Azure Active Directory B2C | Documentos da 
 description: Saiba mais sobre os tokens utilizados no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316940"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Descrição geral de tokens no Azure Active Directory B2C
 
@@ -57,11 +57,11 @@ A tabela seguinte lista as afirmações que pode esperar nos tokens de identidad
 | Emitida em | `iat` | `1438535543` | O tempo em que o token foi emitido, representado na hora "Epoch". |
 | Hora de expiração | `exp` | `1438539443` | O tempo em que o token se torna inválido, representado na hora "Epoch". A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | Não antes | `nbf` | `1438535543` | A hora em que o token se torna válido, representado na hora "Epoch". Desta vez, normalmente, é o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
-| Versão | `ver` | `1.0` | A versão do token de ID, conforme definido pelo Azure AD B2C. |
+| Version | `ver` | `1.0` | A versão do token de ID, conforme definido pelo Azure AD B2C. |
 | Hash de código | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de código incluído num token de ID apenas quando o token for emitido, juntamente com um código de autorização de OAuth 2.0. Um hash de código pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais informações sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash de token de acesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hash de token de acesso incluído num token de ID apenas quando o token for emitido, juntamente com um token de acesso de OAuth 2.0. Um hash de token de acesso pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais informações sobre como efetuar esta validação, consulte o [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Valor de uso único | `nonce` | `12345` | Um valor de uso único é uma estratégia utilizada para mitigar ataques de repetição de token. A aplicação, pode especificar um valor de uso único numa solicitação de autorização utilizando a `nonce` parâmetro de consulta. O valor que fornecer no pedido é emitido sem modificações no `nonce` de afirmação de apenas um token de ID. Esta afirmação permite que a aplicação para verificar o valor com o valor especificado no pedido. Seu aplicativo deve executar essa validação durante o processo de validação do token de ID. |
-| Requerente | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | O principal sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. |
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Utilizado apenas com as políticas mais antigas. |
 | Política de estrutura de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da política que foi utilizado para adquirir o token de ID. |
 | Tempo de autenticação | `auth_time` | `1438535543` | O tempo em que um usuário inserir, pela última vez, credenciais, representado na hora "Epoch". |

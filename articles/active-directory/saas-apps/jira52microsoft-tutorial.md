@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8cb048964830f62fe483da63d24356f46538b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 003666d5bb3c309e501bcf76a15beb47340f9150
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60267827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Active Directory do Azure com o JIRA SAML SSO pela Microsoft (V5.2)
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="description"></a>Descrição
 
-Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlassian JIRA para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD para início de sessão na aplicação JIRA. Este plug-in utiliza SAML 2.0 para a Federação.
+Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlassian JIRA para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD para iniciar sessão na aplicação JIRA. Este plug-in utiliza SAML 2.0 para a Federação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 * JIRA também suporta 6.0 para 7.12. Para obter mais detalhes, clique em [JIRA SAML SSO pela Microsoft](jiramicrosoft-tutorial.md)
 
 > [!NOTE]
-> Tenha em atenção que no JIRA também oferece suporte a Linux Ubuntu 16.04 de versão
+> Tenha em atenção que os nossos Plug-in do JIRA também funciona no Ubuntu 16.04 de versão
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 39ecfacae8c5d5260384182eba55443b3c928c14
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394471"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Exemplo - uso aprovado vNet para interfaces de rede VM
 

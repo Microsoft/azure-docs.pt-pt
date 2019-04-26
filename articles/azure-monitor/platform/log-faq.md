@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394834"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 
@@ -29,11 +29,11 @@ O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics n
 
 ## <a name="new-logs-experience"></a>Nova experiência de registos
 
-### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>P: O que é a diferença entre a nova experiência de registos e Log Analytics?
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>P. O que é a diferença entre a nova experiência de registos e Log Analytics?
 
 R: Eles são a mesma coisa. [O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) para fornecer a experiência de monitorização de unificação de um mais. A nova experiência de registos no Azure Monitor é exatamente o mesmo que as consultas do Log Analytics que muitos clientes já têm usado.
 
-### <a name="q-can-i-still-use-log-search"></a>P: Posso continuar a utilizar pesquisa de registos? 
+### <a name="q-can-i-still-use-log-search"></a>P. Posso continuar a utilizar pesquisa de registos? 
 
 R: Pesquisa de registos está atualmente ainda está disponível no portal do OMS e no portal do Azure com o nome **registos (clássico)**. Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019. A experiência de registos clássica no portal do Azure vai ser descontinuada gradualmente e substituído a nova experiência de registos. 
 
@@ -107,7 +107,7 @@ R: Consoante o Update Rollup do Operations Manager estiver a utilizar, pode ver 
 
 A atualização de seqüência de caracteres de texto *OMS* está incluído num pacote de gestão, que tem de ser importado manualmente. Para ver o texto atual e a funcionalidade, siga as instruções do artigo mais recente do System Center Operations Manager Update Rollup KB e atualize a consola.
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>P: Existe uma versão no local do Log Analytics?
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>P. Existe uma versão no local do Log Analytics?
 
 R: Não. O log Analytics é um serviço de cloud escalável que processa e armazena grandes quantidades de dados. 
 
@@ -177,14 +177,14 @@ Esta alteração também pode ser feita no portal do Azure.
 
 Não é possível mover dados de uma área de trabalho do Log Analytics para outro, ou alterar a região de dados do Log Analytics são armazenados no.
 
-### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>P: Como posso adicionar o Log Analytics para o System Center Operations Manager?
+### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>P. Como posso adicionar o Log Analytics para o System Center Operations Manager?
 
 R:  A atualização para o update rollup mais recente e importar pacotes de gestão permite-lhe ligar o Operations Manager ao Log Analytics.
 
 >[!NOTE]
 >A ligação do Operations Manager ao Log Analytics está disponível apenas para o System Center Operations Manager 2012 SP1 e posterior.
 
-### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>P: Como posso confirmar que um agente é capaz de comunicar com o Log Analytics?
+### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>P. Como posso confirmar que um agente é capaz de comunicar com o Log Analytics?
 
 R: Para garantir que o agente consegue comunicar com o OMS, aceda a: Controlar o painel, segurança e as definições, **Microsoft Monitoring Agent**.
 
@@ -192,19 +192,19 @@ Sob o **do Azure Log Analytics (OMS)** separador, procure uma marca de verifica�
 
 Um ícone de aviso amarelo significa que o agente está a ter problemas de comunicação com o Log Analytics. Uma das razões comuns é que o serviço Microsoft Monitoring Agent parou. Utilize o Gestor de controlo de serviço para reiniciar o serviço.
 
-### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>P: Como faço para interromper um agente de comunicar com o Log Analytics?
+### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>P. Como faço para interromper um agente de comunicar com o Log Analytics?
 
 R: No System Center Operations Manager, remova o computador da lista de computadores geridos de OMS. Do Operations Manager atualiza a configuração do agente já não é o relatório para o Log Analytics. Para agentes ligados diretamente ao Log Analytics, pode pará-los de comunicar através de: Controlar o painel, segurança e as definições, **Microsoft Monitoring Agent**.
 Sob **do Azure Log Analytics (OMS)**, remover todas as áreas de trabalho listadas.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: Por que eu ganho um erro ao tentar mover a minha área de trabalho de uma subscrição do Azure para outra?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P. Por que eu ganho um erro ao tentar mover a minha área de trabalho de uma subscrição do Azure para outra?
 
 R: Para mover uma área de trabalho para uma subscrição diferente ou um grupo de recursos, tem primeiro de desassociar a conta de automatização na área de trabalho. Desassociar uma conta de Automatização requer que as seguintes soluções sejam removidas, caso estejam instaladas na área de trabalho: Gestão de atualizações, controlo de alterações ou iniciar/parar VMs fora do horário comercial são removidas. Depois destas soluções são removidas, desassociar a conta de automatização, selecionando **ligado áreas de trabalho** no painel da esquerda a automação de conta de recurso e clique em **desassociar área de trabalho** da faixa de opções.
  > Removido de soluções precisam de ser reinstalados na área de trabalho e a ligação de automatização à área de trabalho tem de ser expressas novamente após a mudança.
 
 Certifique-se de que tem permissão em ambas as subscrições do Azure.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>P: Por que eu ganho um erro ao tentar atualizar um SavedSearch?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>P. Por que eu ganho um erro ao tentar atualizar um SavedSearch?
 
 R: Tem de adicionar "etag" no corpo da API ou de propriedades do modelo do Azure Resource Manager:
 ```

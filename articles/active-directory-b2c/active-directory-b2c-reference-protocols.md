@@ -3,7 +3,7 @@ title: Protocolos de autenticação no Azure Active Directory B2C | Documentos d
 description: Como criar aplicações diretamente, usando os protocolos que são suportados pelo Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 47c99b14a41ac50e13198f934e38718e205e6e79
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317035"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticação
 O Azure Active Directory B2C (Azure AD B2C) fornece identidade como um serviço para as suas aplicações com suporte a dois protocolos de norma da indústria: OpenID Connect e OAuth 2.0. O serviço é compatível com os padrões, mas qualquer duas implementações desses protocolos podem ter ligeiras diferenças. 

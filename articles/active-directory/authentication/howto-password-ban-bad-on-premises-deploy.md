@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414835"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 

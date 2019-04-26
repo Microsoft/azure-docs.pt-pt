@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.openlocfilehash: 64769ebb1bd9a5fb0f051cc6eca4e59cd41fccc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785232"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395021"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager utilizando o script automatizado
 
@@ -28,7 +28,7 @@ Execute o script, fornecendo os seguintes detalhes necessários:
 
 - Detalhes da subscrição do Azure
 - Nome do grupo de recursos
-- Localização
+- Location
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de utilizador e palavra-passe)
 - Prefixo do nome do site para a sua aplicação Web
 - Espaço de nomes do ServiceBus.

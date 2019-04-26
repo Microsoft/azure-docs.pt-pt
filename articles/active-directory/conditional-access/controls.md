@@ -19,11 +19,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411684"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory?
 

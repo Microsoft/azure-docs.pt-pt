@@ -9,11 +9,11 @@ ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367684"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD através do ExpressRoute
 
@@ -21,7 +21,7 @@ O ExpressRoute suporta a deteção de reencaminhamento bidirecional (BFD) atrav�
 
 ## <a name="need-for-bfd"></a>Necessidade de BFD
 
-O diagrama seguinte mostra o benefício de ativação BFD através de circuito do ExpressRoute: [ ![1]][1]
+O diagrama seguinte mostra o benefício de ativação BFD através de circuito do ExpressRoute: [![1]][1]
 
 Pode ativar o circuito do ExpressRoute, por ligações de camada 2 ou geridos ligações de camada 3. Em ambos os casos, se houver um ou mais dispositivos de camada 2 no caminho de ligação do ExpressRoute, a responsabilidade de detetar quaisquer falhas de ligação no caminho se encontra com o BGP overlying.
 

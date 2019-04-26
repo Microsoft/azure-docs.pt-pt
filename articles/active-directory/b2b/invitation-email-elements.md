@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412831"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos da mensagem de e-mail de convite de colaboração B2B - Azure Active Directory
 
@@ -28,7 +28,7 @@ E-mails de convite são uma componente fundamental para colocar os parceiros na 
 ## <a name="explaining-the-email"></a>Explicar a mensagem de e-mail
 Vamos examinar alguns elementos da mensagem de e-mail para que saiba a melhor maneira de usar seus recursos.
 
-### <a name="subject"></a>Requerente
+### <a name="subject"></a>Subject
 O assunto do e-mail segue o padrão seguinte: Está convidado para o &lt;tenantname&gt; organização
 
 ### <a name="from-address"></a>Do endereço

@@ -11,11 +11,11 @@ ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: bc441e2bbd36c8d078eb67aff48e58684a026289
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444997"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança de IoT Edge do Azure
 

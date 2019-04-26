@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369629"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreender os termos na sua cobranças de utilização detalhados do Azure da Microsoft 
 

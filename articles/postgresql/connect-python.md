@@ -9,11 +9,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422173"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar Python para ligar e consultar dados
 Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.

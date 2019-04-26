@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344839"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure
 

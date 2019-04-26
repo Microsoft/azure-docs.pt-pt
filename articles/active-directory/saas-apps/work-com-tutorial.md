@@ -17,11 +17,11 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 816f9bfe022b4a00c01c3ee1bc243f87ef56817b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Active Directory do Azure com Work.com
 

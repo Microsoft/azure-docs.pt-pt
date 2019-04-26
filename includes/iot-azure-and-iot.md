@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: d7497a0226f236cedc583de0a31013adcc2b830f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: caba23f45c5ca22d2cd21ee239f13ae30986ed74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327397"
 ---
 # <a name="azure-and-the-internet-of-things"></a>Azure e Internet das Coisas
 

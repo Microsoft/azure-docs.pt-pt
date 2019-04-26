@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506408"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Passos de resolução de problemas detalhados para problemas de ligação de ambiente de trabalho remoto para VMs do Windows no Azure
 Este artigo fornece passos de resolução de problemas detalhados para diagnosticar e corrigir erros complexos de ambiente de trabalho remoto para máquinas de virtuais do Azure baseado no Windows.
@@ -64,7 +64,7 @@ O cliente de ambiente de trabalho remoto pode não ser capaz de alcançar o serv
 * [Grupos de segurança de rede](#source-4-network-security-groups)
 * [VM do Azure baseado no Windows](#source-5-windows-based-azure-vm)
 
-## <a name="source-1-remote-desktop-client-computer"></a>Origem 1: Computador de cliente de ambiente de trabalho remoto
+## <a name="source-1-remote-desktop-client-computer"></a>Origem 1: Computador cliente de ambiente de trabalho remoto
 Certifique-se de que o seu computador pode efetuar ligações de ambiente de trabalho remoto para o outro local, computador baseado em Windows.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
@@ -93,13 +93,13 @@ Se pode criar uma ligação de ambiente de trabalho remoto com um computador lig
 
 Contactar o administrador de rede para corrigir as definições do seu dispositivo de periferia de intranet de organização para permitir ligações de ambiente de trabalho remota baseado em HTTPS para a Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origem 3: Ponto final de serviço de nuvem e a ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origem de 3: Ponto final de serviço de nuvem e de ACL
 Para as VMs criadas com o modelo de implementação clássica, certifique-se de que outra VM do Azure que está no mesmo serviço cloud ou de rede virtual podem efetuar ligações de ambiente de trabalho remoto à sua VM do Azure.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> Para máquinas de virtuais criadas no Resource Manager, avance para o [origem 4: grupos de segurança de rede](#source-4-network-security-groups).
+> Para máquinas de virtuais criadas no Resource Manager, avance para o [4 de origem: Grupos de segurança de rede](#source-4-network-security-groups).
 
 Se não tiver outra máquina virtual no mesmo serviço cloud ou rede virtual, crie uma. Siga os passos em [criar uma máquina virtual com Windows no Azure](../virtual-machines-windows-hero-tutorial.md). Elimine máquina virtual de teste depois do teste é concluído.
 
@@ -110,12 +110,12 @@ Se pode ligar através do ambiente de trabalho remoto a uma máquina virtual no 
 
 Para verificar se o ponto final é a origem do problema, remova o ponto final atual e criar um novo, a escolha de uma porta aleatória entre 49152 – 65535 para o número de porta externa. Para obter mais informações, consulte [como configurar pontos finais para uma máquina virtual](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="source-4-network-security-groups"></a>Origem 4: Grupos de segurança de rede
+## <a name="source-4-network-security-groups"></a>Origem de 4: Grupos de Segurança de Rede
 Grupos de segurança de rede permitem um controle mais granular do tráfego de entrada e saído permitido. Pode criar regras de expansão de sub-redes e serviços em nuvem na rede virtual do Azure.
 
 Utilize a [verificação do fluxo de IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar se uma regra num Grupo de Segurança de Rede está a bloquear o tráfego de ou para uma máquina virtual. Também pode consultar as regras do grupo de segurança efetivas para se certificar de NSG "Permitir entrada" regra existe e está priorizada para a porta RDP (predefinição 3389). Para obter mais informações, consulte [fluxo de tráfego através de regras de segurança efetivas para resolver problemas da VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-## <a name="source-5-windows-based-azure-vm"></a>Origem 5: Baseados em Windows VM do Azure
+## <a name="source-5-windows-based-azure-vm"></a>Origem 5: VM do Azure baseado no Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Siga as instruções em [este artigo](../windows/reset-rdp.md). Este artigo repõe o serviço de ambiente de trabalho remoto na máquina virtual:

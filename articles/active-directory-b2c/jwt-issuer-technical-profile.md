@@ -3,7 +3,7 @@ title: Definir um perfil técnico para um emissor de tokens JWT numa política p
 description: Defina um perfil técnico para um emissor de tokens JWT numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396772"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de tokens JWT em políticas personalizadas do Azure Active Directory B2C
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421811"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de reencaminhamento do Azure no Azure Monitor (pré-visualização)
 Métricas de reencaminhamento do Azure dão-lhe o estado dos recursos na sua subscrição do Azure. Com um vasto conjunto de dados de métricas, pode avaliar o estado de funcionamento geral dos seus recursos de reencaminhamento, não apenas ao nível do espaço de nomes, mas também no nível de entidade. Essas estatísticas podem ser importantes como eles ajudam-na monitorizar o estado do reencaminhamento do Azure. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.

@@ -3,8 +3,8 @@ title: Análise de tráfego do Azure | Documentos da Microsoft
 description: Saiba como analisar os registos da fluxo de grupo de segurança de rede do Azure com a análise de tráfego.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
-ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.author: yagup;kumud
+ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430128"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -130,14 +130,6 @@ Para obter informações sobre como verificar as permissões de acesso de utiliz
 ### <a name="enable-network-watcher"></a>Ativar o Observador de Rede
 
 Para analisar o tráfego, tem de ter um observador de rede existente, ou [ativar um observador de rede](network-watcher-create.md) em cada região que tem de NSGs que pretende analisar o tráfego para. Análise de tráfego pode ser ativada para NSGs alojados em qualquer uma da [regiões suportadas](#supported-regions).
-
-### <a name="re-register-the-network-resource-provider"></a>Voltar a registar o fornecedor de recursos de rede
-
-Antes de poder utilizar a análise de tráfego, tem de voltar a registar o fornecedor de recursos de rede. Clique em **experimentar** na caixa de código seguinte para abrir o Azure Cloud Shell. O Cloud Shell automaticamente iniciar a sua sessão na sua subscrição do Azure. Depois do Cloud Shell é aberto, introduza o seguinte comando para voltar a registar o fornecedor de recursos de rede:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### <a name="select-a-network-security-group"></a>Selecione um grupo de segurança de rede
 

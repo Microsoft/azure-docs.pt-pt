@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 178a5e4e2a6ed520a6c58ce07a30684b2d1cbc09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443037"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Pedido de consentimento inesperado ao iniciar sessão a uma aplicação
 

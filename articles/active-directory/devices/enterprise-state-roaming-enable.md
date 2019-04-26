@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353874"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 Roaming de estado empresarial está disponível para qualquer organização com um Azure AD Premium ou Enterprise Mobility + licença Security (EMS). Para obter mais informações sobre como obter uma subscrição do Azure AD, consulte a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).

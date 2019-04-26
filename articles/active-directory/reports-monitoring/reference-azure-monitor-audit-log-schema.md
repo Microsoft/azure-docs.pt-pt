@@ -1,6 +1,6 @@
 ---
-title: Interpretar o esquema de registo de auditoria do Azure Active Directory no Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Descrever o esquema de registo de auditoria do Azure AD para utilização no Azure Monitor (pré-visualização)
+title: Interpretar o esquema de registo de auditoria do Azure Active Directory no Azure Monitor | Documentos da Microsoft
+description: Descrever o esquema de registo de auditoria do Azure AD para utilização no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4832776dee7c478996bcfc2a903a6d8e2a3c4426
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437078"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria do Azure AD no Azure Monitor (pré-visualização)
 
@@ -149,10 +149,10 @@ Este artigo descreve o esquema de registo de auditoria do Azure Active Directory
 
 | Nome do campo | Descrição |
 |------------|-------------|
-| hora       | A data e hora (UTC). |
+| time       | A data e hora (UTC). |
 | operationName | O nome da operação. |
 | operationVersion | A versão de REST API é solicitada pelo cliente. |
-| categoria | Atualmente, *auditoria* é o único valor suportado. |
+| category | Atualmente, *auditoria* é o único valor suportado. |
 | tenantId | O GUID associada os registos de inquilino. |
 | resultType | O resultado da operação. O resultado pode ser *sucesso* ou *falha*. |
 | resultSignature |  Este campo é não mapeado, e pode ignorá-lo com segurança. | 
@@ -163,7 +163,7 @@ Este artigo descreve o esquema de registo de auditoria do Azure Active Directory
 | identidade | A identidade do token que foi apresentado quando efetuou o pedido. A identidade pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
 | nível | O tipo de mensagem. Para os registos de auditoria, o nível é sempre *informativo*. |
 | localização | A localização do datacenter. |
-| propriedades | Lista de propriedades suportadas que estão relacionados com um registo de auditoria. Para obter mais informações, consulte a tabela seguinte. | 
+| properties | Lista de propriedades suportadas que estão relacionados com um registo de auditoria. Para obter mais informações, consulte a tabela seguinte. | 
 
 <br>
 

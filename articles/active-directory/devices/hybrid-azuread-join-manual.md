@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3944031101b954c380b5db6503002dae57ea16d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60352422"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar manualmente o híbrida do Azure Active Directory associados a um dispositivos 
 

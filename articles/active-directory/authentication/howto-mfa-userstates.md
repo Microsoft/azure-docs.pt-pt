@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358996"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
 
@@ -44,7 +44,7 @@ Contas de utilizador no multi-factor Authentication do Azure tem os seguintes tr
 | Estado | Descrição | Aplicações não baseadas no browser afetadas | Aplicações de browser afetadas | Autenticação moderna afetada |
 |:---:|:---:|:---:|:--:|:--:|
 | Desativado |O estado predefinido para um novo utilizador não estiver inscrito no MFA do Azure. |Não |Não |Não |
-| Ativado |O utilizador inscreveu na MFA do Azure, mas não se registou. Eles recebem um pedido de registo da próxima vez que iniciarem sessão. |Não.  Eles continuar a funcionar até que o processo de registo é concluído. | Sim. Depois da sessão expira, o registo de MFA do Azure é necessário.| Sim. Depois do token de acesso expira, o registo de MFA do Azure é necessário. |
+| Enabled |O utilizador inscreveu na MFA do Azure, mas não se registou. Eles recebem um pedido de registo da próxima vez que iniciarem sessão. |Não.  Eles continuar a funcionar até que o processo de registo é concluído. | Sim. Depois da sessão expira, o registo de MFA do Azure é necessário.| Sim. Depois do token de acesso expira, o registo de MFA do Azure é necessário. |
 | Imposto |O utilizador foi inscrito e concluiu o processo de registo do MFA do Azure. |Sim. As aplicações necessitam de palavras-passe de aplicação. |Sim. A MFA do Azure é necessária no início de sessão. | Sim. A MFA do Azure é necessária no início de sessão. |
 
 Um Estado do usuário reflete se um administrador inscreveu-los na MFA do Azure e, se eles concluir o processo de registo.
@@ -82,7 +82,7 @@ Depois de ativar os utilizadores, notificá-los por e-mail. Informe-os de que es
 
 Alterar o estado do utilizador utilizando [do Azure AD PowerShell](/powershell/azure/overview), altere `$st.State`. Existem três Estados possíveis:
 
-* Ativado
+* Enabled
 * Imposto
 * Desativado  
 

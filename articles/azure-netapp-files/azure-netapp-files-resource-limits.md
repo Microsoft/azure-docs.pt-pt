@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: b-juche
 ms.openlocfilehash: 897ca26bcbb05287d33a4fb8e731ca959e39e271
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452641"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
 

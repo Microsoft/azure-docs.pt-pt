@@ -17,11 +17,11 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362140"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Patching automatizado para SQL Server em máquinas virtuais do Azure (clássico)
 > [!div class="op_single_selector"]
@@ -30,12 +30,12 @@ ms.locfileid: "54331321"
 > 
 > 
 
-A aplicação de patches automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure com o SQL Server. Atualizações automáticas só podem ser instaladas durante esta janela de manutenção. Para o SQL Server, isto garante que as atualizações do sistema e os reinícios de associados ocorrerem no momento melhor possível para a base de dados. 
+A aplicação de patches automatizada estabelece uma janela de manutenção para uma Máquina Virtual do Azure com o SQL Server. As Atualizações Automáticas só podem ser instaladas durante essa janela de manutenção. Para o SQL Server, isto garante que as atualizações do sistema e os reinícios de associados ocorrerem no momento melhor possível para a base de dados. 
 
 > [!IMPORTANT]
-> Apenas as atualizações Windows marcadas **importante** estão instalados. Outras atualizações do SQL Server, tais como atualizações cumulativas, tem de ser instaladas manualmente. 
+> Só são instaladas as atualizações do Windows assinaladas como **Importantes**. As outras atualizações do SQL Server, como as Atualizações Cumulativas, têm de ser instaladas manualmente. 
 
-A aplicação de patches automatizada depende da [extensão de agente IaaS do SQL Server](../classic/sql-server-agent-extension.md).
+A Colocação de Patches Automática depende da [Extensão Agente IaaS do SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Para ver a versão do Resource Manager deste artigo, consulte [aplicação de patches automatizada para SQL Server no Gestor de recursos de máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-automated-patching.md).

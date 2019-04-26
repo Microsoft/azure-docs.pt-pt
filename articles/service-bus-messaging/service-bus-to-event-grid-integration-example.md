@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
 ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333407"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemplos de integração do Azure Service Bus no Azure Event Grid
 

@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411417"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso de plataforma de identidade do Microsoft
 
@@ -101,7 +101,7 @@ Afirmações estão presentes somente se um valor existe para preenchê-lo. Por 
 | `azp` | Cadeia de caracteres, um GUID | Apresente apenas nos tokens de v2.0. O ID de aplicação do cliente com o token. A aplicação pode agir em nome próprio, ou em nome de um utilizador. O ID da aplicação normalmente representa um objeto de aplicativo, mas também podem representar um objeto principal de serviço no Azure AD. |
 | `azpacr` | "0", "1" ou "2" | Apresente apenas nos tokens de v2.0. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se o ID de cliente e segredo do cliente são usados, o valor é "1". Se um certificado de cliente foi utilizado para autenticação, o valor é "2". |
 | `groups` | Matriz JSON de GUIDs | Fornece os IDs de objeto que representam as associações de grupo do requerente. Estes valores são exclusiva (veja a ID de objeto) e podem ser usados com segurança para gerir o acesso, como a imposição de autorização para aceder a um recurso. Os grupos incluídos na afirmação grupos são configurados numa base por aplicação, por meio do `groupMembershipClaims` propriedade do [manifesto do aplicativo](reference-app-manifest.md). Um valor nulo será excluir todos os grupos, um valor de "SecurityGroup" irá incluir apenas as associações de grupo de segurança do Active Directory e um valor de "All" irá incluem grupos de segurança e listas de distribuição do Office 365. <br><br>Consulte a `hasgroups` afirmação abaixo para obter detalhes sobre como utilizar o `groups` a afirmação com a concessão implícita. <br>Para outros fluxos, se o número de grupos que o usuário estiver no é feito por um limite de (150 para SAML, 200 para JWT), uma afirmação de utilização excedida é adicionada às origens de afirmação que apontam para o ponto de final do gráfico que contém a lista de grupos do utilizador. |
-| `hasgroups` | Booleano | Se estiver presente, sempre `true`, que indica o utilizador está em pelo menos um grupo. Utilizado em vez do `groups` afirmação para JWTs nos fluxos de concessão implícita se os grupos de totais de afirmação se estende o fragmento do URI para além dos limites de comprimento de URL (atualmente 6 ou mais grupos). Indica que o cliente deve usar o gráfico para determinar os grupos do utilizador (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `hasgroups` | Boolean | Se estiver presente, sempre `true`, que indica o utilizador está em pelo menos um grupo. Utilizado em vez do `groups` afirmação para JWTs nos fluxos de concessão implícita se os grupos de totais de afirmação se estende o fragmento do URI para além dos limites de comprimento de URL (atualmente 6 ou mais grupos). Indica que o cliente deve usar o gráfico para determinar os grupos do utilizador (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Para pedidos de token que não estão limitado de comprimento (consulte `hasgroups` acima), mas ainda demasiado grande para o token, uma ligação para a lista de grupos de completa para o utilizador do está incluída. Para JWTs como uma afirmação distribuída, para SAML como uma nova afirmação em vez do `groups` de afirmação. <br><br>**Valor de JWT exemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `preferred_username` | String | O nome de utilizador principal que represente o usuário. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérica sem um formato especificado. Seu valor é mutável e podem ser alterados ao longo do tempo. Uma vez que é mutável, este valor não pode ser utilizado para tomar decisões de autorização.  Ele pode ser usado para sugestões de nome de utilizador no entanto. O `profile` âmbito é necessário para receber esta afirmação. |
 | `name` | String | Fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido de ser exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
@@ -135,7 +135,7 @@ As seguintes declarações serão incluídas na v1.0 tokens se aplicável, mas n
 
 As identidades da Microsoft podem autenticar-se de diversas formas, que podem ser relevantes ao seu aplicativo. O `amr` afirmação é uma matriz que pode conter vários itens, tais como `["mfa", "rsa", "pwd"]`, para uma autenticação que utilizou uma palavra-passe e a aplicação de autenticador.
 
-| Valor | Descrição |
+| Value | Descrição |
 |-----|-------------|
 | `pwd` | Autenticação de palavra-passe, a palavra-passe da Microsoft de um utilizador ou o segredo do cliente de uma aplicação. |
 | `rsa` | Autenticação tiveram como base a prova de uma chave RSA, por exemplo com o [aplicação Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi realizada por um JWT autoassinado com um serviço pertencentes à empresa X509 certificado. |

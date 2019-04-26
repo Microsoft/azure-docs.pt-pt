@@ -3,7 +3,7 @@ title: Exemplos de transformação de afirmações de data para a identidade exp
 description: Data de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384251"
 ---
 # <a name="date-claims-transformations"></a>Transformações de afirmações de data
 
@@ -29,8 +29,8 @@ Verifica que uma data e hora afirmações (tipo de dados de cadeia de caracteres
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | cadeia | Tipo de primeira afirmação, que deve ser posterior à segunda declaração. |
-| inputClaim | rightOperand | cadeia | Segundo tipo da afirmação, o que deve ser anterior a primeira declaração. |
+| inputClaim | leftOperand | string | Tipo de primeira afirmação, que deve ser posterior à segunda declaração. |
+| inputClaim | rightOperand | string | Segundo tipo da afirmação, o que deve ser anterior a primeira declaração. |
 | InputParameter | AssertIfEqualTo | boolean | Especifica se esta asserção deve passar se o operando esquerdo for igual do operando direito. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica se esta asserção deve passar se o operando direito está em falta. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre os dois data horas a ter em consideração os tempos de igual (por exemplo, para a conta para distorção). |
@@ -143,7 +143,7 @@ Determine se um dateTime mais tarde, é anterior ou igual a outro. O resultado �
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | DateTime | A primeira dateTime para comparar seja anterior ou posterior à data/hora segundo. Valor nulo lançará uma exceção. |
 | InputClaim | secondDateTime | DateTime | O segundo dateTime para comparar seja anterior ou posterior à data/hora primeiro. Valor nulo é tratado como o datetTime atual. |
-| InputParameter | Operador | cadeia | Um dos seguintes valores: mesmo, posterior ou anterior. |
+| InputParameter | Operador | string | Um dos seguintes valores: mesmo, posterior ou anterior. |
 | InputParameter | timeSpanInSeconds | int | Adicione o período de tempo para a primeira datetime. |
 | OutputClaim | Resultado | boolean | ClaimType produzido este ClaimsTransformation po vyvolání. |
 

@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482272"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Definir informações de segurança (pré-visualização) para utilizar mensagens de texto
 Pode seguir estes passos para adicionar a verificação de dois fatores e métodos de reposição de palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.

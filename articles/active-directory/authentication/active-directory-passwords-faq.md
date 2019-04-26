@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359063"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas mais frequentes de gestão de palavras-passe
 
@@ -46,7 +46,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
   >
 * **P:  Pode definir os dados de reposições de palavra-passe em nome dos meus utilizadores?**
 
-  > **R:** Sim, pode fazê-lo com o Azure AD Connect, PowerShell, o [portal do Azure](https://portal.azure.com), ou o Centro de administração do Office 365. Para obter mais informações, consulte [reposição de dados utilizados por palavra-passe self-service do Azure AD](howto-sspr-authenticationdata.md).
+  > **R:** Sim, pode fazê-lo com o Azure AD Connect, PowerShell, o [portal do Azure](https://portal.azure.com), ou o [Centro de administração do Microsoft 365](https://admin.microsoft.com). Para obter mais informações, consulte [reposição de dados utilizados por palavra-passe self-service do Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **P:  Pode sincronizar dados para as perguntas de segurança no local?**

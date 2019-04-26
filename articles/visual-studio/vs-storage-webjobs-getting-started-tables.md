@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390835"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução ao Azure Storage (projetos de trabalho Web do Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]

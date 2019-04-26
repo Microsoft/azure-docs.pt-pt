@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405941"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para Oracle com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -294,7 +294,7 @@ Quando copia dados de e para a Oracle, os seguintes mapeamentos são utilizados 
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| TIMESTAMP |DateTime |
+| CARIMBO DE DATA/HORA |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |String |
 | TIMESTAMP COM O FUSO HORÁRIO |String |
 | NÚMERO INTEIRO NÃO ASSINADO |Number |

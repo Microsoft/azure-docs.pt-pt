@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: spelluru
 ms.openlocfilehash: f03bfde8f7ea37989756ad47678369e94b831438
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203232"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Enviar eventos para ou receber eventos dos Hubs de eventos do Azure com node. js
 

@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333677"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Submeter um fluxo de trabalho através de entradas de ficheiros FASTQ no Microsoft Genomics
 

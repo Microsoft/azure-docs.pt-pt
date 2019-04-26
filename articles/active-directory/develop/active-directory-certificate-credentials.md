@@ -19,11 +19,11 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c4ee1ce56723e4a2c9ab80c12456bbc1b66f6d5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411422"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação de aplicação
 

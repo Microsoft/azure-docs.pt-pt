@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 3c47404826d5055d4a82d4842523f790fb11f000
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346894"
 ---
 # <a name="prepare-your-logic-apps-and-run-books-for-classic-alert-rules-migration"></a>Preparar as aplicações lógicas e executar livros para a migração de regras de alerta clássica
 
@@ -60,7 +60,7 @@ Pode utilizar a tabela seguinte para mapear os campos entre o payload do webook 
 | Tipo do recurso afetado | context.resourceType | data.context.resourceType |
 |  ID de recurso do recurso afetado | context.resourceId | data.context.resourceId |
 | Uma ligação direta para a página de resumo de recursos de portal | context.portalLink | data.context.portalLink|
-| Campos de payload personalizado para webhook ou aplicação lógica | propriedades |data.properties |
+| Campos de payload personalizado para webhook ou aplicação lógica | properties |data.properties |
 
 Como pode ver, ambas as cargas são semelhantes. Secção seguinte tem detalhes sobre as aplicações lógicas de exemplo e um runbook de exemplo para analisar o payload de notificação para novos alertas.
 

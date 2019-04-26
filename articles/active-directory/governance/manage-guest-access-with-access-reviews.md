@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350971"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com o Azure AD as revisões de acesso
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7fa01a6bf522061e54e9622cb9201f81c699a8ec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412442"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Orientação de licenciamento de colaboração do Azure Active Directory B2B
 

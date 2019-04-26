@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.openlocfilehash: a236043d5622e5a2e1ffd572c887fb5ffac2174a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345452"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Utilizar parâmetros do serviço web Azure Machine Learning Studio
 Um serviço web Azure Machine Learning é criado ao publicar uma experimentação que contém módulos com parâmetros configuráveis. Em alguns casos, talvez queira alterar o comportamento de módulo, enquanto o serviço web está em execução. *Parâmetros de serviço da Web* permitem-lhe executar esta tarefa. 

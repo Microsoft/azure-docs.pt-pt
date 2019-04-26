@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 193d0b25276b90f6047943ded83f2000dd4d3436
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336002"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Utilizar limites geográficos para filtrar os resultados da API de pesquisa de negócios locais do Bing
 

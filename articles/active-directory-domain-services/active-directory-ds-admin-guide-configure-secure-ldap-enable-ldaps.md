@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: df189e405dcd5277c1ccbd94e9d5d302660be79b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359865"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Ativar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
 

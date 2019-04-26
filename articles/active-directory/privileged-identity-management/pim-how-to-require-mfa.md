@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442680"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Autenticação multifator (MFA) e o PIM
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
 ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403896"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 

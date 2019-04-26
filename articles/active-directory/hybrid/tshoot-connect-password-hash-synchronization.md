@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+origin.date: 03/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383265"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 
@@ -371,7 +372,7 @@ A coluna de estado pode ter os seguintes valores:
 ```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
@@ -447,3 +448,5 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md)
 * [Sincronização do Azure AD Connect: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
+
+<!-- Update_Description: wording update -->

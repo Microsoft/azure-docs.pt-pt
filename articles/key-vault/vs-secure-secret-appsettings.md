@@ -2,23 +2,19 @@
 title: Em segurança a guardar as definições da aplicação secreta para um aplicativo web - Azure Key Vault | Documentos da Microsoft
 description: Como em segurança guardar as definições da aplicação secreta como credenciais do Azure ou de terceiros API chaves usando o ASP.NET core fornecedor do Cofre de chaves, o segredo de utilizador ou o .NET 4.7.1 construtores de configuração
 services: visualstudio
-documentationcenter: ''
 author: cawaMS
 manager: paulyuk
 editor: ''
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: web, azure
-ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
 ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304883"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar em segurança as definições da aplicação secreta para uma aplicação web
 

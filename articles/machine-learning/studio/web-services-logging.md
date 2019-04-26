@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345640"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Ativar o registo de serviços web Azure Machine Learning Studio
 Este documento fornece informações sobre a capacidade de registos de serviços da web de Machine Learning Studio. O registo fornece informações adicionais, além de apenas um número de erro e uma mensagem, que pode ajudá-lo a resolver problemas de suas chamadas para as APIs de Machine Learning Studio.  

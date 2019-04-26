@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 11ea10f1deba5a21b98dea875a1b7dc94998aa00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402739"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
 

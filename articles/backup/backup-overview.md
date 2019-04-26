@@ -10,11 +10,11 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254687"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 

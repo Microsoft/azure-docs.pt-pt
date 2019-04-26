@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
 ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401991"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 

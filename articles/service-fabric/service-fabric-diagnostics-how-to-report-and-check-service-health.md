@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322053"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
 Quando os serviços de encontram problemas, sua capacidade de responder a e corrigir incidentes e interrupções depende da sua capacidade de detetar os problemas rapidamente. Se as reportar problemas e falhas para o Gestor de estado de funcionamento do Azure Service Fabric a partir do código de serviço, pode usar ferramentas que o Service Fabric fornece para verificar o estado de funcionamento de monitoramento de integridade padrão.

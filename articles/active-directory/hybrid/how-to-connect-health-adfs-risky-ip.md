@@ -16,11 +16,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350564"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (pré-visualização pública)
 Os clientes do AD FS podem expor pontos finais de autenticação de palavras-passe à Internet para disponibilizar serviços de autenticação aos utilizadores finais, para que aqueles acedam a aplicações SaaS, como o Office 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />

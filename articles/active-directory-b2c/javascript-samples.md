@@ -3,19 +3,19 @@ title: Exemplos de JavaScript para utilização no Azure Active Directory B2C | 
 description: Saiba como utilizar JavaScript no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397095"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para utilização no Azure Active Directory B2C
 
@@ -140,7 +140,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-No código, substitua `terms-of-use-url` com a ligação para os seus termos do contrato de utilização. Para o seu diretório, criar um novo atributo de utilizador chamado **termsOfUse** e, em seguida, inclua **termsOfUse** como um atributo de utilizador para o fluxo de utilizador.
+No código, substitua `termsOfUseUrl` com a ligação para os seus termos do contrato de utilização. Para o seu diretório, criar um novo atributo de utilizador chamado **termsOfUse** e, em seguida, inclua **termsOfUse** como um atributo de utilizador para o fluxo de utilizador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

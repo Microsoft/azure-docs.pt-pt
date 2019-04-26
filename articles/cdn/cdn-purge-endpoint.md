@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
 ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324916"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Remover um ponto de final de CDN do Azure
 ## <a name="overview"></a>Descrição geral

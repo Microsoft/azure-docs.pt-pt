@@ -17,11 +17,11 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21c89d9d686c4af594aa7a0fd921471105669e02
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354541"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Acesso condicional do Azure Active Directory FAQs
 

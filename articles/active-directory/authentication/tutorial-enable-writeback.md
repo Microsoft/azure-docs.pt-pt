@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60413965"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavra-passe
 

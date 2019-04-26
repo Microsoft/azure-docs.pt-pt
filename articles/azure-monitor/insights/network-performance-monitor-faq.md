@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
 ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546253"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401467"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 

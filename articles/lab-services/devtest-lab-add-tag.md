@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247046"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311373"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar etiquetas a um laboratório no Azure DevTest Labs
 
@@ -42,8 +42,8 @@ Cada etiqueta é constituída por um **name**/**valor** par. Por exemplo, pode c
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. Já pode ser mostrado o laboratório no Dashboard em **todos os recursos**.
-1. Na lista de laboratórios, selecione o laboratório em que pretende adicionar ou gerir etiquetas.  
-1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.  
+1. Na lista de laboratórios, selecione o laboratório em que pretende adicionar ou gerir etiquetas.
+1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.
 
     ![Botão de configuração e políticas](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
@@ -56,7 +56,7 @@ Cada etiqueta é constituída por um **name**/**valor** par. Por exemplo, pode c
 
 As seguintes limitações aplicam-se às etiquetas:
 
-* Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nomes/valores de etiquetas. Esta limitação aplica-se apenas a etiquetas diretamente aplicadas ao recurso ou grupo de recursos. Um grupo de recursos pode conter muitos recursos que tenham, cada um, 15 pares de nomes/valores de etiqueta. 
+* Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nomes/valores de etiquetas. Esta limitação aplica-se apenas a etiquetas diretamente aplicadas ao recurso ou grupo de recursos. Um grupo de recursos pode conter muitos recursos que tenham, cada um, 15 pares de nomes/valores de etiqueta.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
 
@@ -66,4 +66,4 @@ As seguintes limitações aplicam-se às etiquetas:
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Pode aplicar restrições e convenções na sua subscrição ao utilizar políticas personalizadas. Uma política que definir pode exigir que todos os recursos tenham um valor para uma etiqueta específica. Para obter mais informações, consulte [definir políticas e agendas](devtest-lab-set-lab-policy.md).
-* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore os [Galeria de modelos de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

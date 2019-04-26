@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422377"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Criar e gerir a base de dados do Azure para as regras de firewall do PostgreSQL com a CLI do Azure
 Regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma base de dados do Azure para o servidor PostgreSQL de um endereço IP específico ou intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para PostgreSQL regras de firewall, consulte [base de dados do Azure para as regras de firewall do servidor PostgreSQL](concepts-firewall-rules.md).

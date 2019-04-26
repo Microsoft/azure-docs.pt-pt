@@ -19,11 +19,11 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095879"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411220"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 Este documento fornece o contexto e descrições de várias funcionalidades encontradas no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

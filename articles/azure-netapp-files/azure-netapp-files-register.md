@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
 ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122340"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452794"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registar nos Azure NetApp Files
 Antes de utilizar ficheiros de NetApp do Azure, tem de submeter um pedido de inscrição no serviço de ficheiros do Azure NetApp.  Após a inscrição, em seguida, registe a utilizar o serviço.

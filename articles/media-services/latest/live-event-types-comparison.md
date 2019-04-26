@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322289"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de evento em direto
 
@@ -57,7 +57,7 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 
 ## <a name="system-presets"></a>Predefinições do sistema
 
-Ao usar a codificação em tempo real (evento em direto é definido como **padrão**), a predefinição de codificação define como o fluxo de entrada é codificado em várias velocidades de transmissão ou camadas. Atualmente, o único valor permitido para a configuração predefinida é *Default720p* (predefinição).
+Ao utilizar a codificação em direto (com o Evento em Direto definido como **Standard**), a predefinição da codificação define a forma como a transmissão em fluxo recebida é codificada em múltiplas velocidades de transmissão ou camadas. Atualmente, o único valor permitido para a configuração predefinida é *Default720p* (predefinição).
 
 **Default720p** irá codificar o vídeo para as camadas de 6 seguintes.
 
@@ -73,7 +73,7 @@ Ao usar a codificação em tempo real (evento em direto é definido como **padr�
 | 200 |340 |192 |30 |Elevado |Video_340x192_200kbps |
 
 > [!NOTE]
-> Se precisar de utilizar uma predefinição de codificação em direto personalizada, entre em contato com amshelp@microsoft.com. Deve especificar a tabela desejada de resolução e velocidades de transmissão. Certifique-se de que existe apenas uma camada em 720p e no máximo, 6 camadas.
+> Se precisar de utilizar uma predefinição de codificação em direto personalizada, contacte amshelp@microsoft.com. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Confirme que há apenas uma camada a 720p e seis camadas no máximo.
 
 ### <a name="output-audio-stream"></a>Stream de áudio de saída
 

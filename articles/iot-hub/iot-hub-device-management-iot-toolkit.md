@@ -5,14 +5,16 @@ author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: junhan
+ms.tgt_pltfrm: arduino
+origin.date: 01/04/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401175"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utilizar ferramentas de IoT do Azure para Visual Studio Code para gestão de dispositivos do IoT Hub do Azure
 
@@ -22,8 +24,8 @@ ms.locfileid: "58445269"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opção de gestão          | Tarefa                    |
-|----------------------------|--------------------------------|
+| Opção de gestão          | Tarefa                                                                                                                            |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Métodos diretos             | Tornar um dispositivo atuar como iniciar ou interromper o envio de mensagens ou reiniciar o dispositivo.                                        |
 | Dispositivo duplo de leitura           | Obter o Estado comunicado de um dispositivo. Por exemplo, o dispositivo comunica que o LED é intermitente agora.                                    |
 | Atualizar o dispositivo duplo         | Coloca um dispositivo em determinados Estados, como na definição de um LED verde ou definir o intervalo de envio de telemetria como 30 minutos.         |
@@ -53,14 +55,10 @@ Execute as ferramentas de IoT do Azure para Visual Studio Code com várias opç�
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o seu hub IoT
 
 1. Na **Explorer** ver do VS Code, expanda **dispositivos do Azure IoT Hub** secção no canto inferior esquerdo.
-
-2. Clique em **selecione o IoT Hub** no menu de contexto.
-
-3. Mostra um pop-up no canto inferior direito para permitem-lhe iniciar sessão no Azure pela primeira vez.
-
-4. Depois de iniciar sessão, sua lista de subscrições do Azure serão apresentados, em seguida, selecione a subscrição do Azure e o IoT Hub.
-
-5. A lista de dispositivos será mostrada na **dispositivos do Azure IoT Hub** guia em poucos segundos.
+1. Clique em **selecione o IoT Hub** no menu de contexto.
+1. Mostra um pop-up no canto inferior direito para permitem-lhe iniciar sessão no Azure pela primeira vez.
+1. Depois de iniciar sessão, sua lista de subscrições do Azure serão apresentados, em seguida, selecione a subscrição do Azure e o IoT Hub.
+1. A lista de dispositivos será mostrada na **dispositivos do Azure IoT Hub** guia em poucos segundos.
 
    > [!Note]
    > Também pode concluir a configuração ao escolher **Definir Cadeia de Ligação do Hub IoT**. Introduza a cadeia de ligação do hub IoT que se liga o dispositivo de IoT na janela de pop-up.
@@ -68,33 +66,26 @@ Execute as ferramentas de IoT do Azure para Visual Studio Code com várias opç�
 ## <a name="direct-methods"></a>Métodos diretos
 
 1. O dispositivo com o botão direito e selecione **invocar método direto**. 
-
-2. Introduza o nome do método e o payload na caixa de entrada.
-
+1. Introduza o nome do método e o payload na caixa de entrada.
 3. Os resultados serão mostrados na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
 
 ## <a name="read-device-twin"></a>Dispositivo duplo de leitura
 
 1. O dispositivo com o botão direito e selecione **Editar dispositivo duplo**. 
-
-2. Uma **azure-iot-dispositivo-twin.json** será possível abrir o ficheiro com o conteúdo do dispositivo duplo.
+1. Uma **azure-iot-dispositivo-twin.json** será possível abrir o ficheiro com o conteúdo do dispositivo duplo.
 
 ## <a name="update-device-twin"></a>Atualizar o dispositivo duplo
 
 1. Faça algumas edições dos **etiquetas** ou **properties.desired** campo.
-
-2. Com o botão direito sobre a **azure-iot-dispositivo-twin.json** ficheiro.
-
-3. Selecione **atualizar o dispositivo duplo** para atualizar o dispositivo duplo.
+1. Com o botão direito sobre a **azure-iot-dispositivo-twin.json** ficheiro.
+1. Selecione **atualizar o dispositivo duplo** para atualizar o dispositivo duplo.
 
 ## <a name="send-cloud-to-device-messages"></a>Enviar mensagens da cloud para o dispositivo
 
 Para enviar uma mensagem do seu hub IoT para o seu dispositivo, siga estes passos:
  
 1. O dispositivo com o botão direito e selecione **enviar mensagem de C2D para dispositivos**. 
-
-2. Introduza a mensagem na caixa de entrada.
-
+1. Introduza a mensagem na caixa de entrada.
 3. Os resultados serão mostrados na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -9,11 +9,11 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344160"
 ---
 Quando criar uma máquina virtual (VM), às VM paradas e (desalocada) de reiniciar ou redimensionar uma VM, o Microsoft Azure aloca recursos de computação à sua subscrição. Estamos continuamente investem na infraestrutura adicional e recursos para se certificar de que tenhamos sempre todos os tipos VM disponíveis para dar suporte a procura dos clientes. No entanto, ocasionalmente, poderá experienciar falhas de alocação de recursos devido a um crescimento inédito nas procura de serviços do Azure em regiões específicas. Este problema pode ocorrer ao tentar criar ou iniciar VMs numa região, enquanto as VMs apresentam o seguinte código de erro e a mensagem:
 

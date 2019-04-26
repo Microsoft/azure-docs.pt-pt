@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455640"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida da identidade híbrida
 A identidade é um dos alicerces da sua estratégia de acesso de mobilidade e a aplicação da empresa. Se está a iniciar sessão seu dispositivo móvel ou a aplicação SaaS, a sua identidade é a chave para ganhar acesso a tudo. Em seu nível mais elevado, uma solução de gestão de identidades abrange unificar e sincronização entre seus repositórios de identidades, que inclui automação e centralizar o processo de aprovisionamento de recursos. A solução de identidade deve ser centralizado de identidades no local e na cloud e também utilizar alguma forma de Federação de identidades para manter a autenticação centralizada e com segurança partilhar e colaborar com utilizadores externos e as empresas. Recursos variam de sistemas operacionais e aplicativos para pessoas ou afiliado, uma organização. Estrutura organizacional pode ser alterada para acomodar as políticas e procedimentos de aprovisionamento.

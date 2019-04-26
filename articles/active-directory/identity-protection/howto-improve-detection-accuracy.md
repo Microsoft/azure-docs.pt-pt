@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453298"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Como: Melhorar a exatidão da deteção 
 

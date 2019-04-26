@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: eb4c5897cdadecd074c2764faceeed13f4c724c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328654"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina de virtual de Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza valores predefinidos para criar quaisquer recursos de suporte necessários. Recursos como uma rede virtual, endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecipadamente e, em seguida, adicione as suas VMs a eles. Este artigo orienta-o através de como criar uma VM e cada um dos recursos de suporte individualmente.

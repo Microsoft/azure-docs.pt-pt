@@ -19,11 +19,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353793"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory com o Azure AD Connect
 Este artigo descreve como gerir e personalizar os serviços de Federação do Active Directory (AD FS) com o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas de AD FS comuns que poderá ter de fazer para uma configuração completa de um farm do AD FS.

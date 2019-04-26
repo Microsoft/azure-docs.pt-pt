@@ -2,23 +2,19 @@
 title: Parâmetros e cabeçalhos comuns
 description: Os parâmetros e cabeçalhos comuns a todas as operações que pode fazer relacionadas com os recursos do Cofre de chaves.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc6c937e37ebb7919ca271e765ad6460c104e43b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: b420999dad6f34e4868013e2d466d8bacb60b2c6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306041"
 ---
 # <a name="common-parameters-and-headers"></a>Parâmetros e cabeçalhos comuns
 

@@ -16,11 +16,11 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173203"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299061"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para uma aplicação personalizada desenvolvida
 

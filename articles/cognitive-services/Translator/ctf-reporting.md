@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513717"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
@@ -83,7 +83,7 @@ Este método obtém a contagem de traduções que são criados pelo utilizador. 
 | minRating| **Opcional** um valor inteiro que representa a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
 | maxRating| **Opcional** um valor inteiro que representa a classificação de qualidade máximo para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
 | Utilizador | **Opcional** uma cadeia de caracteres que é utilizada para filtrar o resultado com base em; o originador de envio. |
-| categoria| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
+| category| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
 | minDateUtc| **Opcional** a data de quando quiser obter as traduções. A data tem de estar no formato UTC. |
 | maxDateUtc| **Opcional** a data até que deseja obter as traduções. A data tem de estar no formato UTC. |
 | ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
@@ -154,7 +154,7 @@ Este método obtém as traduções que são criadas pelo utilizador. Ele fornece
 | minRating| **Opcional** um valor inteiro que representa a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
 | maxRating| **Opcional** um valor inteiro que representa a classificação de qualidade máximo para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
 | Utilizador| **Opcional. Uma cadeia de caracteres que é utilizada para filtrar o resultado com base em; o originador de envio**|
-| categoria| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
+| category| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
 | minDateUtc| **Opcional** a data de quando quiser obter as traduções. A data tem de estar no formato UTC.|
 | maxDateUtc| **Opcional** a data até que deseja obter as traduções. A data tem de estar no formato UTC.|
 | ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|

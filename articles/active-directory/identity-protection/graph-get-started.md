@@ -19,11 +19,11 @@ ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296304"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e Microsoft Graph
 

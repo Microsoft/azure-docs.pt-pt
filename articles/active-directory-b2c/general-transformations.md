@@ -3,7 +3,7 @@ title: Exemplos de transformação de afirmações geral para a identidade exper
 description: Exemplos de transformação de afirmações geral para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397163"
 ---
 # <a name="general-claims-transformations"></a>Transformações de afirmações geral
 

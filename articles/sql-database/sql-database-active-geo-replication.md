@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387456"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 

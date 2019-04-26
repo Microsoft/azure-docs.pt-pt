@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412789"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Sair de uma organização como um utilizador convidado
 

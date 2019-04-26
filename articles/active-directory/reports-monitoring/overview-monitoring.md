@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286614"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 

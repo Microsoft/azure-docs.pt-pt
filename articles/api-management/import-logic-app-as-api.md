@@ -11,14 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
-ms.author: apimpm
+origin.date: 11/22/2017
+ms.author: v-yiso
+ms.date: 02/04/2019
 ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234684"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma Aplicação Lógica como uma API
 

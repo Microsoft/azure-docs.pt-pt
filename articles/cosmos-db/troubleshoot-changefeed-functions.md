@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404705"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure
 
@@ -31,7 +31,7 @@ Este artigo irá sempre se referir a V2 de funções do Azure sempre que o tempo
 
 É a principal funcionalidade do pacote de extensão fornecer suporte para o acionador do Azure Cosmos DB e enlaces. Ele também inclui a [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se pretender interagir com o Azure Cosmos DB através de programação sem utilizar o acionador e os enlaces.
 
-Se pretende a utilizar o SDK do Azure Cosmos DB, certifique-se de que não adicionar ao seu projeto outra referência de pacote de NuGet. Em vez disso, **permitir que a referência do SDK resolver por meio do pacote de extensão das funções do Azure**.
+Se pretende utilizar o SDK do Azure Cosmos DB, certifique-se de que não adicionar ao seu projeto outra referência de pacote de NuGet. Em vez disso, **permitir que a referência do SDK resolver por meio do pacote de extensão das funções do Azure**.
 
 Além disso, se estiver a criar sua própria instância do manualmente os [cliente SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), deve seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão de Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Este processo irá evitar potenciais problemas de socket em suas operações.
 

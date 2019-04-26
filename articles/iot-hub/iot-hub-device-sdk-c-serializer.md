@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399274"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>O Azure IoT device SDK para C – mais informações sobre o serializador
 
@@ -64,7 +64,7 @@ O que não é demonstrado neste exemplo são os tipos de dados adicionais que s�
 
 São suportados os seguintes tipos de dados na criação de modelos criadas com o **serializador** biblioteca:
 
-| Tipo | Descrição |
+| Type | Descrição |
 | --- | --- |
 | double |Double precisão número de vírgula flutuante |
 | int |número inteiro de 32 bits |
@@ -74,12 +74,12 @@ São suportados os seguintes tipos de dados na criação de modelos criadas com 
 | int16\_t |número inteiro de 16 bits |
 | int32\_t |número inteiro de 32 bits |
 | int64\_t |número inteiro de 64 bits |
-| Bool |boolean |
+| booleano |boolean |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATA\_TEMPO\_DE DESLOCAMENTO |compensação de tempo de data |
 | EDM\_GUID |GUID |
-| EDM\_BINÁRIO |binário |
-| DECLARAR\_STRUCT |Tipo de dados complexos |
+| EDM\_BINÁRIO |binary |
+| DECLARE\_STRUCT |Tipo de dados complexos |
 
 Vamos começar com o último tipo de dados. O **DECLARE\_STRUCT** permite-lhe definir os tipos de dados complexos, que consistem em agrupamentos de outros tipos primitivos. Esses agrupamentos permitem-nos definir um modelo que tem esta aparência:
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Observe que o modelo inclui dois eventos de dados: **temperatura** e **humidade**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **DECLARE\_STRUCT**. **TemperatureEvent** inclui uma medida de temperatura e um timestamp **HumidityEvent** contém uma medida de humidade e um carimbo. Esse modelo oferece uma forma natural de modelar os dados para o cenário descrito acima. Quando podemos enviar um evento para a nuvem, iremos optar por enviar uma temperatura/timestamp ou um par de humidade/timestamp.
+Tenha em atenção que o modelo inclui dois eventos de dados: **Temperatura** e **humidade**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **DECLARE\_STRUCT**. **TemperatureEvent** inclui uma medida de temperatura e um timestamp **HumidityEvent** contém uma medida de humidade e um carimbo. Esse modelo oferece uma forma natural de modelar os dados para o cenário descrito acima. Quando podemos enviar um evento para a nuvem, iremos optar por enviar uma temperatura/timestamp ou um par de humidade/timestamp.
 
 Podemos enviar um evento de temperatura à cloud através de código como o seguinte:
 
@@ -367,7 +367,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 Pode imaginar que o resultado desse código é que os dados de dois eventos são enviados para o IoT Hub:
 
-[{"Temperatura": 75}, {"Humidade": 45}]
+[ {"Temperature":75}, {"Humidity":45} ]
 
 Em outras palavras, pode esperar que esse código é igual a envio **temperatura** e **humidade** separadamente. É apenas uma conveniência para passar os dois eventos para **SERIALIZE** na mesma chamada. No entanto, não for esse o caso. Em vez disso, o código acima envia este evento de dados individual para o IoT Hub:
 
@@ -514,7 +514,7 @@ Se estiver enviando uma mensagem a um dispositivo, poderia fazê-lo através do 
 {"Name" : "", "Parameters" : "" }
 ```
 
-Está a enviar um objeto JSON serializado com duas propriedades: **Name** é o nome da ação (mensagens) e **parâmetros** contém os parâmetros da ação.
+Está a enviar um objeto JSON serializado com duas propriedades: **Nome** é o nome da ação (mensagens) e **parâmetros** contém os parâmetros da ação.
 
 Por exemplo, para invocar **SetAirResistance** pode enviar esta mensagem para um dispositivo:
 
@@ -615,7 +615,7 @@ Conforme descrito numa [artigo anterior](iot-hub-device-sdk-c-iothubclient.md), 
 * IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* O IoTHubClient\_destruir
+* IoTHubClient\_Destroy
 
 Essas APIs são demonstradas **simplesample\_amqp**.
 
@@ -624,7 +624,7 @@ Há também um análogo conjunto de APIs de nível inferior.
 * IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* O IoTHubClient\_odas\_destruir
+* IoTHubClient\_LL\_Destroy
 
 Tenha em atenção que as APIs de nível inferior funcionam exatamente da mesma forma, conforme descrito nos artigos anteriores. Pode utilizar o primeiro conjunto de APIs, se pretender que um thread em segundo plano para tratar eventos de envio e recebimento de mensagens. Utilize o segundo conjunto de APIs se pretender que o controle explícito sobre o quando enviar e receber dados a partir do IoT Hub. De qualquer conjunto de trabalho APIs igualmente bem com o **serializador** biblioteca.
 

@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.author: davidmu
+origin.date: 10/09/2018
+ms.date: 04/01/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317178"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir o SSO e personalização de token com as políticas personalizadas no Azure Active Directory B2C
 
@@ -100,3 +101,4 @@ Os seguintes valores estão configurados no exemplo anterior:
 - **Início de sessão (SSO) único** -início de sessão único está configurado com o **SingleSignOn**. Os valores aplicáveis são `Tenant`, `Application`, `Policy`, e `Suppressed`. 
 - **Aplicação Web duração da sessão (minutos)** – a sessão de aplicativo web tempo de vida é definido com o **SessionExpiryInSeconds** elemento. O valor predefinido é 86400 segundos (1440 minutos).
 - **Tempo limite de sessão de aplicação Web** – a sessão de aplicativo web, tempo limite é definido com o **SessionExpiryType** elemento. Os valores aplicáveis são `Absolute` e `Rolling`.
+

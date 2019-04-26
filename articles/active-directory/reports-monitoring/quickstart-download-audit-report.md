@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286464"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Início rápido: Transferir um relatório de auditoria no portal do Azure
 

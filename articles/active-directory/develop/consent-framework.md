@@ -18,11 +18,11 @@ ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f01555933ca8b3d0c48a956d3deb4b3356b4e1a2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410846"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework de consentimento do Azure Active Directory
 

@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420245"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Criar e gerir réplicas de leitura a partir da CLI do Azure
 

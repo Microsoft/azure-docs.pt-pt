@@ -16,11 +16,11 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442510"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problema ao adicionar uma aplicação de externas à Galeria
 

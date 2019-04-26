@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408601"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros de FTP ao utilizar o Azure Logic Apps
 
@@ -28,7 +28,7 @@ Com o Azure Logic Apps e o conector FTP, pode criar tarefas automatizadas e flux
 
 Pode usar acionadores que obtém respostas a partir do seu servidor FTP e disponibilizar a saída para outras ações. Pode utilizar ações de execução nas suas aplicações lógicas para gerir ficheiros no seu servidor FTP. Pode também ter outras ações utilizar a saída de ações de FTP. Por exemplo, se regularmente obter ficheiros do seu servidor FTP, pode enviar por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 
 * Ações de FTP suportam apenas os ficheiros que estão *50 MB ou mais pequeno* a menos que utilize [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md), que permitem-lhe exceder este limite. Atualmente, os acionadores FTP não suportam a segmentação.
 

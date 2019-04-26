@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453183"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.

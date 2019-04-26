@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420208"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expõe um serviço do WCF no local a uma aplicação web na cloud utilizando o reencaminhamento do Azure 
 Este artigo mostra como compilar uma aplicação híbrida na cloud com o Microsoft Azure e o Visual Studio. Criar uma aplicação que utiliza vários recursos do Azure backup e em execução na cloud.

@@ -1,6 +1,6 @@
 ---
-title: Como integrar registos do Azure Active Directory com ArcSight através do Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Saiba como integrar registos do Azure Active Directory com ArcSight através do Azure Monitor (pré-visualização)
+title: Como integrar registos do Azure Active Directory com ArcSight através do Azure Monitor | Documentos da Microsoft
+description: Saiba como integrar registos do Azure Active Directory com ArcSight através do Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2018
+ms.date: 04/19/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd7101c641cf69112975cd0431a08ec74f99aac
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 08a265637274f396497da37706391bf44e0c9107
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437027"
 ---
-# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor-preview"></a>Integrar registos do Azure Active Directory com ArcSight através do Azure Monitor (pré-visualização)
+# <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Integrar registos do Azure Active Directory com ArcSight através do Azure Monitor
 
 [Micro foco ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) é uma segurança informações e eventos (SIEM) solução de gestão que o ajuda a detetar e responder a ameaças de segurança na sua plataforma. Agora, pode encaminhar registos do Azure Active Directory (Azure AD) ArcSight através do Azure Monitor através do conector de ArcSight para o Azure AD. Esta funcionalidade permite-lhe monitorizar o seu inquilino para o compromisso de segurança usando ArcSight.  
 
@@ -59,4 +59,4 @@ Transfira e abra o [guia de configuração do cso SmartConnector para o Hub de e
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Guia de configuração do cso SmartConnector para o Hub de eventos do Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Guia de configuração do cso SmartConnector para o Hub de eventos do Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

@@ -1,7 +1,6 @@
 ---
 title: Utilizar DataFu do Apache com Apache Pig no HDInsight - Azure
 description: Apache DataFu Pig é uma coleção de bibliotecas para utilização com o Apache Pig no Apache Hadoop. Saiba como pode utilizar DataFu com Pig no seu cluster do HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
 ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445116"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Utilizar DataFu de Apache Pig com o Apache Pig no HDInsight
 

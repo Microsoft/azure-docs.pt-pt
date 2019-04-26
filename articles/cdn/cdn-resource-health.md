@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o estado de funcionamento dos recursos do Azure CDN | Microsoft Docs
-description: Saiba como monitorizar o estado de funcionamento dos seus recursos da CDN do Azure com o estado de funcionamento de recursos de Azure.
+title: Monitorizar o estado de funcionamento de recursos do CDN do Azure | Documentos da Microsoft
+description: Saiba como monitorizar o estado de funcionamento dos seus recursos do CDN do Azure com o Azure Resource Health.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23842896"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324717"
 ---
-# <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorizar o estado de funcionamento dos recursos da CDN do Azure
+# <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorizar o estado de funcionamento de recursos do CDN do Azure
   
-Estado de funcionamento de recursos de CDN do Azure é um subconjunto de [estado de funcionamento de recursos do Azure](../resource-health/resource-health-overview.md).  Pode utilizar o estado de funcionamento de recursos do Azure para monitorizar o estado de funcionamento dos recursos da CDN e receber acionável orientações para resolução de problemas.
+Estado de funcionamento de recursos do CDN do Azure é um subconjunto das [estado de funcionamento de recursos do Azure](../resource-health/resource-health-overview.md).  Pode usar o estado de funcionamento de recursos do Azure para monitorizar o estado de funcionamento de recursos CDN e receber orientação acionável para resolver problemas.
 
 >[!IMPORTANT] 
->Estado de funcionamento de recursos do Azure CDN contas atualmente apenas para o estado de funcionamento global entrega da CDN e as capacidades de API.  Estado de funcionamento de recursos do Azure CDN não verifica os pontos finais da CDN individuais.
+>Estado de funcionamento de recursos do CDN do Azure atualmente apenas contas para o estado de funcionamento de entrega CDN global e capacidades de API.  Estado de funcionamento de recursos do CDN do Azure não verifica os pontos finais CDN individuais.
 >
 >Os sinais de feed de estado de funcionamento de recursos de CDN do Azure podem ser até 15 minutos atrasados.
 
 ## <a name="how-to-find-azure-cdn-resource-health"></a>Como localizar o estado de funcionamento de recursos de CDN do Azure
 
-1. No [portal do Azure](https://portal.azure.com), navegue para o perfil de CDN.
+1. Na [portal do Azure](https://portal.azure.com), navegue para o perfil de CDN.
 
-2. Clique em de **definições** botão.
+2. Clique nas **definições** botão.
 
-    ![Botão de definições](./media/cdn-resource-health/cdn-profile-settings.png)
+    ![Botão Definições](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Em *suporte + resolução de problemas*, clique em **estado de funcionamento do recurso**.
+3. Sob *suporte + resolução de problemas*, clique em **estado de funcionamento do recurso**.
 
     ![Estado de funcionamento de recursos CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Também pode encontrar os recursos CDN listados no *estado de funcionamento do recurso* na peça de mosaico do *ajuda + suporte* painel.  Pode obter rapidamente para *ajuda + suporte* clicando a dentro de um círculo **?** no canto superior direito do portal.
+>Também pode encontrar recursos CDN listados na *estado de funcionamento do recurso* mosaico no *ajuda + suporte* painel.  Pode obter rapidamente *ajuda + suporte* ao clicar o dentro de um círculo **?** no canto superior direito do portal.
 >
 > ![Ajuda + suporte](./media/cdn-resource-health/cdn-help-support.png)
 
-## <a name="azure-cdn-specific-messages"></a>Mensagens de específicos da CDN do Azure
+## <a name="azure-cdn-specific-messages"></a>Mensagens de específicas do CDN do Azure
 
 Estados relacionados com o estado de funcionamento de recursos de CDN do Azure podem ser encontrados abaixo.
 
-|Mensagem | Ação recomendada |
+|Mensagem | Ação Recomendada |
 |---|---|
-|Poderá ter parado, removidos ou configurado incorretamente um ou mais dos seus pontos finais da CDN | Poderá ter parado, removidos ou configurado incorretamente um ou mais dos seus pontos finais da CDN.|
-|Lamentamos, o serviço de gestão da CDN está indisponível | Verifique novamente aqui para atualizações de estado Se o problema persistir após o tempo de resolução previsto, contacte o suporte.|
-|Pedimos desculpa, que os pontos finais da CDN podem ser afetados por problemas em curso com alguns dos nossos fornecedores CDN | Verifique novamente aqui para atualizações de estado Utilize a ferramenta de resolução de problemas para saber como testar a sua origem e o ponto final de CDN Se o problema persistir após o tempo de resolução previsto, contacte o suporte. |
-|Lamentamos, as alterações de configuração de ponto final CDN sofram atrasos de propagação | Verifique novamente aqui para atualizações de estado Se as alterações de configuração não são propagadas para completamente no prazo previsto, contacte o suporte.|
-|Lamentamos, que mas está a ter problemas ao carregar o portal suplementar | Verifique novamente aqui para atualizações de estado Se o problema persistir após o tempo de resolução previsto, contacte o suporte.|
-Lamentamos, que mas está a ter problemas com alguns dos nossos fornecedores CDN | Verifique novamente aqui para atualizações de estado Se o problema persistir após o tempo de resolução previsto, contacte o suporte. |
+|Pode ter parado, removido ou configurado de forma incorreta um ou mais dos seus pontos finais da CDN | Pode ter parado, removido ou configurado de forma incorreta um ou mais dos seus pontos finais da CDN.|
+|Lamentamos, mas o serviço de gestão da CDN está indisponível neste momento | Verifique aqui as atualizações de estado Se o problema persistir após o período de resolução esperado, contacte o suporte.|
+|Lamentamos, mas os pontos finais da CDN podem estar a ser afetados por problemas em curso de alguns dos nossos fornecedores da CDN | Verifique aqui as atualizações de estado Utilize a ferramenta de resolução de problemas para saber como testar a origem e o ponto final de CDN Se o problema persistir após o período de resolução esperado, contacte o suporte. |
+|Lamentamos, mas as alterações da configuração do ponto final da CDN estão a ter atrasos de propagação | Verifique aqui as atualizações de estado Se as alterações de configuração não estão propagadas totalmente na hora prevista, contacte o suporte.|
+|Lamentamos, mas estamos a ter problemas ao carregar o portal suplementar | Verifique aqui as atualizações de estado Se o problema persistir após o período de resolução esperado, contacte o suporte.|
+Lamentamos, estamos a ter problemas com alguns dos nossos fornecedores da CDN | Verifique aqui as atualizações de estado Se o problema persistir após o período de resolução esperado, contacte o suporte. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Leu uma descrição geral do Estado de funcionamento de recursos do Azure](../resource-health/resource-health-overview.md)
-- [Resolver problemas com a compressão de CDN](./cdn-troubleshoot-compression.md)
+- [Leia uma visão geral do Estado de funcionamento de recursos do Azure](../resource-health/resource-health-overview.md)
+- [Resolver problemas com a compactação de CDN](./cdn-troubleshoot-compression.md)
 - [Resolver problemas com 404 erros](./cdn-troubleshoot-endpoint.md)

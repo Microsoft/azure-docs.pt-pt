@@ -14,11 +14,11 @@ ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
 ms.openlocfilehash: 0befc5e00cf31960a0ecda3f739e65477c740edd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60374055"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de Versão das Ferramentas de Análise de Programador
 
@@ -248,7 +248,7 @@ Adicionámos uma nova guia, com consultas do predefinidas para todos os dados re
 ### <a name="forward-and-back-history-in-search"></a>Histórico na pesquisa de retroceder e avançar
 Agora pode então voltar e avançar entre os resultados da pesquisa.
 
-![Retroceder](./media/release-notes-vsix/GoBAck.png)
+![Voltar](./media/release-notes-vsix/GoBAck.png)
 
 ## <a name="version-41"></a>Versão 4.1
 Esta versão inclui uma série de novos recursos e atualizações. Tem de ter a atualização 1 instalado para instalar esta versão.

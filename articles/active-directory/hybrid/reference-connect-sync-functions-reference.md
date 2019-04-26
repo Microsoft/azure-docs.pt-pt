@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381150"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência das Funções
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  

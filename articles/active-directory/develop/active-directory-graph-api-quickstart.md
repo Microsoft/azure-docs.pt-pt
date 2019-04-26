@@ -20,11 +20,11 @@ ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dfbf920a0e1fc002f3bcbe90164e1fd13a0b978
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411510"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como: Utilizar a Graph API do Azure AD
 

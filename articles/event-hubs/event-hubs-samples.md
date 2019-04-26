@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 1c1198733fb56303d328ee97152442d25dbe945a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343482"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Repositórios de Git com exemplos para os Hubs de eventos do Azure 
 Pode encontrar exemplos de Hubs de eventos no [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Estes exemplos demonstram os principais recursos do [os Hubs de eventos do Azure](/azure/event-hubs/). Este artigo categoriza e descreve os exemplos disponíveis, com links para cada um.

@@ -3,7 +3,7 @@ title: Tipos de aplicativos que podem ser utilizados no Azure Active Directory B
 description: Saiba mais sobre os tipos de aplicativos que pode utilizar no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497964"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361086"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser utilizados no Active Directory B2C
 

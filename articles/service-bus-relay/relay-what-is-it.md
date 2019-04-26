@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420317"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
 O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma porta no firewall, ou para fazer alterações intrusivas na sua infraestrutura de rede empresarial. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405975"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
 
@@ -27,7 +27,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Por agora, dentro de uma atividade de cópia única só é possível **copiar dados do Office 365 numa [armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md), e [(de geração 2 de armazenamento do Azure Data Lake Pré-visualização)](connector-azure-data-lake-storage.md) no formato JSON** (digite setOfObjects). Se pretender carregar do Office 365 para outros tipos de arquivos de dados ou em outros formatos, pode encadear a primeira atividade de cópia com uma atividade de cópia subsequentes para ainda mais carregar dados para qualquer um da [arquivos de destino do ADF suportados](copy-activity-overview.md#supported-data-stores-and-formats) (consulte" suportado como sink"coluna na tabela"Suporte a arquivos de dados e formatos").
+Por agora, dentro de uma atividade de cópia única só é possível **copiar dados do Office 365 numa [armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md), e [Gen2 de armazenamento do Azure Data Lake ](connector-azure-data-lake-storage.md) no formato JSON** (digite setOfObjects). Se pretender carregar do Office 365 para outros tipos de arquivos de dados ou em outros formatos, pode encadear a primeira atividade de cópia com uma atividade de cópia subsequentes para ainda mais carregar dados para qualquer um da [arquivos de destino do ADF suportados](copy-activity-overview.md#supported-data-stores-and-formats) (consulte" suportado como sink"coluna na tabela"Suporte a arquivos de dados e formatos").
 
 >[!IMPORTANT]
 >- A subscrição do Azure que contém a fábrica de dados e o arquivo de dados de sink tem de estar no mesmo inquilino do Azure Active Directory (Azure AD) como inquilino do Office 365.
@@ -79,7 +79,7 @@ As seguintes propriedades são suportadas para o serviço do Office 365 ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Office365** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Office365** | Sim |
 | office365TenantId | ID de inquilino do Azure à qual pertence a conta do Office 365. | Sim |
 | servicePrincipalTenantId | Especifique as informações de inquilino no qual reside o aplicativo de web do Azure AD. | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
@@ -119,7 +119,7 @@ Para copiar dados do Office 365, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **Office365Table** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **Office365Table** | Sim |
 | tableName | Nome do conjunto de dados para extrair a partir do Office 365. Consultar [aqui](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) para obter a lista de conjuntos de dados do Office 365 disponíveis para extração. | Sim |
 | Predicado | Uma expressão de predicado que pode ser utilizada para filtrar as linhas específicas para extrair a partir do Office 365.  Consultar [aqui](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) para descobrir as colunas que podem ser utilizadas para a filtragem de predicados para cada tabela e o formato de expressão de filtro. | Não<br>(Não se for fornecido nenhum predicado, a predefinição é extrair dados dos últimos 30 dias) |
 

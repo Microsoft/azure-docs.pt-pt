@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409894"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 

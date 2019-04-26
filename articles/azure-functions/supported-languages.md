@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
 ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325467"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Idiomas suportados nas funções do Azure
 

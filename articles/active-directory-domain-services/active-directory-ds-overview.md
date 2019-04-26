@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: ergreenl
 ms.openlocfilehash: c9833ac1dd6f5b046a89a1c2d9007e2cd5c9f813
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416709"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Serviços de domínio do Azure Active Directory (AD)
 ## <a name="overview"></a>Descrição geral

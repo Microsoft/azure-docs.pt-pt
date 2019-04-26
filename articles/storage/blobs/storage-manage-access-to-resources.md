@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392576"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
 Pode ativar o acesso de leitura anónimo, público para um contentor e respetivos blobs no armazenamento de Blobs do Azure. Ao fazê-lo, pode conceder acesso só de leitura a esses recursos sem partilhar a sua chave de conta e sem a necessidade de uma assinatura de acesso partilhado (SAS).
@@ -24,9 +24,9 @@ Por predefinição, um contentor e os blobs dentro da mesma podem ser acedidos a
 
 Pode configurar um contentor com as seguintes permissões:
 
-* **Acesso de leitura não público:** o contentor e respetivos blobs podem ser acedidos apenas pelo proprietário da conta de armazenamento. Esta é a predefinição para todos os novos contentores.
-* **Acesso apenas para blobs de leitura pública:** Blobs no contentor podem ser lidos por pedido anónimo, mas os dados de contentor não estão disponíveis. Clientes anônimos não é possível enumerar os blobs no contentor.
-* **Acesso de leitura público total:** todos os dados de contentor e blob podem ser lido por pedido anónimo. Os clientes podem enumerar os blobs no contentor ao pedido anónimo, mas não é possível enumerar os contentores na conta de armazenamento.
+* **Sem acesso de leitura público:** O contentor e respetivos blobs podem ser acedidos apenas pelo proprietário da conta de armazenamento. Esta é a predefinição para todos os novos contentores.
+* **Acesso de leitura público para blobs apenas:** Os BLOBs no contentor podem ser lidos por pedido anónimo, mas os dados de contentor não estão disponíveis. Clientes anônimos não é possível enumerar os blobs no contentor.
+* **Acesso de leitura público completa:** Todos os dados de BLOBs e contentores podem ser lidos por pedido anónimo. Os clientes podem enumerar os blobs no contentor ao pedido anónimo, mas não é possível enumerar os contentores na conta de armazenamento.
 
 Pode utilizar o seguinte para definir permissões de contentor:
 

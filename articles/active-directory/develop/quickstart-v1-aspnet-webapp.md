@@ -17,11 +17,11 @@ ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299372"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -288,7 +288,7 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação d
 
  Deve ver uma tabela que contém as propriedades básicas do utilizador com sessão iniciada:
 
-| Propriedade | Valor | Descrição |
+| Propriedade | Value | Descrição |
 |---|---|---|
 | Name | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
 | Nome de utilizador | <span>user@domain.com</span> | O nome de utilizador utilizado para identificar o utilizador com sessão iniciada |

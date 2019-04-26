@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: juliako
 ms.openlocfilehash: 4dd14587ec7e1473953981c1ef8c32c59eb9a1d6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888541"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322340"
 ---
 # <a name="using-a-cloud-dvr"></a>Utilizar um DVR na cloud
 

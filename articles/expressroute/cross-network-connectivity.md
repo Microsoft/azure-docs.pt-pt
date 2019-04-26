@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
 ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368881"
 ---
 # <a name="cross-network-connectivity"></a>Conectividade entre redes
 

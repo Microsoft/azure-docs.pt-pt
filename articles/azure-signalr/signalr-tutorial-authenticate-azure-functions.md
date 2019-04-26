@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254035"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação de serviço SignalR do Azure com as funções do Azure
 
@@ -53,11 +53,11 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Introduza as seguintes informações.
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Nome do recurso | Nome exclusivo da instância do SignalR Service |
     | Grupo de recursos | Criar um novo grupo de recursos com um nome exclusivo |
-    | Localização | Selecione uma localização perto de si |
+    | Location | Selecione uma localização perto de si |
     | Escalão de Preço | Gratuito |
 
 1. Clique em **Criar**.
@@ -145,7 +145,7 @@ Quando a aplicação de chat é aberta pela primeira vez no browser, requer cred
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
@@ -204,7 +204,7 @@ A aplicação Web também requer uma API HTTP para enviar mensagens de chat. Vai
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Pasta da aplicação de funções | Selecione a pasta de projetos principal |
     | Modelo | Acionador HTTP |
@@ -315,12 +315,12 @@ Tem estado a executar a aplicação de funções e a aplicação de chat localme
 
 1. Introduza as seguintes informações.
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Subscrição | Selecione a subscrição que contém a instância de serviço SignalR |
     | Grupo de recursos | Selecione o mesmo grupo de recursos |
     | Nome do recurso | Um nome exclusivo para a conta de armazenamento |
-    | Localização | Selecione a mesma localização como os outros recursos |
+    | Location | Selecione a mesma localização como os outros recursos |
     | Desempenho | Standard |
     | Tipo de conta | StorageV2 (fins gerais v2) |
     | Replicação | Armazenamento localmente redundante (LRS) |
@@ -371,7 +371,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Pasta para implementar | Selecione a pasta de projetos principal |
     | Subscrição | Selecione a sua subscrição |
@@ -390,7 +390,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
 
 1. Quando lhe for solicitado, forneça as seguintes informações.
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Ficheiro de definições locais | local.settings.json |
     | Subscrição | Selecione a sua subscrição |
@@ -449,7 +449,7 @@ A aplicação Web será alojada através da funcionalidade de sites estáticos d
 
 1. Introduza os seguintes valores:
 
-    | Name | Valor |
+    | Name | Value |
     |---|---|
     | Subscrição | Selecione a sua subscrição |
     | Conta de armazenamento | Selecione a conta de armazenamento que criou anteriormente |

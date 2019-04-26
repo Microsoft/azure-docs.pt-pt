@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381664"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, vai definir a estratégia de proteção de dados para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu no:

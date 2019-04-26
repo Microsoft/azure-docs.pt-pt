@@ -1,5 +1,5 @@
 ---
-title: 'Ligar a sua rede no local a uma rede virtual do Azure: VPN de site a Site: Portal | Documentos da Microsoft'
+title: 'Ligar a sua rede no local a uma rede virtual do Azure: VPN de site a Site: Portal | Microsoft Docs'
 description: Passos para criar uma ligação IPsec da sua rede no local a uma rede virtual do Azure através da Internet pública. Estes passos ajudam-no a criar uma ligação de Gateway de Rede de VPNs em vários sites com o portal.
 services: vpn-gateway
 author: cherylmc
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407750"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
 
@@ -47,14 +47,14 @@ Os exemplos neste artigo utilizam os seguintes valores. Pode utilizar estes valo
 * **Subscrição:** A subscrição que pretende utilizar
 * **Grupo de recursos:** TestRG1
 * **Localização:** EUA Leste
-* **Sub-rede:** Front-end: 10.1.0.0/24, back-end: 10.1.1.0/24 (opcional neste exercício)
+* **Sub-rede:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (opcional neste exercício)
 * **Nome da sub-rede de gateway:** GatewaySubnet (este irá preencher automáticamente no portal)
 * **Intervalo de endereços da sub-rede de gateway:** 10.1.255.0/27
 * **Servidor DNS:** 8.8.8.8 - opcional. O endereço IP do seu servidor DNS.
 * **Nome do Gateway de rede virtual:** VNet1GW
 * **IP público:** VNet1GWIP
 * **Tipo de VPN:** Baseado na rota
-* **Tipo de ligação:** Site-site (IPsec)
+* **Tipo de ligação:** Site a site (IPsec)
 * **Tipo de gateway:** VPN
 * **Nome do Gateway de rede local:** Site1
 * **Nome da ligação:** VNet1toSite1

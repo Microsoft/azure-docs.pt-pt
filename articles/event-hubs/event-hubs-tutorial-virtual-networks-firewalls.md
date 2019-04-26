@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
 ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343673"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutorial: Ativar a integração de redes virtuais e as Firewalls no espaço de nomes de Hubs de eventos
 

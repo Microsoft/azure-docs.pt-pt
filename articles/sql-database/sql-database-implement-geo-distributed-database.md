@@ -13,11 +13,11 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60338994"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar uma base de dados distribuída geograficamente
 

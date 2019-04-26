@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400648"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxe de consulta de encaminhamento de mensagens de IoT Hub
 
@@ -53,10 +53,10 @@ Propriedades do sistema ajudam a identificar conteúdo e a origem das mensagens.
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| contentType | cadeia | O utilizador Especifica o tipo de conteúdo da mensagem. Para permitir que a consulta no corpo da mensagem, este valor deve ser definido application/JSON. |
-| contentEncoding | cadeia | O utilizador Especifica o tipo de codificação da mensagem. Valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType é definido como application/JSON. |
-| iothub-connection-device-id | cadeia | Este valor é definido pelo IoT Hub e identifica o ID do dispositivo. Para consultar, utilize `$connectionDeviceId`. |
-| iothub-enqueuedtime | cadeia | Este valor é definido pelo IoT Hub e representa o tempo em questão de enfileiramento de mensagens em UTC. Para consultar, utilize `enqueuedTime`. |
+| contentType | string | O utilizador Especifica o tipo de conteúdo da mensagem. Para permitir que a consulta no corpo da mensagem, este valor deve ser definido application/JSON. |
+| contentEncoding | string | O utilizador Especifica o tipo de codificação da mensagem. Valores permitidos são UTF-8, UTF-16, UTF-32 se o contentType é definido como application/JSON. |
+| iothub-connection-device-id | string | Este valor é definido pelo IoT Hub e identifica o ID do dispositivo. Para consultar, utilize `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Este valor é definido pelo IoT Hub e representa o tempo em questão de enfileiramento de mensagens em UTC. Para consultar, utilize `enqueuedTime`. |
 
 Conforme descrito no [mensagens do Hub IoT](iot-hub-devguide-messages-construct.md), existem propriedades do sistema adicionais numa mensagem. Para além **contentType**, **contentEncoding**, e **enqueuedTime**, o **connectionDeviceId** e  **connectionModuleId** também podem ser consultados.
 

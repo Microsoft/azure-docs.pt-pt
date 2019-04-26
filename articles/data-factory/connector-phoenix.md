@@ -3,21 +3,22 @@ title: Copiar dados de Phoenix com o Azure Data Factory | Documentos da Microsof
 description: Saiba como copiar dados de Phoenix para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405928"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados de Phoenix com o Azure Data Factory 
 
@@ -41,11 +42,11 @@ As seguintes propriedades são suportadas para o serviço de Phoenix ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Phoenix** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Phoenix** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do servidor Phoenix. (ou seja, 192.168.222.160)  | Sim |
 | porta | A porta TCP que o servidor de Phoenix utiliza para escutar ligações de cliente. O valor predefinido é 8765. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL de parcial correspondente para o servidor de Phoenix. (ou seja, /gateway/sandbox/phoenix/version). Especificar `/hbasephoenix0` se utilizar o cluster do HDInsights.  | Não |
-| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor de Phoenix. <br/>Valores permitidos são: **Anónimo**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| authenticationType | O mecanismo de autenticação utilizado para ligar ao servidor de Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor de Phoenix.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
@@ -66,7 +67,7 @@ As seguintes propriedades são suportadas para o serviço de Phoenix ligado:
     "properties": {
         "type": "Phoenix",
         "typeProperties": {
-            "host" : "<cluster>.azurehdinsight.net",
+            "host" : "<cluster>.azurehdinsight.cn",
             "port" : "443",
             "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
@@ -88,7 +89,7 @@ Para copiar dados de Phoenix, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **PhoenixObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **PhoenixObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -117,7 +118,7 @@ Para copiar dados de Phoenix, definir o tipo de origem na atividade de cópia pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PhoenixSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PhoenixSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

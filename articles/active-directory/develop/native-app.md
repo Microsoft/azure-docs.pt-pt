@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 12/29/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443909"
 ---
 # <a name="native-apps"></a>Aplicações nativas
 
@@ -54,8 +54,8 @@ Veja os exemplos de código para o aplicativo nativo para cenários de Web API. 
 
 Registar uma aplicação com o ponto de final de versão 1.0 do Azure AD, consulte [registar uma aplicação com o ponto de final do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
 
-* Único inquilino - o aplicativo nativo e a API web têm de estar registrada no mesmo diretório no Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são utilizadas para limitar o acesso da aplicação nativa aos seus recursos. A aplicação de cliente, em seguida, seleciona as permissões pretendidas no menu pendente "Permissões para outras aplicações" no portal do Azure.
-* Multi-inquilino - em primeiro lugar, o aplicativo nativo só registado no desenvolvedor ou diretório do publicador. Em segundo lugar, o aplicativo nativo está configurado para indicar as permissões que ele requer que seja funcional. Esta lista de permissões necessárias é mostrada numa caixa de diálogo quando um utilizador ou administrador no diretório de destino dá consentimento para a aplicação, o que torna disponível para a sua organização. Apenas algumas aplicações necessitam de permissões de nível de usuário, que pode consentir qualquer utilizador na organização. Outras aplicações requerem permissões de nível de administrador, que não pode autorizar um utilizador na organização. Apenas um administrador do diretório pode dar consentimento a aplicações que exigem esse nível de permissões. Quando o utilizador ou administrador autorizar, apenas a API de web está registada no respetivo diretório. 
+- Único inquilino - o aplicativo nativo e a API web têm de estar registrada no mesmo diretório no Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são utilizadas para limitar o acesso da aplicação nativa aos seus recursos. A aplicação de cliente, em seguida, seleciona as permissões pretendidas no menu pendente "Permissões para outras aplicações" no portal do Azure.
+- Multi-inquilino - em primeiro lugar, o aplicativo nativo só registado no desenvolvedor ou diretório do publicador. Em segundo lugar, o aplicativo nativo está configurado para indicar as permissões que ele requer que seja funcional. Esta lista de permissões necessárias é mostrada numa caixa de diálogo quando um utilizador ou administrador no diretório de destino dá consentimento para a aplicação, o que torna disponível para a sua organização. Apenas algumas aplicações necessitam de permissões de nível de usuário, que pode consentir qualquer utilizador na organização. Outras aplicações requerem permissões de nível de administrador, que não pode autorizar um utilizador na organização. Apenas um administrador do diretório pode dar consentimento a aplicações que exigem esse nível de permissões. Quando o utilizador ou administrador autorizar, apenas a API de web está registada no respetivo diretório. 
 
 ## <a name="token-expiration"></a>Expiração do token
 
@@ -65,3 +65,5 @@ Quando o aplicativo nativo usa seu código de autorização para obter token de 
 
 - Saiba mais sobre outras [tipos de aplicativos e cenários](app-types.md)
 - Saiba mais sobre o Azure AD [Noções básicas de autenticação](authentication-scenarios.md)
+
+<!-- Update_Description: link update -->

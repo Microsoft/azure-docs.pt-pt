@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394446"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -478,7 +478,7 @@ Tenha em atenção os seguintes pontos:
 
 * Dados complexos tipos não são suportados (estrutura, mapa, lista, União).
 * Espaço em branco no nome da coluna não é suportado.
-* Ficheiro ORC tem três [opções relacionadas com a compressão](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
+* Ficheiro ORC tem três [opções relacionadas com a compressão](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
 
 > [!IMPORTANT]
 > Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o **JRE 8 (Java Runtime Environment) ou OpenJDK de 64 bits**  no seu computador do Runtime de integração. Veja o parágrafo a seguir com mais detalhes.

@@ -1,6 +1,6 @@
 ---
-title: Tutorial – registos do arquivo do Azure Active Directory para uma conta de armazenamento (pré-visualização) | Documentos da Microsoft
-description: Saiba como configurar o Diagnóstico do Azure para enviar registos do Azure Active Directory para uma conta de armazenamento (pré-visualização)
+title: Tutorial – registos do arquivo do Azure Active Directory para uma conta de armazenamento | Documentos da Microsoft
+description: Saiba como configurar o diagnóstico do Azure para enviar registos do Azure Active Directory para uma conta de armazenamento
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437565"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Arquivar registos do Azure AD para uma conta de armazenamento do Azure (pré-visualização)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Arquivar registos do Azure AD para uma conta de armazenamento do Azure
 
 Neste tutorial, vai aprender a configurar as definições de diagnóstico do Azure Monitor para encaminhar registos do Azure Active Directory (Azure AD) para uma conta de armazenamento do Azure.
 

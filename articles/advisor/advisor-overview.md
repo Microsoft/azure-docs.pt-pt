@@ -11,11 +11,11 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
 ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467991"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Assistente do Azure
 
@@ -31,12 +31,12 @@ Com o assistente, pode:
 
 Pode acessar o Advisor através da [portal do Azure](https://aka.ms/azureadvisordashboard). Entrar para o [portal](https://portal.azure.com), localize **Advisor** no menu de navegação ou procure-na **todos os serviços** menu.
 
-O dashboard do assistente apresenta recomendações personalizadas para todas as suas subscrições.  Pode aplicar filtros para apresentar as recomendações para as subscrições específicas e tipos de recursos.  As recomendações são divididas em quatro categorias: 
+O dashboard do assistente apresenta recomendações personalizadas para todas as suas subscrições.  Pode aplicar filtros para apresentar as recomendações para as subscrições específicas e tipos de recursos.  As recomendações estão divididas em quatro categorias: 
 
 * **Elevada disponibilidade**: Certifique-se e melhorar a continuidade das suas aplicações críticas para a empresa. Para obter mais informações, consulte [recomendações de elevada disponibilidade do Advisor](advisor-high-availability-recommendations.md).
-* **Segurança**: Para detetar ameaças e vulnerabilidades que podem levar a falhas de segurança. Para obter mais informações, consulte [recomendações de segurança do Advisor](advisor-security-recommendations.md).
-* **Desempenho**: Para melhorar a velocidade das suas aplicações. Para obter mais informações, consulte [recomendações de desempenho do Advisor](advisor-performance-recommendations.md).
-* **Custo**: Para otimizar e reduzir os gastos gerais do Azure. Para obter mais informações, consulte [recomendações de custos do Advisor](advisor-cost-recommendations.md).
+* **Segurança**: para detetar ameaças e vulnerabilidades que podem dar origem a falhas de segurança. Para obter mais informações, consulte [recomendações de segurança do Advisor](advisor-security-recommendations.md).
+* **Desempenho**: para melhorar a velocidade das suas aplicações. Para obter mais informações, consulte [recomendações de desempenho do Advisor](advisor-performance-recommendations.md).
+* **Custo**: para otimizar e reduzir os gastos gerais do Azure. Para obter mais informações, consulte [recomendações de custos do Advisor](advisor-cost-recommendations.md).
 
   ![Tipos de recomendação do Advisor](./media/advisor-overview/advisor-dashboard.png)
 

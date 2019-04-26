@@ -16,11 +16,11 @@ ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60374818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integração do Active Directory do Azure com Workpath
 

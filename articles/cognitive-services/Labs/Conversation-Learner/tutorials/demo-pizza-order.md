@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60431002"
 ---
 # <a name="demo-pizza-order"></a>Demonstração: Ordem de pizza
 Essa demonstração ilustra uma bot, com suporte de pedido por de pizza único de pedido de pizza:

@@ -16,11 +16,11 @@ ms.date: 12/06/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fb16b1762f1e5330cf058c37a6b7e0f008eb447
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60290983"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade gerida a um recurso com a CLI do Azure
 

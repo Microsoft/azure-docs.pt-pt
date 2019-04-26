@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
 ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332605"
 ---
 # <a name="azure-security-center-search"></a>Pesquisa do Centro de segurança do Azure
 Centro de segurança do Azure utiliza [pesquisa de registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar os seus dados de segurança. Registos de Monitor do Azure inclui uma linguagem de consulta para obter e consolidar os dados rapidamente. No Centro de segurança, pode aproveitar a pesquisa de registos do Azure Monitor para construir consultas e analisar os dados recolhidos.

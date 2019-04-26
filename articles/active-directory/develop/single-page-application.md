@@ -18,11 +18,11 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6704c00734d18b9918378db6e056696407421014
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297816"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
 

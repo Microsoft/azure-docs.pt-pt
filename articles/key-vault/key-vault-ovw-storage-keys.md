@@ -1,20 +1,19 @@
 ---
-ms.assetid: ''
 title: O Azure Key Vault geridos a conta de armazenamento - CLI
 description: Chaves de conta de armazenamento fornecem uma integração perfeita entre o Azure Key Vault e chave de acesso baseado em à conta de armazenamento do Azure.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: prashanthyv
-ms.author: prashanthyv
+author: mbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 0812d1523c6db077bf93a16a9a14771f5534d712
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304919"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 

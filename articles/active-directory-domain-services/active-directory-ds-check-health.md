@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
 ms.openlocfilehash: 03cbf5dd466af5413aee5e0f5f285bc53de292ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417591"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verifique o estado de funcionamento de um domínio gerido do Azure AD Domain Services
 

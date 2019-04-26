@@ -16,11 +16,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396756"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux (pré-visualização)
 

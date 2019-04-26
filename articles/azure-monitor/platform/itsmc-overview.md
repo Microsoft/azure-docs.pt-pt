@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395870"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -192,7 +192,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Fechado por
 - Origem
 - Atribuído a
-- Categoria
+- Category
 - Título
 - Descrição
 - Data de Criação
@@ -215,7 +215,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Atribuído a
 - Título
 - Type
-- Categoria
+- Category
 - Estado
 - Escalamento
 - Estado de conflito
@@ -249,7 +249,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Fechado por |
 | Source_s| Tipo de contacto |
 | AssignedTo_s | Atribuído a  |
-| Category_s | Categoria |
+| Category_s | Category |
 | Title_s|  Breve descrição |
 | Description_s|  Notas |
 | CreatedDate_t|  Aberturas |
@@ -267,7 +267,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Breve descrição |
 | Type_s|  Type |
-| Category_s|  Categoria |
+| Category_s|  Category |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
 | Priority_s| Prioridade|

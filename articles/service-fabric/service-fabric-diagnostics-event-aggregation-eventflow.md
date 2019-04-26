@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: bdc6c9476529b986f425d56544fd4b1afd8a864e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393239"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleções com o EventFlow
 

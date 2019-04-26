@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351449"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Revisões de quais são de acesso do Azure AD?
 

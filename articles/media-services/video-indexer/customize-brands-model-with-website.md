@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
 ms.openlocfilehash: 2522ede85c290fa238c0d5a5604d2dfbab984cdc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535567"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalizar um modelo de marcas com o site do Video Indexer
 

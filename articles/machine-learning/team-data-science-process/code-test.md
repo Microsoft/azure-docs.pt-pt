@@ -12,11 +12,11 @@ ms.date: 05/19/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336699"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Código de ciência de dados de teste no Azure com o processo de ciência de dados de equipa e os serviços do Azure DevOps
 Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Um Team Data Science Process (TDSP), usamos [projeto que usa o conjunto de dados de rendimento para adultos de UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos anteriormente para mostrar como teste de código pode ser feito. 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
 ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400699"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>O Azure IoT-device SDK para C – mais informações sobre o IoTHubClient
 
@@ -62,7 +62,7 @@ Existem funções de complementar para cada uma dessas APIs:
 * IoTHubClient\_LL\_CreateFromConnectionString
 * IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* O IoTHubClient\_odas\_destruir
+* IoTHubClient\_LL\_Destroy
 
 Estas funções incluem **odas** no nome da API. Outros o **odas** parte do nome, os parâmetros de cada uma dessas funções são idênticos às suas contrapartes não LL. No entanto, o comportamento dessas funções é diferente de uma maneira importante.
 
@@ -128,7 +128,7 @@ Qualquer modelo que escolher, certifique-se de que seja consistente nos quais AP
 
 * IoTHubClient\_LL\_SendEventAsync
 * IoTHubClient\_LL\_SetMessageCallback
-* O IoTHubClient\_odas\_destruir
+* IoTHubClient\_LL\_Destroy
 * IoTHubClient\_LL\_DoWork
 
 O oposto é verdadeiro também. Se começar com **o IoTHubClient\_CreateFromConnectionString**, em seguida, utilizar as APIs não LL para qualquer processamento adicional.
@@ -235,7 +235,7 @@ Os argumentos **o IoTHubClient\_CreateFromConnectionString** são a cadeia de li
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Existem quatro partes de informações nessa cadeia: nome do IoT Hub, o sufixo do IoT Hub, o ID do dispositivo e chave de acesso partilhado. Obter o nome de domínio completamente qualificado (FQDN) de um hub IoT ao criar a sua instância do hub IoT no portal do Azure — isso lhe dá o nome do hub IoT (a primeira parte do FQDN) e o sufixo do hub IoT (o resto do FQDN). Obter o ID de dispositivo e a chave de acesso partilhado quando registar o seu dispositivo com o IoT Hub (conforme descrito no [artigo anterior](iot-hub-device-sdk-c-intro.md)).
+Existem quatro partes de informações nessa cadeia: Nome do IoT Hub, sufixo do IoT Hub, ID de dispositivo e a chave de acesso partilhado. Obter o nome de domínio completamente qualificado (FQDN) de um hub IoT ao criar a sua instância do hub IoT no portal do Azure — isso lhe dá o nome do hub IoT (a primeira parte do FQDN) e o sufixo do hub IoT (o resto do FQDN). Obter o ID de dispositivo e a chave de acesso partilhado quando registar o seu dispositivo com o IoT Hub (conforme descrito no [artigo anterior](iot-hub-device-sdk-c-intro.md)).
 
 **O IoTHubClient\_CreateFromConnectionString** dá-lhe uma forma de inicializar a biblioteca. Se preferir, pode criar uma nova **IOTHUB\_cliente\_PROCESSAR** utilizando estes parâmetros individuais em vez da cadeia de ligação do dispositivo. Isto é conseguido com o código a seguir:
 

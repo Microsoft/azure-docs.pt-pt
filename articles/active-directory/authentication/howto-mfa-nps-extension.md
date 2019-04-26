@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359233"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -76,14 +76,14 @@ Quando instalar a extensão, tem das credenciais de ID e a administração de di
 
 O servidor NPS tem de conseguir comunicar com os seguintes URLs através das portas 80 e 443.
 
-* https://adnotifications.windowsazure.com  
-* https://login.microsoftonline.com
+* https:\//adnotifications.windowsazure.com  
+* https:\//login.microsoftonline.com
 
 Além disso, a conectividade com os seguintes URLs é necessário para concluir o [configuração do adaptador com o script do PowerShell fornecido](#run-the-powershell-script)
 
-- https://login.microsoftonline.com
-- https://provisioningapi.microsoftonline.com
-- https://aadcdn.msauth.net
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -207,7 +207,7 @@ Depois de ativar a MFA para um cliente RADIUS utilizando a extensão de NPS, tod
 
 Se tiver utilizadores que não estejam inscritos para a MFA, pode determinar o que acontece quando o utilizador tentar autenticar. Utilize a definição de registo *REQUIRE_USER_MATCH* no caminho do registo *HKLM\Software\Microsoft\AzureMFA* para controlar o comportamento de funcionalidade. Esta definição não tem uma opção de configuração única:
 
-| Chave | Valor | Predefinição |
+| Chave | Value | Predefinição |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERDADEIRO/FALSO | Não definido (equivalente ao verdadeiro) |
 

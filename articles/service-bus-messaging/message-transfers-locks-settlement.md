@@ -3,22 +3,23 @@ title: Transferências de mensagem, bloqueios e acordo do Service Bus do Azure |
 description: Descrição geral das transferências de mensagem do Service Bus e as operações de liquidação
 services: service-bus-messaging
 documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
+author: lingliw
+manager: digimobile
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: aschhab
+origin.date: 09/25/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
 ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403946"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagens, bloqueios e acordo
 
@@ -88,7 +89,7 @@ Aplicativos devem **nunca** iniciar uma operação de envio assíncrono de uma f
 for (int i = 0; i < 100; i++)
 {
 
-  client.SendAsync(message); // DON’T DO THIS
+  client.SendAsync(message); // DON'T DO THIS
 }
 ```
 

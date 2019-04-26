@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7aad73331d06828a4bfe909dbb3b98350b1d0d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293598"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problema ao criar uma aplicação de Proxy de aplicações 
 

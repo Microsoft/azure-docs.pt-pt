@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388035"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Guia de introdução do projeto Acoustics Unity
 Utilize Acoustics de projeto de exemplo conteúdo para Unity fazer experiências com controles de design de simulação com cópia de segurança.

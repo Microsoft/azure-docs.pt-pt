@@ -9,11 +9,11 @@ ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366359"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ligar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]

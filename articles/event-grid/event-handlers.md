@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345486"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos no Azure Event Grid
 
@@ -24,7 +24,7 @@ Este artigo fornece ligações para conteúdo para cada manipulador de eventos.
 
 Utilize a automatização do Azure para processar eventos com runbooks automatizados.
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 |[Tutorial: Automatização do Azure com o Event Grid e o Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento é acionado um runbook da automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal do Microsoft Teams. |
 
@@ -34,7 +34,7 @@ Utilize as funções do Azure para resposta sem servidor a eventos.
 
 Se utilizar as Funções do Azure como o processador, utilize o acionador do Event Grid em vez dos acionadores HTTP genéricos. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Acionador do Event Grid para as funções do Azure](../azure-functions/functions-bindings-event-grid.md) | Descrição geral da utilização do acionador do Event Grid nas funções de mensagens em fila. |
 | [Tutorial: automatizar o redimensionamento de imagens carregadas com o Event Grid](resize-images-on-storage-blob-upload-event.md) | Os utilizadores carregar imagens através da aplicação web para a conta de armazenamento. Quando um blob de armazenamento é criado, o Event Grid envia um evento para a aplicação de função, que redimensiona a imagem carregada. |
@@ -47,7 +47,7 @@ Utilize os Hubs de eventos quando a sua solução obtém os eventos mais rapidam
 
 Os Hubs de eventos podem agir como uma origem de evento ou de manipulador de eventos. O artigo seguinte mostra como utilizar os Hubs de eventos como um manipulador.
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Início rápido: encaminhar eventos personalizados para os Hubs de eventos do Azure com a CLI do Azure e o Event Grid](custom-event-to-eventhub.md) | Envia um evento personalizado para um hub de eventos para processamento por um aplicativo. |
 | [Modelo do Resource Manager: um tópico personalizado e um ponto final de Hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Resource Manager que cria uma subscrição para um tópico personalizado. Envia eventos para um Event Hubs do Azure. |
@@ -58,7 +58,7 @@ Para obter exemplos de Hubs de eventos como uma origem, consulte [origem dos Hub
 
 Utilize ligações híbridas do reencaminhamento do Azure para enviar eventos para aplicativos que estejam numa rede empresarial e não tem um ponto final acessível publicamente.
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Tutorial: enviar eventos para a ligação híbrida](custom-event-to-hybrid-connection.md) | Envia um evento personalizado para uma ligação híbrida existente para processamento por um aplicativo de serviço de escuta. |
 
@@ -66,7 +66,7 @@ Utilize ligações híbridas do reencaminhamento do Azure para enviar eventos pa
 
 Utilize o Logic Apps para automatizar processos de negócios para responder a eventos.
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Tutorial: monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza alterações a uma máquina virtual e envia e-mails sobre essas alterações. |
 | [Tutorial: enviar notificações por e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu hub IoT. |
@@ -76,7 +76,7 @@ Utilize o Logic Apps para automatizar processos de negócios para responder a ev
 
 Utilize o armazenamento de filas para receber eventos que têm de ser obtidas. Poderá utilizar o armazenamento de filas quando tiver um processo de execução longa que demora muito tempo a responder. Ao enviar eventos para o armazenamento de filas, a aplicação pode extrair e processar eventos em sua própria agenda.
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | [Início rápido: encaminhar eventos personalizados para o armazenamento de filas do Azure com a CLI do Azure e o Event Grid](custom-event-to-queue-storage.md) | Descreve como enviar eventos personalizados para um armazenamento de filas. |
 
@@ -84,7 +84,7 @@ Utilize o armazenamento de filas para receber eventos que têm de ser obtidas. P
 
 Utilize webhooks para pontos finais personalizáveis que respondem a eventos.
 
-|Cargo  |Descrição  |
+|Título  |Descrição  |
 |---------|---------|
 | Início rápido: criar e encaminhar eventos personalizados com - [CLI do Azure](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md), e [portal](custom-event-quickstart-portal.md). | Mostra como enviar eventos personalizados para um WebHook. |
 | Início rápido: encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com - [CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json), e [portal](blob-event-quickstart-portal.md). | Mostra como enviar eventos de armazenamento de BLOBs para um WebHook. |

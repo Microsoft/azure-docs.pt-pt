@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332812"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na base de dados do Azure para MariaDB
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MariaDB fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.

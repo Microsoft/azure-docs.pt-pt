@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428023"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens EDI em lotes para parceiros com o Azure Logic Apps comerciais
 
@@ -59,13 +59,13 @@ Para este destinatário do batch, especifique o modo de lote, o nome, critérios
 
 2. [Ligar a sua aplicação lógica à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. No estruturador de aplicações lógicas, adicione a **Batch** acionador, que inicia o fluxo de trabalho de aplicação lógica. Na caixa de pesquisa, introduza "batch" como o filtro. Selecione este acionador: **mensagens do Batch**
+3. No estruturador de aplicações lógicas, adicione a **Batch** acionador, que inicia o fluxo de trabalho de aplicação lógica. Na caixa de pesquisa, introduza "batch" como o filtro. Selecione este acionador: **Mensagens de batch**
 
    ![Adicionar o acionador de lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. Defina propriedades de recetor de lote: 
 
-   | Propriedade | Valor | Notas | 
+   | Propriedade | Value | Notas | 
    |----------|-------|-------|
    | **Modo de lote** | Inline |  |  
    | **Nome do lote** | TestBatch | Disponível apenas com **Inline** modo de lote | 
@@ -84,7 +84,7 @@ Para este destinatário do batch, especifique o modo de lote, o nome, critérios
 
    1. Sob o acionador de lote, escolha **novo passo**.
 
-   2. Na caixa de pesquisa, introduza "12 batch X" como o filtro e selecione a ação (qualquer versão): **codificação do lote <*versão*>-X12** 
+   2. Na caixa de pesquisa, introduza "12 batch X" como o filtro e selecione a ação (qualquer versão): **Codificação do lote <*versão*>-X12** 
 
       ![Selecione X12 ação de codificação do lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -127,7 +127,7 @@ Para garantir que seu funciona de recetor de batch conforme esperado, pode adici
    | Propriedade | Descrição | 
    |----------|-------------|
    | **Método** | Nesta lista, selecione **POST**. | 
-   | **URI** | Gerar um URI para o contentor de pedido e, em seguida, introduza esse URI nesta caixa. | 
+   | **Uri** | Gerar um URI para o contentor de pedido e, em seguida, introduza esse URI nesta caixa. | 
    | **Corpo** | Clique no interior esta caixa e, depois de abre a lista de conteúdo dinâmico, selecione o **corpo** token, que aparece na secção, **codificação do lote por nome do contrato**. <p>Se não vir a **corpo** token, junto a **codificação do lote por nome do contrato**, selecione **ver mais**. | 
    ||| 
 
@@ -149,9 +149,9 @@ Agora, crie um ou mais aplicações lógicas que enviam mensagens para a aplica�
 
 * Certifique-se do recetor de batch e o remetente de batch partilham a mesma região do Azure *e* subscrição do Azure. Caso contrário, não é possível selecionar o recetor de batch ao criar o remetente de batch porque eles não são visíveis para si.
 
-1. Criar outra aplicação de lógica com este nome: "SendX12MessagesToBatch" 
+1. Crie outra aplicação de lógica com este nome: "SendX12MessagesToBatch" 
 
-2. Na caixa de pesquisa, introduza "quando um pedido de http" como o filtro. Selecione este acionador: **pedido de HTTP de quando é recebido** 
+2. Na caixa de pesquisa, introduza "quando um pedido de http" como o filtro. Selecione este acionador: **Quando é recebido um pedido HTTP** 
    
    ![Adicionar o acionador de pedido](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ Agora, crie um ou mais aplicações lógicas que enviam mensagens para a aplica�
    1. Sob a ação de pedido HTTP, escolha **novo passo**.
 
    2. Na caixa de pesquisa, introduza "batch" como o filtro. 
-   Selecione o **ações** lista e, em seguida, selecione a ação: **escolher um fluxo de trabalho do Logic Apps com o acionador de lote - enviar mensagens para o lote**
+   Selecione o **ações** lista e, em seguida, selecione a ação: **Escolha um fluxo de trabalho do Logic Apps com o acionador de lote - enviar mensagens para o lote**
 
       ![Selecione "Escolher um fluxo de trabalho do Logic Apps com o acionador de lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 

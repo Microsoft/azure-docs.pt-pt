@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
 ms.openlocfilehash: 61bece83697a4907a7bf3c881003f4da9b0e8a84
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407025"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não acionada por HTTP
 

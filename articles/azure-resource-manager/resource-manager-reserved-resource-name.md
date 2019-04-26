@@ -1,5 +1,5 @@
 ---
-title: Azure reservado erros de nomes de recursos | Microsoft Docs
+title: Erros de nomes de recursos de reservada do Azure | Documentos da Microsoft
 description: Descreve como resolver erros ao fornecer um nome de recurso que inclui uma palavra reservada.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: b91a53d17d64afb0a56f745505f10e8cabbc22cc
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 922389b7c6c1bb7ad1d9b8f6ec35ccc1c5656723
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390856"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>Resolver erros de nomes de recursos reservados
 
-Este artigo descreve o erro que surgir ao implementar um recurso que inclui uma palavra reservada no respetivo nome.
+Este artigo descreve o erro que ocorrer durante a implantação de um recurso que inclui uma palavra reservada em seu nome.
 
 ## <a name="symptom"></a>Sintoma
 
-Quando implementar um recurso que está disponível através de um ponto final público, poderá receber o erro seguinte:
+Ao implementar um recurso que está disponível por meio de um ponto final público, poderá receber o erro seguinte:
 
 ```
 Code=ReservedResourceName;
@@ -35,17 +35,17 @@ Message=The resource name <resource-name> or a part of the name is a trademarked
 
 ## <a name="cause"></a>Causa
 
-Recursos que tenham um ponto final público não é possível utilizar palavras reservadas ou marcas comerciais no nome.
+Recursos que tenham um ponto final público não podem utilizar palavras reservadas ou não, o nome.
 
 As seguintes palavras estão reservadas:
 
 * ACESSO
 * AZURE
 * BING
-* ELEGÍVEIS DO BIZSPARK
+* BIZSPARK
 * BIZTALK
 * CORTANA
-* POR DIRECTX
+* DIRECTX
 * DOTNET
 * DYNAMICS
 * EXCEL
@@ -59,7 +59,7 @@ As seguintes palavras estão reservadas:
 * MSDN
 * O365
 * OFFICE
-* OFFICE 365
+* OFFICE365
 * ONEDRIVE
 * ONENOTE
 * OUTLOOK
@@ -69,7 +69,7 @@ As seguintes palavras estão reservadas:
 * VISIO
 * VISUALSTUDIO
 
-As seguintes palavras não podem ser utilizadas como uma palavra de toda ou uma subcadeia no nome:
+As seguintes palavras não podem ser utilizadas como uma palavra inteira ou uma subcadeia no nome:
 
 * INÍCIO DE SESSÃO
 * MICROSOFT

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197754"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
@@ -41,9 +41,9 @@ Neste artigo, saiba como utilizar o SDK .NET para efetuar autenticação serviç
 2. No menu **Ficheiro**, clique em **Novo** e, em seguida, clique em **Projeto**.
 3. A partir de **Novo Projeto**, escreva ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | --- | --- |
-   | Categoria |Templates/Visual C#/Windows |
+   | Category |Templates/Visual C#/Windows |
    | Modelo |Aplicação de Consola |
    | Name |CreateADLApplication |
 4. Clique em **OK** para criar o projeto.

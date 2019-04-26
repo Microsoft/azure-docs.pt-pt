@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311139"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefactos personalizados para a máquina virtual do DevTest Labs
 
@@ -57,10 +57,10 @@ O exemplo seguinte mostra as secções que compõem a estrutura básica de um fi
 | --- | --- | --- |
 | $schema |Não |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudar a testar a validade do arquivo de definição. |
 | título |Sim |Nome do artefacto apresentado no laboratório. |
-| descrição |Sim |Descrição do artefacto apresentado no laboratório. |
+| description |Sim |Descrição do artefacto apresentado no laboratório. |
 | iconUri |Não |URI do ícone apresentado no laboratório. |
 | targetOsType |Sim |Sistema operativo da VM onde está instalado o artefacto. Opções suportadas são Windows e Linux. |
-| parâmetros |Não |Valores que são fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda a personalizar o artefacto. |
+| parameters |Não |Valores que são fornecidos quando o comando de instalação do artefacto é executado numa máquina. Isto ajuda a personalizar o artefacto. |
 | runCommand |Sim |Comando que é executado numa VM de instalação de artefacto. |
 
 ### <a name="artifact-parameters"></a>Parâmetros de artefacto
@@ -80,7 +80,7 @@ Para definir os parâmetros, utilize a seguinte estrutura:
 | --- | --- | --- |
 | tipo |Sim |Tipo de valor do parâmetro. Veja a seguir uma lista de tipos permitidos. |
 | displayName |Sim |Nome do parâmetro que é apresentado a um utilizador no laboratório. |
-| descrição |Sim |Descrição do parâmetro que é apresentado no laboratório. |
+| description |Sim |Descrição do parâmetro que é apresentado no laboratório. |
 
 Tipos permitidos são:
 

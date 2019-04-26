@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
 ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494699"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Como gerir o Azure Monitor para agente de contentores
 Monitor do Azure para contentores utiliza uma versão em contentores do agente do Log Analytics para Linux. Após a implementação inicial, existem tarefas opcionais que poderá ter de efetuar durante seu ciclo de vida ou de rotina. Este artigo descreve a sobre como atualizar o agente e desativar a recolha de variáveis de ambiente de um determinado contêiner manualmente. 

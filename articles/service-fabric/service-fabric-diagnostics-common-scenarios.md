@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394256"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 

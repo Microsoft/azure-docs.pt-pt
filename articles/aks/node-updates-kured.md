@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
 ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465007"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de kernel e de segurança a nós no Azure Kubernetes Service (AKS)
 

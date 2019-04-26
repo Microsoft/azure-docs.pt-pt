@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
 ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402623"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração de mapa de serviço com o System Center Operations Manager
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393490"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análise de eventos e visualização com os registos do Azure Monitor
  Registos de Monitor do Azure recolhe e analisa a telemetria a partir de aplicações e serviços alojados na cloud e fornece ferramentas de análise para ajudar a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas nos registos do Azure Monitor para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são abordadas:

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387218"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.

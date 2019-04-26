@@ -1,5 +1,5 @@
 ---
-title: 'Modelos de conectividade do ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Modelos de conectividade do ExpressRoute: Azure| Microsoft Docs'
 description: Este artigo descreve os diferentes modos de conectividade entre a rede do cliente e os serviços do Microsoft Azure, do Office 365 e do Dynamics 365. Os clientes podem utilizar fornecedores de MPLS, trocas da cloud e fornecedores de Ethernet.
 services: expressroute
 author: cherylmc
@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ef53f9d3cefa35624d6f94dc98db4ebe8b6646cd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367463"
 ---
 # <a name="expressroute-connectivity-models"></a>Modelos de conectividade do ExpressRoute
 Pode criar uma ligação entre a rede no local e a cloud da Microsoft de três formas diferentes, [Localização Conjunta do CloudExchange](#CloudExchange), [Ligação Ethernet Ponto a Ponto](#Ethernet) e [Ligação (IPVPN) Qualquer a Qualquer](#IPVPN). Os fornecedores de conectividade podem oferecer um ou mais modelos de conetividade. Pode trabalhar com o seu fornecedor de conectividade para escolher o modelo que funciona melhor para si.

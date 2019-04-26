@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452964"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>O Azure Active Directory Identity Protection - descrição geral da segurança
 
@@ -69,7 +69,7 @@ O mosaico "Desprotegidos risco inícios de sessão" apresenta o número de na ú
 O mosaico "Autenticação de legado" mostra a contagem da última semana de autenticações legadas na sua organização. Protocolos de autenticação legados não suportam os métodos de segurança moderno, como uma MFA. Para impedir que os antigos de autenticação, pode aplicar uma política de acesso condicional. Um clique no mosaico "Autenticação de legado" irá redirecioná-lo para o 'identidade Secure Score".
 
 
-### <a name="identity-secure-score"></a>Pontuação de seguro de identidade
+### <a name="identity-secure-score"></a>Classificação de Segurança de Identidade
 
 A pontuação de seguro de identidade mede e compara a sua postura de segurança aos padrões do setor. Se clicar no mosaico "Identity Secure pontuação (pré-visualização)", ele será redirecionado para o painel "Identidade Secure pontuação (pré-visualização)", onde pode aprender mais sobre como melhorar a sua postura de segurança.
 

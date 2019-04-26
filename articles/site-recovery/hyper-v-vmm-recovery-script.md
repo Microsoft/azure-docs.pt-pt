@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a3d6f84de103596e27c22cbb11d709bb1a85dc91
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362276"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script VMM para um plano de recuperação
 

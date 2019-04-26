@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381825"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o Azure Active Directory Identity Protection  
 
@@ -67,7 +67,7 @@ O cenário neste início rápido utiliza um início de sessão num browser de To
 
 Esta secção mostra como criar a política de acesso condicional do risco de início de sessão necessário. Na sua política, defina:
 
-|Definição |Valor|
+|Definição |Value|
 |---     | --- |
 | Utilizadores  | Alain Charon  |
 | Condições | Início de sessão risco, médio e acima |

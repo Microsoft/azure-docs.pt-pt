@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387830"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados com a atividade do Spark no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,7 +63,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 | Propriedade              | Descrição                              | Necessário |
 | --------------------- | ---------------------------------------- | -------- |
 | nome                  | Nome da atividade no pipeline.    | Sim      |
-| descrição           | Texto que descreve o que faz a atividade.  | Não       |
+| description           | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                  | Para a atividade do Spark, o tipo de atividade é HDInsightSpark. | Sim      |
 | linkedServiceName     | Nome do serviço ligado de HDInsight Spark em que o programa Spark é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | SparkJobLinkedService | Serviço que contém o Spark, o ficheiro de tarefa, dependências e registos de ligado de armazenamento do Azure.  Se não especificar um valor para esta propriedade, o armazenamento associado com o cluster do HDInsight é utilizado. O valor desta propriedade só pode ser um serviço ligado do armazenamento do Azure. | Não       |

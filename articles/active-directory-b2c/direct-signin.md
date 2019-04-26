@@ -3,7 +3,7 @@ title: Configurar direto início de sessão através do Azure Active Directory B
 description: Saiba como pré-povoar o nome de início de sessão ou redirecionar diretamente para um fornecedor de identidade social.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 06/18/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c66fc9ecb608d211c839bab720e8f3f37b96fd5d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389853"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Configurar direto início de sessão através do Azure Active Directory B2C
 

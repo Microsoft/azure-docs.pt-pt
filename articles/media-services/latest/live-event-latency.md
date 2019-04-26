@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
 ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322306"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latência de evento em direto nos serviços de multimédia
 

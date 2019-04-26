@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399359"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar características para dados num cluster do Hadoop com consultas do Hive
 Este documento mostra como criar características para dados armazenados num cluster do Azure HDInsight Hadoop com consultas do Hive. Estas consultas do Hive utilizam embedded Hive User-Defined funções (UDFs), os scripts para os quais são fornecidos.

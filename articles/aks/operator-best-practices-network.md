@@ -2,17 +2,18 @@
 title: Práticas recomendadas do operador – conectividade de rede dos serviços de Kubernetes no Azure (AKS)
 description: Conheça as práticas recomendadas de operador de cluster para recursos de rede virtual e conectividade no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/10/2018
-ms.author: iainfou
+origin.date: 12/10/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464038"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade de rede e segurança no Azure Kubernetes Service (AKS)
 

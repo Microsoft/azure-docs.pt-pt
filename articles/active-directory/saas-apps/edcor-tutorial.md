@@ -16,11 +16,11 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integração do Active Directory do Azure com Edcor
 

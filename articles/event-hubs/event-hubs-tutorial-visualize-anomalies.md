@@ -10,11 +10,11 @@ ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
 ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369429"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real, enviados para os Hubs de eventos do Azure
 

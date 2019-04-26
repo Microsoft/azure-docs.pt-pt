@@ -17,11 +17,11 @@ ms.author: celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299197"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Início rápido: Proteger uma Web API com o Azure Active Directory
 

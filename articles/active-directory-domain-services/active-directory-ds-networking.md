@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
 ms.openlocfilehash: 3eba9f504f98d250ad60de3b4dd775effaad2040
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417149"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de redes para o Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma rede virtual do Azure

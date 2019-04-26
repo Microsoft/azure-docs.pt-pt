@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396432"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ligar computadores sem acesso à internet com o gateway do Log Analytics no Azure Monitor
 

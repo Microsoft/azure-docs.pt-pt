@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Conteúdo da imagem de específicas de domínio - REST, Python'
+title: 'Início rápido: Conteúdo de específicas de domínio, REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai utilizar modelos de domínio para identificar celebridades e marcos numa imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bdbff3777949298fbefec80ecb6608d6af10037b
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e4ba3ee0b2138cb83796be50efe129a993d07a8a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402366"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Utilizar um modelo de domínio usando a REST API e Python em de imagem digitalizada
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Criar e executar o exemplo de marcos
 

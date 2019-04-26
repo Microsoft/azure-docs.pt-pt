@@ -1,22 +1,22 @@
 ---
 title: 'Exemplo: Explorar uma aplicação de processamento de imagem noC#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada nos serviços cognitivos da Microsoft. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
+titleSuffix: Azure Cognitive Services
+description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada nos serviços cognitivos do Azure. Efetue o OCR, crie miniaturas e trabalhe com funcionalidades visuais numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408190"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemplo: Explorar uma aplicação de processamento de imagem comC#
 
@@ -33,7 +33,7 @@ Explore uma aplicação básica do Windows que utiliza o de imagem digitalizada 
 Antes de explorar a aplicação de exemplo, certifique-se de que cumpriu os pré-requisitos seguintes:
 
 * Tem de ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
-* Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 
 ## <a name="get-the-sample-app"></a>Obter a aplicação de exemplo
 

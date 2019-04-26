@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: fc1c7d2730d68fb8e3b51a39e0cb89b4098418d6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327382"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing através de Java
 

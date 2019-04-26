@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202875"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API de imagem digitalizada
 
@@ -47,8 +47,7 @@ As funcionalidades são divididas da seguinte forma:
 
 Todas as chamadas para a API de Imagem Digitalizada necessitam de uma chave de subscrição. Esta chave tem de ser transmitida através de um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido.
 
-Para obter uma chave de subscrição, veja [Como Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+Para obter uma chave de avaliação gratuita, consulte [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 
 1. Transmitir a chave de subscrição através de uma cadeia de consulta (veja abaixo com um exemplo da API de Imagem Digitalizada):
 
@@ -170,7 +169,7 @@ Campo | Type | Conteúdo
 Etiquetas  | `object` | Objeto de nível superior para a matriz de etiquetas.
 tags[].Name | `string`  | Palavra-chave do classificador de etiquetas.
 tags[].Score    | `number`  | Pontuação de confiança, entre 0 e 1.
-descrição  | `object` | Objeto de nível superior para uma descrição.
+description  | `object` | Objeto de nível superior para uma descrição.
 description.tags[] |    `string`    | Lista de etiquetas.  Se não existir confiança suficiente na capacidade de produzir uma legenda, as etiquetas poderão ser as únicas informações disponíveis para o chamador.
 description.captions[].text | `string`  | Uma frase que descreve a imagem.
 description.captions[].confidence   | `number`  | O nível de confiança da frase.

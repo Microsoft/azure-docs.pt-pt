@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400716"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copiar dados do HBase com o Azure Data Factory 
 
@@ -41,7 +41,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **HBase** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **HBase** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
 | porta | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL parcial correspondente para o servidor de HBase, por exemplo, `/hbaserest0` ao utilizar o cluster do HDInsights. | Não |
@@ -122,7 +122,7 @@ Para copiar dados do HBase, defina a propriedade de tipo de conjunto de dados pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **HBaseObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **HBaseObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -151,7 +151,7 @@ Para copiar dados do HBase, defina o tipo de origem na atividade de cópia para 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HBaseSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HBaseSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

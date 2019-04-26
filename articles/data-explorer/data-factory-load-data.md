@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: c3c5484d865c73a6f478ffc9ad4c3fc86c2c8170
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59619101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447973"
 ---
-# <a name="copy-data-from-azure-data-factory-to-azure-data-explorer"></a>Copiar dados do Azure Data Factory para o Explorador de dados do Azure
+# <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para o Explorador de dados do Azure com o Azure Data Factory 
 
 Explorador de dados do Azure é um serviço de análise de dados rápido, totalmente gerido para análise em tempo real em grandes volumes de dados de transmissão em fluxo a partir de várias origens, como aplicações, sites e dispositivos IoT. Explorar dados e identificar padrões e anomalias para melhorar os produtos, melhorar as experiências de cliente, de maneira iterativa monitorizar dispositivos e aumente as operações. Explore novas questões e obtenha respostas em poucos minutos. O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud. Pode utilizar o serviço para preencher a base de dados do Explorador de dados do Azure com os dados do sistema existente e poupar tempo quando criar as suas soluções de análise.
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster do Explorador de dados do Azure e a base de dados](create-cluster-database-portal.md)
-* Amazon S3.
+* Origem de dados.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -147,10 +147,6 @@ Explorador de dados novo serviço ligado do Azure é criado para copiar os dados
 
     ![Arquivo de dados de destino ADX](media/data-factory-load-data/destination-data-store.png)
 
-1. Na **escolher o ficheiro de saída ou a pasta**, introduza o nome da pasta de saída, determine as definições e selecione **próxima**.
-
-    ![Especifique a pasta de saída](media/data-factory-load-data/specify-path.png)
-
 1. Na **mapeamento de tabelas**, defina o nome da tabela de destino e selecione **próxima**.
 
     ![Mapeamento de tabelas do conjunto de dados de destino](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -186,6 +182,8 @@ Explorador de dados novo serviço ligado do Azure é criado para copiar os dados
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre como editar serviços ligados, conjuntos de dados e pipelines no [IU do Data Factory](/azure/data-factory/quickstart-create-data-factory-portal)
+* Saiba mais sobre o [conector do Explorador de dados do Azure](/azure/data-factory/connector-azure-data-explorer) no Azure Data Factory.
+
+* Saiba mais sobre como editar serviços ligados, conjuntos de dados e pipelines no [IU do Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * Saiba mais sobre [consultas do Explorador de dados do Azure](/azure/data-explorer/web-query-data) para consultar dados.

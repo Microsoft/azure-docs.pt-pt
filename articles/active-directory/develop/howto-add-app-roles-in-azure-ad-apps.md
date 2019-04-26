@@ -18,11 +18,11 @@ ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410353"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação na sua aplicação e recebê-las no token
 

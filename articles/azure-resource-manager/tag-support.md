@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388068"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md).
@@ -301,7 +301,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | Capacidades | Não | 
-| Discos | Não | 
+| discos | Não | 
 | imagens | Não | 
 | osImages | Não | 
 | osPlatformImages | Não | 
@@ -328,7 +328,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | availabilitySets | Sim | 
-| Discos | Sim | 
+| discos | Sim | 
 | imagens | Sim | 
 | restorePointCollections | Sim | 
 | restorePointCollections/restorePoints | Não | 

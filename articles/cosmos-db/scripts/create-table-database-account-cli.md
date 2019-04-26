@@ -9,11 +9,11 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.reviewer: sngun
 ms.openlocfilehash: afb92b34db00f9294b03dc096f72c698a44b30da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448491"
 ---
 # <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>o Azure Cosmos DB: Criar uma conta de API de tabela com a CLI do Azure
 

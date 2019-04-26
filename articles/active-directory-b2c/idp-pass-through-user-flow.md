@@ -3,7 +3,7 @@ title: Passar um token de acesso através de um fluxo de utilizador à sua aplic
 description: Saiba como pode passar por meio de um token de acesso para fornecedores de identidade de OAuth2.0 como uma afirmação num fluxo de utilizador no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 7863bea9f3fe6ef146dc1e1f2b29bbfda09a9d6d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397248"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso através de um fluxo de utilizador à sua aplicação no Azure Active Directory B2C
 

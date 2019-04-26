@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: d2de98fe6cb0fffcc77bb851e3a853475d0f704c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367422"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
 O ExpressRoute é uma forma privada e resiliente para ligar as suas redes no local para a Cloud da Microsoft. Pode aceder muitos serviços cloud da Microsoft, como o Azure, Office 365 e Dynamics 365 a partir do seu centro de dados privada ou a sua rede empresarial. Por exemplo, pode ter uma filial em são Francisco com um circuito do ExpressRoute no vale do silício e outra sucursal em Londres com um circuito do ExpressRoute na mesma cidade. Ambas as filiais podem ter conectividade de alta velocidade para recursos do Azure em E.u.a. oeste e sul do Reino Unido. No entanto, as filiais não podem trocar dados diretamente entre si. Em outras palavras, 10.0.1.0/24 pode enviar dados para 10.0.3.0/24 e 10.0.4.0/24, mas não a 10.0.2.0/24.

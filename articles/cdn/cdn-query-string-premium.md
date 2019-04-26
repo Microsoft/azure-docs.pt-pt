@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324831"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Comportamento com cadeias de caracteres de consulta, o escalão premium de cache de CDN do Azure de controlo
 > [!div class="op_single_selector"]
@@ -37,14 +37,14 @@ Com o Azure conteúdo rede de entrega (CDN), pode controlar a forma como os fich
 
 Três modos de cadeia de caracteres de consulta estão disponíveis:
 
-- **Standard – cache**: modo padrão. Neste modo, o nó do CDN pontos de presença (POP) passa as cadeias de caracteres de consulta do requerente para o servidor de origem na primeira solicitação e as coloca em cache o recurso. Todas as solicitações subseqüentes para o elemento atendidos a partir do servidor POP ignoram as cadeias de caracteres de consulta até que o elemento em cache expire.
+- **standard-cache**: Modo predefinido. Neste modo, o nó do CDN pontos de presença (POP) passa as cadeias de caracteres de consulta do requerente para o servidor de origem na primeira solicitação e as coloca em cache o recurso. Todas as solicitações subseqüentes para o elemento atendidos a partir do servidor POP ignoram as cadeias de caracteres de consulta até que o elemento em cache expire.
 
     >[!IMPORTANT] 
     > Se a autorização de token está ativada para qualquer caminho nesta conta, o modo de cache padrão é o único modo que pode ser utilizado. 
 
-- **não-cache**: neste modo, pedidos com cadeias de consulta não estão em cache no nó POP da CDN. O nó POP obtém o elemento diretamente a partir do servidor de origem e passa-o para o requerente com cada solicitação.
+- **no-cache**: Neste modo, pedidos com cadeias de consulta não estão em cache no nó POP da CDN. O nó POP obtém o elemento diretamente a partir do servidor de origem e passa-o para o requerente com cada solicitação.
 
-- **cache exclusivo**: neste modo, cada solicitação com uma URL exclusiva, incluindo a cadeia de consulta é tratada como um recurso exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para um pedido para example.ashx?q=test1 é armazenado em cache no nó POP e devolvida para as caches subsequentes com a mesma cadeia de consulta. Um pedido para example.ashx?q=test2 é colocado em cache como um recurso separado com sua própria definição de tempo de vida.
+- **unique-cache**: Neste modo, cada solicitação com uma URL exclusiva, incluindo a cadeia de consulta é tratada como um recurso exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de origem para um pedido para example.ashx?q=test1 é armazenado em cache no nó POP e devolvida para as caches subsequentes com a mesma cadeia de consulta. Um pedido para example.ashx?q=test2 é colocado em cache como um recurso separado com sua própria definição de tempo de vida.
    
     >[!IMPORTANT] 
     > Não utilize este modo quando a cadeia de consulta contém parâmetros que irão alterar com cada solicitação, como um ID de sessão ou um nome de utilizador, uma vez que irá resultar numa taxa de acertos na cache baixa.

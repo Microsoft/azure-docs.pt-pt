@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327940"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Proteção do Azure de dados e segurança de disco Data Box
 

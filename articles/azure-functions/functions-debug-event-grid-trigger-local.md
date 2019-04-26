@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428329"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Função do Azure Event Grid acionador Local depuração
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405890"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar dados de PayPal com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de PayPal ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **PayPal** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **PayPal** | Sim |
 | anfitrião | O URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação de PayPal.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação de PayPal. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -79,7 +79,7 @@ Para copiar dados de PayPal, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **PayPalObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **PayPalObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -108,7 +108,7 @@ Para copiar dados de PayPal, definir o tipo de origem na atividade de cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PayPalSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PayPalSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

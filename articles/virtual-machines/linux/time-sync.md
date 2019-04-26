@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418614"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de hora para VMs do Linux no Azure
 

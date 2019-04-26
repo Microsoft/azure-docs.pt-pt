@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12eb3c9bc011a6dd0af2054d8a0f3b1568d0ed21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60279632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Active Directory do Azure com EmpCenter
 

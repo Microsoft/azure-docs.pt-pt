@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
 ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401107"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivo do Hub IoT (pré-visualização)
 

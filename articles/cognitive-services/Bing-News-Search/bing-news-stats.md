@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.openlocfilehash: ffc50a305b446c4659940275bf7bbac20159d8ca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327081"
 ---
 # <a name="how-to-get-analytics-for-bing-news-search-api"></a>Como obter a análise para a API de pesquisa de notícias do Bing
 

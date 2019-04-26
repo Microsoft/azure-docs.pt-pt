@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Conteúdo da imagem de específicas de domínio - REST, PHP'
+title: 'Início rápido: Domain-specific content - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai utilizar um modelo de domínio para identificar marcos numa imagem através da API de Imagem Digitalizada com o PHP.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2c1801296247ace081a34a137fe3f3bea7a55974
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 902894ccce28ee1ba05430c7e697c3ca47887795
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408432"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Início rápido: Reconhecer conteúdo específico do domínio com a REST API e PHP de imagem digitalizada
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 - Tem de ter o [PHP](https://secure.php.net/downloads.php) instalado.
 - Tem de ter o [Pear](https://pear.php.net) instalado.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 

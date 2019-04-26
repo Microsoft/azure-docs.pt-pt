@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402773"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração de mensagem (TTL)
 
@@ -69,7 +69,7 @@ Eis o que considerado inatividade de entidades (filas, tópicos e subscrições)
     - Não envia  
     - Não existem atualizações para o tópico  
     - Não existem mensagens agendadas 
-- Subscrições
+- Subscriptions
     - Não recebe  
     - Não existem atualizações para a subscrição  
     - Não existem novas regras incluídas na assinatura  

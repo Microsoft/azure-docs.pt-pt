@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412631"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 

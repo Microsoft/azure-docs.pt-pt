@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
 ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534157"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controlo de acesso baseado em funções no duplos Digital do Azure
 

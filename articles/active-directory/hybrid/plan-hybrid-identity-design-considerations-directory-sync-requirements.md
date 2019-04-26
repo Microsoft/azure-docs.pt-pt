@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381166"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar requisitos de sincronização de diretórios
 A sincronização é fornecer aos utilizadores uma identidade na cloud com base na respetiva identidade no local. Independentemente de eles usarão sincronizada conta para autenticação ou autenticação federada, os utilizadores ainda tem de ter uma identidade na cloud.  Esta identidade tem de ser gerida e atualizada periodicamente.  As atualizações podem assumir várias formas, de alterações de título para alterações de palavra-passe.  

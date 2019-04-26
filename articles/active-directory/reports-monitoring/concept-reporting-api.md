@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ff3e530dae3a6db4b7c84292a25e83c11000baf
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286704"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução ao Azure Active Directory reporting API
 

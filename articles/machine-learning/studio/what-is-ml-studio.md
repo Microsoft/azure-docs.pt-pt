@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
 ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345555"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.

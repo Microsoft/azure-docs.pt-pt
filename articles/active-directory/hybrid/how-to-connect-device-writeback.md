@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b7ed6fd0a4a1de3fb02b3d8583c0e5c0cecac211
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351841"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]

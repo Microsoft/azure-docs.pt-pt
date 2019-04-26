@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497377"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores 
 Com o Azure Monitor para contentores, pode utilizar os gráficos de desempenho e estado de funcionamento para monitorizar a carga de trabalho de seus clusters do Azure Kubernetes Service (AKS) de duas perspetivas, diretamente a partir de um cluster do AKS ou todos os clusters do AKS numa subscrição do Azure Monitorize. Visualização do Azure Container Instances (ACI) também é possível ao monitorizar um cluster do AKS específico.
@@ -40,8 +40,9 @@ Para ver o estado de funcionamento de todos os clusters do AKS implementados, se
 Sobre o **monitorizados clusters** separador, é possível saber o seguinte:
 
 1. Quantos clusters estão num estado crítico ou mau estado de funcionamento, versus quantas estão em bom estado ou de relatório não (referido como um Estado desconhecido)?
-1. São todos meus [motor de Kubernetes do Azure (AKS-engine)](https://github.com/Azure/aks-engine) implementações em bom estado?
-1. Quantos nós, o utilizador e os pods de sistema são implementados por cluster.  
+2. São todos meus [motor de Kubernetes do Azure (AKS-engine)](https://github.com/Azure/aks-engine) implementações em bom estado?
+3. Quantos nós, o utilizador e os pods de sistema são implementados por cluster?
+4. Quanto espaço em disco está disponível e existe um problema de capacidade?
 
 Os Estados de estado de funcionamento incluídos são: 
 
@@ -55,7 +56,7 @@ Os Estados de estado de funcionamento incluídos são:
 * **MIS configurados** -Monitor do Azure para contentores não foi configurado corretamente na área de trabalho especificada.
 * **Não existem dados** -dados não comunicou à área de trabalho nos últimos 30 minutos.
 
-Estado de funcionamento calcula o estado geral do cluster como *pior de*"os três Estados com uma exceção – se qualquer um dos três Estados for *desconhecido*, irá mostrar o estado geral do cluster **desconhecido**.  
+Estado de funcionamento calcula o estado geral do cluster como *pior de* as três Estados com uma exceção – se qualquer um dos três Estados for *desconhecido*, irá mostrar o estado geral do cluster **desconhecido**.  
 
 A tabela seguinte fornece uma análise detalhada do cálculo controlando os Estados de funcionamento para um cluster monitorizado na vista de cluster multi.
 
@@ -131,9 +132,9 @@ Quando muda para **nós**, **controladores**, e **contentores** separador aprese
 
 ![Painel de propriedades de perspetivas do exemplo Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-À medida que expande os objetos da hierarquia, as atualizações do painel de propriedades com base no objeto selecionado. No painel, também pode ver eventos de Kubernetes com pesquisas de registos predefinido ao clicar no **registos de eventos de Kubernetes do modo de exibição** link na parte superior do painel. Para obter mais informações sobre a visualização de dados de registo do Kubernetes, consulte [pesquisar registos para analisar dados](#search-logs-to-analyze-data). Enquanto estiver a rever os contentores na **contentores** vista, pode ver registos de contentor em tempo real. Para obter mais informações sobre esta funcionalidade e a configuração necessária para conceder e controlar o acesso, consulte [como ver o contentor registos em tempo real com o Azure Monitor para contentores](container-insights-live-logs.md). 
+À medida que expande os objetos da hierarquia, as atualizações do painel de propriedades com base no objeto selecionado. No painel, também pode ver eventos de Kubernetes com pesquisas de registos predefinido ao clicar no **registos de eventos de Kubernetes do modo de exibição** link na parte superior do painel. Para obter mais informações sobre a visualização de dados de registo do Kubernetes, consulte [pesquisar registos para analisar dados](container-insights-log-search.md). Enquanto estiver a rever os contentores na **contentores** vista, pode ver registos de contentor em tempo real. Para obter mais informações sobre esta funcionalidade e a configuração necessária para conceder e controlar o acesso, consulte [como ver o contentor registos em tempo real com o Azure Monitor para contentores](container-insights-live-logs.md). 
 
-Utilize o **+ Adicionar filtro** opção na parte superior da página para filtrar os resultados para a vista pelo **Service**, **nó**, ou **espaço de nomes** e o depois Selecionar o âmbito do filtro, em seguida, selecionar a partir de um dos valores mostrados no **selecionar valores** campo.  Após a configuração, o filtro é aplicado globalmente ao visualizar qualquer ponto de vista do AKS cluster.  A fórmula só suporta o sinal de igual.  Pode adicionar filtros adicionais sobre aquela primeira para refinar ainda mais os resultados.  Por exemplo, se tiver especificado um filtro por **nó**, o segundo filtro deve permitir que a seleção **Service** ou **espaço de nomes**.  
+Utilize o **+ Adicionar filtro** opção na parte superior da página para filtrar os resultados para a vista pelo **Service**, **nó**, **espaço de nomes**, ou  **Conjunto de nós** e depois de selecionar o âmbito do filtro, em seguida, selecionar a partir de um dos valores mostrados no **selecionar valores** campo.  Após a configuração, o filtro é aplicado globalmente ao visualizar qualquer ponto de vista do AKS cluster.  A fórmula só suporta o sinal de igual.  Pode adicionar filtros adicionais sobre aquela primeira para refinar ainda mais os resultados.  Por exemplo, se tiver especificado um filtro por **nó**, o segundo filtro deve permitir que a seleção **Service** ou **espaço de nomes**.  
 
 ![Exemplo usando o filtro para limitar os resultados](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -258,49 +259,6 @@ Os ícones no campo status indicam os Estados online de pods, conforme descrito 
 | ![Ícone de estado terminada](./media/container-insights-analyze/containers-terminated-icon.png) | Parado ou falha ao parar com êxito|  
 | ![Ícone de estado com falhas](./media/container-insights-analyze/containers-failed-icon.png) | Estado de falha |  
 
-
-## <a name="container-data-collection-details"></a>Detalhes de recolha de dados de contentor
-Informações de contentor recolhe diversos dados de registo e métricas de desempenho de anfitriões de contentor e contentores. Dados são recolhidos a cada três minutos.
-
-### <a name="container-records"></a>Registos de contentor
-
-Exemplos de registos que são recolhidos pelo Monitor do Azure para contentores e os tipos de dados que aparecem nos resultados de pesquisa de registos são apresentados na tabela a seguir:
-
-| Tipo de dados | Tipo de dados na pesquisa de registos | Campos |
-| --- | --- | --- |
-| Desempenho para anfitriões e contentores | `Perf` | CounterName de computador, ObjectName, &#40;% de tempo do processador, o disco lê MB, disco escreve MB, MB de utilização de memória, rede receba Bytes, rede enviar Bytes, o processador de seg de utilização, rede&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Inventário de contentor | `ContainerInventory` | TimeGenerated, computador, nome do contentor, ContainerHostname, imagem, ImageTag, ContainerState, ExitCode, EnvironmentVar, comando, CreatedTime, StartedTime, FinishedTime, SourceSystem, ID do contentor, ImageID |
-| Inventário de imagens de contentor | `ContainerImageInventory` | TimeGenerated, computador, imagem, ImageTag, ImageSize, VirtualSize, em execução, em pausa, parado, falha, SourceSystem, ImageID, TotalContainer |
-| Registo de contentor | `ContainerLog` | TimeGenerated, o computador, o ID de imagem, o nome do contentor, LogEntrySource, LogEntry, SourceSystem, ID do contentor |
-| Registo do serviço de contentor | `ContainerServiceLog`  | TimeGenerated, computador, TimeOfCommand, imagem, comando, SourceSystem, ID do contentor |
-| Inventário de nó do contentor | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Processo de contentor | `ContainerProcess_CL` | TimeGenerated, computador, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventário de pods num cluster do Kubernetes | `KubePodInventory` | TimeGenerated, computador, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ID do contentor, ContainerName, nome, PodLabel, espaço de nomes, PodStatus, ClusterName PodIp, SourceSystem |
-| Inventário de parte de nós de um cluster de Kubernetes | `KubeNodeInventory` | TimeGenerated, computador, ClusterName, ClusterId, LastTransitionTimeReady, etiquetas, estado, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Eventos de Kubernetes | `KubeEvents_CL` | TimeGenerated, computador, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, mensagem, SourceSystem | 
-| Serviços no cluster do Kubernetes | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s ServiceType_s, SourceSystem | 
-| Métricas de desempenho para a parte de nós de cluster do Kubernetes | Desempenho &#124; onde ObjectName = = "K8SNode" | CounterName de computador, ObjectName, &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Métricas de desempenho para a parte de contentores de cluster do Kubernetes | Desempenho &#124; onde ObjectName = = "K8SContainer" | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-
-## <a name="search-logs-to-analyze-data"></a>Registos de pesquisa para analisar dados
-O log Analytics pode ajudá-lo a analisar as tendências, diagnosticar afunilamentos, previsão, ou correlacionar dados que podem ajudar a determinam se a configuração de cluster atual é satisfatória. Pesquisas de registos predefinidas são fornecidas por si para começar imediatamente a utilizar ou personalizar para retornar as informações da maneira como desejar. 
-
-Pode efetuar análises interativas de dados na área de trabalho ao selecionar o **registos de eventos de Kubernetes do modo de exibição** ou **ver registos de contentor** opção no painel de pré-visualização. O **pesquisa de registos** é apresentada a página à direita da página do portal do Azure que estavam no.
-
-![Analisar dados no Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
-
-A saída de registos de contentor é reencaminhada para o Log Analytics são STDOUT e STDERR. Porque o Azure Monitor está a monitorizar o Kubernetes gerido pelo Azure (AKS), o sistema do Kube não é coletado hoje devido ao grande volume de dados gerados. 
-
-### <a name="example-log-search-queries"></a>Consultas de pesquisa de registo de exemplo
-Muitas vezes é útil criar consultas que começam com um ou dois exemplos em, em seguida, modificá-las para satisfazer as suas necessidades. Para ajudar a criar consultas mais avançadas, pode experimentar com as seguintes consultas de exemplo:
-
-| Consulta | Descrição | 
-|-------|-------------|
-| ContainerInventory<br> &#124;Computador, nome, imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime do projeto<br> &#124;tabela de composição | Listar todas as informações de ciclo de vida de um contentor| 
-| KubeEvents_CL<br> &#124;onde not(isempty(Namespace_s))<br> &#124;Ordenar por TimeGenerated desc<br> &#124;tabela de composição | Eventos de Kubernetes|
-| ContainerImageInventory<br> &#124;resumir AggregatedValue = count () by imagem, ImageTag, está em execução | Inventário de imagens | 
-| **Selecione a opção de exibição de gráfico de linha**:<br> Desempenho<br> &#124;onde ObjectName = = "K8SContainer" e CounterName = = "cpuUsageNanoCores" &#124; resumir AvgCPUUsageNanoCores = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Contentor da CPU | 
-| **Selecione a opção de exibição de gráfico de linha**:<br> Desempenho<br> &#124;onde ObjectName = = "K8SContainer" e CounterName = = "memoryRssBytes" &#124; resumir AvgUsedRssMemoryBytes = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Memória de contentor |
-
 ## <a name="next-steps"></a>Passos Seguintes
-Monitor do Azure para contentores não inclui um conjunto predefinido de alertas para copiar e modificar de acordo com seus processos e procedimentos de suporte. Reveja os [criar alertas de desempenho com o Azure Monitor para contentores](container-insights-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória.  
+- Reveja os [criar alertas de desempenho com o Azure Monitor para contentores](container-insights-alerts.md) para saber como criar alertas para alta utilização de CPU e memória suportar o DevOps ou processos operacionais e procedimentos. 
+- Modo de exibição [exemplos de consulta de registo](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para os alertas, visualizar ou analisar os seus clusters.

@@ -13,11 +13,11 @@ ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337794"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilize o OLTP na memória para melhorar o desempenho da aplicação na base de dados SQL
 

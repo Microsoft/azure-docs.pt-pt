@@ -1,5 +1,5 @@
 ---
-title: 'Configurar o BGP num gateway de VPN do Azure: Resource Manager e a CLI | Documentos da Microsoft'
+title: 'Configure o BGP num gateway de VPN do Azure: Gestor de recursos e CLI | Documentos da Microsoft'
 description: Este artigo orienta-o por meio de configurar o BGP com um gateway de VPN do Azure com o Azure Resource Manager e a CLI.
 services: vpn-gateway
 documentationcenter: na
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390689"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP num gateway de VPN do Azure com a CLI
 
@@ -71,13 +71,13 @@ O exemplo seguinte cria uma rede virtual denominada TestVNet1 e três sub-redes:
 O primeiro comando cria o espaço de endereços front-end e a sub-rede de front-end. O segundo comando cria um espaço de endereços adicional para a sub-rede de back-end. Os comandos de terceiro e o quarto criam a sub-rede de back-end e o GatewaySubnet.
 
 ```azurecli
-az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
- 
-az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
- 
-az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
+az network vnet create -n TestVNet1 -g TestBGPRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24 
+ 
+az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestBGPRG1 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --address-prefix 10.12.0.0/24 
+ 
+az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
 ### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Passo 2: Criar o gateway de VPN da TestVNet1 com parâmetros BGP
@@ -87,7 +87,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPR
 Solicitar um endereço IP público. O endereço IP público será atribuído ao gateway de VPN que criou para a rede virtual.
 
 ```azurecli
-az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
+az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic 
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Criar o gateway de VPN com o número
@@ -107,14 +107,14 @@ az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP 
 Execute o seguinte comando e verifique o `bgpSettings` seção na parte superior da saída:
 
 ```azurecli
-az network vnet-gateway list -g TestBGPRG1 
- 
-  
-"bgpSettings": { 
-      "asn": 65010, 
-      "bgpPeeringAddress": "10.12.255.30", 
-      "peerWeight": 0 
-    }
+az network vnet-gateway list -g TestBGPRG1 
+ 
+  
+"bgpSettings": { 
+      "asn": 65010, 
+      "bgpPeeringAddress": "10.12.255.30", 
+      "peerWeight": 0 
+    }
 ```
 
 Depois do gateway ser criado, pode utilizar este gateway para estabelecer uma ligação em vários locais ou de uma ligação VNet a VNet com o BGP.
@@ -137,8 +137,8 @@ Neste exercício continua a criar a configuração mostrada no diagrama. Confirm
 Antes de continuar, certifique-se de que concluiu o [ativar o BGP para o seu gateway VPN](#enablebgp) secção deste exercício e que ainda está ligado à subscrição 1. Tenha em atenção que neste exemplo, crie um novo grupo de recursos. Além disso, observe os dois parâmetros adicionais para o gateway de rede local: `Asn` e `BgpPeerAddress`.
 
 ```azurecli
-az group create -n TestBGPRG5 -l eastus2 
- 
+az group create -n TestBGPRG5 -l eastus2 
+ 
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
@@ -161,18 +161,18 @@ Na saída, localize o `"id":` linha. Terá dos valores dentro das aspas para cri
 Exemplo de saída:
 
 ```
-{ 
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65010, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-  }, 
-  "enableBgp": true, 
-  "etag": "W/\"<your etag number>\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+{ 
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65010, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+  }, 
+  "enableBgp": true, 
+  "etag": "W/\"<your etag number>\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
 Copie os valores após `"id":` para um editor de texto, como o bloco de notas, para que pode colar facilmente-los ao criar a ligação. 
@@ -236,12 +236,12 @@ az group create -n TestBGPRG2 -l westus
 O primeiro comando cria o espaço de endereços front-end e a sub-rede de front-end. O segundo comando cria um espaço de endereços adicional para a sub-rede de back-end. Os comandos de terceiro e o quarto criam a sub-rede de back-end e o GatewaySubnet.
 
 ```azurecli
-az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
- 
-az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
- 
-az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
- 
+az network vnet create -n TestVNet2 -g TestBGPRG2 --address-prefix 10.21.0.0/16 -l westus --subnet-name FrontEnd --subnet-prefix 10.21.0.0/24 
+ 
+az network vnet update -n TestVNet2 --address-prefixes 10.21.0.0/16 10.22.0.0/16 -g TestBGPRG2 
+ 
+az network vnet subnet create --vnet-name TestVNet2 -n BackEnd -g TestBGPRG2 --address-prefix 10.22.0.0/24 
+ 
 az network vnet subnet create --vnet-name TestVNet2 -n GatewaySubnet -g TestBGPRG2 --address-prefix 10.22.255.0/27
 ```
 
@@ -256,16 +256,16 @@ az network public-ip create -n GWPubIP2 -g TestBGPRG2 --allocation-method Dynami
 #### <a name="4-create-the-vpn-gateway-with-the-as-number"></a>4. Criar o gateway de VPN com o número
 
 Crie o gateway de rede virtual para TestVNet2. Deve substituir a predefinição ASN em seus gateways de VPN do Azure. Os ASNs para as redes virtuais ligadas têm de ser diferentes para ativar o BGP e o encaminhamento de trânsito.
- 
+ 
 ```azurecli
 az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
 
-### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Passo 2: Ligar as TestVNet1 e TestVNet2 gateways
+### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Passo 2: Ligar os gateways TestVNet1 e TestVNet2
 
 Neste passo, vai criar a ligação da TestVNet1 para Site5. Para ativar o BGP para esta ligação, tem de especificar o `--enable-bgp` parâmetro.
 
-No exemplo a seguir, o gateway de rede virtual e o gateway de rede local estão em grupos de recursos diferentes. Quando os gateways estão em grupos de recursos diferente, tem de especificar o ID de recurso todo os dois gateways para configurar uma ligação entre as redes virtuais. 
+No exemplo a seguir, o gateway de rede virtual e o gateway de rede local estão em grupos de recursos diferentes. Quando os gateways estão em grupos de recursos diferente, tem de especificar o ID de recurso todo os dois gateways para configurar uma ligação entre as redes virtuais. 
 
 #### <a name="1-get-the-resource-id-of-vnet1gw"></a>1. Obter o recurso de ID de VNet1GW 
 

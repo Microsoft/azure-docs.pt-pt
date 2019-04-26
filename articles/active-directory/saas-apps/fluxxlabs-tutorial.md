@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: e1951a65c48c32f2ce4af722400d03c20dfa684b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60279082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Active Directory do Azure com os laboratórios Fluxx
 

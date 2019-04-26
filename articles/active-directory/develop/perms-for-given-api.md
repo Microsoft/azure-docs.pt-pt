@@ -16,11 +16,11 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8af7206b94342a4844cf272784aff4e4dc5a35f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443539"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma determinada API 
 

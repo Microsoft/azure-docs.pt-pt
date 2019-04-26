@@ -5,21 +5,17 @@ services: key-vault
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: powershell
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 698f1f0c61bf080a6b69e02fcba34336bc486887
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
+ms.openlocfilehash: 970fcb19ce696b46f9c9cfcb6b609b35d0964580
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461438"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Início rápido: Definir e obter um segredo no Azure Key Vault com o PowerShell
 

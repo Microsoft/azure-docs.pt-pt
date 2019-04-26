@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508952"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar dados de Presto com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço ligado Presto:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Presto** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Presto** | Sim |
 | anfitrião | O nome ou endereço IP anfitrião do servidor Presto. (ou seja, 192.168.222.160)  | Sim |
 | serverVersion | A versão do servidor Presto. (ou seja, 0.148-t)  | Sim |
 | catálogo | O contexto de catálogo para todos os pedidos no servidor.  | Sim |
@@ -91,7 +91,7 @@ Para copiar dados de Presto, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **PrestoObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **PrestoObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -120,7 +120,7 @@ Para copiar dados de Presto, definir o tipo de origem na atividade de cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PrestoSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PrestoSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

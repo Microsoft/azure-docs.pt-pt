@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387473"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos de sistema de disco de caixa de dados do Azure
 

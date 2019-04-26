@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 539bc7861a487e6eb563f565d3475efdda99b093
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332674"
 ---
 # <a name="cloud-partner-portal-management"></a>Gestão de Portal de parceiros da cloud
 

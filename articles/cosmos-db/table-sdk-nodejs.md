@@ -9,11 +9,11 @@ ms.date: 11/20/2017
 author: wmengmsft
 ms.author: wmeng
 ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406026"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB API de tabela para node. js: Notas de versão e recursos
 > [!div class="op_single_selector"]

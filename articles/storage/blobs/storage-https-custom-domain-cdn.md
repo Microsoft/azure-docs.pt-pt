@@ -9,11 +9,11 @@ ms.date: 06/26/2018
 ms.author: mihauss
 ms.subservice: blobs
 ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392542"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS
 

@@ -3,7 +3,7 @@ title: Proteger o seu serviço RESTful utilizando certificados de cliente no Azu
 description: Proteger suas trocas de afirmações de REST API personalizadas no seu Azure AD B2C ao utilizar certificados de cliente
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 502b769e1a25874bfa5a9e8f082361605a52ccf6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362073"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger o seu serviço RESTful usando certificados de cliente
 

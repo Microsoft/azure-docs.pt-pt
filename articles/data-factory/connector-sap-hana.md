@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343771"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-sap-hana-connector.md)
 > * [Versão atual](connector-sap-hana.md)
 
@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço ligado do SAP HANA:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SapHana** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **SapHana** | Sim |
 | servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados SAP HANA.<br/>Valores permitidos são: **Básica**, e **Windows** | Sim |
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
@@ -121,7 +121,7 @@ Para copiar dados a partir do SAP HANA, defina o tipo de origem na atividade de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
 | consulta | Especifica a consulta SQL para ler dados a partir da instância do SAP HANA. | Sim |
 
 **Exemplo:**
@@ -162,23 +162,23 @@ Quando se copiam dados a partir do SAP HANA, os seguintes mapeamentos são utili
 
 | Tipo de dados do SAP HANA | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| ALPHANUM | Cadeia |
+| ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | VALOR BOOLEANO | Byte |
 | CLOB | Byte[] |
 | DATA | DateTime |
 | DECIMAL | Decimal |
-| VALOR DE DUPLO | Único |
+| VALOR DE DUPLO | Single |
 | INT | Int32 |
-| NVARCHAR | Cadeia |
-| REAL | Único |
+| NVARCHAR | String |
+| REAL | Single |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| HORA | Período de tempo |
-| TIMESTAMP | DateTime |
+| HORA | TimeSpan |
+| CARIMBO DE DATA/HORA | DateTime |
 | TINYINT | Byte |
-| VARCHAR | Cadeia |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 

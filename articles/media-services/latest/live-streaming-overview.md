@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322492"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -59,7 +59,7 @@ Quando utilizar o pass-through **Evento em Direto**, conta com o codificador em 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![codificação do Live](./media/live-streaming/live-encoding.svg)
+![codificação em direto](./media/live-streaming/live-encoding.svg)
 
 Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) O Evento em Direto codifica essa transmissão em fluxo de velocidade única recebia numa [transmissão de vídeo em fluxo de velocidade múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e disponibiliza-a para entrega nos dispositivos de reprodução através de protocolos como MPEG-DASH, HLS e Smooth Streaming. 
 

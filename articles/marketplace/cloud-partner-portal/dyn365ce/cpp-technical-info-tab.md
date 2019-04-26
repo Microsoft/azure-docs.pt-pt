@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332893"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 para o separador de informações de técnicas de envolvimento do cliente
 

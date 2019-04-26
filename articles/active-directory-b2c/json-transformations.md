@@ -3,7 +3,7 @@ title: Exemplos de transformação de afirmações de JSON para a identidade exp
 description: JSON de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089238"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396853"
 ---
 # <a name="json-claims-transformations"></a>Transformações de afirmações de JSON
 

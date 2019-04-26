@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 31e4eb1d6493c8de99ac48e09dfb2b8b6481b70a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369255"
 ---
 # <a name="view-your-billing-accounts-in-azure-portal"></a>Ver as suas contas de faturas no portal do Azure  
 
@@ -39,7 +39,7 @@ Um âmbito é um nó dentro de uma conta de cobrança que os utilizadores utiliz
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 

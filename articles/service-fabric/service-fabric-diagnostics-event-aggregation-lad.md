@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 212158d9a76fa2e49c60be0b5c52f281497c155b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393134"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e coleções com o diagnóstico do Linux do Azure
 > [!div class="op_single_selector"]

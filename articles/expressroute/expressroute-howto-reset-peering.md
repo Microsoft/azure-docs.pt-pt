@@ -9,11 +9,11 @@ ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366305"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Repor peerings de circuito do ExpressRoute
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 425cf262b80e83a4d06074a567a2921eee12f9c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402756"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
 

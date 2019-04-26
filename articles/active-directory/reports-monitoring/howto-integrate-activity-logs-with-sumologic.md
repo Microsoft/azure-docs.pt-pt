@@ -1,6 +1,6 @@
 ---
-title: Stream registos do Azure Active Directory para SumoLogic através do Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Saiba como integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor (pré-visualização)
+title: Stream registos do Azure Active Directory para SumoLogic através do Azure Monitor | Documentos da Microsoft
+description: Saiba como integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed1b96052117534f319bbf9570618e6481032f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 7ccf9cd550b3848be841f193f4ab8a6094cf671d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437865"
 ---
-# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor (pré-visualização)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor"></a>Integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor
 
 Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com SumoLogic através do Azure Monitor. Primeiro encaminha os registos para um hub de eventos do Azure e, em seguida, integrar o hub de eventos com SumoLogic.
 

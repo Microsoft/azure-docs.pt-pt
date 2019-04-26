@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ec6ddeb48a9a24cdd8bd9bc2c28b6cbe70b3e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9227685dc99a4fe84cdefa0953e51aff29df5c06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401430"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Analisar uma imagem local usando a REST API e Python em de imagem digitalizada
 
@@ -31,9 +31,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
 - Tem de ter os seguintes pacotes de Python instalados. Pode usar [pip](https://packaging.python.org/tutorials/installing-packages/) para instalar pacotes de Python.
-    - [Pedidos](http://docs.python-requests.org/en/master/)
+    - pedidos
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 

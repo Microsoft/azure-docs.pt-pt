@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370697"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Compreender a utilização de reserva do Azure para a inscrição da sua empresa
 
@@ -31,7 +31,7 @@ Se comprasse a reserva num contexto de faturação pay as you go, consulte [comp
 
 Para as secções seguintes, partem do princípio de que está a executar uma VM do Windows Standard_D1_v2 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Quantidade |1|
@@ -57,11 +57,11 @@ As secções seguintes utilizam o Azure SQL Database como exemplo para descrever
 
 Partem do princípio de que está a executar uma base de dados SQL Gen 4 na região Leste região dos EUA e suas informações de reserva parece a tabela seguinte:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Quantidade |2|
-|Produto| Base de dados SQL Gen 4 (2 núcleos)|
+|Product| Base de dados SQL Gen 4 (2 núcleos)|
 |Região | eualeste |
 
 ### <a name="usage-in-csv-file"></a>Utilização no ficheiro CSV

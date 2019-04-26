@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: b9ecccfef48af8cf3fe7e679277b870256443fab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58807850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188069"
 ---
 ## <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 

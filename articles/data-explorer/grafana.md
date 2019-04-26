@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447132"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
@@ -154,9 +154,9 @@ Com o principal de serviço atribuído para o *visualizadores* função, pode ag
     | Interface de Usuário o Grafana | Portal do Azure | CLI do Azure |
     | --- | --- | --- |
     | ID da subscrição | ID DA SUBSCRIÇÃO | SubscriptionId |
-    | Id de Inquilino | ID do diretório | inquilino |
+    | Id de Inquilino | ID do diretório | tenant |
     | ID de Cliente | ID da aplicação | appId |
-    | Segredo do cliente | Palavra-passe | palavra-passe |
+    | Segredo do cliente | Palavra-passe | password |
     | | | |
 
 1. Selecione **guardar e testar**.

@@ -3,7 +3,7 @@ title: Aplicação de extensões no Azure Active Directory B2C | Documentos da M
 description: Restaurar a aplicação de extensões de b2c.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 9/06/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 1c3e96c10af9085854840029867eaf238e5a593d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317263"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Aplicação de extensões
 

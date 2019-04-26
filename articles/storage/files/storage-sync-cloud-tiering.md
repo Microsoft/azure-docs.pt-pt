@@ -2,18 +2,18 @@
 title: Noções básicas sobre o Azure File Sync em camada de Cloud | Documentos da Microsoft
 description: Saiba mais sobre a funcionalidade do Azure File Sync em camada de Cloud
 services: storage
-author: sikoo
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: sikoo
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444942"
 ---
 # <a name="cloud-tiering-overview"></a>Descrição geral de camadas da cloud
 Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que frequentemente ficheiros acedidos são colocadas em cache localmente no servidor, enquanto todos os outros ficheiros são dispostos em camadas para ficheiros do Azure com base nas definições de política. Quando um ficheiro é em camadas, o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que aplicativos de terceiros com segurança podem identificar os ficheiros em camadas.

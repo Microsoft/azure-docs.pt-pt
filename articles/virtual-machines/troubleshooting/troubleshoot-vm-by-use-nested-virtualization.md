@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444370"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Resolver um problema de VM do Azure ao utilizar a virtualização aninhada no Azure
 
@@ -41,7 +41,7 @@ Para montar o problema VM, VM entra em ação tem de cumprir os seguintes pré-r
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
-    -  Tamanho: Qualquer série V3 com, pelo menos, dois núcleos que a virtualização aninhada de suporte. Para obter mais informações, consulte [apresentando novos tamanhos de VM Dv3 e Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
+    -  Tamanho: Qualquer série V3 com, pelo menos, dois núcleos que suportam a virtualização aninhada. Para obter mais informações, consulte [apresentando novos tamanhos de VM Dv3 e Ev3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
     -  Mesma localização, conta de armazenamento e o grupo de recursos que a VM problemática.
 
@@ -87,7 +87,7 @@ Para montar o problema VM, VM entra em ação tem de cumprir os seguintes pré-r
 
 4.  Abra a gestão de discos (Diskmgmt. msc). Certifique-se de que o disco do problema VM está definida como **Offline**.
 
-5.  Abra o Gestor de Hyper-V: No **Gestor de servidores**, selecione a **função Hyper-V**. O servidor com o botão direito e, em seguida, selecione o **Gestor de Hyper-V**.
+5.  Abra o Gestor de Hyper-V: Na **Gestor de servidores**, selecione a **função Hyper-V**. O servidor com o botão direito e, em seguida, selecione o **Gestor de Hyper-V**.
 
 6.  No Gestor de Hyper-V, a VM em ação com o botão direito e, em seguida, selecione **New** > **Máquina Virtual** > **seguinte**.
 

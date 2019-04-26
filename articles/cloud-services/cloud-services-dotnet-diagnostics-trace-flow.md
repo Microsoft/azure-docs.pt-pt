@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
 ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336869"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de serviços em nuvem com o diagnóstico do Azure
 O rastreamento é uma forma monitorizar a execução do seu aplicativo enquanto ele estiver em execução. Pode utilizar o [Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), e [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) classes para registar informações sobre erros e execução do aplicativo em registos, ficheiros de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre o rastreio, consulte [rastreamento e Instrumentar aplicativos](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).

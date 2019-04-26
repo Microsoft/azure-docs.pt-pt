@@ -3,7 +3,7 @@ title: Adicionar uma aplicação web - Azure Active Directory B2C | Documentos d
 description: Saiba como adicionar uma aplicação web com o seu inquilino do Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 04/16/2019
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: c1c640fa2c03f584aa9be62ae6ad123377ef53cd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383920"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar uma web de aplicação de API com o seu inquilino do Azure Active Directory B2C
 

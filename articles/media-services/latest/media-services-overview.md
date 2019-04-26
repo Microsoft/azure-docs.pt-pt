@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321949"
 ---
-# <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
+# <a name="azure-media-services-v3-overview"></a>Descrição geral da v3 de serviços de multimédia do Azure
 
 Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lhe permite criar soluções que possibilitam a transmissão em vídeo com qualidade de transmissão, melhorar a acessibilidade e distribuição, analisar conteúdo e muito mais. Quer seja um programador de aplicações, um centro de atendimento, um organismo público, uma empresa de entretenimento, os Serviços de Multimédia ajudam-no a criar aplicações que permitem experiências de multimédia de qualidade extraordinária para um grande público nos browsers e nos dispositivos móveis atualmente mais populares. 
 
 > [!NOTE]
-> Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um suportadas [SDKs](developers-guide.md).
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
 
 ## <a name="what-can-i-do-with-media-services"></a>O que posso fazer com os Serviços de Multimédia?
 
@@ -46,7 +46,7 @@ Os Serviços de Multimédia permitem-lhe criar uma variedade de fluxos de trabal
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3? 
 
-Aprenda a codificar e compactar conteúdo, transmitir vídeos sob pedido, transmitir em direto, analisar os seus vídeos com serviços de multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
+Saiba como codificar e criar pacotes de conteúdos, transmitir vídeos em fluxo a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
 Antes de começar a desenvolver, reveja [conceitos fundamentais](concepts-overview.md)<br/>
 
@@ -74,11 +74,15 @@ Artigos contém exemplos de código que demonstrem como concluir uma tarefa. Nes
 
 * [Criar uma conta - CLI](create-account-cli-how-to.md)
 * [Aceder a APIs - CLI](access-api-cli-how-to.md)
-* [Comece a desenvolver com SDKs](developers-guide.md)
+* [Começar a desenvolver com SDKs](developers-guide.md)
 * [Codificar com HTTPS como tarefa de entrada - .NET](job-input-from-http-how-to.md)  
 * [Monitor de eventos - Portal](monitor-events-portal-how-to.md)
 * [Encriptar dinamicamente com múltipla DRM - .NET](protect-with-drm.md) 
 * [Como codificar com uma transformação personalizados - CLI](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>Enviar comentários
+
+Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

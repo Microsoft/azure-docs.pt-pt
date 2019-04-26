@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358808"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure multi-factor Authentication
 
 O Azure multi-factor Authentication fornece diversos relatórios que podem ser utilizados por e sua organização acessível através do portal do Azure. A tabela seguinte lista os relatórios disponíveis:
 
-| Relatório | Localização | Descrição |
+| Relatório | Location | Descrição |
 |:--- |:--- |:--- |
 | Histórico de Utilizador Bloqueado | O Azure AD > servidor MFA > bloquear/desbloquear utilizadores | Mostra o histórico de pedidos para bloquear ou desbloquear utilizadores. |
 | Alertas de fraude e de utilização | O Azure AD > inícios de sessão | Fornece informações sobre a utilização global, resumo por utilizador e detalhes de utilizador como um histórico de alertas de fraude apresentados durante o intervalo de datas especificado. |

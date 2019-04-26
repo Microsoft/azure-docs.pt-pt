@@ -12,11 +12,11 @@ ms.date: 11/12/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0c77ac32bd6079a8583cc6ea91cb8e214e5b31ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442732"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
 

@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7ad6eeba09c81de33b92722992c6762a4b4327c
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649344"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443254"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas ao iniciar sessão para uma aplicação com um deeplink
 

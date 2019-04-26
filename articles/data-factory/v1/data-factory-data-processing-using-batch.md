@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487818"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]

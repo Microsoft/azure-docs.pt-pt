@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254069"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -29,7 +29,7 @@ Métricas personalizadas podem ser enviadas para o Azure Monitor por vários mé
 
 Quando enviar métricas personalizadas para o Azure Monitor, cada ponto de dados ou o valor, comunicado tem de incluir as seguintes informações.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 Para submeter métricas personalizadas para o Azure Monitor, a entidade que envia a métrica tem um token válido do Azure Active Directory (Azure AD) no **portador** cabeçalho do pedido. Existem algumas formas de suporte de adquirir um token de portador válido:
 1. [Gerido identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Fornece uma identidade para um recurso do Azure, tal como uma VM. Identidade de serviço gerida (MSI) foi projetado para dar permissões para executar determinadas operações de recursos. Um exemplo é permitir que um recurso emitir métricas sobre si próprio. Um recurso ou o MSI, que pode ser concedida **Editor de métricas de monitorização** permissões em outro recurso. Com esta permissão, o MSI pode emitir métricas para outros recursos também.
 2. [Principal de serviço do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Neste cenário, uma aplicação do Azure AD ou serviço, pode receber permissões para emitir métricas sobre um recurso do Azure.
@@ -38,7 +38,7 @@ Para autenticar o pedido, o Azure Monitor valida o token de aplicação através
 > [!NOTE]  
 > Quando solicita um token do Azure AD para emitir métricas personalizadas, certifique-se de que é o público-alvo ou o recurso o token é solicitado para https://monitoring.azure.com/. Certifique-se de que incluem à direita '/'.
 
-### <a name="subject"></a>Requerente
+### <a name="subject"></a>Subject
 Esta propriedade captura o ID de recurso do Azure a métrica personalizada é comunicada para. Estas informações serão codificadas no URL da chamada à API feita. Cada API só pode enviar valores de métrica para um único recurso do Azure.
 
 > [!NOTE]  
@@ -181,7 +181,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 ## <a name="quotas-and-limits"></a>Quotas e limites
 O Azure Monitor impõe os seguintes limites de utilização em métricas personalizadas:
 
-|Categoria|Limite|
+|Category|Limite|
 |---|---|
 |Série de tempo ativo/subscrições/região|50,000|
 |Chaves de dimensão por métrica|10|

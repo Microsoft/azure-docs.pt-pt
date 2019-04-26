@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285479"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -135,11 +135,11 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Aplicações|AdminPolicyDatas-SetResources|
 |Gestão de Aplicações|AdminUserJourneys-GetResources|
 |Gestão de Aplicações|AdminUserJourneys-RemoveResources|
-|Authentication|AdminUserJourneys-SetResources|
-|Authentication|Criar IdentityProvider|
-|Authentication|Criar aplicação V1|
-|Authentication|Criar aplicação V2|
-|Authentication|Criar domínios personalizados no inquilino|
+|Autenticação|AdminUserJourneys-SetResources|
+|Autenticação|Criar IdentityProvider|
+|Autenticação|Criar aplicação V1|
+|Autenticação|Criar aplicação V2|
+|Autenticação|Criar domínios personalizados no inquilino|
 |Autorização|Criar um novo AdminUserJourney|
 |Autorização|Criar json de recurso localizado|
 |Autorização|Criar IDP Personalizado novo|

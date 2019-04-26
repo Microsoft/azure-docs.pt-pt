@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237743"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
 **[Registos de diagnóstico do Azure](diagnostic-logs-overview.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure CLI do Azure ou Cmdlets do PowerShell.
@@ -182,12 +182,12 @@ Segue-se dados de saída de exemplo dos Hubs de eventos:
 | Nome do elemento | Descrição |
 | --- | --- |
 | registos |Uma matriz de todos os eventos de registo neste payload. |
-| hora |Tempo em que ocorreu o evento. |
-| categoria |Categoria de registo para este evento. |
+| time |Tempo em que ocorreu o evento. |
+| category |Categoria de registo para este evento. |
 | resourceId |ID de recurso do recurso que gerou este evento. |
 | operationName |Nome da operação. |
 | nível |Opcional. Indica o nível de evento do registo. |
-| propriedades |Propriedades do evento. |
+| properties |Propriedades do evento. |
 
 Pode exibir uma lista de todos os fornecedores de recursos que suportam a transmissão em fluxo aos Hubs de eventos [aqui](diagnostic-logs-overview.md).
 

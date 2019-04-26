@@ -4,24 +4,24 @@ description: Este tópico descreve a funcionalidade de impedir eliminações aci
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+origin.date: 07/12/2017
+ms.date: 11/09/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383394"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: Impedir eliminações acidentais
 Este tópico descreve a funcionalidade de impedir eliminações acidentais (impedir eliminações acidentais) no Azure AD Connect.
@@ -31,9 +31,9 @@ Quando instalar o Azure AD Connect, impedir acidental eliminações é ativada p
 ## <a name="what-is-prevent-accidental-deletes"></a>O que está a impedir eliminações acidentais
 Cenários comuns quando vê que elimina muitos incluem:
 
-* Alterado para [filtragem](how-to-connect-sync-configure-filtering.md) sempre que um toda [UO](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) ou [domínio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) é não selecionada.
-* Todos os objetos numa UO são eliminados.
-* O nome de uma UO foi alterado para que todos os objetos na mesma sejam considerados como estando fora do âmbito para a sincronização.
+- Alterado para [filtragem](how-to-connect-sync-configure-filtering.md) sempre que um toda [UO](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) ou [domínio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) é não selecionada.
+- Todos os objetos numa UO são eliminados.
+- O nome de uma UO foi alterado para que todos os objetos na mesma sejam considerados como estando fora do âmbito para a sincronização.
 
 O valor predefinido de 500 objetos pode ser alterado com o PowerShell usando `Enable-ADSyncExportDeletionThreshold`, que faz parte do módulo de sincronização do AD instalado com o Azure Active Directory Connect. Deve configurar esse valor para se ajustar ao tamanho da sua organização. Uma vez que o agendador de sincronização é executada a cada 30 minutos, o valor é o número de eliminações visto dentro de 30 minutos.
 
@@ -69,5 +69,6 @@ Se todas as exclusões são pretendidos, em seguida, faça o seguinte:
 ## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-* [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
+- [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+- [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
+

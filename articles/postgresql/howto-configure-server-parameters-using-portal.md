@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 0d0626c48ecebdead604aab93ab0602c698d0d77
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421453"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Configurar parâmetros de servidor no portal do Azure
 Pode listar, mostrar e atualizar os parâmetros de configuração para uma base de dados do Azure para o servidor PostgreSQL através do portal do Azure.

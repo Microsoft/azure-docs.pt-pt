@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60495468"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar o LUIS resultados para o Application Insights e as funções do Azure
 Este tutorial adiciona informações de solicitação e resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.

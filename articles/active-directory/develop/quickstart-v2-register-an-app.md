@@ -19,11 +19,11 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6221fb7575fc267030929b449cba48cff8563f27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298789"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>Início rápido: Registar uma aplicação com o ponto de final de v2.0 do Azure Active Directory
 

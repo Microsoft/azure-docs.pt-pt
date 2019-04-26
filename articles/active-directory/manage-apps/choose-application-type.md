@@ -16,11 +16,11 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441275"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory
 Saiba mais sobre os quatro tipos de aplicativos, que pode adicionar ao Azure Active Directory (Azure AD). Quando estiver a adicionar uma aplicação no Azure Active Directory, será solicitado a escolher um do tipo de quatro aplicação. 

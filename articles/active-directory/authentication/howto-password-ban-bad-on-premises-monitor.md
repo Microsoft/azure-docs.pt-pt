@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414805"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Proteção de palavra-passe do Azure AD monitorização e registo
 

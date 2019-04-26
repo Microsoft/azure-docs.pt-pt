@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335611"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Substituir comportamento HTTP utilizando o mecanismo de regras do CDN do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -102,4 +102,4 @@ Para acessar o mecanismo de regras, tem de selecionar primeiro **Manage** na par
 * [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
 * [Expressões condicionais do motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funcionalidades do motor de regras](cdn-rules-engine-reference-features.md)
-* [Azure Fridays: Poderosas novas funcionalidades premium da CDN do Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
+* [Azure Fridays: Poderosas novas funcionalidades premium CDN do Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)

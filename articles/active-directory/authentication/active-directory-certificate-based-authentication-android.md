@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416187"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticação do Azure Active Directory com base em certificado no Android
 

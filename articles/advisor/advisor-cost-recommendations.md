@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467941"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Assistente do Azure
 

@@ -9,11 +9,11 @@ ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508261"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementar uma aplicação web a partir de um registo de contentor do Azure georreplicado
 

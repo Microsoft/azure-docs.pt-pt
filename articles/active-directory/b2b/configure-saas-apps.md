@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414364"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurar aplicações de SaaS para colaboração B2B
 

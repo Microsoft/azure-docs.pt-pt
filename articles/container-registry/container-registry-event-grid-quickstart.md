@@ -9,11 +9,11 @@ ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
 ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427696"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: Enviar eventos de registo de contentor privado para o Event Grid
 

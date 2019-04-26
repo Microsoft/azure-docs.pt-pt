@@ -3,7 +3,7 @@ title: Início de sessão de página única com fluxo implícito - Azure Active 
 description: Saiba como adicionar o início de sessão de página única sessão com o fluxo implícito de OAuth 2.0 com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 65a29d16f2a2d66425f568e7307e6202b8d55d24
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317062"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Página única início de sessão com o fluxo implícito de OAuth 2.0 no Azure Active Directory B2C
 

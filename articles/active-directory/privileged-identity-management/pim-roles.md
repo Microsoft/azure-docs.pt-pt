@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437278"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Funções não é possível gerir no PIM
 

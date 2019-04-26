@@ -3,7 +3,7 @@ title: Configurar o fluxo de credenciais de palavra-passe de proprietário do re
 description: Saiba como configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419192"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o recurso proprietário palavra-passe fluxo de credenciais no Azure Active Directory B2C utilizando uma política personalizada
 
@@ -270,8 +270,8 @@ Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma cham
 | Chave | Value |
 | --- | ----- |
 | o nome de utilizador | `user-account` |
-| palavra-passe | `password1` |
-| grant_type | palavra-passe |
+| password | `password1` |
+| grant_type | password |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |

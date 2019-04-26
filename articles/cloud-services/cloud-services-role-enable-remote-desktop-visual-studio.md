@@ -4,20 +4,22 @@ description: Como configurar a aplicação do serviço cloud do Azure para permi
 services: cloud-services
 author: ghogen
 manager: douge
+editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 03/06/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406451"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure com o Visual Studio
 
@@ -46,6 +48,8 @@ Ao utilizar o Visual Studio 2017 versão 15.4 e anterior, pode utilizar o **ativ
 
    > [!Note]
    > Os certificados que sejam necessárias para uma conexão de área de trabalho remota são diferentes dos certificados que utiliza para outras operações do Azure. O certificado de acesso remoto tem de ter uma chave privada.
+   >
+   >
 
 5. Selecione um certificado a partir da lista ou escolha  **&lt;criar... &gt;**. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando lhe for pedido e selecione **OK**. O novo certificado é apresentado na caixa de lista pendente.
 
@@ -95,7 +99,7 @@ Para utilizar a extensão RDP dos serviços de DevOps do Azure, incluem os segui
 
 1. Depois dos passos de compilação, adicione a **implementação do serviço Cloud do Azure** passo e definir as respetivas propriedades.
 
-1. Após o passo de implementação, adicione uma **do Azure Powershell** passo, defina seu **nome a apresentar** propriedade como "Azure implementação: Ativar a extensão RDP" (ou outro nome adequado) e selecione o seu Azure adequado subscrição.
+1. Após o passo de implementação, adicione uma **do Azure Powershell** passo, defina seu **nome a apresentar** propriedade para "Implementação do Azure: Ativar a extensão RDP"(ou outro nome adequado) e selecione a sua subscrição do Azure adequada.
 
 1. Definir **tipo de Script** para "Inline" e cole o código abaixo para o **Inline Script** campo. (Também pode criar uma `.ps1` do ficheiro no seu projeto com este script, defina **tipo de Script** "Caminho de ficheiro de Script" e o conjunto **caminho do Script** para apontar para o ficheiro.)
 

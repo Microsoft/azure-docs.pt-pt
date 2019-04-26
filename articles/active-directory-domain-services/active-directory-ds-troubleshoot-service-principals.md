@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
 ms.openlocfilehash: 5bed5dd19f6b736aca7ed2d551c8be0e6f03a810
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416403"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de Principal de serviço inválido para o seu domínio gerido
 

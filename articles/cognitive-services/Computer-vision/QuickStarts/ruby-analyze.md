@@ -12,11 +12,11 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 92793a583fc8681d610db3549891dff13529806d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401124"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Início rápido: Analisar uma imagem remota usando a REST API e o Ruby de imagem digitalizada
 

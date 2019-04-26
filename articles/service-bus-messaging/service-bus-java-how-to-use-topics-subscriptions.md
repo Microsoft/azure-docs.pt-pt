@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311101"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como utilizar os tópicos do Service Bus e as subscrições com Java
 

@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e54ec4049b2b0cd67c148d881a64a40efff438a2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440471"
 ---
 # <a name="microsoft-graph-apis-for-pim-preview"></a>Microsoft Graph APIs PIM (pré-visualização)
 

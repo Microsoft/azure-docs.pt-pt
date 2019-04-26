@@ -15,11 +15,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2339ce23379ab51090d536ba071a42017f6941b5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293095"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão único com o Proxy de aplicações
 

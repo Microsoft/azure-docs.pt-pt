@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
 ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60192987"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Descrição geral do DNS inverso e de suporte no Azure
 

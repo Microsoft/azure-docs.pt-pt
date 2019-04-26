@@ -3,7 +3,7 @@ title: Localização – o Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de localização de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401753"
 ---
 # <a name="localization"></a>Localização
 
@@ -41,7 +41,7 @@ O **localização** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Ativado | Não | Valores possíveis: `true` ou `false`. |
+| Enabled | Não | Valores possíveis: `true` ou `false`. |
 
 O **localização** elemento contém seguintes elementos XML
 
@@ -110,7 +110,7 @@ O **Item** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Sim | A cadeia de apresentação amigável de utilizador que deve ser apresentada ao usuário na interface do usuário para esta opção. |
+| Text | Sim | A cadeia de apresentação amigável de utilizador que deve ser apresentada ao usuário na interface do usuário para esta opção. |
 | Value | Sim | A cadeia de caracteres de afirmação valor associado a seleção desta opção. |
 
 O exemplo seguinte mostra a utilização do **LocalizedCollections** elemento. Ele contém dois **LocalizedCollection** elementos, um para inglês e outro para espanhol. Ambos definidos os **restrição** coleção da afirmação `Gender` com uma lista de itens para inglês e espanhol.

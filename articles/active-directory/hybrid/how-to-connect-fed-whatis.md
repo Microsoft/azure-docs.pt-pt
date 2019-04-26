@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+origin.date: 10/09/2018
+ms.date: 03/15/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60350495"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação
 O Azure Active Directory (Azure AD) Connect permite que configura a Federação com locais serviços de Federação do Active Directory (AD FS) e o Azure AD. Com o Federação início de sessão, pode permitir aos utilizadores iniciar sessão para serviços do Azure baseada no AD com as palavras-passe no local – e, embora na rede da empresa, sem ter de introduzir as palavras-passe novamente. Ao utilizar a opção de federação com o AD FS, pode implementar uma nova instalação do AD FS ou pode especificar uma instalação existente num farm do Windows Server 2012 R2.
@@ -55,3 +56,5 @@ Este tópico é a página para obter informações sobre funcionalidades relacio
 * [Federar dois do Azure AD com AD FS único](how-to-connect-fed-single-adfs-multitenant-federation.md)
 * [Implementação do AD FS no Azure](how-to-connect-fed-azure-adfs.md)
 * [Implementação de FS AD geográficos cruzados de elevada disponibilidade no Azure com o Gestor de tráfego do Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+
+<!-- Update_Description: update metedata properties -->

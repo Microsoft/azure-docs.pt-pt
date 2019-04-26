@@ -3,7 +3,7 @@ title: Gerenciamento de sessões de início de início de sessão único com as 
 description: Saiba como gerir sessões SSO com as políticas personalizadas no Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: d1d76e3ac995d4ee63e36ac3560d20f473d3ea2d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316974"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestão de sessão de início de sessão único no Azure Active Directory B2C
 

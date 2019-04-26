@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/01/2019
 ms.author: aljo
 ms.openlocfilehash: d6860cdfb2e453a2151b4c5e425cfe0b12d88f8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387204"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de thumbprint do certificado para o nome comum
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Mudar de um cluster implementado da utilização de thumbprints de certificado a utilizar nomes comuns do certificado faz a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster do Service Fabric em execução para utilizar o nome comum do certificado em vez do thumbprint do certificado.

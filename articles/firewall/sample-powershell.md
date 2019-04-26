@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5e5887d70e9bf4d37fee0f81e654d1bac427d051
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 3dd751c5dd4edbc2c132859f142ef927e63298bc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60192970"
 ---
 # <a name="azure-firewall-powershell-samples"></a>Exemplos do Azure PowerShell de Firewall
 

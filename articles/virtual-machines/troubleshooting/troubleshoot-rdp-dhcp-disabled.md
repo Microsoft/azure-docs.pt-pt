@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652285"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362293"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Não é possível RDP para máquinas de virtuais do Azure, porque o serviço de cliente DHCP é desativado
 

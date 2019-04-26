@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Active Directory do Azure com absorver LMS
 

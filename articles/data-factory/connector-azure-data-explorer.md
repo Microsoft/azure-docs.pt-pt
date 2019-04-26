@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory | Documentos da Microsoft
+title: Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory
 description: Saiba como copiar dados para ou a partir do Explorador de dados do Azure com uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: orspod
-ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.author: orspodek
+ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394511"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory
 
@@ -219,4 +219,7 @@ Para copiar dados para o Explorador de dados do Azure, definir a propriedade de 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Saiba mais sobre [copiar dados do Azure Data Factory para o Explorador de dados do Azure](/azure/data-explorer/data-factory-load-data).

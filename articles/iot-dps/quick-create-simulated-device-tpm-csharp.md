@@ -10,11 +10,11 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369734"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo TPM simulado com o SDK de dispositivo C# com o Serviço de Aprovisionamento de Dispositivos no Hub IoT
 

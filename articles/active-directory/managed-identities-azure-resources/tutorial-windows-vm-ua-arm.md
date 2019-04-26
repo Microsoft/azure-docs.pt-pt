@@ -16,11 +16,11 @@ ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6fc7e13cf5ea3991f81d53edcabe0980d799cb0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443505"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilizar uma identidade gerida atribuído ao utilizador numa VM do Windows, para aceder ao Azure Resource Manager
 

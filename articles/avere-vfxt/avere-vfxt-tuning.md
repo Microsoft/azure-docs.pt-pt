@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409172"
 ---
 # <a name="cluster-tuning"></a>Otimização de cluster
 

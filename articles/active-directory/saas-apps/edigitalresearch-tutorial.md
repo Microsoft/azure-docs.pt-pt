@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 133f42ebce1472c799bb1ade86e421665d7ba7a3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
+ms.openlocfilehash: d5cc15b0b6ef673396be0cf5bce7ca79cc676b35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60280081"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: Integração do Active Directory do Azure com eDigitalResearch
 
@@ -195,7 +195,7 @@ Quando clica no mosaico eDigitalResearch no painel de acesso, deve ser automatic
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

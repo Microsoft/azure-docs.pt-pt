@@ -2,18 +2,18 @@
 title: Tutorial - ampliar servidores de ficheiros do Windows com o Azure File Sync | Documentos da Microsoft
 description: Saiba como ampliar servidores de ficheiros do Windows com o Azure File Sync, do início ao fim.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049154"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462103"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir servidores de ficheiros do Windows com o Azure File Sync
 
@@ -218,7 +218,7 @@ Para implementar o Azure File Sync, primeiro a colocar uma **serviço de sincron
 
    No painel que se abre, introduza as informações seguintes:
 
-   | Valor | Descrição |
+   | Value | Descrição |
    | ----- | ----- |
    | **Nome** | Um nome exclusivo (por subscrição) para o Serviço de Sincronização de Armazenamento.<br><br>Uso _afssyncservice02_ para este tutorial. |
    | **Subscrição** | A subscrição do Azure que utilizar para este tutorial. |
@@ -264,7 +264,7 @@ A interface do Usuário de registo do servidor deverá abrir automaticamente dep
 
    | | |
    | ----- | ----- |
-   | Valor | Descrição |
+   | Value | Descrição |
    | **Subscrição do Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
    | **Grupo de Recursos** | O grupo de recursos que contém o serviço de sincronização de armazenamento. Uso _afsresgroup101918_ para este tutorial. |
    | **Serviço de Sincronização de Armazenamento** | O nome do serviço de sincronização de armazenamento. Uso _afssyncservice02_ para este tutorial. |
@@ -283,7 +283,7 @@ Os grupos de sincronização definem a topologia da sincronização para um conj
 
 1. Introduza as seguintes informações para criar um grupo de sincronização com um ponto final da cloud:
 
-   | Valor | Descrição |
+   | Value | Descrição |
    | ----- | ----- |
    | **Nome do grupo de sincronização** | Este nome tem de ser exclusivo no Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome que lhe pareça lógico. Uso *afssyncgroup* para este tutorial.|
    | **Subscrição** | A subscrição na qual implementou o Serviço de Sincronização de Armazenamento neste tutorial. |
@@ -306,7 +306,7 @@ Um ponto de final de servidor representa uma localização específica num servi
 
    | | |
    | ----- | ----- |
-   | Valor | Descrição |
+   | Value | Descrição |
    | **Servidor registado** | O nome do servidor que criou. Uso *afsvm101918* para este tutorial. |
    | **Caminho** | O caminho do Windows Server para a unidade que criou. Uso *f:\filestosync* neste tutorial. |
    | **Arrumo na Cloud** | Deixe desativado para o tutorial. |

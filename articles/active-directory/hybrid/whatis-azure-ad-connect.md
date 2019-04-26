@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459555"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 

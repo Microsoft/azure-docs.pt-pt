@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254087"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Explorador de métricas do Azure
 

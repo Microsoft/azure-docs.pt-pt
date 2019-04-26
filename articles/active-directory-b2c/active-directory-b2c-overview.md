@@ -3,7 +3,7 @@ title: O que é o Azure Active Directory B2C? | Microsoft Docs
 description: Saiba mais sobre como criar e gerir experiências de identidade, como o início de sessão inscrição e gestão de perfis na sua aplicação com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -11,11 +11,11 @@ ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317365"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 

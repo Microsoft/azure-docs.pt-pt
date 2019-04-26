@@ -16,11 +16,11 @@ ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478315"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introdução à integração de registos do Azure
 

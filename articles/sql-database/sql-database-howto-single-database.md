@@ -13,11 +13,11 @@ ms.reviewer: carlr
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 4c6799372f203f021a07ae52a1d7f591aae5afad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60339011"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como utilizar uma base de dados na base de dados do Azure SQL
 

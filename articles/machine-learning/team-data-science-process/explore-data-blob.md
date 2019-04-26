@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3c399491f0a2048fe924e9ed9600dd5ce3899ca2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344653"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar os dados no armazenamento de Blobs do Azure com o pandas
 
