@@ -79,13 +79,13 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
   
 | Nome     | Tipo   | Descrição                                                                                               | Necessário |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Origem   | cadeia | Os nomes de elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline incorporada.     | Sim      |
-| Razão   | cadeia | Código de erro de máquina amigável, que foi utilizado no processamento de erros.                                       | Não       |
-| Mensagem  | cadeia | Descrição do erro legível por humanos.                                                                         | Sim      |
-| Âmbito    | cadeia | Nome do âmbito em que ocorreu o erro e pode ser uma das "global", "product", "api" ou "operação" | Não       |
-| Section  | cadeia | Nome de secção onde ocorreu o erro. Os valores possíveis: "entrada", "backend", "saída" ou "no error".       | Não       |
-| Caminho     | cadeia | Especifica a política aninhada, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
-| PolicyId | cadeia | O valor da `id` atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
+| `Source`   | cadeia | Os nomes de elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline incorporada.     | Sim      |
+| `Reason`   | cadeia | Código de erro de máquina amigável, que foi utilizado no processamento de erros.                                       | Não       |
+| `Message`  | cadeia | Descrição do erro legível por humanos.                                                                         | Sim      |
+| `Scope`    | cadeia | Nome do âmbito em que ocorreu o erro e pode ser uma das "global", "product", "api" ou "operação" | Não       |
+| `Section`  | cadeia | Nome de secção onde ocorreu o erro. Os valores possíveis: "entrada", "backend", "saída" ou "no error".       | Não       |
+| `Path`     | cadeia | Especifica a política aninhada, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
+| `PolicyId` | cadeia | O valor da `id` atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
 
 > [!TIP]
 > Pode aceder o código de estado através de contexto. Response.StatusCode.  
