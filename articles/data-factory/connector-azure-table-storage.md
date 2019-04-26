@@ -48,7 +48,7 @@ Pode criar um serviço ligado do armazenamento do Azure utilizando a chave de co
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureTableStorage**. |Sim |
+| type | A propriedade de tipo deve ser definida como **AzureTableStorage**. |Sim |
 | connectionString | Especifique as informações necessárias para ligar ao armazenamento para a propriedade connectionString. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também é possível incluir a chave da conta no Azure Key Vault e obter o `accountKey` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -123,7 +123,7 @@ Para utilizar a autenticação da assinatura de acesso partilhado, são suportad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **AzureTableStorage**. |Sim |
+| type | A propriedade de tipo deve ser definida como **AzureTableStorage**. |Sim |
 | sasUri | Especifique o URI de SAS do URI de assinatura de acesso partilhado para a tabela. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar o SAS token no Azure Key Vault para tirar partido de rotação automática e remover a parte do token. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -194,7 +194,7 @@ Para copiar dados de e para tabelas do Azure, defina a propriedade de tipo de co
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **Azuretable{0}name**. |Sim |
+| type | A propriedade de tipo do conjunto de dados tem de ser definida **Azuretable{0}name**. |Sim |
 | tableName |O nome da tabela em que a instância de base de dados do armazenamento de tabela que o serviço ligado refere-se a. |Sim |
 
 **Exemplo:**
@@ -235,7 +235,7 @@ Para copiar dados de tabelas do Azure, definir o tipo de origem na atividade de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **AzureTableSource**. |Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **AzureTableSource**. |Sim |
 | azureTableSourceQuery |Utilize a consulta de armazenamento de tabela personalizada para ler os dados. Veja exemplos na secção seguinte. |Não |
 | azureTableSourceIgnoreTableNotFound |Indica se pretende permitir que a exceção de uma tabela não existe.<br/>Valores permitidos são **True** e **falso** (predefinição). |Não |
 
@@ -261,7 +261,7 @@ Para copiar dados para tabelas do Azure, defina o tipo de sink na atividade de c
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **AzureTableSink**. |Sim |
+| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **AzureTableSink**. |Sim |
 | azureTableDefaultPartitionKeyValue |O padrão partição valor da chave que pode ser utilizado pelo sink. |Não |
 | azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como as chaves de partição. Se não for especificado, "AzureTableDefaultPartitionKeyValue" é utilizado como a chave de partição. |Não |
 | azureTableRowKeyName |Especifique o nome da coluna cujos valores de coluna são utilizados como a chave de linha. Se não for especificado, utilize um GUID para cada linha. |Não |
