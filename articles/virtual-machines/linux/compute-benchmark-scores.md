@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
 ms.openlocfilehash: 2a558f2cf91907e85bb8b14c7214a63afd1faca0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627729"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Pontuações de referência de computação para VMs do Linux
 As pontuações de referência de resultados de CoreMark seguintes mostram o desempenho de computação de alinhamento de VM de alto desempenho do Azure com o Ubuntu. Pontuações de referência de computação também estão disponíveis para [Windows VMs](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

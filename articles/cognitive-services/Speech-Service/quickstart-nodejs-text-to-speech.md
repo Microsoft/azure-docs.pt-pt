@@ -12,11 +12,11 @@ ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621952"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início rápido: Converter texto para voz com node. js
 

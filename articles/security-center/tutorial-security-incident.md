@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
 ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612744"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:

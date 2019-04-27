@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60619047"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Linux com o SDK de voz
 

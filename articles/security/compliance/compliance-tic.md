@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607947"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Documentação de orientação de ligações de Internet fidedigna
 
@@ -247,7 +247,7 @@ Pode configurar facilmente o acesso para o Microsoft Azure, Office 365 e Dynamic
 
 ## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Apêndice: Padrões de ligações de Internet fidedignas para cargas de trabalho comuns
 
-| Categoria | Carga de trabalho | IaaS | Dedicado PaaS / injeção de rede Virtual  | Pontos finais de serviço  |
+| Category | Carga de trabalho | IaaS | Dedicado PaaS / injeção de rede Virtual  | Pontos finais de serviço  |
 |---------|---------|---------|---------|--------|
 | Computação | Máquinas virtuais do Linux do Azure | Sim | | |
 | Computação | Máquinas virtuais do Windows Azure | Sim | | |

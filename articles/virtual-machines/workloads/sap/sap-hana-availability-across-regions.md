@@ -17,11 +17,11 @@ ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60650305"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilidade do SAP HANA em regiões do Azure
 

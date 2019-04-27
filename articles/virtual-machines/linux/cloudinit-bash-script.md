@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 4f65ebfd2e1ce508c5cf9b224871102a35b55fe0
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627848"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Utilizar o cloud-init para executar um script de bash na VM do Linux no Azure
 Este artigo mostra-lhe como utilizar [cloud-init](https://cloudinit.readthedocs.io) para executar um existente do script de bash numa máquina virtual (VM) do Linux ou (VMSS) de conjuntos de dimensionamento de máquina virtual no provisionamento de tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure. Para obter mais informações sobre o cloud-init funcionamento nativamente no Azure e distribuições de Linux suportadas, consulte [descrição geral do cloud-init](using-cloud-init.md)

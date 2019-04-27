@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
 ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648420"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar os dados de cópia de segurança offline para o Azure.
@@ -175,7 +175,7 @@ O procedimento a seguir atualiza os detalhes de envio de tarefa de importação 
 5. Quando tiver o número de controlo da sua operadora de envio, clique na faixa na página de descrição geral da tarefa de importação do Azure e introduza os seguintes detalhes:
 
    > [!IMPORTANT] 
-   > Certifique-se de que as informações de deteção de carrier e o número de controle são atualizados em duas semanas após a criação da tarefa de importação do Azure. Falha ao verificar essas informações em duas semanas pode resultar na tarefa a ser eliminada e as unidades não são processadas.
+   > Confirme que as informações da transportadora e que o número de acompanhamento estão atualizados num prazo de duas semanas após a criação do trabalho de importação do Azure. Falha ao verificar essas informações em duas semanas pode resultar na tarefa a ser eliminada e as unidades não são processadas.
 
    ![Armazenar informações de envio](./media/backup-azure-backup-import-export/joboverview.png)<br/>
 

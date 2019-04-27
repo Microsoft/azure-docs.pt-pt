@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581042"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API de pesquisa de negócios locais do Bing v7
 
@@ -166,10 +166,10 @@ Define o contexto de consulta que Bing utilizado para o pedido.
   
 |Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booleano que indica se a consulta especificada tem intencional adulto. O valor é **true** se a consulta tem intencional adulto; caso contrário, **falso**.|Booleano|  
+|adultIntent|Um valor booleano que indica se a consulta especificada tem intencional adulto. O valor é **true** se a consulta tem intencional adulto; caso contrário, **falso**.|Boolean|  
 |alterationOverrideQuery|A cadeia de consulta a utilizar para forçar o Bing para utilizar a cadeia de caracteres original. Por exemplo, se a cadeia de consulta é *saling downwind*, a cadeia de caracteres de consulta de substituição será *+ saling downwind*. Lembre-se codificar a cadeia de consulta que resulta em *% 2Bsaling + downwind*.<br /><br /> Este campo está incluído apenas se a cadeia de consulta original contém um erro de ortografia.|String|  
 |alteredQuery|A cadeia de consulta utilizada pelo Bing para realizar a consulta. O Bing utiliza a cadeia de consulta alterada se a cadeia de consulta original contido erros de ortografia. Por exemplo, se a cadeia de consulta é `saling downwind`, a cadeia de consulta alterada será `sailing downwind`.<br /><br /> Este campo está incluído apenas se a cadeia de consulta original contém um erro de ortografia.|String|  
-|askUserForLocation|Um valor booleano que indica se Bing necessita que a localização do utilizador para fornecer resultados precisos. Se tiver especificado na localização do utilizador utilizando o [MSEdge-X-ClientIP](#clientip) e [X-pesquisa-Location](#location) cabeçalhos, pode ignorar este campo.<br /><br /> Para consultas com suporte para localização, como "meteorológica de hoje" ou "restaurantes contra ao meu redor" que precisam de localização do utilizador para fornecer resultados precisos, este campo é definido como **true**.<br /><br /> Para localização com suporte para consultas que incluem a localização (por exemplo, "tempo da Seattle"), este campo é definido como **false**. Este campo também é definido como **false** para consultas que não são localização com suporte para, por exemplo, "mais vendidos".|Booleano|  
+|askUserForLocation|Um valor booleano que indica se Bing necessita que a localização do utilizador para fornecer resultados precisos. Se tiver especificado na localização do utilizador utilizando o [MSEdge-X-ClientIP](#clientip) e [X-pesquisa-Location](#location) cabeçalhos, pode ignorar este campo.<br /><br /> Para consultas com suporte para localização, como "meteorológica de hoje" ou "restaurantes contra ao meu redor" que precisam de localização do utilizador para fornecer resultados precisos, este campo é definido como **true**.<br /><br /> Para localização com suporte para consultas que incluem a localização (por exemplo, "tempo da Seattle"), este campo é definido como **false**. Este campo também é definido como **false** para consultas que não são localização com suporte para, por exemplo, "mais vendidos".|Boolean|  
 |originalQuery|A cadeia de consulta, conforme especificado no pedido.|String|  
 
 ### <a name="identifiable"></a>Identificação
@@ -193,7 +193,7 @@ Define um item de resultado de pesquisa para apresentar.
 |resultIndex|Um índice baseado em zero do item na resposta a apresentar. Se o item não incluir este campo, apresenta todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número inteiro|
 |answerType|A resposta que contém o item para apresentar. Por exemplo, notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo de SearchResponse.<br /><br /> No entanto, utilizar o tipo de resposta apenas se este objeto inclui o campo de valor; caso contrário, ignorá-lo.|String|
 |textualIndex|O índice da resposta sob textualAnswers para apresentar.| Número inteiro não assinado|
-|valor|O ID identifica uma resposta para apresentar ou um item de uma resposta para apresentar. Se o ID identifica uma resposta, exiba todos os itens da resposta.|Identificação|
+|value|O ID identifica uma resposta para apresentar ou um item de uma resposta para apresentar. Se o ID identifica uma resposta, exiba todos os itens da resposta.|Identificação|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Define onde na pesquisa deve ser colocado o conteúdo da página de resultados e por que ordem.  

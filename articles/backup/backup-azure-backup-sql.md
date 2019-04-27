@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60644139"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Criar cópias de segurança do SQL Server para o Azure como uma carga de trabalho do DPM
 Este artigo orienta-o através dos passos de configuração para cópia de segurança de bases de dados do SQL Server com cópia de segurança do Azure.

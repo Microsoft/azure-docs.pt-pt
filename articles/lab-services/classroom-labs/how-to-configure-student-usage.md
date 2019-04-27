@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703783"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 

@@ -1,5 +1,5 @@
 ---
-title: Escrever funções avançadas do R
+title: Escrever funções R avançadas
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Saiba como escrever uma função de R para o cálculo estatístico avançada na base de dados do SQL Azure com serviços do Machine Learning (pré-visualização).
 services: sql-database
@@ -14,11 +14,11 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702457"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Escrever funções avançadas do R na base de dados do SQL Azure com serviços do Machine Learning (pré-visualização)
 

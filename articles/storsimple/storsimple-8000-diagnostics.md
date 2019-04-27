@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576191"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilizar a ferramenta de diagnóstico do StorSimple para resolver problemas de dispositivos de série 8000
 

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
 ms.openlocfilehash: 62e72f27e48f7bf220901f4eb36090f926724a2a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60682042"
 ---
 # <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Criar um hub de notificação do Azure no portal do Azure 
 Os Hubs de Notificação do Azure oferecem um motor de envio de escalamento horizontal e utilização fácil que lhe permite enviar notificações para qualquer plataforma (iOS, Android, Windows, Kindle, Baidu, etc.) a partir de qualquer back-end (cloud ou no local). Para obter mais informações sobre o serviço, consulte [o que é o Notification Hubs do Azure?](notification-hubs-push-notification-overview.md).

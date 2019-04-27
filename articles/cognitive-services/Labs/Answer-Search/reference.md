@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527324"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60721016"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência de v7 de pesquisa de resposta do projeto
 
@@ -83,7 +83,7 @@ Seguem-se os cabeçalhos que podem incluir uma solicitação e resposta.
 O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para parâmetros obrigatórios. Tem o URL de codificar os parâmetros de consulta.  
   
   
-|Name|Valor|Type|Necessário|  
+|Name|Value|Type|Necessário|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização do URL atualmente suporta apenas en--nos mercado e a linguagem.<br /><br />|String|Sim|  
 |<a name="query" />q|O URL para a pré-visualização|String|Sim|  
@@ -119,7 +119,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior que a resposta inclui quando o pedido falhar.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Error](#error)|  
@@ -129,7 +129,7 @@ O objeto de nível superior que a resposta inclui quando o pedido falhar.
 ### <a name="license"></a>Licença  
 Define a licença sob a qual podem ser utilizada o texto ou fotos.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |nome|O nome da licença.|String|  
 |url|O URL para um Web site em que o utilizador pode obter mais informações sobre a licença.<br /><br /> Utilize o nome e o URL para criar uma hiperligação.|String|  
@@ -138,19 +138,19 @@ Define a licença sob a qual podem ser utilizada o texto ou fotos.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Define uma regra contratual para atribuição de licença.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LicenseAttribution.|String|  
 |licença|A licença sob a qual o conteúdo pode ser utilizado.|[License](#license)|  
 |licenseNotice|A licença para apresentar junto ao campo de destino. Por exemplo, "Text sob a licença de CC por SA".<br /><br /> Utilizar o nome e a URL na licença o `license` campo para criar uma hiperligação para o Web site que descreve os detalhes da licença. Em seguida, substitua o nome de licença no `licenseNotice` cadeia de caracteres (por exemplo, CC-por-SA) com o hiperlink que acabou de criar.|String|  
-|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Booleano|  
+|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Boolean|  
 |targetPropertyName|O nome do campo que se aplica a regra.|String|  
   
 
 ### <a name="link"></a>Ligação  
 Define os componentes de um hiperlink.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |texto|O texto de exibição.|String|  
@@ -160,10 +160,10 @@ Define os componentes de um hiperlink.
 ### <a name="linkattribution"></a>LinkAttribution  
 Define uma regra contratual para atribuição de ligação.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LinkAttribution.|String|  
-|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Booleano|  
+|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Boolean|  
 |targetPropertyName|O nome do campo que se aplica a regra.<br /><br /> Se não for especificado um destino, a atribuição aplica-se para a entidade como um todo e deve ser apresentada imediatamente após a apresentação de entidade. Se existirem várias regras atribuição de texto e ligação que não especifique um destino, deve utilizar para concatená-los e exibi-los usando um "dados a partir de:" etiqueta. Por exemplo, "dados a partir de < fornecedor name1\> &#124; < name2 de fornecedor\>".|String|  
 |texto|O texto de atribuição.|String|  
 |url|O URL para o site do fornecedor. Utilize `text` e o URL para criar de hiperligação.|String|  
@@ -172,10 +172,10 @@ Define uma regra contratual para atribuição de ligação.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Define uma regra contratual para atribuição de suporte de dados.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como MediaAttribution.|String|  
-|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Booleano|  
+|mustBeCloseToContent|Um valor booleano que determina se o conteúdo da regra tem de ser colocado em Fechar proximidade para o campo que se aplica a regra. Se **true**, tem de ser colocado o conteúdo próximos. Se **false**, ou este campo não existe, o conteúdo pode ser colocado a critério do chamador.|Boolean|  
 |targetPropertyName|O nome do campo que se aplica a regra.|String|  
 |url|O URL que utilizar para criar de hiperlink do conteúdo do suporte de dados. Por exemplo, se o destino for uma imagem, usaria o URL para criar a imagem clicável.|String|  
   
@@ -186,7 +186,7 @@ Define um publicador.
   
 Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambos.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |nome|O nome do Editor.|String|  
 |url|O URL para o site do publicador.<br /><br /> Tenha em atenção que o publicador poderão não fornecer um Web site.|String|  
@@ -196,11 +196,11 @@ Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambo
 ### <a name="webpage"></a>Página Web  
 Define as informações sobre uma página da Web em pré-visualização.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|
 |nome|O título da página, não necessariamente o título do HTML|String|
 |url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|  
-|descrição|Breve descrição da página e conteúdo|String|  
+|description|Breve descrição da página e conteúdo|String|  
 |isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|boolean|
 |primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|String| 
   
@@ -210,39 +210,39 @@ Define o contexto de consulta que Bing utilizado para o pedido.
   
 |Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booleano que indica se a consulta especificada tem intencional adulto. O valor é **true** se a consulta tem intencional adulto; caso contrário, **falso**.|Booleano|  
+|adultIntent|Um valor booleano que indica se a consulta especificada tem intencional adulto. O valor é **true** se a consulta tem intencional adulto; caso contrário, **falso**.|Boolean|  
 |alterationOverrideQuery|A cadeia de consulta a utilizar para forçar o Bing para utilizar a cadeia de caracteres original. Por exemplo, se a cadeia de consulta é *saling downwind*, a cadeia de caracteres de consulta de substituição será *+ saling downwind*. Lembre-se codificar a cadeia de consulta que resulta em *% 2Bsaling + downwind*.<br /><br /> Este campo está incluído apenas se a cadeia de consulta original contém um erro de ortografia.|String|  
 |alteredQuery|A cadeia de consulta utilizada pelo Bing para realizar a consulta. O Bing utiliza a cadeia de consulta alterada se a cadeia de consulta original contido erros de ortografia. Por exemplo, se a cadeia de consulta é `saling downwind`, a cadeia de consulta alterada será `sailing downwind`.<br /><br /> Este campo está incluído apenas se a cadeia de consulta original contém um erro de ortografia.|String|  
-|askUserForLocation|Um valor booleano que indica se Bing necessita que a localização do utilizador para fornecer resultados precisos. Se tiver especificado na localização do utilizador utilizando o [MSEdge-X-ClientIP](#clientip) e [X-pesquisa-Location](#location) cabeçalhos, pode ignorar este campo.<br /><br /> Para consultas com suporte para localização, como "meteorológica de hoje" ou "restaurantes contra ao meu redor" que precisam de localização do utilizador para fornecer resultados precisos, este campo é definido como **true**.<br /><br /> Para localização com suporte para consultas que incluem a localização (por exemplo, "tempo da Seattle"), este campo é definido como **false**. Este campo também é definido como **false** para consultas que não são localização com suporte para, por exemplo, "mais vendidos".|Booleano|  
+|askUserForLocation|Um valor booleano que indica se Bing necessita que a localização do utilizador para fornecer resultados precisos. Se tiver especificado na localização do utilizador utilizando o [MSEdge-X-ClientIP](#clientip) e [X-pesquisa-Location](#location) cabeçalhos, pode ignorar este campo.<br /><br /> Para consultas com suporte para localização, como "meteorológica de hoje" ou "restaurantes contra ao meu redor" que precisam de localização do utilizador para fornecer resultados precisos, este campo é definido como **true**.<br /><br /> Para localização com suporte para consultas que incluem a localização (por exemplo, "tempo da Seattle"), este campo é definido como **false**. Este campo também é definido como **false** para consultas que não são localização com suporte para, por exemplo, "mais vendidos".|Boolean|  
 |originalQuery|A cadeia de consulta, conforme especificado no pedido.|String|  
 
 ### <a name="identifiable"></a>Identificação
 
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define uma pesquisa resulta de grupo, tal como mainline.
 
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados de pesquisa para ver o grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado de pesquisa para apresentar.
 
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a apresentar. Se o item não incluir este campo, apresenta todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Número inteiro|
 |answerType|A resposta que contém o item para apresentar. Por exemplo, notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo de SearchResponse.<br /><br /> No entanto, utilizar o tipo de resposta apenas se este objeto inclui o campo de valor; caso contrário, ignorá-lo.|String|
 |textualIndex|O índice da resposta sob textualAnswers para apresentar.| Número inteiro não assinado|
-|valor|O ID identifica uma resposta para apresentar ou um item de uma resposta para apresentar. Se o ID identifica uma resposta, exiba todos os itens da resposta.|Identificação|
+|value|O ID identifica uma resposta para apresentar ou um item de uma resposta para apresentar. Se o ID identifica uma resposta, exiba todos os itens da resposta.|Identificação|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Define onde na pesquisa deve ser colocado o conteúdo da página de resultados e por que ordem.  
   
-|Name|Valor|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Os resultados da pesquisa para apresentar os principais no.|  
 |<a name="ranking-pole" />Polo|Os resultados da pesquisa que devem ser proporcionados o tratamento mais visível (por exemplo, são apresentados acima o principal e barra lateral).|  
@@ -254,7 +254,7 @@ Define o objeto de nível superior que a resposta inclui quando o pedido for con
   
 Tenha em atenção que, se o serviço suspeita de um ataque de negação de serviço, o pedido terá êxito (código de estado HTTP é 200 OK); No entanto, o corpo da resposta estará vazio.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|String|  
 |Página Web|Um objeto JSON que define a pré-visualização|string|  
@@ -263,7 +263,7 @@ Tenha em atenção que, se o serviço suspeita de um ataque de negação de serv
 ### <a name="textattribution"></a>TextAttribution  
 Define uma regra contratual para atribuição de texto sem formatação.  
   
-|Name|Valor|Type|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como TextAttribution.|String|  
 |texto|O texto de atribuição.<br /><br /> Atribuição de texto aplica-se para a entidade como um todo e deve ser apresentada imediatamente após a apresentação de entidade. Se existirem várias regras atribuição de texto ou de ligações que não especifique um destino, deve utilizar para concatená-los e exibi-los usando um "dados a partir de:" etiqueta.|String| 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749741"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introdução ao reencaminhamento WebSockets de ligações híbridas no .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

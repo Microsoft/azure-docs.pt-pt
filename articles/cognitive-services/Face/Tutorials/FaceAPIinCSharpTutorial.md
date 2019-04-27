@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
 ms.openlocfilehash: 6a60afc45894518f92115976876ddd50efa1e410
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815331"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo do WPF para exibir dados de rostos numa imagem
 

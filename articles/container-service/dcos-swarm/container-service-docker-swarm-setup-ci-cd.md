@@ -10,11 +10,11 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60643771"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(PRETERIDO) Pipeline de CI/CD completo para implementar uma aplicação de vários contentor no Azure Container Service com o Docker Swarm com os serviços do Azure DevOps
 

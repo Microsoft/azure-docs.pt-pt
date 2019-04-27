@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681513"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Entrega de conteúdos da China CDN do Azure
 
@@ -38,17 +38,17 @@ O Azure CDN global e o Azure CDN China têm as seguintes funcionalidades:
 
      - Executa a entrega de conteúdos fora da China
 
-     - Quatro escalões de preço: standard da Microsoft, standard da Verizon, Verizon premium e standard da Akamai
+     - Quatro escalões de preço: Padrão da Microsoft, standard da Verizon, Verizon premium e standard da Akamai
 
      - [Documentação](https://docs.microsoft.com/azure/cdn/)
 
-- A CDN do Azure China:
+- Azure CDN China:
 
      - Portal: https://portal.azure.cn
 
      - Executa a entrega de conteúdo dentro da China
 
-     - Dois escalões de preço: Standard e premium
+     - Dois escalões de preços: Standard e premium
 
      - [Documentação](https://docs.azure.cn/en-us/cdn/)
  

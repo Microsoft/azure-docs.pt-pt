@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782725"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Criar cópias de segurança do Estado do sistema Windows na implementação do Resource Manager
 Este artigo explica como fazer cópias de segurança do Estado do sistema Windows Server para o Azure. É um tutorial que se destina a explicar as noções básicas.

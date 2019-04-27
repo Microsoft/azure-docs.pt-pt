@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: fa152d8b88254a35d00b91537bf1001ea1130e57
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722621"
 ---
 # <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto do trabalho Web (serviço ligado do armazenamento do Azure do Visual Studio)?
 ## <a name="references-added"></a>Referências adicionadas

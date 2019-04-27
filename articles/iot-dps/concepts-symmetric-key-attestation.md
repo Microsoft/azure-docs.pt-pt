@@ -3,17 +3,17 @@ title: Serviço de Azure aprovisionamento de dispositivos do IoT Hub - atestado 
 description: Este artigo fornece uma descrição geral conceptual do atestado de chave simétrica com o serviço de aprovisionamento de dispositivos de IoT.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 08/18/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746259"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
@@ -46,7 +46,7 @@ SAS tokens tem o seguinte formato:
 
 Aqui estão os componentes de cada token:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura de HMAC-SHA256. Para inscrições individuais, esta assinatura é produzida utilizando a chave simétrica (primária ou secundária) para efetuar o hash. Para os grupos de inscrição, uma chave derivada da chave de grupo de inscrição é utilizada para efetuar o hash. O hash é executado numa mensagem do formulário: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: A chave tem possível descodificar a partir de base64 antes de ser usado para realizar a computação do HMAC-SHA256. Além disso, o resultado de assinatura tem de ser codificados de URL. |
 | {resourceURI} |URI do ponto final do registo que pode ser acessado com este token, começando com o ID de âmbito para a instância do serviço aprovisionamento de dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
 ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733305"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões nos quais serviços de multimédia do Azure v3 existe
 
@@ -71,32 +71,32 @@ Os pontos finais seguintes são importantes para saber quando ligar a contas de 
 
 |Pontos Finais ||
 | --- | --- | 
-| Gestor de Recursos do Azure |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Autenticação | `https://login.microsoftonline.com/` | 
 | Audiência do token | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
 |Pontos Finais||
 | --- | --- | 
-| Gestor de Recursos do Azure |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Autenticação | `https://login.microsoftonline.us/` | 
 | Audiência do token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Alemanha
 
 | Pontos Finais ||
 | --- | --- |  
-| Gestor de Recursos do Azure | `https://management.cloudapi.de/` |
-| Authentication | `https://login.microsoftonline.de/` |
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Autenticação | `https://login.microsoftonline.de/` |
 | Audiência do token | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
 |Pontos Finais||
 | --- | --- | 
-| Gestor de Recursos do Azure | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.chinacloudapi.cn/` |
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Autenticação | `https://login.chinacloudapi.cn/` |
 | Audiência do token |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Passos Seguintes

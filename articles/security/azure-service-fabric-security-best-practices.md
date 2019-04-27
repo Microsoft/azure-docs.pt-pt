@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611527"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>O Azure Service Fabric melhores práticas de segurança
 Implementar uma aplicação no Azure é rápida, fácil e económica. Antes de implementar a sua aplicação na cloud em produção, consulte a nossa lista de recomendados e essenciais melhores práticas para a implementação de clusters seguros em seu aplicativo.

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599055"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Crie um QnA Bot com o Azure Bot Service v4
 
@@ -47,12 +47,12 @@ Crie um bot como uma aplicação de cliente para a base de dados de conhecimento
 
 1.  Introduza as definições para criar o bot:
 
-    |Definição|Valor|Objetivo|
+    |Definição|Value|Objetivo|
     |--|--|--|
     |Nome do bot|`my-tutorial-kb-bot`|Este é o nome de recurso do Azure para o bot.|
     |Subscrição|Ver objetivo.|Selecione a mesma subscrição que utilizou para criar os recursos do QnA Maker.|
     |Grupo de recursos|`my-tutorial-rg`|O grupo de recursos utilizado para todos os relacionados com o bot recursos do Azure.|
-    |Localização|`west us`|Localização de recursos do Azure o bot.|
+    |Location|`west us`|Localização de recursos do Azure o bot.|
     |Escalão de preço|`F0`|O escalão gratuito para o Azure bot service.|
     |Nome da aplicação|`my-tutorial-kb-bot-app`|Esta é uma aplicação web para suportar o seu bot apenas. Não deve ser o mesmo nome como o serviço QnA Maker já está a utilizar. Não é suportada a partilha a aplicação de web do QnA Maker com qualquer outro recurso.|
     |Idioma SDK|C#|Esta é a linguagem de programação subjacente utilizada pelo bot framework SDK. As opções são C# ou node. js.|

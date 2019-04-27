@@ -11,11 +11,11 @@ description: Desenvolvimento rápido da Kubernetes com contentores e microsservi
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: mmontwil
 ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60694401"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com Java
 

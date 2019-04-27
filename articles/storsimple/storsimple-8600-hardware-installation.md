@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630942"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Descompactar,-montar, em bastidor e instalar os cabos do dispositivo StorSimple 8600
 ## <a name="overview"></a>Descrição geral
@@ -34,19 +34,19 @@ Antes de descompactar o seu dispositivo, reveja as informações seguintes.
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesada](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 1. Certifique-se de que tem duas pessoas disponíveis para gerir o peso do dispositivo, se estiver lidando com-lo manualmente. Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs.).
-2. Coloca a caixa numa superfície plana, nível.
+2. Coloque a caixa numa superfície plana e uniforme.
 
 Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Para desempacotar o dispositivo
-1. Inspecione a caixa e a espuma de empacotamento para crushes, recortes, danos de água ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, abre a caixa. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está em boa ordem funcional.
+1. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou embalagem estiver gravemente danificada, não abra a caixa. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está em boa ordem funcional.
 2. Abrir a caixa externa e, em seguida, remova as duas caixas correspondentes a primária e as inclusões EBOD. Agora pode descompactar o principal e as inclusões EBOD. A figura a seguir mostra a vista descompactada de uma das caixas.
    
     ![Descompactar o dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
     **Vista descompactada do seu dispositivo de armazenamento**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Caixa de remessa |
    |   2 |Cabos SAS (na Bandeja de acessórios e cabos) |
@@ -69,7 +69,7 @@ Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
      
      Se não recebeu qualquer um dos itens listados acima, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
-A próxima etapa é montar em Bastidor seu dispositivo.
+O passo seguinte é montar o dispositivo em bastidor.
 
 ## <a name="rack-mount-your-storsimple-8600-device"></a>Montar em Bastidor seu dispositivo StorSimple 8600
 Siga os passos seguintes para instalar o dispositivo de armazenamento StorSimple 8600 num bastidor 19 polegadas padrão com o front-end e postagens rear. Este dispositivo é fornecido com duas inclusões: um bastidor principal e um bastidor EBOD. Ambas as tem de ser rack-montado.
@@ -110,12 +110,12 @@ Um conjunto de montar rails será fornecido para utilização com o CAB de basti
    
     **Anexar slides do rail para os lados do bastidor**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |  1 |M 3 x 4 screws de cabeça de botão |
    |  2 |Slides de chassis |
 2. Anexe o lado esquerdo e os assemblies de right rail para os membros de vertical cab rack. Os colchetes são marcados **LH**, **RH**, e **nesse lado até** para orientar orientação correta.
-3. Localize os pins de grade na frente e atrás do rail assembly. Expanda o rail ajustar entre as postagens de rack e inseri os pins em frente e no rack traseiro post buracos de membro vertical. Certifique-se de que o assembly do rail é o nível.
+3. Localize os pinos na parte frontal e posterior da montagem das calhas. Expanda o rail ajustar entre as postagens de rack e inseri os pins em frente e no rack traseiro post buracos de membro vertical. Certifique-se de que o assembly do rail é o nível.
 4. Proteger o assembly do rail para rack membros verticais com dois das métrica screws fornecidos. Utilize um screw em frente e um no traseiro.
 5. Repita estes passos para o assembly de grade.
    
@@ -123,7 +123,7 @@ Um conjunto de montar rails será fornecido para utilização com o CAB de basti
    
     **Anexar o assemblies do rail rack**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Afixação screw |
    |   2 |Bastidor de front-quadrado buraco post screw |
@@ -149,7 +149,7 @@ Utilizar os rails rack que apenas foram instalados, execute os seguintes passos 
    
     **Instalar os limites de flange**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Screw fastening de bastidor |
 
@@ -202,7 +202,7 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
    
     **Volta do seu dispositivo a mostrar as portas de dados**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -213,16 +213,16 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
 
 **Cablagem para o seu dispositivo de rede**
 
-| Etiqueta | Descrição |
+| Label | Descrição |
 | --- | --- |
 | A |Rede local com acesso à Internet |
 | B |Controlador 0 |
 | C |PCM 0 |
-| 1!D |Controlador 1 |
+| D |Controlador 1 |
 | E |PCM 1 |
 | F |Controlador 0 de EBOD |
 | G |1 o controlador de EBOD |
-| H, EU |Anfitriões (por exemplo, servidores de ficheiros) |
+| H,I |Anfitriões (por exemplo, servidores de ficheiros) |
 | 0-5 |Interfaces de rede |
 | 6 |Bastidor principal |
 | 7 |Bastidor EBOD |
@@ -260,7 +260,7 @@ Execute os seguintes passos para instalar os cabos sua porta serial.
 6. Certifique-se de que a ligação está a funcionar, premindo Enter no console. Um menu da consola de série deve aparecer.
 
 > [!NOTE]
-> **Gestão de Lights-out:** quando o dispositivo é instalado num datacenter remoto ou numa sala de computadores com acesso limitado, certifique-se de que as ligações seriais para ambos os controladores são sempre ligadas a um comutador de consola de série ou equipamento semelhante. Isso permite que o controlo remoto de fora de banda e as operações de suporte em caso de interrupção de rede ou falhas inesperadas.
+> **Gestão de Lights-out:** Quando o dispositivo é instalado num datacenter remoto ou numa sala de computadores com acesso limitado, certifique-se de que as ligações seriais para os dois controladores sempre estão ligadas a um comutador de consola de série ou equipamento semelhante. Isso permite que o controlo remoto de fora de banda e as operações de suporte em caso de interrupção de rede ou falhas inesperadas.
 > 
 > 
 

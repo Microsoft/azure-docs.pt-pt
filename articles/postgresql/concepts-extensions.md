@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 7d052ee2d3d3bdf6cca99dd6a91b88176983113f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559740"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões do PostgreSQL na base de dados do Azure para PostgreSQL
 PostgreSQL fornece a capacidade de estender a funcionalidade da sua base de dados a utilizar extensões. As extensões permitem para agrupar vários objetos relacionados do SQL em conjunto num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Após a ser carregado no banco de dados, as extensões podem funcionar tal como as funcionalidades incorporadas. Para obter mais informações sobre as extensões do PostgreSQL, consulte [empacotamento objetos relacionados numa extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).

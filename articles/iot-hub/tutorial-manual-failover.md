@@ -10,11 +10,11 @@ ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60650544"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Efetuar ativação pós-falha manual para um hub IoT (pré-visualização pública)
 

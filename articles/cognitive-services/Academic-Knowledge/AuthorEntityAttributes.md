@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609748"
 ---
 # <a name="author-entity"></a>Entidade de autor
 <sub> * Seguintes atributos são específicos para a entidade de autor. (Ty = '1') </sub>

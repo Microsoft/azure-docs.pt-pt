@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611023"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançada do Azure
 
@@ -75,7 +75,7 @@ PIM ajuda-o:
 
 -   Obtenha alertas sobre o acesso a uma função com privilégios.
 
-## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 [Registos de Monitor do Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma Microsoft baseado na nuvem gestão solução de TI que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Uma vez que os registos do Azure Monitor é implementado como um serviço baseado na nuvem, pode tê-lo em funcionamento rapidamente com um investimento mínimo em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, reduzindo a manutenção contínua e os custos de atualização.
 

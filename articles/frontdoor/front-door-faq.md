@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
 ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736671"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Perguntas mais frequentes sobre a porta de entrada do serviço do Azure
 

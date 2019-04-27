@@ -16,11 +16,11 @@ ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776157"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionar nós de computação do Linux em conjuntos do Batch
 
@@ -45,10 +45,10 @@ Quando configurar uma referência de imagem de máquina virtual, especifica as p
 
 | **Propriedades de referência da imagem** | **Exemplo** |
 | --- | --- |
-| Publicador |Canonical |
+| Publicador |Canónico |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Versão |mais recente |
+| Version |mais recente |
 
 > [!TIP]
 > Pode saber mais sobre essas propriedades e como listar as imagens do Marketplace no [navegar e selecionadas imagens de máquinas virtuais do Linux no Azure com a CLI ou o PowerShell](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tenha em atenção que nem todas as imagens do Marketplace são atualmente compatíveis com o Batch. Para obter mais informações, consulte [SKU do agente de nó](#node-agent-sku).
@@ -216,10 +216,10 @@ A tabela seguinte lista as imagens de máquina virtual do Marketplace que são c
 
 | **Publicador** | **Oferta** | **SKU de imagem** | **Versão** | **ID de SKU do agente de nó** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| batch | rendering-centos73 | composição | mais recente | batch.node.centos 7 |
-| batch | rendering-windows2016 | composição | mais recente | batch.node.Windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | mais recente | batch.node.ubuntu 16.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
+| lote | rendering-centos73 | composição | mais recente | batch.node.centos 7 |
+| lote | rendering-windows2016 | composição | mais recente | batch.node.Windows amd64 |
+| Canónico | UbuntuServer | 16.04-LTS | mais recente | batch.node.ubuntu 16.04 |
+| Canónico | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
 | credativ | Debian | 9 | mais recente | batch.node.debian 9 |
 | credativ | Debian | 8 | mais recente | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | mais recente | batch.node.centos 7 |

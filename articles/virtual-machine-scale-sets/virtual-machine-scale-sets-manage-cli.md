@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: b49182ebdcc93c4a51a55f27c3e0bf7a45307b7f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618086"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir um conjunto de dimensionamento com a CLI do Azure
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos da CLI do Azure comuns que permitem-lhe realizar estas tarefas.

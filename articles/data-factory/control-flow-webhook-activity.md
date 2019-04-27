@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764310"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de Webhook no Azure Data Factory
 Pode utilizar uma atividade de hook de web para controlar a execução de pipelines através do seu código personalizado. Usando a atividade de webhook, os clientes podem chamar um ponto de extremidade e passar uma URL de retorno de chamada. A execução de pipeline aguarda o retorno de chamada a ser invocado antes de avançar para a atividade seguinte.

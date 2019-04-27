@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646961"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longa duração de banda para a cloud do Azure
 Os clientes do Azure de cópia de segurança e o System Center Data Protection Manager podem:
@@ -44,10 +44,10 @@ O número total de "pontos de retenção" especificados nesta política é 90 (p
 ## <a name="example--putting-both-together"></a>Exemplo – colocar ambos em conjunto
 ![Ecrã de exemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Política de retenção diárias**: cópias de segurança criadas diariamente são armazenadas durante sete dias.
-2. **Política de retenção semanal**: cópias de segurança criadas todos os dias à meia-noite e 6 PM Sábado são preservadas durante quatro semanas
-3. **Política de retenção mensais**: cópias de segurança criadas em meia-noite e 18h00 do último Sábado de cada mês são preservadas durante 12 meses
-4. **Política de retenção anuais**: cópias de segurança criadas à meia-noite no último Sábado de cada Março são preservadas há 10 anos
+1. **Política de retenção diárias**: Cópias de segurança criadas diariamente são armazenadas durante sete dias.
+2. **Política de retenção semanal**: Cópias de segurança criadas todos os dias à meia-noite e 6 PM Sábado são preservadas durante quatro semanas
+3. **Política de retenção mensais**: Cópias de segurança criadas em meia-noite e 18h00 do último Sábado de cada mês são preservadas durante 12 meses
+4. **Política de retenção anuais**: Cópias de segurança criadas à meia-noite no último Sábado de cada Março são preservadas há 10 anos
 
 O número total de "pontos de retenção" (pontos de que um cliente pode restaurar dados) no diagrama anterior é calculada da seguinte forma:
 

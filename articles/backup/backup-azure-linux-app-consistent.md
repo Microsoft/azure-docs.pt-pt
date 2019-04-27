@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
 ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641131"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Cópias de segurança consistentes de VMs do Linux do Azure
 
@@ -76,15 +76,15 @@ Certifique-se de que adicione adequados de registro ao escrever o script prévio
 
 | Erro | Mensagem de erro | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Pré-ScriptExecutionFailed |O script prévio devolveu um erro, para que a cópia de segurança poderá não ser consistentes.   | Consulte os registos de falha para o seu script corrigir o problema.|  
+| Pre-ScriptExecutionFailed |O script prévio devolveu um erro, para que a cópia de segurança poderá não ser consistentes.   | Consulte os registos de falha para o seu script corrigir o problema.|  
 |   Post-ScriptExecutionFailed |    O script posterior devolveu um erro que pode afetar o estado da aplicação. |    Consulte os registos de falha para o seu script corrigir o problema e verificar o estado da aplicação. |
-| Pré-ScriptNotFound |  O script prévio não foi encontrado na localização especificada no **VMSnapshotScriptPluginConfig.json** ficheiro de configuração. |   Certifique-se de que esse script prévio está presente no caminho especificado no ficheiro de configuração para garantir que a cópia de segurança consistentes com aplicações.|
+| Pre-ScriptNotFound |  O script prévio não foi encontrado na localização especificada no **VMSnapshotScriptPluginConfig.json** ficheiro de configuração. |   Certifique-se de que esse script prévio está presente no caminho especificado no ficheiro de configuração para garantir que a cópia de segurança consistentes com aplicações.|
 | Post-ScriptNotFound | O script posterior não foi encontrado na localização especificada no **VMSnapshotScriptPluginConfig.json** ficheiro de configuração. |   Certifique-se de que esse script posterior está presente no caminho especificado no ficheiro de configuração para garantir que a cópia de segurança consistentes com aplicações.|
 | IncorrectPluginhostFile | O **Pluginhost** ficheiro, que vem com a extensão VmSnapshotLinux, está danificado, pelo que não é possível executar o script prévio e o script posterior e a cópia de segurança não será consistente com a aplicação. | Desinstalar o **VmSnapshotLinux** extensão e ele automaticamente serão reinstalado com a cópia de segurança seguinte para corrigir o problema. |
 | IncorrectJSONConfigFile | O **VMSnapshotScriptPluginConfig.json** ficheiro está incorreta, portanto, o script prévio e não é possível executar o script posterior e a cópia de segurança não será consistente com a aplicação. | Transferir a cópia a partir [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configurá-la novamente. |
 | InsufficientPermissionforPre-Script | Para executar scripts, o utilizador "raiz" deve ser o proprietário do ficheiro e o ficheiro deve ter permissões de "700" (ou seja, apenas "proprietário" deve ter "ler", "gravação" e permissões de "execução"). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro de script e que apenas "proprietário" tem "permissões de leitura", "gravação" e "execução". |
 | InsufficientPermissionforPost-Script | Para executar scripts, o utilizador raiz deve ser o proprietário do ficheiro e o ficheiro deve ter permissões de "700" (ou seja, apenas "proprietário" deve ter "ler", "gravação" e permissões de "execução"). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro de script e que apenas "proprietário" tem "permissões de leitura", "gravação" e "execução". |
-| Pré-ScriptTimeout | A execução do script prévio cópia de segurança consistentes com a aplicação excedeu o tempo. | Verifique o script e aumentar o tempo limite no **VMSnapshotScriptPluginConfig.json** ficheiro que está localizado na **/etc/azure**. |
+| Pre-ScriptTimeout | A execução do script prévio cópia de segurança consistentes com a aplicação excedeu o tempo. | Verifique o script e aumentar o tempo limite no **VMSnapshotScriptPluginConfig.json** ficheiro que está localizado na **/etc/azure**. |
 | Post-ScriptTimeout | A execução do pós-script cópia de segurança consistentes com a aplicação excedeu o tempo limite. | Verifique o script e aumentar o tempo limite no **VMSnapshotScriptPluginConfig.json** ficheiro que está localizado na **/etc/azure**. |
 
 ## <a name="next-steps"></a>Passos Seguintes

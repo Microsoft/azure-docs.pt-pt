@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: d3af6484a2c62a0ffa0a21e2df277ef3255ada84
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cf7216d5634adf42c2e3435b122dcff58446821a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625317"
 ---
 # <a name="build-your-landing-page"></a>Criar a sua página de destino
 
@@ -43,7 +43,7 @@ Quanto mais consistente está em sua mensagem e em seu plano de ação, mais fá
 
 Quando tiver preparado para o plano um campanha, crie a sua página de destino no Marketplace. A tabela seguinte descreve formas como pode ajudar a maximizar a eficiência da sua página de destino: 
 
-| Melhor prática | Evitar |
+| Melhores práticas | Evitar |
 |:--- |:--- |
 | **Comunicar o problema do cliente resolve a sua solução e como utilizar o Azure para que isso aconteça** | Não comunicar as formas em que a sua solução funciona com o Azure. |
 | **Criar um URL curto, fácil de memorizar** | Usando os URLs longos. URLs longos não são fácil de memorizar e são difíceis de localizar. |

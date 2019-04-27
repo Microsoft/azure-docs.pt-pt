@@ -1,8 +1,9 @@
 ---
-title: Def de serviços Cloud do Azure Esquema de LoadBalancerProbe | Documentos da Microsoft
+title: Def de serviços Cloud do Azure LoadBalancerProbe Schema | Microsoft Docs
 ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+origin.date: 04/14/2015
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613867"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema de LoadBalancerProbe de definição dos serviços Cloud do Azure
 A sonda de Balanceador de carga é uma sonda de estado de funcionamento definido de cliente de pontos de extremidade do UDP e pontos de extremidade nas instâncias de função. O `LoadBalancerProbe` não é um elemento de autônomo; ele é combinado com a função da web ou a função de trabalho num arquivo de definição de serviço. A `LoadBalancerProbe` pode ser utilizado por mais de uma função.
@@ -59,7 +60,7 @@ O `LoadBalancerProbe` elemento define a sonda de estado de funcionamento de um m
 
 A tabela seguinte descreve os atributos do `LoadBalancerProbe` elemento:
 
-|Atributo|Tipo|Descrição|
+|Atributo|Type|Descrição|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Necessário. O nome da sonda de Balanceador de carga. O nome tem de ser exclusivo.|
 | `protocol`          | `string` | Necessário. Especifica o protocolo do ponto final. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, um ACK recebido é necessário para a sonda seja concluída com êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado é necessária para a sonda seja concluída com êxito.|

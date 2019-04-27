@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
 ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648114"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de cópia de segurança offline do DPM e o servidor de cópia de segurança do Azure
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O Azure Backup compacta as cópias de segurança iniciais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar a iniciais cópia de segurança de dados comprimidos offline para o Azure.

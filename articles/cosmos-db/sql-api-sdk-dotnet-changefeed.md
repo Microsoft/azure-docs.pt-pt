@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
 ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627051"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do Feed de alterações de .NET: Transferir e notas de versão
 > [!div class="op_single_selector"]

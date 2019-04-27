@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
-ms.openlocfilehash: 9f834d697c0d3fe537bbdb190b0ba0d0f294ac87
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60687837"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Utilizar a vista de execução de vértice no Data Lake Tools para Visual Studio
 Saiba como utilizar a vista de execução de vértice para tarefas de Data Lake Analytics de exame.
@@ -40,8 +40,8 @@ Mostra de painel a parte superior ao centro do **com o estado de todos os vérti
 
 Painel central na parte inferior mostra informações sobre cada vértice:
 * Nome do processo: O nome da instância do vértice. Ele é composto por diferentes partes no StageName | VertexName | VertexRunInstance. Por exemplo, o vértice de .v1 [62] SV7_Split representa a instância em execução segundo (.v1, índice a partir de 0) do número de vértice 62 no estágio SV7_Split.
-* Leitura de dados total/Written: Os dados foram lidos/escritos por esta vértice.
-* Estado de estado/saída: O estado final quando o vértice é terminado.
+* Total de dados lidos/escritos: Os dados foram lidos/escritos por esta vértice.
+* Estado/sair do Estado: O estado final quando o vértice é terminado.
 * Tipo de falha do código de saída: O erro quando o vértice falhou.
 * Razão de criação: Por que o vértice foi criado.
 * Latência de fila de latência/PN de latência/processos de recursos: o tempo necessário para o vértice de esperar por recursos, para processar dados e para se manter na fila.

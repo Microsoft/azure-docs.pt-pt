@@ -13,11 +13,11 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138352"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550929"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização privada)
 
@@ -340,4 +340,4 @@ Gerir implementações com a versão ao criar novas pastas e passando dessa raiz
 Neste artigo, aprendeu sobre o Gestor de implementação. Avance para o artigo seguinte para saber como implementar com o Gestor de implementação.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Utilizar Azure Deployment Manager com modelos do Resource Manager](./deployment-manager-tutorial.md)
+> [Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md)

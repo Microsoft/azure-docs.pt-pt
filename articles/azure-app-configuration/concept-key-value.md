@@ -4,20 +4,20 @@ description: Uma visão geral de como os dados de configuração são armazenado
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741194"
 ---
 # <a name="key-value-store"></a>Arquivo de chave-valor
 
@@ -45,29 +45,27 @@ Pode organizar as chaves na configuração de aplicação hierarquicamente de v�
 
 Seguem-se vários exemplos de como pode estruturar seus nomes de chaves para uma hierarquia:
 
-* Com base em ambientes
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Com base nos serviços de componentes
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Baseadas nas regiões de implementação
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Chaves de etiqueta
+
+Valores de chave na configuração de aplicações, opcionalmente, podem ter um atributo de etiqueta. Rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com as etiquetas *uma* e *B* duas chaves separadas num arquivo de configuração de aplicação de formulários. Por predefinição, está vazio, o rótulo para um valor de chave ou `null`.
+
+Etiqueta fornece uma forma conveniente de variantes de uma chave de criar. Uma utilização comum das etiquetas é especificar vários ambientes para a mesma chave:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Valores de chave de versão
-
-Valores de chave na configuração de aplicações, opcionalmente, podem ter um atributo de etiqueta. Rótulos são usados para diferenciar os valores de chave com a mesma chave. Uma chave *app1* com as etiquetas *v1* e *v2* dois valores de chave separadas num arquivo de configuração de aplicação de formulário. Por predefinição, está vazio, o rótulo para um valor de chave ou `null`.
 
 Configuração de aplicações não automaticamente valores de chave de versão à medida que são modificados. Utilize etiquetas como uma forma de criar várias versões de um valor de chave. Por exemplo, pode inserir um número de versão do aplicativo ou um ID de consolidação de Git em etiquetas para identificar os valores de chave associados a uma compilação de software específico.
 

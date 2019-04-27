@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541158"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ligar ao SQL Server ou base de dados SQL do Azure a partir do Azure Logic Apps
 
@@ -24,7 +24,7 @@ Este artigo mostra como pode acessar dados na base de dados SQL de dentro de uma
 
 Pode criar aplicações lógicas que são executados quando acionado por eventos na base de dados SQL ou em outros sistemas, como o Dynamics CRM Online. As logic apps também podem obter, inserir e eliminar dados, juntamente com a execução de consultas SQL e procedimentos armazenados. Por exemplo, pode criar uma aplicação lógica que verifica automaticamente a existência de novos registos no Dynamics CRM Online, adiciona itens à sua base de dados SQL para quaisquer novos registos e, em seguida, envia alertas por e-mail.
 
-Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referência do conector do SQL Server</a>.
+Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referência do conector do SQL Server</a>.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
   * Para o SQL Server, pode encontrar estes detalhes na cadeia de ligação: 
 
-    "Servidor = <*yourServerAddress*>; base de dados = <*yourDatabaseName*>; Id de utilizador = <*yourUserName*>; Palavra-passe = <*yourPassword*>; "
+    "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
 * Antes de poder ligar aplicações lógicas a sistemas no local, como o SQL Server, deve [configurar um gateway de dados no local](../logic-apps/logic-apps-gateway-install.md). Dessa forma, pode selecionar o gateway ao criar a ligação de SQL para a aplicação lógica.
 
@@ -56,7 +56,7 @@ No Azure Logic Apps, todas as aplicações lógicas têm de começar com uma [ac
 
 2. Na caixa de pesquisa, introduza "sql server" como o filtro. Na lista de disparadores, selecione o acionador SQL que pretende. 
 
-   Neste exemplo, selecione este acionador: **do SQL Server - quando um item é criado**
+   Neste exemplo, selecione este acionador: **SQL Server - quando um item é criado**
 
    ![Selecione "SQL Server - quando é criado um item" acionador](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 

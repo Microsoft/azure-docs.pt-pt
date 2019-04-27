@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
 ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593227"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRÍTICOS serviço falhou" na tela azul quando se reinicia uma VM do Azure
 Este artigo descreve o erro "Falha no serviço crítico" que ocorrem quando arranca uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos de resolução de problemas para ajudar a resolver os problemas. 

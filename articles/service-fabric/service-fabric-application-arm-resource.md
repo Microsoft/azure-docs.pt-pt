@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621467"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Azure Resource Manager
 
-Pode implementar aplicações e serviços em cluster do Service Fabric através do Azure Resource Manager. Isso significa que, em vez de implementar e gerir aplicações através do PowerShell ou CLI depois de ter de esperar para o cluster estar pronto, pode agora express aplicações e serviços em JSON e implementá-los no mesmo modelo do Resource Manager em seu cluster. O processo de registo de aplicação, aprovisionamento e implementação de todos os acontece num único passo.
+Pode implementar serviços e aplicações no seu cluster do Service Fabric através do Azure Resource Manager. Isso significa que, em vez de implementar e gerir aplicações através do PowerShell ou CLI depois de ter de esperar para o cluster estar pronto, pode agora express aplicações e serviços em JSON e implementá-los no mesmo modelo do Resource Manager em seu cluster. Pode realizar o processo de registo, aprovisionamento e implementação de aplicações com um único passo.
 
 Esta é a forma recomendada para a implementação de qualquer programa de configuração, governação ou aplicativos de gerenciamento de cluster que necessita no seu cluster. Isto inclui a [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), Watchdogs ou aplicações que têm de estar em execução no seu cluster antes de outros serviços ou aplicações serem implementados. 
 

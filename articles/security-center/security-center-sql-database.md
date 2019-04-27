@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704616"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Serviço de centro de segurança do Azure e base de dados do Azure SQL
 O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.

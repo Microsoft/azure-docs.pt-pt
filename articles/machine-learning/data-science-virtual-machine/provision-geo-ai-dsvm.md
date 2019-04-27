@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578581"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de Inteligência Artificial Georreplicação no Azure 
 

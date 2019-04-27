@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626745"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de node. js do Azure Cosmos DB para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "54033592"
 | Amostras | [Exemplos de código node. js](sql-api-nodejs-samples.md)
 | Tutorial de introdução | [Introdução ao SDK do JavaScript](sql-api-nodejs-get-started.md)
 | Tutorial da aplicação Web | [Criar uma aplicação web de node. js com o Azure Cosmos DB](sql-api-nodejs-application.md)
-| Plataforma suportada atual | [NODE. js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - necessário para o SDK versão 2.0.0 e superiores.<br/>[V4.2.0 de node. js](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [V0.12 de node. js](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [V0.10 de node. js](https://nodejs.org/en/blog/release/v0.10.0/) 
+| Plataforma suportada atual | [NODE. js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - necessário para o SDK versão 2.0.0 e superiores.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -212,7 +212,7 @@ Qualquer pedido para a utilização do Cosmos DB que é um SDK extinto ser rejei
 
 <br/>
 
-| Versão | Data de lançamento | Data de retirada |
+| Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2 de Agosto de 2018 |--- |
 | [1.14.4](#1.14.4) |03 de Maio de 2018 |--- |

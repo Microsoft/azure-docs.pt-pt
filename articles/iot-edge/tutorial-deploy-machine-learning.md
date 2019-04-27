@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8b1036128755a5218afc35648dfd16f09f559908
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611730"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Machine Learning como um módulo do IoT Edge (pré-visualização)
 
@@ -102,7 +102,7 @@ sudo systemctl restart iotedge
 Nesta secção, converter ficheiros de modelo treinada de aprendizagem e num Azure Machine Learning contentor de serviço. Todos os componentes necessários para a imagem do Docker encontram-se no [repositório do Git “Toolkit de IA para o Azure IoT Edge”](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Siga estes passos para carregar esse repositório para blocos de notas do Microsoft Azure para criar o contentor e envie-a para o Azure Container Registry.
 
 
-1. Navegue para seus projetos de blocos de notas do Azure. Pode obter seus na área de trabalho no serviço do Azure Machine Learning a [portal do Azure](https://portal.azure.com) ou ao iniciar sessão [blocos de notas do Microsoft Azure](https://notebooks.azure.com/home/projects) com a sua conta do Azure.
+1. Navegue para seus projetos de blocos de notas do Azure. Pode aceder aí a partir da sua área de trabalho do serviço do Azure Machine Learning no [portal do Azure](https://portal.azure.com) ou ao iniciar sessão [blocos de notas do Microsoft Azure](https://notebooks.azure.com/home/projects) com a sua conta do Azure.
 
 2. Selecione **carregar o repositório do GitHub**.
 

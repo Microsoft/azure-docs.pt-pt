@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 2859df94b1418cfa9fbfaa341e6bf08b257875bf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715080"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>O que é a pré-visualização de sentinela do Azure?
 

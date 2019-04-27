@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4d2e8b442f70ee791fe65a32402e5272eda3f209
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589047"
 ---
 # <a name="deploy-service-catalog-app-through-azure-portal"></a>Implementar o serviço catálogo de aplicações através do portal do Azure
 

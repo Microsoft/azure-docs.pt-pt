@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
 ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710124"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS em C# com o Bot Framework 4.x e bot de aplicação Web do Azure
 Com C#, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este bot utiliza a aplicação HomeAutomation para implementar uma solução de bot. O bot é criado com o [bot de aplicação Web](https://docs.microsoft.com/azure/bot-service/) do Azure com a versão v4 do [Bot Framework](https://github.com/Microsoft/botbuilder-js).

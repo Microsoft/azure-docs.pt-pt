@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565723"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 > [!NOTE]
@@ -262,7 +262,7 @@ Pode criar um serviço ligado do HDInsight para registar o seu próprio cluster 
 | tipo              | Defina a propriedade de tipo **HDInsight**. | Sim      |
 | clusterUri        | O URI do HDInsight cluster.        | Sim      |
 | o nome de utilizador          | O nome da conta de utilizador a utilizar para ligar a um cluster do HDInsight existente. | Sim      |
-| palavra-passe          | A palavra-passe da conta de utilizador.   | Sim      |
+| password          | A palavra-passe da conta de utilizador.   | Sim      |
 | linkedServiceName | O nome do serviço ligado de armazenamento que se refere-se para o armazenamento de Blob utilizado pelo cluster do HDInsight. <p>Atualmente, não é possível especificar que um Store de Lake dados serviço ligado para esta propriedade. Se o cluster do HDInsight tem acesso ao Data Lake Store, pode aceder a dados no Data Lake Store a partir de scripts do Hive ou Pig. </p> | Sim      |
 
 ## <a name="azure-batch-linked-service"></a>Serviço Azure Batch ligado
@@ -308,7 +308,7 @@ Outra opção é fornecer a **batchUri** ponto final. Por exemplo:
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | Defina a propriedade de tipo **AzureBatch**. | Sim      |
-| accountName       | O nome da conta do Batch.         | Sim      |
+| nomeConta       | O nome da conta do Batch.         | Sim      |
 | accessKey         | A chave de acesso da conta do Batch.  | Sim      |
 | poolName          | O nome do conjunto de VMs.    | Sim      |
 | linkedServiceName | O nome do serviço ligado de armazenamento que está associada esse lote de serviço ligado. Este serviço ligado é utilizado para os ficheiros de testes que são necessários para executar a atividade e para armazenar registos de execução de atividade. | Sim      |
@@ -346,7 +346,7 @@ A tabela seguinte descreve as propriedades genéricas que são utilizadas na def
 | Propriedade                 | Descrição                              | Necessário                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | tipo                 | Defina a propriedade de tipo **AzureDataLakeAnalytics**. | Sim                                      |
-| accountName          | O nome da conta do Data Lake Analytics.  | Sim                                      |
+| nomeConta          | O nome da conta do Data Lake Analytics.  | Sim                                      |
 | dataLakeAnalyticsUri | O URI de Lake análise de dados.           | Não                                       |
 | subscriptionId       | O ID de subscrição do Azure.                    | Não<br /><br />(Se não for especificado, a subscrição da fábrica de dados é usada.) |
 | resourceGroupName    | O nome do grupo de recursos do Azure.                | Não<br /><br /> (Se não for especificado, o grupo de recursos de fábrica de dados é utilizado.) |
@@ -366,7 +366,7 @@ Utilize autenticação do principal de serviço ao especificar as seguintes prop
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | ID de cliente. da aplicação     | Sim      |
 | servicePrincipalKey | Chave da aplicação.           | Sim      |
-| inquilino              | As informações de inquilino (inquilino ou nome do ID de domínio) em que a sua aplicação esteja localizada. Para obter essas informações, coloque o cursor do rato no canto superior direito do portal do Azure. | Sim      |
+| tenant              | As informações de inquilino (inquilino ou nome do ID de domínio) em que a sua aplicação esteja localizada. Para obter essas informações, coloque o cursor do rato no canto superior direito do portal do Azure. | Sim      |
 
 **Exemplo: Autenticação do principal de serviço**
 ```json

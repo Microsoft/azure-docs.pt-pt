@@ -6,18 +6,19 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.topic: howto
+author: WenJason
+ms.author: v-jay
+ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/15/2019
+origin.date: 01/15/2019
+ms.date: 02/25/2019
 ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59782529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60700503"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para a instância gerida da base de dados SQL do Azure
 
@@ -43,7 +44,7 @@ A maneira mais fácil para criar e configurar uma rede virtual é usar um modelo
 
 2. Selecione o **implementar no Azure** botão:
 
-   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
    Este botão abre um formulário que pode utilizar para configurar o ambiente de rede onde pode implementar a instância gerida.
 

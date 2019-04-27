@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749449"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -218,7 +218,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | primeiro acquirer |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
-#### <a name="properties"></a>propriedades
+#### <a name="properties"></a>properties
 
 | Nome do Campo | Utilização | Nome da API |
 | --- | --- | --- |
@@ -361,10 +361,10 @@ A mensagem de solicitação tem as seguintes propriedades da aplicação:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |cadeia |**put-token** |
-| tipo |Não |cadeia |O tipo de token colocá-lo. |
-| nome |Não |cadeia |O "público" às quais se aplica o token. |
-| expiração |Sim |carimbo de data/hora |A hora de expiração do token. |
+| operação |Não |string |**put-token** |
+| tipo |Não |string |O tipo de token colocá-lo. |
+| nome |Não |string |O "público" às quais se aplica o token. |
+| expiração |Sim |timestamp |A hora de expiração do token. |
 
 O *nome* propriedade identifica a entidade com a qual o token deve ser associado. No Service Bus é o caminho para a fila ou tópico/subscrição. O *tipo* propriedade identifica o tipo de token:
 
@@ -381,7 +381,7 @@ A mensagem de resposta tem segue *propriedades da aplicação* valores
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
-| status-description |Sim |cadeia |Descrição do Estado. |
+| status-description |Sim |string |Descrição do Estado. |
 
 O cliente pode chamar *token de put* para qualquer entidade na infraestrutura de mensagens e repetidamente. Os tokens são um âmbito para o cliente atual e ancorados na ligação atual, que significa que o servidor remove quaisquer tokens retidos quando a conexão caiu.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611351"
 ---
 # <a name="the-azure-production-network"></a>A rede de produção do Azure
 Os utilizadores da rede de produção do Azure incluem ambos os clientes externos que acedem aos seus próprios aplicações do Azure e a equipe de suporte do Azure interno que gerem a rede de produção. Este artigo aborda os métodos de acesso de segurança e mecanismos de proteção para o estabelecimento de ligações à rede de produção do Azure.

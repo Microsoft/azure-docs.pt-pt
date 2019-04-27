@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646627"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Controlar as tarefas de cópia de segurança e restauro com a REST API
 
@@ -23,7 +23,7 @@ O serviço de cópia de segurança do Azure aciona tarefas que são executadas e
 
 ## <a name="fetch-job-information-from-operations"></a>Obter informações da tarefa de operações
 
-Uma operação como acionar a cópia de segurança devolverá sempre uma jobID. Para, por exemplo,: A resposta final de um [acionar a operação de REST API de cópia de segurança](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é o seguinte:
+Uma operação como acionar a cópia de segurança devolverá sempre uma jobID. Para, por exemplo: A resposta final de um [acionar a operação de REST API de cópia de segurança](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é o seguinte:
 
 ```http
 {
@@ -51,7 +51,7 @@ O `{jobName}` "jobId" é mencionado acima. A resposta é sempre 200 OK com o cam
 
 ### <a name="response"></a>Resposta
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

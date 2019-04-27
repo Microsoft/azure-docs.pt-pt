@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630214"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução de armazenamento na cloud híbrida
 ## <a name="overview"></a>Descrição geral
@@ -96,7 +96,7 @@ A StorSimple Cloud Appliance está disponível em dois modelos: o dispositivo 80
 
 Para obter mais informações sobre o StorSimple Cloud Appliance, aceda a [implementar e gerir uma StorSimple Cloud Appliance no Azure](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>Serviço do Gestor de Dispositivos do StorSimple
+## <a name="storsimple-device-manager-service"></a>Serviço de Gestor de Dispositivos do StorSimple
 O Microsoft Azure StorSimple fornece uma interface do usuário baseada na web (o serviço StorSimple Device Manager) que permite-lhe gerir o Centro de dados e armazenamento na cloud de forma centralizada. Pode utilizar o serviço StorSimple Device Manager para efetuar as seguintes tarefas:
 
 * Configure definições de sistema para dispositivos do StorSimple.
@@ -205,7 +205,7 @@ A eliminação de duplicados reduz a quantidade global dos dados armazenados ao 
 ## <a name="storsimple-workload-summary"></a>Resumida da carga de trabalho do StorSimple
 Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
 
-| Cenário | Carga de trabalho | Suportadas | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportadas | Restrições | Version |
 | --- | --- | --- | --- | --- |
 | Colaboração |Partilha de ficheiros |Sim | |Todas as versões |
 | Colaboração |Partilha de ficheiros distribuído |Sim | |Todas as versões |
@@ -232,7 +232,7 @@ As cargas de trabalho seguintes não são suportadas por dispositivos da série 
 
 Segue-se uma lista dos componentes de infraestrutura de suporte do StorSimple.
 
-| Cenário | Carga de trabalho | Suportadas | Restrições | Versão |
+| Cenário | Carga de trabalho | Suportadas | Restrições | Version |
 | --- | --- | --- | --- | --- |
 | Geral |ExpressRoute |Sim | |Todas as versões |
 | Geral |DataCore FC |Sim* |Suportado com DataCore SANsymphony |Todas as versões |
@@ -299,7 +299,7 @@ Antes de implementar a solução Microsoft Azure StorSimple, recomendamos que re
 | unidade de estado sólido (SSD) |Um disco que contém não partes móveis; Por exemplo, uma unidade flash. |
 | conta de armazenamento |Um conjunto de credenciais de acesso ligada à sua conta de armazenamento para fornecedor de serviços cloud determinado. |
 | Adaptador do StorSimple para o SharePoint |Um componente do Microsoft Azure StorSimple que expande forma transparente a proteção de armazenamento e dados do StorSimple para farms de servidores SharePoint. |
-| Serviço do Gestor de Dispositivos do StorSimple |Uma extensão do portal do Azure permite-lhe gerir o Azure StorSimple no local e os dispositivos virtuais. |
+| Serviço de Gestor de Dispositivos do StorSimple |Uma extensão do portal do Azure permite-lhe gerir o Azure StorSimple no local e os dispositivos virtuais. |
 | Snapshot Manager do StorSimple |Snap-in uma consola de gestão da Microsoft (MMC) para o gerenciamento de operações de cópia de segurança e restauro no Microsoft Azure StorSimple. |
 | Efetuar cópia de segurança |Uma funcionalidade que permite que o usuário faça uma cópia de segurança interativa de um volume. É uma maneira alternativa de fazer uma cópia de segurança manual de um volume em vez de fazer uma cópia de segurança automatizada por meio de uma política definida. |
 | Aprovisionamento dinâmico |Um método de otimizar a eficiência com que o espaço de armazenamento disponível é utilizado em sistemas de armazenamento. Aprovisionamento dinâmico, o armazenamento podem é alocado entre vários usuários com base no espaço de mínimo necessário para cada utilizador em qualquer momento. Consulte também *aprovisionamento fat*. |

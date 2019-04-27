@@ -15,11 +15,11 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591279"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar a CLI de VM do SQL do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar [CLI de VM do SQL do Azure](/cli/azure/sql/vm?view=azure-cli-latest/) para implementar um Cluster Windows de ativação pós-falha (WSFC) e adicionar VMs do SQL Server para o cluster, bem como para criar o Balanceador de carga interno e o serviço de escuta para um grupo de disponibilidade Always On.  A implantação real do grupo de disponibilidade Always On é ainda feita manualmente por meio do SQL Server Management Studio (SSMS). 

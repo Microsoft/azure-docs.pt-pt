@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
 ms.openlocfilehash: c9f2a476353b1807bbb1c8c13dc8b8e2cdbb4ae4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60688627"
 ---
 # <a name="quickstart-query-for-entities"></a>Início rápido: Consultar entidades
 

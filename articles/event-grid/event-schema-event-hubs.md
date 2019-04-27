@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561833"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Esquema de eventos do Azure Event Grid para os hubs de eventos
 
@@ -59,28 +59,28 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos do hub de eventos. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| fileUrl | cadeia | O caminho para o arquivo de captura. |
-| fileType | cadeia | O tipo de ficheiro de arquivo de captura. |
-| partitionId | cadeia | O ID de partição horizontal. |
+| fileUrl | string | O caminho para o arquivo de captura. |
+| fileType | string | O tipo de ficheiro de arquivo de captura. |
+| partitionId | string | O ID de partição horizontal. |
 | sizeInBytes | inteiro | O tamanho do ficheiro. |
 | eventCount | inteiro | O número de eventos no arquivo. |
 | firstSequenceNumber | inteiro | O menor número de sequência da fila. |
 | lastSequenceNumber | inteiro | O último número de sequência da fila. |
-| firstEnqueueTime | cadeia | Na primeira vez da fila. |
-| lastEnqueueTime | cadeia | A última vez da fila. |
+| firstEnqueueTime | string | Na primeira vez da fila. |
+| lastEnqueueTime | string | A última vez da fila. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

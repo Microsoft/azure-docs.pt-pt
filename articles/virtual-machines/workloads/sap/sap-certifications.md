@@ -18,11 +18,11 @@ ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648929"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certificações SAP e configurações em execução no Microsoft Azure
 
@@ -48,7 +48,7 @@ Lembre-se de que o SAP utiliza o termo "clustering" na [plataformas de IaaS com 
 O Microsoft Azure está certificado para os seguintes produtos SAP, com suporte total da Microsoft e da SAP.
 Referências:
 
-- [1928533 – SAP aplicações no Azure: produtos suportados e a VM do Azure tipos](https://launchpad.support.sap.com/#/notes/1928533) para todas as aplicações baseadas em SAP NetWeaver, incluindo SAP TREX, SAP LiveCache e servidor de conteúdo de SAP. E todas as bases de dados, excluindo o SAP HANA.
+- [1928533 – SAP aplicações no Azure: Produtos suportados e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533) para todas as aplicações baseadas em SAP NetWeaver, incluindo SAP TREX, SAP LiveCache e servidor de conteúdo de SAP. E todas as bases de dados, excluindo o SAP HANA.
 
 
 | Produto SAP | SO convidado | RDBMS | Tipos de Máquina Virtual |

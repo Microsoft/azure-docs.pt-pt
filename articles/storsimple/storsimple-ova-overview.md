@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630372"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -137,7 +137,7 @@ A matriz virtual tem as seguintes funcionalidades:
 > [!NOTE]
 > Uma matriz virtual não pode ser expandida. Portanto, é importante aprovisionar armazenamento adequado quando cria a matriz virtual.
 
-### <a name="storsimple-device-manager-service"></a>Serviço do Gestor de Dispositivos do StorSimple
+### <a name="storsimple-device-manager-service"></a>Serviço de Gestor de Dispositivos do StorSimple
 
 O Microsoft Azure StorSimple fornece uma interface do usuário baseada na web, o serviço StorSimple Device Manager, que permite-lhe gerir centralmente o armazenamento do StorSimple. Pode utilizar o serviço StorSimple Device Manager para efetuar as seguintes tarefas:
 

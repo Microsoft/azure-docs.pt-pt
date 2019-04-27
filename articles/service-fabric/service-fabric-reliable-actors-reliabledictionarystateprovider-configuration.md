@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 4e39357a765ec85aa64055b1aa422d8d7a01c116
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727136"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuração dos Reliable Actors – ReliableDictionaryActorStateProvider
 Pode modificar a configuração predefinida de ReliableDictionaryActorStateProvider alterando o arquivo Settings XML gerado na raiz do pacote do Visual Studio sob a pasta de configuração para o ator especificado.
@@ -93,7 +93,7 @@ A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser s
 | MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação for liberada depois de fazer o seu estado de elevada disponibilidade através de persistência. Este valor tem de ser superior a 64 e uma potência de 2. |
 | CheckpointThresholdInMB |MB |200 |Quantidade de espaço de ficheiro de registo após o qual o estado é foi efetuada a verificação. |
 | MaxRecordSizeInKB |KB |1024 |Maior tamanho de registo que o replicator pode escrever no registo. Este valor tem de ser um múltiplo de 4 e superior a 16. |
-| OptimizeLogForLowerDiskUsage |Booleano |true |Quando verdadeiro, o registo está configurado para que o ficheiro de registo dedicado a réplica é criado utilizando um ficheiro disperso de NTFS. Isso reduz a utilização do espaço em disco real para o ficheiro. Quando falso, o ficheiro é criado com alocações fixas, que fornecem que o melhor desempenho de escrita. |
+| OptimizeLogForLowerDiskUsage |Boolean |true |Quando verdadeiro, o registo está configurado para que o ficheiro de registo dedicado a réplica é criado utilizando um ficheiro disperso de NTFS. Isso reduz a utilização do espaço em disco real para o ficheiro. Quando falso, o ficheiro é criado com alocações fixas, que fornecem que o melhor desempenho de escrita. |
 | SharedLogId |GUID |"" |Especifica um guid exclusivo a utilizar para identificar o arquivo de log partilhados utilizado com esta réplica. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogId for especificada, em seguida, SharedLogPath deve também ser especificado. |
 | SharedLogPath |Nome do caminho completamente qualificado |"" |Especifica o caminho totalmente qualificado, onde o ficheiro de registo partilhado para esta réplica será criado. Normalmente, os serviços não devem utilizar esta definição. No entanto, se SharedLogPath for especificada, em seguida, SharedLogId deve também ser especificado. |
 

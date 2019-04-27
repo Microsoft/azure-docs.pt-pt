@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614894"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos do Azure Event Grid para armazenamento de BLOBs
 
@@ -90,28 +90,28 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| api | cadeia | A operação que acionou o evento. |
-| clientRequestId | cadeia | Um valor gerado pelo cliente, opaco com um limite de carateres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, ele será gravado em registos de análise. |
-| requestId | cadeia | O identificador exclusivo para o pedido. Utilize-o para o pedido de resolução de problemas. |
-| eTag | cadeia | O valor que pode utilizar para efetuar operações de forma condicional. |
-| contentType | cadeia | O tipo de conteúdo especificado para o blob. |
+| api | string | A operação que acionou o evento. |
+| clientRequestId | string | Um valor gerado pelo cliente, opaco com um limite de carateres de 1 KB. Quando tiver ativado o registo de análise de armazenamento, ele será gravado em registos de análise. |
+| requestId | string | O identificador exclusivo para o pedido. Utilize-o para o pedido de resolução de problemas. |
+| eTag | string | O valor que pode utilizar para efetuar operações de forma condicional. |
+| contentType | string | O tipo de conteúdo especificado para o blob. |
 | contentLength | inteiro | O tamanho do blob em bytes. |
-| blobType | cadeia | O tipo de blob. Valores válidos são "BlockBlob" ou "PageBlob". |
-| url | cadeia | O caminho para o blob. |
-| Sequenciador | cadeia | Um valor controlada pelo utilizador que pode utilizar para monitorizar os pedidos. |
+| blobType | string | O tipo de blob. Valores válidos são "BlockBlob" ou "PageBlob". |
+| url | string | O caminho para o blob. |
+| Sequenciador | string | Um valor controlada pelo utilizador que pode utilizar para monitorizar os pedidos. |
 | storageDiagnostics | objeto | Informações sobre os diagnósticos de armazenamento. |
  
 ## <a name="next-steps"></a>Passos Seguintes

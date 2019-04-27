@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723454"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um [modelo de estado de funcionamento](service-fabric-health-introduction.md) projetado para sinalizar cluster mau estado de funcionamento e condições do aplicativo em entidades específicas. O modelo de estado de funcionamento utiliza **Informadores de estado de funcionamento** (componentes do sistema e watchdogs). O objetivo é fácil e rápido de diagnóstico e reparo. Criadores de serviços precisam pensar iniciais sobre o estado de funcionamento. Deve ser relatada qualquer condição que pode afetar o estado de funcionamento, especialmente se ele pode ajudar a problemas de sinalizador próximo da raiz. As informações de estado de funcionamento podem poupar tempo e esforço na depuração e investigação. A utilidade é especialmente clara assim que o serviço está em execução em escala na cloud (privada ou do Azure).

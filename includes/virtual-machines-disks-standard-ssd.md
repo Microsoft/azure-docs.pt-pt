@@ -9,11 +9,11 @@ ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564282"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>SSD Managed Disks Standard para cargas de trabalho de Máquina Virtual do Azure
 

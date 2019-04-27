@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093702"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636248"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Suporte de dados de transmissão em fluxo de otimização com o CDN do Azure 
  
@@ -105,7 +105,7 @@ Tipos de transmissão em fluxo suportados | Extensões de ficheiros
 --- | ---  
 Apple HLS | Format=m3u8, m3u, m3ub, chave, ts, aac
 Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Estrutura do URL de seg Frag <br> (correspondência de regex: ^(/.*)Seq(\d+)-Frag(\d+)
-TRAÇO | MPD, travessão, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
-Transmissão em fluxo uniforme | / manifesto /, /QualityLevels/fragmentos /
+TRAÇO | mpd, dash, divx, ismv, m4s, m4v, mp4, mp4v, <br> sidx, webm, mp4a, m4a, isma
+Transmissão em fluxo uniforme | /manifest/, /QualityLevels/Fragments/
   
  

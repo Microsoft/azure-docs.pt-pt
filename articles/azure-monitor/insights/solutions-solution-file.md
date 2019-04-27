@@ -15,11 +15,11 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595768"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -71,9 +71,9 @@ A tabela seguinte descreve os atributos de um parâmetro.
 | Atributo | Descrição |
 |:--- |:--- |
 | tipo |Tipo de dados para o parâmetro. O controlo de entrada apresentado para o utilizador depende do tipo de dados.<br><br>bool - caixa pendente<br>cadeia de caracteres - caixa de texto<br>Int - caixa de texto<br>SecureString - campo palavra-passe<br> |
-| categoria |Categoria opcional para o parâmetro.  Parâmetros da mesma categoria são agrupados em conjunto. |
+| category |Categoria opcional para o parâmetro.  Parâmetros da mesma categoria são agrupados em conjunto. |
 | Controlo |Funcionalidades adicionais para os parâmetros de cadeia de caracteres.<br><br>DateTime - controle de Datetime é apresentado.<br>GUID - valor Guid é gerado automaticamente e o parâmetro não é apresentado. |
-| descrição |Descrição opcional para o parâmetro.  Apresentado num balão de informações junto do parâmetro. |
+| description |Descrição opcional para o parâmetro.  Apresentado num balão de informações junto do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
 A tabela seguinte lista os parâmetros padrão para todas as soluções de gestão.  Estes valores são preenchidos para o utilizador em vez de solicitar para os mesmos, quando a sua solução é instalada a partir do Azure Marketplace ou modelos de início rápido.  O utilizador tem de fornecer valores para os mesmos se a solução estiver instalada com outro método.

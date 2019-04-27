@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541297"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60644340"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o System Center Data Protection Manager (DPM) no quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. O DPM fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -21,7 +21,7 @@ Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o S
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões suportadas do SharePoint e o relacionadas com cenários de proteção
 Cópia de segurança do Azure para o DPM suporta os seguintes cenários:
 
-| Carga de trabalho | Versão | Implantação do SharePoint | Tipo de implementação do DPM | DPM – System Center 2012 R2 | Proteção e recuperação |
+| Carga de trabalho | Version | Implantação do SharePoint | Tipo de implementação do DPM | DPM – System Center 2012 R2 | Proteção e recuperação |
 | --- | --- | --- | --- | --- | --- |
 | SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint implementado como um servidor físico ou máquina virtual de Hyper-V/VMware <br> -------------- <br> SQL AlwaysOn |Física máquina de virtual de Hyper-V de servidor ou no local |Suporta a cópia de segurança para o Azure Update Rollup 5 |Proteger as opções de recuperação do Farm do SharePoint: Farm de recuperação, a base de dados e o ficheiro ou item de lista de pontos de recuperação do disco.  Recuperação de farm e base de dados de pontos de recuperação do Azure. |
 

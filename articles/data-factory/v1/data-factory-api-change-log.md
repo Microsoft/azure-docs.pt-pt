@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567253"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>O Azure Data Factory - registo de alterações de .NET API
 > [!NOTE]
@@ -70,7 +70,7 @@ Adições de recursos:
 ## <a name="version-480"></a>Versão 4.8.0
 ### <a name="feature-additions"></a>Adições de recursos
 * Foram adicionadas as seguintes propriedades opcionais para o tipo de atividade de cópia para ativar a otimização de desempenho de cópia:
-  * [parallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
   * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## <a name="version-470"></a>Versão 4.7.0

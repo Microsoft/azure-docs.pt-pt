@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625011"
 ---
 <a name="concurrency-control"></a>Controlo de Simultaneidade
 ===================

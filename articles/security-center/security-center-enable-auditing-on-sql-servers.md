@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 5b41af83122d74fc766e6c5179d98803979269f7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704661"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Ativar auditoria e deteção de ameaças em servidores SQL no Centro de segurança do Azure
 Centro de segurança do Azure irá recomendar que ativar a auditoria e deteção de ameaças para todas as bases de dados nos seus servidores SQL do Azure, se a auditoria já não está ativada. Auditoria e ameaças, deteção pode ajudá-lo a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações empresariais ou suspeitas de violações de segurança.

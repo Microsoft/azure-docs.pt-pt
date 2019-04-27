@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: a4e989778f041c586293e79005af2c8e87c8213c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585884"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure Security and Compliance Blueprint: Análise para serviços financeiros do FFIEC
 

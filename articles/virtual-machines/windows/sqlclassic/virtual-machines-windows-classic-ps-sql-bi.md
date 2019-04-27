@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609303"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence em Máquinas Virtuais do Azure
 > [!IMPORTANT] 

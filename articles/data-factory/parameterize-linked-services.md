@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635549"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar os serviços ligados no Azure Data Factory
 
@@ -35,10 +35,10 @@ Para obter uma introdução de sete minutos e demonstração desta funcionalidad
 
 Neste momento, a parametrização de serviço ligado é suportada na IU do Data Factory no portal do Azure para os seguintes arquivos de dados. Para todos os outros arquivos de dados, é possível parametrizar o serviço ligado ao selecionar o **código** ícone na **ligações** guia e utilizar o editor de JSON.
 - Base de Dados SQL do Azure
-- Armazém de Dados SQL do Azure
+- Azure SQL Data Warehouse
 - SQL Server
 - Oracle
-- Cosmos DB
+- BD do Cosmos
 - Amazon Redshift
 - MySQL
 - Base de Dados do Azure para MySQL

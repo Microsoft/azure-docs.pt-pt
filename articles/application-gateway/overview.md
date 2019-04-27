@@ -9,11 +9,11 @@ ms.custom: mvc
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715950"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 

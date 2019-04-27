@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594930"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Resolver erros de autenticação ao utilizar o RDP para ligar à VM do Azure
 
@@ -202,15 +202,15 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
 
 Com base no valor de registo, siga estes passos:
 
-* 4 (FIPS): aceda a [ligações de algoritmos em conformidade com FIPs verificar](#fips-compliant).
+* 4 (FIPS): Aceda a [ligações de algoritmos em conformidade com FIPs verificar](#fips-compliant).
 
-* 3 (encriptação de 128 bits): definir a gravidade **2** executando o seguinte comando:
+* 3 (encriptação de 128 bits): Definir a gravidade **2** executando o seguinte comando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2 (mais alta encriptação possível, conforme ditado pelo cliente): pode tentar definir a encriptação para o valor mínimo de **1** executando o seguinte comando:
+* 2 (mais alta encriptação possível, conforme ditado pelo cliente): Pode tentar definir a encriptação para o valor mínimo de **1** executando o seguinte comando:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f

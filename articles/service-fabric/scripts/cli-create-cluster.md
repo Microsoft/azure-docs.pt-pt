@@ -16,11 +16,11 @@ ms.date: 01/18/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 3a50d6672833ab1b4986e38ca1ddf24a8c33c562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622055"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Criar um cluster do Linux do Service Fabric seguro no Azure
 

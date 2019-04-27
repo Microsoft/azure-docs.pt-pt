@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 895b5cfb121347f9400d1aa315fef05d9088c55c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 41a583a77f85bb1524112fa20d9098e18bc4f431
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587943"
 ---
 # <a name="createuidefinition-elements"></a>Elementos de CreateUiDefinition
 Este artigo descreve o esquema e propriedades para todos os elementos suportados um CreateUiDefinition. 
@@ -44,10 +44,10 @@ O esquema para a maioria dos elementos é o seguinte:
 | tipo | Sim | O controle de interface do Usuário para processar para o elemento. Para obter uma lista dos tipos suportados, consulte [elementos](#elements). |
 | label | Sim | O texto de exibição do elemento. Alguns tipos de elemento contenham várias etiquetas, para que o valor pode ser um objeto que contém várias cadeias de caracteres. |
 | defaultValue | Não | O valor predefinido do elemento. Alguns tipos de elemento suportam valores predefinidos complexos, para que o valor pode ser um objeto. |
-| dica de ferramenta | Não | O texto a apresentar na dica de ferramenta do elemento. Semelhante à `label`, alguns elementos de suportam várias cadeias de caracteres de dica de ferramenta. Ligações inline podem ser incorporadas usando sintaxe de Markdown.
+| toolTip | Não | O texto a apresentar na dica de ferramenta do elemento. Semelhante à `label`, alguns elementos de suportam várias cadeias de caracteres de dica de ferramenta. Ligações inline podem ser incorporadas usando sintaxe de Markdown.
 | Restrições | Não | Uma ou mais propriedades que são utilizadas para personalizar o comportamento de validação do elemento. As propriedades suportadas para restrições variam consoante o tipo de elemento. Alguns tipos de elemento não suporta a personalização do comportamento de validação e, portanto, não ter nenhuma propriedade de restrições. |
 | opções | Não | Propriedades adicionais que personalizar o comportamento do elemento. Semelhante à `constraints`, as propriedades suportadas variam consoante o tipo de elemento. |
-| Visível | Não | Indica se o elemento é apresentado. Se `true`, o elemento e elementos filho aplicáveis são apresentados. O valor predefinido é `true`. Uso [funções lógicas](create-uidefinition-functions.md#logical-functions) para controlar dinamicamente o valor desta propriedade.
+| visible | Não | Indica se o elemento é apresentado. Se `true`, o elemento e elementos filho aplicáveis são apresentados. O valor predefinido é `true`. Uso [funções lógicas](create-uidefinition-functions.md#logical-functions) para controlar dinamicamente o valor desta propriedade.
 
 ## <a name="elements"></a>Elementos
 

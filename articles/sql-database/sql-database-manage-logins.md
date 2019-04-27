@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/26/2019
 ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702341"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlar e conceder acesso de base de dados para a base de dados SQL e SQL Data Warehouse
 

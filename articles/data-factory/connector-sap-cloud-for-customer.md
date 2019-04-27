@@ -3,21 +3,22 @@ title: Copiar dados de/para o SAP Cloud para o cliente com o Azure Data Factory 
 description: Saiba como copiar dados de Cloud de SAP para o cliente para os arquivos de dados de sink suportado (ou) de arquivos de dados de origem suportada para a Cloud de SAP para o cliente com o Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: jingwang
+origin.date: 04/17/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578713"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados de Cloud de SAP para o cliente (C4C) com o Azure Data Factory
 
@@ -41,10 +42,10 @@ As seguintes propriedades são suportadas para SAP Cloud para o serviço de clie
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SapCloudForCustomer**. | Sim |
+| type | A propriedade de tipo tem de ser definida como: **SapCloudForCustomer**. | Sim |
 | url | O URL do serviço OData de C4C SAP. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar ao C4C SAP. | Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para o sink |
 
 >[!IMPORTANT]
@@ -58,7 +59,7 @@ As seguintes propriedades são suportadas para SAP Cloud para o serviço de clie
     "properties": {
         "type": "SapCloudForCustomer",
         "typeProperties": {
-            "url": "https://<tenantname>.crm.ondemand.com/sap/c4c/odata/v1/c4codata/" ,
+            "url": "https://<tenantname>.crm.ondemand.cn/sap/c4c/odata/v1/c4codata/" ,
             "username": "<username>",
             "password": {
                 "type": "SecureString",
@@ -81,7 +82,7 @@ Para copiar dados de Cloud de SAP para o cliente, defina a propriedade de tipo d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |Sim |
 | caminho | Especifique o caminho para a entidade de SAP C4C OData. |Sim |
 
 **Exemplo:**
@@ -112,7 +113,7 @@ Para copiar dados de Cloud de SAP para o cliente, defina o tipo de origem na ati
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SapCloudForCustomerSource**  | Sim |
+| type | A propriedade de tipo tem de ser definida como: **SapCloudForCustomerSource**  | Sim |
 | consulta | Especifique a consulta de OData personalizada para ler os dados. | Não |
 
 Consulta de exemplo para obter dados para um dia específico: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -155,8 +156,8 @@ Para copiar dados para SAP Cloud para o cliente, defina o tipo de sink na ativid
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SapCloudForCustomerSink**  | Sim |
-| WriteBehavior | O comportamento da operação de escrita. Pode ser "Insert", "Update". | Não. Padrão "Insert". |
+| type | A propriedade de tipo tem de ser definida como: **SapCloudForCustomerSink**  | Sim |
+| writeBehavior | O comportamento da operação de escrita. Pode ser "Insert", "Update". | Não. Padrão "Insert". |
 | writeBatchSize | O tamanho de lote da operação de escrita. O tamanho do lote para obter melhor desempenho poderá ser diferente da tabela diferente ou servidor. | Não. Padrão 10. |
 
 **Exemplo:**
@@ -205,19 +206,19 @@ Quando se copiam dados a partir do SAP Cloud para o cliente, são utilizados os 
 | Tipo de dados do OData do SAP C4C | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Bool |
+| Edm.Boolean | Booleano |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | Valor de duplo |
-| Edm.Single | Único |
-| Edm.Guid | GUID |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Cadeia |
-| Edm.Time | Período de tempo |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 

@@ -10,11 +10,11 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579002"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Iniciar/parar VMs durante a solução de horas de resolução de problemas
 

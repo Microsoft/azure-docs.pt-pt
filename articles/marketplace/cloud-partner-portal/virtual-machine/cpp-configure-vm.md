@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744351"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar a VM alojado no Azure
 
@@ -77,7 +77,7 @@ Para obter mais informações sobre a execução de sysprep, consulte [passos pa
 
 ### <a name="linux"></a>Linux
 
-Seguir o processo de dois passos generalizar uma VM do Linux e reimplementá-la como uma VM separada.  Para obter mais informações, consulte [como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md). 
+Seguir o processo de dois passos generalizar uma VM do Linux e reimplementá-la como uma VM separada.  Para obter mais informações, veja [How to create an image of a virtual machine or VHD](../../../virtual-machines/linux/capture-image.md) (Como criar uma imagem a partir de uma máquina virtual ou de um VHD). 
 
 #### <a name="remove-the-azure-linux-agent"></a>Remover o agente Linux do Azure
 1.  Ligar à sua VM do Linux com um cliente SSH.

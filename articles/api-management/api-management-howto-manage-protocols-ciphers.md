@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 91b6cd64a42319b2a5307919c2efe6bc8e5dcd64
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657821"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gerir protocolos e cifras na gestão de API do Azure
 

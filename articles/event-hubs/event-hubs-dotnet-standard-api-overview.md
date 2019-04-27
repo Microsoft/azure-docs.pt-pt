@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
 ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821914"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Descrição geral da API padrão do .NET dos Hubs de eventos
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631231"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Descompactar,-montar, em bastidor e instalar os cabos do dispositivo StorSimple 8100
 ## <a name="overview"></a>Descrição geral
@@ -34,26 +34,26 @@ Antes de descompactar o seu dispositivo, reveja as informações seguintes.
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesada](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **aviso!**
 
 1. Certifique-se de que tem duas pessoas disponíveis para gerir o peso do bastidor, se estiver lidando com-lo manualmente. Um bastidor totalmente configurado pode avaliar até 32 kg (70 lbs.).
-2. Coloca a caixa numa superfície plana, nível.
+2. Coloque a caixa numa superfície plana e uniforme.
 
 Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Para desempacotar o dispositivo
-1. Inspecione a caixa e a espuma de empacotamento para crushes, recortes, danos de água ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, abre a caixa. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está em boa ordem funcional.
-2. Descompacte a caixa. A imagem seguinte mostra a vista descompactada do dispositivo StorSimple.
+1. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou embalagem estiver gravemente danificada, não abra a caixa. Volte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está em boa ordem funcional.
+2. Desembale a caixa. A imagem seguinte mostra a vista descompactada do dispositivo StorSimple.
    
      ![Descompactar o dispositivo de armazenamento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
     **Vista descompactada do seu dispositivo de armazenamento**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Caixa de remessa |
    |   2 |Espuma na parte inferior |
    |   3 |Dispositivo |
    |   4 |Espuma superior |
    |   5 |Caixa de acessórios |
-3. Após desempacotar a caixa, certifique-se de que tem:
+3. Depois de desembalar a caixa, certifique-se de que tem:
    
    * 1 dispositivo único bastidor
    * 2 de energia de cabos
@@ -67,7 +67,7 @@ Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
      
      Se não recebeu qualquer um dos itens listados acima, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-A próxima etapa é montar em Bastidor seu dispositivo.
+O passo seguinte é montar o dispositivo em bastidor.
 
 ## <a name="rack-mount-your-storsimple-8100-device"></a>Montar em Bastidor seu dispositivo StorSimple 8100
 Siga os passos seguintes para instalar o dispositivo de armazenamento StorSimple 8100 num bastidor 19 polegadas padrão com o front-end e postagens rear. O dispositivo StorSimple 8100 tem um único compartimento primário.
@@ -83,7 +83,7 @@ A instalação é composta por vários passos, cada um dos quais é abordada nos
 O dispositivo tem de ser instalado num bastidor 19 polegadas padrão que tenha o front-end e postagens rear. Utilize o procedimento seguinte para se preparar para a instalação de rack.
 
 #### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar o site para a instalação de bastidor
-1. Certifique-se de que o dispositivo assenta com segurança de uma obra simples, estável e nível de superfície (ou semelhante).
+1. Certifique-se de que o dispositivo fica apoiado de forma segura numa superfície de trabalho plana, estável e uniforme (ou semelhante).
 2. Certifique-se de que o site onde pretende configurar tem alternada padrão de uma origem de independente ou uma unidade de distribuição de energia (PDU) de rack com uma alimentação ininterrupta (UPS).
 3. Certifique-se de que a ranhura 2U um está disponível no rack no qual pretende montar o dispositivo.
 
@@ -108,13 +108,13 @@ Um conjunto de montar rails é fornecido para utilização com o CAB de bastidor
 
     **Anexar slides do rail interna para os lados do bastidor**
    
-    Etiqueta | Descrição
+    Label | Descrição
     ----- | -----------
     1     | M 3 x 4 screws de cabeça de botão
     2     | Slides de chassis
 
 2. Anexe o lado esquerdo externo e os assemblies de rail certo externa para os membros de vertical cab rack. Os colchetes são marcados **LH**, **RH**, e **nesse lado até** para orientá-lo a orientação correta.
-3. Localize os pins de grade na frente e atrás do rail assembly. Expanda o rail ajustar entre as postagens de rack e inseri os pins em frente e no rear rack post membro vertical buracos. Certifique-se de que o assembly do rail é o nível.
+3. Localize os pinos na parte frontal e posterior da montagem das calhas. Expanda o rail ajustar entre as postagens de rack e inseri os pins em frente e no rear rack post membro vertical buracos. Certifique-se de que o assembly do rail é o nível.
 4. Utilize dois dos screws métrica fornecidos para proteger o assembly do rail para rack membros verticais. Utilize um screw em frente e um no traseiro.
 5. Repita estes passos para o assembly de grade.<br/>
    
@@ -122,7 +122,7 @@ Um conjunto de montar rails é fornecido para utilização com o CAB de bastidor
    
     **Anexar assemblies do rail externa para o bastidor**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Afixação screw |
    |   2 |Bastidor de front-quadrado buraco post screw |
@@ -148,7 +148,7 @@ Utilizar os rails rack que apenas foram instalados, execute os seguintes passos 
    
     **Instalar os limites de flange**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   1 |Screw fastening de bastidor |
 
@@ -158,7 +158,7 @@ A próxima etapa é instalar os cabos do dispositivo de alimentação, rede e ac
 Os procedimentos seguintes explicam como instalar os cabos do dispositivo StorSimple 8100 de alimentação, rede e ligações seriais.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de começar a cablagem do seu dispositivo, terá de:
+Antes de começar a cablagem do dispositivo, é necessário:
 
 * Montar o seu dispositivo de armazenamento, completamente descompactado e rack.
 * 2 cabos de energia com o seu dispositivo
@@ -188,7 +188,7 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
    
     **Atrás do dispositivo que mostra as portas de dados**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -199,12 +199,12 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
 
     **Cablagem para o seu dispositivo de rede**
 
-   |Etiqueta | Descrição |
+   |Label | Descrição |
    |----- | ----------- |
    | A    | Rede local com acesso à Internet |
    | B    | Controlador 0 |
    | C    | PCM 0 |
-   | 1!D    | Controlador 1 |
+   | D    | Controlador 1 |
    | E    | PCM 1 |
    | F, G | Anfitriões |
    | 0-5  | Interfaces de rede |
@@ -236,11 +236,11 @@ Execute os seguintes passos para instalar os cabos sua porta serial.
 2. Identifica o controlador ativo no backplane seu dispositivo. Um piscando LED azul indica que o controlador está ativo.
 3. Utilize os cabos seriais fornecidos (se necessário, o conversor de USB de série para o seu computador portátil) e ligue a sua consola ou o computador (com a emulação do terminal para o dispositivo) para a porta serial do controlador ativo.
 4. Instale os controladores de USB de série (foi fornecidos com o dispositivo) no seu computador.
-5. Configurar a conexão serial da seguinte forma: 115.200 bauds, bits de dados de 8, os bits de paragem de 1, não paridade e controlo de fluxo definida como None.
+5. Configure a conexão serial da seguinte forma: 115.200 bauds, bits de dados de 8, os bits de paragem de 1, não paridade e fluxo de controlam definido como None.
 6. Certifique-se de que a ligação está a funcionar, premindo Enter no console. Um menu da consola de série deve aparecer.
 
 > [!NOTE]
-> **Gestão de Lights-out**: quando o dispositivo é instalado num datacenter remoto ou numa sala de computadores com acesso limitado, certifique-se de que as ligações seriais para ambos os controladores são sempre ligadas a um comutador de consola de série ou equipamento semelhante. Isto permite controlo remoto de fora de banda e as operações de suporte se existem interrupções de rede ou falhas inesperadas.
+> **Gestão de Lights-out**: Quando o dispositivo é instalado num datacenter remoto ou numa sala de computadores com acesso limitado, certifique-se de que as ligações seriais para os dois controladores sempre estão ligadas a um comutador de consola de série ou equipamento semelhante. Isto permite controlo remoto de fora de banda e as operações de suporte se existem interrupções de rede ou falhas inesperadas.
 > 
 > 
 

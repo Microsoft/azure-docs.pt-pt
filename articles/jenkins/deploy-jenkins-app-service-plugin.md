@@ -9,11 +9,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641098"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 

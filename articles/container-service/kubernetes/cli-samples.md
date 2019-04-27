@@ -10,11 +10,11 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b64f7af8eda9a4f62463486b00480efbd8cffe57
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712546"
 ---
 # <a name="deprecated-azure-cli-samples-for-azure-container-service"></a>(PRETERIDO) Exemplos da CLI do Azure para o serviço de contentor do Azure
 

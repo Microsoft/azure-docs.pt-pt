@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720418"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver
 
@@ -771,7 +771,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância do
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Ligar a documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabela 3:** Alterar o primeiro parâmetro de TCP/IP_
@@ -782,7 +782,7 @@ Em seguida, adicione este entradas de Registro do Windows em ambos os nós de cl
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Ligar a documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabela 4:** Altere o segundo parâmetro de TCP/IP_

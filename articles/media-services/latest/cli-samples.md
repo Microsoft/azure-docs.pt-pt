@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733186"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Exemplos da CLI do Azure para serviços de multimédia do Azure
 
@@ -28,7 +28,7 @@ A tabela seguinte inclui ligações para os exemplos da CLI do Azure para servi�
 |  |  |
 |---|---|
 |**Dimensionamento**||
-| [Unidades reservadas de multimédia de dimensionamento](media-reserved-units-cli-how-to.md)|Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3. <br/>O script mostra como utilizar a CLI para dimensionar unidades reservadas de multimédia (MRUs).|
+| [Unidades reservadas de multimédia de dimensionamento](media-reserved-units-cli-how-to.md)|Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. <br/>O script mostra como utilizar a CLI para dimensionar unidades reservadas de multimédia (MRUs).|
 |**Conta**||
 | [Criar uma conta de serviços de multimédia](create-account-cli-how-to.md) | O script cria uma conta de Media Services do Azure. |
 | [Repor as credenciais da conta](./scripts/cli-reset-account-credentials.md)|Repõe as credenciais da conta e recebe de volta as definições de App. config.|
@@ -47,4 +47,4 @@ A tabela seguinte inclui ligações para os exemplos da CLI do Azure para servi�
 ## <a name="see-also"></a>Consulte também
 
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Quickstart: Ficheiros de vídeo do Stream - CLI](stream-files-cli-quickstart.md)
+- [Quickstart: Transmitir ficheiros de vídeo em fluxo - CLI](stream-files-cli-quickstart.md)

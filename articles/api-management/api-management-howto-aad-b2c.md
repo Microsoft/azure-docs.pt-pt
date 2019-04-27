@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558487"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de programador com o Azure Active Directory B2C na gestão de API do Azure
 
@@ -69,29 +69,20 @@ O Azure Active Directory B2C é uma solução de gestão de identidades de cloud
    ![ID da aplicação 1][api-management-howto-aad-b2c-app-id]
 
 9. Volte para a gestão de API **Adicionar fornecedor de identidade** painel e colar o ID para o **Id de cliente** caixa de texto.
-
-   ![ID da aplicação 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Mude novamente para o registo de aplicações B2C, clique nas **chaves** botão e, em seguida, clique em **gerar chave**. Clique em **salvar** para guardar a configuração e exibir o **chave da aplicação**. Copie a chave para a área de transferência.
 
     ![Chave da aplicação 1][api-management-howto-aad-b2c-app-key]
 
 11. Volte para a gestão de API **Adicionar fornecedor de identidade** painel e cole a chave no **segredo do cliente** caixa de texto.
+    
+12. Especifique o nome de domínio do inquilino no Azure Active Directory B2C **iniciar sessão no inquilino**.
 
-    ![Chave da aplicação 2][api-management-howto-aad-b2c-client-secret]
+13. O **autoridade** campo permitem-lhe controlar o URL de início de sessão do Azure AD B2C para utilizar. Defina o valor como **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Especifique o nome de domínio do inquilino no Azure Active Directory B2C **inquilino permitido**.
+14. Especifique a **política de inscrição** e **política de início de sessão** das políticas de inquilino do B2C. Opcionalmente, também pode fornecer a **política de edição de perfil** e **política de reposição de palavra-passe**.
 
-    ![Inquilino permitido][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Especifique a **política de inscrição** e **política de início de sessão** das políticas de inquilino do B2C. Opcionalmente, também pode fornecer a **política de edição de perfil** e **política de reposição de palavra-passe**.
-
-    ![Políticas][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Para obter mais informações sobre políticas, consulte [Azure Active Directory B2C: Estrutura de política extensível].
-
-14. Depois de especificar a configuração pretendida, clique em **guardar**.
+15. Depois de especificar a configuração pretendida, clique em **guardar**.
 
     Depois das alterações são guardadas, os desenvolvedores poderão criar novas contas e inicie sessão no portal do programador com o Azure Active Directory B2C.
 

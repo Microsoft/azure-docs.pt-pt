@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60717922"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparar a infraestrutura do Azure para SAP HA através de um cluster de ativação pós-falha do Windows e o disco partilhado para o SAP ASCS/SCS
 
@@ -555,7 +555,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância do
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Ligar a documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 **Tabela 3:** Alterar o primeiro parâmetro de TCP/IP
@@ -566,7 +566,7 @@ Em seguida, adicione esta entrada de registo do Windows em ambos os nós de clus
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Ligar a documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 **Tabela 4:** Altere o segundo parâmetro de TCP/IP

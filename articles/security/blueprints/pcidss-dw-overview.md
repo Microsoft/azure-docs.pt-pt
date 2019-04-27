@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
 ms.openlocfilehash: 7704d9124846c0c6c82728031327990f8f9b1cf6
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608219"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-pci-dss"></a>Azure Security and Compliance Blueprint: Armazém de dados de PCI DSS
 

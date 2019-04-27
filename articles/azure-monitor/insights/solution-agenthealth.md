@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596078"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de estado de funcionamento de agente no Azure Monitor
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics no Azure Monitor ou um grupo de gestão do System Center Operations Manager ligado ao Azure Monitor, que são sem resposta e a submeter dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    

@@ -17,11 +17,11 @@ ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607701"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Cópia de segurança automatizada para SQL Server em máquinas virtuais do Azure (clássico)
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ A tabela seguinte descreve as opções que podem ser configuradas para cópia de
 | **Storage Account** |Conta de armazenamento do Azure (conta de armazenamento criada para a VM especificada) |Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no armazenamento de Blobs. É criado um contentor nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e o nome da máquina. |
 | **Encriptação** |Ativar/desativar (desativado) |Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada no mesmo contentor automaticbackup usando a mesma Convenção de nomenclatura. Se alterar a palavra-passe, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
 | **Palavra-passe** |Texto de palavra-passe (nenhum) |Uma palavra-passe para as chaves de encriptação. Isto só é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança. |
-| **Bases de dados do sistema de cópia de segurança** | Ativar/desativar (desativado) | Fazer cópias de segurança completas de mestra, modelo e da MSDB |
+| **Bases de dados do sistema de cópia de segurança** | Ativar/desativar (desativado) | Efetuar cópias de segurança completas da Forma Mestre, do Modelo e da MSDB |
 | **Configurar agenda de cópia de segurança** | Manual/automatizada (automatizada) | Selecione **automatizada** automaticamente tirar e cópias de segurança com base no crescimento do registo de registo. Selecione **Manual** para especificar o agendamento de completo e backups de log. |
 
 ## <a name="configuration-with-powershell"></a>Configuração com o PowerShell

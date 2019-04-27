@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703171"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
 

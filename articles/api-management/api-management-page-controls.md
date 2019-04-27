@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656987"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlos de página de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes controlos para utilização em que o desenvolvedor modelos de portais.  
@@ -37,14 +37,14 @@ Para usar um controle, coloque-a no local desejado no modelo do portal do desenv
   
 ## <a name="developer-portal-template-page-controls"></a>Controlos de página do modelo do portal de programador  
   
--   [ações de aplicação](#app-actions)  
--   [início de sessão básica](#basic-signin)  
--   [controle de paginação](#paging-control)  
+-   [app-actions](#app-actions)  
+-   [basic-signin](#basic-signin)  
+-   [paging-control](#paging-control)  
 -   [Fornecedores](#providers)  
--   [controle de pesquisa](#search-control)  
--   [Inscreva-se](#sign-up)  
--   [subscrever-botão](#subscribe-button)  
--   [Cancelar subscrição](#subscription-cancel)  
+-   [search-control](#search-control)  
+-   [sign-up](#sign-up)  
+-   [subscribe-button](#subscribe-button)  
+-   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> ações de aplicação  
  O `app-actions` controle fornece uma interface do usuário para interagir com aplicações na página de perfil do utilizador no portal do programador.  
@@ -68,7 +68,7 @@ Para usar um controle, coloque-a no local desejado no modelo do portal do desenv
   
 -   [Aplicações](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a> início de sessão básica  
+##  <a name="basic-signin"></a> basic-signin  
  O `basic-signin` controle fornece um controle para a recolha de informações de início de sessão do utilizador a página de início de sessão no portal do programador.  
   
  ![básico&#45;controlo de início de sessão](./media/api-management-page-controls/APIM-basic-signin-control.png "controlo de início de sessão básico do APIM")  
@@ -129,7 +129,7 @@ Para usar um controle, coloque-a no local desejado no modelo do portal do desenv
   
 -   [Iniciar sessão](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a> controle de pesquisa  
+##  <a name="search-control"></a> search-control  
  O `search-control` fornece funcionalidade de pesquisa no desenvolvedor de páginas de portal que apresentam uma lista de itens.  
   
  ![controlo de pesquisa](./media/api-management-page-controls/APIM-search-control.png "controle de pesquisa do APIM")  
@@ -150,7 +150,7 @@ Para usar um controle, coloque-a no local desejado no modelo do portal do desenv
   
 -   [Lista de produtos](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a> Inscreva-se  
+##  <a name="sign-up"></a> sign-up  
  O `sign-up` controle fornece um controle para recolher informações de perfil de utilizador na página de inscrição no portal do programador.  
   
  ![início de sessão&#45;configurar o controlo](./media/api-management-page-controls/APIM-sign-up-control.png "controlo de inscrição de APIM")  
@@ -206,7 +206,7 @@ Para usar um controle, coloque-a no local desejado no modelo do portal do desenv
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
 |subscriptionId|O id da subscrição para cancelar.|  
-|CancelUrl|A subscrição cancela o URL.|  
+|cancelUrl|A subscrição cancela o URL.|  
   
 ### <a name="developer-portal-templates"></a>Modelos de portais de programador  
  O `subscription-cancel` controle pode ser usado em modelos de portal de programador seguintes:  

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: rajraj
 ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617984"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolher o número certo de domínios de falha para o conjunto de dimensionamento de máquina virtual
 Os conjuntos de dimensionamento de máquinas virtuais são criados com cinco domínios de falha, por predefinição em regiões do Azure com nenhuma zona. Para as regiões que suportam a implementação de zonal dos conjuntos de dimensionamento de máquina virtual, o valor predefinido da contagem de domínios de falhas é 1 para cada uma das zonas. FD = 1 implica, neste caso, que as instâncias VM que pertença ao conjunto de dimensionamento se espalham pelos muitos racks na base de melhor esforço.

@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648810"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de cópia de segurança de serviços de recuperação do Azure com a REST API
 
@@ -31,7 +31,7 @@ Os passos para criar uma política de cópia de segurança para um cofre dos ser
 - Uma política pode ser atribuída a vários recursos. Uma política de cópia de segurança de VM do Azure pode ser utilizada para proteger o número de VMs do Azure.
 - Uma política consiste em dois componentes
   - Agenda: Quando efetuar a cópia de segurança
-  - Retenção: Durante quanto tempo cada cópia de segurança deve ser mantida.
+  - Retenção: Durante quanto tempo deve ser mantida cada cópia de segurança.
 - Agenda pode ser definida como "diariamente" ou "semanalmente" com um ponto específico de tempo.
 - Retenção pode ser definida para "diário", "semanal", "mensal", "anuais" pontos de cópia de segurança.
 - "semanal" se refere a uma cópia de segurança num determinado dia da semana, "mensal" significa uma cópia de segurança num determinado dia do mês e "anuais" se refere a uma cópia de segurança num determinado dia do ano.
@@ -50,9 +50,9 @@ O `{policyName}` e `{vaultName}` são fornecidos no URI. São fornecidas informa
 
 Por exemplo, para criar uma política de cópia de segurança de VM do Azure, seguem-se os componentes do corpo do pedido.
 
-|Nome  |Necessário  |Tipo  |Descrição  |
+|Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|propriedades     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
 |etiquetas     |         | Object        |  Etiquetas de recursos       |
 
 Para obter a lista completa das definições no corpo do pedido, consulte a [documento da REST API de política de cópia de segurança](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
@@ -158,7 +158,7 @@ A criação/atualização da política de cópia de segurança é uma [operaçã
 
 Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [Proteção PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |Aceite 202     |         |     Aceite    |

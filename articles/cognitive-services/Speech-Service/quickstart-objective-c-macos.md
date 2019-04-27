@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
 ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620587"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no macOS com o SDK de voz
 

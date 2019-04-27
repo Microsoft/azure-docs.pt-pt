@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585483"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentar horizontalmente com a Base de Dados SQL do Azure
 Pode facilmente aumentar horizontalmente de bases de dados SQL do Azure com o **bases de dados elásticas** ferramentas. Essas ferramentas e recursos permitem-lhe utilizar os recursos de base de dados do **base de dados do Azure SQL** para criar soluções para cargas de trabalho transacionais e especialmente o Software como um aplicativo de serviço (SaaS). Recursos de banco de dados elásticos são compostas pela:

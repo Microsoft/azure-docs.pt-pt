@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591479"
 ---
 # <a name="azure-production-operations-and-management"></a>Gerenciamento e operações de produção do Azure    
 A gestão e o funcionamento da rede de produção do Azure é um esforço coordenado entre as equipes de operações do Azure e base de dados do Azure SQL. O uso de equipes, ferramentas de várias sistema e monitorização de desempenho da aplicação no ambiente. E utilizam as ferramentas apropriadas para monitorizar dispositivos de rede, servidores, serviços e processos da aplicação.

@@ -9,11 +9,11 @@ ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
 ms.openlocfilehash: c0b776bfbae1f79b000c553b8318e273699a2fa3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627223"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>o Azure Cosmos DB: Exemplos de Java para a API de SQL
 

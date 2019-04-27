@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60760107"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados
 
@@ -54,7 +54,7 @@ Crie um cluster do Explorador de dados do Azure com um conjunto definido de recu
     | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o cluster.|
     | Grupo de recursos | *test-resource-group* | Utilizar um grupo de recursos existente ou criar um novo grupo de recursos. |
     | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. Por exemplo, *mydataexplorercluster*. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Tem de conter entre 3 e 22 carateres.
-    | Localização | *E.U.A. Oeste* | Selecione *E.U.A. Oeste* para este início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
+    | Location | *E.U.A. Oeste* | Selecione *E.U.A. Oeste* para este início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
     | Especificações do dispositivo | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
     | | |
 

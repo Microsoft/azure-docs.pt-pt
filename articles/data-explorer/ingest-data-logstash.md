@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/14/2019
 ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759372"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: Ingestão de dados do Logstash para o Explorador de dados do Azure
 

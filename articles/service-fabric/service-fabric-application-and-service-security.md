@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
 ms.openlocfilehash: b4d3699c0327bb2771a358d3e3c2921bdc39ee5e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621568"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança do serviço e de aplicação do Service Fabric
 Pode colocar uma arquitetura de microsserviços [muitos benefícios](service-fabric-overview-microservices.md). No entanto, gerenciar a segurança dos microsserviços, é um desafio e diferente de gerenciamento da segurança de aplicativos monolíticos tradicionais. 
@@ -31,7 +31,7 @@ Este artigo não é um guia para segurança de microsserviços, há muitos tais 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização
 Muitas vezes, é necessário para recursos e APIs expostas por um serviço a ser limitada a determinados utilizadores fidedignos ou clientes. A autenticação é o processo de forma fiável para averiguar a identidade do utilizador.  Autorização é o processo que faz com que as APIs ou serviços disponíveis para alguns autenticado os usuários, mas não para outros.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 A primeira etapa para tomar decisões de confiança ao nível da API é a autenticação. A autenticação é o processo de forma fiável para averiguar a identidade do utilizador.  Em cenários de microsserviços, a autenticação é normalmente processada centralmente. Se estiver a utilizar um Gateway de API, pode [autenticação de descarga](/azure/architecture/patterns/gateway-offloading) para o gateway. Se usar essa abordagem, certifique-se de que os serviços individuais não não possível aceder diretamente (sem o Gateway de API), a menos que seja de segurança adicional no local para autenticar as mensagens se eles vêm o gateway ou não.
 
 Se os serviços podem ser acedidos diretamente, um serviço de autenticação como o Azure Active Directory ou um microsserviço de autenticação dedicado a agir como um serviço de token (STS) pode ser utilizado para autenticar os utilizadores de segurança. Decisões de confiança são partilhadas entre serviços com tokens de segurança ou cookies. 

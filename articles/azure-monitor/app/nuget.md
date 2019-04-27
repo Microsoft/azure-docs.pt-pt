@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
 ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699210"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacotes de NuGet de informações da aplicação
 
@@ -29,7 +29,7 @@ Segue-se a lista atual de versão estável pacotes NuGet para o Application Insi
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Permite que a interceptação de chamadas de método | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Recoletor de dependência de informações de aplicação para aplicações .NET. Este é um pacote dependente para pacotes específicos da plataforma do Application Insights e fornece uma coleção automática de telemetria de dependência. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Recoletor de contadores de desempenho do Application Insights permite-lhe enviar dados recolhidos pelo contadores de desempenho para o Application Insights. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Applicationinsights | 2.8.0 | Aplicações web do Application Insights para .NET | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.Web | 2.8.0 | Aplicações web do Application Insights para .NET | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Pacote NuGet de servidor do Windows de informações de aplicação fornece uma coleção automática de telemetria do application insights para aplicações .NET. Este pacote pode ser utilizado como um pacote dependente para pacotes específicos da plataforma do Application Insights ou como um pacote autônomo para aplicativos .NET que não são abrangidos por pacotes para plataformas específicas (por exemplo, para funções de trabalho do .NET). | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Fornece um canal de telemetria para o Windows Server SDK do Application Insights que preservará telemetria em cenários offline. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
@@ -54,7 +54,7 @@ Segue-se a lista atual de versão estável pacotes NuGet para o Application Insi
 | Microsoft.ApplicationInsights.TraceListener | 2.7.2 | Um TraceListener personalizado, permitindo-lhe enviar mensagens de registo de rastreio para o Application Insights. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) |
 | Microsoft.ApplicationInsights.Log4NetAppender | 2.7.2 | Um appender personalizado, permitindo-lhe enviar mensagens de registo do Log4Net ao Application Insights. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
 | Microsoft.ApplicationInsights.NLogTarget | 2.7.2 |  um destino personalizado, permitindo-lhe enviar mensagens de log NLog ao Application Insights. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-| Snapshotcollector | 1.3.1 | Monitoriza as exceções na sua aplicação e recolhe automaticamente instantâneos para a análise offline. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/)
+| Microsoft.ApplicationInsights.SnapshotCollector | 1.3.1 | Monitoriza as exceções na sua aplicação e recolhe automaticamente instantâneos para a análise offline. | [Transferir pacote](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/)
 
 ## <a name="service-fabric"></a>Service Fabric
 

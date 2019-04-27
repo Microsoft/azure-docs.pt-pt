@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
 ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60670508"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração de Contoso: Volte a alojar uma aplicação do Linux no local nas VMs do Azure e no MySQL do Azure
 

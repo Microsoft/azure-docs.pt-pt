@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594364"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
 ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640318"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como utilizar o aprendiz de conversação com outras tecnologias de criação de bot
 

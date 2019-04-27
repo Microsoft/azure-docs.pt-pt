@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653777"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final HTTP através do Azure Data Factory
 
@@ -71,7 +71,7 @@ Definir o **authenticationType** propriedade **básica**, **Digest**, ou **Windo
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | userName | O nome de utilizador a utilizar para aceder ao ponto final HTTP. | Sim |
-| palavra-passe | A palavra-passe para o utilizador (o **nome de utilizador** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe para o utilizador (o **nome de utilizador** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -105,7 +105,7 @@ Para utilizar a autenticação de ClientCertificate, defina o **authenticationTy
 |:--- |:--- |:--- |
 | embeddedCertData | Dados de certificado com codificação Base64. | Especifique **embeddedCertData** ou **certThumbprint**. |
 | certThumbprint | O thumbprint do certificado que está instalado no arquivo de certificados do computador do Integration Runtime autoalojado. Aplica-se apenas quando o tipo de hospedagem interna do Integration Runtime é especificado na **connectVia** propriedade. | Especifique **embeddedCertData** ou **certThumbprint**. |
-| palavra-passe | A palavra-passe associada ao certificado. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| password | A palavra-passe associada ao certificado. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 
 Se usar **certThumbprint** para autenticação e o certificado está instalado no arquivo pessoal do computador local, conceder permissões de leitura para o Runtime de integração autoalojado:
 

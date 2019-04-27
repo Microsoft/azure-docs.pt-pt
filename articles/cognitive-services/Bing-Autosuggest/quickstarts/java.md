@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 64b6ed680ba0812322d5796debc5edada19bc926
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60547409"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Java
 

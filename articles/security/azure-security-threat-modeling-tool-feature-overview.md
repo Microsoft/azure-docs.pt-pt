@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588546"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Descrição geral da funcionalidade de ferramenta de modelagem de ameaças
 

@@ -2,20 +2,21 @@
 title: Orquestrações externas nas funções duráveis - Azure
 description: Saiba como implementar orquestrações externas com a extensão de funções duráveis para as funções do Azure.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732421"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações externas nas funções durável (funções do Azure)
 
@@ -84,3 +85,4 @@ Se uma função de orquestrador for num loop infinito e tem de ser parado, utili
 
 > [!div class="nextstepaction"]
 > [Aprenda a implementar orquestrações singleton](durable-functions-singletons.md)
+

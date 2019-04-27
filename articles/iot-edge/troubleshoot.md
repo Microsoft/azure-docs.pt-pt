@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612290"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -361,7 +361,7 @@ O exemplo acima define o servidor DNS para um serviço DNS acessível publicamen
 
 Local `daemon.json` na localização correta para a sua plataforma: 
 
-| Plataforma | Localização |
+| Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Anfitrião do Windows com contentores do Windows | `C:\ProgramData\iotedge-moby-data\config` |

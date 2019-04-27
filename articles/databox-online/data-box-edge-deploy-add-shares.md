@@ -10,11 +10,11 @@ ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: e902f0c9465f65f31f6e1a5cadc7b6b30cda1a27
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60647080"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferir dados com o Edge de caixa de dados do Azure
 

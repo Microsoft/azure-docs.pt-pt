@@ -3,8 +3,8 @@ title: Resolver problemas de ligações com o observador de rede do Azure - port
 description: Saiba como utilizar a ligação de resolução de problemas de capacidade do observador de rede do Azure no portal do Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: jdial
-ms.openlocfilehash: 21e004e12a5111eb0e5fc7764c1e07fcb68c447d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 65afc3374a306cf2bb1b80baa2aa0949240a674a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681592"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Resolver problemas de ligações com o observador de rede do Azure no portal do Azure
 

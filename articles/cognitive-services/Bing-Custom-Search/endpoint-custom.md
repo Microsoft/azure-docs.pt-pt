@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: v-gedod
 ms.openlocfilehash: d01f863f0c42754e2dcc36f6cab1bed1f3dc3b6c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60592249"
 ---
 # <a name="custom-search"></a>Pesquisa Personalizada
 Saiba como a Pesquisa Personalizada do Bing lhe permite criar experiências de pesquisa personalizada dos tópicos que mais lhe interessam. Os seus utilizadores veem resultados de pesquisa personalizados de acordo com os conteúdos que lhes interessam, em vez de terem de percorrer resultados de pesquisa que podem apresentar conteúdos irrelevantes.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630143"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas da matriz Virtual StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -77,7 +77,7 @@ Em primeiro lugar, para cada volume/partilha em camadas, reserva local seria igu
 
 O espaço total obrigatório no escalão local até agora é: 240 GB + 120 GB + 330 GB = 690 GB.
 
-Em segundo lugar, é necessário, pelo menos, todo o espaço no escalão local que a reserva de única maior. Este é o valor extra é utilizado caso seja necessário restaurar a partir de um instantâneo de cloud. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de ficheiros), portanto, adicionaria que para o 690 GB: 690 GB + 330 GB = 1020 GB.
+Em segundo lugar, é necessário, pelo menos, todo o espaço no escalão local que a reserva de única maior. Este é o valor extra é utilizado caso seja necessário restaurar a partir de um instantâneo de cloud. Neste exemplo, a maior reserva local é 330 GB (incluindo a reserva para o sistema de ficheiros), portanto, adicionaria isso para o GB 690: 690 GB + 330 GB = 1020 GB.
 Se efetuámos restauros adicionais subsequentes, pode sempre libertamos o espaço de operação de restauro anterior.
 
 Em terceiro lugar, precisamos 15% de seu total de espaço local até o momento para armazenar os instantâneos locais, para que apenas 85% dele está disponível. Neste exemplo, o que deve ocorrer em torno 1020 GB = 0.85&ast;TB de disco de dados aprovisionados. Assim, seria o disco de dados aprovisionados (1020&ast;(1/0.85)) = 1200 GB = 1.20 TB ~ 1.25 TB (levantada para quartile mais próximo)

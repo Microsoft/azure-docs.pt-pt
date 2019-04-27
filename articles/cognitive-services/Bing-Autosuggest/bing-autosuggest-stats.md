@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: de72de6725172d118672292e1681d09f0dab291a
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550010"
 ---
 # <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Como obter a análise para a API de sugestão automática do Bing
 

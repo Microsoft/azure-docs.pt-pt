@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
 ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716357"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Direcionar tráfego para pontos finais específicos com base na sub-rede do utilizador com o Gestor de Tráfego
 
@@ -56,7 +56,7 @@ Nesta secção, vai criar duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Novo** e digite *myResourceGroupTM1*.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Location| Selecione **E.U.A. Leste**.|
     |||
 
 4. Selecione um tamanho de VM em **Escolher um tamanho**.
@@ -76,7 +76,7 @@ Nesta secção, vai criar duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Definição|Value|
     |---|---|
     |Grupo de recursos | Selecione **Novo** e introduza *myResourceGroupTM2*|
-    |Localização|Europa Ocidental|
+    |Location|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede virtual** em **Criar rede virtual**. Para **Nome**, introduza *myVNet2*; para sub-rede, introduza *mySubnet*.|
     |||

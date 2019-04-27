@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685772"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Lidar com tipos de conteúdo no Azure Logic Apps
 
@@ -140,10 +140,10 @@ Para preservar alguns tipos de dados, o Logic Apps converte o conteúdo numa cad
 
 Esta lista descreve como o Logic Apps converte conteúdo quando usar esses [funções](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Dados de conversão `application/json`
-* `xml()`: Dados de conversão `application/xml`
-* `binary()`: Dados de conversão `application/octet-stream`
-* `string()`: Dados de conversão `text/plain`
+* `json()`: Conversões de dados para `application/json`
+* `xml()`: Conversões de dados para `application/xml`
+* `binary()`: Conversões de dados para `application/octet-stream`
+* `string()`: Conversões de dados para `text/plain`
 * `base64()`: Converte o conteúdo numa cadeia de base64
 * `base64toString()`: Converte uma cadeia codificada em base64 `text/plain`
 * `base64toBinary()`: Converte uma cadeia codificada em base64 `application/octet-stream`

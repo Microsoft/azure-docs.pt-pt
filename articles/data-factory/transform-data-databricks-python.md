@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
 ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589214"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme dados executando uma atividade de Python no Azure Databricks
 
@@ -64,12 +64,12 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|name|Nome da atividade no pipeline.|Sim|
-|descrição|Texto que descreve o que faz a atividade.|Não|
+|nome|Nome da atividade no pipeline.|Sim|
+|description|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
 |linkedServiceName|Nome do serviço ligado do Databricks em que a atividade de Python é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |pythonFile|O URI do ficheiro de Python a ser executado. Apenas os caminhos de DBFS são suportados.|Sim|
-|parâmetros|Parâmetros de linha de comandos que serão passados para o ficheiro de Python. Esta é uma matriz de cadeias de caracteres.|Não|
+|parameters|Parâmetros de linha de comandos que serão passados para o ficheiro de Python. Esta é uma matriz de cadeias de caracteres.|Não|
 |Bibliotecas|Uma lista de bibliotecas seja instalado no cluster que executará a tarefa. Pode ser uma matriz de < string, objeto >|Não|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas de suporte para atividades do databricks

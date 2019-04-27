@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620162"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Windows com o SDK de voz
 
@@ -31,7 +31,7 @@ Precisa de uma chave de subscrição de serviços de voz para concluir este iní
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 

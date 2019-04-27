@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730712"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -90,7 +90,7 @@ Esse protocolo permite coordenar processos de execução longa com clientes exte
 
 Todas as APIs de HTTP implementados, com a extensão take, os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string`.
 
-| Parâmetro        | Tipo de parâmetro  | Descrição |
+| Parâmetro        | Tipo de Parâmetro  | Descrição |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Cadeia de consulta    | O nome da [hub tarefas](durable-functions-task-hubs.md). Se não for especificado, é assumido o nome do hub de tarefas da aplicação de função atual. |
 | **`connection`** | Cadeia de consulta    | O **nome** a cadeia de ligação para a conta de armazenamento. Se não for especificado, é assumida a cadeia de ligação predefinido para a aplicação de funções. |
@@ -528,7 +528,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 O pedido parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo             | Tipo de parâmetro  | Descrição |
+| Campo             | Tipo de Parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para a instância da orquestração a terminar. |
@@ -577,7 +577,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 O pedido parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo             | Tipo de parâmetro  | Descrição |
+| Campo             | Tipo de Parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo de avanço rápido a instância de orquestração. |

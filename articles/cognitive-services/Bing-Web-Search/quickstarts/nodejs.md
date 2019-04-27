@@ -12,11 +12,11 @@ ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60651071"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa do Bing Web e o node. js
 

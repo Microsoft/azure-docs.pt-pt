@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563243"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Aloje o seu domínio no DNS do Azure
 
@@ -52,7 +52,7 @@ O domínio de exemplo utilizado para este tutorial é contoso.net, mas utilizar 
    |**Nome**|[o seu nome de domínio] |O nome de domínio que comprou. Este tutorial utiliza contoso.net como exemplo.|
    |**Subscrição**|[A sua subscrição]|Selecione uma subscrição na que vai criar a zona.|
    |**Grupo de recursos**|**Criar novo:** contosoRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou.<br>A localização do grupo de recursos não tem qualquer impacto na zona DNS. A localização da zona DNS é sempre "global" e não é mostrada.|
-   |**Localização**|E.U.A. Leste||
+   |**Localização**|EUA Leste||
 
 ## <a name="retrieve-name-servers"></a>Obter servidores de nomes
 

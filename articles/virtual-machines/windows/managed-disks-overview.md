@@ -6,16 +6,16 @@ author: roygara
 ms.service: virtual-machines-windows
 ms.workload: storage
 ms.tgt_pltfrm: vm-windows
-ms.topic: article
-ms.date: 02/11/2019
+ms.topic: overview
+ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 85b2dcb73024ce786b78436b7070ad2e9a96e1d4
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: fb1ee8556935b141dfee6a18c96ecafb476aa584
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761832"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução ao Azure para os discos geridos
 

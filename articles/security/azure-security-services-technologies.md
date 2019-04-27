@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610903"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e as tecnologias disponíveis no Azure
 

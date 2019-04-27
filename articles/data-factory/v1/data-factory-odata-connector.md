@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824038"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mover dados de origem de um OData com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,11 +63,11 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **OData** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **OData** |Sim |
 | url |URL do serviço OData. |Sim |
 | authenticationType |Tipo de autenticação utilizado para ligar à origem de OData. <br/><br/> Para a nuvem OData, os valores possíveis são anónimo, básico e OAuth (Observe suporte atualmente, apenas a fábrica de dados do Azure do Azure Active Directory com base em OAuth). <br/><br/> Para OData no local, os valores possíveis são anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Sim (apenas se estiver a utilizar autenticação básica) |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Sim (apenas se estiver a utilizar autenticação básica) |
+| password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Sim (apenas se estiver a utilizar autenticação básica) |
 | authorizedCredential |Se estiver a utilizar o OAuth, clique em **autorizar** no Assistente de cópia do Data Factory ou no Editor e digitar suas credenciais, em seguida, o valor desta propriedade será gerado automaticamente. |Sim (apenas se estiver a utilizar autenticação OAuth) |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao serviço OData no local. Especifique apenas se estiver a copiar dados de origem de OData no local. |Não |
 

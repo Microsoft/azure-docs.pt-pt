@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631911"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série StorSimple 8000, elevada disponibilidade e os requisitos de rede
 
@@ -96,7 +96,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.com` |Registo de dispositivo |Apenas dados 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |Interfaces de rede com capacidade de nuvem |
@@ -108,7 +108,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.us` |Registo de dispositivo |Apenas dados 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |Interfaces de rede com capacidade de nuvem |

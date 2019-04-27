@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 8050008bbae4a23f09b5fa94874a6315e798b448
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60688593"
 ---
 # <a name="default-values-and-boundaries"></a>Valores predefinidos e limites
 

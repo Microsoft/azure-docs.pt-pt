@@ -16,11 +16,11 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216344"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714140"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registos de diagnóstico do Service Bus
 
@@ -74,7 +74,7 @@ EventTimeString | Tempo de operação
 EventProperties | Propriedades de operação
 Estado | Estado da operação
 Autor da chamada | Chamador de operação (cliente do Azure de portal ou de gestão)
-categoria | OperationalLogs
+category | OperationalLogs
 
 Eis um exemplo de um cadeia de caracteres do JSON de registo operacional:
 

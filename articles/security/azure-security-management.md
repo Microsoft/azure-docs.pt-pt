@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586769"
 ---
 # <a name="security-management-in-azure"></a>Gestão de segurança no Azure
 Os subscritores do Azure poderão gerir os respetivos ambientes de nuvem a partir de vários dispositivos, incluindo estações de trabalho de gestão, PCs de programadores e, até mesmo, dispositivos de utilizador final com privilégios que tenham permissões específicas de tarefas. Em alguns casos, as funções administrativas são efetuadas através das consolas baseadas na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Noutros casos, poderão existir ligações diretas para o Azure a partir de sistemas no local através de Redes Privadas Virtuais (VPNs), Serviços de Terminal, protocolos de aplicações cliente ou (através de programação) a API de Gestão de Serviço do Azure (SMAPI). Além disso, os pontos finais de cliente podem ser um domínio associado ou isolado e não gerido, como tablets ou smartphones.
@@ -117,7 +117,7 @@ Um Gateway de ambiente de trabalho remoto é um serviço proxy baseado na polít
 ## <a name="security-guidelines"></a>Diretrizes de segurança
 Em geral, ajudar a proteger estações de trabalho do administrador para utilização com a cloud é semelhante às práticas utilizadas em qualquer estação de trabalho no local, como, por exemplo, compilação minimizada e permissões restritivas. Alguns aspetos exclusivos da gestão de nuvem são mais comparáveis à gestão empresarial remota ou sem rede IP. Estes incluem a utilização e auditoria de credenciais, acesso remoto com segurança avançada e deteção de ameaças e resposta.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 Pode utilizar as restrições de início de sessão do Azure para restringir os endereços IP de origem de acederem às ferramentas administrativas e aos pedidos de acesso de auditoria. Para ajudar o Azure a identificar os clientes de gestão (estações de trabalho e/ou aplicações), pode configurar o SMAPI (através de ferramentas desenvolvidas por clientes, tais como os cmdlets do Windows PowerShell) e o portal do Azure para exigir a instalação de certificados de gestão do lado do cliente, para além dos certificados SSL. Recomendamos também que o acesso de administrador exija uma autenticação multifator.
 
 Algumas aplicações ou serviços que implementa no Azure podem ter os seus próprios mecanismos de autenticação para acesso de administrador e de utilizador final, enquanto que outros tiram o máximo partido do Azure AD. Dependendo se está a utilizar credenciais de federação através doa Serviços de Federação do Active Directory (AD FS), a utilizar a sincronização de diretórios ou a gerir contas de utilizador apenas na nuvem, utilizar o [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (parte do Azure AD Premium) ajuda-o a gerir os ciclos de tempo de identidade entre os recursos.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658040"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como utilizar os valores com o nome nas políticas de gestão de API do Azure
 As políticas de gestão de API são uma funcionalidade poderosa do sistema que permitem que o portal do Azure alterar o comportamento da API através da configuração. As políticas são uma coleção de instruções que são executadas sequencialmente no pedido ou na resposta de uma API. Declarações de política podem ser construídas usando valores de texto literal, expressões de política e valores nomeados. 
@@ -27,16 +27,16 @@ Cada instância de serviço de gestão de API tem uma coleção de propriedades 
 
 | Atributo | Type | Descrição |
 | --- | --- | --- |
-| `Display name` |string |Cadeia alfanumérica utilizada para referenciar a propriedade nas políticas. |
-| `Value` |string |O valor da propriedade. Não pode estar vazio ou consistir apenas de espaços em branco. |
-| `Secret` |boolean|Determina se o valor é um segredo e deve ser encriptado ou não.|
-| `Tags` |matriz da cadeia |Opcional etiquetas que, quando fornecidas podem ser utilizadas para filtrar a lista de propriedades. |
+| Nome a apresentar |string |Cadeia alfanumérica utilizada para referenciar a propriedade nas políticas. |
+| Value |string |O valor da propriedade. Não pode estar vazio ou consistir apenas de espaços em branco. |
+|Segredo|boolean|Determina se o valor é um segredo e deve ser encriptado ou não.|
+| Etiquetas |matriz da cadeia |Opcional etiquetas que, quando fornecidas podem ser utilizadas para filtrar a lista de propriedades. |
 
 ![Valores com nome](./media/api-management-howto-properties/named-values.png)
 
 Valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que devolve uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` está marcado como um segredo, para que o respetivo valor não é apresentado.
 
-| Name | Valor | Segredo | Etiquetas |
+| Name | Value | Segredo | Etiquetas |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |Falso |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |Verdadeiro |Contoso |

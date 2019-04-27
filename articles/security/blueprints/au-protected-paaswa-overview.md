@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
 ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610135"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para a Austrália protegida
 
@@ -59,7 +59,7 @@ Esta solução utiliza os seguintes serviços do Azure. Existem mais detalhes es
 - Centro de Segurança do Azure
 - Base de Dados SQL do Azure
 - Storage do Azure
-- Registos de Monitor do Azure
+- Registos do Azure Monitor
 - Rede Virtual do Azure
     - (1) /16 de rede
     - (4) redes /24

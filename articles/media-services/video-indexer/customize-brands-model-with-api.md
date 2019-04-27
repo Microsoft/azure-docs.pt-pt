@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: df77a745ef6508b15b5a8bcde5eede0e06eb1afc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583728"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizar um modelo de marcas com a API do Video Indexer
 
@@ -40,9 +40,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -102,10 +102,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
 |ID|inteiro|Sim|O id da marca (gerado quando a marca foi criada)|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -131,10 +131,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
 |ID|inteiro|Sim|O ID da marca (gerado quando a marca foi criada)|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -181,10 +181,10 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
 |ID|inteiro|Sim|O ID da marca (gerado quando a marca foi criada)|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -244,9 +244,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -304,9 +304,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -341,9 +341,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|cadeia|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
-|accountId|cadeia|Sim|Identificador exclusivo global para a conta|
-|accessToken|cadeia|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|accountId|string|Sim|Identificador exclusivo global para a conta|
+|accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
 ### <a name="request-body"></a>Corpo do pedido
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637038"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho ao comprimir ficheiros na CDN do Azure para
 Compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiro e aumentar o desempenho de carregamento da página, reduzindo o tamanho de um ficheiro antes do envio do servidor. Compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência de maior capacidade de resposta para os seus utilizadores.

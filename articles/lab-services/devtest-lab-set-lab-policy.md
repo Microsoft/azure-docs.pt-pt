@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636524"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório no Azure DevTest Labs
 
@@ -91,7 +91,7 @@ Como proprietário de um laboratório, pode configurar um agendamento de encerra
 
 1. Na home page para seu laboratório, selecione **Konfigurace a zásady**.
 2. Selecione **automaticamente a política de encerramento** no **agendas** secção do menu à esquerda.
-3. Selecione uma das opções. As secções seguintes fornecem mais detalhes sobre estas opções: definir a política aplica-se apenas às novas VMs criadas no laboratório e não às VMs já existentes. 
+3. Selecione uma das opções. As secções seguintes fornecem mais detalhes sobre estas opções: Definir a política aplica-se apenas às novas VMs criadas no laboratório e não às VMs já existentes. 
 
     ![Opções de política de encerramento automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

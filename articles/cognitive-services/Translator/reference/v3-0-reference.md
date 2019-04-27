@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605252"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -49,7 +49,7 @@ Para forçar o pedido deve ser processada por um Data Center específico, altere
 |Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Subscrever a API de texto do Translator ou [serviço de multi de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivos da Microsoft e usar sua assinatura da chave (disponível no portal do Azure) para autenticar. 
 

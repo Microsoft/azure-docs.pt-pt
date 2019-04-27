@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577712"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Recolher rastreios distribuídos do Python (pré-visualização)
 

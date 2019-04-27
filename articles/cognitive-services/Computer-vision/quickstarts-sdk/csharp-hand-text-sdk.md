@@ -12,11 +12,11 @@ ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622072"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Início rápido: Extrair texto manuscrito usando a imagem digitalizada C# SDK
 

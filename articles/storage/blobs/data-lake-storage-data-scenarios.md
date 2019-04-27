@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
 ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628255"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilizar a geração 2 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados
 

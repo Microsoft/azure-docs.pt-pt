@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611326"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Atenuações de ferramenta de modelagem de ameaças na Microsoft
 
@@ -31,7 +31,7 @@ Visite o **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** pa
 
 As atenuações de ferramenta de modelagem de ameaças são categorizadas, de acordo com o quadro de segurança de aplicação Web, que consiste no seguinte:
 
-| Categoria | Descrição |
+| Category | Descrição |
 | -------- | ----------- |
 | **[Auditoria e registo](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Quem fez o quê e quando? Registo de auditoria e veja como o seu aplicativo registra os eventos relacionados à segurança |
 | **[Autenticação](./azure-security-threat-modeling-tool-authentication.md)** | Quem é? A autenticação é o processo em que uma entidade comprova a identidade de outra entidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe |

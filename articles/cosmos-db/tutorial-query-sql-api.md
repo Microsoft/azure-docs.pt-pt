@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.reviewer: sngun
 ms.openlocfilehash: bc9835876e8b87213ddbae65e43222467e751ea3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612818"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB com a API de SQL
 

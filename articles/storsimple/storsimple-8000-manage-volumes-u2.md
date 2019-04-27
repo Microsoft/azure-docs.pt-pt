@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60634907"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilizar o serviço StorSimple Device Manager para gerir volumes (atualização 3 ou posterior)
 
@@ -40,7 +40,7 @@ Um volume de arquivo é um tipo de volume em camadas. O tamanho de segmento de e
 
 Se necessário, pode alterar o volume do tipo de local para camadas ou de camadas para o local. Para obter mais informações, aceda a [alterar o tipo de volume](#change-the-volume-type).
 
-### <a name="locally-pinned-volumes"></a>Volumes afixados localmente
+### <a name="locally-pinned-volumes"></a>volumes afixados localmente
 
 Os volumes afixados localmente são totalmente aprovisionados volumes que não os dados de escalão para a cloud de fazer, assegurando local garante para dados primários, independentes de conectividade de cloud. Dados em volumes localmente afixados não é eliminação de duplicados e comprimidos; No entanto, os instantâneos de volumes localmente afixados tenham os duplicados eliminados. 
 

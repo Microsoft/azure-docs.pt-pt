@@ -16,11 +16,11 @@ ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765079"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizada para ambientes de serviço de aplicações
 ## <a name="overview"></a>Descrição geral

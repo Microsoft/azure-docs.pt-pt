@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60634353"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
 

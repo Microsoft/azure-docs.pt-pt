@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
 ms.openlocfilehash: 685896cdbd74788f138b8b9dc09efbcd68a5b565
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624453"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Criar uma rede para aplicações de várias camadas
 

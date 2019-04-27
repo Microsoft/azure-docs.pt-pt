@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 204deaf3a67984c0dd5eca5352686719e7767885
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649354"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Pedidos de aumento de quota de vCPU de Gestor de recursos
 
@@ -26,7 +26,7 @@ Para pedir um aumento, siga as instruções abaixo para criar um pedido de supor
 
 1. Partir https://portal.azure.com, selecione **subscrições**.
 
-   ![Subscrições](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. Selecione a subscrição que precisa de uma quota maior.
 

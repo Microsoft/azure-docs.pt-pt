@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60694673"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Aceder a um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, como estudante vai ligar-se a uma máquina virtual (VM) num laboratório de sala de aula. 

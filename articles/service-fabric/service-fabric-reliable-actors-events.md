@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: 9075fc8391e8afa21e3963c1eff6a630c586d647
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726405"
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator fornecem uma forma de enviar notificações de melhor esforço de ator para os clientes. Eventos de ator foram concebidos para a comunicação de cliente a ator e não devem ser utilizados para comunicação de ator-ator.

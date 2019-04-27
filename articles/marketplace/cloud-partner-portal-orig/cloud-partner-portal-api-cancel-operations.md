@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625045"
 ---
 <a name="cancel-operation"></a>Operação de cancelamento 
 =================
@@ -35,8 +35,8 @@ Pode fornecer uma lista separada por vírgulas de endereços de e-mail com a sol
 
 |  **Nome**    |      **Descrição**                                  |    **Tipo de dados**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador de publicador, por exemplo, `contoso`         |   Cadeia          |
-| offerId      |  Identificador da oferta                                     |   Cadeia          |
+| publisherId  |  Identificador de publicador, por exemplo, `contoso`         |   String          |
+| IDoferta      |  Identificador da oferta                                     |   String          |
 | versão de API  |  Versão atual da API                               |    Date           |
 |  |  |  |
 

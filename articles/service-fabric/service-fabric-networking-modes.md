@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718160"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de funcionamento em rede de contentor do Service Fabric
 
@@ -200,7 +200,7 @@ Quando um serviço de contentor é reiniciado ou se move para outro nó no clust
  
 3. Para os clusters do Windows apenas, configure uma regra de grupo de segurança de rede (NSG) do Azure que se abre a porta 53 de UDP/para a rede virtual com os seguintes valores:
 
-   |Definição |Valor | |
+   |Definição |Value | |
    | --- | --- | --- |
    |Prioridade |2000 | |
    |Name |Custom_Dns  | |

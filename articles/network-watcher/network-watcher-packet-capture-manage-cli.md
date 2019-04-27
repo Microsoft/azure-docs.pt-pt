@@ -3,8 +3,8 @@ title: Gerir capturas de pacotes com o observador de rede do Azure - CLI do Azur
 description: Esta página explica como gerir a funcionalidade de captura de pacotes do observador de rede com a CLI do Azure
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: cf03872607546f38d19a280f65f641abf627268b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726881"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gerir capturas de pacotes com o observador de rede do Azure com a CLI do Azure
 

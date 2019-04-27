@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454260"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561629"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reimplementar uma VM num laboratório no Azure DevTest Labs
 Se não conseguir ligar a uma máquina virtual (VM) num laboratório através de uma ligação de ambiente de trabalho remoto, volte a implementar a VM e tente ligar novamente ao mesmo. Quando voltar a implementar uma VM, DevTest Labs muda a VM a partir do nó no qual está em execução para um novo nó dentro da infraestrutura do Azure. Em seguida, inicia a VM, mantendo a todas as suas opções de configuração e os recursos associados. Desta forma, poupa recursos o tempo gasto na solução de problemas de sua conexão de área de trabalho remoto ou o acesso a aplicações para VMs baseadas em Windows no laboratório. 

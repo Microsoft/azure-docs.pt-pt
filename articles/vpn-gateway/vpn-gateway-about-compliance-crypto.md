@@ -3,8 +3,8 @@ title: Sobre os requisitos criptográficos e gateways de VPN do Azure | Document
 description: Este artigo aborda os requisitos criptográficos e gateways de VPN do Azure
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2017
-ms.author: yushwang
+origin.date: 05/22/2017
+ms.date: 10/01/2018
+ms.author: v-jay
 ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "23884252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648692"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Sobre os requisitos criptográficos e gateways de VPN do Azure
 
@@ -39,7 +40,7 @@ Por exemplo, as políticas de modo principal do IKEv2 para gateways de VPN do Az
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Política de IPsec/IKE personalizada com gateways de VPN do Azure
 Os gateways VPN do Azure suportam agora por conexão, política de IPsec/IKE personalizada. Para um Site a Site ou a ligação de VNet a VNet, pode escolher uma combinação de algoritmos criptográficos para IPsec e IKE com a força da chave desejada, conforme mostrado no exemplo a seguir:
 
-![política de IPSec ike](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 Pode criar uma política de IPsec/IKE e aplicam-se a uma ligação nova ou existente. 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636756"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Otimização de transferência de ficheiros grandes com a CDN do Azure
 
@@ -125,7 +125,7 @@ A tabela seguinte lista o conjunto de critérios de ser cumpridos para otimizaç
 
 Condição | Valores 
 --- | --- 
-Tipos de ficheiro suportados | 3G 2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> MPEG, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, e webp, wma, wmv, zip  
+Tipos de ficheiro suportados | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, e webp, wma, wmv, zip  
 Tamanho mínimo do ficheiro | 10 MB 
 Tamanho máximo do ficheiro | 150 GB 
 Características do servidor de origem | Tem de suportar pedidos de intervalo de bytes 

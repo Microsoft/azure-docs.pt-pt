@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
 ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54409967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60717075"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
 O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).

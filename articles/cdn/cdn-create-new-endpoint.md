@@ -16,13 +16,13 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684667"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto final da CDN do Azure
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início rápido: Criar um perfil de CDN do Azure e o ponto final
 Neste início rápido, vai ativar a Rede de Entrega de Conteúdos (CDN) através da criação de um novo perfil da CDN e ponto final da CDN. Depois de criar um perfil e um ponto final, pode começar a entrega de conteúdos aos seus clientes.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -51,7 +51,7 @@ Depois de criar um perfil da CDN, pode utilizá-lo para criar um ponto final.
 
 3. Nas definições de ponto final, utilize os valores especificados na tabela seguinte:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | **Nome** | Introduza *my-endpoint-123* no nome de anfitrião do ponto final. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_.azureedge.net.|
     | **Tipo de origem** | Selecione **Armazenamento**. | 
@@ -84,10 +84,10 @@ Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recu
 
     Esta ação irá eliminar o grupo de recursos, o perfil e o ponto final que criou neste início rápido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como adicionar um domínio personalizado ao ponto final de CDN, veja o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure)
 
 

@@ -12,14 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
-ms.author: apimpm
+origin.date: 12/15/2016
+ms.author: v-yiso
+ms.date: 04/22/2019
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557962"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilizar serviços externos do serviço de gestão de API do Azure
 As políticas disponíveis no serviço de gestão de API do Azure podem fazer uma grande variedade de trabalho úteis com base exclusivamente na solicitação de entrada, a resposta de saída e informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos da gestão de API políticas abre muitas oportunidades de mais.
@@ -283,4 +284,5 @@ Na configuração da operação de marcador de posição, pode configurar o recu
 
 ## <a name="summary"></a>Resumo
 O serviço de gestão de API do Azure fornece diretivas flexíveis que podem ser aplicadas seletivamente para tráfego HTTP e permita a composição dos serviços de back-end. Se deseja melhorar o seu gateway de API com as funções, verificação, capacidades de validação de alertas ou criar novos recursos compostos com base em vários serviços de back-end, o `send-request` e políticas relacionadas abrem um mundo de possibilidades.
+
 

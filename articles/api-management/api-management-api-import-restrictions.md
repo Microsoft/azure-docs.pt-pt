@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
 ms.openlocfilehash: 251caa840446e75ff13d9b4dcebcbae3a36473c8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657514"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista

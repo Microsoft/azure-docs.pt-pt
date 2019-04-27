@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594206"
 ---
 # <a name="saas-application-test-drive-tab"></a>Guia de Test-Drive do aplicativo de SaaS
 
@@ -31,9 +31,11 @@ A criação de uma experiência de avaliação para os seus clientes é uma prá
 
 Versão de teste fornece aos clientes com uma avaliação autodidata prático dos principais recursos e benefícios, demonstrados num cenário de implementação em tempo real de seu produto.
 
+
 ## <a name="how-a-test-drive-works"></a>Como funciona um test drive
 
 Um cliente potencial pesquisa e descobre a sua aplicação no Marketplace. O cliente inicia sessão e se concorda com os termos de utilização. Neste momento, o cliente recebe o seu ambiente previamente configurada para experimentar para um número fixo de horas, enquanto recebe uma oportunidade potencial altamente qualificada para dar seguimento com. Para obter mais informações, consulte [o que é o Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## <a name="publishing-steps"></a>Passos de publicação
 
@@ -43,6 +45,7 @@ Os passos de publicação principais para adicionar um teste de unidade são:
 2. Criar e/ou modificar o modelo do Resource Manager
 3. Criar o manual passo a passo do teste de unidade
 4. Voltar a publicar a oferta
+
 
 ## <a name="setting-up-a-test-drive"></a>Configuração de uma versão de teste
 
@@ -54,6 +57,8 @@ Existem quatro tipos diferentes de versões de teste disponíveis, cada um com b
 |       Alojado             |       Uma versão de teste alojado retira a complexidade da configuração pelo alojamento da Microsoft e manter o serviço que executa o utilizador de teste de unidade de aprovisionamento e desaprovisionamento.             |         [Versão de Teste Alojada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Aplicação Lógica              |       Uma unidade de teste da aplicação lógica é um modelo de implementação que se destina a abranger todas as arquiteturas de solução complexas. Todas as aplicações do Dynamics ou produtos personalizados, devem utilizar este tipo de versão de teste.            |      [Unidade de teste da aplicação lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Uma unidade de teste do Power BI consiste num link incorporado a um dashboard personalizados internos. Qualquer produto que pretende demonstrar que uma interactive visual do Power BI deve utilizar este tipo de versão de teste. É tudo o que precisa para carregar o URL de BI de energia incorporados.          |        [Versão de teste de BI de energia](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### <a name="power-bi-test-drive"></a>Versão de teste do Power BI
 

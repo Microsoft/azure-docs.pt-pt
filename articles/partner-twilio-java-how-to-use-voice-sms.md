@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 386b4b8440c74f6599e7147996b5843ea0f67e68
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623957"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Como utilizar o Twilio para voz e SMS capacidades em Java
 Este guia demonstra como realizar tarefas comuns de programação com o serviço de Twilio API no Azure. Os cenários abrangidos incluem uma ligação telefônica e enviar uma mensagem de serviço de mensagens curtas (SMS). Para obter mais informações sobre o Twilio e voz e SMS a utilizar nas suas aplicações, consulte a [passos seguintes](#NextSteps) secção.
@@ -37,22 +37,22 @@ A API Twilio é uma API RESTful, que fornece funcionalidade SMS e de voz para ap
 
 Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação do Twilio (TwiML).
 
-### <a id="Verbs"></a>Verbos de Twilio
+### <a id="Verbs"></a>Twilio Verbs
 A API usa Twilio verbos; Por exemplo, o **&lt;Digamos&gt;** verbo instrui o Twilio para poder ouvi-lo entregar uma mensagem numa chamada.
 
 Segue-se uma lista de verbos Twilio.
 
-* **&lt;Dial&gt;**: liga-se o autor da chamada para outro telefone.
-* **&lt;Reunir&gt;**: recolhe dígitos numéricos introduzidos no teclado do telefone.
-* **&lt;Hangup&gt;**: termina uma chamada.
-* **&lt;Reproduzir&gt;**: reproduz um arquivo de áudio.
-* **&lt;Fila&gt;**: adicionar à uma fila de chamadores.
-* **&lt;Colocar em pausa&gt;**: silenciosamente aguarda um determinado número de segundos.
-* **&lt;Registo&gt;**: regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
-* **&lt;Redirecionar&gt;**: Transfira o controle de uma chamada ou SMS para o TwiML numa URL diferente.
-* **&lt;Rejeitar&gt;**: rejeita uma chamada de entrada para o seu número do Twilio sem de faturação.
-* **&lt;Digamos&gt;**: converte texto em voz, que é efetuado numa chamada.
-* **&lt;SMS&gt;**: envia uma mensagem SMS.
+* **&lt;Dial&gt;**: Liga-se o autor da chamada para outro telefone.
+* **&lt;Gather&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
+* **&lt;Hangup&gt;**: Termina uma chamada.
+* **&lt;Reproduzir&gt;**: Reproduz um arquivo de áudio.
+* **&lt;Fila&gt;**: Adicionar à uma fila de chamadores.
+* **&lt;Pause&gt;**: Aguarda silenciosamente um número de segundos especificado.
+* **&lt;Registo&gt;**: Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
+* **&lt;Redirect&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
+* **&lt;Reject&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação.
+* **&lt;Say&gt;**: Converte texto em voz, que é efetuado numa chamada.
+* **&lt;Sms&gt;**: Envia uma mensagem SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções com base em XML, com base nos verbos de Twilio informam Twilio de como processar uma chamada ou SMS.
@@ -104,7 +104,7 @@ Para ficheiros de origem da página de servidor de Java (JSP):
  
 Dependendo de qual Twilio pacotes ou classes que pretende utilizar, sua **importar** instruções podem ser diferentes.
 
-## <a id="howto_make_call"></a>Como: efetuar uma chamada de saída
+## <a id="howto_make_call"></a>Como: Efetuar uma chamada de saída
 O seguinte mostra como tornar uma saída chamar utilizando o **chamar** classe. Esse código também utiliza um site fornecida pelo Twilio para retornar a resposta de linguagem de marcação do Twilio (TwiML). Substitua os valores para o **partir** e **para** números de telefone e certifique-se de que verifique o **de** número de telefone para sua conta do Twilio antes de executar o código.
 
 ```java
@@ -133,7 +133,7 @@ Para obter mais informações sobre os parâmetros transmitidos para o **Call.cr
 
 Conforme mencionado, esse código usa um site fornecida pelo Twilio para retornar a resposta de TwiML. Em vez disso, poderia usar seu próprio site para fornecer a resposta de TwiML; Para obter mais informações, consulte [como fornecer TwiML as respostas numa aplicação de Java no Azure](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Como: enviar uma mensagem SMS
+## <a id="howto_send_sms"></a>Como: Envie uma mensagem SMS
 O seguinte mostra como enviar uma mensagem SMS através do **mensagem** classe. O **partir** número, **4155992671**, é fornecido pela Twilio para contas de avaliação para enviar mensagens SMS. O **para** número deve ser verificado para a sua conta do Twilio antes de executar o código.
 
 ```java
@@ -157,7 +157,7 @@ O seguinte mostra como enviar uma mensagem SMS através do **mensagem** classe. 
 
 Para obter mais informações sobre os parâmetros transmitidos para o **Message.creator** método, consulte [ https://www.twilio.com/docs/api/rest/sending-sms ] [ twilio_rest_sending_sms].
 
-## <a id="howto_provide_twiml_responses"></a>Como: fornecer respostas TwiML do seu próprio Web site
+## <a id="howto_provide_twiml_responses"></a>Como: Fornecer respostas TwiML do seu próprio Web site
 Quando a aplicação inicia uma chamada à API do Twilio, por exemplo através da **CallCreator.create** método, Twilio irá enviar o pedido para um URL que deverá devolver uma resposta de TwiML. O exemplo acima utiliza o URL fornecido pelo Twilio [ https://twimlets.com/message ] [ twimlet_message_url]. (Apesar de TwiML foi concebido para utilização pelos serviços Web, pode ver o TwiML no seu browser. Por exemplo, clique em [ https://twimlets.com/message ] [ twimlet_message_url] para ver vazio **&lt;resposta&gt;** elemento; como outro exemplo, clique em [ https://twimlets.com/message?Message%5B0%5D=Hello%20World%21 ] [ twimlet_message_url_hello_world] para ver uma **&lt;resposta&gt;** elemento que contém um **&lt;Digamos&gt;** elemento.)
 
 Em vez de contar com o URL fornecido pelo Twilio, pode criar seu próprio site URL que devolve as respostas HTTP. Pode criar o site em qualquer linguagem que retorna as respostas HTTP; Este tópico parte do princípio de que irá alojar o URL numa página JSP.
@@ -204,7 +204,7 @@ Outra opção para responder com TwiML é através do **VoiceResponse** classe, 
 
 Para obter mais informações sobre como utilizar o Twilio no Azure com Java, veja [como tornar uma Twilio através de chamada telefónica numa aplicação de Java no Azure][howto_phonecall_java].
 
-## <a id="AdditionalServices"></a>Como: utilizar os serviços adicionais do Twilio
+## <a id="AdditionalServices"></a>Como: Utilizar os serviços adicionais do Twilio
 Para além dos exemplos mostrados aqui, o Twilio oferece APIs baseadas na web que pode utilizar para tirar partido das funcionalidades adicionais do Twilio através da aplicação do Azure. Para mais informações, consulte a [documentação da API do Twilio][twilio_api_documentation].
 
 ## <a id="NextSteps"></a>Passos Seguintes

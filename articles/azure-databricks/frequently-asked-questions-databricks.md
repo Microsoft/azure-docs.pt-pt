@@ -10,11 +10,11 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784712"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre o Azure Databricks
 
@@ -44,7 +44,7 @@ Seguem-se alguns problemas que poderão surgir com o Databricks.
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Esta subscrição não está registada para utilizar o espaço de nomes 'Microsoft.Databricks'. Consulte https://aka.ms/rps-not-found para saber como registar subscrições. (Code: MissingSubscriptionRegistration) "
+"Esta subscrição não está registada para utilizar o espaço de nomes 'Microsoft.Databricks'. Consulte https://aka.ms/rps-not-found para saber como registar subscrições. (Código: MissingSubscriptionRegistration)"
 
 #### <a name="solution"></a>Solução
 
@@ -78,17 +78,17 @@ Seguem-se algumas soluções para este problema:
     e. Inicie a área de trabalho do Databricks como esse usuário.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problema: A conta de {email} não foi registada no Databricks 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problema: Sua conta {email} não foi registada no Databricks 
 
 #### <a name="solution"></a>Solução
 
 Se não tiver criado a área de trabalho, e é adicionado como um utilizador, contacte a pessoa que criou a área de trabalho. Ter essa pessoa adicioná-lo utilizando a consola de administração do Azure Databricks. Para obter instruções, consulte [adicionar e gerir os utilizadores](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). Se tiver criado a área de trabalho e ainda obtiver este erro, experimente selecionar **inicializar a área de trabalho** novamente a partir do portal do Azure.
 
-### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problema: Falha de inicialização do fornecedor da Cloud durante a configuração do cluster (PublicIPCountLimitReached)
+### <a name="issue-cloud-provider-launch-failure-while-setting-up-the-cluster-publicipcountlimitreached"></a>Problema: Falha de inicialização do fornecedor da cloud durante a configuração do cluster (PublicIPCountLimitReached)
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Falha de inicialização do fornecedor da cloud: foi encontrado um erro de fornecedor de cloud durante a configuração do cluster. Para obter mais informações, consulte o Guia do Databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: não é possível criar mais de 60 endereços IP públicos para esta subscrição nesta região. "
+"Falha de inicialização do fornecedor da cloud: Foi encontrado um erro de fornecedor de cloud durante a configuração do cluster. Para obter mais informações, consulte o Guia do Databricks. Código de erro do Azure: PublicIPCountLimitReached. Mensagem de erro do Azure: Não é possível criar mais de 60 endereços IP públicos para esta subscrição nesta região."
 
 #### <a name="solution"></a>Solução
 
@@ -98,8 +98,8 @@ Clusters de Databricks utilizam um endereço IP público por nó. Se sua assinat
 
 #### <a name="error-message"></a>Mensagem de erro
 
-"Falha de inicialização do fornecedor da cloud: foi encontrado um erro de fornecedor de cloud durante a configuração do cluster. Para obter mais informações, consulte o Guia do Databricks.
-Código de erro do Azure: mensagem de erro do MissingSubscriptionRegistration Azure: A subscrição não está registada para utilizar o espaço de nomes "Microsoft. Compute". Consulte https://aka.ms/rps-not-found para saber como registar subscrições. "
+"Falha de inicialização do fornecedor da cloud: Foi encontrado um erro de fornecedor de cloud durante a configuração do cluster. Para obter mais informações, consulte o Guia do Databricks.
+Código de erro do Azure: Mensagem de erro do MissingSubscriptionRegistration Azure: A subscrição não está registada para utilizar o espaço de nomes "Microsoft.Compute". Consulte https://aka.ms/rps-not-found para saber como registar subscrições. "
 
 #### <a name="solution"></a>Solução
 
@@ -121,6 +121,6 @@ Inicie sessão como um administrador global para o portal do Azure. Para o Azure
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Início rápido: Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Quickstart: Introdução ao Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [O que é o Azure Databricks?](what-is-azure-databricks.md)
 

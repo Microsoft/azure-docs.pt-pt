@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: diberry
 ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557431"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Consultar o ponto final de previsão com o C# .NET SDK
 

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740136"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Promover o seu negócio com a Microsoft
+# <a name="promote-your-business-with-microsoft"></a>Fazer crescer o seu negócio com a Microsoft
 
 Os parceiros do Marketplace são necessários para fazer parte do Microsoft Partner Network (MPN). Como membro da MPN, pode aceder a benefícios adicionais com foco empresarial. Visite [partner.microsoft.com](https://partner.microsoft.com) para ver como pode utilizar a rede para aceder a:
 

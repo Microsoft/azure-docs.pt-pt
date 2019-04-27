@@ -11,11 +11,11 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684095"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetir ações de fluxo de trabalho ou processam matrizes no Azure Logic Apps
 
@@ -177,7 +177,7 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Configurar a agenda de periodicidade](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frequência** | Dia |
@@ -193,7 +193,7 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
    ![Definir propriedades de variável](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propriedade | Valor | Descrição |
+   | Propriedade | Value | Descrição |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome da variável | 
    | **Tipo** | Número inteiro | Tipo de dados da variável | 
@@ -234,7 +234,7 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
 
       ![Configurar propriedades de e-mail](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propriedade | Valor | Descrição |
+      | Propriedade | Value | Descrição |
       | -------- | ----- | ----------- | 
       | **Para** | *\<email-address\@domain>* | endereço de e-mail do destinatário. Para fins de teste, utilize o seu endereço de e-mail. | 
       | **Assunto** | O valor atual para "Limite de" é **limite** | Especifique o assunto do e-mail. Neste exemplo, certifique-se de que inclui a **limite** variável. | 

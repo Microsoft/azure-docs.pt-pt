@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543074"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Infraestrutura do Azure de exemplo passo a passo para VMs do Linux
 Este artigo explica-criar uma infraestrutura de aplicativo de exemplo. Vamos detalhar a estruturar uma infraestrutura para uma loja online simple, que reúne todas as diretrizes e as decisões sobre as convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e Balanceadores de carga e realmente implantar suas máquinas virtuais (VMs).

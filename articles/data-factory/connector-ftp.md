@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
 ms.openlocfilehash: 292d2da33edb5a0b48fbf138d8a45fc1c3c17d46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583762"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar dados do servidor FTP com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,14 +47,14 @@ As seguintes propriedades são suportadas para o serviço FTP ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **FtpServer**. | Sim |
+| type | A propriedade de tipo tem de ser definida como: **FtpServer**. | Sim |
 | anfitrião | Especifique o nome ou endereço IP do servidor de FTP. | Sim |
 | porta | Especifique a porta em que o servidor de FTP está a escutar.<br/>Valores permitidos são: número inteiro, o valor predefinido é **21**. | Não |
 | enableSsl | Especifique se pretende utilizar o FTP por um canal SSL/TLS.<br/>Valores permitidos são: **true** (predefinição), **falso**. | Não |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação de certificado SSL do servidor quando estiver a utilizar o FTP canal SSL/TLS.<br/>Valores permitidos são: **true** (predefinição), **falso**. | Não |
 | authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **Básica**, **anónimo** | Sim |
 | userName | Especifique o utilizador quem tem acesso ao servidor de FTP. | Não |
-| palavra-passe | Especifique a palavra-passe para o utilizador (nome de utilizador). Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| password | Especifique a palavra-passe para o utilizador (nome de utilizador). Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 >[!NOTE]
@@ -117,7 +117,7 @@ Para copiar dados de FTP, defina a propriedade de tipo de conjunto de dados para
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **FileShare** |Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. Filtro de carateres universais é suportado, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual); utilize `^` para se o seu nome de pasta real tem carateres universais ou esse caractere de escape dentro de escape. <br/><br/>Exemplos: rootfolder/subpasta /, veja mais exemplos [exemplos de filtro de ficheiros e pastas](#folder-and-file-filter-examples). |Sim |
 | fileName | **Filtro de nome ou o caráter universal** para o ficheiro ou ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape. |Não |
 | Formato | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
@@ -168,7 +168,7 @@ Para copiar dados de FTP, definir o tipo de origem na atividade de cópia para *
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção quando recursiva é definida como true e de sink é baseada em ficheiros de arquivo, vazia pasta/subutilização-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **true** (predefinição), **FALSO** | Não |
 
 **Exemplo:**

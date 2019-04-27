@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683181"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar demonstrativos de comutador que executam ações de fluxo de trabalho com base nos valores específicos nas Azure Logic Apps
 
@@ -32,7 +32,7 @@ Por exemplo, suponha que pretende que uma aplicação lógica que toma as medida
 
 * A seguir o exemplo neste artigo, [criar esta aplicação de lógica de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou o Outlook do Office 365.
 
-  1. Ao adicionar a ação para enviar correio eletrónico, localize e selecione a ação em vez disso: **enviar um e-mail de aprovação**
+  1. Ao adicionar a ação para enviar correio eletrónico, localize e selecione a ação em vez disso: **Enviar um e-mail de aprovação**
 
      ![Selecione "Enviar um e-mail de aprovação"](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -47,7 +47,7 @@ Por exemplo, suponha que pretende que uma aplicação lógica que toma as medida
 
    Quando deseja adicionar uma instrução de comutador entre etapas, mova o ponteiro sobre a seta para onde pretende adicionar a instrução switch. Escolha o **sinal** (**+**) que aparece, em seguida, escolha **adicionar uma ação**.
 
-1. Na caixa de pesquisa, introduza "alternar" como o filtro. Selecione a ação: **mudar - controlar**
+1. Na caixa de pesquisa, introduza "alternar" como o filtro. Selecione a ação: **Comutador - controlo**
 
    ![Adicionar o comutador](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -69,7 +69,7 @@ Por exemplo, suponha que pretende que uma aplicação lógica que toma as medida
    | N. º maiúsculas | **SelectedOption** | Ação |
    |--------|--------------------|--------|
    | Caso 1 | **Aprovar** | Adicionar o Outlook **enviar um e-mail** ação para o envio de detalhes do item RSS apenas quando o aprovador selecionou **aprovar**. |
-   | Caso 2 | **Rejeitar** | Adicionar o Outlook **enviar um e-mail** ação para notificar os outros aprovadores que o item RSS foi rejeitado. |
+   | Caso 2 | **Reject** | Adicionar o Outlook **enviar um e-mail** ação para notificar os outros aprovadores que o item RSS foi rejeitado. |
    | Predefinição | Nenhuma | Nenhuma ação necessária. Neste exemplo, o **predefinido** caso está vazio porque **SelectedOption** tem apenas duas opções. |
    |||
 
@@ -113,7 +113,7 @@ Agora que criou uma aplicação lógica com uma instrução switch, vamos analis
 }
 ```
 
-| Etiqueta | Descrição |
+| Label | Descrição |
 |-------|-------------|
 | `"Switch"`         | O nome da instrução switch, que pode renomear para facilitar a leitura |
 | `"type": "Switch"` | Especifica que a ação é uma instrução switch |

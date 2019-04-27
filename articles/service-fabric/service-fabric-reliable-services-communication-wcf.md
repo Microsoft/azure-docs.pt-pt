@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725606"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicações baseadas no WCF de Reliable Services
 A estrutura de Reliable Services permite que os autores de serviços escolher a pilha de comunicação que pretende utilizar o seu serviço. Eles podem de plug-in a pilha de comunicações de sua preferência por meio do **ICommunicationListener** devolvido do [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) métodos. O framework fornece uma implementação da pilha de comunicações com base no Windows Communication Foundation (WCF) para autores de serviço que pretendem utilizar a comunicação baseada em WCF.

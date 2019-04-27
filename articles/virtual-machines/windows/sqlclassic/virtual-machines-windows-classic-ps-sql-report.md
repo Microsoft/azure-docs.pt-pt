@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609829"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
 > [!IMPORTANT] 

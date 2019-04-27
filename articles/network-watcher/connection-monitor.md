@@ -3,8 +3,8 @@ title: Monitorizar a comunicação de rede - tutorial - portal do Azure | Micros
 description: Saiba como monitorizar a comunicação de rede entre duas máquinas virtuais com a capacidade de monitor de ligação do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790492"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais no portal do Azure
 
@@ -56,7 +56,7 @@ Crie duas VMs.
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Location| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, selecione **Extensões**. Selecione **Adicionar extensão** e selecione **Agente do Observador de Rede para Windows**, conforme mostra a imagem seguinte:

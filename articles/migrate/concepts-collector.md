@@ -8,11 +8,11 @@ ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
 ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679293"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -36,9 +36,9 @@ A aplicação recoletora fica continuamente conectada ao projeto do Azure Migrat
 
 A aplicação só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
-- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção na aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
-- Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+- Eliminação das VMs: Devido à forma como a aplicação foi concebida, a eliminação das VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
 
 > [!NOTE]
 > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
@@ -242,11 +242,11 @@ O recoletor vem com uma licença de avaliação do Windows Server 2012 R2 que é
 
 ## <a name="updating-the-os-of-the-collector-vm"></a>A atualizar o SO da VM do Recoletor
 
-Apesar da aplicação recoletora ter uma licença de avaliação de 180 dias, precisa atualizar continuamente o sistema operacional na aplicação para evitar desligar automaticamente para baixo da aplicação.
+Embora a aplicação recoletora tenha uma licença de avaliação de 180 dias, tem de atualizar o SO continuamente na mesma para evitar que se encerre de forma automática.
 
-- Se o Recoletor não é atualizado nos últimos 60 dias, este começa a encerrar a máquina automaticamente.
-- Se estiver a executar uma deteção, a máquina não ser desativada, mesmo se passaram 60 dias. A máquina será desativada depois de concluída a deteção.
-- Se já usou o Recoletor durante mais de 60 dias, recomendamos que mantenha a máquina de atualização em todo o tempo pela atualização do Windows em execução.
+- Se o Recoletor não for atualizado durante 60 dias, começa a encerrar a máquina automaticamente.
+- Se estiver em curso uma deteção, a máquina não é desligada, mesmo que tenham passado 60 dias. Sê-lo-á após a conclusão da deteção.
+- Se tiver utilizado o Recoletor durante mais de 60 dias, recomendamos manter a máquina sempre atualizada, mediante a execução do Windows Update.
 
 ## <a name="upgrading-the-collector-appliance-version"></a>Atualizar a versão da aplicação de Recoletor
 

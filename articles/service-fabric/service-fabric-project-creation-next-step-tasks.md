@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: atsenthi
 ms.openlocfilehash: e5371cd3ea9de1993f0f824325f6cbf1e25343d4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667932"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773048"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>A aplicação do Service Fabric e os passos seguintes
 Foi criada a sua aplicação do Azure Service Fabric. Este artigo descreve alguns tutoriais para experimentar, como montar o seu projeto, algumas informações que possa estar interessadas e os passos seguintes potenciais.

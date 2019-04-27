@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631894"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>As especificações técnicas e a conformidade do dispositivo StorSimple
 
@@ -37,13 +37,13 @@ A inclusão EBOD utiliza um PCM W 580 e bastidor principal utiliza um PCM W 764.
 | --- | --- | --- |
 | Potência de saída máximo |580 W |764 |
 | Frequência |50/60 Hz |50/60 Hz |
-| Seleção do intervalo de tensão |Automaticamente, desde: 90 – 264 V AC, 47/63 Hz |Automaticamente, desde: 90-264 V AC, 47/63 Hz |
+| Seleção do intervalo de tensão |Automaticamente, desde: 90 – 264 V AC, 47/63 Hz |Automaticamente, desde: 90- 264 V AC, 47/63 Hz |
 | Inrush máximo atual |20 A |20 A |
 | Correção de fator de energia |> 95% nominal tensão de entrada |> 95% nominal tensão de entrada |
 | Harmonics |Cumpre EN61000-3-2 |Cumpre EN61000-3-2 |
 | Saída |Tensão de modo de espera de 5 v \@ 2.0 A |Tensão de modo de espera de 5 v \@ 2.7 A |
-| + DE 5 V \@ 42 A |+ DE 5 V \@ 40 A | |
-| + 12 V \@ 38 A |+ 12 V \@ 38 A | |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
 | Armazenamento frequente conectável |Sim |Sim |
 | Comutadores e LEDs |Comutador de ativa/inativa de AC e LED indicadores de estado de quatro |Comutador de ativa/inativa de AC e LED indicadores de estado de seis |
 | Bastidor de arrefecimento |Axial refrigeração fãs com controle de velocidade de variável ventoinha |Axial refrigeração fãs com controle de velocidade de variável ventoinha |
@@ -117,8 +117,8 @@ Esta secção lista as especificações relacionadas com o ambiente de bastidor.
 
 | Bastidor | Intervalo de temperatura ambiente | Ambiente de caminho relativo humidade | Bolbo wet máximo |
 | --- | --- | --- | --- |
-| Operacional |5-35° C (41° F - 95° F) |20% a 80% - não-condensar- |28° C (82° F) |
-| Não-operacional |-40-70° C (40° F - 158° F) |5% a 100% - não-condensar |29° C (84° F) |
+| Operacional |5°C - 35°C(41°F - 95°F) |20% a 80% - não-condensar- |28°C (82°F) |
+| Não-operacional |-40°C - 70°C(40°F - 158°F) |5% a 100% - não-condensar |29°C (84°F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Ventilação, altitude, choque, vibração, orientação, segurança e EMC
 
@@ -149,8 +149,8 @@ O dispositivo do Microsoft Azure StorSimple está em conformidade com as normas 
 
 O dispositivo do Microsoft Azure StorSimple satisfaz as seguintes classificações de segurança:
 
-* Aprovação de tipo de produto do sistema: UL, cUL, CE
-* Conformidade de segurança: UL 60950 IEC 60950, EN 60950
+* Aprovação do tipo de produto de sistema: UL, cUL, CE
+* Conformidade de segurança: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformidade de EMC
 
@@ -160,8 +160,8 @@ O dispositivo do Microsoft Azure StorSimple satisfaz as seguintes classificaçõ
 
 O dispositivo está em conformidade com o EMC para níveis de emissões realizadas e radiated.
 
-* Níveis de limitar as emissões de realizadas: CFR 47 parte 15B classe A EN55022 classe A CISPR classe A
-* Níveis de limitar as emissões de radiated: CFR 47 parte 15B classe A EN55022 classe A CISPR classe A
+* Níveis de limite de emissões de realizada: CFR parte 47 15B classe A EN55022 classe A CISPR classe A
+* Níveis de limite de emissões de radiated: CFR parte 47 15B classe A EN55022 classe A CISPR classe A
 
 ### <a name="harmonics-and-flicker"></a>Harmonics e cintilação
 
@@ -187,7 +187,7 @@ O plug e o assembly de cabo power completa têm de cumprir os padrões apropriad
 
 | Componente | Especificação |
 | --- | --- |
-| Tipo de cabo |Harmônico, H05-VVF-3G1.0 |
+| Tipo de cabo |Harmonized, H05-VVF-3G1.0 |
 | Socket |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cabos de rede suportados

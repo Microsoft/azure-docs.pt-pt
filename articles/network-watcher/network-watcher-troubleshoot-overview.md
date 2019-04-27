@@ -3,8 +3,8 @@ title: Introdução aos recursos de resolução de problemas no observador de re
 description: Esta página fornece uma descrição geral das capacidades de resolução de problemas de recurso de observador de rede
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60682951"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução aos recursos de resolução de problemas no observador de rede do Azure
 

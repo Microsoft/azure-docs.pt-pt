@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 7/02/2017
 ms.author: atsenthi
 ms.openlocfilehash: c9b2f9ac131e71b7c6b37ed85568adc0c3978dc2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621229"
 ---
 # <a name="service-fabric-application-scenarios"></a>Cenários de aplicações do Service Fabric
 O Azure Service Fabric oferece uma plataforma fiável e flexível que lhe permite escrever e executar muitos tipos de aplicações e serviços empresariais. Estas aplicações e os microsserviços podem ser com ou sem estado, e são com balanceamento de recurso em máquinas virtuais para maximizar a eficiência. A arquitetura única do Service Fabric permite-lhe efetuar perto de análise de dados em tempo real, computação dentro da memória, transações paralelas e em seus aplicativos de processamento de eventos. Pode facilmente dimensionar as suas aplicações ou reduzir verticalmente (realmente a entrada ou saída), dependendo dos requisitos de recursos de alteração.

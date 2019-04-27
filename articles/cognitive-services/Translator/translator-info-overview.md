@@ -12,11 +12,11 @@ ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60609083"
 ---
 # <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 

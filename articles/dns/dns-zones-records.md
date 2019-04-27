@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563397"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Descrição geral das zonas e registos DNS
 
@@ -34,7 +34,7 @@ Uma entidade de registo de nome de domínio é uma organização que permite-lhe
 
 O DNS do Azure fornece uma infraestrutura de servidor de nome de elevada disponibilidade e distribuída globalmente, que pode utilizar para alojar o seu domínio. Ao alojar os seus domínios no DNS do Azure, pode gerir os registos DNS com as mesmas credenciais, APIs, ferramentas, faturação e suporte dos outros serviços do Azure.
 
-O DNS do Azure não suporta atualmente a compra de nomes de domínio. Se deseja comprar um nome de domínio, terá de utilizar uma entidade de registo de nome de domínio de terceiros. A entidade de registo, normalmente, os custos de uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para a gestão de registos DNS. Ver [delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
+O DNS do Azure não suporta atualmente a compra de nomes de domínio. Se deseja comprar um nome de domínio, terá de utilizar uma entidade de registo de nome de domínio de terceiros. A entidade de registo, normalmente, os custos de uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para a gestão de registos DNS. Veja [Delegar um Domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
 ## <a name="dns-zones"></a>Zonas DNS
 
@@ -59,7 +59,7 @@ Para criar um conjunto de registos de carateres universais, utilize o nome do co
 ### <a name="caa-records"></a>Registos CAA
 
 Registos CAA permitem aos proprietários de domínio especificar quais autoridades de certificação (ACs) têm autorização para emitir certificados para os seus domínios. Isso permite que o ACS para evitar enganássemos emitir certificados em algumas circunstâncias. Registos CAA tem três propriedades:
-* **Sinalizadores**: Este é um número inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial pelo [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Sinalizadores de**: Este é um número inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial pelo [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Etiqueta**: uma cadeia de caracteres ASCII que pode ser um dos seguintes procedimentos:
     * **problema**: Utilize esta opção se pretender especificar os CAs que têm permissão para emitir certificados (todos os tipos)
     * **issuewild**: Utilize esta opção se pretender especificar os CAs que têm permissão para emitir certificados (apenas para certificados de caráter universal)
@@ -134,12 +134,12 @@ Ao nível da API de REST do DNS do Azure, Etags são especificadas usando os cab
 | Cabeçalho | Comportamento |
 | --- | --- |
 | Nenhuma |PUT sempre for concluída com êxito (sem verificações de Etag) |
-| IF-match <etag> |PUT apenas é bem-sucedida se o recurso existe e Etag corresponder à |
-| IF-match * |PUT apenas é bem-sucedida se o recurso existe |
+| If-match <etag> |PUT apenas é bem-sucedida se o recurso existe e Etag corresponder à |
+| If-match * |PUT apenas é bem-sucedida se o recurso existe |
 | IF-none-match * |PUT apenas é bem-sucedida se o recurso não existe |
 
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 
 Os limites predefinidos seguintes aplicam-se ao utilizar o DNS do Azure:
 

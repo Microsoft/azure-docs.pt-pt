@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c2cb3e373b76685fca09eb0cfeefdc9216df77
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b5868aaf29d6b57ea608763840a08f1991a982e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628596"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Utilizar nós de extensão e de criação de camadas de dados do SAP HANA
 

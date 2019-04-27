@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775868"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Início rápido: Criar uma sala de bate-papo com as funções do Azure e o serviço SignalR com Java
 

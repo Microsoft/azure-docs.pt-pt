@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691956"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária.

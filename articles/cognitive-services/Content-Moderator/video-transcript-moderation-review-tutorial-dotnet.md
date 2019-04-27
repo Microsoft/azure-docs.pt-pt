@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608257"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeo e transcrição
+# <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
 Neste tutorial, irá aprender como criar uma solução de moderação de vídeo e transcrição completa com moderação assistida por computador e a criação de revisão humana no loop.
 

@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749662"
 ---
-# <a name="offer-settings-tab"></a>Separador de definições da oferta
+# <a name="offer-settings-tab"></a>Separador Definições de Oferta
 
 Sobre o **nova oferta** ecrã, a primeira etapa é criar a identidade de oferta. A identidade de oferta consiste em três partes: **ID da oferta**, **ID de publicador**, e **nome**. Cada uma dessas partes é descrita nas seções a seguir.
 
@@ -40,7 +40,7 @@ Conforme mostrado no exemplo, o **ID da oferta** é acrescentado ao seu ID de pu
 
 Este identificador está relacionado com a sua conta. Depois de iniciar sessão com a sua conta organizacional, sua **ID de publicador** aparece no menu pendente.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 Esta cadeia apresenta como o nome da oferta no AppSource ou no Azure Marketplace. O **nome** caixa está limitada a 50 carateres. O revisor poderá ter de editar o título para acrescentar a duração e o tipo para o seu nome de oferta de oferta.
 
@@ -63,7 +63,7 @@ A lista seguinte fornece vários nomes de oferta bem com nome:
 -   Fundamentos de serviços profissionais: Resumo de 1 hora
 -   Migração de plataforma: Resumo de 1 hora
 -   PowerApps e Microsoft Flow: Workshop de 1 dia
--   O Azure Machine Learning Services: Prova de conceito de 3 semanas
+-   Azure Machine Learning Services: Prova de conceito de 3 semanas
 -   Solução de revenda de módulo e clique em: Resumo de 1 hora
 -   Traga os seus dados: Workshop de semanas de 1
 -   Análise da cloud: Workshop de 3 dias

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733628"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Lista de verificação de publicação para o AppSource  
 Reveja os componentes necessários antes de iniciar o processo de publicação.  

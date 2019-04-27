@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646780"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer cópias de segurança de VM do Azure com o Azure Backup através da REST API
 
@@ -47,7 +47,7 @@ A operação de "Atualizar" é uma [operação assíncrona](https://docs.microso
 
 Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |204-sem conteúdo     |         |  OK com nenhum conteúdo devolvido      |
 |Aceite 202     |         |     Aceite    |
@@ -110,7 +110,7 @@ O *obter* URI tem todos os parâmetros necessários. Não é necessário nenhum 
 
 #### <a name="responses"></a>Respostas
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -157,14 +157,14 @@ X-Powered-By: ASP.NET
 
 A resposta contém a lista de todas as VMs do Azure não protegido e cada `{value}` contém todas as informações necessárias pelo serviço de recuperação do Azure para configurar a cópia de segurança. Para configurar a cópia de segurança, tenha em atenção a `{name}` campo e o `{virtualMachineId}` campo no `{properties}` secção. Construa duas variáveis destes valores de campo, conforme mencionado abaixo.
 
-- containerName = "iaasvmcontainer;" +`{name}`
-- protectedItemName = "vm;" + `{name}`
+- containerName = "iaasvmcontainer;"+`{name}`
+- protectedItemName = "vm;"+ `{name}`
 - `{virtualMachineId}` é utilizada mais adiante [o corpo do pedido](#example-request-body)
 
 No exemplo, os valores acima traduzir para:
 
-- containerName = "iaasvmcontainer; iaasvmcontainerv2 testRG; testVM"
-- protectedItemName = "vm; iaasvmcontainerv2 testRG; testVM"
+- containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
+- protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Ativar a proteção para a VM do Azure
 
@@ -186,9 +186,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Para criar um item protegido, seguem-se os componentes do corpo do pedido.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|propriedades     | AzureIaaSVMProtectedItem        |Propriedades de recurso de ProtectedItem         |
+|properties     | AzureIaaSVMProtectedItem        |Propriedades de recurso de ProtectedItem         |
 
 Para obter a lista completa das definições do corpo do pedido e outros detalhes, consulte [criar documentos de REST API do item protegido](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body).
 
@@ -214,7 +214,7 @@ A criação de um item protegido é um [operação assíncrona](https://docs.mic
 
 Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |Aceite 202     |         |     Aceite    |
@@ -300,9 +300,9 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Para acionar uma cópia de segurança a pedido, seguem-se os componentes do corpo do pedido.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
-|propriedades     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
+|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
 
 Para obter a lista completa das definições do corpo do pedido e outros detalhes, consulte [acionar cópias de segurança para o documento da REST API de itens protegidos](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body).
 
@@ -325,7 +325,7 @@ Acionar uma cópia de segurança a pedido é uma [operação assíncrona](https:
 
 Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |Aceite 202     |         |     Aceite    |
 
@@ -393,7 +393,7 @@ Uma vez que a tarefa de cópia de segurança é uma operação de longa execuç�
 
 ### <a name="changing-the-policy-of-protection"></a>A alteração da política de proteção
 
-Para alterar a política com a qual a VM está protegida, pode utilizar o mesmo formato que [ativar a proteção](#enabling-protection-for-the-azure-vm). Basta indicar o novo ID de política na [corpo do pedido](#example-request-body) e submeter o pedido. Para, por exemplo,: para alterar a política de testVM de 'DefaultPolicy' para "ProdPolicy", forneça o id de "ProdPolicy" no corpo do pedido.
+Para alterar a política com a qual a VM está protegida, pode utilizar o mesmo formato que [ativar a proteção](#enabling-protection-for-the-azure-vm). Basta indicar o novo ID de política na [corpo do pedido](#example-request-body) e submeter o pedido. Para, por exemplo: Para alterar a política de testVM de 'DefaultPolicy' para "ProdPolicy", forneça o id de "ProdPolicy" no corpo do pedido.
 
 ```http
 {
@@ -445,7 +445,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 204 (NoContent) quando essa operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |Aceite 202     |         |     Aceite    |

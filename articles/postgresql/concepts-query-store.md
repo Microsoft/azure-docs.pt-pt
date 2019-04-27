@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564009"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
@@ -120,8 +120,8 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 |query_id   |bigint  || Código de hash interna, calculado a partir da árvore de análise a instrução|
 |query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
 |plan_id    |bigint |   |ID do plano correspondente a esta consulta não está disponível ainda|
-|start_time |carimbo de data/hora  ||  Consultas são agregadas por buckets de tempo - o intervalo de tempo de um registo é de 15 minutos por predefinição. Esta é a hora de início correspondente para o registo de tempo para esta entrada.|
-|end_time   |carimbo de data/hora  ||  Hora de fim correspondente para o registo de tempo para esta entrada.|
+|start_time |timestamp  ||  Consultas são agregadas por buckets de tempo - o intervalo de tempo de um registo é de 15 minutos por predefinição. Esta é a hora de início correspondente para o registo de tempo para esta entrada.|
+|end_time   |timestamp  ||  Hora de fim correspondente para o registo de tempo para esta entrada.|
 |chamadas  |bigint  || Número de vezes que a consulta executada|
 |total_time |precisão dupla   ||  Tempo de execução total da consulta, em milissegundos|
 |min_time   |precisão dupla   ||  Tempo de execução da consulta mínimo, em milissegundos|

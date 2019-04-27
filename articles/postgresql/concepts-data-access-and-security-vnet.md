@@ -1,17 +1,18 @@
 ---
 title: Descrição geral do ponto de extremidade dos serviços de base de dados do Azure para a vnet do servidor PostgreSQL
 description: Saiba como funcionam os pontos finais de serviço VNET para a base de dados do Azure para o servidor PostgreSQL.
-author: bolzmj
-ms.author: mbolz
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+origin.date: 08/20/2018
+ms.date: 04/22/2019
 ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009196"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560134"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para PostgreSQL
 

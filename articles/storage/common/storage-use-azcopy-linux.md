@@ -2,18 +2,18 @@
 title: Copiar ou mover dados para o armazenamento do Azure com AzCopy no Linux | Documentos da Microsoft
 description: Utilize o AzCopy no Linux utilitário para mover ou copiar dados de ou para BLOBs e ficheiros de conteúdo. Copiar dados para o armazenamento do Azure de arquivos locais ou copiar dados em ou entre contas de armazenamento. Migre facilmente os dados ao armazenamento do Azure.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
-ms.author: seguler
+ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730060"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com AzCopy no Linux
 

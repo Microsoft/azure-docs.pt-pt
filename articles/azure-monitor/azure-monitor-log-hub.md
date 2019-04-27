@@ -11,11 +11,11 @@ ms.topic: hub-page
 ms.date: 01/29/2019
 ms.author: magoedte
 ms.openlocfilehash: ced88f973ff26f7c8990c1c80bf8532949ef9ae8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640111"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -148,7 +148,7 @@ ms.locfileid: "56244781"
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Dimensionamento Automático</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-unified-log">Alertas de registo</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-activity-log">Alertas de registo de atividade</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/action-groups">Grupos de ação</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/action-groups">Grupos de ações</a><br/>
                                                         </p>
                                                     </div>
                                                 </div>

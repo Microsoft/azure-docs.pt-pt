@@ -12,11 +12,11 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642825"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos de estrutura e a resposta de resposta de API de pesquisa Web Bing  
 

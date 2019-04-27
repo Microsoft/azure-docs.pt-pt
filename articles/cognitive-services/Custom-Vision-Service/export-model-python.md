@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: areddish
 ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605088"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Executar o modelo TensorFlow em Python
 

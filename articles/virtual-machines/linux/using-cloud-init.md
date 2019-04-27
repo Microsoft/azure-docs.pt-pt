@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614033"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de cloud-init para máquinas virtuais no Azure
 Este artigo explica o suporte de que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) de conjuntos de dimensionamento (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure.  

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 4/03/2019
 ms.author: aahi
 ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579869"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de pesquisa Visual do Bing
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 895efd0461d294f9ef8e574fb4e732d149a595ea
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1087249c8991981fb5048885bb03c6cbe49db14c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586497"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços da Microsoft em Cibersegurança
 

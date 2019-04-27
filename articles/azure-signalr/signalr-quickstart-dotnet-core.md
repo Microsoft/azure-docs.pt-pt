@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60690330"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de bate-papo com o serviço SignalR
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60618883"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionar automaticamente um conjunto de dimensionamento no portal do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação.
@@ -47,7 +47,7 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
 
     Especifique as seguintes definições para a regra:
     
-    | Parâmetro              | Explicação                                                                                                         | Valor          |
+    | Parâmetro              | Explicação                                                                                                         | Value          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregação de tempo*     | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
     | *Nome da métrica*          | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
@@ -74,7 +74,7 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
 
     Utilize a mesma abordagem tal como acontece com a regra anterior. Ajuste as seguintes definições para a regra:
     
-    | Parâmetro              | Explicação                                                                                                          | Valor          |
+    | Parâmetro              | Explicação                                                                                                          | Value          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menos do que   |
     | *Limiar*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 30             |

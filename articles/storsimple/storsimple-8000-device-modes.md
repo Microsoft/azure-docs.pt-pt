@@ -1,6 +1,6 @@
 ---
-title: Alteração do modo de dispositivo StorSimple | Microsoft Docs
-description: Descreve os modos de dispositivo StorSimple e explica como utilizar o Windows PowerShell para StorSimple para alterar o modo de dispositivo.
+title: Alterar o modo do dispositivo StorSimple | Documentos da Microsoft
+description: Descreve os modos de dispositivo do StorSimple e explica como utilizar o Windows PowerShell para StorSimple para alterar o modo de dispositivo.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,76 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e55964beff48df6ce24d99c01975d39b662f1612
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576096"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Alterar o modo de dispositivo no dispositivo StorSimple
 
-Este artigo fornece uma breve descrição de vários modos na qual pode operar o dispositivo StorSimple. O dispositivo StorSimple pode funcionar em três modos: normal, a manutenção e a recuperação.
+Este artigo fornece uma breve descrição os diversos modos nos quais o dispositivo StorSimple pode operar. O dispositivo StorSimple, pode funcionar em três modos: normal, a manutenção e a recuperação.
 
 Depois de ler este artigo, ficará a saber:
 
-* São que os modos de dispositivo do StorSimple
-* Como descobrir que modo o dispositivo StorSimple está no
-* Como alterar desde a carga normal ao modo de manutenção e *vice versa*
+* São de que os modos de dispositivo do StorSimple
+* Como descobrir que modo o dispositivo StorSimple está em
+* Como alterar do normal para o modo de manutenção e *vice-versa*
 
 As tarefas de gestão acima só podem ser efetuadas através da interface do Windows PowerShell do dispositivo StorSimple.
 
 ## <a name="about-storsimple-device-modes"></a>Sobre os modos de dispositivo do StorSimple
 
-O dispositivo StorSimple pode funcionar no modo normal, de manutenção ou de recuperação. Cada um dos modos destas brevemente é descrita abaixo.
+O dispositivo StorSimple pode operar no modo normal, manutenção ou recuperação. Cada um desses modos resumidamente é descrita abaixo.
 
 ### <a name="normal-mode"></a>Modo normal
 
-Isto é definido como modo normal operacional para um dispositivo StorSimple totalmente configurado. Por predefinição, o seu dispositivo deve estar no modo normal.
+Isso é definido como o modo operacional normal para um dispositivo StorSimple totalmente configurado. Por predefinição, o dispositivo deve estar no modo normal.
 
 ### <a name="maintenance-mode"></a>Modo de manutenção
 
-Por vezes, o dispositivo StorSimple poderá ter de ser colocado no modo de manutenção. Este modo permite-lhe efetuar manutenção no dispositivo e instalar atualizações acontece, por exemplo, os relacionados com o firmware do disco.
+Por vezes, o dispositivo StorSimple poderá ter de ser colocado no modo de manutenção. Este modo permite-lhe realizar a manutenção no dispositivo e instalar atualizações disruptivas, como os relacionados com o firmware do disco.
 
-Pode colocar o sistema no modo de manutenção apenas através do Windows PowerShell para StorSimple. Todos os pedidos de e/s são colocadas em pausa neste modo. Os serviços, tais como a memória de acesso aleatório não volátil (NVRAM) ou o serviço clustering também estão parados. Ambos os controladores são reiniciados quando introduzir ou sair neste modo. Quando sair do modo de manutenção, todos os serviços retomará e devem estar em bom estado. Esta operação poderá demorar alguns minutos.
+Pode colocar o sistema no modo de manutenção apenas através do Windows PowerShell para StorSimple. Todos os pedidos de e/s são colocadas em pausa nesse modo. Serviços, tais como a memória de acesso de aleatório não volátil (NVRAM) ou o serviço de clustering também são paradas. Ambos os controladores são reiniciados quando entrem ou saia neste modo. Quando sair do modo de manutenção, todos os serviços serão retomada e devem ser bom estado de funcionamento. Esta operação poderá demorar alguns minutos.
 
 > [!NOTE]
-> **Modo de manutenção só é suportado num dispositivo funcionar corretamente. Não é suportada num dispositivo em que um ou ambos os controladores não estão a funcionar.**
+> **Modo de manutenção só é suportado num dispositivo está a funcionar corretamente. Não é suportado num dispositivo em que um ou ambos os controladores não estão a funcionar.**
 
 
 ### <a name="recovery-mode"></a>Modo de recuperação
 
-Modo de recuperação pode ser descrito como "Windows modo de segurança com suporte de rede". Modo de recuperação envolva a equipa de Support da Microsoft e permite-lhes diagnósticos no sistema. O principal objetivo do modo de recuperação é obter os registos do sistema.
+Modo de recuperação pode ser descrito como "Modo seguro para o Windows com suporte de rede". Modo de recuperação seja aplicada a equipe de Support da Microsoft e permite que execute o diagnóstico do sistema. O objetivo principal do modo de recuperação é recuperar os registos do sistema.
 
-Se o sistema entra no modo de recuperação, deverá contactar Support da Microsoft para os passos seguintes. Para obter mais informações, aceda a [contactar o suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+Se o seu sistema entra no modo de recuperação, deve contactar o Support da Microsoft para passos seguintes. Para obter mais informações, aceda a [contacte o suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 > [!NOTE]
-> **Não é possível colocar o dispositivo em modo de recuperação. Se o dispositivo está num Estado incorreto, o modo de recuperação tenta colocar o dispositivo num Estado em que Microsoft Support técnico pode examiná-lo.**
+> **Não é possível colocar o dispositivo no modo de recuperação. Se o dispositivo está num Estado incorreto, modo de recuperação tenta obter o dispositivo num Estado em que o pessoal de Support da Microsoft pode examiná-lo.**
 
-## <a name="determine-storsimple-device-mode"></a>Determinar o modo de dispositivo do StorSimple
+## <a name="determine-storsimple-device-mode"></a>Determinar o modo do dispositivo StorSimple
 
 #### <a name="to-determine-the-current-device-mode"></a>Para determinar o modo atual do dispositivo
 
-1. Inicie sessão da consola de série do dispositivo ao seguir os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Observe a mensagem de faixa no menu da consola de série do dispositivo. Esta mensagem explicitamente indica se o dispositivo está no modo de manutenção ou de recuperação. Se a mensagem não contém quaisquer informações específicas relativas para o modo de sistema, o dispositivo está no modo normal.
+1. Inicie sessão da consola de série do dispositivo ao seguir os passos em [utilizar o PuTTY para ligar a consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. Ver a mensagem de faixa no menu da consola de série do dispositivo. Esta mensagem indica explicitamente se o dispositivo está no modo de manutenção ou de recuperação. Se a mensagem não contém quaisquer informações específicas relacionadas para o modo de sistema, o dispositivo estiver no modo normal.
 
 ## <a name="change-the-storsimple-device-mode"></a>Alterar o modo de dispositivo do StorSimple
 
-É possível colocar o dispositivo StorSimple no modo de manutenção (de modo normal) para executar a manutenção ou instalar atualizações de modo de manutenção. Execute os seguintes procedimentos para introduzir ou sair do modo de manutenção.
+Pode colocar o dispositivo StorSimple no modo de manutenção (a partir do modo normal) para executar a manutenção ou instalar atualizações de modo de manutenção. Efetue os seguintes procedimentos para entrar ou sair do modo de manutenção.
 
 > [!IMPORTANT]
-> Antes de introduzir o modo de manutenção, certifique-se de que ambos os controladores de dispositivo estão em bom Estados acedendo a **definições do dispositivo > Estado de funcionamento do Hardware** para o seu dispositivo no portal do Azure. Se um ou ambos os controladores de não estão em bom Estados, contacte Support da Microsoft para os passos seguintes. Para obter mais informações, aceda a [contactar o suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+> Antes de entrar no modo de manutenção, certifique-se de que os dois controladores de dispositivo estão em bom Estados ao aceder a **definições do dispositivo > Estado de funcionamento do Hardware** para o seu dispositivo no portal do Azure. Se um ou ambos os controladores não estão em bom Estados, contacte o Support da Microsoft para os passos seguintes. Para obter mais informações, aceda a [contacte o suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
  
 
-#### <a name="to-enter-maintenance-mode"></a>Introduza o modo de manutenção
+#### <a name="to-enter-maintenance-mode"></a>Para entrar no modo de manutenção
 
-1. Inicie sessão da consola de série do dispositivo ao seguir os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Inicie sessão da consola de série do dispositivo ao seguir os passos em [utilizar o PuTTY para ligar a consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**. Quando solicitado, forneça o **palavra-passe de administrador do dispositivo**. A palavra-passe predefinida é: `Password1`.
 3. Na linha de comandos, escreva 
    
     `Enter-HcsMaintenanceMode`
-4. Verá uma mensagem de aviso informá-lo de que modo de manutenção irá interromper todos os pedidos de e/s e sever a ligação ao portal do Azure e lhe-á de confirmação. Tipo **Y** para introduzir o modo de manutenção.
-5. Tanto os controladores irão reiniciar automaticamente. Quando o reinício estiver concluído, a faixa de consola de série indica que o dispositivo estiver no modo de manutenção. É apresentada abaixo uma saída de exemplo.
+4. Verá uma mensagem de aviso informando que o modo de manutenção irá interromper todos os pedidos de e/s e a ligação ao portal do Azure do servidor, e será solicitado para confirmação. Tipo **Y** para entrar no modo de manutenção.
+5. Os dois controladores serão reiniciado. Quando o reinício estiver concluído, a faixa de consola de série indica que o dispositivo estiver no modo de manutenção. É apresentada abaixo uma saída de exemplo.
 
 ```
     ---------------------------------------------------------------
@@ -126,7 +126,7 @@ Se o sistema entra no modo de recuperação, deverá contactar Support da Micros
    
     `Exit-HcsMaintenanceMode`
 3. Serão apresentada uma mensagem de aviso e uma mensagem de confirmação. Tipo **Y** para sair do modo de manutenção.
-4. Tanto os controladores irão reiniciar automaticamente. Quando o reinício estiver concluído, a faixa de consola de série indica que o dispositivo estiver no modo normal. É apresentada abaixo uma saída de exemplo.
+4. Os dois controladores serão reiniciado. Quando o reinício estiver concluído, a faixa de consola de série indica que o dispositivo estiver no modo normal. É apresentada abaixo uma saída de exemplo.
 
 ```
     -----------------------MAINTENANCE MODE------------------------
@@ -161,7 +161,7 @@ Se o sistema entra no modo de recuperação, deverá contactar Support da Micros
     Please enter your choice>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [aplicar atualizações de modo normal e manutenção](storsimple-update-device.md) no dispositivo StorSimple.
+Saiba como [aplicar atualizações de modo normal e a manutenção](storsimple-update-device.md) no dispositivo StorSimple.
 
