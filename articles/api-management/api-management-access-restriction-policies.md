@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
 ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60798600"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 
@@ -61,7 +61,7 @@ Utilize o `check-header` política para impor que um pedido tem um cabeçalho HT
 | Name         | Descrição                                                                                                                                   | Necessário |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Elemento raiz.                                                                                                                                 | Sim      |
-| valor        | Valor de cabeçalho HTTP permitido. Quando forem especificados vários elementos de valor, a verificação é considerada um sucesso se qualquer um dos valores uma correspondência. | Não       |
+| value        | Valor de cabeçalho HTTP permitido. Quando forem especificados vários elementos de valor, a verificação é considerada um sucesso se qualquer um dos valores uma correspondência. | Não       |
 
 ### <a name="attributes"></a>Atributos
 

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60826752"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorizar e gerir pipelines do Azure Data Factory com a aplicação de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -160,7 +160,7 @@ Janelas de atividade podem ter um dos seguintes Estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Substatus</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">A aguardar</td><td>ScheduleTime</td><td>O tempo não são fornecidos para a janela de atividade executar.</td>
@@ -194,7 +194,7 @@ Janelas de atividade podem ter um dos seguintes Estados:
 <td>A janela de atividade está a ser processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Com Falhas</td><td>Excedido</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com Falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>A janela de atividade foi cancelada por ação do utilizador.</td>

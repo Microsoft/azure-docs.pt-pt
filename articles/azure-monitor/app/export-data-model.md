@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: mbullwin
 ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60898921"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviada pela [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDKs para o portal.
@@ -114,187 +114,187 @@ Pontos a serem observados:
 ## <a name="context"></a>Contexto
 Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos estes campos são transmitidos com todos os pontos de dados.
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
 | Context.Custom.dimensions [0] |objeto [] |Pares de cadeia de caracteres de chave-valor definido pelo parâmetro de propriedades personalizadas. Os valores de comprimento de chave máximo 100, comprimento máximo de 1024. Mais de 100 valores exclusivos, a propriedade pode ser pesquisada, mas não pode ser utilizada para segmentação. Chaves de 200 máx. por ikey. |
 | Context.Custom.Metrics [0] |objeto [] |Pares chave-valor definido pelo parâmetro de medições personalizadas e por TrackMetrics. Comprimento máximo 100 da chave, valores podem ser um valor numéricos. |
-| context.data.eventTime |cadeia |UTC |
+| context.data.eventTime |string |UTC |
 | context.data.isSynthetic |boolean |Pedido parece ser proveniente de um teste web ou de bot. |
 | context.data.samplingRate |número |Percentagem de telemetria gerada pelo SDK do que é enviado para o portal. Intervalo de 0,0 100,0. |
-| Context.Device |objeto |Dispositivo de cliente |
-| Context.Device.browser |cadeia |O IE, Chrome,... |
-| context.device.browserVersion |cadeia |Chrome 48.0,... |
-| context.device.deviceModel |cadeia | |
-| context.device.deviceName |cadeia | |
-| Context.Device.ID |cadeia | |
-| Context.Device.locale |cadeia |en-GB, de-DE... |
-| Context.Device.Network |cadeia | |
-| context.device.oemName |cadeia | |
-| Context.Device.os |cadeia | |
-| context.device.osVersion |cadeia |SO do Host |
-| context.device.roleInstance |cadeia |ID de anfitrião do servidor |
-| context.device.roleName |cadeia | |
-| context.device.screenResolution |cadeia | |
-| Context.Device.Type |cadeia |PC, o navegador,... |
-| Context.location |objeto |Derivado dos clientip. |
-| Context.location.City |cadeia |Derivado dos clientip, se conhecidos |
-| Context.location.ClientIP |cadeia |Um último octógono é anónimos como 0. |
-| Context.location.continent |cadeia | |
-| Context.location.Country |cadeia | |
-| Context.location.Province |cadeia |Distrito |
-| Context.Operation.ID |cadeia |Itens que tenham o mesmo id de operação são apresentados como itens relacionados no portal. Normalmente, o id do pedido. |
-| Context.Operation.Name |cadeia |nome de URL ou a pedido |
-| context.operation.parentId |cadeia |Permite que os itens relacionados aninhados. |
-| Context.Session.ID |cadeia |ID de um grupo de operações da mesma origem. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
+| context.device |objeto |Dispositivo de cliente |
+| context.device.browser |string |O IE, Chrome,... |
+| context.device.browserVersion |string |Chrome 48.0,... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, de-DE... |
+| context.device.network |string | |
+| context.device.oemName |string | |
+| context.device.os |string | |
+| context.device.osVersion |string |SO do Host |
+| context.device.roleInstance |string |ID de anfitrião do servidor |
+| context.device.roleName |string | |
+| context.device.screenResolution |string | |
+| context.device.type |string |PC, o navegador,... |
+| context.location |objeto |Derivado dos clientip. |
+| context.location.city |string |Derivado dos clientip, se conhecidos |
+| context.location.clientip |string |Um último octógono é anónimos como 0. |
+| context.location.continent |string | |
+| context.location.country |string | |
+| context.location.province |string |Distrito |
+| context.operation.id |string |Itens que tenham o mesmo id de operação são apresentados como itens relacionados no portal. Normalmente, o id do pedido. |
+| context.operation.name |string |nome de URL ou a pedido |
+| context.operation.parentId |string |Permite que os itens relacionados aninhados. |
+| context.session.id |string |ID de um grupo de operações da mesma origem. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
 | context.session.isFirst |boolean | |
-| context.user.accountAcquisitionDate |cadeia | |
-| context.user.accountId |cadeia | |
-| context.user.anonAcquisitionDate |cadeia | |
-| context.user.anonId |cadeia | |
-| context.user.authAcquisitionDate |cadeia |[Utilizador autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
-| context.user.authId |cadeia | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
+| context.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[Utilizador autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
-| context.user.storeRegion |cadeia | |
-| internal.data.documentVersion |cadeia | |
-| INTERNAL.data.ID |cadeia | Id exclusivo atribuído quando um item é ingerido para o Application Insights |
+| context.user.storeRegion |string | |
+| internal.data.documentVersion |string | |
+| internal.data.id |string | Id exclusivo atribuído quando um item é ingerido para o Application Insights |
 
 ## <a name="events"></a>Eventos
 Eventos personalizados gerados pelo [trackevent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
 | Contagem de eventos [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
-| nome do evento [0] |cadeia |Nome do evento.  Comprimento máximo de 250. |
-| url de eventos [0] |cadeia | |
-| o evento [0] urlData.base |cadeia | |
-| o evento [0] urlData.host |cadeia | |
+| nome do evento [0] |string |Nome do evento.  Comprimento máximo de 250. |
+| url de eventos [0] |string | |
+| o evento [0] urlData.base |string | |
+| o evento [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Exceções
 Relatórios [exceções](../../azure-monitor/app/asp-net-exceptions.md) no servidor e no browser.
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
-| assembly de basicException [0] |cadeia | |
+| assembly de basicException [0] |string | |
 | Contagem de basicException [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
-| exceptionGroup basicException [0] |cadeia | |
-| exceptionType basicException [0] |cadeia | |
-| failedUserCodeMethod basicException [0] |cadeia | |
-| failedUserCodeAssembly basicException [0] |cadeia | |
-| handledAt basicException [0] |cadeia | |
+| exceptionGroup basicException [0] |string | |
+| exceptionType basicException [0] |string | |
+| failedUserCodeMethod basicException [0] |string | |
+| failedUserCodeAssembly basicException [0] |string | |
+| handledAt basicException [0] |string | |
 | hasFullStack basicException [0] |boolean | |
-| id de basicException [0] |cadeia | |
-| método basicException [0] |cadeia | |
-| mensagem de basicException [0] |cadeia |Mensagem de exceção. Comprimento máximo de 10 mil. |
-| outerExceptionMessage basicException [0] |cadeia | |
-| outerExceptionThrownAtAssembly basicException [0] |cadeia | |
-| outerExceptionThrownAtMethod basicException [0] |cadeia | |
-| outerExceptionType basicException [0] |cadeia | |
-| outerId basicException [0] |cadeia | |
-| assembly de parsedStack [0] basicException [0] |cadeia | |
-| o nome de ficheiro do basicException [0] parsedStack [0] |cadeia | |
+| id de basicException [0] |string | |
+| método basicException [0] |string | |
+| mensagem de basicException [0] |string |Mensagem de exceção. Comprimento máximo de 10 mil. |
+| outerExceptionMessage basicException [0] |string | |
+| outerExceptionThrownAtAssembly basicException [0] |string | |
+| outerExceptionThrownAtMethod basicException [0] |string | |
+| outerExceptionType basicException [0] |string | |
+| outerId basicException [0] |string | |
+| assembly de parsedStack [0] basicException [0] |string | |
+| o nome de ficheiro do basicException [0] parsedStack [0] |string | |
 | nível de parsedStack [0] basicException [0] |inteiro | |
 | linha de parsedStack [0] basicException [0] |inteiro | |
-| método de parsedStack [0] basicException [0] |cadeia | |
-| pilha de basicException [0] |cadeia |Comprimento máximo de 10 mil |
-| typeName basicException [0] |cadeia | |
+| método de parsedStack [0] basicException [0] |string | |
+| pilha de basicException [0] |string |Comprimento máximo de 10 mil |
+| typeName basicException [0] |string | |
 
 ## <a name="trace-messages"></a>Mensagens de Rastreio
 Enviado pela [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)e pela [adaptadores de Registro em log](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
-| a mensagem [0] loggerName |cadeia | |
-| parâmetros de mensagem [0] |cadeia | |
-| mensagem [0] não processada |cadeia |A mensagem de registo, comprimento máximo de 10 mil. |
-| a mensagem [0] severityLevel |cadeia | |
+| a mensagem [0] loggerName |string | |
+| parâmetros de mensagem [0] |string | |
+| mensagem [0] não processada |string |A mensagem de registo, comprimento máximo de 10 mil. |
+| a mensagem [0] severityLevel |string | |
 
 ## <a name="remote-dependency"></a>Dependência remota
 Enviado pela TrackDependency. Utilizado para o desempenho do relatório e a utilização da [chamadas para dependências](../../azure-monitor/app/asp-net-dependencies.md) no servidor e chamadas AJAX no navegador.
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
 | async remoteDependency [0] |boolean | |
-| Nome_de_base remoteDependency [0] |cadeia | |
-| commandName remoteDependency [0] |cadeia |Por exemplo "home/index" |
+| Nome_de_base remoteDependency [0] |string | |
+| commandName remoteDependency [0] |string |Por exemplo "home/index" |
 | Contagem de remoteDependency [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
-| dependencyTypeName remoteDependency [0] |cadeia |HTTP, SQL,... |
+| dependencyTypeName remoteDependency [0] |string |HTTP, SQL, ... |
 | durationMetric.value remoteDependency [0] |número |Tempo da chamada para a conclusão da resposta pela dependência |
-| id de remoteDependency [0] |cadeia | |
-| nome de remoteDependency [0] |cadeia |URL. Comprimento máximo de 250. |
-| resultCode remoteDependency [0] |cadeia |de dependência HTTP |
+| id de remoteDependency [0] |string | |
+| nome de remoteDependency [0] |string |URL. Comprimento máximo de 250. |
+| resultCode remoteDependency [0] |string |de dependência HTTP |
 | sucesso de remoteDependency [0] |boolean | |
-| tipo de remoteDependency [0] |cadeia |Http, Sql,... |
-| url de remoteDependency [0] |cadeia |Comprimento máximo de 2000 |
-| urlData.base remoteDependency [0] |cadeia |Comprimento máximo de 2000 |
-| urlData.hashTag remoteDependency [0] |cadeia | |
-| urlData.host remoteDependency [0] |cadeia |Comprimento máximo de 200 |
+| tipo de remoteDependency [0] |string |Http, Sql,... |
+| url de remoteDependency [0] |string |Comprimento máximo de 2000 |
+| urlData.base remoteDependency [0] |string |Comprimento máximo de 2000 |
+| remoteDependency [0] urlData.hashTag |string | |
+| urlData.host remoteDependency [0] |string |Comprimento máximo de 200 |
 
 ## <a name="requests"></a>Pedidos
 Enviado pela [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Os módulos padrão usado para tempo de resposta do servidor de relatórios, medido no servidor.
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
 | Contagem de pedidos [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo: 4 =&gt; 25%. |
-| o pedido [0] durationMetric.value |número |Tempo do pedido que chegam à resposta. 1e7 = = 1s |
-| id do pedido [0] |cadeia |ID da operação |
-| nome do pedido [0] |cadeia |GET/pós + url base.  Comprimento máximo de 250 |
+| o pedido [0] durationMetric.value |número |Tempo do pedido que chegam à resposta. 1e7 == 1s |
+| id do pedido [0] |string |ID da operação |
+| nome do pedido [0] |string |GET/pós + url base.  Comprimento máximo de 250 |
 | o pedido [0] responseCode |inteiro |Resposta HTTP enviada ao cliente |
 | pedido com êxito [0] |boolean |Predefinição = = (responseCode &lt; 400) |
-| url do pedido [0] |cadeia |Não incluindo o anfitrião |
-| o pedido [0] urlData.base |cadeia | |
-| o pedido [0] urlData.hashTag |cadeia | |
-| o pedido [0] urlData.host |cadeia | |
+| url do pedido [0] |string |Não incluindo o anfitrião |
+| o pedido [0] urlData.base |string | |
+| request [0] urlData.hashTag |string | |
+| o pedido [0] urlData.host |string | |
 
 ## <a name="page-view-performance"></a>Desempenho de vista de página
 Enviado pelo navegador. Mede o tempo a processar uma página, do utilizador a iniciar o pedido para apresentar completa (excluindo as chamadas AJAX assíncronas).
 
 Valores de contexto mostram o SO de cliente e a versão do browser.
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
 | clientProcess.value clientPerformance [0] |inteiro |Hora de fim de receber o HTML para apresentar a página. |
-| nome de clientPerformance [0] |cadeia | |
+| nome de clientPerformance [0] |string | |
 | networkConnection.value clientPerformance [0] |inteiro |Tempo decorrido para estabelecer uma ligação de rede. |
 | receiveRequest.value clientPerformance [0] |inteiro |Hora de fim de enviar o pedido para receber o HTML na resposta. |
 | sendRequest.value clientPerformance [0] |inteiro |Tempo de direcionado para enviar o pedido HTTP. |
 | total.value clientPerformance [0] |inteiro |Hora de começar a enviar o pedido para apresentar a página. |
-| url de clientPerformance [0] |cadeia |URL deste pedido |
-| urlData.base clientPerformance [0] |cadeia | |
-| urlData.hashTag clientPerformance [0] |cadeia | |
-| urlData.host clientPerformance [0] |cadeia | |
-| urlData.protocol clientPerformance [0] |cadeia | |
+| url de clientPerformance [0] |string |URL deste pedido |
+| clientPerformance [0] urlData.base |string | |
+| clientPerformance [0] urlData.hashTag |string | |
+| clientPerformance [0] urlData.host |string | |
+| urlData.protocol clientPerformance [0] |string | |
 
 ## <a name="page-views"></a>Visualizações da Página
 Enviado pelo trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
 | Contagem de visualizações [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
 | Ver durationMetric.value [0] |inteiro |Valor se desejar, defina no trackPageView() ou ao startTrackPage() - stopTrackPage(). Não são as mesmas como clientPerformance valores. |
-| nome da vista [0] |cadeia |Título da página.  Comprimento máximo de 250 |
-| Ver url [0] |cadeia | |
-| Ver urlData.base [0] |cadeia | |
-| Ver urlData.hashTag [0] |cadeia | |
-| Ver urlData.host [0] |cadeia | |
+| nome da vista [0] |string |Título da página.  Comprimento máximo de 250 |
+| Ver url [0] |string | |
+| Ver urlData.base [0] |string | |
+| Ver urlData.hashTag [0] |string | |
+| Ver urlData.host [0] |string | |
 
 ## <a name="availability"></a>Disponibilidade
 Relatórios [testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| Caminho | Tipo | Notas |
+| Caminho | Type | Notas |
 | --- | --- | --- |
-| availabilityMetric.name disponibilidade [0] |cadeia |disponibilidade |
+| availabilityMetric.name disponibilidade [0] |string |disponibilidade |
 | availabilityMetric.value disponibilidade [0] |número |1.0 ou 0,0 |
 | Contagem de disponibilidade [0] |inteiro |100 / ([amostragem](../../azure-monitor/app/sampling.md) taxa). Por exemplo, 4 =&gt; 25%. |
-| dataSizeMetric.name disponibilidade [0] |cadeia | |
+| dataSizeMetric.name disponibilidade [0] |string | |
 | dataSizeMetric.value disponibilidade [0] |inteiro | |
-| durationMetric.name disponibilidade [0] |cadeia | |
-| durationMetric.value disponibilidade [0] |número |Duração do teste. 1e7 = = 1s |
-| mensagem de disponibilidade [0] |cadeia |Diagnóstico de falha |
-| resultado de disponibilidade [0] |cadeia |Aprovação/reprovação |
-| runLocation disponibilidade [0] |cadeia |Origem da geo de pedidos de http |
-| testName disponibilidade [0] |cadeia | |
-| testRunId disponibilidade [0] |cadeia | |
-| testTimestamp disponibilidade [0] |cadeia | |
+| durationMetric.name disponibilidade [0] |string | |
+| durationMetric.value disponibilidade [0] |número |Duração do teste. 1e7==1s |
+| mensagem de disponibilidade [0] |string |Diagnóstico de falha |
+| resultado de disponibilidade [0] |string |Aprovação/reprovação |
+| runLocation disponibilidade [0] |string |Origem da geo de pedidos de http |
+| testName disponibilidade [0] |string | |
+| testRunId disponibilidade [0] |string | |
+| testTimestamp disponibilidade [0] |string | |
 
 ## <a name="metrics"></a>Métricas
 Gerado por trackmetric ().

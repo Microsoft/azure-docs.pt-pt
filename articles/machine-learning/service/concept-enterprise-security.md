@@ -11,11 +11,11 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
 ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821368"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança empresarial para o serviço Azure Machine Learning
 
@@ -23,7 +23,7 @@ Neste artigo, aprenderá sobre recursos de segurança disponíveis com o Azure s
 
 Quando utilizar um serviço em nuvem, é melhor prática para restringir o acesso apenas aos utilizadores que precisam dele. Esta ação inicia por compreender o modelo de autenticação e autorização utilizado pelo serviço. Pode também querer restringir o acesso de rede ou ingressar com segurança a recursos na sua rede no local com aqueles na cloud. Encriptação de dados também é vital, inativos e enquanto os dados são movidos entre serviços. Por fim, precisa ser capaz de monitorizar o serviço e produzir um log de auditoria de todas as atividades.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Multi-Factor authentication é suportada se o Azure Active Directory (Azure AD) estiver configurado para o mesmo.
 * Cliente inicia sessão no Azure AD e obtém do Azure Resource Manager token.  Os utilizadores e os principais de serviço são totalmente suportados.
 * Cliente apresenta o token para o Azure Resource Manager e todos os serviços do Azure Machine Learning
@@ -86,9 +86,9 @@ Para obter mais informações sobre identidades geridas, consulte [geridos ident
 | Recurso | Permissões |
 | ----- | ----- |
 | Área de trabalho | Contribuinte | 
-| Conta de Armazenamento | Contribuinte de dados de Blob de armazenamento | 
-| Key Vault | Acesso a todos os certificados de chaves, segredos, | 
-| Azure Container Registry | Contribuinte | 
+| Conta de Armazenamento | Contribuinte de Dados do Armazenamento de Blobs | 
+| Cofre de Chaves | Acesso a todos os certificados de chaves, segredos, | 
+| Registo de Contentores do Azure | Contribuinte | 
 | Grupo de recursos que contém a área de trabalho | Contribuinte | 
 | Grupo de recursos que contém o Cofre de chaves (se diferente daquela que contém a área de trabalho) | Contribuinte | 
 
@@ -113,7 +113,7 @@ Para obter mais informações sobre como colocar suas próprias chaves para os d
 
 Os dados de preparação, normalmente, também são armazenados no armazenamento de Blobs do Azure para que seja acessível a computação de treinamento. Este armazenamento não é gerenciado pelo Azure Machine Learning mas montado para computação como um sistema de ficheiros remota.
 
-#### <a name="cosmos-db"></a>Cosmos DB
+#### <a name="cosmos-db"></a>BD do Cosmos
 O serviço de Machine Learning do Azure armazena as métricas e metadados para o Cosmos DB que reside numa subscrição Microsoft gerenciada pelo serviço Azure Machine Learning. Todos os dados armazenados no Cosmos DB são encriptados em descanso ao utilizar chaves geridas da Microsoft.
 
 #### <a name="azure-container-registry-acr"></a>Azure Container Registry (ACR)

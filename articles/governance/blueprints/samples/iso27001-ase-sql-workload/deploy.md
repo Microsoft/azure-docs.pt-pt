@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60875996"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar o exemplo de plano gráfico de carga de trabalho de base de dados do ISO 27001 aplicação serviço ambiente/SQL
 
@@ -116,12 +116,12 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Grupo de recursos do log Analytics|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do log Analytics|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos do log Analytics|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Camada de serviços|Define a camada da área de trabalho do Log Analytics. Valor predefinido é _PerNode_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Localização|Região utilizada para criar a área de trabalho do Log Analytics. Valor predefinido é _E.U.A. oeste 2_.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Location|Região utilizada para criar a área de trabalho do Log Analytics. Valor predefinido é _E.U.A. oeste 2_.|
 |Grupo de recursos de rede|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de rede|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos de rede|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Grupo de Segurança de Rede|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
 |Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|IP privado do Azure Firewall|Configura o IP privado dos [firewall do Azure](../../../../firewall/overview.md). Deve fazer parte da notação CIDR definida no _ISO 27001: Serviços compartilhados_ parâmetro de artefacto **prefixo de endereço de sub-rede de Firewall do Azure**. Valor predefinido é _10.0.4.4_.|
 |Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|ID da Subscrição dos Serviços partilhados|Valor utilizado para ativar o VNET peering entre uma carga de trabalho e serviços compartilhados.|
@@ -129,13 +129,13 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 |Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Prefixo do endereço de sub-rede predefinido|A notação CIDR para a sub-rede de predefinição da rede virtual. Valor predefinido é _10.1.0.0/16_.|
 |Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Endereço IP do ADDS|Endereço IP da VM adiciona primeiro. Este valor é utilizado como o DNS personalizado da VNET.|
 |Grupo de recursos do Cofre de chaves|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-kv-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do Cofre de chaves|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos do Cofre de chaves|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Key Vault|Modelo do Resource Manager|ID do objeto do AAD|O identificador de objeto do AAD da conta de que necessita de acesso para a instância do Key Vault. Sem predefinição de valor e não pode ser deixado em branco. Para localizar este valor a partir do portal do Azure, procure e selecione "Utilizadores" em _serviços_. Utilize o _nome_ caixa para filtrar para o nome da conta e selecionar essa conta. No _perfil de utilizador_ página, selecione o ícone de "Clique para copiar" junto a _ID de objeto_.|
 |Modelo do Key Vault|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
 |Modelo do Key Vault|Modelo do Resource Manager|SKU do Key Vault|Especifica o SKU de Cofre de chaves do que é criado. Valor predefinido é _Premium_.|
 |Modelo do Key Vault|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|O nome de utilizador utilizada para aceder ao servidor SQL do Azure. Tem de corresponder ao valor da propriedade mesmo nas **modelo de base de dados do Azure SQL**. Valor predefinido é _utilizador de administrador de sql_.|
 |Grupo de recursos de base de dados SQL do Azure|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de base de dados SQL do Azure|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos de base de dados SQL do Azure|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|Nome de utilizador para o servidor SQL do Azure. Tem de corresponder ao valor da propriedade mesmo nas **modelo de Key Vault**. Valor predefinido é _utilizador de administrador de sql_.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure do SQL Server (ID de recurso do Key Vault)|O ID de recurso do Cofre de chaves. Utilize "/ subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pelo ID da subscrição e `{orgName}` com o  **Nome da organização** esquema de parâmetro.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure do SQL Server (nome de segredo do Key Vault)|Nome de utilizador do SQL administrador do servidor. Tem de corresponder ao valor na **modelo de Key Vault** propriedade **nome de utilizador de administrador de servidor SQL do Azure**.|
@@ -143,7 +143,7 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|ID de objeto de administrador do AAD|ID de objeto do AAD do utilizador que irá obter atribuído como um administrador do Active Directory. Sem predefinição de valor e não pode ser deixado em branco. Para localizar este valor a partir do portal do Azure, procure e selecione "Utilizadores" em _serviços_. Utilize o _nome_ caixa para filtrar para o nome da conta e selecionar essa conta. No _perfil de utilizador_ página, selecione o ícone de "Clique para copiar" junto a _ID de objeto_.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Início de sessão de administrador AAD|Atualmente, as contas Microsoft (como live.com ou outlook.com) não podem ser definidas como administrador. Apenas os utilizadores e grupos de segurança da sua organização podem ser definidos como administrador. Sem predefinição de valor e não pode ser deixado em branco. Para localizar este valor a partir do portal do Azure, procure e selecione "Utilizadores" em _serviços_. Utilize o _nome_ caixa para filtrar para o nome da conta e selecionar essa conta. Sobre o _perfil de utilizador_ página, copie a _nome de utilizador_.|
 |Grupo de recursos de ambiente de serviço de aplicações|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-workload-ase-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de ambiente de serviço de aplicações|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos de ambiente de serviço de aplicações|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Nome de domínio|Nome do Active Directory criadas pelo exemplo. Valor predefinido é _contoso.com_.|
 |Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Localização do ASE|Localização do ambiente de serviço de aplicações. Valor predefinido é _E.U.A. oeste 2_.|
 |Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Retenção do registo do Gateway de Aplicação em dias|Retenção de dados em dias. Valor predefinido é _365_.|

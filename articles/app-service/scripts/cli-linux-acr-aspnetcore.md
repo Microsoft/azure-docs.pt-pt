@@ -17,11 +17,11 @@ ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: c05572d4962eca042a807be3eec94462d0830e1b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835741"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-in-app-service-from-azure-container-registry"></a>Criar uma aplicação ASP.NET Core num contentor do Docker no serviço de aplicações do Azure Container Registry
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736977"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos de HTTP X-EC-Debug para o motor de regras de CDN do Azure
 O cabeçalho de pedido de cache de depuração, `X-EC-Debug`, fornece informações adicionais sobre a política de cache que é aplicada ao elemento de pedido. Esses cabeçalhos são específicos **CDN do Azure Premium da Verizon** produtos.
@@ -38,7 +38,7 @@ Cabeçalho do pedido | Descrição |
 X-EC-Debug: x-ec-cache | [Código de estado de cache](#cache-status-code-information)
 X-EC-Debug: x-ec-cache-remoto | [Código de estado de cache](#cache-status-code-information)
 X-EC-Debug: x-ec-check-colocáveis em cache | [Colocáveis em cache](#cacheable-response-header)
-X-EC-Debug: x-ec-cache-key | [Chave de cache](#cache-key-response-header)
+X-EC-Debug: x-ec-cache-key | [Cache-key](#cache-key-response-header)
 X-EC-Debug: x-ec-cache-Estado | [Estado da cache](#cache-state-response-header)
 
 ### <a name="syntax"></a>Sintaxe
@@ -80,7 +80,7 @@ Os termos utilizados na sintaxe do cabeçalho de resposta acima são definidos d
     ECS   | Pequenas de HTTP
     ECD   | Rede de entrega de aplicações (ADN)
 
-- POP: Indica o [POP](cdn-pop-abbreviations.md) que processada o pedido. 
+- POP: Indica a [POP](cdn-pop-abbreviations.md) que processada o pedido. 
 
 ### <a name="sample-response-headers"></a>Cabeçalhos de resposta de exemplo
 
@@ -103,10 +103,10 @@ O `X-EC-Debug` cabeçalho de resposta se um pedido pode estão em cache de relat
 
 O termo utilizado na sintaxe do cabeçalho de resposta acima é definido da seguinte forma:
 
-Valor  | Descrição
+Value  | Descrição
 -------| --------
 SIM    | Indica que o conteúdo solicitado foi elegível para a colocação em cache.
-NÃO     | Indica que o conteúdo solicitado foi não elegível para a colocação em cache. Este estado pode ser devido a um dos seguintes motivos: <br /> -Configuração específicas do cliente: uma configuração específica para a sua conta pode impedir que os servidores de preenchimento da colocação em cache um recurso. Por exemplo, motor de regras pode impedir que um recurso de serem colocados em cache ao ativar a funcionalidade de ignorar a Cache para qualificar pedidos.<br /> -Cabeçalhos de resposta cache: Cabeçalhos de Cache-Control e Expires do recurso solicitado podem impedir que os servidores de POP colocação em cache.
+NO     | Indica que o conteúdo solicitado foi não elegível para a colocação em cache. Este estado pode ser devido a um dos seguintes motivos: <br /> -Configuração específicas do cliente: Uma configuração específica para a sua conta pode impedir que os servidores de preenchimento da colocação em cache um recurso. Por exemplo, motor de regras pode impedir que um recurso de serem colocados em cache ao ativar a funcionalidade de ignorar a Cache para qualificar pedidos.<br /> -Cabeçalhos de resposta em cache: Cabeçalhos de Cache-Control e Expires do recurso solicitado podem impedir que os servidores de POP colocação em cache.
 DESCONHECIDO | Indica que os servidores não é possível avaliar se o recurso pedido foi colocáveis em cache. Este estado normalmente ocorre quando o pedido é negado devido à autenticação baseada em tokens.
 
 ### <a name="sample-response-header"></a>Cabeçalho de resposta de exemplo
@@ -153,9 +153,9 @@ Os termos utilizados na sintaxe do cabeçalho de resposta acima são definidos d
 
 - UnixTime: Indica o carimbo de hora de cache do conteúdo pedido em tempo de Unix (também conhecido como POSIX tempo ou época do Unix). O carimbo de hora da cache indica a data/hora inicial da qual será calculada TTL de um recurso. 
 
-    Se o servidor de origem não utiliza um pedido de HTTP de terceiros colocação em cache de servidor ou se nesse servidor não devolve o cabeçalho de resposta de idade, em seguida, o carimbo de hora de cache será sempre a data/hora quando o recurso foi obtido ou revalidar o. Caso contrário, os servidores de POP utilizará o campo de idade para calcular o valor de TTL do recurso da seguinte forma: obtenção/RevalidateDateTime - idade.
+    Se o servidor de origem não utiliza um pedido de HTTP de terceiros colocação em cache de servidor ou se nesse servidor não devolve o cabeçalho de resposta de idade, em seguida, o carimbo de hora de cache será sempre a data/hora quando o recurso foi obtido ou revalidar o. Caso contrário, os servidores de POP irão utilizar o campo de idade para calcular o valor de TTL do recurso da seguinte forma: Obtenção/RevalidateDateTime - idade.
 
-- o ddd, dd MMM aaaa hh: mm: GMT: indica o carimbo de hora de cache do conteúdo pedido. Para obter mais informações, consulte o termo UnixTime acima.
+- ddd, dd MMM aaaa hh: mm: GMT: Indica o carimbo de hora de cache do conteúdo pedido. Para obter mais informações, consulte o termo UnixTime acima.
 
 - CASeconds: Indica o número de segundos decorridos desde o carimbo de hora de cache.
 

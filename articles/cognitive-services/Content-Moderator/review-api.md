@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607275"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisões de moderação de conteúdos, os fluxos de trabalho e tarefas
 

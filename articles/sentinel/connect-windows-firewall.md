@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714596"
 ---
 # <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885711"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749262"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utilizar o Service Bus do .NET com o AMQP 1.0
 
@@ -76,9 +76,9 @@ Para facilitar a interoperabilidade com clientes de ambientes não .NET, utilize
 | double |double |Valor AMQP |
 | decimal |decimal128 |Valor AMQP |
 | char |char |Valor AMQP |
-| DateTime |carimbo de data/hora |Valor AMQP |
+| DateTime |timestamp |Valor AMQP |
 | Guid |uuid |Valor AMQP |
-| byte[] |binário |Valor AMQP |
+| byte[] |binary |Valor AMQP |
 | string |string |Valor AMQP |
 | System.Collections.IList |list |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. |
 | System.Array |array |Valor AMQP: incluídas na coleção de itens só podem ser aquelas definidas nesta tabela. |
@@ -86,8 +86,8 @@ Para facilitar a interoperabilidade com clientes de ambientes não .NET, utilize
 | URI |Descrito a cadeia de caracteres (consulte a tabela seguinte) |Valor AMQP |
 | DateTimeOffset |Descrito há muito tempo (consulte a tabela seguinte) |Valor AMQP |
 | TimeSpan |Descrito há muito tempo (consulte o seguinte) |Valor AMQP |
-| Transmitir em fluxo |binário |Dados de AMQP (podem ser vários). As secções de dados contêm os bytes não processados que leem o objeto Stream. |
-| Outro objeto |binário |Dados de AMQP (podem ser vários). Contém o binário serializado do objeto que utiliza o DataContractSerializer ou um serializador fornecido pela aplicação. |
+| Transmitir em fluxo |binary |Dados de AMQP (podem ser vários). As secções de dados contêm os bytes não processados que leem o objeto Stream. |
+| Outro objeto |binary |Dados de AMQP (podem ser vários). Contém o binário serializado do objeto que utiliza o DataContractSerializer ou um serializador fornecido pela aplicação. |
 
 | Tipo de .NET | AMQP mapeada descrito tipo | Notas |
 | --- | --- | --- |

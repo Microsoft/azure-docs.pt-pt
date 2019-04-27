@@ -10,11 +10,11 @@ ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: f2b5fb5c44cbb2e0d766c49ed6b715484c22f62e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608806"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Exemplos de SDK de .NET de moderador de conteúdo
 

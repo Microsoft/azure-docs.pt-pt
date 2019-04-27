@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786378"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através do Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-db2-connector.md)
 > * [Versão atual](connector-db2.md)
 
@@ -61,12 +61,12 @@ As seguintes propriedades são suportadas para o serviço de DB2 ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Db2** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Db2** | Sim |
 | servidor |Nome do servidor DB2. Pode especificar o número da porta após o nome de servidor delimitado por vírgula, por exemplo, `server:port`. |Sim |
 | base de dados |Nome da base de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados DB2. |Sim |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -102,7 +102,7 @@ Para copiar dados de DB2, defina a propriedade de tipo de conjunto de dados para
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados DB2. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -132,7 +132,7 @@ Para copiar dados de DB2, definir o tipo de origem na atividade de cópia para *
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -176,28 +176,28 @@ Ao copiar dados de DB2, os seguintes mapeamentos são utilizados entre tipos de 
 | BigInt |Int64 |
 | Binário |Byte[] |
 | Blobs |Byte[] |
-| char |Cadeia |
-| CLOB |Cadeia |
+| char |String |
+| CLOB |String |
 | Date |Datetime |
-| DB2DynArray |Cadeia |
-| DbClob |Cadeia |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Valor de duplo |Valor de duplo |
-| Flutuante |Valor de duplo |
-| Gráfico |Cadeia |
+| Double |Double |
+| Float |Double |
+| Gráfico |String |
 | Número inteiro |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Cadeia |
-| LongVarGraphic |Cadeia |
-| Numérico |Decimal |
-| Real |Único |
+| LongVarChar |String |
+| LongVarGraphic |String |
+| Numeric |Decimal |
+| Real |Single |
 | SmallInt |Int16 |
-| Hora |Período de tempo |
+| Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Cadeia |
-| VarGraphic |Cadeia |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 

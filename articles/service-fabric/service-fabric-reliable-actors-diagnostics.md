@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726575"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
 O tempo de execução do Reliable Actors emite [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) eventos e [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estes fornecem informações sobre como o tempo de execução está a funcionar e ajudar a resolver problemas e monitorização do desempenho.
@@ -42,7 +42,7 @@ Todos os eventos que pertencem a EventSource de Atores fiáveis são associados 
 ## <a name="performance-counters"></a>Contadores de desempenho
 O tempo de execução do Reliable Actors define as seguintes categorias de contador de desempenho.
 
-| Categoria | Descrição |
+| Category | Descrição |
 | --- | --- |
 | Ator do Service Fabric |Contadores específicos do Azure Service Fabric actors, por exemplo, tempo demora a guardar o estado do ator |
 | Método de Ator do Service Fabric |Contadores específicos para métodos implementados pelos atores do Service Fabric, por exemplo, a frequência com que um método de ator é invocado |

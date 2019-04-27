@@ -13,17 +13,17 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901030"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependência: Modelo de dados do Application Insights
 
 Telemetria de dependência (no [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa uma interação do componente monitorizado com um componente remoto, como SQL ou um ponto final HTTP.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome do comando iniciado com chamada de dependência. Valor de cardinalidade baixa. Os exemplos são o nome do procedimento armazenado e o modelo de caminho de URL.
 
@@ -35,7 +35,7 @@ Identificador de uma instância de chamada de dependência. Utilizar correlaçã
 
 Comandos iniciados por essa chamada de dependência. Os exemplos são a instrução SQL e o URL de HTTP com todos os parâmetros de consulta.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Nome do tipo de dependência. Valor de cardinalidade baixa para um agrupamento lógico de dependências e a interpretação dos outros campos, como commandName e resultCode. Os exemplos são SQL, a tabela do Azure e o HTTP.
 

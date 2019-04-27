@@ -2,20 +2,21 @@
 title: SQL Data Warehouse a capacidade de gestão e monitorização - descrição geral | Documentos da Microsoft
 description: Descrição geral de monitorização e capacidade de gestão para a utilização de recursos, consulta e de registo de atividade, recomendações e proteção de dados (cópia de segurança e restauro).
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 08/27/2018
-ms.author: kevin
+origin.date: 08/27/2018
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747579"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Capacidade de gestão e monitorização com o Azure SQL Data Warehouse
 

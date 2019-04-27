@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
 ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773269"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métrica de utilização de Máquina Virtual com a API REST
 
@@ -49,7 +49,7 @@ Os seguintes cabeçalhos são necessários:
 | vmname | O nome da Máquina Virtual do Azure. |
 | metricnames | Lista separada por vírgulas de válido [métricas de Balanceador de carga](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | versão de API | A versão de API a utilizar para o pedido.<br /><br /> Este documento abrange a api-version `2018-01-01`, incluído no URL acima.  |
-| Período de tempo | Com o seguinte formato de cadeias de caracteres `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas de retornado. Este parâmetro opcional é definido para devolver uma dias de dados no exemplo. |
+| TimeSpan | Com o seguinte formato de cadeias de caracteres `startDateTime_ISO/endDateTime_ISO` que define o intervalo de tempo das métricas de retornado. Este parâmetro opcional é definido para devolver uma dias de dados no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido

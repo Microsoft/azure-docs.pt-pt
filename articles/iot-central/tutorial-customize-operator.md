@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747275"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista do operador do Azure IoT Central
 
@@ -61,7 +61,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
     | Tipo de Medida | Telemetria |
     | Medida | temperatura |
     | Agregação | Máximo |
-    | Visibilidade  | Ativado |
+    | Visibilidade  | Enabled |
 
     ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
 

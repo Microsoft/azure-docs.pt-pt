@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770859"
 ---
 Se a sua máquina virtual (VM) no Azure se deparar com um erro de arranque ou disco, poderá ter de realizar alguns passos de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicação com falha e que impediria a VM de ser arrancada com êxito. Este artigo descreve como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM, para corrigir erros e, depois, recriar a VM original.
 

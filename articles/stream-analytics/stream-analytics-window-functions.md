@@ -2,19 +2,19 @@
 title: Introdução às funções do Azure Stream Analytics windowing
 description: Este artigo descreve quatro modos (em cascata, saltos, deslizante, sessão) que são usados em tarefas do Azure Stream Analytics.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/21/19
 ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844769"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introdução às funções de janelas do Stream Analytics
 Em cenários de transmissão em fluxo de tempo, a realização de operações nos dados contidos no windows temporais é um padrão comum. Stream Analytics tem suporte nativo para funções de janelas, permitindo que os desenvolvedores às tarefas de processamento de fluxo complexos de autor com um mínimo de esforço.
@@ -51,7 +51,6 @@ Se os eventos manterem ocorra de acordo com o tempo limite especificado, manter 
 
 Quando uma chave de partição é fornecida, os eventos são agrupados em conjunto pela chave e a janela da sessão é aplicada a cada grupo de forma independente. Essa divisão é útil para casos em que precisa windows de sessão diferente para diferentes utilizadores ou dispositivos.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -59,3 +58,4 @@ Quando uma chave de partição é fornecida, os eventos são agrupados em conjun
 * [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+<!--Update_Description: update meta properties -->

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742127"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure (clássicos)
 Pode atribuir endereços IP a recursos do Azure para comunicar com outros recursos do Azure, a rede no local e a Internet. Existem dois tipos de endereços IP, pode utilizar no Azure: públicas e privadas.
@@ -144,7 +144,7 @@ A tabela abaixo mostra cada tipo de recurso com os métodos de alocação possí
 | Fim de front-de Balanceador de carga interno |Sim |Sim |Sim |
 | Front-end da aplicação gateway |Sim |Sim |Sim |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 A tabela abaixo mostra os limites impostos no IP de endereçamento no Azure por subscrição. Pode [contactar o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites predefinidos até aos limites máximos, com base nas necessidades da sua atividade.
 
 |  | Limite predefinido | Limite máximo |

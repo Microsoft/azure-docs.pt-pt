@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 94a16d03e47a9bec29e5e1c4326beab376dd33dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699108"
 ---
 # <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Início rápido: Código de programa auxiliar para retornar um cliente do Content Moderator
 

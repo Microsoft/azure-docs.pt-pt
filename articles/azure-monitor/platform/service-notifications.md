@@ -9,13 +9,13 @@ ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883647"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do Estado de funcionamento de serviço com o portal do Azure
+# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure
 
 Notificações de estado de funcionamento do serviço são publicadas pelo Azure e contêm informações sobre os recursos na sua subscrição. Estas notificações são uma classe secundárias da atividade de registo de eventos e também podem ser encontradas no registo de atividades. Notificações de estado de funcionamento do serviço podem ser informativa ou passíveis de ação, dependendo da classe.
 
@@ -45,7 +45,7 @@ submissionTimestamp | Timestamp quando o evento se tornou disponível para consu
 subscriptionId | A subscrição do Azure em que este evento foi registado.
 status | A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: **Iniciado**, **em curso**, **foi concluída com êxito**, **falha**, **Active**, e **resolvido**.
 operationName | O nome da operação.
-categoria | Esta propriedade é sempre **ServiceHealth**.
+category | Esta propriedade é sempre **ServiceHealth**.
 resourceId | O ID de recurso do recurso afetado.
 Properties.title | O título localizado para esta comunicação. Inglês é o padrão.
 Properties.communication | Os detalhes de localizada da comunicação com a marcação HTML. Inglês é o padrão.

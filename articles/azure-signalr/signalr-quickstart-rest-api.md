@@ -7,11 +7,11 @@ ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809684"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmissão de mensagens em tempo real da aplicação de consola
 
@@ -119,7 +119,7 @@ O serviço Azure SignalR permite que os serviços de terceiros sejam integrados 
 
 A tabela seguinte mostra todas as versões das APIs REST suportadas até à data. Também pode encontrar o ficheiro de definição para cada versão específica
 
-Versão | Estado da API | Porta | Específico
+Version | Estado da API | Porta | Específico
 --- | --- | --- | ---
 `1.0-preview` | Disponível | 5002 | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
 `1.0` | Disponível | Standard | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
@@ -139,7 +139,7 @@ Enviar para alguns utilizadores | **&#x2713;**(Preterido) | `N / A`
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Difundir para todos
 
-Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
+Version | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Mesmo que acima
@@ -147,7 +147,7 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Difundir para um grupo
 
-Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
+Version | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Mesmo que acima
@@ -155,7 +155,7 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>A enviar para utilizadores específicos
 
-Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
+Version | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Mesmo que acima
@@ -163,14 +163,14 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>A adicionar um utilizador a um grupo
 
-Versão | Método HTTP da API | URL do Pedido
+Version | Método HTTP da API | URL do Pedido
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>A remover um utilizador de um grupo
 
-Versão | Método HTTP da API | URL do Pedido
+Version | Método HTTP da API | URL do Pedido
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 

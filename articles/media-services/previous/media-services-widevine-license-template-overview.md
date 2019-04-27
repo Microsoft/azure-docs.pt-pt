@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825546"
 ---
 # <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença do Widevine 
 Pode utilizar os serviços de multimédia do Azure para configurar e solicitam licenças do Widevine da Google. Quando o jogador tenta reproduzir os conteúdos protegidos pelo Widevine, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, o serviço emite a licença. Ele é enviado para o cliente e é utilizado para desencriptar e reproduzir o conteúdo especificado.
@@ -197,5 +197,5 @@ O exemplo seguinte mostra como utilizar as APIs do .NET para configurar uma lice
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte também
-[Utilizar a encriptação comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
+[Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md) (Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine)
 

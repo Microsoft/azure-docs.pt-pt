@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613336"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerir recursos de geração 1 de armazenamento do Azure Data Lake com o Explorador de armazenamento
 

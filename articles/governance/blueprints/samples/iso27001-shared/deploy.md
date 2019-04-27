@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19ed39fac66a7abe4c65cf37ff616ba10fd8d96b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60875182"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar o exemplo de esquema de serviços de compartilhados do ISO 27001
 
@@ -107,21 +107,21 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|[Preview]\: Implementar o agente de análise de registo para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|[Preview]\: Implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|[Preview]\: Implementar o agente de análise de registo para conjuntos de dimensionamento VM do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
-|[Preview]\: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de dimensionamento de VM do Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Linux|Atribuição de política|Opcional: Lista de imagens VM que tenha suporte SO Linux para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para conjuntos de dimensionamento VM do Windows (VMSS)|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
+|\[Pré-visualização\]: Implementar o agente de análise de registo para VMs do Windows|Atribuição de política|Opcional: Lista de imagens VM que têm suporte SO do Windows para adicionar ao âmbito|(Opcional) Valor predefinido é _["none"]_.|
 |Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos permitida para ser implementado. Esta lista é composta por todos os tipos de recurso implementados nos serviços partilhados.|
 |SKUs de contas de armazenamento permitidos|Atribuição de política|SKUs de armazenamento permitido|Lista de diagnóstico de registos permitidos de SKUs de conta de armazenamento. Valor predefinido é _["Standard_LRS"]_.|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual pode ser implementado. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
 |Iniciativa do esquema para ISO 27001|Atribuição de política|Tipos de recursos para os registos de diagnóstico de auditoria|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não está ativada. Os valores aceitáveis podem ser encontrados em [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 |Grupo de recursos do log Analytics|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvsc-log-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do log Analytics|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos do log Analytics|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Camada de serviços|Define a camada da área de trabalho do Log Analytics. Valor predefinido é _PerNode_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
-|Modelo do Log Analytics|Modelo do Resource Manager|Localização|Região utilizada para criar a área de trabalho do Log Analytics. Valor predefinido é _E.U.A. oeste 2_.|
+|Modelo do Log Analytics|Modelo do Resource Manager|Location|Região utilizada para criar a área de trabalho do Log Analytics. Valor predefinido é _E.U.A. oeste 2_.|
 |Grupo de recursos de rede|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvcs-net-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos de rede|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos de rede|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Azure Firewall|Modelo do Resource Manager|IP privado do Azure Firewall|Configura o IP privado dos [firewall do Azure](../../../../firewall/overview.md). Este valor também é utilizado como tabela de rotas predefinidas na sub-rede de serviços compartilhados. Deve fazer parte da notação CIDR definida no **prefixo de endereço de sub-rede de Firewall do Azure**. Valor predefinido é _10.0.4.4_.|
 |Modelo do Azure Firewall|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
 |Modelo do Grupo de Segurança de Rede|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
@@ -133,7 +133,7 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 |Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Prefixo do endereço da sub-rede do Gateway da Rede Virtual|A notação CIDR para a sub-rede de gateway de rede virtual. Valor predefinido é _10.0.3.0/24_.|
 |Modelo da Rede Virtual e Tabela de Rotas|Modelo do Resource Manager|Prefixo do endereço da sub-rede do Azure Firewall|A notação CIDR para a [firewall do Azure](../../../../firewall/overview.md) sub-rede. Deve incluir o **IP privado da firewall do Azure** parâmetro.|
 |Grupo de recursos do Cofre de chaves|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvcs-kv-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do Cofre de chaves|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos do Cofre de chaves|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Key Vault|Modelo do Resource Manager|Nome de utilizador de administrador do Jumpbox|Nome de utilizador para a jumpbox. Tem de corresponder ao valor da propriedade mesmo nas **Jumpbox modelo**. Valor predefinido é _utilizador de admin jb_.|
 |Modelo do Key Vault|Modelo do Resource Manager|Chave ou palavra-passe ssh do administrador do Jumpbox|Chave ou palavra-passe para a conta na jumpbox. Tem de corresponder ao valor da propriedade mesmo nas **Jumpbox modelo**. Sem predefinição de valor e não pode ser deixado em branco.|
 |Modelo do Key Vault|Modelo do Resource Manager|Nome de utilizador do administrador de domínio|O nome de utilizador utilizado para aceder à VM do Active Directory e associar a outras VMs a um domínio. Tem de corresponder ao **utilizador de administrador de domínio** valor da propriedade nas **modelo de serviços de domínio do Active Directory**. Valor predefinido é _utilizador de administrador de domínio_.|
@@ -142,13 +142,13 @@ A tabela seguinte fornece uma lista do plano gráfico de parâmetros de artefact
 |Modelo do Key Vault|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. Valor predefinido é _365_.|
 |Modelo do Key Vault|Modelo do Resource Manager|SKU do Key Vault|Especifica o SKU de Cofre de chaves do que é criado. Valor predefinido é _Premium_.|
 |Grupo de recursos da Jumpbox|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvcs-jb-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos da Jumpbox|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos da Jumpbox|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo do Jumpbox|Modelo do Resource Manager|Nome de utilizador de administrador do Jumpbox|O nome de utilizador utilizado para aceder a jumpbox VMs. Tem de corresponder ao valor da propriedade mesmo nas **modelo de Key Vault**. Valor predefinido é _utilizador de admin jb_.|
 |Modelo do Jumpbox|Modelo do Resource Manager|Jumpbox palavra-passe de administrador (ID de recurso do Key Vault)|O ID de recurso do Cofre de chaves. Utilize "/ subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" e substitua `{subscriptionId}` pelo ID da subscrição e `{orgName}` com o  **Nome da organização** esquema de parâmetro.|
 |Modelo do Jumpbox|Modelo do Resource Manager|Jumpbox palavra-passe de administrador (nome de segredo do Key Vault)|Nome de utilizador do administrador jumpbox. Tem de corresponder ao valor na **modelo de Key Vault** propriedade **nome de utilizador de administrador de Jumpbox**.|
 |Modelo do Jumpbox|Modelo do Resource Manager|Sistema Operativo do Jumpbox|Determina o sistema operativo da VM da jumpbox. Valor predefinido é _Windows_.|
 |Grupo de recursos do Active Directory Domain Services|Grupo de recursos|Name|**Bloqueado** -concatena a **nome da organização** com `-sharedsvcs-adds-rg` para tornar o grupo de recursos exclusivo.|
-|Grupo de recursos do Active Directory Domain Services|Grupo de recursos|Localização|**Bloqueado** -utiliza o parâmetro de esquema.|
+|Grupo de recursos do Active Directory Domain Services|Grupo de recursos|Location|**Bloqueado** -utiliza o parâmetro de esquema.|
 |Modelo dos Serviços de Domínio do Active Directory|Modelo do Resource Manager|Nome de utilizador do administrador de domínio|Nome de utilizador para a jumpbox do ADDS. Tem de corresponder ao valor da propriedade mesmo nas **modelo de Key Vault**. Valor predefinido é _adiciona-admin-user_.|
 |Modelo dos Serviços de Domínio do Active Directory|Modelo do Resource Manager|Senha de administrador de domínio (ID de recurso do Key Vault)|O ID de recurso do Cofre de chaves. Utilize "/ subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" e substitua `{subscriptionId}` pelo ID da subscrição e `{orgName}` com o  **Nome da organização** esquema de parâmetro.|
 |Modelo dos Serviços de Domínio do Active Directory|Modelo do Resource Manager|Senha de administrador de domínio (nome de segredo do Key Vault)|Nome de utilizador do administrador de domínio. Tem de corresponder ao valor na **modelo de Key Vault** propriedade **nome de utilizador de administrador de domínio**.|

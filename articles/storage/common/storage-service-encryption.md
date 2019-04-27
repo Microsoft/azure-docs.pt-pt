@@ -1,90 +1,61 @@
 ---
-title: Encriptação do serviço de armazenamento do Azure para dados Inativos | Documentos da Microsoft
-description: Utilize a funcionalidade de encriptação de serviço de armazenamento do Azure para encriptar os Managed Disks do Azure, o armazenamento de Blobs do Azure, o ficheiros do Azure, o armazenamento de filas do Azure e o armazenamento de tabelas do Azure no lado do serviço ao armazenar os dados e decifrá-la ao obter os dados.
+title: Encriptação de armazenamento do Azure para dados Inativos | Documentos da Microsoft
+description: O armazenamento do Azure protege os dados ao encriptar automaticamente antes persisti-los para a cloud. Todos os dados no armazenamento do Azure, seja em blobs, discos, ficheiros, filas ou tabelas, são encriptados e desencriptados de forma transparente com a encriptação de AES de 256 bits e está em conformidade com a FIPS 140-2.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: lakasa
+ms.date: 04/16/2019
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730838"
 ---
-# <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do serviço de armazenamento do Azure para dados Inativos
-Encriptação do serviço de armazenamento do Azure para dados Inativos ajuda a proteger os seus dados para cumprir os seus compromissos de conformidade e segurança organizacionais. Com esta funcionalidade, a plataforma de armazenamento do Azure encripta automaticamente os dados antes de persisti-los para Managed Disks do Azure, armazenamento de Blobs do Azure, filas ou tabelas ou ficheiros do Azure e descriptografa os dados antes da obtenção. O processamento de encriptação, encriptação em repouso, desencriptação e gestão de chaves de encriptação do serviço de armazenamento é transparente para os utilizadores. Todos os dados escritos para a plataforma de armazenamento do Azure são criptografados por meio de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
+# <a name="azure-storage-encryption-for-data-at-rest"></a>Encriptação de armazenamento do Azure para dados Inativos
 
-Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não terá de modificar as suas aplicações para tirar partido da encriptação do serviço de armazenamento ou de código.
+O armazenamento do Azure encripta automaticamente os dados quando persisti-los para a cloud. A criptografia protege seus dados e para ajudá-lo a respeitar os compromissos de segurança e conformidade. Dados no armazenamento do Azure são encriptados e desencriptados de forma transparente através de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um do bloco mais forte disponíveis de cifras e está em conformidade com a FIPS 140-2. Encriptação de armazenamento do Azure é semelhante à criptografia de disco BitLocker no Windows.
 
-A funcionalidade encripta automaticamente dados em:
+Encriptação de armazenamento do Azure está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não precisa de modificar as suas aplicações para tirar partido da encriptação de armazenamento do Azure ou de código. Contas de armazenamento são encriptadas independentemente do seu modelo de implementação (Azure Resource Manager ou clássico) ou o escalão de desempenho (standard ou premium). Todas as opções de redundância de armazenamento do Azure suportam encriptação, e todas as cópias de uma conta de armazenamento são encriptadas. Todos os recursos de armazenamento do Azure são encriptados, incluindo blobs, discos, ficheiros, filas e tabelas.
 
-- Serviços de armazenamento do Azure:
-    - Managed Disks do Azure
-    - Armazenamento de Blobs do Azure
-    - Ficheiros do Azure
-    - Armazenamento de filas do Azure
-    - Armazenamento de tabelas do Azure.  
-- Ambos os escalões de desempenho (Standard e Premium).
-- Ambos os modelos de implementação (Azure Resource Manager e clássica).
+Encriptação não afeta o desempenho de armazenamento do Azure. Não existe nenhum custo adicional para a encriptação de armazenamento do Azure.
 
-Encriptação do serviço de armazenamento não afeta o desempenho dos serviços de armazenamento do Azure.
+Para obter mais informações sobre os módulos criptográficos subjacente a encriptação de armazenamento do Azure, consulte [API de criptografia: Próxima geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
-Pode utilizar chaves de encriptação geridas pela Microsoft com a Encriptação do Serviço de Armazenamento, ou pode utilizar as suas próprias chaves de encriptação. Para obter mais informações sobre como utilizar as suas próprias chaves, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+## <a name="key-management"></a>Gestão de chaves
 
-## <a name="view-encryption-settings-in-the-azure-portal"></a>Ver definições de encriptação no portal do Azure
-Para ver as definições de encriptação do serviço de armazenamento, inicie sessão para o [portal do Azure](https://portal.azure.com) e selecione uma conta de armazenamento. Na **configurações** painel, selecione a **encriptação** definição.
+Também pode utilizar chaves geridas pela Microsoft para a encriptação da conta de armazenamento ou pode gerir a encriptação com suas próprias chaves, em conjunto com o Azure Key Vault.
 
-![Portal captura de ecrã que mostra a definição de encriptação](./media/storage-service-encryption/image1.png)
+### <a name="microsoft-managed-keys"></a>Chaves geridas pela Microsoft
 
-## <a name="faq-for-storage-service-encryption"></a>FAQ sobre a encriptação do serviço de armazenamento
-**Como posso encriptar os dados numa conta de armazenamento do Resource Manager?**  
-Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento – clássicas e Resource Manager, quaisquer ficheiros existentes na conta de armazenamento criada antes de ativar a encriptação serão retroativamente obtém encriptada por um processo de encriptação em segundo plano.
+Por predefinição, a sua conta de armazenamento utiliza as chaves de encriptação gerida pela Microsoft. Pode ver as definições de encriptação para a sua conta de armazenamento na **encriptação** secção a [portal do Azure](https://portal.azure.com), conforme mostrado na imagem seguinte.
 
-**É Storage Service Encryption habilitado por padrão ao criar uma conta de armazenamento?**  
-Sim, o Storage Service Encryption está ativado para todas as contas de armazenamento e para todos os serviços de armazenamento do Azure.
+![Ver a conta criptografada com chaves geridas pela Microsoft](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-**Tenho uma conta de armazenamento do Resource Manager. Pode ativar encriptação do serviço de armazenamento na mesma?**  
-Encriptação do serviço de armazenamento é ativada por predefinição em todas as contas de armazenamento do Resource Manager existente. Isto é suportado para o armazenamento de filas do Azure de armazenamento, ficheiros do Azure, BLOBs do Azure, armazenamento de tabelas. 
+### <a name="customer-managed-keys"></a>Chaves geridas pelo cliente
 
-**Pode desativar encriptação na minha conta de armazenamento?**  
-Encriptação está ativada por predefinição e não existe nenhuma provisão para desativar a encriptação para a sua conta de armazenamento. 
+Pode gerir a encriptação de armazenamento do Azure com chaves geridas pelo cliente. Chaves geridas pelo cliente dão-lhe mais flexibilidade para criar, girar, desative e revogar os controlos de acesso. Também é possível auditar as chaves de encriptação utilizadas para proteger os seus dados. 
 
-**Quanto mais custa armazenamento do Azure se estiver ativada a encriptação do serviço de armazenamento?**  
-Não existe nenhum custo adicional.
+Utilize o Azure Key Vault para gerir as chaves e auditar a utilização de chave. Pode criar suas próprias chaves e armazená-las num cofre de chaves, ou pode utilizar as APIs de Cofre de chaves do Azure para gerar chaves. A conta de armazenamento e o Cofre de chaves têm de estar na mesma região, mas podem estar em diferentes subscrições. Para obter mais informações sobre o Azure Key Vault, consulte [o que é o Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
-**Pode utilizar as minhas chaves de encriptação?**  
-Sim, para armazenamento de Blobs do Azure e ficheiros do Azure, pode usar suas próprias chaves de encriptação. Chaves geridas pelo cliente não são atualmente suportadas pelo Azure Managed Disks. Para obter mais informações, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Para revogar o acesso às chaves geridas pelo cliente, consulte [PowerShell do Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso com eficiência bloqueia o acesso a todos os dados na conta de armazenamento, como a chave de encriptação não está acessível pelo armazenamento do Azure.
 
-**Pode revogar o acesso às chaves de encriptação?**  
-Sim, se [usar suas próprias chaves de encriptação](storage-service-encryption-customer-managed-keys.md) no Azure Key Vault.
+Para saber como utilizar chaves geridas pelo cliente com o armazenamento do Azure, veja um dos seguintes artigos:
 
-**Como é diferente do Azure Disk Encryption Storage Service Encryption?**  
-O Azure Disk Encryption fornece integração entre soluções baseadas no sistema operacional como o BitLocker e o DM-Crypt e o Cofre de chaves do Azure. Encriptação do serviço de armazenamento fornece encriptação nativamente na camada de plataforma de armazenamento do Azure, abaixo da máquina virtual.
+- [Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure no portal do Azure](storage-encryption-keys-portal.md)
+- [Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure a partir do PowerShell](storage-encryption-keys-powershell.md)
+- [Utilizar chaves geridas pelo cliente com encriptação de armazenamento do Azure da CLI do Azure](storage-encryption-keys-cli.md)
 
-**Tenho uma conta de armazenamento clássico. Pode ativar encriptação do serviço de armazenamento na mesma?**  
-Encriptação do serviço de armazenamento está ativada para todas as contas de armazenamento (clássica e Resource Manager).
+> [!NOTE]  
+> Chaves geridas pelo cliente não são suportadas para [discos geridos do Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
-**Como posso encriptar dados na minha conta de armazenamento clássicas?**  
-Com encriptação ativada por predefinição, todos os dados armazenados nos serviços de armazenamento do Azure são automaticamente encriptados. 
+## <a name="azure-storage-encryption-versus-disk-encryption"></a>Encriptação de armazenamento do Azure em comparação com a encriptação de disco
 
-**Pode criar contas de armazenamento com encriptação do serviço de armazenamento ativada com o Azure PowerShell e CLI do Azure?**  
-Encriptação do serviço de armazenamento é ativada por predefinição no momento da criação de qualquer conta de armazenamento (clássico ou Resource Manager). Pode verificar as propriedades da conta com o Azure PowerShell e CLI do Azure.
-
-**Minha conta de armazenamento está configurada para ser replicada geo adquiria. Com encriptação do serviço de armazenamento, serão minha cópia georredundante também encriptada?**  
-Sim, todas as cópias da conta de armazenamento são encriptadas. Redundância todas as opções são suportadas – armazenamento localmente redundante, o armazenamento com redundância de zona, o armazenamento georredundante e o armazenamento georredundante com acesso de leitura.
-
-**Encriptação do serviço de armazenamento é permitida apenas em regiões específicas?**  
-Encriptação do serviço de armazenamento está disponível em todas as regiões.
-
-**Storage Service Encryption FIPS 140-2 está em conformidade?**  
-Sim, o Storage Service Encryption é FIPS 140-2 em conformidade. Para obter mais informações sobre os módulos criptográficos subjacente a encriptação do serviço de armazenamento, consulte [API de criptografia: Próxima geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
-
-**Como posso contactar alguém se eu tiver quaisquer problemas ou pretender fornecer comentários?**  
-Contacte [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) para quaisquer problemas ou feedback relacionado com a encriptação do serviço de armazenamento.
+Com a encriptação de armazenamento do Azure, todas as contas de armazenamento do Azure e os recursos que contêm são encriptados, incluindo os blobs de página que fazer uma cópia de discos de máquina virtual do Azure. Além disso, os discos da máquina virtual do Azure podem ser encriptados com [do Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). O Azure Disk Encryption utiliza o padrão da indústria [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) no Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) no Linux para fornecer soluções de encriptação baseada no sistema operativo que são integradas no Azure Key Vault.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Armazenamento do Azure fornece que um conjunto abrangente de recursos de segurança que os desenvolvedores disso ajuda a criar aplicativos seguros. Para obter mais informações, consulte a [guia de segurança de armazenamento](../storage-security-guide.md).
+
+- [O que é o Azure Key Vault?](../../key-vault/key-vault-overview.md)

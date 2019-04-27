@@ -17,11 +17,11 @@ ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: 0dbd0445f4167485172a2b98cec3bb2b2a47ac20
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718211"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Agrupar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
 

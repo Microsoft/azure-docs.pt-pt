@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2017
-ms.author: amsriva
+origin.date: 07/18/2017
+ms.date: 01/15/2019
+ms.author: v-junlch
 ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831764"
 ---
 # <a name="application-gateway-redirect-overview"></a>Descrição geral de redirecionamento do Gateway de aplicação
 
@@ -29,10 +30,12 @@ ms.locfileid: "54232214"
 2. Redirecionamento com base no caminho. Este tipo de redirecionamento de permite HTTP para redirecionamento a HTTPS apenas numa área de site específico, por exemplo uma área de carrinho de compras indicado pelos/carrinho / *.
 3. Redirecionar para o site externo.
 
-![redirecionar](./media/application-gateway-redirect-overview/redirect.png)
+![redirect](./media/application-gateway-redirect-overview/redirect.png)
 
 Com esta alteração, os clientes têm de criar um novo objeto de configuração de redirecionamento, que especifica o serviço de escuta de destino ou um site externo ao qual o redirecionamento é desejado. O elemento de configuração também oferece suporte a opções para ativar a acrescentar a cadeia de caminho e a consulta do URI para o URL redirecionado. Os clientes também podem escolher se o redirecionamento é uma temporária (código de estado HTTP 302) ou um redirecionamento permanente (código de estado HTTP 301). Depois de criar esta configuração de redirecionamento está ligado ao serviço de escuta de origem através de uma nova regra. Quando utilizar uma regra básica, a configuração de redirecionamento está associada um serviço de escuta de origem e é um redirecionamento global. Quando uma regra baseada em caminho é utilizada, a configuração de redirecionamento é definida no mapa do caminho de URL e, por conseguinte, só se aplica à área de caminho específico de um site.
 
 ### <a name="next-steps"></a>Passos Seguintes
 
 [Configurar o HTTP para redirecionamento a HTTPS num gateway de aplicação](redirect-http-to-https-portal.md)
+
+<!-- Update_Description: wording update -->

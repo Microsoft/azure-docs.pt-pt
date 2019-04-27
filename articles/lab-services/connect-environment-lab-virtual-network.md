@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777173"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Ligar um ambiente a rede virtual do seu laboratório no Azure DevTest Labs
 O Azure DevTest Labs simplifica a criação de VMs num laboratório com [redes internas](devtest-lab-configure-vnet.md). Ele tem um elevado grau de flexibilidade a capacidade de [criar ambientes multi-VM](devtest-lab-test-env.md). Este artigo mostra-lhe como ligar as VMs num ambiente para a rede virtual de laboratório. Um cenário em que usar esse recurso está a configurar uma aplicação de N camadas com uma camada de dados do SQL Server que está ligada o lab VNet que permite um teste de VMs no laboratório para aceder ao mesmo.  

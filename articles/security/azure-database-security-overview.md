@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587653"
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral da segurança da base de dados do Azure
 
@@ -110,7 +110,7 @@ Proteção de dados começa com a controlar o acesso aos seus dados. O datacente
 
 O serviço de base de dados do Azure SQL está disponível apenas através da porta TCP 1433. Para acessar um banco de dados SQL no seu computador, certifique-se de que a firewall de computador do cliente permite comunicação TCP de saída na porta TCP 1433. Se as conexões de entrada não são necessários para outras aplicações, bloqueá-las na porta TCP 1433.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Autenticação
 
 A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. A Base de Dados SQL suporta dois tipos de autenticação:
 
@@ -188,7 +188,7 @@ Existem dois métodos de auditorias:
 Da proteção contra ameaças avançadas SQL (ATP) fornece um conjunto de funções de segurança SQL avançadas, incluindo dados de deteção e classificação, avaliação de vulnerabilidade e a deteção de ameaças. 
 
 - [Dados de deteção e classificação](../sql-database/sql-database-data-discovery-and-classification.md)
-- [Avaliação de vulnerabilidade](../sql-database/sql-vulnerability-assessment.md)  
+- [Avaliação de Vulnerabilidades](../sql-database/sql-vulnerability-assessment.md)  
 - [Deteção de ameaças](../sql-database/sql-database-threat-detection.md)
 
 [Base de dados do Azure para PostgreSQL Advanced Threat Protection](../postgresql/concepts-data-access-and-security-threat-protection.md) fornece uma nova camada de segurança, o que permite-lhe detetar e responder a potenciais ameaças à medida que ocorrem ao fornecer alertas de segurança relativamente a atividades anómalas. Os utilizadores recebem um alerta após a atividades suspeitas da base de dados e potenciais vulnerabilidades, bem como os padrões de acesso e consultas de base de dados anómalas. Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL integra alertas no Centro de segurança do Azure. Tipo de alertas incluem:

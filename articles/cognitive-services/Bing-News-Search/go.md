@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: rosh
 ms.openlocfilehash: 295c32c1e14dc6a69a37040f92d27a6862359228
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861357"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início rápido: Obter resultados de notícias, usando a API de REST de pesquisa de notícias do Bing e Go
 

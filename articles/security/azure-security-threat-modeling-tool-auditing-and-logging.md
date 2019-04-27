@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610864"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e registo | Atenuações 
+
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Identificar as entidades sensíveis na sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |

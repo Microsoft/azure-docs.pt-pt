@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594984"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Separador do Power BI contactos de aplicação
 
 Utilize o **contactos** separador da **nova oferta** página para fornecer técnicas e de utilizador recursos de suporte para a sua oferta. Ele é dividido em duas seções: **Engenharia** e **suporte ao cliente**.
 
-![Separador de contactos](media/contacts-tab.png)
+![Separador Contactos](media/contacts-tab.png)
 
 
 ## <a name="contacts-fields"></a>Campos de contactos 

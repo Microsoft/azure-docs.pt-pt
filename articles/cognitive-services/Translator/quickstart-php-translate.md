@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: f8c5f3ae48d0695f19699a5dfd1c956492bb128d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879664"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Início rápido: Traduzir texto com a API de REST de texto de tradutor (PHP)
 
@@ -48,8 +49,8 @@ O seguinte código traduz o texto de origem de um idioma para o outro através d
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
-$host = "https://api.cognitive.microsofttranslator.com";
+$region = 'your region';
+$host = "https://api.translator.azure.cn";
 $path = "/translate?api-version=3.0";
 
 // Translate to German and Italian.
@@ -69,11 +70,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function Translate ($host, $path, $key, $params, $content) {
+function Translate ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -97,7 +99,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = Translate ($host, $path, $key, $params, $content);
+$result = Translate ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
@@ -138,3 +140,4 @@ Explore o código de exemplo neste início rápido e outros, incluindo a transli
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)
+

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743926"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controlar o encaminhamento e utilizar aplicações virtuais (clássico) com a CLI do Azure
 
@@ -114,7 +114,7 @@ Para criar a tabela de rotas e a rota necessário para a sub-rede de front-end c
    
     Parâmetros:
    
-   * **-t (ou -- vnet-name)**. Nome da VNet onde a sub-rede está localizada. Para o nosso cenário *TestVNet*.
+   * **-t (or --vnet-name)**. Nome da VNet onde a sub-rede está localizada. Para o nosso cenário *TestVNet*.
    * **-n (ou --nome da sub-rede**. Nome da sub-rede que será adicionada à tabela de rotas. Para o nosso cenário *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar o UDR para a sub-rede de back-end

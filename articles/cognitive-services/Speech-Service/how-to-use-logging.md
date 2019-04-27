@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
 ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012451"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60696856"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Ativar o registo no SDK de voz
 
@@ -24,7 +24,7 @@ Registar ficheiro é uma funcionalidade opcional para o SDK de voz. Durante o de
 > [!NOTE]
 > O registo está disponível no SDK de voz suportadas todas as linguagens de programação, com exceção de JavaScript.
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Exemplo
 
 O nome de ficheiro de registo é especificado num objeto de configuração. Colocar o `SpeechConfig` como exemplo e partindo do princípio de que criou uma instância chamado `config`:
 

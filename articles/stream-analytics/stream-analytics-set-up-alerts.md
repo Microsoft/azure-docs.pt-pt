@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771983"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para tarefas do Azure Stream Analytics
 
@@ -46,7 +46,7 @@ O exemplo seguinte demonstra como configurar alertas para quando a tarefa entra 
 
    ![Configurando um alerta para uma tarefa de análise de transmissão em fluxo do Azure](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. O **RESOURCE**, **condição**, e **grupos de ação** cada um tem uma entrada. Tenha em atenção que para os alertas acionar, as condições definidas tem de ser cumpridos. Por exemplo, pode medir o valor médio de uma métrica de durante os últimos 15 minutos, a cada 5 minutos.
+7. O **RESOURCE**, **condição**, e **grupos de ação** cada um tem uma entrada. Tenha em atenção que para os alertas acionar, as condições definidas tem de ser cumpridos. Por exemplo, pode medir o valor médio de uma métrica durante os últimos 15 minutos, de cinco em cinco minutos.
 
    ![Criar regra de alerta do Stream Analytics](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 

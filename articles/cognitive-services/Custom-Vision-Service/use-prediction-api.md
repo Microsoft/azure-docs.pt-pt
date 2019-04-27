@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
 ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816778"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utilizar o seu modelo com a API de predição
 

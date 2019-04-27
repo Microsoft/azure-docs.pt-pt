@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
 ms.openlocfilehash: a83b8a56a8108f86d868e3420d8368c74fba308a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612318"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Store dados na periferia com bancos de dados do SQL Server
 
@@ -231,7 +231,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 2. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Adicionar módulo do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para adicionar um novo módulo: 
 
-   | Campo | Valor | 
+   | Campo | Value | 
    | ----- | ----- |
    | Selecione o ficheiro de modelo da implementação | A paleta de comandos destaca o ficheiro de deployment.template.json na sua pasta de solução atual. Selecione esse ficheiro.  |
    | Selecionar modelo de módulo | Selecione **módulo do Azure Marketplace**. |

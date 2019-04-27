@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874534"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Proteger os recursos novos com bloqueios de recursos de esquemas do Azure
 
@@ -149,10 +149,10 @@ Assim que a definição do esquema foi com êxito **publicado**, podem ser atrib
 
      Os parâmetros definidos nesta secção aplicam-se para o artefacto sob a qual está definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , uma vez que estão definidos durante a atribuição do esquema. Para cada artefato, defina o valor de parâmetro para o que é definido no **valor** coluna.
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
+     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos de RGtoLock|Grupo de recursos|Name|TestingBPLocks|Define o nome do novo grupo de recursos para aplicar o esquema de bloqueios para.|
-     |Grupo de recursos de RGtoLock|Grupo de recursos|Localização|EUA Oeste 2|Define a localização do novo grupo de recursos para aplicar o esquema de bloqueios para.|
+     |Grupo de recursos de RGtoLock|Grupo de recursos|Location|EUA Oeste 2|Define a localização do novo grupo de recursos para aplicar o esquema de bloqueios para.|
      |StorageAccount|Modelo do Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|Selecione o SKU de armazenamento. Valor predefinido é _Standard_LRS_.|
 
 1. Depois de tem sido introduzidos todos os parâmetros, selecione **atribuir** na parte inferior da página.

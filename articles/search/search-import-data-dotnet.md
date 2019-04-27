@@ -10,11 +10,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.openlocfilehash: d2d54d1425bbb67a3f5ba1b6081a9f74ff87f4d6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286912"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871051"
 ---
 # <a name="quickstart-2---load-data-to-an-azure-search-index-using-c"></a>Início rápido: 2 - carregar dados para um índice de pesquisa do Azure com oC#
 

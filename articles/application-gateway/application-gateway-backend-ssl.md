@@ -13,14 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: amsriva
+origin.date: 07/19/2017
+ms.date: 04/15/2019
+ms.author: v-junlch
 ms.openlocfilehash: 856f23de8a8772255f570a923ecf1708dc819bb5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831883"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Descrição geral do SSL ponto a ponto com o Gateway de Aplicação
 
@@ -47,3 +48,5 @@ Após a aprendizagem sobre SSL de ponto a ponto, aceda a [ativar SSL de ponta a 
 <!--Image references-->
 
 [1]: ./media/application-gateway-backend-ssl/scenario.png
+
+<!-- Update_Description: update metedata properties -->

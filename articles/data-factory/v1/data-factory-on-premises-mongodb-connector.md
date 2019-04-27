@@ -14,11 +14,11 @@ ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824189"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,12 +66,12 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos **OnP
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **OnPremisesMongoDb** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **OnPremisesMongoDb** |Sim |
 | servidor |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor de predefinido: 27017 |
 | authenticationType |Básico ou anónimo. |Sim |
 | o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
-| palavra-passe |A palavra-passe do utilizador. |Sim (se for utilizada autenticação básica). |
+| password |A palavra-passe do utilizador. |Sim (se for utilizada autenticação básica). |
 | authSource |Nome da base de dados do MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada, utilizando a propriedade databaseName. |
 | databaseName |Nome da base de dados do MongoDB que pretende aceder. |Sim |
 | gatewayName |Nome do gateway que acessa o arquivo de dados. |Sim |
@@ -296,14 +296,14 @@ Ao mover dados para o MongoDB os seguintes mapeamentos de servem de tipos de Mon
 | Tipo de MongoDB | Tipo de .NET framework |
 | --- | --- |
 | Binário |Byte[] |
-| Booleano |Booleano |
+| Boolean |Boolean |
 | Date |DateTime |
-| NumberDouble |Valor de duplo |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadeia |
-| Cadeia |Cadeia |
-| UUID |GUID |
+| ObjectID |String |
+| Cadeia |String |
+| UUID |Guid |
 | Object |Renormalized em colunas com "_" como separador aninhada de nivelamento |
 
 > [!NOTE]

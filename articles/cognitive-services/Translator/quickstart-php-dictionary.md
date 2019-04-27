@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: b505f30f7cbbbda9cf6975fac95f50d218dcbc12
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879362"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Início rápido: Procure palavras com dicionário bilingue com PHP
 
@@ -48,8 +49,8 @@ Apresentamos uma situação onde obtém traduções alternativas para uma palavr
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
-$host = "https://api.cognitive.microsofttranslator.com";
+$region = 'your region';
+$host = "https://api.translator.azure.cn";
 $path = "/dictionary/lookup?api-version=3.0";
 
 // Translate from English to French.
@@ -69,11 +70,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function DictionaryLookup ($host, $path, $key, $params, $content) {
+function DictionaryLookup ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -97,7 +99,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = DictionaryLookup ($host, $path, $key, $params, $content);
+$result = DictionaryLookup ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
@@ -188,8 +190,8 @@ Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $key = 'ENTER KEY HERE';
-
-$host = "https://api.cognitive.microsofttranslator.com";
+$region = 'your region';
+$host = "https://api.translator.azure.cn";
 $path = "/dictionary/examples?api-version=3.0";
 
 // Translate from English to French.
@@ -210,11 +212,12 @@ if (!function_exists('com_create_guid')) {
   }
 }
 
-function DictionaryExamples ($host, $path, $key, $params, $content) {
+function DictionaryExamples ($host, $path, $key, $params, $content, $region) {
 
     $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Region: $region\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
@@ -239,7 +242,7 @@ $requestBody = array (
 );
 $content = json_encode($requestBody);
 
-$result = DictionaryExamples ($host, $path, $key, $params, $content);
+$result = DictionaryExamples ($host, $path, $key, $params, $content, $region);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
@@ -287,3 +290,4 @@ Explore o código de exemplo neste início rápido e noutros, incluindo a tradu�
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)
+

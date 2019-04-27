@@ -11,11 +11,11 @@ ms.date: 05/29/2018
 ms.author: mamccrea
 ms.custom: mvc
 ms.openlocfilehash: 01e35ed32be8b28f291cc2be69a8b2d71c3acab2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770065"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 

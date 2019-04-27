@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799413"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão do Windows de instantâneo de VM para o Azure Backup
 
@@ -25,7 +25,7 @@ Cópia de segurança do Azure fornece suporte cópias de segurança de cargas de
 ### <a name="operating-system"></a>Sistema operativo
 Para obter uma lista dos sistemas operativos suportados, consulte [sistemas operativos suportados pelo Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
-### <a name="internet-connectivity"></a>Acesso à Internet
+### <a name="internet-connectivity"></a>Conectividade Internet
 
 Extensão de instantâneo da VM requer que a máquina virtual de destino está ligada à internet quando Vamos dar uma cópia de segurança da máquina virtual.
 
@@ -63,7 +63,7 @@ O JSON seguinte mostra o esquema para a extensão de instantâneo VM. A extensã
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
 | commandStartTimeUTCTicks | 6.36458E + 17 | string |
 | região | pt-PT | string |
@@ -73,7 +73,7 @@ O JSON seguinte mostra o esquema para a extensão de instantâneo VM. A extensã
 
 
 
-## <a name="template-deployment"></a>Implementação de modelo
+## <a name="template-deployment"></a>Implementação de modelos
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. No entanto, a forma recomendada de adicionar uma extensão de instantâneo VM a uma máquina virtual é ao ativar a cópia de segurança na máquina virtual. Isso pode ser alcançado através de um modelo do Resource Manager.  Um modelo do Resource Manager de exemplo que permite a cópia de segurança numa máquina virtual pode ser encontrado no [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
 

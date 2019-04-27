@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559794"
 ---
-# <a name="hosted-test-drive"></a>Hospedado de teste de unidade
+# <a name="hosted-test-drive"></a>Versão de Teste Alojada
 
 Uma versão de teste alojado retira a complexidade da configuração pelo alojamento da Microsoft e manter o serviço que executa o utilizador de teste de unidade de aprovisionamento e desaprovisionamento. Este artigo destina-se os publicadores com a oferta no AppSource ou estiver a criar um novo e que pretendem oferecer uma versão de teste de alojado, que liga a um do Dynamics 365 for Customer Engagement, do Dynamics 365 para finanças e operações ou o Dynamics 365 Business Central instância.
 

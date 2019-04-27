@@ -17,11 +17,11 @@ ms.date: 06/07/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b7dee41b226cdacea1d9c7f1cf581d9f095977e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integração do Active Directory do Azure com a liquidação de música
 

@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798985"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612574"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração da rede virtual de geração 1 de armazenamento do Azure Data Lake
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: fece1adc9ad2f5844a7d6cc1e0e9cc92d44de6d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776293"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
@@ -126,7 +126,7 @@ Recuperação após desastre para VMs do Azure incorre em custos de licenciament
 **Atualização** | **Detalhes**
 --- | ---
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup)
-**Recuperação após desastre para Linux** | **VMs do Azure**: Adicionado suporte para Red Hat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **VMs de VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> VMs baseadas em Linux utilizar o estilo de partição de tabela (GPT) do GUID partição no modo de compatibilidade de BIOS legado são agora suportados.
+**Recuperação após desastre para Linux** | **VMs do Azure**: Adicionado suporte para Red Hat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **VMs de VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> VMs baseadas em Linux utilizar o estilo de partição de tabela (GPT) do GUID partição no modo de compatibilidade de BIOS legado são agora suportados. Ver [perguntas mais frequentes acerca dos discos de VM de IaaS do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) para obter mais informações. 
 **Suporte de cloud** | Suporte a recuperação após desastre para VMs do Azure na cloud da Alemanha.
 **Recuperação de desastres entre subscrições** | Suporte para replicar VMs do Azure numa única região para outra região de uma subscrição diferente, no mesmo inquilino do Azure Active Directory. [Saiba mais](https://aka.ms/cross-sub-blog).
 **Windows Server 2008** | Suporte para a migração das máquinas Windows Server 2008 R2/2008 de 64 bits em execução e de 32 bits.<br/><br/> Migração apenas (replicação e ativação pós-falha). Não é suportada a reativação pós-falha.

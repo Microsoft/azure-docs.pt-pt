@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
 ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888440"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,14 +120,14 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | Propriedade            | Descrição                              | Necessário |
 | :------------------ | :--------------------------------------- | :------- |
 | nome                | Nome da atividade no pipeline     | Sim      |
-| descrição         | Texto que descreve o que faz a atividade.  | Não       |
+| description         | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                | Para a atividade de U-SQL do Data Lake Analytics, é o tipo de atividade **DataLakeAnalyticsU SQL**. | Sim      |
 | linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.  |Sim       |
 | scriptPath          | Caminho para a pasta que contém o script de U-SQL. Nome do ficheiro diferencia maiúsculas de minúsculas. | Sim      |
 | scriptLinkedService | Serviço que liga ligado a **do Azure Data Lake Store** ou **armazenamento do Azure** que contém o script para a fábrica de dados | Sim      |
 | degreeOfParallelism | O número máximo de nós em simultâneo utilizada para executar a tarefa. | Não       |
 | prioridade            | Determina quais os trabalhos em fila de espera devem ser selecionados para executar primeiro. Menor o número, maior será a prioridade. | Não       |
-| parâmetros          | Parâmetros a transmitir para o script de U-SQL.    | Não       |
+| parameters          | Parâmetros a transmitir para o script de U-SQL.    | Não       |
 | runtimeVersion      | Versão de tempo de execução do mecanismo de U-SQL para utilizar. | Não       |
 | compilationMode     | <p>Modo de compilação do U-SQL. Tem de ser um dos seguintes valores: **Semântica:** Executar apenas verificações semânticas e verificações de sanidade necessários, **completa:** Executar a compilação completa, incluindo a verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** Execute a compilação completa, com a definição de TargetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | Não |
 

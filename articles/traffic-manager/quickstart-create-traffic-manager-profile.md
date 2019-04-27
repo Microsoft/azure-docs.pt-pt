@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60885813"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início rápido: Criar um perfil do Gestor de tráfego no portal do Azure
 
@@ -52,7 +52,7 @@ Neste início rápido, terá duas instâncias de uma aplicação web implementad
     | Definição | Value |
     | ------- | ----- |
     | Plano do App Service | Introduza *myAppServicePlanEastUS*. |
-    | Localização | EUA Leste |
+    | Location | EUA Leste |
     | Escalão de preço | S1 Standard |
 
 6. Selecione **OK**.
@@ -69,7 +69,7 @@ Neste início rápido, terá duas instâncias de uma aplicação web implementad
     | SO | Selecione **Windows** como seu sistema operativo. |
     | Publicar | Selecione **código** como o formato de que pretende publicar. |
     | Plano do Serviço de Aplicações/Localização | Introduza *myAppServicePlanWestEurope*. |
-    | Localização | Europa Ocidental |
+    | Location | Europa Ocidental |
     | Escalão de preço | S1 Standard |
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
@@ -85,7 +85,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizador com 
     | Método de encaminhamento | Selecione **prioridade**.|
     | Subscrição | Selecione a subscrição que pretende que o perfil do Gestor de tráfego aplicado a. |
     | Grupo de recursos | Select *myResourceGroupTM1*.|
-    | Localização |Esta definição refere-se para a localização do grupo de recursos. Não tem efeito sobre o perfil do Gestor de tráfego que vai ser implementado globalmente.|
+    | Location |Esta definição refere-se para a localização do grupo de recursos. Não tem efeito sobre o perfil do Gestor de tráfego que vai ser implementado globalmente.|
 
 3. Selecione **Criar**.
 

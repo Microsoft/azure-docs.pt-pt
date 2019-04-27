@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 9d948164177b7acd2df722078ae590f409c8e795
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899104"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introdução à API para Cassandra do Azure Cosmos DB
 

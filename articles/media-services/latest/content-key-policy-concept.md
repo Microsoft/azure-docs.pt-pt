@@ -13,11 +13,11 @@ ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: d9e86c45d535862e0c3d02b3f331bc40ebb7f6c7
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733050"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
@@ -44,5 +44,5 @@ Ver [filtragem, ordenação, a paginação de entidades de serviços de multimé
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
-* [Utilizar DRM dinâmico licença e de encriptação de serviço de entrega](protect-with-drm.md)
+* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md) (Procedimentos: utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM)
 * [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

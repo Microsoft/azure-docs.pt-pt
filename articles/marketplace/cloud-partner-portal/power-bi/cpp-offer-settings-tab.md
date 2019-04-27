@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60727948"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Separador de definições de oferta de aplicações de BI de energia
 
 Quando abre o **nova oferta** página para o serviço de aplicações, primeiro veja o **oferecer definições** separador. Fornecer os identificadores de principal e o nome da sua oferta neste separador. Um asterisco (*) indica um campo obrigatório.
 
-![Separador de definições da oferta](./media/offer-settings-tab.png)
+![Separador Definições de Oferta](./media/offer-settings-tab.png)
 
 
 ## <a name="offer-settings-fields"></a>Campos de definições da oferta 

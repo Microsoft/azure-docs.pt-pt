@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889867"
 ---
 # <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>O que é a gestão de dispositivos do Azure IoT aberto plataforma comunicações (OPC)?
 
@@ -28,7 +28,7 @@ Duplo de OPC permite que os operadores de fábrica analisar a rede de fábrica, 
 ### <a name="simple-control"></a>Controle simples
 Duplo de OPC permite que os operadores de fábrica reagir a eventos e reconfigurar suas máquinas do chão de fábrica da cloud, automática ou manualmente, sem perder tempo. Duplo de OPC fornece APIs REST para chamar os serviços no servidor OPC UA, navegue também o seu espaço de endereços em relação às variáveis de leitura/escrita e executar métodos. Por exemplo, um boiler utiliza temperatura KPI para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados com o publicador OPC. O operador de fábrica recebe o alerta que a temperatura atingiu o limiar. A linha de produção arrefece automaticamente através do OPC duplo. O operador de fábrica é notificado o interessantes para baixo.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Pode usar o duplo de OPC para simples para autenticação e para uma experiência de programação simples.
 
 ### <a name="simple-authentication"></a>Autenticação simples 

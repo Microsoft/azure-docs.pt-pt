@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 01/14/2019
 ms.author: eamono
 ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562737"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
 

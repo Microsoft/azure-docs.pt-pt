@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731063"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Resolução de problemas de ativação ou ao visualizar o Application Insights Profiler
 
@@ -69,7 +69,7 @@ Para Profiler funcione corretamente:
 * A aplicação web tem de ter ativado do Application Insights.
 * A aplicação web tem de ter as seguintes definições de aplicação:
 
-    |Definição da Aplicação    | Valor    |
+    |Definição da Aplicação    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey do seu recurso do Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -101,7 +101,7 @@ Quando configura o Profiler, as atualizações são efetuadas às definições d
 1. Definir **Always On** ao **no**.
 1. Crie estas definições de aplicação:
 
-    |Definição da Aplicação    | Valor    |
+    |Definição da Aplicação    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey do seu recurso do Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

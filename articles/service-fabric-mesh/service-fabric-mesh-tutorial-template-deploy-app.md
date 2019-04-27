@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60810445"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -345,7 +345,7 @@ Crie a aplicação e os recursos relacionados com o seguinte comando e indique a
 
 No ficheiro de parâmetros, atualize os valores dos parâmetros seguintes:
 
-|Parâmetro|Valor|
+|Parâmetro|Value|
 |---|---|
 |localização|A região na qual quer implementar a aplicação.  Por exemplo, "eualeste".|
 |registryPassword|A palavra-passe que obteve anteriormente em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry). Este parâmetro no modelo é uma cadeia segura e não será apresentado no estado de implementação nem nos comandos `az mesh service show`.|

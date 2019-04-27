@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813840"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Funções de entidade para subtipos contextuais
 
@@ -37,8 +37,8 @@ As funções oferecem um nome para essas diferenças:
 
 |Tipo de entidade|Nome da entidade|Função|Objetivo|
 |--|--|--|--|
-|Simples|Localização|origem|onde o plano de deixa de|
-|Simples|Localização|Destino|onde o plano que chegam|
+|Simples|Location|origem|onde o plano de deixa de|
+|Simples|Location|Destino|onde o plano que chegam|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Exemplo de entidade não-machine-aprendidas de funções
 
@@ -48,7 +48,7 @@ Na expressão "Agendar a reunião de 8 a 9", ambos os números indicam um perío
 Schedule the meeting from 8 to 9
 ```
 
-|Tipo de entidade|Nome da função|Valor|
+|Tipo de entidade|Nome da função|Value|
 |--|--|--|
 |DatetimeV2 pré-criados|StartTime|8|
 |DatetimeV2 pré-criados|EndTime|9|

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b09c0e31b217d7d67f936aefe9045d190241389
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
+ms.openlocfilehash: 75ab3baf8638a387defd0e367b4a61c3746794f3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544642"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de pré-visualização do Azure Time Series Insights
 
@@ -67,7 +67,7 @@ Nesta secção, vai criar três dispositivos simulados que irão enviar dados pa
     | **Nome** | Introduza um nome exclusivo para um simulador. |
     | **Descrição** | Introduza uma definição. |
     | **Duração da simulação** | Defina como **forem executados indefinidamente**. |
-    | **Modelo do dispositivo** | **Nome**: Introduza **Chiller**. </br>**Quantidade**: Introduza **3**. |
+    | **Modelo do dispositivo** | **Nome**: Enter **Chiller**. </br>**Quantidade**: Enter **3**. |
     | **Hub IoT de destino** | Defina como **utilização previamente aprovisionadas IoT Hub**. |
 
     Em seguida, selecione **iniciar simulação**.
@@ -110,7 +110,7 @@ Esta secção descreve como criar um ambiente de pré-visualização do Azure Ti
    | **Subscrição** | Introduza a sua subscrição em que pretende criar o ambiente de pré-visualização do Azure Time Series Insights. É melhor prática para utilizar a mesma subscrição que o resto dos seus recursos de IoT criados pelo simulador de dispositivos. |
    | **Grupo de recursos** | Um grupo de recursos é um contentor de recursos do Azure. Escolha um grupo de recursos existente ou crie um novo, para o recurso de ambiente de pré-visualização do Azure Time Series Insights. É uma prática recomendada usar o mesmo grupo de recursos que o resto dos seus recursos de IoT criados pelo simulador de dispositivos. |
    | **Localização** | Escolha uma região de datacenter para o seu ambiente de pré-visualização do Azure Time Series Insights. Para evitar os custos de largura de banda adicional e latência, é melhor manter o ambiente de pré-visualização do Azure Time Series Insights na mesma região que outros recursos de IoT. |
-   | **escalão** |  Selecione **PAYG**, que significa pay as you go. Este é o SKU para o produto de pré-visualização do Azure Time Series Insights. |
+   | **Escalão** |  Selecione **PAYG**, que significa pay as you go. Este é o SKU para o produto de pré-visualização do Azure Time Series Insights. |
    | **ID de propriedade** | Digite algo que identifica exclusivamente a sua série de tempo. Tenha em atenção que este campo é imutável e não é possível alterar mais tarde. Neste tutorial, utilize **iothub-ligação-dispositivo-id**. Para saber mais sobre o ID de série de tempo, leia [como escolher um ID de série de tempo](./time-series-insights-update-how-to-id.md). |
    | **Nome da conta de armazenamento** | Introduza um nome globalmente exclusivo para uma nova conta de armazenamento a ser criada. |
 

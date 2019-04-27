@@ -1,5 +1,5 @@
 ---
-title: Compreender a criação de IU definição para o Azure gerida aplicações | Microsoft Docs
+title: Compreender a interface do Usuário a criar aplicativos gerenciados de definição para o Azure | Documentos da Microsoft
 description: Descreve como criar definições de IU para aplicações geridas do Azure
 services: managed-applications
 documentationcenter: na
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587755"
 ---
-# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Criar a interface de utilizador do portal do Azure para a sua aplicação gerida
-Este documento apresenta os conceitos principais do ficheiro createUiDefinition.json. O portal do Azure utiliza este ficheiro para gerar a interface de utilizador para criar uma aplicação gerida.
+# <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Criar a interface de utilizador do portal do Azure para a aplicação gerida
+Este documento apresenta os principais conceitos do ficheiro Createuidefinition. O portal do Azure utiliza este ficheiro para gerar a interface do usuário para a criação de um aplicativo gerenciado.
 
 ```json
 {
@@ -38,28 +38,28 @@ Este documento apresenta os conceitos principais do ficheiro createUiDefinition.
 
 Um CreateUiDefinition sempre contém três propriedades: 
 
-* processador
+* Processador
 * versão
-* parâmetros
+* parameters
 
-Para aplicações geridas, o processador deve ser sempre `Microsoft.Compute.MultiVm`, e a versão mais recente suportada é `0.1.2-preview`.
+Para aplicativos gerenciados, o manipulador deve ser sempre `Microsoft.Compute.MultiVm`, e é a versão mais recente suportada `0.1.2-preview`.
 
-O esquema da propriedade parâmetros depende a combinação do processador especificado e a versão. Para aplicações geridas, as propriedades suportadas são `basics`, `steps`, e `outputs`. As propriedades as noções básicas e passos contêm o _elementos_ - como caixas de texto e as dropdowns - a apresentar no portal do Azure. A propriedade de saídas utilizada para mapear os valores de saída dos elementos especificados para os parâmetros do modelo de implementação Azure Resource Manager.
+O esquema da propriedade parâmetros depende a combinação do processador especificado e a versão. Para aplicativos gerenciados, as propriedades suportadas são `basics`, `steps`, e `outputs`. As propriedades de noções básicas e passos de conter o _elementos_ - como caixas de texto e as listas pendentes - a ser apresentado no portal do Azure. A propriedade de saídas é usada para mapear os valores de saída dos elementos especificados para os parâmetros do modelo de implementação Azure Resource Manager.
 
-Incluindo `$schema` é recomendada, mas opcionais. Se for especificado, o valor para `version` tem de corresponder à versão dentro de `$schema` URI.
+Incluindo `$schema` é recomendada, mas opcionais. Se for especificado, o valor para `version` tem de corresponder à versão contida o `$schema` URI.
 
 ## <a name="basics"></a>Noções básicas
-O passo de noções básicas é sempre o primeiro passo do assistente gerado quando o portal do Azure analisa o ficheiro. Para além das que apresenta os elementos especificados na `basics`, o portal injects elementos aos utilizadores escolher a subscrição, o grupo de recursos e a localização para a implementação. Geralmente, os elementos de consultar os parâmetros de toda a implementação, como o nome de credenciais de administrador ou de cluster, devem passar neste passo.
+A etapa de noções básicas sempre é a primeira etapa do assistente gerado quando o portal do Azure analisa o ficheiro. Além de exibir os elementos especificados no `basics`, o portal injeta elementos aos utilizadores escolher a subscrição, grupo de recursos e localização para a implementação. Em geral, os elementos que consultar os parâmetros de toda a implementação, como o nome das credenciais de cluster ou de administrador, devem ir neste passo.
 
-Se o comportamento de um elemento depende da subscrição, o grupo de recursos ou localização do utilizador, que o elemento não pode ser utilizado no Noções básicas. Por exemplo, **Microsoft.Compute.SizeSelector** depende da subscrição e localização para determinar a lista de tamanhos disponíveis do utilizador. Por conseguinte, **Microsoft.Compute.SizeSelector** só pode ser utilizada nos passos. Geralmente, apenas os elementos do **Microsoft.Common** espaço de nomes pode ser utilizado no Noções básicas. Embora alguns elementos em outros espaços de nomes (como **Microsoft.Compute.Credentials**) que não dependem do contexto do utilizador, ainda são permitidas.
+Se o comportamento de um elemento depende da subscrição do utilizador, grupo de recursos ou localização, em seguida, esse elemento não é possível utilizar Noções básicas. Por exemplo, **Microsoft.Compute.SizeSelector** depende da subscrição do utilizador e a localização para determinar a lista de tamanhos disponíveis. Por conseguinte, **Microsoft.Compute.SizeSelector** só pode ser utilizada em passos. Em geral, apenas elementos no **Microsoft.Common** espaço de nomes pode ser utilizado nas noções básicas. Embora alguns elementos em outros namespaces (como **Microsoft.Compute.Credentials**) que não dependem de contexto do usuário, ainda são permitidas.
 
 ## <a name="steps"></a>Passos
-A propriedade de passos pode conter zero ou mais passos adicionais para apresentar após Noções básicas, cada um dos quais contém um ou mais elementos. Considere adicionar passos por função ou a camada da aplicação que está a ser implementada. Por exemplo, adicione um passo para entradas para os nós principais e de um passo para nós de trabalho num cluster.
+A propriedade de passos pode conter zero ou mais passos adicionais para apresentar após Noções básicas, cada um deles contendo um ou mais elementos. Considere adicionar passos por função ou a camada de aplicação que está sendo implementada. Por exemplo, adicione um passo de entradas de dados para os nós principais e um passo para os nós de trabalho num cluster.
 
 ## <a name="outputs"></a>Saídas
-O portal do Azure utiliza o `outputs` propriedade para mapear os elementos da `basics` e `steps` para os parâmetros do modelo de implementação Azure Resource Manager. As chaves deste dicionário são os nomes dos parâmetros de modelo e os valores são propriedades dos objetos de resultado de elementos referenciados.
+O portal do Azure utiliza o `outputs` propriedade para mapear elementos `basics` e `steps` para os parâmetros do modelo de implementação Azure Resource Manager. As chaves nesse dictionary são os nomes dos parâmetros do modelo e os valores são propriedades dos objetos de saída dos elementos referenciados.
 
-Para definir o nome de recurso de aplicações geridas, tem de incluir um valor com o nome `applicationResourceName` na propriedade saídas. Se definir este valor, a aplicação atribui um GUID para o nome. Pode incluir uma caixa de texto na interface de utilizador que pede um nome de utilizador.
+Para definir o nome de recurso de aplicação gerida, tem de incluir um valor chamado `applicationResourceName` na propriedade saídas. Se não tiver definido este valor, o aplicativo atribui um GUID para o nome. Pode incluir uma caixa de texto na interface do usuário que solicita um nome do usuário.
 
 ```json
 "outputs": {
@@ -72,14 +72,14 @@ Para definir o nome de recurso de aplicações geridas, tem de incluir um valor 
 ```
 
 ## <a name="functions"></a>Funções
-Semelhante para funções de modelo no Azure Resource Manager (tanto na sintaxe e a funcionalidade), CreateUiDefinition fornece funções para trabalhar com dos elementos entradas e saídas, bem como as funcionalidades, tais como conditionals.
+Assim como as funções de modelo no Azure Resource Manager (tanto na sintaxe e a funcionalidade), CreateUiDefinition fornece funções para trabalhar com dos elementos entradas e saídas, bem como recursos, tais como lógica condicional.
 
 ## <a name="next-steps"></a>Passos Seguintes
-O próprio ficheiro createUiDefinition.json tem um esquema simple. A profundidade real do mesmo provém de todos os elementos suportados e funções. Os itens são descritos em maior detalhe em:
+O próprio ficheiro Createuidefinition tem um esquema simples. A profundidade real do mesmo é proveniente de todos os elementos suportados e as funções. Esses itens são descritos em maior detalhe em:
 
 - [Elementos](create-uidefinition-elements.md)
 - [Funções](create-uidefinition-functions.md)
 
-Está aqui disponível atual do esquema JSON para createUiDefinition: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+Um esquema JSON atual para createUiDefinition está disponível aqui: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Para um ficheiro de interface de utilizador de exemplo, consulte [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).
+Para um ficheiro de interface de utilizador de exemplo, consulte [Createuidefinition](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

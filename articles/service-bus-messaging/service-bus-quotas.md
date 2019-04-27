@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
 ms.openlocfilehash: f9c9059a5f66c6ba1c2e9d9dd637c0675fc7e220
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861911"
 ---
 # <a name="service-bus-quotas"></a>Quotas do Service Bus
 Esta secção lista as quotas básicas e respetivos limiares de limitação nas mensagens do Service bus do Azure.

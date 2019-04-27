@@ -17,11 +17,11 @@ ms.date: 11/08/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: 4acadc4c08ef50e7d52303689c38c43f81187669
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852522"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementação contínua com a aplicação Web para contentores
 
@@ -69,4 +69,4 @@ Copie o URL do Webhook. Para adicionar um webhook para o Docker Hub, siga <a hre
 * [Criar uma aplicação Ruby web no serviço de aplicações no Linux](quickstart-ruby.md)
 * [Implementar uma aplicação web do Docker/Go na aplicação Web para contentores](quickstart-docker-go.md)
 * [FAQ do Serviço de Aplicações do Azure no Linux](./app-service-linux-faq.md)
-* [Gerir a aplicação Web para contentores com a CLI do Azure](./app-service-linux-cli.md)
+* [Gerir a Aplicação Web para Contentores com a CLI do Azure](./app-service-linux-cli.md)

@@ -9,11 +9,11 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893641"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ligar ao Azure Cosmos DB Cassandra API a partir do Spark
 
@@ -42,13 +42,13 @@ A tabela seguinte lista os parâmetros de configuração específicas de API de 
 
 | **Nome da propriedade** | **Default value** (Valor predefinido) | **Descrição** |
 |---------|---------|---------|
-| spark.cassandra.Output.batch.size.Rows |  1 |Número de linhas por lote única. Defina este parâmetro como 1. Este parâmetro é utilizado para alcançar um débito mais elevado para cargas de trabalho pesadas. |
+| spark.cassandra.output.batch.size.rows |  1 |Número de linhas por lote única. Defina este parâmetro como 1. Este parâmetro é utilizado para alcançar um débito mais elevado para cargas de trabalho pesadas. |
 | spark.cassandra.connection.connections_per_executor_max  | Nenhuma | Número máximo de ligações por nó por executor. 10 * n é equivalente a 10 ligações por nó num cluster do Cassandra n nós. Assim, se necessitar de 5 ligações por nó por executor para um cluster do Cassandra de 5 nós, em seguida, deve definir esta configuração para 25. Modificar este valor com base no grau de paralelismo ou o número de executores configuradas para as tarefas do spark.   |
-| spark.cassandra.Output.Concurrent.Writes  |  100 | Define o número de gravações paralelas que pode ocorrer por executor. Porque definiu "batch.size.rows" como 1, certifique-se aumentar este valor em conformidade. Modificar este valor com base no grau de paralelismo ou o débito que quer atingir a carga de trabalho. |
-| spark.cassandra.Concurrent.Reads |  512 | Define o número de leituras paralelas que pode ocorrer por executor. Modificar este valor com base no grau de paralelismo ou o débito que quer atingir a carga de trabalho  |
-| spark.cassandra.Output.throughput_mb_per_sec  | Nenhuma | Define o débito total de escrita por executor. Este parâmetro pode ser utilizado como um upper limitar para sua taxa de transferência de tarefa do spark e baseá-la no débito aprovisionado de sua coleção do Cosmos DB.   |
-| spark.cassandra.Input.reads_per_sec| Nenhuma   | Define o débito de leitura total por executor. Este parâmetro pode ser utilizado como um upper limitar para sua taxa de transferência de tarefa do spark e baseá-la no débito aprovisionado de sua coleção do Cosmos DB.  |
-| spark.cassandra.Output.batch.grouping.Buffer.size |  1000  | Define o número de lotes por tarefa do spark única que podem ser armazenados na memória antes de enviar a API de Cassandra |
+| spark.cassandra.output.concurrent.writes  |  100 | Define o número de gravações paralelas que pode ocorrer por executor. Porque definiu "batch.size.rows" como 1, certifique-se aumentar este valor em conformidade. Modificar este valor com base no grau de paralelismo ou o débito que quer atingir a carga de trabalho. |
+| spark.cassandra.concurrent.reads |  512 | Define o número de leituras paralelas que pode ocorrer por executor. Modificar este valor com base no grau de paralelismo ou o débito que quer atingir a carga de trabalho  |
+| spark.cassandra.output.throughput_mb_per_sec  | Nenhuma | Define o débito total de escrita por executor. Este parâmetro pode ser utilizado como um upper limitar para sua taxa de transferência de tarefa do spark e baseá-la no débito aprovisionado de sua coleção do Cosmos DB.   |
+| spark.cassandra.input.reads_per_sec| Nenhuma   | Define o débito de leitura total por executor. Este parâmetro pode ser utilizado como um upper limitar para sua taxa de transferência de tarefa do spark e baseá-la no débito aprovisionado de sua coleção do Cosmos DB.  |
+| spark.cassandra.output.batch.grouping.buffer.size |  1000  | Define o número de lotes por tarefa do spark única que podem ser armazenados na memória antes de enviar a API de Cassandra |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Define o período de tempo até que as ligações não utilizadas estão disponíveis. | 
 
 Ajuste o débito e o grau de paralelismo desses parâmetros com base na carga de trabalho esperado para as tarefas do spark e o débito que aprovisionou para a sua conta do Cosmos DB.

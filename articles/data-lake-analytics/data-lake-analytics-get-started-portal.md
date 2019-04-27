@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615049"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introdução ao Azure Data Lake Analytics com o portal do Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,11 +32,11 @@ Agora, irá criar um Data Lake Analytics e uma conta de geração 1 de armazenam
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso** >  **Dados + Análise** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens:
-   * **Nome**: nome da conta do Data Lake Analytics (Apenas são permitidas letras minúsculas e números).
-   * **Subscrição**: selecione a subscrição do Azure utilizada para a conta da Análise.
+   * **Nome**: Nome de sua conta do Data Lake Analytics (apenas minúsculas e são permitidos números).
+   * **Subscrição**: Escolha a subscrição do Azure utilizada para a conta de análise.
    * **Grupo de Recursos**. Selecione um Grupo de Recursos do Azure existente ou crie um novo.
    * **Localização**. Selecione um centro de dados do Azure para a conta do Data Lake Analytics.
-   * **Geração 1 de armazenamento do Data Lake**: Siga as instruções para criar uma nova conta de geração 1 de armazenamento do Data Lake, ou selecione um existente. 
+   * **Geração 1 do Data Lake Storage**: Siga as instruções para criar uma nova conta de geração 1 de armazenamento do Data Lake ou selecione um existente. 
 4. Opcionalmente, selecione o escalão de preços para a sua conta do Data Lake Analytics.
 5. Clique em **Criar**. 
 

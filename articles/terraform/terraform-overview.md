@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
 ms.openlocfilehash: 8b5ad3f060e2c8760014d7fc1990b971976388f7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779203"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884448"
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure
 

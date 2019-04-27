@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7ee79da6219452ace4f7e71bd670de3cfdc968fb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232369"
 documentType: LandingData
 title: Base de dados SQL do Azure - escalabilidade
 metadata:
@@ -12,49 +6,49 @@ metadata:
   title: Base de dados SQL do Azure - escalabilidade
   meta.description: Learn how to scale your Azure SQL Database.
   services: sql-database
-  ms.subservice: scale-out
-  author: jovanpop-msft
-  manager: craigg
+  author: WenJason
+  manager: digimobile
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
-  ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  origin.date: 01/25/2019
+  ms.date: 02/25/2019
+  ms.author: v-jay
 sections:
-- items:
-  - type: paragraph
-    text: Base de dados SQL do Azure permite-lhe dimensionar facilmente o banco de dados de ao adicionar que mais capacidade computacional de (vertical) ou adicionar mais unidades de base de dados (horizontal).
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: Base de dados SQL do Azure permite-lhe dimensionar facilmente o banco de dados de ao adicionar que mais capacidade computacional de (vertical) ou adicionar mais unidades de base de dados (horizontal).
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Aumentar verticalmente
+            href: /sql-database/sql-database-scale-resources
+            html: <p>Facilmente adicionar ou remover recursos na sua base de dados SQL para encontrar a proporção de relação preço/desempenho melhor ou mitigar problemas de desempenho.</p>
+          - title: Leia o Escalamento horizontal
+            href: /sql-database/sql-database-read-scale-out
+            html: '<p>Camada de negócio críticos fornece uma réplica do gratuito da base de dados em que pode executar relatórios, análises e outras consultas só de leitura numa cópia de dados.</p>'
+          - title: Fragmentação de base de dados
+            href: /sql-database/sql-database-elastic-scale-introduction
+            html: <p>Pode usar várias partições horizontais de bases de dados para aumentar horizontalmente a base de dados para além dos limites de armazenamento para bases de dados individuais e de computação máximo.</p>
+          - title: Consultas elásticas
+            href: /sql-database/sql-database-elastic-query-overview
+            html: <p>Consultas elásticas permitem executar padrão consultas Transact-SQL num conjunto de partições horizontais da base de dados distribuída globalmente.</p>
+          - title: Transações elásticas
+            href: /sql-database/sql-database-elastic-transactions-overview
+            html: <p>Use a transação distribuída globalmente para garantir acesso transacionalmente consistente aos seus dados distribuídos.</p>
+          - title: Tarefas em várias bases de dados
+            href: /sql-database/elastic-jobs-overview
+            html: <p>Mantenha um conjunto de bases de dados com tarefas elásticas da base de dados de forma cruzada.</p>
+  - title: Mais recursos
     items:
-    - title: Aumentar verticalmente
-      href: /azure/sql-database/sql-database-scale-resources
-      html: <p>Facilmente adicionar ou remover recursos na sua base de dados SQL para encontrar a proporção de relação preço/desempenho melhor ou mitigar problemas de desempenho.</p>
-    - title: Leia o Escalamento horizontal
-      href: /azure/sql-database/sql-database-read-scale-out
-      html: <p>Camada de negócio críticos fornece uma réplica do gratuito da base de dados em que pode executar relatórios, análises e outras consultas só de leitura numa cópia de dados.</p>
-    - title: Fragmentação de base de dados
-      href: /azure/sql-database/sql-database-elastic-scale-introduction
-      html: <p>Pode usar várias partições horizontais de bases de dados para aumentar horizontalmente a base de dados para além dos limites de armazenamento para bases de dados individuais e de computação máximo.</p>
-    - title: Consultas elásticas
-      href: /azure/sql-database/sql-database-elastic-query-overview
-      html: <p>Consultas elásticas permitem executar padrão consultas Transact-SQL num conjunto de partições horizontais da base de dados distribuída globalmente.</p>
-    - title: Transações elásticas
-      href: /azure/sql-database/sql-database-elastic-transactions-overview
-      html: <p>Use a transação distribuída globalmente para garantir acesso transacionalmente consistente aos seus dados distribuídos.</p>
-    - title: Tarefas em várias bases de dados
-      href: /azure/sql-database/elastic-jobs-overview
-      html: <p>Mantenha um conjunto de bases de dados com tarefas elásticas da base de dados de forma cruzada.</p>
-- title: Mais recursos
-  items:
-  - type: paragraph
-    text: Saiba mais sobre funcionalidades adicionais que podem ajudar a dimensionar os seus dados.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Servidor ligado</a> são os principais recursos de motor de base de dados do SQL Server que permite-lhe executar consultas distribuídas a partir do código Transact-SQL para outro motores de base de dados.
-    - html: <a href="sql-database-geo-replication-overview.md">Replicação geográfica</a> permite-lhe colocar qualquer número de réplicas legíveis em regiões diferentes.
+      - type: paragraph
+        text: Saiba mais sobre funcionalidades adicionais que podem ajudar a dimensionar os seus dados.
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine">Servidor ligado</a> são os principais recursos de motor de base de dados do SQL Server que permite-lhe executar consultas distribuídas a partir do código Transact-SQL para outro motores de base de dados.'
+          - html: <a href="sql-database-geo-replication-overview.md">Replicação geográfica</a> permite-lhe colocar qualquer número de réplicas legíveis em regiões diferentes.

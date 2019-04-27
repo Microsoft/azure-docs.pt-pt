@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669117"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720132"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
 Serviços do Service Fabric com monitorização de estado de teste de unidade revela erros comuns que seriam não necessariamente detetados por aplicativo convencional ou teste de unidade específica do domínio. Durante o desenvolvimento de testes de unidade para serviços com estado, existem algumas considerações especiais que devam ser mantidas em mente.

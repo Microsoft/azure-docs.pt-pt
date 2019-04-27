@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896426"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>O Azure Blockchain Workbench, integração de mensagens
 
@@ -118,7 +118,7 @@ O pedido requer os seguintes campos:
 | applicationName      | Nome da aplicação |
 | versão              | Versão da aplicação. Necessário se tiver várias versões da aplicação ativada. Caso contrário, a versão é opcional. Para obter mais informações sobre o controlo de versões do aplicativo, consulte [controle de versão de aplicação de Azure Blockchain Workbench](version-app.md). |
 | workflowName         | Nome do fluxo de trabalho |
-| parâmetros           | Entrada de parâmetros para a criação do contrato |
+| parameters           | Entrada de parâmetros para a criação do contrato |
 | connectionId         | Identificador exclusivo para a ligação de blockchain |
 | messageSchemaVersion | Versão do esquema de mensagens |
 | messageName          | **CreateContractRequest** |
@@ -222,7 +222,7 @@ O pedido requer os seguintes campos:
 | contractLedgerIdentifier | Endereço do contrato no razão |
 | versão                  | Versão da aplicação. Necessário se tiver várias versões da aplicação ativada. Caso contrário, a versão é opcional. Para obter mais informações sobre o controlo de versões do aplicativo, consulte [controle de versão de aplicação de Azure Blockchain Workbench](version-app.md). |
 | workflowFunctionName     | Nome da função de fluxo de trabalho |
-| parâmetros               | Entrada de parâmetros para a criação do contrato |
+| parameters               | Entrada de parâmetros para a criação do contrato |
 | connectionId             | Identificador exclusivo para a ligação de blockchain |
 | messageSchemaVersion     | Versão do esquema de mensagens |
 | messageName              | **CreateContractActionRequest** |
@@ -477,7 +477,7 @@ Contém informações sobre um contrato. A mensagem inclui uma seção com propr
 |--------------------|-------------|
 | workflowPropertyId | Identificador exclusivo para a propriedade de fluxo de trabalho dentro do Azure Blockchain Workbench |
 | nome | Nome da propriedade de fluxo de trabalho |
-| valor | Valor da propriedade de fluxo de trabalho |
+| value | Valor da propriedade de fluxo de trabalho |
 
 Exemplo de um *ContractMessage* da bancada de trabalho de Blockchain:
 
@@ -567,7 +567,7 @@ Contém informações quando uma função de contrato é invocada, como o nome d
 | contractId                  | Identificador exclusivo para o contrato de dentro do Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador exclusivo para o contrato no razão |
 | functionName                | Nome da função |
-| parâmetros                  | [Informações de parâmetro](#parameter-information) |
+| parameters                  | [Informações de parâmetro](#parameter-information) |
 | Transação                 | Informações de transações |
 | inTransactionSequenceNumber | O número de sequência da transação no bloco |
 | connectionId                | Identificador exclusivo para a ligação |
@@ -588,7 +588,7 @@ Contém informações quando uma função de contrato é invocada, como o nome d
 | Name | Descrição |
 |------|-------------|
 | nome | Nome do parâmetro |
-| valor | Valor do parâmetro |
+| value | Valor do parâmetro |
 
 #### <a name="event-message-transaction-information"></a>Informações de transações de mensagem de evento
 
@@ -680,7 +680,7 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 | displayName | Nome de exibição do fluxo de trabalho de aplicação |
 | functions | Coleção de [funções para o fluxo de trabalho de aplicação](#workflow-function-information)|
 | Estados | Coleção de [Estados para o fluxo de trabalho de aplicação](#workflow-state-information) |
-| propriedades | Aplicação [informações de propriedades do fluxo de trabalho](#workflow-property-information) |
+| properties | Aplicação [informações de propriedades do fluxo de trabalho](#workflow-property-information) |
 
 ##### <a name="workflow-function-information"></a>Informações de função de fluxo de trabalho
 
@@ -688,7 +688,7 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 |------|-------------|
 | ID | Identificador exclusivo para a função de fluxo de trabalho de aplicação dentro do Azure Blockchain Workbench |
 | nome | Nome da função |
-| parâmetros | Parâmetros da função |
+| parameters | Parâmetros da função |
 
 ##### <a name="workflow-state-information"></a>Informações de estado do fluxo de trabalho
 

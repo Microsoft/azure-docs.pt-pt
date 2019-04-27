@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865277"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
 Os cenários de capacidade de teste no Azure Service Fabric permitem aos programadores não se preocupar sobre como lidar com falhas individuais. Existem cenários, no entanto, onde uma intercalação explícita de carga de trabalho do cliente e falhas pode ser necessários. A intercalação de carga de trabalho do cliente e falhas garante que o serviço é realmente executar alguma ação quando ocorre falha. Tendo em conta o nível de controle que fornece a capacidade de teste, podem ser momentos exatos da execução de carga de trabalho. Este induction de falhas em Estados diferentes do aplicativo pode encontrar bugs e melhorar a qualidade.

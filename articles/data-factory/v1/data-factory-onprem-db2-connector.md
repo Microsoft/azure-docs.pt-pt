@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824019"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 usando a atividade de cópia de fábrica de dados do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -313,10 +313,10 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
-| Flutuante |Double |
+| Float |Double |
 | decimal |Decimal |
 | DecimalFloat |Decimal |
-| Numérico |Decimal |
+| Numeric |Decimal |
 | Date |DateTime |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
@@ -339,10 +339,10 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
-| Flutuante |Double |
+| Float |Double |
 | decimal |Decimal |
 | DecimalFloat |Decimal |
-| Numérico |Decimal |
+| Numeric |Decimal |
 | Date |DateTime |
 | Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a498fb2bc3efcc3a081a0ab854df107135a4e008
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744963"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Preparar os recursos técnicos de aplicação do Azure
 

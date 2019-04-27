@@ -1,5 +1,5 @@
 ---
-title: Enviar pedidos para a API de verificação de ortografia do Bing
+title: Enviar pedidos para a API de Verificação de Ortografia do Bing
 titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre os modos de verificação ortográfica do Bing, definições e outras informações relacionadas com a API.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 64025165a5a88370a02ba3b4554b1e12d36c8810
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60895976"
 ---
-# <a name="sending-requests-to-the-bing-spell-check-api"></a>Enviar pedidos para a API de verificação de ortografia do Bing
+# <a name="sending-requests-to-the-bing-spell-check-api"></a>Enviar pedidos para a API de Verificação de Ortografia do Bing
 
 Para verificar se existem erros de ortografia e de gramática numa cadeia de texto, enviaria um pedido GET para o seguinte ponto final:  
   

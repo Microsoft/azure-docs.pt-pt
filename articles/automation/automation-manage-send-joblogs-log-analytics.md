@@ -10,11 +10,11 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739135"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
 
@@ -97,7 +97,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | JobId_g |GUID que é o Id do trabalho do runbook. |
 | ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>-Concluída |
-| Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
+| Category | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Recurso | Nome da conta de automatização |
 | SourceSystem | Como o Azure Monitor registos recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
@@ -120,7 +120,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | JobId_g |GUID que é o Id do trabalho do runbook. |
 | ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Em curso |
-| Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
+| Category | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Recurso | Nome da conta de automatização |
 | SourceSystem | Como o Azure Monitor registos recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |

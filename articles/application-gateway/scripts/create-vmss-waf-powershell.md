@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8161ea327593419fb5b80d0be681b72f9392d7df
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8dedb05bdecf044828d90f7ed99f28ea5d12e910
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715748"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Restringir o tráfego da web com o Azure PowerShell
 

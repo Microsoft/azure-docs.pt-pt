@@ -1,5 +1,5 @@
 ---
-title: Usando a API de verificação ortográfica do Bing
+title: Utilizar a API de Verificação de Ortografia do Bing
 titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre os modos de verificação ortográfica do Bing, definições e outras informações relacionadas com a API.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 9544337ef1322e52cbdf123bb48d283485a8c7dd
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896143"
 ---
-# <a name="using-the-bing-spell-check-api"></a>Usando a API de verificação ortográfica do Bing
+# <a name="using-the-bing-spell-check-api"></a>Utilizar a API de Verificação de Ortografia do Bing
 
 Utilize este artigo para saber como utilizar a API de verificação de ortografia do Bing para efetuar a gramática contextual e inclui verificação ortográfica. Enquanto a maioria dos verificadores ortográficos dependem de conjuntos de regras com base no dicionário, o Verificador de ortografia do Bing utiliza machine learning e estatísticos de tradução automática para fornecer correções precisas e contextuais. 
 

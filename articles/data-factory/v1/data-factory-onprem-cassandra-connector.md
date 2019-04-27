@@ -14,11 +14,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823985"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados de Cassandra no local com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,12 +66,12 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **OnPremisesCassandra** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **OnPremisesCassandra** |Sim |
 | anfitrião |Um ou mais endereços IP ou nomes de anfitrião dos servidores de Cassandra.<br/><br/>Especifica uma lista separada por vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores em simultâneo. |Sim |
 | porta |A porta TCP que o servidor Cassandra utiliza para escutar ligações de cliente. |Não, o valor predefinido: 9042 |
 | authenticationType |Básico ou anónimo |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para a conta de utilizador. |Sim, se authenticationType está definido para básico. |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador. |Sim, se authenticationType está definido para básico. |
+| password |Especifique a palavra-passe da conta de utilizador. |Sim, se authenticationType está definido para básico. |
 | gatewayName |O nome do gateway que é utilizado para ligar à base de dados do Cassandra no local. |Sim |
 | encryptedCredential |Credencial encriptada pelo gateway. |Não |
 
@@ -265,7 +265,7 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| VALOR BOOLEANO |Booleano |
+| VALOR BOOLEANO |Boolean |
 | DECIMAL |Decimal |
 | VALOR DE DUPLO |Double |
 | NÚMERO DE VÍRGULA FLUTUANTE |Single |

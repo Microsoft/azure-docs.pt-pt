@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 02/08/2019
 ms.author: v-musehg
 ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008385"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861859"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Esquema de eventos do Azure Event Grid para o Azure Maps
 
@@ -104,21 +104,21 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de barreira geográfica. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| apiCategory | cadeia | Categoria de API do evento. |
-| apiName | cadeia | Nome da API do evento. |
+| apiCategory | string | Categoria de API do evento. |
+| apiName | string | Nome da API do evento. |
 | Problemas | objeto | Lista problemas durante o processamento. Se todos os problemas são devolvidos, em seguida, não haverá nenhum geometrias devolvidas com a resposta. |
 | responseCode | número | Código de resposta HTTP |
 | geometrias | objeto | Listas de geometrias cerca que contêm a coordenada posicionam ou se sobrepõem searchBuffer em torno da posição. |
@@ -133,26 +133,26 @@ O objeto de ErrorDetails é retornado quando ocorre um erro na API de mapas. O E
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Código | cadeia | O código de estado HTTP. |
-| message | cadeia | Se estiver disponível, uma descrição legível humana do erro. |
+| Código | string | O código de estado HTTP. |
+| message | string | Se estiver disponível, uma descrição legível humana do erro. |
 | innererror | InnerError | Se estiver disponível, um objeto que contém informações de serviços específicos sobre o erro. |
 
 O InnerError é um objeto que contém informações de serviços específicos sobre o erro. O objeto de InnerError tem as seguintes propriedades: 
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Código | cadeia | A mensagem de erro. |
+| Código | string | A mensagem de erro. |
 
 O objeto de geometrias, apresenta uma lista de IDs dos perímetros geográficos que expiraram em relação ao tempo de utilizador no pedido de geometria. O objeto de geometrias tem itens de geometria com as seguintes propriedades: 
 
 | Propriedade | Tipo | Descrição |
 |:-------- |:---- |:----------- |
-| DeviceID | cadeia | ID do dispositivo. |
-| distância | cadeia | <p>Distância da coordenada até o limite mais próximo do perímetro geográfico. Positivo significa que a coordenada está fora do perímetro geográfico. Se a coordenada está fora do perímetro geográfico, mas mais do que o valor de searchBuffer para fora do limite mais próximo do perímetro geográfico, em seguida, o valor é 999. Negativo significa a coordenada dentro do perímetro geográfico. Se a coordenada é dentro do polígono, mas mais do que o valor de searchBuffer para fora do limite de barreira geográfica mais próximo, em seguida, o valor é -999. Um valor de 999 significa que há muita confiança a coordenada é bem fora do perímetro geográfico. Um valor de meios de-999 que não há muita confiança a coordenada é bem dentro do perímetro geográfico.<p> |
-| geometryid |cadeia | O id exclusivo identifica a geometria de perímetro geográfico. |
+| DeviceID | string | ID do dispositivo. |
+| distância | string | <p>Distância da coordenada até o limite mais próximo do perímetro geográfico. Positivo significa que a coordenada está fora do perímetro geográfico. Se a coordenada está fora do perímetro geográfico, mas mais do que o valor de searchBuffer para fora do limite mais próximo do perímetro geográfico, em seguida, o valor é 999. Negativo significa a coordenada dentro do perímetro geográfico. Se a coordenada é dentro do polígono, mas mais do que o valor de searchBuffer para fora do limite de barreira geográfica mais próximo, em seguida, o valor é -999. Um valor de 999 significa que há muita confiança a coordenada é bem fora do perímetro geográfico. Um valor de meios de-999 que não há muita confiança a coordenada é bem dentro do perímetro geográfico.<p> |
+| geometryid |string | O id exclusivo identifica a geometria de perímetro geográfico. |
 | nearestlat | número | Latitude do ponto mais próximo da geometria. |
 | nearestlon | número | Longitude do ponto mais próximo da geometria. |
-| udId | cadeia | O id exclusivo retornado do serviço de carregamento do utilizador ao carregar um perímetro geográfico. Não será incluído na API de publicação de barreira geográfica. |
+| udId | string | O id exclusivo retornado do serviço de carregamento do utilizador ao carregar um perímetro geográfico. Não será incluído na API de publicação de barreira geográfica. |
 
 O objeto de dados tem as seguintes propriedades:
 

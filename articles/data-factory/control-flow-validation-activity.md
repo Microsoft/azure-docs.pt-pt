@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 46447bdbea93d1f99c5682cf878c2035e6f49b78
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58523030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764327"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Actividade de validação no Azure Data Factory
 Pode usar uma validação num pipeline para garantir que o pipeline apenas continua a execução assim que validou a anexado existe de referência de conjunto de dados, que ele cumpre os critérios especificados ou tempo limite foi atingido.
@@ -66,7 +66,7 @@ tipo | Tem de ser definido como **validação**. | String | Sim |
 Conjunto de dados | Atividade irá bloquear a execução até que ele foi validado essa referência de conjunto de dados existe e que cumpre os critérios especificados, ou foi atingido o tempo limite. Conjunto de dados fornecido deve dar suporte a propriedade "MinimumSize" ou "ChildItems". | Referência de conjunto de dados | Sim |
 tempo limite | Especifica o tempo limite para a execução da atividade. Se for especificado nenhum valor, o valor padrão é sete dias ("7.00:00:00"). O formato é d.hh:mm:ss | String | Não |
 Modo de suspensão | Um atraso em segundos, entre tentativas de validação. Se for especificado nenhum valor, o valor predefinido é 10 segundos. | Número inteiro | Não |
-childItems | Verifica se a pasta tem itens subordinados. Pode ser definido para verdadeiro: Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item está presente na pasta ou valor de tempo limite for atingido.-false: Confirme que a pasta existe e que está vazia. Permanece bloqueado até a pasta está vazia ou até que o tempo limite é atingido o valor. Se for especificado nenhum valor, atividade será bloqueado até que a pasta existe ou até que o tempo limite for atingido. | Booleano | Não |
+childItems | Verifica se a pasta tem itens subordinados. Pode ser definido para verdadeiro: Valide que a pasta existe e que tem itens. Bloqueia até que pelo menos um item está presente na pasta ou valor de tempo limite for atingido.-false: Confirme que a pasta existe e que está vazia. Permanece bloqueado até a pasta está vazia ou até que o tempo limite é atingido o valor. Se for especificado nenhum valor, atividade será bloqueado até que a pasta existe ou até que o tempo limite for atingido. | Boolean | Não |
 minimumSize | Tamanho mínimo de um ficheiro em bytes. Se for especificado nenhum valor, o valor predefinido é 0 bytes | Número inteiro | Não |
 
 

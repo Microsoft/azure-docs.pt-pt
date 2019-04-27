@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: a85fa543a6b26a5ea6452ce99fb91dc1ce465db7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827957"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Perguntas mais frequentes (FAQ) sobre o serviço cognitivos de análise de texto
 
@@ -51,7 +51,7 @@ Melhorias para modelos e algoritmos são anunciadas se a alteração for grande 
 
 É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para ele em nosso [web site do UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
  [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Serviços cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

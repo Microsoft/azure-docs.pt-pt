@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 01aedadfed1ce24b8b6ae75a9163dfe0629ac7c0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844130"
 ---
-# <a name="key-vault-deployment-template"></a>Modelo de implementação de Cofre de chaves
+# <a name="key-vault-deployment-template"></a>Modelo de implementação do cofre de chaves
 
 O modelo Azure Resource Manager seguinte define uma nova instância do Azure Key Vault.  Ele é usado no artigo [Criar certificado do Cofre de chaves](cpp-create-key-vault-cert.md). 
 

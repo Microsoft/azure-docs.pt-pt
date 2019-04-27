@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860513"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalar atualização 4 no dispositivo StorSimple
 
@@ -74,16 +74,16 @@ O método de correção envolve os seguintes três passos:
 
 Tem de transferir e instalar as seguintes correções na ordem determinada e as pastas sugeridas:
 
-| Ordem | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Atualização de software |Regular <br></br>Não disruptivas |~ 25 minutos |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |Driver de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Regular <br></br>Não disruptivas |~ 3 horas <br> (inclui 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacote de atualizações de segurança do SO <br> Baixe o Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixe o Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 1. |KB4011839 |Atualização de software |Normal <br></br>Não disruptivas |~ 25 minutos |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |Driver de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Normal <br></br>Não disruptivas |~ 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacote de atualizações de segurança do SO <br> Baixe o Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixe o Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
 
 Também poderá instalar atualizações de firmware do disco na parte superior de todas as atualizações mostradas nas tabelas anteriores. Pode verificar se tem as atualizações de firmware do disco ao executar o `Get-HcsFirmwareVersion` cmdlet. Se estiver a executar estas versões de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, em seguida, não é necessário instalar estas atualizações.
 
-| Ordem | KB | Descrição | Tipo de atualização | Hora de instalação | Instalar numa pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação | Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Firmware do disco |Manutenção <br></br>Problemáticos |~ 30 minutos | ThirdOrderUpdate |
 

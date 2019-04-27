@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776512"
 ---
 # <a name="pool-create-event"></a>Evento de criação de conjunto
 
@@ -57,9 +57,9 @@ ms.locfileid: "55470604"
 |[networkConfiguration](#bk_netconf)|Tipo complexo|A configuração de rede para o conjunto.|
 |resizeTimeout|Hora|O tempo limite da alocação de nós de computação para o conjunto especificado para a última operação de redimensionamento no conjunto.  (O tamanho inicial quando é criado o conjunto é contabilizado como um redimensionamento.)|
 |targetDedicated|Int32|O número de nós de computação que são pedidos para o conjunto.|
-|enableAutoScale|Bool|Especifica se o tamanho do conjunto se ajusta automaticamente ao longo do tempo.|
-|enableInterNodeCommunication|Bool|Especifica se o conjunto está configurado para comunicação direta entre nós.|
-|isAutoPool|Bool|Especifica se o conjunto foi criado por meio de mecanismo de AutoPool de uma tarefa.|
+|enableAutoScale|Booleano|Especifica se o tamanho do conjunto se ajusta automaticamente ao longo do tempo.|
+|enableInterNodeCommunication|Booleano|Especifica se o conjunto está configurado para comunicação direta entre nós.|
+|isAutoPool|Booleano|Especifica se o conjunto foi criado por meio de mecanismo de AutoPool de uma tarefa.|
 |maxTasksPerNode|Int32|O número máximo de tarefas que pode ser executado simultaneamente num único nó de computação no conjunto.|
 |vmFillType|String|Define como o serviço Batch distribui as tarefes entre nós de computação no conjunto. Valores válidos encontram-se distribuídas ou pacote.|
 
@@ -91,7 +91,7 @@ ms.locfileid: "55470604"
 
 |Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|Booleano|Indica se a máquina virtual está ativada para as atualizações automáticas. Se esta propriedade não for especificada, o valor predefinido é verdadeiro.|
+|enableAutomaticUpdates|Boolean|Indica se a máquina virtual está ativada para as atualizações automáticas. Se esta propriedade não for especificada, o valor predefinido é verdadeiro.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 

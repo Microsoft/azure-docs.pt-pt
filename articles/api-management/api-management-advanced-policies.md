@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795875"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de gestão de API
 
@@ -463,7 +463,7 @@ No exemplo a seguir, o reencaminhamento do pedido é repetido até dez vezes usa
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition        | Um literal booleano ou [expressão](api-management-policy-expressions.md) especificação se as repetições devem ser paradas (`false`) ou continuação (`true`).      | Sim      | N/A     |
 | count            | Um número positivo que especifica o número máximo de tentativas para tentar.                                                                                | Sim      | N/A     |
-| intervalo         | Um número positivo em segundos, especificando o intervalo de espera entre a repetição de tentativas.                                                                 | Sim      | N/A     |
+| interval         | Um número positivo em segundos, especificando o intervalo de espera entre a repetição de tentativas.                                                                 | Sim      | N/A     |
 | max-interval     | Um número positivo em segundos, especificando o número máximo de espera intervalo entre tentativas de repetição. Ele é usado para implementar um algoritmo de repetição exponencial. | Não       | N/A     |
 | delta            | Um número positivo em segundos, especificando o incremento de intervalo de espera. É utilizado para implementar os algoritmos de repetição linear e exponencial.             | Não       | N/A     |
 | primeiro-fast-repetição | Se definido como `true` , a primeira tentativa de repetição é executada imediatamente.                                                                                  | Não       | `false` |
@@ -867,7 +867,7 @@ O exemplo seguinte demonstra uma política de variável de conjunto na secção 
 | Atributo | Descrição                                                              | Necessário |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | nome      | O nome da variável.                                                | Sim      |
-| valor     | O valor da variável. Isso pode ser uma expressão ou um valor literal. | Sim      |
+| value     | O valor da variável. Isso pode ser uma expressão ou um valor literal. | Sim      |
 
 ### <a name="usage"></a>Utilização
 

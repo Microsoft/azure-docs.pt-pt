@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773371"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -162,12 +162,12 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Atualização do Windows é instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. Atualização do Windows está instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para o Windows Update.)<br> Consulte a [FAQ](#frequently-asked-questions) secção sobre como decidir o que é melhor se adequam política para o seu cluster.
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinição: 1024)               |Tamanho máximo da aplicação de orquestração do patch os logs em MB, que pode ser mantido localmente em nós.
 | WUQuery               | string<br>(Predefinição: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: FALSO)                 | Utilize este sinalizador para controlar quais atualizações devem ser baixadas e instaladas. São permitidos valores seguintes <br>TRUE - instala apenas atualizações de sistema operativo do Windows.<br>FALSE – instala todas as atualizações disponíveis na máquina.          |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (predefinição: FALSO)                 | Utilize este sinalizador para controlar quais atualizações devem ser baixadas e instaladas. São permitidos valores seguintes <br>TRUE - instala apenas atualizações de sistema operativo do Windows.<br>FALSE – instala todas as atualizações disponíveis na máquina.          |
 | WUOperationTimeOutInMinutes | Int <br>(Predefinição: 90)                   | Especifica o tempo limite para qualquer operação de atualização do Windows (pesquisa ou download ou instalação). Se não é possível concluir a operação no tempo limite especificado, é abortada.       |
 | WURescheduleCount     | Int <br> (Predefinição: 5)                  | O número máximo de vezes que o serviço reagenda o Windows update no caso de uma operação falha de forma permanente.          |
 | WURescheduleTimeInMinutes | Int <br>(Predefinição: 30) | O intervalo no qual o serviço reagenda a atualização do Windows no caso de falha persistir. |
 | WUFrequency           | Cadeia de caracteres separados por vírgulas (predefinição: "Semanais, quarta-feira, 7:00:00")     | A frequência para instalar a atualização do Windows. Os valores de formato e possíveis são: <br>-Mensais, DD, hh: mm:, por exemplo, mensalmente, 5, 12: 22:32.<br>Permissão de valores de campo DD (dia) são números entre o intervalo de 1 a 28 e "last". <br> -Semanal, dia, hh: mm:, para o exemplo, semanalmente, Terça-feira, 12:22:32.  <br> -Diárias, hh: mm:, por exemplo, diariamente, 12:22:32.  <br> -None indica que o Windows Update não deve ser feito.  <br><br> Tenha em atenção que os tempos são indicados em UTC.|
-| AcceptWindowsUpdateEula | Booleano <br>(Predefinição: VERDADEIRO) | Ao definir este sinalizador, o aplicativo aceite o contrato de licença de utilizador final para o Windows Update em nome do proprietário da máquina.              |
+| AcceptWindowsUpdateEula | Boolean <br>(Predefinição: VERDADEIRO) | Ao definir este sinalizador, o aplicativo aceite o contrato de licença de utilizador final para o Windows Update em nome do proprietário da máquina.              |
 
 > [!TIP]
 > Se pretender que o Windows Update para imediatamente, defina `WUFrequency` em relação ao tempo de implementação de aplicação. Por exemplo, suponha que tem um cluster de teste de cinco nós e planeja implantar o aplicativo ao cerca as 17:00 UTC. Se for suposto que a atualização da aplicação ou implementação demora 30 minutos no máximo, definir o WUFrequency como "Diariamente, 17:30:00"

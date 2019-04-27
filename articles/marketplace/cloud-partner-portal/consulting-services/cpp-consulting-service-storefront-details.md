@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865380"
 ---
-# <a name="storefront-details-tab"></a>Vitrine separador de detalhes
+# <a name="storefront-details-tab"></a>Separador de detalhes da vitrine
 
 Este artigo explica como inserir os detalhes para a loja. O **detalhes de loja** separador consiste as seções a seguir:
 

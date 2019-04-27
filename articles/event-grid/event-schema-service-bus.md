@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: babanisa
 ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561766"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos do Azure Event Grid para o Service Bus
 
@@ -82,25 +82,25 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos de armazenamento de Blobs. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| namespaceName | cadeia | O espaço de nomes do Service Bus o recurso existe. |
-| requestUri | cadeia | O URI para a fila específica ou a subscrição que emite o evento. |
-| entityType | cadeia | O tipo de entidade do Service Bus emite eventos (fila ou subscrição). |
-| queueName | cadeia | A fila com mensagens ativas se subscrever uma fila. Valor null, se utilizar tópicos / subscrições. |
-| topicName | cadeia | O tópico a subscrição do Service Bus com mensagens ativas pertence. Valor nulo se a utilização de uma fila. |
-| subscriptionName | cadeia | A subscrição do Service Bus com mensagens de Active Directory. Valor nulo se a utilização de uma fila. |
+| namespaceName | string | O espaço de nomes do Service Bus o recurso existe. |
+| requestUri | string | O URI para a fila específica ou a subscrição que emite o evento. |
+| entityType | string | O tipo de entidade do Service Bus emite eventos (fila ou subscrição). |
+| queueName | string | A fila com mensagens ativas se subscrever uma fila. Valor null, se utilizar tópicos / subscrições. |
+| topicName | string | O tópico a subscrição do Service Bus com mensagens ativas pertence. Valor nulo se a utilização de uma fila. |
+| subscriptionName | string | A subscrição do Service Bus com mensagens de Active Directory. Valor nulo se a utilização de uma fila. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

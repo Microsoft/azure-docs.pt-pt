@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888376"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testar os módulos do Terraform no Azure utilizando Terratest
 
