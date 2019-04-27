@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
 ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699571"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderado publicações do Facebook e comandos do Azure Content moderator
 
@@ -65,7 +65,7 @@ Inicie sessão para o [Portal do Azure](https://portal.azure.com/) e siga estes 
 2. Vá para a aplicação de funções recentemente criado.
 3. Na aplicação, vá para o **funcionalidades de plataforma** separador e selecione **configurações de aplicativo**. Na **as configurações do aplicativo** secção da página seguinte, desloque para baixo da lista e clique em **Adicionar nova definição**. Adicionar os seguintes pares de chave/valor
     
-    | Nome da definição de aplicação | valor   | 
+    | Nome da definição de aplicação | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | O TeamId do Content Moderator  | 
     | cm:SubscriptionKey | A chave de subscrição do Content Moderator. Veja [Credenciais](review-tool-user-guide/credentials.md) | 

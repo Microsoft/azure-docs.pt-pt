@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731570"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar a sua primeira função durável em C\#
 
-*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
+*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
 
 Neste artigo, irá aprender a utilizar as ferramentas do Visual Studio 2017 para as funções do Azure para criar localmente e testar uma função durável "hello world".  Orquestra a essa função e em conjunto de cadeias de chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017.
 

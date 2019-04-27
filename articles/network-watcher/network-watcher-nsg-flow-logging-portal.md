@@ -3,8 +3,8 @@ title: Registar o fluxo de tráfego de rede de/para uma VM – tutorial – port
 description: Saiba como registar o fluxo de tráfego de rede de/para uma VM com a capacidade dos registos de fluxo do NSG do Observador de Rede.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726759"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Location| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -89,7 +89,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | Definição        | Valor                                                        |
     | ---            | ---   |
     | Name           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
-    | Localização       | Selecione **E.U.A. Leste**                                           |
+    | Location       | Selecione **E.U.A. Leste**                                           |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento.
@@ -205,7 +205,7 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | 44931        | Porta de origem            | A porta de origem da qual teve origem o fluxo.                                           |
 | 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Uma vez que o tráfego foi destinado à porta 443, a regra com o nome **UserRule_default-allow-rdp**, no registo de ficheiros processados o fluxo.                                                |
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
-| O            | Direção              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
+| O            | Direction              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
 | A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
 | C            | Estado do fluxo de **apenas a versão 2** | Captura o estado do fluxo. Estados possíveis **B**: Iniciar, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: Continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Fim, quando um fluxo é terminado. As estatísticas são fornecidas. |
 | 30 | Pacotes enviados - origem para destino **apenas 2 da versão** | O número total de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. |

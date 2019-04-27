@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c0c1f9e4b8ed854c562ad7af16222e726b3b4293
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560303"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: Como inscrever-se e carregar o seu primeiro vídeo
 

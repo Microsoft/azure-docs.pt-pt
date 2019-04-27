@@ -3,21 +3,22 @@ title: Copiar dados de Hive com o Azure Data Factory | Documentos da Microsoft
 description: Saiba como copiar dados de Hive para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: b245a80967d91b793fcf360772c0dec758f8f252
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808904"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de Hive com o Azure Data Factory 
 
@@ -41,7 +42,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Hive:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Hive** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Hive** | Sim |
 | anfitrião | Nome anfitrião ou endereço IP do servidor do Hive, separado por ";" para vários anfitriões (apenas quando serviceDiscoveryMode é ativado).  | Sim |
 | porta | A porta TCP que o servidor do Hive utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
 | serverType | O tipo de servidor do Hive. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
@@ -89,7 +90,7 @@ Para copiar dados de Hive, defina a propriedade de tipo de conjunto de dados par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **HiveObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **HiveObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -118,7 +119,7 @@ Para copiar dados de Hive, definir o tipo de origem na atividade de cópia para 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HiveSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HiveSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

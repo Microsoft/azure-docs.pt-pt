@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582453"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Enviar e utilizar consultas de API de pesquisa do Bing Local comerciais e respostas
 

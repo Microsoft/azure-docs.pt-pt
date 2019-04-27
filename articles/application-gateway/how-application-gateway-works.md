@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
 ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830336"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicação
 

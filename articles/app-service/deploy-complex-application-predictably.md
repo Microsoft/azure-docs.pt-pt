@@ -16,11 +16,11 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60766924"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
 Este tutorial mostra como aprovisionar e implementar um aplicativo composto [microsserviços](https://en.wikipedia.org/wiki/Microservices) na [App Service do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e Script do PowerShell. 

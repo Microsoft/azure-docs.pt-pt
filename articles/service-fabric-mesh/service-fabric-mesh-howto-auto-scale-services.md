@@ -16,11 +16,11 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583609"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Criar políticas de dimensionamento automático para um aplicativo de malha do Service Fabric
 Uma das principais vantagens da implementação de aplicações no Service Fabric Mesh é a capacidade de reduzir ou aumentar horizontalmente os seus serviços. Deve utilizar a redução ou o aumento para processar quantidades diferentes de carga nos serviços ou melhorar a disponibilidade. Pode dimensionar os seus serviços dentro ou para fora manualmente ou configurar políticas de dimensionamento automático.

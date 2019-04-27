@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: tomfitz
 ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60728036"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 

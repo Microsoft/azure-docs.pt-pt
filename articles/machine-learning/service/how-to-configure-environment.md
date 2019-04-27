@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60820027"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -284,7 +284,7 @@ Criar uma [cluster do Databricks](https://docs.microsoft.com/azure/azure-databri
 
 Utilize estas definições:
 
-| Definição |Aplica-se a| Valor |
+| Definição |Aplica-se a| Value |
 |----|---|---|
 | Nome do cluster |sempre| yourclustername |
 | Runtime do Databricks |sempre| Qualquer tempo de execução não ML (ML não 4.x, 5.x) |

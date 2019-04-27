@@ -11,11 +11,11 @@ ms.date: 08/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732954"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure no portal do Azure
 
@@ -144,7 +144,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
    | :------ | :-------------- | :---------- |
    | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
    | Nome do servidor | O nome de servidor completamente qualificado | Eis um exemplo: **mynewserver-20180430.database.windows.net**. |
-   | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
+   | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
    | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
    | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
    ||||

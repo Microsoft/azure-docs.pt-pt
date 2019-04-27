@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
 ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607098"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material doC#
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799264"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Linux
 
@@ -74,7 +74,7 @@ Se a VM não é criada numa rede Virtual, os casos de padrão para serviços clo
 ### <a name="version-and-region-availability"></a>Versão e a disponibilidade de região
 O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias; a versão atual é `2017-11-01`.
 
-| Versão | Tipo de versão | Regiões | Notas de Versão | 
+| Version | Tipo de versão | Regiões | Notas de Versão | 
 | - | - | - | - | 
 | 2017-11-01 | Disponibilidade Geral | Todos | <li> Foi adicionado suporte para expulsão de baixa prioridade VM EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade Geral | Todos | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 

@@ -15,11 +15,11 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60766272"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o ambiente de serviço de aplicações 
 
@@ -83,7 +83,7 @@ Para carregar o certificado à sua aplicação no seu ASE:
 4. Copie o thumbprint.
 5. Aceda às definições de aplicação. Crie um WEBSITE_LOAD_ROOT_CERTIFICATES de definição de aplicação com o thumbprint como o valor. Se tiver vários certificados, pode colocá-los na definição da mesma, separada por vírgulas e sem espaço em branco, como 
 
-    84EC242A4EC7957817B8E48913E50953552DAFA6, 6A5C65DC9247F762FE17BF8D4906E04FE6B31819
+    84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
 O certificado vai estar disponível por todas as aplicações no mesmo plano de serviço de aplicações como a aplicação, que é configurado dessa definição. Se precisar de ele estar disponível para aplicações num plano do serviço de aplicação diferente, terá de repetir a operação de definição de aplicação numa aplicação nesse plano do serviço de aplicações. Para verificar que o certificado for definido, vá para a consola Kudu e emitir este comando dir cert: \localmachine\root na consola de depuração do PowerShell. 
 

@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: quickstart
 ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578917"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início rápido: Criar, implementar e utilizar um modelo personalizado para a tradução
 

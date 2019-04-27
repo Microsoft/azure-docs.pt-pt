@@ -15,13 +15,13 @@ ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794021"
 ---
-# <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
+# <a name="available-skus-for-hli"></a>SKUs Disponíveis para HLI
 
 SAP HANA no serviço do Azure (instâncias grandes) está disponível em várias configurações nas regiões do Azure dos EUA oeste e EUA leste, leste da Austrália, Sudeste da Austrália, Europa Ocidental, Europa do Norte, leste do Japão e oeste do Japão.
 

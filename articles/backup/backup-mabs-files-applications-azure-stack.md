@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
 ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848761"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Fazer uma cópia de segurança de ficheiros no Azure Stack
 Pode utilizar o Azure Backup para proteger (ou criar cópias de segurança) ficheiros e aplicações no Azure Stack. Para fazer uma cópia de segurança de ficheiros e aplicações, instale o Microsoft Azure Backup Server como uma máquina virtual em execução no Azure Stack. Pode proteger os ficheiros em qualquer servidor do Azure Stack na mesma rede virtual. Assim que tiver instalado o servidor de cópia de segurança do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para os dados de cópia de segurança de curta duração. O servidor de cópia de segurança do Azure utiliza o armazenamento do Azure para retenção a longo prazo.

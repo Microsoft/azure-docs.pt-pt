@@ -1,6 +1,6 @@
 ---
-title: Continuidade do negócio de rede virtual | Microsoft Docs
-description: Saiba o que fazer em caso de uma interrupção do serviço do Azure com impacto na redes virtuais do Azure.
+title: Continuidade do negócio de rede virtual | Documentos da Microsoft
+description: Saiba o que fazer em caso de interrupção de serviço do Azure a afetar a redes virtuais do Azure.
 services: virtual-network
 documentationcenter: ''
 author: NarayanAnnamalai
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: d993144006d1fb17d79ffee4f2da538264a309a4
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742716"
 ---
 # <a name="virtual-network--business-continuity"></a>Rede virtual – continuidade do negócio
 
 ## <a name="overview"></a>Descrição geral
-Uma rede Virtual (VNet) é uma representação lógica da rede na nuvem. Permite-lhe definir o seu próprio espaço de endereços IP privados e o segmento de rede em sub-redes. As VNets serve como um limite de fidedignidade para alojar os recursos de computação, tais como máquinas virtuais do Azure e serviços em nuvem (funções da web/trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos alojados no mesmo. Pode ligar uma rede virtual a uma rede no local através de uma VPN Gateway ou ExpressRoute.
+Uma rede Virtual (VNet) é uma representação lógica da sua rede na cloud. Permite-lhe definir seu próprio espaço de endereços IP privados e segmentar a rede em sub-redes. VNets serve como um limite de fidedignidade para alojar os seus recursos de computação, como máquinas virtuais do Azure e serviços Cloud (funções da web/trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos alojados no mesmo. Pode ligar uma rede virtual a uma rede no local através de um Gateway de VPN ou ExpressRoute.
 
-É criada uma VNet dentro do âmbito de uma região. Pode criar as VNets com o mesmo espaço de endereços em duas regiões diferentes (por exemplo, EUA leste e dos EUA oeste), mas não é possível ligá-los em conjunto. 
+Uma VNet é criada dentro do escopo de uma região. Pode criar VNets com o mesmo espaço de endereços em duas regiões diferentes (por exemplo, EUA leste e E.u.a. oeste), mas não é possível ligá-los. 
 
 ## <a name="business-continuity"></a>Continuidade do Negócio
 
-Podem existir várias maneiras diferentes que a aplicação foi interrompida. Uma região foi completamente cortar devido a um desastre natural ou um desastre parcial, devido a uma falha de vários dispositivos ou os serviços. O impacto no serviço de VNet é diferente em cada uma destas situações.
+Pode haver várias formas diferentes de que seu aplicativo pode ser interrompido. Uma região poderia ser cortada completamente devido a um desastre natural ou um desastre parcial, devido a uma falha de vários dispositivos ou serviços. O impacto sobre o serviço de VNet é diferente em cada uma destas situações.
 
-**P: se ocorrer uma falha de uma região de toda, o que devo fazer? Por exemplo, se uma região completamente cortar devido a um desastre natural? O que acontece para as redes virtuais alojadas na região?**
+**P: Se ocorrer uma falha para uma região inteira, o que devo fazer? Por exemplo, se uma região é cortada completamente devido a um desastre natural? O que acontece com as redes virtuais alojadas na região?**
 
-R: a rede virtual e os recursos na região afetado permanece inacessível durante o período de tempo de interrupção do serviço.
+R: A rede virtual e os recursos na região afetado permanece inacessível durante o tempo de interrupção do serviço.
 
 ![Diagrama de rede Virtual simples](./media/virtual-network-disaster-recovery-guidance/vnet.png)
 
-**P: o que posso recriar a mesma rede virtual numa região diferente?**
+**P: O que posso voltar a criar a mesma rede virtual numa região diferente?**
 
-R: redes virtuais são recursos bastante simples. Pode invocar as APIs do Azure para criar uma VNet com o mesmo espaço de endereços numa região diferente. Para recriar o ambiente mesmo que estava presente na região afetada, efetuar chamadas de API Reimplementar da web de serviços em nuvem e as funções de trabalho e as máquinas virtuais que tiver. Se tiver conectividade no local, tal como numa implementação híbrida, tem de implementar um novo Gateway de VPN e estabelecer ligação à sua rede no local.
+R: Redes virtuais são recursos bem leves. É possível invocar as APIs do Azure para criar uma VNet com o mesmo espaço de endereços numa região diferente. Para recriar o mesmo ambiente que estava presente na região afetado, fazer chamadas da API da web de serviços Cloud e funções de trabalho e as máquinas virtuais que tinha de voltar a. Se tiver conectividade no local, tal como numa implementação híbrida, terá de implementar um novo Gateway de VPN e ligar à sua rede no local.
 
-Para criar uma rede virtual, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network).
+Para criar uma rede virtual, veja [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network).
 
-**P: uma réplica de uma VNet uma determinada região ser recriada noutra região antecedência?**
+**P: Uma réplica de uma VNet numa determinada região pode ser recriada noutra região antes do tempo?**
 
-R: Sim, pode criar duas VNets utilizando o mesmo espaço de endereços IP privados e recursos em duas regiões diferentes antecedência. Se alojar serviços para a internet na VNet, foi definiu cópias de segurança Gestor de tráfego para georreplicação-encaminhar o tráfego para a região que está ativa. No entanto, não é possível ligar duas VNets com o mesmo espaço de endereços à sua rede no local, como faria com que problemas de encaminhamento. O tempo de um desastre e perda de uma VNet na região de um, pode ligar a outra VNet na região disponível, com o espaço de endereços correspondentes à sua rede no local.
+R: Sim, pode criar duas VNets com o mesmo espaço de endereços IP privados e os recursos em duas regiões diferentes antes do tempo. Se estiver a alojar os serviços de acesso à internet na VNet, ter definido o Gestor de tráfego para geo-encaminhar o tráfego para a região que está ativa. No entanto, não pode ligar duas VNets com o mesmo espaço de endereço para a sua rede no local, como iria provocar problemas de encaminhamento. No momento de um desastre e perda de uma VNet na região, pode ligar a outra VNet na região disponível, com o espaço de endereços correspondente à sua rede no local.
 
-Para criar uma rede virtual, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network).
+Para criar uma rede virtual, veja [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network).
 

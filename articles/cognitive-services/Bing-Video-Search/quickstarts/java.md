@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 3b0060b189dd941a8705d7e9815f69db8ea035e8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612971"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Início rápido: Procurar vídeos usando a API de REST de pesquisa de vídeos do Bing e o Java
 

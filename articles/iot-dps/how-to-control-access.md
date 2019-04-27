@@ -2,18 +2,18 @@
 title: Pontos finais de segurança no serviço de aprovisionamento de dispositivos de IoT | Documentos da Microsoft
 description: Conceitos - como controlar o acesso ao serviço de aprovisionamento de dispositivos de IoT para aplicações de back-end. Inclui informações sobre os tokens de segurança.
 author: wesmc7777
-manager: philmea
+manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/09/2019
+ms.date: 09/28/2017
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626661"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Controlar o acesso ao serviço de aprovisionamento de dispositivos do Azure IoT Hub
 
@@ -39,7 +39,7 @@ Pode conceder [permissões](#device-provisioning-service-permissions) das seguin
 > [!NOTE]
 > Ver [permissões](#device-provisioning-service-permissions) para obter informações detalhadas.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 O Azure IoT Hub serviço aprovisionamento de dispositivos concede acesso a pontos finais verificando um token com as diretivas de acesso partilhado. Credenciais de segurança, tais como chaves simétricas, nunca são enviadas durante a transmissão.
 
@@ -75,7 +75,7 @@ O token de segurança tem o seguinte formato:
 
 Seguem-se os valores esperados:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256 do formulário: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave é descodificar a partir de base64 e usada como chave para realizar a computação do HMAC-SHA256.|
 | {expiry} |UTF8 cadeias de caracteres para o número de segundos desde a UTC de 00:00:00 "Epoch" em 1 de Janeiro de 1970. |

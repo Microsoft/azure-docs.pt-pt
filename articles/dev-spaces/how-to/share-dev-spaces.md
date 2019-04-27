@@ -10,13 +10,13 @@ ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
 ms.openlocfilehash: 62d4affa5ef49de7600f9ccc800ea6bf83e4bd49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686642"
 ---
-# <a name="share-azure-dev-spaces"></a>Espaços de desenvolvimento do Azure de partilha
+# <a name="share-azure-dev-spaces"></a>Partilhar os Espaços de Programador do Azure
 
 Com os espaços de desenvolvimento do Azure, pode partilhar o seu espaço de desenvolvimento com outras pessoas na sua equipa. Cada desenvolvedor pode trabalhar em seu próprio espaço sem medo de quebrar outras pessoas. Além disso, a trabalhar em conjunto num único espaço pode permitir que testar código ponto-a-ponto sem ter de criar elementos fictícios ou simular as dependências. Consulte a [Saiba mais sobre desenvolvimento em equipe](../team-development-nodejs.md) guia para obter mais informações.
 

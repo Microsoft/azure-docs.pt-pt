@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e3ab36def2d210bd763f3ce2dc5df155e37e2dba
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670358"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870898"
 ---
 # <a name="service-state"></a>Estado do serviço
 **Estado do serviço** refere-se para a memória ou nos dados de disco que requer que um serviço de função. Ele inclui, por exemplo, as estruturas de dados e as variáveis de membro que o serviço de leituras e escritas para fazer o trabalho. Dependendo de como o serviço está arquitetado, também pode incluir ficheiros ou outros recursos que estão armazenados no disco. Por exemplo, os ficheiros de uma base de dados usaria para armazenar os registos de dados e transações.

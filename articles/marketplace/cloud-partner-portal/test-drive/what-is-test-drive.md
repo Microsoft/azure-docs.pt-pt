@@ -1,5 +1,5 @@
 ---
-title: O que é o Test Drive? | Microsoft Docs
+title: O que é a Versão de Teste? | Microsoft Docs
 description: Explicação da funcionalidade de Marketplace Test-Drive
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0bdff77a4be6a28e2799d4f481492d2c7ba6bda0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744853"
 ---
-<a name="what-is-test-drive"></a>O que é o Test Drive?
+<a name="what-is-test-drive"></a>O que é a Versão de Teste?
 ===================
 
 Versão de teste é uma ótima maneira de demonstrar sua oferta aos clientes potenciais, conferindo-lhes a opção para \'tente antes de o comprar\', o que resulta em maior de conversão e a geração de oportunidades potenciais altamente qualificados.

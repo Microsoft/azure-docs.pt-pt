@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768671"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -53,14 +53,15 @@ As seguintes origens de dados são suportadas para a atividade de pesquisa. O ma
 ```
 
 ## <a name="type-properties"></a>Propriedades do tipo
-Nome | Descrição | Tipo | Necessário?
+
+Name | Descrição | Type | Necessário?
 ---- | ----------- | ---- | --------
 Conjunto de dados | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes no **propriedades do conjunto de dados** secção cada artigo conector correspondente. | Par chave/valor | Sim
 source | Contém as propriedades da origem de conjunto de dados específicas, o mesmo que a origem de atividade de cópia. Obtenha detalhes no **propriedades da atividade de cópia** secção cada artigo conector correspondente. | Par chave/valor | Sim
-firstRowOnly | Indica se deve retornar apenas a primeira linha ou todas as linhas. | Booleano | Não. A predefinição é `true`.
+firstRowOnly | Indica se deve retornar apenas a primeira linha ou todas as linhas. | Boolean | Não. A predefinição é `true`.
 
 > [!NOTE]
-
+> 
 > * Colunas com de origem **ByteArray** tipo não são suportados.
 > * **Estrutura** não é suportada nas definições do conjunto de dados. Para os ficheiros de formato de texto, utilize a linha de cabeçalho para fornecer o nome da coluna.
 > * Se a sua origem de pesquisa é um ficheiro JSON, o `jsonPathDefinition` definição para reformulação do objeto JSON não é suportada. Os objetos inteiros serão obtidos.

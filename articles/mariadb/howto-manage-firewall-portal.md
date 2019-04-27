@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746405"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a base de dados do Azure para MariaDB regras de firewall com o portal do Azure
 Regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma base de dados do Azure para MariaDB Server de um endereço IP especificado ou um intervalo de endereços IP.

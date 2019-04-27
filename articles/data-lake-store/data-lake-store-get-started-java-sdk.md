@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883552"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60877469"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o SDK de Java
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ O exemplo de código disponível no [GitHub](https://azure.microsoft.com/documen
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 * Para a autenticação de utilizador final para a sua aplicação, veja [finais autenticação de utilizador com a geração 1 de armazenamento do Data Lake com o Java](data-lake-store-end-user-authenticate-java-sdk.md).
 * Para a autenticação de serviço a serviço para a sua aplicação, veja [autenticação do serviço a serviço com geração 1 de armazenamento do Data Lake com o Java](data-lake-store-service-to-service-authenticate-java.md).

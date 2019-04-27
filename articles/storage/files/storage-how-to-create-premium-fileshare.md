@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844547"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Como criar uma partilha de ficheiros do Azure premium
 

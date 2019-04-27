@@ -13,13 +13,13 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771248"
 ---
-# <a name="prepay-for-azure-software-plans"></a>Efetue o pré-pagamento do planos de software do Azure
+# <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
 
 Quando efetuar o pré-pagamento do seu uso de software SUSE e Red Hat no Azure, pode poupar dinheiro sobre os custos de pay as you go. Os descontos só se aplicam a medidores de SUSE e Red Hat e não na utilização da máquina virtual. Pode comprar reservas para máquinas virtuais em separado para poupanças adicionais.
 

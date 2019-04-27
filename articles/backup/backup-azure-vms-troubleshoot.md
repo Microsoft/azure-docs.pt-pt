@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550027"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -82,7 +82,7 @@ Reinicie os escritores VSS que estão num Estado incorreto. A partir da linha de
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha ao analisar a configuração para a extensão de cópia de segurança
 
 Código do erro: ExtensionConfigParsingFailure<br/>
-Mensagem de erro: Falha ao analisar a configuração para a extensão da cópia de segurança.
+Mensagem de erro: Falha ao analisar a configuração da extensão de cópia de segurança.
 
 Este erro ocorre devido a permissões alteradas no **MachineKeys** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Execute o seguinte comando e certifique-se de que as permissões a **MachineKeys** diretório são valores padrão:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.

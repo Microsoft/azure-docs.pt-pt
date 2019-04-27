@@ -1,6 +1,6 @@
 ---
-title: Migrar uma rede virtual do Azure (clássica) a partir de um grupo de afinidade para uma região | Microsoft Docs
-description: Saiba como migrar uma rede virtual (clássica) a partir de um grupo de afinidade para uma região.
+title: Migrar uma rede virtual do Azure (clássico) de um grupo de afinidades para uma região | Documentos da Microsoft
+description: Saiba como migrar uma rede virtual (clássico) de um grupo de afinidades para uma região.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -15,50 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1fca7f6165998b95254f841638cf8bcbc1fb352d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648640"
 ---
-# <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migrar uma rede virtual (clássica) a partir de um grupo de afinidade para uma região
+# <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migrar uma rede virtual (clássico) de um grupo de afinidades para uma região
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que implementações mais novas utilizem o modelo de implementação Resource Manager.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo de implementação do Resource Manager.
 
-Grupos de afinidades Certifique-se de que os recursos criados no mesmo grupo de afinidade fisicamente alojados por servidores que estão fechar em conjunto, ativar a estes recursos para comunicar mais rápida. No passado, grupos de afinidade eram um requisito para criar redes virtuais (clássica). Nessa altura, o serviço do Gestor de rede que geridos redes virtuais (clássicas) só pode funcionar dentro de um conjunto de servidores físicos ou unidade de escala. Melhoramentos da arquitetura tem aumentado o âmbito da gestão de rede a uma região.
+Grupos de afinidades Certifique-se de que os recursos criados dentro do mesmo grupo de afinidade fisicamente são alojados por servidores que estão próximos, permitindo que estes recursos para comunicar mais rápida. No passado, os grupos de afinidade eram um requisito para a criação de redes virtuais (clássicas). Nessa altura, o serviço de Gestor de rede geridos redes virtuais (clássico) apenas podia trabalhar dentro de um conjunto de servidores físicos ou unidade de escala. Melhorias de arquitetura aumentou o âmbito de gestão de rede para uma região.
 
-Como resultado estas melhorias da arquitetura, grupos de afinidades já não são recomendados, ou necessários para as redes virtuais (clássicas). A utilização de grupos de afinidade para redes virtuais (clássica) é substituída pela regiões. Redes virtuais (clássica) que estão associados a regiões são denominadas redes virtuais regionais.
+Como consequência desses aprimoramento de arquiteturais, grupos de afinidade são já não são recomendados, ou necessários para as redes virtuais (clássico). A utilização de grupos de afinidade para redes virtuais (clássicos) é substituída pelo regiões. Redes virtuais (clássicas) que estão associadas a regiões são chamadas de redes virtuais regionais.
 
-Recomendamos que não utilize grupos de afinidade em geral. Além dos requisitos de rede virtual, os grupos de afinidades também foram importantes utilizar para se certificar de recursos, tais como a computação (clássica) e armazenamento (clássica), foram colocadas perto de si. No entanto, com a arquitetura de rede do Azure atual, estes requisitos de posicionamento são já não são necessários.
+Recomendamos que não use grupos de afinidade em geral. Além do requisito de rede virtual, os grupos de afinidades também foram importantes para utilizar para se certificar de recursos, como computação (clássico) e armazenamento (clássico), foram colocados perto uns dos outros. No entanto, com a arquitetura de rede do Azure atual, esses requisitos de posicionamento já não são necessários.
 
 > [!IMPORTANT]
-> Embora seja tecnicamente possível criar uma rede virtual que está associada um grupo de afinidade, não há nenhuma razão apelativa para fazê-lo. Muitas funcionalidades de rede virtual, tais como grupos de segurança de rede, só estão disponíveis ao utilizar uma rede virtual regional e não estão disponíveis para as redes virtuais que estão associados a grupos de afinidades.
+> Embora seja tecnicamente possível criar uma rede virtual que está associada um grupo de afinidades, não há nenhum motivo convincente para isso. Muitos recursos de rede virtual, como grupos de segurança de rede, só estão disponíveis quando utilizar uma rede virtual regional e não estão disponíveis para as redes virtuais que estão associadas a grupos de afinidade.
 > 
 > 
 
 ## <a name="edit-the-network-configuration-file"></a>Edite o ficheiro de configuração de rede
 
-1. Exporte o ficheiro de configuração de rede. Para saber como exportar um ficheiro de configuração de rede utilizando o PowerShell ou a interface de linha de comandos do Azure (CLI) 1.0, consulte [configurar uma rede virtual com um ficheiro de configuração de rede](virtual-networks-using-network-configuration-file.md#export).
-2. Edite o ficheiro de configuração de rede, substituindo **AffinityGroup** com **localização**. Especifique um Azure [região](https://azure.microsoft.com/regions) para **localização**.
+1. Exporte o ficheiro de configuração de rede. Para saber como exportar um ficheiro de configuração de rede com o PowerShell ou a interface de linha de comandos (CLI) 1.0 do Azure, veja [configurar uma rede virtual com um ficheiro de configuração de rede](virtual-networks-using-network-configuration-file.md#export).
+2. Edite o ficheiro de configuração de rede, substituindo **AffinityGroup** com **localização**. Especificar do Azure [região](https://azure.microsoft.com/regions) para **localização**.
    
    > [!NOTE]
-   > O **localização** é a região que especificou para o grupo de afinidade que está associado a sua rede virtual (clássica). Por exemplo, se a rede virtual (clássica) está associada um grupo de afinidade que está localizado em EUA oeste, ao migrar, o **localização** tem de apontar para EUA oeste. 
+   > O **localização** é a região que especificou para o grupo de afinidade que estão associado com a rede virtual (clássico). Por exemplo, se a rede virtual (clássico) estiver associada um grupo de afinidade que está localizado na região E.U.A. oeste, ao migrar, sua **localização** tem de apontar para E.U.A. oeste. 
    > 
    > 
    
-    Edite as seguintes linhas no ficheiro de configuração de rede, substituindo os valores com os seus próprios: 
+    Edite as seguintes linhas no ficheiro de configuração de rede, substituindo os valores pelos seus próprios: 
    
-    **Valor antigo:** \<VirtualNetworkSitename = AffinityGroup "VNetUSWest" = "VNetDemoAG"\> 
+    **Valor antigo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **Valor novo:** \<VirtualNetworkSitename = "VNetUSWest" localização "EUA Oeste" de =\>
+    **Novo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. Guardar as alterações e [importar](virtual-networks-using-network-configuration-file.md#import) a configuração de rede para o Azure.
 
 > [!NOTE]
-> Esta migração não irá causar qualquer período de indisponibilidade para os serviços.
+> Esta migração não irá causar qualquer período de inatividade para seus serviços.
 > 
 > 
 
-## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>O que fazer se tiver uma VM (clássica) num grupo de afinidade
-VMs (clássica) que estão atualmente a ser um grupo de afinidade não precisam de ser removido do grupo de afinidade. Depois de uma VM for implementada, é implementada para uma unidade de escala único. Grupos de afinidades pode restringir o conjunto de tamanhos VM disponíveis para uma nova implementação de VM, mas qualquer VM existente que é implementada já está restringida ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a implementação da VM. Porque a VM já está a ser implementada para uma unidade de escala, remover uma VM a partir de um grupo de afinidade não tem efeito na VM.
+## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>O que fazer se tiver uma VM (clássico) num grupo de afinidades
+VMs (clássicas) que estão atualmente num grupo de afinidades não é necessário ser removido do grupo de afinidade. Depois de uma VM é implementada, é implementada para uma unidade de escala único. Grupos de afinidades pode restringir o conjunto de tamanhos VM disponíveis para uma nova implementação de VM, mas qualquer VM existente implementada já está limitado ao conjunto de tamanhos de VM disponíveis na unidade de escala em que a VM é implementada. Uma vez que a VM já está a ser implementada para uma unidade de escala, remover uma VM a partir de um grupo de afinidade não tem efeito na VM.

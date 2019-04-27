@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593610"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
@@ -31,7 +31,7 @@ Este tutorial mostra como criar um SQL Server grupo de Disponibilidade AlwaysOn 
 
 O diagrama ilustra o que criar no tutorial.
 
-![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
+![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -402,7 +402,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | SQLAlwaysOnEndPointProbe |
+   | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Selecione TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 59999 |
    | **Intervalo**  | A quantidade de tempo entre tentativas da sonda em segundos |5 |
@@ -418,7 +418,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | SQLAlwaysOnEndPointListener |
+   | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando criou o Balanceador de carga. |
    | **Protocolo** | Selecione TCP |TCP |
    | **Porta** | Utilizar a porta para o serviço de escuta do grupo de disponibilidade | 1433 |
@@ -426,7 +426,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Sonda** |O nome que especificou para a sonda | SQLAlwaysOnEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Enabled |
 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
@@ -445,7 +445,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | WSFCEndPointProbe |
+   | **Nome** | Text | WSFCEndPointProbe |
    | **Protocolo** | Selecione TCP | TCP |
    | **Porta** | Qualquer porta não utilizada | 58888 |
    | **Intervalo**  | A quantidade de tempo entre tentativas da sonda em segundos |5 |
@@ -459,7 +459,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
 
    | Definição | Descrição | Exemplo
    | --- | --- |---
-   | **Nome** | Texto | WSFCEndPoint |
+   | **Nome** | Text | WSFCEndPoint |
    | **Endereço IP de front-end** | Escolha um endereço |Utilize o endereço que criou quando configurou o endereço IP do WSFC. Isso é diferente do endereço IP do serviço de escuta |
    | **Protocolo** | Selecione TCP |TCP |
    | **Porta** | Utilize a porta para o endereço IP do cluster. Esta é uma porta disponível que não é utilizada para a porta de sonda do serviço de escuta. | 58888 |
@@ -467,7 +467,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
    | **Sonda** |O nome que especificou para a sonda | WSFCEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Enabled |
 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.

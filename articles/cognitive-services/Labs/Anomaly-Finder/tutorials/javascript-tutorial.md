@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
 ms.openlocfilehash: 9e66b24987b2318f3022404d951fbb911e7b592d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709873"
 ---
 # <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutorial: Deteção de anomalias com a aplicação do Javascript
 

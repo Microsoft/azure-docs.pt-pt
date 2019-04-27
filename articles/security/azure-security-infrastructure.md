@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586579"
 ---
 # <a name="azure-infrastructure-security"></a>Segurança da infraestrutura do Azure
 Microsoft Azure é executado em datacenters gerenciado e operado pela Microsoft. Estes datacenters dispersos geograficamente está em conformidade com padrões da indústria de chave, como a ISO/IEC 27001:2013 e SP de NIST 800-53, segurança e confiabilidade. Centros de dados são geridos, monitorizados e administrados pela equipe de operações do Microsoft. A equipa de operações tem anos de experiência no fornecimento de maiores serviços online do mundo com 24x7 continuidade.

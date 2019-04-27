@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561567"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
 
@@ -82,14 +82,14 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, veja a origem do evento:
 

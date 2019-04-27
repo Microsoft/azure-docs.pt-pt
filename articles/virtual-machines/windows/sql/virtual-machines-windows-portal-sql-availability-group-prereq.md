@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591925"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -190,7 +190,7 @@ A tabela seguinte mostra as definições para essas duas máquinas:
 | **Endereço IP público** |*Mesmo nome da VM* |
 | **Grupo de segurança de rede** |*Mesmo nome da VM* |
 | **Conjunto de disponibilidade** |adavailabilityset </br>**Domínios de falha**: 2 </br>**Domínios de atualização**: 2|
-| **Diagnóstico** |Ativado |
+| **Diagnóstico** |Enabled |
 | **Conta de armazenamento de diagnóstico** |*Criado automaticamente* |
 
    >[!IMPORTANT]

@@ -12,11 +12,11 @@ ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753471"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utilizar blocos de notas do Jupyter para explorar o serviço Azure Machine Learning
 

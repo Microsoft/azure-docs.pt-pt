@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
 ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60700369"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar uma base de dados para uma instância gerida
 

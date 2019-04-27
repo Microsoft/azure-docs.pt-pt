@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9bbb6a8f8edf42ceb2ffb6d8e632f66a3ad9c6a6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776680"
 ---
 # <a name="dynamics-365-for-operations-help-wiki"></a>Dynamics 365 para operações de ajudar a Wiki
 

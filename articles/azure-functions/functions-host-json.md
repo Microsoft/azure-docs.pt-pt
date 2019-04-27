@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
 ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737214"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
 

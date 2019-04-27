@@ -2,20 +2,21 @@
 title: Monitorizar a carga de trabalho com DMVs | Documentos da Microsoft
 description: Saiba como monitorizar a carga de trabalho com DMVs.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
-ms.author: rortloff
+origin.date: 04/12/2019
+ms.date: 04/29/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748782"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
 Este artigo descreve como utilizar as vistas de gestão dinâmica (DMVs) para monitorizar a carga de trabalho. Isto inclui a execução da consulta no Azure SQL Data Warehouse a investigar.
@@ -282,3 +283,5 @@ Para obter mais informações sobre DMVs, consulte [vistas de sistema][System vi
 [DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+
+<!-- Update_Description: update meta properties, wording update -->

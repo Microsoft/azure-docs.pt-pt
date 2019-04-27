@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f84cb59e7d4fd7d8301d22348ca066a7f9d9e94e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813420"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gerir o Azure Data Lake Analytics, através de políticas
 
@@ -68,8 +68,8 @@ Com as políticas ao nível da tarefa, pode controlar o AUs máximo e a priorida
 
 Data Lake Analytics tem duas políticas que podem ser definidos ao nível da tarefa:
 
-* **Limite de AU por tarefa**: os utilizadores apenas podem submeter as tarefas que têm cópia de segurança para este número de UA. Por predefinição, este limite é o mesmo que o limite de AU máximo para a conta.
-* **Prioridade**: os utilizadores apenas podem submeter as tarefas que têm uma prioridade inferior ou igual a este valor. Um número mais elevado indica uma prioridade mais baixa. Por predefinição, este limite é definido como 1, o que é a prioridade mais alta possível.
+* **Limite de AU por tarefa**: Os utilizadores apenas podem submeter as tarefas que têm cópia de segurança para este número de UA. Por predefinição, este limite é o mesmo que o limite de AU máximo para a conta.
+* **Prioridade**: Os utilizadores apenas podem submeter as tarefas que têm uma prioridade inferior ou igual a este valor. Um número mais elevado indica uma prioridade mais baixa. Por predefinição, este limite é definido como 1, o que é a prioridade mais alta possível.
 
 Há uma predefinição da política definida em todas as contas. A política predefinida que se aplica a todos os utilizadores da conta. Pode definir políticas adicionais para utilizadores e grupos específicos. 
 
@@ -82,10 +82,10 @@ Há uma predefinição da política definida em todas as contas. A política pre
 1. No portal do Azure, aceda à sua conta do Data Lake Analytics.
 2. Clique em **Propriedades**.
 3. Sob **limites de submissão da tarefa**, clique nas **Adicionar política** botão. Em seguida, selecione ou introduza as seguintes definições:
-    1. **Nome da política de computação**: introduza um nome de política, lembrá-lo da finalidade da política.
-    2. **Selecionar utilizador ou grupo**: selecione o utilizador ou grupo se aplica esta política.
-    3. **Definir o limite de AU de tarefa**: definir o limite de AU que se aplica ao utilizador selecionado ou grupo.
-    4. **Definir o limite de prioridade**: definir o limite de prioridade que se aplica ao utilizador selecionado ou grupo.
+    1. **Nome da política de computação**: Introduza um nome de política, lembrá-lo da finalidade da política.
+    2. **Selecionar utilizador ou grupo**: Selecione o utilizador ou grupo que se aplica esta política.
+    3. **Definir o limite de AU de tarefa**: Defina o limite de AU que se aplica ao utilizador selecionado ou grupo.
+    4. **Definir o limite de prioridade**: Defina o limite de prioridade que se aplica ao utilizador selecionado ou grupo.
 
 4. Clique em **OK**.
 

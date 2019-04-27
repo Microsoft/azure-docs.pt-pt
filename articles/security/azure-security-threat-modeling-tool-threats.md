@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611564"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Ameaças de ferramenta de modelagem de ameaças na Microsoft
 
@@ -37,7 +37,7 @@ A ferramenta de modelagem de ameaças ajuda a responder às perguntas, tais como
 
 A melhor ajuda formular esses tipos de perguntas apontados, a Microsoft utiliza o modelo STRIDE, que categoriza os diferentes tipos de ameaças e simplifica as conversas de segurança geral.
 
-| Categoria | Descrição |
+| Category | Descrição |
 | -------- | ----------- |
 | **Spoofing** | Envolve mudanças aceder e, em seguida, utilizar informações de autenticação de outro utilizador, como o nome de utilizador e palavra-passe |
 | **Adulteração** | Envolve a modificação maliciosa de dados. Os exemplos incluem alterações não autorizadas efetuadas aos dados persistentes, como que mantidos num banco de dados e a alteração de dados à medida que fluem entre dois computadores ao longo de uma rede aberta, como a Internet |

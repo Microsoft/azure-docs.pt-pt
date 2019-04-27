@@ -14,15 +14,15 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884984"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Criar um balanceador de carga básico do Azure com a REST API
 
-Um balanceador de carga do Azure distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para as instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. O Balanceador de carga está disponível em dois SKUs: básico e Standard. Compreender a diferença entre as duas versões SKU, [comparações de SKU do Balanceador de carga](load-balancer-overview.md#skus).
+Um balanceador de carga do Azure distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para as instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. O Balanceador de carga está disponível em dois SKUs: Basic e Standard. Compreender a diferença entre as duas versões SKU, [comparações de SKU do Balanceador de carga](load-balancer-overview.md#skus).
  
 Nesta explicação de procedimento mostra como criar um balanceador de carga básico do Azure, utilizando [API REST do Azure](/rest/api/azure/) para ajudar a solicitação de entrada do balanceamento de carga em várias VMs dentro de uma rede virtual do Azure. Estão disponíveis na documentação de referência completa e exemplos adicionais do [referência de REST de Balanceador de carga do Azure](/rest/api/load-balancer/).
  

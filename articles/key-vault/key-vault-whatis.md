@@ -2,23 +2,19 @@
 title: O que é o cofre de chave do Azure? | Microsoft Docs
 description: Saiba como o Azure Key Vault salvaguarda as chaves criptográficas e segredos na cloud a aplicações e serviços utilizam.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 48ac0c3efe74723099e87a77871aa1a78834efbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640564"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -57,7 +53,7 @@ Seguem-se outros termos importantes:
 
     ![Diagrama de identidades como geridos para o trabalho de recursos do Azure](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Para fazer todas as operações com o Key Vault, primeiro tem de autenticar para o mesmo. Existem três formas de autenticar para o Key Vault:
 
 - [Gerido identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview): Quando implementa uma aplicação numa máquina virtual no Azure, pode atribuir uma identidade à máquina virtual que tenha acesso ao Cofre de chaves. Também pode atribuir identidades para [outros recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). A vantagem dessa abordagem é que o serviço ou aplicação não está a gerir a rotação do segredo do primeiro. Azure gira automaticamente a identidade. Recomendamos esta abordagem como melhor prática. 

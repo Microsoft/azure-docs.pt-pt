@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878756"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake
 Aprenda a ativar o diagnóstico de registo para a sua conta de geração 1 de armazenamento do Azure Data Lake e ver os registos recolhidos para a sua conta.
@@ -115,15 +115,15 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
 #### <a name="request-log-schema"></a>Esquema de registo de pedido
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |O período de tempo (em UTC) do registo |
+| time |String |O período de tempo (em UTC) do registo |
 | resourceId |String |O ID do recurso que demorou a operação de colocar em |
-| categoria |String |A categoria de registo. Por exemplo, **pedidos**. |
+| category |String |A categoria de registo. Por exemplo, **pedidos**. |
 | operationName |String |Nome da operação que é registado. Por exemplo, getfilestatus. |
 | resultType |String |O estado da operação, por exemplo, 200. |
 | callerIpAddress |String |O endereço IP do cliente que efetua o pedido |
 | correlationId |String |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Object |A identidade que gerou o registo |
-| propriedades |JSON |Veja abaixo para obter detalhes |
+| properties |JSON |Veja abaixo para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
 | Name | Tipo | Descrição |
@@ -162,15 +162,15 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |O período de tempo (em UTC) do registo |
+| time |String |O período de tempo (em UTC) do registo |
 | resourceId |String |O ID do recurso que demorou a operação de colocar em |
-| categoria |String |A categoria de registo. Por exemplo, **auditoria**. |
+| category |String |A categoria de registo. Por exemplo, **auditoria**. |
 | operationName |String |Nome da operação que é registado. Por exemplo, getfilestatus. |
 | resultType |String |O estado da operação, por exemplo, 200. |
 | resultSignature |String |Detalhes adicionais sobre a operação. |
 | correlationId |String |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Object |A identidade que gerou o registo |
-| propriedades |JSON |Veja abaixo para obter detalhes |
+| properties |JSON |Veja abaixo para obter detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 | Name | Tipo | Descrição |

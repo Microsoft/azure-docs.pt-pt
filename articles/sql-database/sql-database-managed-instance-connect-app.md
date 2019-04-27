@@ -13,11 +13,11 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
 ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60701305"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
 
@@ -138,7 +138,7 @@ Para resolução de problemas de conectividade, reveja o seguinte:
 
 As seguintes versões mínimas a ferramentas e os controladores são recomendadas para ligar à instância gerida:
 
-| Ferramenta de Driver / | Versão |
+| Ferramenta de Driver / | Version |
 | --- | --- |
 |.NET Framework | 4.6.1 (ou .NET Core) |
 |Controlador ODBC| v17 |

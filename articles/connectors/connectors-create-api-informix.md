@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691006"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Começar com o conector do Informix
 Conector do Microsoft para Informix liga-se aplicações lógicas para recursos armazenados numa base de dados IBM Informix. O conector do Informix inclui um cliente da Microsoft para comunicar com computadores remotos de servidor Informix através de uma rede TCP/IP. Isso inclui bases de dados de cloud, como o IBM Informix para o Windows em execução na virtualização do Azure e no local bases de dados com o gateway de dados no local. Consulte a [suportado lista](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de plataformas de IBM Informix e versões (deste tópico).
@@ -86,7 +86,7 @@ Este conector suporta ligações de base de dados no local e na cloud utilizando
 | base de dados |Necessário. Aceita um valor de cadeia de caracteres que representa um nome DRDA da base de dados relacional (RDBNAM). Informix aceita uma cadeia de caracteres de 128 bytes (a base de dados é conhecido como um nome de base de dados IBM Informix (dbname)). |
 | autenticação |Opcional. Aceita um valor de item de lista, Basic ou o Windows (kerberos). |
 | o nome de utilizador |Necessário. Aceita um valor de cadeia de caracteres. |
-| palavra-passe |Necessário. Aceita um valor de cadeia de caracteres. |
+| password |Necessário. Aceita um valor de cadeia de caracteres. |
 | gateway |Necessário. Aceita um valor de item de lista, que representa o gateway de dados no local definido para aplicações lógicas dentro do grupo de armazenamento. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Criar no local de ligação de gateway

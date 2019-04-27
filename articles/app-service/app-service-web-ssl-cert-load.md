@@ -15,11 +15,11 @@ ms.date: 12/01/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 763aadc50a8760b4265dbfc21e9278f909b68433
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851124"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Utilizar um certificado SSL no código da aplicação no serviço de aplicações do Azure
 

@@ -16,11 +16,11 @@ ms.date: 08/29/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 37305f27203986ce2e3d06276b5169ffd9b41287
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720816"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação de contentor com CI/CD para um cluster do Service Fabric
 

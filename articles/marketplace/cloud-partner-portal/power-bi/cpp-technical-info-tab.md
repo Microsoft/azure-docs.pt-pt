@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
 ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725772"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Separador de informações técnicas de aplicações de BI de energia
 

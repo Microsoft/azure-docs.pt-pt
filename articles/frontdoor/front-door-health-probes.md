@@ -11,21 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736586"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
 
-Para determinar o estado de funcionamento de cada back-end, cada ambiente de porta de entrada periodicamente envia um pedido HTTP/HTTPS sintético para cada um dos seus back-ends configurado. Porta de entrada, em seguida, utiliza as respostas destas sondas para determinar os "melhores" back-ends para que ele deve encaminhar os pedidos de cliente real.
+Para determinar o estado de funcionamento de cada back-end, cada ambiente de porta de entrada periodicamente envia um pedido HTTP/HTTPS sintético para cada um dos seus back-ends configurado. Depois, utiliza as respostas dessas sondas para determinar os “melhores” back-ends para os quais encaminhar os pedidos reais do cliente.
 
 
 ## <a name="supported-protocols"></a>Protocolos suportados
 
-Porta de entrada suporta o envio de sondas através de protocolos HTTP ou HTTPS. Estas sondas são enviadas através das mesmas portas TCP configuradas para encaminhar os pedidos de cliente e não podem ser substituídas.
+Porta de entrada suporta o envio de sondas através de protocolos HTTP ou HTTPS. Estas sondas são enviadas através das mesmas portas TCP configuradas para encaminhar pedidos do cliente e não podem ser anuladas.
 
 ## <a name="health-probe-responses"></a>Respostas de sonda de estado de funcionamento
 
@@ -58,5 +58,5 @@ Depois de qualquer back-end devolve a um bom estado, porta da frente retomará o
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar uma porta de entrada](quickstart-create-front-door.md).
-- Saiba mais [como funciona a porta da frente](front-door-routing-architecture.md).
+- Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Saiba [como funciona o Front Door](front-door-routing-architecture.md).

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
 ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828652"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloquear uma imagem de contentor num registo de contentor do Azure
 

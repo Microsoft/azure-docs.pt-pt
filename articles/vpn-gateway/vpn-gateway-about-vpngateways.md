@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 02/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859876"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 

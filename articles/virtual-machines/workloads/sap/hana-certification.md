@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1346018d99a1c26290ad8928d9794f3b55050910
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 15de566d756d6b0f7719eabf74ee9c7ac66659d6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794004"
 ---
 # <a name="certification"></a>Certificação
 
 Além da certificação NetWeaver, o SAP requer uma certificação especial para o SAP HANA suportar o SAP HANA em determinados infraestruturas, como o IaaS do Azure.
 
-É o núcleo sobre o NetWeaver e uma certificação do SAP HANA de grau, a nota SAP [1928533 no SAP Note # – aplicações SAP no Azure: produtos suportados e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533).
+O núcleo, a nota SAP NetWeaver e para a certificação do SAP HANA de grau, é [1928533 no SAP Note # – aplicações SAP no Azure: Produtos suportados e tipos de VM do Azure](https://launchpad.support.sap.com/#/notes/1928533).
 
 Os registos de certificação para o SAP HANA nas unidades do Azure (instâncias grandes) podem ser encontrados no [plataformas IaaS com certificação SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
 

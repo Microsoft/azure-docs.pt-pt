@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: TomSh
-ms.openlocfilehash: 86246d3d580737837ec07ccdc89ed82914cde209
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610966"
 ---
 # <a name="azure-network-security-best-practices"></a>Práticas recomendadas de segurança de rede do Azure
 Pode ligar [máquinas virtuais do Azure (VMs)](https://azure.microsoft.com/services/virtual-machines/) e aplicações para outros dispositivos de rede, colocando-os no [redes virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Ou seja, pode ligar placas de interface de rede virtual a uma rede virtual para permitir comunicações baseadas em TCP/IP entre dispositivos de rede ativada. As máquinas virtuais ligadas a uma rede virtual do Azure, pode ligar-se a dispositivos na mesma rede virtual, redes virtuais diferentes, internet ou suas próprias redes no local.

@@ -16,11 +16,11 @@ ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2762a81c9f366ad4a5d0d6d87cf04490fc10b23c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60854635"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Core no Azure
 
@@ -104,7 +104,7 @@ Na caixa de diálogo **Configurar Plano do Alojamento**, use as definições na 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Plano do Serviço de Aplicações| myAppServicePlan | Nome do plano de serviço de aplicações. |
-| Localização | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
+| Location | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
 | Tamanho | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
 
 Selecione **OK**.

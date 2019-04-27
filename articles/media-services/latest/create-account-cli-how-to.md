@@ -13,18 +13,18 @@ ms.custom: seodec18
 ms.date: 02/15/2019
 ms.author: juliako
 ms.openlocfilehash: f4ce64599aad2b2eebbef6ca8d81acfca2a7a702
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733895"
 ---
 # <a name="create-an-azure-media-services-account"></a>Criar uma conta dos Azure Media Services
 
 Para começar a encriptar, codificação, analisar, gerir e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services. Conta de Media Services tem de estar associado a uma ou mais contas de armazenamento.
 
 > [!NOTE]
-> A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. É vivamente recomendado para utilizar contas de armazenamento na mesma localização que a conta de serviços de multimédia para evitar custos de saída de latência e dados adicionais.
+> A conta dos Serviços de Multimédia e todas as contas de armazenamento associadas têm de estar na mesma subscrição do Azure. Recomendamos vivamente que utilize as contas de armazenamento na mesma localização que a conta dos Serviços de Multimédia para evitar custos de saída de dados e latência adicionais.
 
 Este artigo descreve os passos para criar uma nova conta de Media Services do Azure com a CLI do Azure.  
 

@@ -15,11 +15,11 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709561"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássica do Azure
 
@@ -155,5 +155,5 @@ Siga estes passos para ver o administrador de conta.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Compreender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Manage access to Azure resources using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 * [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md)

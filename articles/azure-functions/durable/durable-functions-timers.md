@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
 ms.openlocfilehash: a05f75a7e38ee7cd4dc056629d9acaacad875e08
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608245"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730230"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas funções duráveis (funções do Azure)
 

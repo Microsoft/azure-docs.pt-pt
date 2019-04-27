@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: d16f57db6a3c39be34c13663db62d7be50749f57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741125"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens a partir da cloud para o seu dispositivo com o Hub IoT (.NET)
 

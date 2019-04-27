@@ -17,11 +17,11 @@ ms.date: 04/18/2019
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c959b42086df2df816583ea9d2f8f2fc7a9243fd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743590"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Aumentar verticalmente a máquina de virtual de Linux do Azure com a automatização do Azure
 Dimensionamento vertical é o processo de aumentar ou diminuir os recursos de uma máquina em resposta à carga de trabalho. No Azure pode fazê-lo ao alterar o tamanho da Máquina Virtual. Isto pode ajudar a nos seguintes cenários

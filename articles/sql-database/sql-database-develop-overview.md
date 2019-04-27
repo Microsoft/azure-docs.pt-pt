@@ -13,11 +13,11 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723413"
 ---
 # <a name="sql-database-application-development-overview"></a>Descrição geral da programação de aplicativo da linha de base de dados SQL
 
@@ -33,7 +33,7 @@ Pode usar várias [plataformas e linguagens de programação](sql-database-conne
 
 Pode tirar partido de ferramentas de código-fonte aberto, como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Além disso, a Base de Dados SQL do Azure funciona com ferramentas da Microsoft como o [Visual Studio](https://www.visualstudio.com/downloads/) e o [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Também pode utilizar o portal do Azure, PowerShell e REST APIs ajudá-lo a obter produtividade adicional.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Acesso à base de dados do Azure SQL está protegido com inícios de sessão e firewalls. Base de dados SQL do Azure suporta tanto o SQL Server e [autenticação do Azure Active Directory (AAD)](sql-database-aad-authentication.md) utilizadores e inícios de sessão. Inícios de sessão do AAD estão disponíveis apenas na instância gerida. 
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
 ms.openlocfilehash: 4e940a12cd57ef136cfd9ead298f9afcd2d6ad1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849861"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60617835"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar a utilização de serviços gratuitos incluídos na sua conta gratuita do Azure 
 

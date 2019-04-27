@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
 ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686509"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Criar uma aplicação de consola .NET para gerir dados na conta do Azure Cosmos DB SQL API
 

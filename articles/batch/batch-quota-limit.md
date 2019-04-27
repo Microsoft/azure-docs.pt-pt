@@ -16,11 +16,11 @@ ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776389"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 

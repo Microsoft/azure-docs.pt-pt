@@ -10,11 +10,11 @@ ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739357"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 

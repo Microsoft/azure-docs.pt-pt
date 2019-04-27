@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587925"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta secção contém as assinaturas para todas as funções suportadas de um CreateUiDefinition.
@@ -526,7 +526,7 @@ O exemplo seguinte devolve `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>cadeia
+### <a name="string"></a>string
 Converte o parâmetro para uma cadeia de caracteres. Esta função oferece suporte a parâmetros de todos os tipos de dados JSON.
 
 O exemplo seguinte devolve `"1"`:
@@ -553,7 +553,7 @@ O exemplo seguinte devolve `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>Bool
+### <a name="bool"></a>booleano
 Converte o parâmetro para um valor booleano. Esta função oferece suporte a parâmetros de tipo, cadeia de caracteres e booleanos. Assim como booleanos em JavaScript, qualquer valor, exceto `0` ou `'false'` devolve `true`.
 
 O exemplo seguinte devolve `true`:
@@ -662,7 +662,7 @@ O exemplo seguinte devolve `1`:
 "[sub(3, 2)]"
 ```
 
-### <a name="mul"></a>MUL
+### <a name="mul"></a>mul
 Multiplica dois números e devolve o resultado.
 
 O exemplo seguinte devolve `6`:
@@ -680,7 +680,7 @@ O exemplo seguinte devolve `2`:
 "[div(6, 3)]"
 ```
 
-### <a name="mod"></a>MOD
+### <a name="mod"></a>mod
 Divide o primeiro número, o segundo número e devolve o resto.
 
 O exemplo seguinte devolve `0`:

@@ -17,11 +17,11 @@ ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
 ms.openlocfilehash: 94845573461d99fda9318f303d822abb6ca3f257
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60862794"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 

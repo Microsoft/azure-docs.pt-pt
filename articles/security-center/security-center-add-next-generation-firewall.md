@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 731102037b596091b80fbdfa02a8ff3c111b556e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60707079"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar uma Firewall da próxima geração no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall da próxima geração (NGFW) de um parceiro da Microsoft para aumentar sua proteções de segurança. Este documento explica como um exemplo de como fazer isso.

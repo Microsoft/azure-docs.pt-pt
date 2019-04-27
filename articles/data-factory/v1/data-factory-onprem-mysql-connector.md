@@ -14,14 +14,14 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823951"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-mysql-connector.md)
 > * [Versão 2 (versão atual)](../connector-mysql.md)
 
@@ -68,13 +68,13 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **OnPremisesMySql** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **OnPremisesMySql** |Sim |
 | servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome da base de dados MySQL. |Sim |
-| esquema |Nome do esquema na base de dados. |Não |
+| schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
+| password |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do MySQL no local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -305,40 +305,40 @@ Ao mover dados para o MySQL, os seguintes mapeamentos de servem de tipos do MySQ
 | bigint |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| Bool |Booleano |
-| char |Cadeia |
+| booleano |Boolean |
+| char |String |
 | date |Datetime |
 | datetime |Datetime |
 | decimal |Decimal |
-| precisão dupla |Valor de duplo |
-| double |Valor de duplo |
-| Enum |Cadeia |
-| float |Único |
+| precisão dupla |Double |
+| double |Double |
+| Enum |String |
+| float |Single |
 | Int unsigned |Int64 |
 | int |Int32 |
 | número inteiro sem sinal |Int64 |
 | inteiro |Int32 |
 | varbinary longa |Byte[] |
-| varchar longa |Cadeia |
+| long varchar |String |
 | longblob |Byte[] |
-| longtext |Cadeia |
+| longtext |String |
 | mediumblob |Byte[] |
-| mediumint não assinado |Int64 |
+| mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |Cadeia |
-| numérico |Decimal |
-| real |Valor de duplo |
-| set |Cadeia |
+| mediumtext |String |
+| numeric |Decimal |
+| real |Double |
+| set |String |
 | smallint não assinado |Int32 |
 | smallint |Int16 |
-| texto |Cadeia |
-| hora |Período de tempo |
-| carimbo de data/hora |Datetime |
+| texto |String |
+| time |TimeSpan |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint não assinado |Int16 |
 | tinyint |Int16 |
-| tinytext |Cadeia |
-| varchar |Cadeia |
+| tinytext |String |
+| varchar |String |
 | ano |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink

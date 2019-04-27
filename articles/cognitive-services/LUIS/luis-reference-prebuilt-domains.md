@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712622"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.

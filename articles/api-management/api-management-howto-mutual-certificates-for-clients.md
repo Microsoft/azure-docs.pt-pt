@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
 ms.openlocfilehash: 450ebc621758363c5ea9ab6d631cd6c7df38794b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657718"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs com o cliente de autenticação de certificado na gestão de API
 

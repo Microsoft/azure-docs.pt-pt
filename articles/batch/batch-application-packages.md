@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 04/05/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722225"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós de computação com pacotes de aplicações do Batch
 
@@ -29,14 +29,11 @@ A funcionalidade de pacotes de aplicação do Azure Batch fornece a facilitar a 
 Neste artigo, saiba como carregar e gerir pacotes de aplicações no portal do Azure. Em seguida, saiba como instalá-los em nós de computação de um conjunto com o [.NET do Batch] [ api_net] biblioteca.
 
 > [!NOTE]
-> 
 > Os pacotes de aplicações são suportados em todos os conjuntos do Batch criados após 5 de Julho de 2017. Só são suportados em conjuntos do Batch criados entre 10 de Março de 2016 e 5 de Julho de 2017 se o conjunto tiver sido criado com uma configuração de Serviço Cloud. Os conjuntos do Batch criados antes de 10 de Março de 2016 não suportam pacotes de aplicações.
 >
 > As APIs para criar e gerir pacotes de aplicações são parte do [Batch Management .NET] [ api_net_mgmt] biblioteca. As APIs para a instalação de pacotes de aplicações num nó de computação são parte do [.NET do Batch] [ api_net] biblioteca. Funcionalidades comparáveis estão em APIs do Batch disponíveis para outros idiomas. 
 >
 > A funcionalidade de pacotes de aplicação descrita aqui substitui a funcionalidade de aplicações do Batch disponível em versões anteriores do serviço.
-> 
-> 
 
 ## <a name="application-package-requirements"></a>Requisitos do pacote de aplicação
 Para utilizar pacotes de aplicações, terá [associar uma conta de armazenamento do Azure](#link-a-storage-account) à conta do Batch.
@@ -116,6 +113,14 @@ Esta janela exibe o ID de cada aplicação na sua conta e as seguintes proprieda
 * **Pacotes**: O número de versões associadas esta aplicação.
 * **Versão predefinida**: A versão do aplicativo instalada se não indicam uma versão quando especificar a aplicação para um conjunto. Esta definição é opcional.
 * **Permitir atualizações**: O valor que especifica se o pacote de atualizações, eliminações e adições são permitidas. Se isto estiver definido como **não**, as atualizações de pacotes e eliminações, estão desativadas para a aplicação. Podem ser adicionadas apenas versões de pacote de aplicação nova. A predefinição é **Sim**.
+
+Se gostaria de ver a estrutura de ficheiros do pacote de aplicação no seu nó de computação, navegue para a sua conta do Batch no portal. A partir da sua conta do Batch, navegue para **conjuntos**. Selecione o conjunto que contém os nós de computação que está interessado.
+
+![Nós no conjunto][13]
+
+Depois de selecionar o conjunto, navegue até o nó de computação que o pacote de aplicação está instalado no. A partir daí, os detalhes do pacote de aplicação estão localizados no **aplicativos** pasta. Pastas adicionais no nó de computação contenham outros arquivos, como tarefas de início, ficheiros de saída, saída de erro, etc.
+
+![Ficheiros no nó][14]
 
 ### <a name="view-application-details"></a>Ver detalhes da aplicação
 Para ver os detalhes para uma aplicação, selecione a aplicação no **aplicativos** janela.
@@ -374,3 +379,5 @@ Com pacotes de aplicações, pode ajudar os seus clientes, selecione as aplicaç
 [10]: ./media/batch-application-packages/app_pkg_10.png "Selecione o painel de conta de armazenamento no portal do Azure"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Painel de pacote de atualização no portal do Azure"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Eliminar a caixa de diálogo de confirmação de pacote no portal do Azure"
+[13]: ./media/batch-application-packages/package-file-structure.png "Computação de informações do nó no portal do Azure"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Ficheiros no nó de computação apresentado no portal do Azure"

@@ -11,11 +11,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
 ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702257"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na base de dados do SQL Azure utilização de principais de servidor do Azure AD (inícios de sessão)
 

@@ -10,11 +10,11 @@ ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.openlocfilehash: 9cce809401a26eb2b45b11303afcd4818a1f950b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884537"
 ---
 # <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar uma rede virtual do spoke com o Terraform no Azure
 

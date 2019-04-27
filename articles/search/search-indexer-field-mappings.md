@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 9bb8a168f54658ea14b174d19a1795e575646304
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749347"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo nos indexadores do Azure Search
 Quando utilizar indexadores do Azure Search, ocasionalmente, pode encontrar-se em situações onde os dados de entrada não correspondem bem o esquema do seu índice de destino. Nesses casos, pode usar **mapeamentos de campo** para transformar os seus dados para o formato desejado.

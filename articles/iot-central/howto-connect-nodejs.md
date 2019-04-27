@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888968"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -97,11 +97,11 @@ Adicione o seguinte comando no **comandos** página:
 
 | Nome a Apresentar    | Nome do Campo     | Tempo Limite Predefinido | Tipo de Dados |
 | --------------- | -------------- | --------------- | --------- |
-| contagem decrescente       | Contagem decrescente      | 30              | número    |
+| Contagem decrescente       | Contagem decrescente      | 30              | número    |
 
 Adicione o seguinte campo de entrada para o comando de contagem regressiva:
 
-| Nome a Apresentar    | Nome do Campo     | Tipo de Dados | Valor |
+| Nome a Apresentar    | Nome do Campo     | Tipo de Dados | Value |
 | --------------- | -------------- | --------- | ----- |
 | Contar de      | countFrom      | número    | 10    |
 

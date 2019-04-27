@@ -3,8 +3,8 @@ title: Gerir capturas de pacotes com o observador de rede do Azure - portal do A
 description: Saiba como gerir a funcionalidade de captura de pacotes do observador de rede com o portal do Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725861"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com o observador de rede do Azure com o portal
 

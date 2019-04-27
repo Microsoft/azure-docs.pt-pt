@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 9e3a442a3d6c420c548979327c193628efbee5aa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60769877"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapas do Azure Maps
 

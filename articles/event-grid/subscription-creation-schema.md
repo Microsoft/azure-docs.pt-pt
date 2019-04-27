@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/02/2019
 ms.author: babanisa
 ms.openlocfilehash: 9464ab89e08f53f61cb6f5a4b1e91da35b785af0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822790"
 ---
 # <a name="event-grid-subscription-schema"></a>Esquema de subscrições do Event Grid
 

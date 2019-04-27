@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578986"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
@@ -79,11 +79,11 @@ Tipos de dados suportados.
 | contrato | Endereço do contrato de tipo. |
 | Enum     | Enumerados conjunto de valores nomeados. Ao usar o tipo de enumeração, também especificar uma lista de EnumValues. Cada valor é limitado a 255 carateres. Carateres de valor válido incluem superior e letras minúsculas (A-Z, a-z) as letras e números (0-9). Ver [exemplo de configuração e utilização na solidez](#example-configuration-of-type-enum). |
 | int      | Tipo de dados de número inteiro. |
-| dinheiro    | Tipo de dados de dinheiro. |
+| money    | Tipo de dados de dinheiro. |
 | state    | Estado do fluxo de trabalho. |
 | string  | Tipo de dados de cadeia de caracteres. máximo de caracteres de 4000. Ver [exemplo de configuração](#example-configuration-of-type-string). |
 | Utilizador     | Endereço do tipo de utilizador. |
-| hora     | Tipo de dados de tempo. |
+| time     | Tipo de dados de tempo. |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicação. Limita os utilizadores sejam desse tipo de função. |
 
 ### <a name="example-configuration-of-type-array"></a>Exemplo de configuração do tipo matriz

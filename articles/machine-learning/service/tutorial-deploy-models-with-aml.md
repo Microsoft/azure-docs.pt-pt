@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.date: 01/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: a8f3a5c6a1c7adaff620f8675fcffa4018eb9874
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764654"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem no Azure Container Instances
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554223"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Criar uma aplicação Web Python Flask com o Azure Cosmos DB
 

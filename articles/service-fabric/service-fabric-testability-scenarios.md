@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865028"
 ---
 # <a name="testability-scenarios"></a>Cenários do Testability
 Sistemas distribuídos grandes, como infraestruturas de cloud são inerentemente pouco fiáveis. O Azure Service Fabric fornece aos desenvolvedores a capacidade de escrever serviços para serem executados por cima de infraestruturas de não-confiáveis. Para escrever os serviços de alta qualidade, os desenvolvedores precisam ser capazes de induza essa infraestrutura pouco fiável para testar a estabilidade dos serviços.
@@ -49,11 +49,11 @@ Por exemplo, considere um teste definido para ser executado durante uma hora, co
 Em sua forma atual, o mecanismo de geração de falha no teste chaos induces apenas falhas de segurança. Isso significa que na ausência de falhas externas, uma quórum ou perda de dados nunca ocorrerá.
 
 ### <a name="important-configuration-options"></a>Opções de configuração importantes
-* **TimeToRun**: Total de tempo em que o teste será executado antes de concluir com êxito. O teste pode concluir anteriormente em lugar de uma falha de validação.
-* **MaxClusterStabilizationTimeout**: quantidade máxima de tempo de espera para o cluster para se tornar íntegros antes da falha de teste. As verificações realizadas são se o estado de funcionamento do cluster está OK, o estado de funcionamento do serviço está OK, o tamanho de conjunto de réplicas de destino é obtido para a partição de serviço e não réplicas InBuild existem.
-* **MaxConcurrentFaults**: induzidas pelo número máximo de falhas em simultâneo em cada iteração. Quanto maior for o número, quanto mais agressivo o teste, que, por conseguinte, resultando em ativações pós-falha mais complexas e combinações de transição. O teste garante que na ausência de falhas externas não haverá uma quórum ou perda de dados, independentemente de qual esta configuração é.
-* **EnableMoveReplicaFaults**: ativa ou desativa as falhas que estão a causar a movimentação das réplicas primárias ou secundárias. Estas falhas estão desativadas por predefinição.
-* **WaitTimeBetweenIterations**: quantidade de tempo de espera entre as iterações, ou seja, após uma rodada de falhas e de validação correspondente.
+* **TimeToRun**: Tempo total que o teste será executado antes de concluir com êxito. O teste pode concluir anteriormente em lugar de uma falha de validação.
+* **MaxClusterStabilizationTimeout**: Quantidade máxima de tempo de espera para o cluster para se tornar íntegros antes da falha de teste. As verificações realizadas são se o estado de funcionamento do cluster está OK, o estado de funcionamento do serviço está OK, o tamanho de conjunto de réplicas de destino é obtido para a partição de serviço e não réplicas InBuild existem.
+* **MaxConcurrentFaults**: Induzidas pelo número máximo de falhas em simultâneo em cada iteração. Quanto maior for o número, quanto mais agressivo o teste, que, por conseguinte, resultando em ativações pós-falha mais complexas e combinações de transição. O teste garante que na ausência de falhas externas não haverá uma quórum ou perda de dados, independentemente de qual esta configuração é.
+* **EnableMoveReplicaFaults**: Ativa ou desativa as falhas que estão a causar a movimentação das réplicas primárias ou secundárias. Estas falhas estão desativadas por predefinição.
+* **WaitTimeBetweenIterations**: Quantidade de tempo de espera entre as iterações, ou seja, após uma rodada de falhas e de validação correspondente.
 
 ### <a name="how-to-run-the-chaos-test"></a>Como executar o teste de chaos
 Exemplo C#
@@ -160,10 +160,10 @@ O cenário de teste de ativação pós-falha é uma versão do cenário de teste
 O teste de ativação pós-falha induces uma falha escolhida e, em seguida, executa a validação no serviço para garantir a estabilidade. O teste de ativação pós-falha induces apenas uma falha num momento, em vez de possível várias falhas no teste caos. Se a partição de serviço não estabilizar dentro do tempo limite configurado após cada falha, o teste é reprovado. O teste induces apenas falhas de segurança. Isso significa que na ausência de falhas externas, uma quórum ou perda de dados não ocorrerá.
 
 ### <a name="important-configuration-options"></a>Opções de configuração importantes
-* **PartitionSelector**: objeto de Seletor que especifica a partição que tem de ser visada.
-* **TimeToRun**: Total de tempo em que o teste será executado antes de terminar.
-* **MaxServiceStabilizationTimeout**: quantidade máxima de tempo de espera para o cluster para se tornar íntegros antes da falha de teste. As verificações realizadas são se o estado de funcionamento do serviço está OK, o tamanho de conjunto de réplicas de destino é obtido para todas as partições e não réplicas InBuild existem.
-* **WaitTimeBetweenFaults**: quantidade de tempo de espera entre cada ciclo de validação e de falha.
+* **PartitionSelector**: Objeto de Seletor que especifica a partição que tem de ser visada.
+* **TimeToRun**: Tempo total que o teste será executado antes de terminar.
+* **MaxServiceStabilizationTimeout**: Quantidade máxima de tempo de espera para o cluster para se tornar íntegros antes da falha de teste. As verificações realizadas são se o estado de funcionamento do serviço está OK, o tamanho de conjunto de réplicas de destino é obtido para todas as partições e não réplicas InBuild existem.
+* **WaitTimeBetweenFaults**: Quantidade de tempo de espera entre cada ciclo de validação e de falha.
 
 ### <a name="how-to-run-the-failover-test"></a>Como executar o teste de ativação pós-falha
 **C#**

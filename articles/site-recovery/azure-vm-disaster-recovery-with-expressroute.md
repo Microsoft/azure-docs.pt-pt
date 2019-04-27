@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772420"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 
@@ -106,10 +106,10 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 
 **Direção** | **Definição** | **Estado**
 --- | --- | ---
-Spoke para hub | Permitir o endereço de rede virtual | Ativado
-Spoke para hub | Permitir tráfego reencaminhado | Ativado
+Spoke para hub | Permitir o endereço de rede virtual | Enabled
+Spoke para hub | Permitir tráfego reencaminhado | Enabled
 Spoke para hub | Permitir trânsito de gateway | Desativado
-Spoke para hub | Utilizar gateways de remover | Ativado
+Spoke para hub | Utilizar gateways de remover | Enabled
 
  ![-Spoke para configuração de peering do hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Spoke para hub | Utilizar gateways de remover | Ativado
 
 **Direção** | **Definição** | **Estado**
 --- | --- | ---
-Hub para spoke | Permitir o endereço de rede virtual | Ativado
-Hub para spoke | Permitir tráfego reencaminhado | Ativado
-Hub para spoke | Permitir trânsito de gateway | Ativado
+Hub para spoke | Permitir o endereço de rede virtual | Enabled
+Hub para spoke | Permitir tráfego reencaminhado | Enabled
+Hub para spoke | Permitir trânsito de gateway | Enabled
 Hub para spoke | Utilizar gateways de remover | Desativado
 
  ![Hub para falava configuração de peering](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

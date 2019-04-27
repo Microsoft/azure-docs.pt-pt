@@ -10,11 +10,11 @@ ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
 ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828720"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: Como detetar sentimento com análise de texto
 

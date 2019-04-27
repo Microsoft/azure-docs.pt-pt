@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846206"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gerir metadados de artefactos nas contas de integração com o Azure Logic Apps e o Enterprise Integration Pack
 
@@ -63,7 +63,7 @@ Pode definir metadados personalizados para artefactos em contas de integração 
 
 1. Forneça estas informações para o artefacto que pretende localizar:
 
-   | Propriedade | Necessário | Valor | Descrição | 
+   | Propriedade | Necessário | Value | Descrição | 
    |----------|---------|-------|-------------| 
    | **Tipo de artefacto** | Sim | **Esquema**, **mapa**, **parceiro**, **contrato**, ou um tipo personalizado | O tipo de artefacto que desejar | 
    | **Nome do artefacto** | Sim | <*artifact-name*> | O nome para o artefacto que pretende | 
@@ -85,7 +85,7 @@ Pode definir metadados personalizados para artefactos em contas de integração 
 
       Por exemplo, suponha que queira obter o `routingUrl` metadados que é adicionado no início deste tópico. Seguem-se os valores de propriedade, que poderia especificar: 
 
-      | Propriedade | Necessário | Valor | Descrição | 
+      | Propriedade | Necessário | Value | Descrição | 
       |----------|----------|-------|-------------| 
       | **Método** | Sim | <*operation-to-run*> | A operação de HTTP para executar no artefacto. Por exemplo, esta ação de HTTP utiliza a **obter** método. | 
       | **URI** | Sim | <*metadata-location*> | Para o acesso a `routingUrl` valor de metadados de artefacto que recuperados, pode usar uma expressão, por exemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 

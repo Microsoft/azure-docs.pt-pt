@@ -10,11 +10,11 @@ ms.date: 03/28/2019
 ms.author: Mario.Hewardt
 ms.reviewer: mbullwin
 ms.openlocfilehash: 54b79897ee378cda52106fe704e25c50a4325f38
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60784226"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Atualizar o Snapshot Debugger
 

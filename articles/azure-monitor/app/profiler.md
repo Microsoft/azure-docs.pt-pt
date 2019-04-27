@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: b8f6a2d12e1a9920421e6491432b516520ae110b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730195"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil aplicações de serviço de aplicações do Azure em direto com o Application Insights
 
@@ -49,7 +49,7 @@ Application Insights Profiler previamente é instalado como parte do tempo de ex
 Application Insights Profiler pode ser ativado através da criação de definições de aplicações para o serviço de aplicações do Azure. A página com as opções mostradas acima cria estas definições de aplicação para si. Mas pode automatizar a criação dessas configurações usando um modelo ou de outros meios. Estas definições também funcionará se o recurso do Application Insights está numa subscrição diferente do seu serviço de aplicações do Azure.
 Seguem-se as definições necessárias para permitir que o criador de perfil:
 
-|Definição da Aplicação    | Valor    |
+|Definição da Aplicação    | Value    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey do seu recurso do Application Insights    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

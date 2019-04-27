@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605146"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossário de termos de serviço de visão personalizada
 

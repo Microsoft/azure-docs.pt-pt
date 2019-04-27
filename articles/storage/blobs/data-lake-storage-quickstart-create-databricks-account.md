@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.openlocfilehash: c5c69ded05e5ec6d1df6bd2befb4fe89417bae06
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60849629"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks
 

@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640156"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -52,11 +52,11 @@ Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka
 
 2. Para criar o cluster do Kafka, utilize os seguintes valores:
 
-    | Propriedade | Valor |
+    | Propriedade | Value |
     | --- | --- |
     | Subscrição | A sua subscrição do Azure. |
     | Grupo de recursos | O grupo de recursos em que o cluster é criado. |
-    | Localização | A região do Azure em que o cluster é criado. |
+    | Location | A região do Azure em que o cluster é criado. |
     | Nome do Cluster | O nome do cluster do Kafka. |
     | Nome de Utilizador de Início de Sessão do Cluster | O nome da conta utilizado para iniciar sessão em serviços baseados em HTTPs alojados no cluster. |
     | Palavra-passe de Início de Sessão do Cluster | A palavra-passe do nome de utilizador de início de sessão. |

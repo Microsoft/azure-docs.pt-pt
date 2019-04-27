@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748990"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V no local para o Azure
 

@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828635"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Go para chamar o serviço cognitivos de análise de texto 
 <a name="HOLTop"></a>

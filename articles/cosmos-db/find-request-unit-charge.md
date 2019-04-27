@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
 ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888786"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Encontrar a unidade de pedido custos (RU) no Azure Cosmos DB
 

@@ -15,22 +15,22 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684306"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir regras de colocação em cache da CDN do Azure
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir as regras de cache de CDN do Azure
 
 > [!NOTE] 
 > As regras de colocação em cache da CDN do Azure estão disponíveis apenas para a **CDN Standard do Azure da Verizon** e para a **CDN Standard do Azure da Akamai**. Para a **CDN Premium do Azure da Verizon**, utilize o [motor de regras da CDN do Azure](cdn-rules-engine.md) no portal **Gerir** para obter uma funcionalidade semelhante.
  
 
 Este tutorial descreve como pode utilizar regras de colocação em cache da Rede de Entrega de Conteúdos (CDN) do Azure para definir ou modificar o comportamento predefinido de expiração da cache globalmente e com condições personalizadas, tais como um caminho de URL e uma extensão de ficheiro. A CDN do Azure dispõe de dois tipos de regras de colocação em cache:
-- Regras globais de colocação em cache: pode definir uma regra global de colocação em cache para cada ponto final no seu perfil, o que afeta todos os pedidos para o ponto final. A regra global de colocação em cache substitui quaisquer cabeçalhos de diretivas de cache HTTP, se for definido algum.
+- Regras de colocação em cache globais: Pode definir uma regra de colocação em cache global para cada ponto de extremidade no seu perfil, o que afeta todos os pedidos para o ponto final. A regra global de colocação em cache substitui quaisquer cabeçalhos de diretivas de cache HTTP, se for definido algum.
 
-- Regras personalizadas de colocação em cache: pode configurar uma ou mais regras personalizadas de colocação em cache para cada ponto final no seu perfil. As regras personalizadas de colocação em cache correspondem a extensões de ficheiro e a caminhos específicos, são processadas por ordem e substituem a regra global de colocação em cache, se definida. 
+- Personalizar regras de colocação em cache: Pode definir uma ou mais regras colocação em cache personalizadas para cada ponto de extremidade no seu perfil. As regras personalizadas de colocação em cache correspondem a extensões de ficheiro e a caminhos específicos, são processadas por ordem e substituem a regra global de colocação em cache, se definida. 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, veja [Início Rápido: Criar um perfil e um ponto final da CDN do Azure](cdn-create-new-endpoint.md).
+Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, consulte [início rápido: Criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Abrir a página de regras de colocação em cache da CDN do Azure
 
@@ -101,7 +101,7 @@ Nos passos anteriores, criou regras de colocação em cache. Se já não quiser 
 6. Na parte superior da página, selecione **Guardar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

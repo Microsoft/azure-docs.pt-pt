@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: f7b762d5502986c306de240519688aa639f58445
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60756894"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir os agendamentos de largura de banda no seu limite de caixa de dados do Azure  
 

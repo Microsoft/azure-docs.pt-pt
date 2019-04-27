@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734257"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Ativar uma listagem de AppSource e Marketplace utilizando o Azure Active Directory
+# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Ativar uma listagem do AppSource e do Marketplace com o Azure Active Directory
 
  Azure Active Directory (Azure AD) é um serviço de identidade de cloud que permite a autenticação com uma conta Microsoft. Azure AD utiliza estruturas de norma da indústria. [Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 

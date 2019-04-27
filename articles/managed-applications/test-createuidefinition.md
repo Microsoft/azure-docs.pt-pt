@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746324"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Testar a interface de portal do Azure para a aplicação gerida
 Após [criar o ficheiro Createuidefinition](create-uidefinition-overview.md) para a sua aplicação gerida do Azure, terá de testar a experiência do usuário. Para simplificar o teste, utilize um script que carrega o ficheiro no portal. Não precisa de implementar, na verdade, seu aplicativo gerenciado.

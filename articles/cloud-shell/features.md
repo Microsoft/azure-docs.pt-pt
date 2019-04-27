@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614333"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funcionalidades e ferramentas para o Azure Cloud Shell
 
@@ -57,7 +57,7 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Name   |
+|Category   |Name   |
 |---|---|
 |Ferramentas do Linux            |Bash<br> zsh<br> sh<br> tmux<br> aprofundar<br>               |
 |Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -70,7 +70,7 @@ O cloud Shell inclui autenticação previamente configurada para ferramentas de 
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-|Idioma   |Versão   |
+|Idioma   |Version   |
 |---|---|
 |.NET Core  |2.0.0       |
 |Ir         |1.9        |

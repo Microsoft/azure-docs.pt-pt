@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557227"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Acrescentar atividade variável na fábrica de dados do Azure
 
@@ -26,10 +26,10 @@ Utilize a atividade de acrescentar variável para adicionar um valor para uma va
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-name | Nome da atividade no pipeline | Sim
-descrição | Texto que descreve o que faz a atividade | não
+nome | Nome da atividade no pipeline | Sim
+description | Texto que descreve o que faz a atividade | não
 tipo | Tipo de atividade é AppendVariable | sim
-valor | Cadeia de caracteres literal ou expressão de valor de objeto utilizado para acrescentar numa variável especificada | sim
+value | Cadeia de caracteres literal ou expressão de valor de objeto utilizado para acrescentar numa variável especificada | sim
 variableName | Nome da variável que será modificada pela atividade, a variável tem de ser do tipo "Array" | sim
 
 ## <a name="next-steps"></a>Passos Seguintes

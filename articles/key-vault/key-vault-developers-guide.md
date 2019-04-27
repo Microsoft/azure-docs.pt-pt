@@ -6,15 +6,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640808"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
 
@@ -149,7 +148,7 @@ Os artigos sejam sobre outros cenários e serviços que usam ou integram com o K
 - [Descrição geral do chaves de conta de armazenamento do Key Vault](key-vault-ovw-storage-keys.md) descreve as chaves de contas de armazenamento do Azure de integração do Cofre de chaves.
 - [Mundos de segurança do Cofre de chaves](key-vault-ovw-security-worlds.md) descreve as relações entre regiões e áreas de segurança.
 
-## <a name="social"></a>Social
+## <a name="social"></a>Redes sociais
 
 - [Blog do Cofre de chaves](https://aka.ms/kvblog)
 - [Fórum do Cofre de chaves](https://aka.ms/kvforum)

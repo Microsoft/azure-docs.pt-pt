@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 51bec37f6b052d51d6cc8f5a8667789bec9e6881
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235970"
 documentType: LandingData
 title: 'Base de Dados SQL do Azure: Monitorização e otimização'
 metadata:
@@ -17,47 +11,47 @@ metadata:
   manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 02/08/2019
   ms.author: jovanpop
 sections:
-- items:
-  - type: paragraph
-    text: Base de dados SQL do Azure permite-lhe facilmente monitorizar e otimizar a sua carga de trabalho de base de dados.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: A Base de Dados SQL do Azure permite-lhe monitorizar e otimizar facilmente a carga de trabalho da sua base de dados.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Informações de desempenho de consulta
+            href: /azure/sql-database/sql-database-query-performance
+            html: <p>Facilmente monitorize a utilização de recursos na sua base de dados SQL do Azure (database individual ou agrupada) ao utilizar as capacidades de monitorização incorporadas no portal do Azure.</p>
+          - title: Análise de SQL do Azure
+            href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json'
+            html: '<p>Monitorização de análise de SQL do Azure permite-lhe monitorizar facilmente uma frota grande de instâncias num único painel de vidro, conjuntos elásticos e bases de dados.</p>'
+          - title: Ajuste automático
+            href: /azure/sql-database/sql-database-automatic-tuning
+            html: '<p>Automaticamente a otimização automática recomenda e corrige problemas de plano de consulta e cria e ignora os índices, para melhorar o desempenho.</p>'
+          - title: Intelligent Performance Insight
+            href: /azure/sql-database/sql-database-intelligent-insights
+            html: '<p>Inteligência incorporada na base de dados do Azure SQL Deteta eventos disruptivos que provocar um mau desempenho em seus bancos de dados e fornece recomendações de atenuação, sempre que possível.</p>'
+          - title: Recomendações de desempenho
+            href: /azure/sql-database/sql-database-advisor
+            html: <p>Base de dados SQL do Azure fornece recomendações que podem ajudá-lo a otimizar a sua base de dados no portal do Azure.</p>
+          - title: Métricas e registo
+            href: /azure/sql-database/sql-database-metrics-diag-logging
+            html: '<p>Stream a telemetria de diagnóstico de base de dados para o armazenamento de Blobs do Azure, os Hubs de eventos do Azure ou análise de SQL do Azure para integrações personalizadas.</p>'
+  - title: Mais recursos
     items:
-    - title: Informações de desempenho de consulta
-      href: /azure/sql-database/sql-database-query-performance
-      html: <p>Facilmente monitorize a utilização de recursos na sua base de dados SQL do Azure (database individual ou agrupada) ao utilizar as capacidades de monitorização incorporadas no portal do Azure.</p>
-    - title: Análise de SQL do Azure
-      href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
-      html: <p>Monitorização de análise de SQL do Azure permite-lhe monitorizar facilmente uma frota grande de instâncias num único painel de vidro, conjuntos elásticos e bases de dados.</p>
-    - title: Ajuste automático
-      href: /azure/sql-database/sql-database-automatic-tuning
-      html: <p>Automaticamente a otimização automática recomenda e corrige problemas de plano de consulta e cria e ignora os índices, para melhorar o desempenho.</p>
-    - title: Intelligent Performance Insight
-      href: /azure/sql-database/sql-database-intelligent-insights
-      html: <p>Inteligência incorporada na base de dados do Azure SQL Deteta eventos disruptivos que provocar um mau desempenho em seus bancos de dados e fornece recomendações de atenuação, sempre que possível.</p>
-    - title: Recomendações de desempenho
-      href: /azure/sql-database/sql-database-advisor
-      html: <p>Base de dados SQL do Azure fornece recomendações que podem ajudá-lo a otimizar a sua base de dados no portal do Azure.</p>
-    - title: Métricas e registo
-      href: /azure/sql-database/sql-database-metrics-diag-logging
-      html: <p>Stream a telemetria de diagnóstico de base de dados para o armazenamento de Blobs do Azure, os Hubs de eventos do Azure ou análise de SQL do Azure para integrações personalizadas.</p>
-- title: Mais recursos
-  items:
-  - type: paragraph
-    text: Saiba mais sobre as funcionalidades adicionais que podem ajudar a que otimizar o desempenho da base de dados.
-  - type: list
-    style: unordered
-    items:
-    - html: Saiba mais sobre <a href="sql-database-monitor-tune-overview.md">monitoramento e ajuste</a> na base de dados do Azure SQL.
-    - html: Saiba como <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">processamento de consultas inteligentes</a> pode melhorar o desempenho da base de dados.
-    - html: Configurar e operar <a href="sql-database-operate-query-store.md">Query Store</a>, a principal tecnologia do SQL Server que permite-lhe obter informações em tempo real sobre o desempenho da consulta.
-    - html: Aprenda a usar <a href="sql-database-operate-query-store.md">vistas de gestão dinâmica</a> para analisar o desempenho da carga de trabalho.
-    - html: Saiba como monitorizar atividades de base de dados com <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
-    - html: Saiba como <a href="sql-database-performance-guidance.md">ajustar manualmente a base de dados</a>.
+      - type: paragraph
+        text: Saiba mais sobre as funcionalidades adicionais que podem ajudar a que otimizar o desempenho da base de dados.
+      - type: list
+        style: unordered
+        items:
+          - html: Saiba mais sobre <a href="sql-database-monitor-tune-overview.md">monitoramento e ajuste</a> na base de dados do Azure SQL.
+          - html: 'Saiba como <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">processamento de consultas inteligentes</a> pode melhorar o desempenho da base de dados.'
+          - html: 'Configurar e operar <a href="sql-database-operate-query-store.md">Query Store</a>, a principal tecnologia do SQL Server que permite-lhe obter informações em tempo real sobre o desempenho da consulta.'
+          - html: Aprenda a usar <a href="sql-database-operate-query-store.md">vistas de gestão dinâmica</a> para analisar o desempenho da carga de trabalho.
+          - html: Saiba como monitorizar atividades de base de dados com <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
+          - html: Saiba como <a href="sql-database-performance-guidance.md">ajustar manualmente a base de dados</a>.

@@ -9,11 +9,11 @@ ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775991"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 

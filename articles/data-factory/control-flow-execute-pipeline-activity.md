@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808845"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade execute Pipeline na fábrica de dados do Azure
 A atividade executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -65,10 +65,10 @@ Propriedade | Descrição | Valores permitidos | Necessário
 nome | Nome da atividade execute pipeline. | String | Sim
 tipo | Deve ser definida como: **ExecutePipeline**. | String | Sim
 pipeline | Referência do pipeline para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros a ser transmitidos para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
-waitOnCompletion | Define se a execução da atividade aguarda para que a execução de pipeline dependentes concluir. A predefinição é falso. | Booleano | Não
+parameters | Parâmetros a ser transmitidos para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
+waitOnCompletion | Define se a execução da atividade aguarda para que a execução de pipeline dependentes concluir. A predefinição é falso. | Boolean | Não
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Exemplo
 Este cenário tem dois pipelines:
 
 - **Pipeline mestre** -este pipeline tem uma atividade Execute Pipeline que chama o pipeline invocado. O pipeline principal aceita dois parâmetros: `masterSourceBlobContainer`, `masterSinkBlobContainer`.

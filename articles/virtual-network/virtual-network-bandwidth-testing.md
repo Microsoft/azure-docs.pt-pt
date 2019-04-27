@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743087"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Largura de banda/débito testes (NTTTCP)
 

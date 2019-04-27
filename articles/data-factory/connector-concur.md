@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808915"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar dados de Concur com o Azure Data Factory (pré-visualização)
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para o serviço de Concur ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Consegue** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Consegue** | Sim |
 | clientId | Client_id de aplicação fornecido pelo consegue gestão de aplicações.  | Sim |
 | o nome de utilizador | O nome de utilizador que utiliza para aceder ao serviço consegue.  | Sim |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário fornecida no campo de nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -82,7 +82,7 @@ Para copiar dados de Concur, defina a propriedade de tipo de conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **ConcurObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **ConcurObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 
@@ -112,7 +112,7 @@ Para copiar dados de Concur, definir o tipo de origem na atividade de cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **ConcurSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **ConcurSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

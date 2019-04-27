@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803165"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Melhores práticas de aplicação do Service Fabric do Azure e de cluster
 

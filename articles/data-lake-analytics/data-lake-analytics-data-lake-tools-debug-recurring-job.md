@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
 ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629790"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Resolver problemas de uma tarefa periódica anormal
 
@@ -27,17 +27,17 @@ Tarefas periódicas normalmente compartilham a mesma lógica de consulta e os da
 
 **Relacionados com a vista de tarefas** no Azure Data Lake Tools para Visual Studio ajuda que acelerar o progresso de resolução de problemas com ambos os casos.
 
-## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Passo 1: Localizar tarefas periódicas e abrir a vista de trabalho relacionados
+## <a name="step-1-find-recurring-jobs-and-open-related-job-view"></a>Passo 1: Tarefas periódicas de localizar e abrir a vista de trabalho relacionados
 
 Para utilizar a vista de tarefas relacionadas para resolver um problema de tarefa periódica, terá de primeiro localizar a tarefa periódica no Visual Studio e, em seguida, abra a vista de tarefas relacionadas.
 
-### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Que tem o URL para a tarefa periódica
+### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: Tem o URL para a tarefa periódica
 
 Por meio **ferramentas** > **Data Lake** > **vista de tarefas**, pode colar o URL da tarefa para abrir a vista de tarefas no Visual Studio. Selecione **ver tarefas relacionadas** para abrir a vista de tarefas relacionadas.
 
 ![Ligação de trabalhos relacionados do Vista nas ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
-### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Que tem o pipeline para a tarefa periódica, mas não o URL
+### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Tem o pipeline para a tarefa periódica, mas não o URL
 
 No Visual Studio, é possível abrir o Browser de Pipeline através do Explorador de servidores > sua conta do Azure Data Lake Analytics > **Pipelines**. (Se não conseguir encontrar este nó no Explorador de servidores [baixar Plug mais recente-in](https://aka.ms/adltoolsvs).) 
 

@@ -14,14 +14,14 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0de8d4145ff41b498149774af8ed74c56375dea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605188"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Mover dados de Sybase com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-sybase-connector.md)
 > * [Versão 2 (versão atual)](../connector-sybase.md)
 
@@ -66,13 +66,13 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **OnPremisesSybase** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **OnPremisesSybase** |Sim |
 | servidor |Nome do servidor Sybase. |Sim |
 | base de dados |Nome da base de dados Sybase. |Sim |
-| esquema |Nome do esquema na base de dados. |Não |
+| schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados Sybase. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
+| password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados de Sybase no local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados

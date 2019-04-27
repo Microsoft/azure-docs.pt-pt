@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
 ms.openlocfilehash: cc66630f57af32e18916e0662a400b38f27000a9
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608933"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de .NET de visão personalizada
 

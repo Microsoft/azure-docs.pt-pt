@@ -2,19 +2,20 @@
 title: Padrão de referência de seu aplicativo no armazenamento de disco do Azure - discos geridos
 description: Saiba mais sobre o processo de benchmark a sua aplicação no Azure.
 services: virtual-machines-windows,storage
-author: roygara
-ms.author: rogarana
-ms.date: 01/11/2019
+author: rockboyfor
+ms.author: v-yeche
+origin.date: 01/11/2019
+ms.date: 04/01/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
 ms.openlocfilehash: 8db1fb3c9b3ed551cd668cf14105eb8bfb486251
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679823"
 ---
 # <a name="benchmarking-a-disk"></a>Comparações de benchmark entre um disco
 

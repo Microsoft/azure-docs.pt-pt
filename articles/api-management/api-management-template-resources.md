@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557890"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização em que o desenvolvedor modelos de portais.  
@@ -112,13 +112,13 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleApis|APIs|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Pré-visualização de aplicações|  
 |WebApplicationsRequirementsHeader|Requisitos|  
@@ -127,12 +127,12 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Quer mesmo remover a aplicação?|  
 |WebDevelopersAppNotPublished|Não publicado|  
 |WebDevelopersAppNotSubmitted|Não submetido|  
-|WebDevelopersAppTableCategoryHeader|Categoria|  
+|WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|Estado|  
 |WebDevelopersEditLink|Editar|  
@@ -143,13 +143,13 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicações|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |NoItemsToDisplay|Não foram encontrados resultados.|  
 |GeneralExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Tente novamente.|  
@@ -160,7 +160,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Guardar|  
@@ -184,7 +184,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="Documentation"></a> Documentação  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Cabeçalho inválido '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|URL de Pedido Inválido|  
@@ -332,7 +332,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |LinkLabelBack|anterior|  
 |LinkLabelHomePage|home page|  
@@ -350,7 +350,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|Tem que não existem subscrições ativas. Tem de subscrever um produto comunicar um problema.|  
@@ -361,7 +361,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|envie-nos um e-mail|  
@@ -376,7 +376,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebProductsAgreement|Ao subscrever {0} produto, eu Concordo com os `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Termos de Utilização|  
@@ -398,13 +398,13 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
-|PageTitleProducts|Produtos|  
+|PageTitleProducts|Products|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|De momento, o início de sessão está desativado pelos administradores.|  
 |TextboxExternalIdentitiesSigninInvitation|Em alternativa, inicie sessão com|  
@@ -412,7 +412,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |PrincipalNotFound|O principal não foi encontrado ou a assinatura é inválida|  
 |ErrorSsoAuthenticationFailed|Falha de autenticação SSO|  
@@ -481,7 +481,7 @@ São suportadas as seguintes opções de localização:
 |WebAuthenticationRequestIsNotValid|O pedido não é válido|  
 |WebAuthenticationUserIsNotConfirm|Confirme o registo antes de tentar iniciar sessão.|  
 |WebAuthenticationInvalidEmailFormated|O e-mail é inválido: {0}|  
-|WebAuthenticationUserNotFound|Utilizador não encontrado|  
+|WebAuthenticationUserNotFound|O utilizador não foi encontrado|  
 |WebAuthenticationTenantNotRegistered|Sua conta pertencer a um inquilino do Azure Active Directory que não está autorizado a aceder a este portal.|  
 |WebAuthenticationAuthenticationFailed|A autenticação falhou.|  
 |WebAuthenticationGooglePlusNotEnabled|A autenticação falhou. Se autorizou a aplicação, em seguida,. Contacte o administrador para se certificar de que a autenticação do Google está configurado corretamente.|  
@@ -508,7 +508,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Esqueceu-se da palavra-passe?|  
 |WebAuthenticationIfAdministrator|Se for um administrador tem de iniciar sessão `<a href="{0}"\>here</a\>`.|  
@@ -520,7 +520,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |PageTitleSignup|Inscrever-se|  
 |WebAuthenticationAlreadyAMember|Já é membro?|  
@@ -530,7 +530,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Quer mesmo cancelar esta subscrição?|  
 |SubscriptionRenewConfirmation|Quer mesmo renovar esta subscrição?|  
@@ -553,7 +553,7 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Quer fechar a sua conta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -564,14 +564,14 @@ São suportadas as seguintes opções de localização:
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Atualizar perfil|  
 |PageTitleUpdateProfile|Atualizar informações da conta|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Name|Texto|  
+|Name|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Alterar informações da conta|  
 |ButtonLabelChangePassword|Alterar palavra-passe|  

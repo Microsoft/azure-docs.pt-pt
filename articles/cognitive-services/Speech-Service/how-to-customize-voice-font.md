@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654084"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -33,7 +33,7 @@ Precisa de uma conta do Azure e uma subscrição para o serviço de voz. [Criar 
 
 2. Em nome da sua conta no canto superior direito, aceda a **subscrições**.
 
-    ![Subscrições](media/custom-voice/subscriptions.png)
+    ![Subscriptions](media/custom-voice/subscriptions.png)
 
 3. Na página de subscrições, escolha **ligar a subscrição existente**. Tenha em atenção que os serviços de voz oferece suporte a diferentes regiões. Verifique a região onde foi criada a chave de subscrição e certifique-se de que se ligar a chave para o portal de secundárias correto.  
 

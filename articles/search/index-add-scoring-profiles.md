@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eae7de00294a6a09cb7f942d11ee2391710fc55f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844306"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Adicionar perfis de classificação para um índice da Azure Search
 

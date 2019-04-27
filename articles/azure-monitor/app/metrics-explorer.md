@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60700892"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights] [ start] são valores de medida e contagens de eventos que são enviadas em telemetria da sua aplicação. Ajudam a detetar problemas de desempenho e ver as tendências na forma como a aplicação está a ser utilizada. Há uma grande variedade de métricas padrão e também pode criar seus próprios eventos e métricas personalizadas.

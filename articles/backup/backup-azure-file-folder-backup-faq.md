@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
 ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641233"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente do Azure Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do agente do Azure Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -79,7 +79,7 @@ Utilize a lista seguinte para alterar a localização da cache.
 2. Não mova os ficheiros. Em vez disso, copie a pasta do espaço na cache para outra unidade com espaço suficiente. O espaço da cache original pode ser removido após confirmar que as cópias de segurança estão a trabalhar com o novo espaço da cache.
 3. Atualize as seguintes entradas de registo com o caminho para a nova pasta de espaço da cache.<br/>
 
-    | Caminho do registo | Chave do Registo | Valor |
+    | Caminho do registo | Chave do Registo | Value |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nova localização da pasta cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nova localização da pasta cache* |

@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567236"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados por push para um índice da Azure Search utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade de tipo tem de ser definida como: **AzureSearch**. | Sim |
+| type | A propriedade de tipo tem de ser definida como: **AzureSearch**. | Sim |
 | url | URL para o serviço Azure Search. | Sim |
 | key | Chave de administrador para o serviço Azure Search. | Sim |
 
@@ -100,13 +100,13 @@ A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou
 
 | Tipo de dados do Azure Search | Suportado no Sink do Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadeia | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
-| Valor de duplo | S |
-| Booleano | S |
+| Double | S |
+| Boolean | S |
 | DataTimeOffset | S |
-| Matriz de cadeia de caracteres | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemplo JSON: Copiar dados do SQL Server no local para o índice da Azure Search

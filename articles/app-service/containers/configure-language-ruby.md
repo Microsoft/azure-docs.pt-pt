@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
 ms.openlocfilehash: 402c85e7902c8c2f612ad6c777d8f6773a4d0ca3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60854872"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar uma aplicação Ruby do Linux para o serviço de aplicações do Azure
 

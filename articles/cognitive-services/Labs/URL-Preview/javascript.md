@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
 ms.openlocfilehash: 1f3c37e770c2edd76bd299771648b2de29d42dd9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712657"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Início rápido: Pré-visualização de URL em JavaScript 
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplos CLI do Azure do Gateway de aplicação do Azure | Microsoft Docs
-description: Exemplos CLI do Azure do Gateway de aplicação
+title: Amostras de CLI do Azure do Gateway de aplicação do Azure | Documentos da Microsoft
+description: Amostras de CLI do Azure do Gateway de aplicação
 services: application-gateway
 documentationcenter: networking
 author: vhorne
@@ -11,22 +11,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/30/2018
-ms.author: victorh
+origin.date: 01/30/2018
+ms.date: 07/02/2018
+ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 10857e248382156f7f65b343e3eedb65229f6639
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 90e5c52c9efae7538308371a157b552d4e4d12ee
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831134"
 ---
-# <a name="azure-application-gateway-azure-cli-samples"></a>Exemplos de Application Gateway do Azure CLI do Azure
+# <a name="azure-application-gateway-azure-cli-samples"></a>Exemplos da CLI do Azure do Gateway de aplicação do Azure
 
-A tabela seguinte inclui ligações para exemplos de script da CLI do Azure que criar gateways de aplicação.
+A tabela seguinte inclui ligações para exemplos do script da CLI do Azure que criar gateways de aplicação.
 
 | | |
 |---|---|
-| [Gerir o tráfego da web](./scripts/create-vmss-cli.md) | Cria um gateway de aplicação e todos os recursos relacionados. |
-| [Restringir o tráfego da web](./scripts/create-vmss-waf-cli.md) | Cria um gateway de aplicação que restringe o tráfego através de regras de OWASP.|
+| [Gerir o tráfego web](./scripts/create-vmss-cli.md) | Cria um gateway de aplicação e todos os recursos relacionados. |
+| [Restringir o tráfego da web](./scripts/create-vmss-waf-cli.md) | Cria um gateway de aplicação que restringe o tráfego através de regras da OWASP.|
 | | |
+

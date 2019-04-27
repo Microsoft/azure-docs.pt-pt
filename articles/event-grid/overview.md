@@ -10,11 +10,11 @@ ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
 ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823644"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 

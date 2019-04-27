@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: KumudD
 ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734546"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obter métricas de utilização de Balanceador de carga com a API REST
 
@@ -50,7 +50,7 @@ Os seguintes cabeçalhos são necessários:
 | loadBalancerName | O nome do Balanceador de carga do Azure. |
 | metricnames | Lista separada por vírgulas de válido [métricas de Balanceador de carga](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | versão de API | A versão de API a utilizar para o pedido.<br /><br /> Este documento abrange a api-version `2018-01-01`, incluído no URL acima.  |
-| Período de tempo | O período de tempo da consulta. É uma cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO`. Este parâmetro opcional é definido para devolver uma dias de dados no exemplo. |
+| TimeSpan | O período de tempo da consulta. É uma cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO`. Este parâmetro opcional é definido para devolver uma dias de dados no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido

@@ -17,11 +17,11 @@ ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: fe5649951b1b19ce52c13648f897f4a83e1f761b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835401"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemplos da CLI para o serviço de aplicações do Azure
 

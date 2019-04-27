@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 6e02f5a5b42da9c99a08782903cdc05ee32ec9d4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743331"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual do agente do observador de rede para Windows
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
 ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845788"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Crie esquemas de controlo nas mensagens AS2 e MDNs nas contas de integração para o Azure Logic Apps
 
@@ -67,15 +67,15 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 | messageId | String | ID da mensagem AS2, dos cabeçalhos da mensagem AS2 (opcional) |
 | dispositionType |String | Valor de tipo de disposição de notificação de disposição (MDN) de mensagem. (Opcional) |
 | fileName | String | Nome de ficheiro, do cabeçalho da mensagem AS2. (Opcional) |
-| isMessageFailed |Booleano | Se a mensagem AS2 falha. (Obrigatório) |
-| isMessageSigned | Booleano | Se estava assinada a mensagem AS2. (Obrigatório) |
-| isMessageEncrypted | Booleano | Se a mensagem AS2 foi encriptada. (Obrigatório) |
-| isMessageCompressed |Booleano | Se a mensagem AS2 tenha sido compactada. (Obrigatório) |
+| isMessageFailed |Boolean | Se a mensagem AS2 falha. (Obrigatório) |
+| isMessageSigned | Boolean | Se estava assinada a mensagem AS2. (Obrigatório) |
+| isMessageEncrypted | Boolean | Se a mensagem AS2 foi encriptada. (Obrigatório) |
+| isMessageCompressed |Boolean | Se a mensagem AS2 tenha sido compactada. (Obrigatório) |
 | correlationMessageId | String | ID da mensagem AS2, para correlacionar mensagens com MDNs. (Opcional) |
 | incomingHeaders |Dicionário de JToken | Detalhes de cabeçalho de mensagem de entrada AS2. (Opcional) |
 | outgoingHeaders |Dicionário de JToken | Detalhes de cabeçalho de mensagem de saída AS2. (Opcional) |
-| isNrrEnabled | Booleano | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
-| isMdnExpected | Booleano | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
+| isNrrEnabled | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
+| isMdnExpected | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
 | mdnType | Enum | Valores permitidos são **NotConfigured**, **sincronização**, e **Async**. (Obrigatório) |
 ||||
 
@@ -120,9 +120,9 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 | messageId | String | ID da mensagem AS2. (Opcional) |
 | originalMessageId |String | AS2 original ID da mensagem. (Opcional) |
 | dispositionType | String | Valor de tipo de disposição de MDN. (Opcional) |
-| isMessageFailed |Booleano | Se a mensagem AS2 falha. (Obrigatório) |
-| isMessageSigned |Booleano | Se estava assinada a mensagem AS2. (Obrigatório) |
-| isNrrEnabled | Booleano | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
+| isMessageFailed |Boolean | Se a mensagem AS2 falha. (Obrigatório) |
+| isMessageSigned |Boolean | Se estava assinada a mensagem AS2. (Obrigatório) |
+| isNrrEnabled | Boolean | Utilize o valor predefinido se o valor não é conhecido. (Obrigatório) |
 | statusCode | Enum | Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
 | micVerificationStatus | Enum | Valores permitidos são **não aplicável**, **Succeeded**, e **falha**. (Obrigatório) |
 | correlationMessageId | String | ID de correlação. O original messaged ID (o ID da mensagem da mensagem para o qual o MDN está configurado). (Opcional) |

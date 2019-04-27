@@ -2,20 +2,21 @@
 title: Verifique as definições do Gestor de tráfego do Azure
 description: Este artigo irá ajudá-lo a verificar as definições do Gestor de tráfego.
 services: traffic-manager
-author: kumudd
+author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
-ms.author: kumud
+origin.date: 03/16/2017
+ms.date: 02/18/2019
+ms.author: v-yeche
 ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771622"
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar definições do Gestor de Tráfego
 
@@ -35,7 +36,7 @@ Os exemplos seguintes ajudar a testar o perfil do Traffic Manager.
 2. Tipo de `ipconfig /flushdns` para liberar o cache do resolvedor DNS.
 3. Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o seguinte comando verifica o nome de domínio com o prefixo *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+        nslookup myapp.contoso.trafficmanager.cn
 
     Um resultado típico mostra as seguintes informações:
 
@@ -71,3 +72,5 @@ Em alternativa, existem gratuito baseado na web pesquisa de DNS e aprofundar os 
 * [Sobre métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md)
 * [Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)
 * [Resolução de problemas do estado degradado do Gestor de Tráfego](traffic-manager-troubleshooting-degraded.md)
+
+<!-- Update_Description: update meta properties -->

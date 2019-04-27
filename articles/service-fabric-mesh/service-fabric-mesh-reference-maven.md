@@ -2,7 +2,7 @@
 title: Referência de Maven de malha de recursos de infraestrutura do serviço do Azure | Documentos da Microsoft
 description: Contém a referência para saber como utilizar o plug-in do Maven para a malha do Service Fabric
 services: service-fabric-mesh
-keywords: maven, java, a cli
+keywords: maven, java, cli
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
@@ -10,11 +10,11 @@ ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
 ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60811630"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in do maven para a malha de recursos de infraestrutura do serviço
 

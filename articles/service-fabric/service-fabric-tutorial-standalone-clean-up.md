@@ -16,11 +16,11 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: 28cc2bf4794620641fb6af46bd4017d74f87e955
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718007"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: Limpar o seu cluster autónomo
 

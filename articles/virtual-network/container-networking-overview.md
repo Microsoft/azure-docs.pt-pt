@@ -17,11 +17,11 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713840"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Ativar contentores para utilizar as capacidades da Rede Virtual do Azure
 
@@ -51,7 +51,7 @@ Os Pods são colocados numa máquina virtual que faz parte de uma rede virtual. 
 
 Para permitir aos Pods aceder à Internet, o plug-in configura regras de *iptables* para a tradução de endereços de rede (NAT) do tráfego vinculado à Internet dos Pods. O endereço IP de origem do pacote é traduzido para o endereço IP primário na interface de rede da máquina virtual. As máquinas virtuais do Windows extraem automaticamente o tráfego do NAT de origem (SNAT) destinado aos endereços IP fora da sub-rede na qual está a máquina virtual. Normalmente, todo o tráfego destinado a um endereço IP fora do intervalo IP da rede virtual é traduzido.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 
 O plug-in suporta até 250 Pods por máquina virtual e até 16 000 Pods numa rede virtual. Estes limites são diferentes para o [Azure Kubernetes Service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 

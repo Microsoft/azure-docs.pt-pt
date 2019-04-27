@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 29ca02023eb06463962dd207ca74bc705069a3aa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821468"
 ---
 # <a name="sample---not-allowed-vm-extensions"></a>Exemplo – não permitido extensões de VM
 

@@ -9,11 +9,11 @@ ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60716216"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescreva os cabeçalhos de solicitação e resposta HTTP com o Gateway de aplicação do Azure - portal do Azure
 

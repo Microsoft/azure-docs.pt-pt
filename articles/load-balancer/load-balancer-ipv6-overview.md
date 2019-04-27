@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
 ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861962"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Descrição geral do IPv6 para o Balanceador de carga do Azure
 

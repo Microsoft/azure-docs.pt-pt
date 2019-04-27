@@ -17,11 +17,11 @@ ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
 ms.openlocfilehash: d6009a723297d03dc854d06529315b22b2f4de16
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57248754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789524"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar/copiar um disco gerido para uma conta de armazenamento com a CLI do Azure
 

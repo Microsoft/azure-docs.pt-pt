@@ -4,17 +4,18 @@ description: Saiba como adicionar um mosaico de markdown para um dashboard do Az
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: kfollis
-ms.date: 01/25/2019
+ms.author: v-biyu
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551609"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utilize um mosaico de markdown no dashboards do Azure para mostrar o conteúdo personalizado
 
@@ -28,7 +29,7 @@ Pode adicionar um mosaico de markdown para os seus dashboards do Azure para exib
 
 2. Na **Galeria de mosaicos**, localize o mosaico chamado **Markdown** e clique em **Add**. O mosaico é adicionado ao dashboard e o **editar Markdown** painel abre-se.
 
-1. Editar a **Title**, **subtítulo**, e **conteúdo** campos para personalizar o mosaico. No exemplo mostrado aqui, o mosaico markdown foi editado para apresentar informações de suporte técnico de ajuda personalizada.
+3. Editar a **Title**, **subtítulo**, e **conteúdo** campos para personalizar o mosaico. No exemplo mostrado aqui, o mosaico markdown foi editado para apresentar informações de suporte técnico de ajuda personalizada.
 
    ![Captura de ecrã que mostra a exibição de edição de mosaico markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

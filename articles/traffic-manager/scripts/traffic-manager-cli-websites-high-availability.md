@@ -16,11 +16,11 @@ ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
 ms.openlocfilehash: 6c610a1cddb0854878d4c2bd5531f88a1cf2ec51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884228"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Encaminhar o tráfego de elevada disponibilidade de aplicações através da CLI do Azure
 

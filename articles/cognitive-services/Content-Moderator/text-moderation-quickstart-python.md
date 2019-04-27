@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 20920a04c5b85c9eede7d7b249dd6e0548308240
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607139"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material em Python
 

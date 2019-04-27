@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734359"
 ---
 # <a name="assets"></a>Elementos
 
@@ -34,18 +34,18 @@ O **arquivo** camada de armazenamento só é recomendada para ficheiros de orige
 
 Um dos fluxos de trabalho comuns dos serviços de multimédia é carregar, codificar e transmitir um ficheiro. Esta seção descreve os passos gerais.
 
-1. Utilize a API dos serviços de multimédia v3 para criar um novo elemento de "entrado". Esta operação cria um contentor na conta de armazenamento associada à conta de Media Services. A API devolve o nome do contentor (por exemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
+1. Utilize a API dos Serviços de Multimédia v3 para criar um Recurso “de entrada” novo. Esta operação cria um contentor na conta de armazenamento associada à sua conta dos Serviços de Multimédia. A API devolve o nome do contentor (por exemplo, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
-    Se já tiver um contentor de BLOBs que pretende associar um recurso, pode especificar o nome do contentor ao criar o recurso. Serviços de multimédia atualmente suporta apenas blobs na raiz do contentor e não com caminhos no nome do ficheiro. Portanto, um contentor com o nome de ficheiro "input.mp4" irá funcionar. No entanto, um contentor com o nome de ficheiro "videos/inputs/input.mp4", não funcionará.
+    Se já tiver um contentor de blobs que queira associar a um Recurso, pode especificar o nome do contentor quando criar o Recurso. Atualmente, os Serviços de Multimédia só suportam blobs na raiz do contentor e sem caminhos no nome de ficheiro. Por esse motivo, um contentor com o nome de ficheiro “input.mp4” funcionará. Contudo, um contentor com o nome de ficheiro "videos/inputs/input.mp4" não funcionará.
 
-    Pode utilizar a CLI do Azure para carregar diretamente para qualquer conta de armazenamento e o contentor que tem direitos para na sua subscrição. <br/>O nome do contentor tem de ser exclusivo e siga as diretrizes de nomenclatura de armazenamento. O nome não tem de seguir o nome do contentor de elemento de serviços de multimédia (GUID de recurso) de formatação. 
+    Pode utilizar a CLI do Azure para carregar diretamente para qualquer conta de armazenamento e para qualquer contentor para os quais tenha direitos na sua subscrição. <br/>O nome do contentor tem de ser exclusivo e seguir as diretrizes de nomenclatura do armazenamento. O nome não tem de seguir a formatação de nomes de contentores de Recursos dos Serviços de Multimédia (Recurso-GUID). 
     
     ```azurecli
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
-2. Obter um URL de SAS com permissões de leitura / escrita que serão utilizadas para ficheiros digitais são carregados para o contentor de elemento. Pode utilizar a API de serviços de multimédia para [lista os URLs do contentor de elemento](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Utilize as APIs de armazenamento do Azure ou SDKs (por exemplo, o [API do REST de armazenamento](../../storage/common/storage-rest-api-auth.md), [SDK de JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md), ou [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar ficheiros para o contentor de elemento. 
-4. Utilize serviços de multimédia v3 APIs para criar uma transformação e uma tarefa para processar o seu elemento "entrado". Para obter mais informações, consulte [transforma e tarefas](transform-concept.md).
+2. Obtenha um URL de SAS com permissões de leitura-escrita que será utilizado para carregar ficheiros digitais para o contentor de Recursos. Pode utilizar a API dos Serviços de Multimédia para [listar os URLs do contentor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+3. Utilize as APIs ou os SDKs do Armazenamento do Azure (por exemplo, a [API REST de Armazenamento](../../storage/common/storage-rest-api-auth.md), o [Java SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) ou o [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para carregar ficheiros para o contentor de Recursos. 
+4. Utilize as APIs dos Serviços de Multimédia v3 para criar uma Transformação e um Trabalho para processar o Recurso “de entrada”. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos).
 5. Stream o conteúdo do elemento de "saída".
 
 Para obter um exemplo de .NET completo que mostra como: criar o elemento, obter um URL de SAS gravável para contentor do recurso no armazenamento, carregue o ficheiro para o contentor no armazenamento com o URL de SAS, consulte [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
@@ -60,7 +60,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Para obter um exemplo do REST, veja a [criar um elemento com REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) exemplo.
 
-O exemplo mostra como criar os **corpo do pedido** onde pode especificar informações úteis, como a descrição, nome do contentor, conta de armazenamento e outras informações.
+O exemplo mostra como criar o **Corpo do Pedido**, onde pode especificar informações úteis, como uma descrição, o nome do contentor, a conta de armazenamento, entre outras.
 
 #### <a name="curl"></a>cURL
 
@@ -105,5 +105,5 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Transmissão de um ficheiro](stream-files-dotnet-quickstart.md)
-* [Usando um DVR na cloud](live-event-cloud-dvr.md)
+* [Using a cloud DVR](live-event-cloud-dvr.md) (Utilizar um DVR na cloud)
 * [Diferenças entre o suporte de dados de serviços v2 e v3](migrate-from-v2-to-v3.md)

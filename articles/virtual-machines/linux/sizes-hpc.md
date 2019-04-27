@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542361"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de computação de elevado desempenho
 
@@ -33,14 +33,16 @@ ms.locfileid: "49344494"
 
 ### <a name="mpi"></a>MPI 
 
-Apenas o Intel MPI 5.x versões são suportadas. Versões posteriores (2017, 2018) da biblioteca de tempo de execução do Intel MPI não são compatíveis com os controladores de RDMA do Linux do Azure.
+Apenas o Intel MPI 5.x versões são suportadas.
 
+> [!NOTE]
+> Versões posteriores (2017, 2018) de tempo de execução do Intel MPI biblioteca pode ou não ser compatível com os controladores de RDMA do Linux do Azure.
 
 ### <a name="distributions"></a>Distribuições
  
 Implemente uma VM de computação intensiva de uma das imagens no Azure Marketplace que suporta a conetividade RDMA:
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registar com o Intel para transferir a MPI Intel:
+* **Ubuntu** - Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registar com o Intel para transferir a MPI Intel:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 

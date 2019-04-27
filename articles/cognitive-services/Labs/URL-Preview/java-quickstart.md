@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: f4acab2cb4522048f4a78b12ca41161695a31e18
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712495"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Início rápido: Pré-visualização de URL com Java
 

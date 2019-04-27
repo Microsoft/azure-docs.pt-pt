@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
 ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726609"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Eliminar Reliable Actors e o respetivo estado
 Coleta de lixo de atores desativados limpa apenas o objeto de ator, mas não remove os dados armazenados no Gestor de estado de um ator. Quando um ator é reativado, seus dados é novamente disponibilizados ao mesmo através do Gestor de estado. Nos casos onde atores armazenar dados no Gestor de estado e estiverem desativados, mas nunca reativados, poderá ser necessário limpar os seus dados.

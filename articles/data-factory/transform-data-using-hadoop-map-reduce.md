@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611509"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados com a atividade MapReduce do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,8 +62,8 @@ Ver [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using-hado
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nome da atividade                     | Sim      |
-| descrição       | Texto que descreve o que a atividade é utilizada para | Não       |
+| nome              | Nome da atividade                     | Sim      |
+| description       | Texto que descreve o que a atividade é utilizada para | Não       |
 | tipo              | Para a atividade de MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
 | linkedServiceName | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | className         | Nome da classe a ser executado         | Sim      |

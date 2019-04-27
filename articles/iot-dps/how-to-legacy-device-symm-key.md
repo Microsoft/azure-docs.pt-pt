@@ -2,18 +2,19 @@
 title: Como utilizar as chaves simétricas para aprovisionar dispositivos legados com o serviço de aprovisionamento de dispositivos do Azure IoT Hub | Documentos da Microsoft
 description: Como utilizar as chaves simétricas para aprovisionar dispositivos legados com a sua instância do serviço de aprovisionamento de dispositivos
 author: wesmc7777
-ms.author: wesmc
-ms.date: 04/10/2019
+ms.author: v-yiso
+origin.date: 04/10/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: timlt
 ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775184"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como aprovisionar dispositivos legados com chaves simétricas
 
@@ -172,7 +173,7 @@ Substitua o valor de **chave** com o **chave primária** que anotou anteriorment
 
 Substitua o valor de **REG_ID** com o ID de registo.
 
-```powershell
+```PowerShell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -183,7 +184,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```powershell
+```PowerShell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 

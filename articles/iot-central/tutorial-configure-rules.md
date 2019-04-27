@@ -10,11 +10,11 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 2bd22dec13e2dba63c512276a0b36d4fc50e05f8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746764"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
@@ -69,7 +69,7 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
 
 2. Para definir a sua ação, utilize as informações na tabela seguinte:
 
-    | Definição   | Valor                          |
+    | Definição   | Value                          |
     | --------- | ------------------------------ |
     | Para        | O seu endereço de e-mail             |
     | Notas     | A temperatura do ar condicionado excedeu o limite. |

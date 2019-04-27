@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
 ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560376"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar momentos exatos nos vídeos
 

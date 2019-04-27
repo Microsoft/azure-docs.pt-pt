@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732293"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Referência rápida do Azure SQL Data Warehouse
 Esta referência rápida disponibiliza sugestões e melhores práticas úteis para criar as suas soluções do Azure SQL Data Warehouse. Antes de começar, saiba mais sobre cada passo detalhadamente em [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Padrões e Antipadrões de Cargas de Trabalho do Azure SQL Data Warehouse), que explica do que se trata e não se trata o SQL Data Warehouse.

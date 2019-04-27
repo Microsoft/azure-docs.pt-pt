@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 7e8263595a484500b86a8491d1408f02b4286181
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60638139"
 ---
 <a name="transforming-examples-for-test-drive"></a>Transformar exemplos para a versão de teste
 ====================================

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ef08cfc94a029f97250578e9b0366a18770c809
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789931"
 ---
 # <a name="azure-relay-port-settings"></a>Definições de porta de reencaminhamento do Azure
 

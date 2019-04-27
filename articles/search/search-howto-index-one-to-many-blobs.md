@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
 ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871204"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexar blobs produzir vários documentos de pesquisa
 Por predefinição, um indexador blob irão tratar o conteúdo de um blob como um documento única pesquisa. Determinadas **parsingMode** valores oferecer suporte a cenários em que um blob individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem que um indexador para extrair mais do que um pesquisar no documento de um blob é:
@@ -64,7 +64,7 @@ Quando cria um indexador e defina a **parsingMode** para `jsonLines` - sem espec
 
 Esta configuração irá resultar no índice da Azure Search que contém as seguintes informações (id de codificada em base64 baixou para fins de brevidade)
 
-| ID | temperatura | pressure | carimbo de data/hora |
+| ID | temperatura | pressure | timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

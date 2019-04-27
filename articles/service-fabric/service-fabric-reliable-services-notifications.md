@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772929"
 ---
 # <a name="reliable-services-notifications"></a>Notificações do Reliable Services
 Notificações de permitir que os clientes controlar as alterações que estão a ser efetuadas a um objeto que elas têm interesse em. Notificações de suporte a dois tipos de objetos: *Gestor de estado de Reliable* e *dicionário fiável*.

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736650"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte de protocolo para cabeçalhos HTTP no serviço de porta de entrada do Azure
 Este artigo descreve o protocolo que suporte o serviço de porta de entrada com partes do caminho da chamada (veja a imagem). As secções seguintes fornecem mais informações sobre cabeçalhos HTTP suportados pelo serviço de porta de entrada.

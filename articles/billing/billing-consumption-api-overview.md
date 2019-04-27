@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286753"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615888"
 ---
 # <a name="azure-consumption-api-overview"></a>Descrição geral da API de consumo do Azure 
 
-As APIs de consumo do Azure oferecem a acesso programático a custo e dados de utilização para os seus recursos do Azure. Essas APIs atualmente apenas suportam inscrições de empresas e assinaturas do Web Direct (com algumas exceções). As APIs são continuamente atualizadas para suportar outros tipos de subscrições do Azure.
+As APIs de Consumo do Azure oferecem acesso programático aos dados de custo e utilização para os seus recursos do Azure. Essas APIs atualmente apenas suportam inscrições de empresas e assinaturas do Web Direct (com algumas exceções). As APIs são continuamente atualizadas para suportar outros tipos de subscrições do Azure.
 
-APIs de consumo do Azure fornecem acesso a:
-- Clientes Web e empresarial direto 
+As APIs de Consumo do Azure oferecem acesso a:
+- Clientes Diretos Enterprise e Web 
     - Detalhes de Utilização 
     - Encargos do Marketplace 
-    - Recomendações de reserva 
-    - Detalhes da reserva 
-    - Resumos de reserva 
-- Apenas a clientes empresariais 
+    - Recomendações da Reserva 
+    - Detalhes da Reserva 
+    - Resumos da Reserva 
+- Apenas Clientes Enterprise 
     - Folha de preços 
     - Orçamentos 
     - Saldos 

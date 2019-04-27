@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596918"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Mantenha um registo de dados durante a sorte!
 

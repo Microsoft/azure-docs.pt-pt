@@ -12,11 +12,11 @@ ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: b6e546130efd52312fca62ab4e6a22626778a19e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648155"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>O que é a API de pesquisa Web Bing?
 

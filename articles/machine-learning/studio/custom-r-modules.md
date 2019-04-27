@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120385"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60751218"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definir módulos R personalizados para o Azure Machine Learning Studio
 

@@ -10,11 +10,11 @@ ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738932"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário da máquina virtual do Azure
 
@@ -59,7 +59,7 @@ Quando é adicionado um computador para a gestão de atualizações, controlo de
 
 Vá para a área de trabalho. Sob **gerais**, selecione **pesquisas guardadas**. As duas pesquisas guardadas, que são utilizadas por estas soluções são mostradas na tabela a seguir:
 
-|Name     |Categoria  |Alias  |
+|Name     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |

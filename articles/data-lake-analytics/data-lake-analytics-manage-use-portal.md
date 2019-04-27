@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813449"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerir o Azure Data Lake Analytics com o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -34,8 +34,8 @@ Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de 
 3. Selecione os valores para os seguintes itens: 
    1. **Nome**: O nome da conta do Data Lake Analytics.
    2. **Subscrição**: A subscrição do Azure utilizada para a conta.
-   3. **Grupo de recursos**: grupo de recursos do Azure na qual pretende criar a conta. 
-   4. **Localização**: Centro de dados do Azure para a conta do Data Lake Analytics. 
+   3. **Grupo de recursos**: O grupo de recursos do Azure na qual pretende criar a conta. 
+   4. **Localização**: O datacenter do Azure para a conta do Data Lake Analytics. 
    5. **Data Lake Store**: O arquivo predefinido a ser utilizado para a conta do Data Lake Analytics. A conta do Azure Data Lake Store e a conta do Data Lake Analytics tem de ser na mesma localização.
 4. Clique em **Criar**. 
 
@@ -98,9 +98,9 @@ Pode utilizar o **Assistente para adicionar utilizador** para provisionar facilm
 À semelhança de outros serviços do Azure, pode utilizar o controlo de acesso baseado em funções (RBAC) para controlar como os utilizadores interagem com o serviço.
 
 As funções do RBAC padrão tem as seguintes funcionalidades:
-* **Proprietário**: pode submeter tarefas, monitorizar tarefas, cancelar tarefas a partir de qualquer utilizador e configurar a conta.
-* **Contribuinte**: pode submeter tarefas, monitorizar tarefas, cancelar tarefas a partir de qualquer utilizador e configurar a conta.
-* **Leitor**: pode monitorizar tarefas.
+* **Proprietário**: Pode submeter tarefas, monitorizar tarefas, cancelar tarefas a partir de qualquer utilizador e configurar a conta.
+* **Contribuinte**: Pode submeter tarefas, monitorizar tarefas, cancelar tarefas a partir de qualquer utilizador e configurar a conta.
+* **Leitor**: Pode monitorizar tarefas.
 
 Utilize a função de desenvolvedor do Data Lake Analytics para permitir que os desenvolvedores de U-SQL utilizar o serviço do Data Lake Analytics. Pode usar a função do programador do Data Lake Analytics:
 * Submeta tarefas.
@@ -132,7 +132,7 @@ Utilize a função de desenvolvedor do Data Lake Analytics para permitir que os 
 2. Clique em **nova tarefa**. Para cada tarefa, configure:
 
     1. **Nome da tarefa**: O nome da tarefa.
-    2. **Prioridade**: têm prioridade mais alta. Se duas tarefas são colocados em fila, aquele com o valor de prioridade inferior é executado primeiro.
+    2. **Prioridade**: Têm prioridade mais alta. Se duas tarefas são colocados em fila, aquele com o valor de prioridade inferior é executado primeiro.
     3. **Paralelismo**: O número máximo de processos de computação para reservar para esta tarefa.
 
 3. Clique em **Submeter Tarefa**.

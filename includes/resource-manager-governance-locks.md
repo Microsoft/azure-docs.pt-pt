@@ -9,11 +9,11 @@ ms.date: 02/16/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 0cb3de7d893ccfe638468110b1b6f5fb61b2bc7c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742142"
 ---
 Bloqueios de recursos impedem os utilizadores na sua organização acidentalmente eliminem ou modifiquem recursos críticos. Ao contrário do controlo de acesso baseado em funções, os bloqueios de recursos aplicam uma restrição a todos os utilizadores e a todas as funções. 
 

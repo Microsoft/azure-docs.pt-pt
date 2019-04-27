@@ -16,11 +16,11 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6e683eb07b690d7d5680b7a4d429d1150f22f67e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767718"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Dimensionar aplicações num Ambiente do Serviço de Aplicações
 No serviço de aplicações do Azure, existem normalmente três coisas que pode ser dimensionado:

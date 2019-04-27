@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 5b023a152cf93ec6ff688674e991ad55db215965
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309494"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767817"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com suporte de dados do Azure REST API dos serviços 
 > [!div class="op_single_selector"]
@@ -217,7 +217,7 @@ Cabeçalhos de pedido:
     Host: media.windows.net 
     Content-Length: 384
 
-Corpo do pedido: 
+Corpo do Pedido: 
 
     { 
        "Tracks":[   
@@ -256,7 +256,7 @@ Cabeçalhos de pedido:
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
-Corpo do pedido: 
+Corpo do Pedido: 
 
     { 
        "Tracks":[   

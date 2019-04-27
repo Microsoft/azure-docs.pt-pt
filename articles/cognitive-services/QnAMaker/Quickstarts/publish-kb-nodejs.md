@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
 ms.openlocfilehash: 5538253459643400faf01b5999cfaf8780c05d29
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60797917"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início rápido: Publicar uma base de dados de conhecimento do QnA Maker com node. js
 

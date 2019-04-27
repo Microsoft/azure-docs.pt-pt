@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708622"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): Um driver de armazenamento do Azure dedicado para o Hadoop
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internamente, o driver ABFS traduz-se o recurso ou recursos especificados no URI a arquivos e diretórios e faz chamadas para a API de REST de armazenamento do Azure Data Lake com essas referências.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 O driver ABFS suporta duas formas de autenticação para que a aplicação do Hadoop com segurança pode aceder aos recursos contidos dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake. Todos os detalhes de esquemas de autenticação disponíveis são fornecidos na [guia de segurança do armazenamento do Azure](../common/storage-security-guide.md). São:
 

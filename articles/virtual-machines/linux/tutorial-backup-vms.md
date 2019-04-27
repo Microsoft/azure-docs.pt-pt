@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 99ec8ea6a5b08323021a168e8ec47b976e1ae7f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739425"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer uma cópia de segurança e restaurar ficheiros de máquinas virtuais do Linux no Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Criar cópias de segurança e restaurar ficheiros para máquinas virtuais do Linux no Azure
 
 Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaura a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros específicos. Este artigo explica como restaurar um ficheiro único para uma VM Linux com nginx. Se ainda não tiver uma VM para utilizar, pode criar uma com o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, ficará a saber como:
 
@@ -94,8 +94,8 @@ Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/
 7. Na lista, selecione a VM.
 8. No painel da VM, na secção **Definições**, clique em **Cópia de Segurança**. O painel **Cópia de Segurança** abre. 
 9. No menu na parte superior do painel, selecione **Recuperação de Ficheiros**. O painel **Recuperação de Ficheiros** abre.
-10. Em **Passo 1: selecionar o ponto de recuperação**, selecione um ponto de recuperação na lista pendente.
-11. Em **Passo 2: descarregar o script para procurar e recuperar ficheiros**, clique no botão **Transferir Executável**. Guarde o ficheiro transferido no computador local.
+10. No **passo 1: Selecione o ponto de recuperação**, selecione um ponto de recuperação da lista pendente.
+11. No **passo 2: Descarregar o script para procurar e recuperar ficheiros**, clique nas **transferir executável** botão. Guarde o ficheiro transferido no computador local.
 7. Clique em **Transferir script** para transferir o ficheiro de script localmente.
 8. Abra uma linha de comandos Bash e escreva o seguinte, substituindo *Linux_myVM_05-05-2017.sh* pelo caminho e nome de ficheiro corretos para o script que transferiu, *azureuser* pelo nome de utilizador para a VM e *13.69.75.209* pelo endereço IP público para a VM.
     
@@ -156,10 +156,10 @@ Neste exemplo, mostramos como recuperar a página Web do nginx predefinida /var/
 
     ![Página Web do nginx predefinida](./media/tutorial-backup-vms/nginx-working.png)
 
-18. No seu computador local, volte ao separador do browser relativo ao portal do Azure e, em **Passo 3: desmontar os discos depois da recuperação**, clique no botão **Desmontar Discos**. Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, terá de transferir um novo script para criar uma novo ponto de montagem.
+18. No seu computador local, volte ao separador do browser para o portal do Azure e, em **passo 3: Desmontar os discos após a recuperação** clique a **desmontar discos** botão. Caso se esqueça de executar este passo, a ligação para o ponto de montagem é fechada automaticamente após 12 horas. Após essas 12 horas, terá de transferir um novo script para criar uma novo ponto de montagem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

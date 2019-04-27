@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735795"
 ---
-# <a name="register-in-dev-center"></a>Registe-se no Dev Center  
+# <a name="register-in-dev-center"></a>Registar no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
 1.  Registe-se como um vendedor no Dev Center.  
     *   Para iniciar sessão e registe-se como um vendedor, visite o Centro de desenvolvimento do Azure, página localizada em [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  

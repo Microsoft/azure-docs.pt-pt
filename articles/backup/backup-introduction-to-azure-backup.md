@@ -11,11 +11,11 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809518"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -50,7 +50,7 @@ As soluções de cópia de segurança tradicionais evoluíram para tratar a nuve
 ## <a name="which-azure-backup-components-should-i-use"></a>Que componentes do Azure Backup devo utilizar?
 Utilize a seguinte tabela para obter informações sobre o que pode proteger com cada componente do Azure Backup.
 
-| Componente | Benefícios | Limites | O que está protegido? | Onde estão armazenadas as cópias de segurança? |
+| Componente | Benefícios | Limits | O que está protegido? | Onde estão armazenadas as cópias de segurança? |
 | --- | --- | --- | --- | --- |
 | Agente do Backup do Azure (MARS) |<li>Os ficheiros e as pastas de cópia de segurança no SO Windows físico ou virtual (as VMs podem estar no local ou no Azure)<li>Nenhum servidor de cópia de segurança separado necessário. |<li>Criar cópias de segurança 3 vezes por dia <li>Sem deteção de aplicações; restauro apenas ao nível do ficheiro, pasta e volume, <li>  Sem suporte para Linux. |<li>Ficheiros, <li>Pastas, <li>Estado do Sistema |Cofre dos Serviços de Recuperação |
 | System Center DPM |<li>Instantâneos de deteção de aplicações (VSS)<li>Total flexibilidade para quando efetuar cópias de segurança<li>Granularidade de recuperação (tudo)<li>Pode utilizar o cofre dos Serviços de Recuperação<li>Apoio técnico para Linux para VMs de Hyper-V e VMware <li>Criar cópias de segurança e restaurar VMs VMware com o DPM 2012 R2 |Não é possível fazer cópias de segurança da carga de trabalho do Oracle.|<li>Ficheiros, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicações,<li> Cargas de trabalho <li>Estado do Sistema |<li>Cofre dos Serviços de Recuperação,<li> Disco ligado localmente,<li>  Banda (apenas no local) |

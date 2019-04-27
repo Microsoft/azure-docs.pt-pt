@@ -14,11 +14,11 @@ ms.date: 02/22/2017
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d35996b16d615a198b9a6039386f6b295172f388
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615794"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver problemas de vistas de custos empresariais
 

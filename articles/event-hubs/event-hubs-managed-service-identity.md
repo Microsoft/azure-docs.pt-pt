@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746910"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades geridas para recursos do Azure com os Hubs de eventos
 
@@ -54,7 +54,7 @@ Assim que tive ativado a funcionalidade, uma nova identidade de serviço é cria
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Criar um novo espaço de nomes de Hubs de eventos
 
-Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure que tem suporte de pré-visualização para identidades geridas para recursos do Azure: **E.U. a leste**, **E.U. a leste 2**, ou  **Europa Ocidental**. 
+Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) das regiões do Azure que tem suporte de pré-visualização para identidades geridas para recursos do Azure: **E.U.A. Leste**, **E.U.A. Leste 2**, ou **Europa Ocidental**. 
 
 Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**. A identidade gerida para a aplicação web agora tem acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente. 
 

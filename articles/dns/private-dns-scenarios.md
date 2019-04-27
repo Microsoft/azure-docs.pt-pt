@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: victorh
-ms.openlocfilehash: d84da36ad6b1ef3e2a507a0944aac583861d5ccb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686865"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Cenários de zonas privadas do DNS do Azure
 As zonas privadas do DNS do Azure fornecem resolução de nomes numa rede virtual, bem como entre redes virtuais. Neste artigo, vamos ver alguns cenários comuns que podem ser percebidos utilizar esta funcionalidade. 
@@ -26,7 +26,7 @@ Este cenário é descrito abaixo. Rede virtual denominada "A" contém duas VMs (
 
 ![Resolução de rede Virtual única](./media/private-dns-scenarios/single-vnet-resolution.png)
 
-## <a name="scenario-name-resolution-across-virtual-networks"></a>Cenário: Resolução de nomes várias redes virtuais
+## <a name="scenario-name-resolution-across-virtual-networks"></a>Cenário: Resolução de nomes por várias redes virtuais
 
 Este cenário é o caso mais comum em que precisa de associar uma zona privada com várias redes virtuais. Este cenário pode se encaixar arquiteturas, como o modelo de Hub-and-Spoke onde existe uma rede virtual Hub central ao qual outro vários Spoke estão ligadas a redes virtuais. A rede virtual do concentrador central pode ser ligada como a rede virtual de registo para uma zona privada e as redes virtuais indicadas podem ser ligadas como redes virtuais de resolução. 
 
@@ -38,13 +38,13 @@ O diagrama seguinte mostra uma versão simples desse cenário em que existem ape
 
 ![Várias resoluções de rede Virtual](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Cenário: Funcionalidade de Split-Horizon
+## <a name="scenario-split-horizon-functionality"></a>Cenário: Split-Horizon funcionalidade
 
 Neste cenário, tem um caso de utilização para perceber o comportamento de resolução DNS diferente dependendo de onde o cliente encontra-se (dentro do Azure ou para fora na internet), onde pretende para a mesma zona DNS. Por exemplo, poderá ter uma versão pública e privada da sua aplicação com diferentes funcionalidades ou comportamento, mas que pretende utilizar o mesmo nome de domínio para as duas versões. Neste cenário pode ser conseguido com o DNS do Azure através da criação de uma zona de DNS público, bem como uma zona privada, com o mesmo nome.
 
 O diagrama seguinte ilustra esse cenário. Tem uma rede virtual A que tem duas VMs (VM1 também e também VM2) que tem ambos os IPs privados e IPs públicos alocados. Criar uma zona DNS pública denominada contoso.com e registar os IPs públicos para estas VMs como registos DNS na zona. Também é criar uma zona de DNS privado, também denominada contoso.com especificando A que a rede virtual de registo. Azure regista automaticamente as VMs como um registos para a zona privada, apontando para dos respetivos IPs privados.
 
-Agora, quando um cliente de internet emite uma consulta DNS para procurar VM1.contoso.com também, o Azure irá devolver o registo de IP público da zona pública. Se a mesma consulta DNS é emitida a partir de outra VM (por exemplo: também VM2) na mesma rede virtual A, Azure irá devolver o registo de IP privado da zona privada. 
+Agora, quando um cliente de internet emite uma consulta DNS para procurar VM1.contoso.com também, o Azure irá devolver o registo de IP público da zona pública. Se a mesma consulta DNS é emitida a partir de outra VM (por exemplo: VNETA-VM2) na mesma rede virtual A, Azure irá devolver o registo de IP privado da zona privada. 
 
 ![Resolução de Brian de divisão](./media/private-dns-scenarios/split-brain-resolution.png)
 
@@ -53,7 +53,7 @@ Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para dom
 
 Saiba como [criar uma zona DNS privada](./private-dns-getstarted-powershell.md) no DNS do Azure.
 
-Saiba mais sobre zonas e registos DNS ao visitar: [zonas e registos de descrição geral do DNS](dns-zones-records.md).
+Saiba mais sobre zonas e registos DNS, visite a página: [Zonas e registos de descrição geral do DNS](dns-zones-records.md).
 
 Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) do Azure.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744561"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Ligar à máquina virtual baseada no Azure
 
@@ -29,7 +29,7 @@ Este artigo explica como ligar a e inicie sessão nas máquinas virtuais (VMs) q
 
 Irá utilizar o cliente de ambiente de trabalho remoto para ligar à VM com base em Windows alojada no Azure.  A maioria das versões do Windows contêm nativamente suporte para o protocolo de ambiente de trabalho remoto (RDP).  Para outras máquinas, pode encontrar mais informações sobre os clientes nos [clientes de ambiente de trabalho remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-O artigo seguinte fornece detalhes sobre como utilizar o suporte de RDP do Windows incorporado para ligar à sua VM: [como ligar e iniciar sessão a uma máquina virtual do Azure a executar o Windows](../../../virtual-machines/windows/connect-logon.md).  
+O artigo seguinte fornece detalhes sobre como utilizar o suporte de RDP do Windows incorporado para ligar à sua VM: [Como ligar e iniciar sessão a uma máquina virtual do Azure a executar o Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Poderá receber avisos de segurança durante o processo, por exemplo que o arquivo. rdp é de um publicador desconhecido ou que não não possível verificar as credenciais de utilizador.  É seguro ignorar esses avisos.
@@ -54,7 +54,7 @@ Para ligar a VM baseado em Linux, tem de um cliente do secure shell (SSH) do pro
 7. Clique em **abra** para abrir um terminal PuTTY.  
 8. Quando lhe for pedido, introduza o nome da conta e a palavra-passe da sua conta de VM do Linux. 
 
-   Se estiver a ter problemas de ligação, consulte a documentação do seu cliente SSH, por exemplo [capítulo 10: mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Se estiver a ter problemas de ligação, consulte a documentação do seu cliente SSH, por exemplo [capítulo 10: Mensagens de erro comuns](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Para obter mais informações, incluindo como adicionar uma área de trabalho a uma VM do Linux aprovisionados, consulte [instalar e configurar o ambiente de trabalho remoto para ligar a uma VM do Linux no Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

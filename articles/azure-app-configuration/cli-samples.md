@@ -15,11 +15,11 @@ ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60741415"
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656820"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página na API Management do Azure
 Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
@@ -101,7 +101,7 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
 ### <a name="controls"></a>Controlos  
  Este modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [início de sessão básica](api-management-page-controls.md#basic-signin)  
+-   [basic-signin](api-management-page-controls.md#basic-signin)  
   
 -   [Fornecedores](api-management-page-controls.md#providers)  
   
@@ -160,7 +160,7 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
 ### <a name="controls"></a>Controlos  
  Este modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [Inscreva-se](api-management-page-controls.md#sign-up)  
+-   [sign-up](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Modelo de dados  
  [Inscrição de utilizadores](api-management-template-data-model-reference.md#UserSignUp) entidade.  
@@ -228,11 +228,11 @@ Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|referenceCode|cadeia|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
-|errorCode|cadeia|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
-|emailBody|cadeia|E-mail body gerado se esta página foi apresentada como resultado de um erro interno.|  
-|requestedUrl|cadeia|O URL solicitado quando a página não foi encontrada.|  
-|referrerUrl|cadeia|O URL de referência para o URL pedido.|  
+|referenceCode|string|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
+|errorCode|string|Código gerado se esta página foi apresentada como resultado de um erro interno.|  
+|emailBody|string|E-mail body gerado se esta página foi apresentada como resultado de um erro interno.|  
+|requestedUrl|string|O URL solicitado quando a página não foi encontrada.|  
+|referrerUrl|string|O URL de referência para o URL pedido.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   

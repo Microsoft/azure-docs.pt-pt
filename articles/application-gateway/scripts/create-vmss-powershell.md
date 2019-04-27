@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fc35d442be7eea0406e4ba55876c53d7d94fee01
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9b5a78eb6b07e21c3054aa7e2177ca21b1b1ea1c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715899"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>Gerir o tráfego da Web com o Azure PowerShell
 

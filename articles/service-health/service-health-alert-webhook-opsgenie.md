@@ -8,11 +8,11 @@ ms.service: service-health
 ms.workload: Supportability
 ms.date: 11/14/2017
 ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782216"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configurar alertas de estado de funcionamento do serviço com OpsGenie
 

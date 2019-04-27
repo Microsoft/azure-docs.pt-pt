@@ -17,11 +17,11 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712214"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Windows no Azure
 
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
-> * Ver diagnóstico de arranque
+> * Ver diagnósticos de arranque
 > * Ver métricas de anfitrião da VM
 > * Instalar a extensão de diagnóstico
 > * Ver métricas da VM
@@ -46,7 +46,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-## <a name="create-virtual-machine"></a>Criar máquina virtual
+## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
 Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure. Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -66,7 +66,7 @@ New-AzVm `
 
 Demora alguns minutos até que os recursos e a VM sejam criados.
 
-## <a name="view-boot-diagnostics"></a>Ver diagnóstico de arranque
+## <a name="view-boot-diagnostics"></a>Ver diagnósticos de arranque
 
 À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de ecrã capturadas são armazenadas numa conta de armazenamento do Azure, que também é criada por predefinição.
 
@@ -175,7 +175,7 @@ Para agendar uma nova Implementação de Atualização para a VM, clique em **Ag
   * Update rollups
   * Pacotes de funcionalidades
   * Service packs
-  * Atualizações da definição
+  * Atualizações de definições
   * Ferramentas
   * Atualizações
 
@@ -232,7 +232,7 @@ Configurar a localização, a área de trabalho do Log Analytics e a conta de au
 
 Após a ativação da solução, o inventário poderá demorar algum tempo a ser recolhido na VM antes de aparecerem dados.
 
-### <a name="track-changes"></a>Registar alterações
+### <a name="track-changes"></a>Controlar as alterações
 
 Na sua VM, selecione **Controlo de Alterações**, em **OPERAÇÕES**. Clique em **Editar Definições**. É apresentada a página **Controlo de Alterações**. Selecione o tipo de definição que pretende controlar e clique em **+Adicionar** para configurar as definições. As opções disponíveis para o Windows são:
 
@@ -289,7 +289,7 @@ Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytic
 Neste tutorial, configurou e reviu as VMs com o Centro de Segurança do Azure. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar rede virtual
+> * Criar uma rede virtual
 > * Criar um grupo de recursos e uma VM
 > * Ativar diagnósticos de arranque na VM
 > * Ver diagnósticos de arranque
