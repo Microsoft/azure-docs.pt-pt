@@ -2,7 +2,7 @@
 title: Evento de conclusão do Azure Batch tarefas | Documentos da Microsoft
 description: Referência para o evento de conclusão de tarefas do Batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/14/2018
+ms.author: v-junlch
 ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549976"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
 
@@ -91,3 +92,5 @@ ms.locfileid: "55459252"
 |exitCode|Int32|O código de saída da tarefa.|
 |retryCount|Int32|O número de vezes que a tarefa tiver sido repetida pelo serviço Batch. A tarefa é repetida se ele sairá com um código de saída diferente de zero, até o MaxTaskRetryCount especificado.|
 |requeueCount|Int32|O número de vezes que a tarefa tem foi recolocado em fila pelo serviço Batch como resultado de um pedido de utilizador.<br /><br /> Quando o utilizador remove nós de um agrupamento (ao redimensionamento ou reduzir o conjunto) ou quando a tarefa está a ser desabilitada, o utilizador pode especificar que tarefas em nós de execução ser recolocadas para execução. Esta contagem controla quantas vezes a tarefa foi recolocado em fila por esses motivos.|
+
+<!-- Update_Description: update metedata properties -->

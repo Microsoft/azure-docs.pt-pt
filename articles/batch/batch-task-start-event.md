@@ -2,7 +2,7 @@
 title: Eventos de início de tarefa de lote do Azure | Documentos da Microsoft
 description: Referência para o evento de início de tarefa do Batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549874"
 ---
 # <a name="task-start-event"></a>Evento de início de tarefa
 
@@ -83,3 +84,5 @@ ms.locfileid: "55474433"
 |Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
 |retryCount|Int32|O número de vezes que a tarefa tiver sido repetida pelo serviço Batch. A tarefa é repetida se ele sairá com um código de saída diferente de zero, até o MaxTaskRetryCount especificado|
+
+<!-- Update_Description: update metedata properties -->

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545525"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria de serviços de multimédia do Azure  
 
@@ -74,7 +74,7 @@ Isso deve permitir que muitas das consultas comuns para ser eficiente:
 
 Dados de telemetria são armazenados no agregado numa tabela, "TelemetryMetrics20160321" onde "20160321" é a data de tabela criada. Sistema de telemetria cria uma tabela separada para cada dia de novo com base 00:00 UTC. A tabela é utilizada para armazenar valores recorrentes, tais como ingestão de velocidade de transmissão dentro de uma determinada janela de tempo, bytes enviados, etc. 
 
-Propriedade|Valor|Exemplos/notas
+Propriedade|Value|Exemplos/notas
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>O ID da conta está incluído na chave de partição para simplificar os fluxos de trabalho em que várias contas de serviços de multimédia estiver a escrever para a mesma conta de armazenamento.
 RowKey|{seconds meia-noite} _ {valor aleatório}|01688_00199<br/><br/>A chave de linha começa com o número de segundos a meia-noite para permitir consultas de estilo de n principais dentro de uma partição. Para obter mais informações, veja [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
@@ -95,7 +95,7 @@ Existem três tipos de entradas de dados de telemetria de específicas de entida
 
 **Ponto Final de Transmissão em Fluxo**
 
-Propriedade|Valor|Exemplos
+Propriedade|Value|Exemplos
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -114,7 +114,7 @@ E2ELatency|Latência de ponto-a-ponto média|250
 
 **Canais em direto**
 
-Propriedade|Valor|Exemplos/notas
+Propriedade|Value|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -139,7 +139,7 @@ Bom estado de funcionamento|Se VERDADEIRO, <br/>overlapCount, <br/>Discontinuity
 
 **Arquivo Live**
 
-Propriedade|Valor|Exemplos/notas
+Propriedade|Value|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199

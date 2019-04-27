@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549704"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exemplo - aplicar etiqueta e respetivo valor predefinido
 

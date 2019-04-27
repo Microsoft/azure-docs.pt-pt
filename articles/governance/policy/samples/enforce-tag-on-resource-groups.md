@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
 ms.openlocfilehash: a7a76fbde74ab80f8aa0f5e67e6445504c3aafa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545694"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemplo - impor etiqueta e respetivo valor em grupos de recursos
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: c841f29adbe9911193227cced2856d953d820b08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531472"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar os trabalhos do programador do Azure para o Azure Logic Apps
 
@@ -29,7 +29,7 @@ Este artigo mostra como pode agendar as tarefas de uso individual e recorrentes 
 
 * O serviço do Azure Logic Apps suporta o fuso horário e horário de Verão (horário de Verão).
 
-Para obter mais informações, consulte [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md) ou tente criar a sua primeira aplicação lógica neste início rápido: [criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para obter mais informações, consulte [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md) em alternativa, tente criar a sua primeira aplicação lógica neste início rápido: [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,9 +45,9 @@ Pode executar várias tarefas de uso individual, criando apenas uma aplicação 
 
 1. Na [portal do Azure](https://portal.azure.com), criar uma aplicação lógica em branco no Estruturador da aplicação lógica. 
 
-   Para obter os passos básicos, siga [início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Para obter os passos básicos, siga [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, introduza "quando um pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **pedido de HTTP de quando é recebido** 
+1. Na caixa de pesquisa, introduza "quando um pedido de http" como o filtro. Na lista de disparadores, selecione este acionador: **Quando é recebido um pedido HTTP** 
 
    ![Adicionar acionador "Pedir"](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -67,7 +67,7 @@ Pode executar várias tarefas de uso individual, criando apenas uma aplicação 
 
 1. No acionador, escolha **passo seguinte**. 
 
-1. Na caixa de pesquisa, introduza "atraso até" como o filtro. Abaixo da lista de ações, selecione a ação: **atraso até**
+1. Na caixa de pesquisa, introduza "atraso até" como o filtro. Abaixo da lista de ações, selecione a ação: **Atraso até**
 
    Esta ação coloca em pausa o fluxo de trabalho de aplicação lógica até uma data e hora especificadas.
 
@@ -104,7 +104,7 @@ Por exemplo, utilizar a aplicação Postman, pode criar um pedido POST semelhant
 
 | Método do pedido | do IdP | Corpo | Cabeçalhos |
 |----------------|-----|------|---------| 
-| **POST** | <*URL de ponto final*> | **não processados** <p>**JSON(Application/JSON)** <p>Na **brutos** , introduza o payload de que pretende enviar no pedido. <p>**Tenha em atenção**: esta definição automaticamente configura o **cabeçalhos** valores. | **Chave**: tipo de conteúdo <br>**Valor**: aplicação/json
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Na **brutos** , introduza o payload de que pretende enviar no pedido. <p>**Nota**: Automaticamente esta definição configura a **cabeçalhos** valores. | **chave**: Content-Type <br>**Valor**: aplicação/json
  |||| 
 
 ![Enviar pedido para acionar manualmente a aplicação lógica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -129,9 +129,9 @@ No Logic Apps, cada tarefa de uso individual é executado como uma instância de
 
 1. Na [portal do Azure](https://portal.azure.com), criar uma aplicação lógica em branco no Estruturador da aplicação lógica. 
 
-   Para obter os passos básicos, siga [início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Para obter os passos básicos, siga [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, introduza "recurrence" como o filtro. Na lista de disparadores, selecione este acionador: **periodicidade** 
+1. Na caixa de pesquisa, introduza "recurrence" como o filtro. Na lista de disparadores, selecione este acionador: **Periodicidade** 
 
    ![Adicionar acionador "Recurrence"](./media/migrate-from-scheduler-to-logic-apps/recurrence-trigger.png)
 
@@ -187,7 +187,7 @@ No agendador do Azure, se a ação padrão não conseguir executar, pode executa
 
    ![Configurar propriedades de "execução após"](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. Quando tiver terminado, escolha **feito**.
+1. Quando tiver terminado, selecione **Concluído**.
 
 Para saber mais sobre a manipulação de exceções, veja [lidar com erros e exceções - propriedade RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
 
@@ -195,20 +195,20 @@ Para saber mais sobre a manipulação de exceções, veja [lidar com erros e exc
 
 <a name="retire-date"></a> 
 
-**As perguntas e**: quando a Azure Scheduler está desativando? <br>
-**A**: Azure Scheduler está agendado para extinguir 30 de Setembro de 2019.
+**Q**: Quando está desativando o agendador do Azure? <br>
+**A**: O Azure Scheduler é agendado para extinguir 30 de Setembro de 2019.
 
-**As perguntas e**: o que acontece às minhas coleções de tarefas do Scheduler e tarefas depois do serviço ter extinguido? <br>
-**A**: coleções de tarefas do agendador de todas as e as tarefas serão eliminadas do sistema.
+**Q**: O que acontece aos meus coleções de tarefas do Scheduler e tarefas depois do serviço ter extinguido? <br>
+**A**: Todas as tarefas e coleções de tarefas do Scheduler serão eliminadas do sistema.
 
-**As perguntas e**: É necessário que criar cópias de segurança ou executar quaisquer outras tarefas antes de migrar as minhas tarefas do Scheduler para Logic Apps? <br>
-**A**: como melhor prática, sempre realizar backup de seu trabalho. Verifique se as aplicações lógicas que criou estão a funcionar como esperado antes de eliminar ou desativar a seus trabalhos do programador. 
+**Q**: É necessário que criar cópias de segurança ou executar quaisquer outras tarefas antes de migrar as minhas tarefas do Scheduler para Logic Apps? <br>
+**A**: Como melhor prática, sempre realizar backup de seu trabalho. Verifique se as aplicações lógicas que criou estão a funcionar como esperado antes de eliminar ou desativar a seus trabalhos do programador. 
 
-**As perguntas e**: É há uma ferramenta que pode me ajudar a migrar as minhas tarefas do Scheduler para o Logic Apps? <br>
-**A**: tarefa do Scheduler cada é exclusiva, pelo que não existe uma ferramenta adequada. No entanto, vários scripts vão estar disponíveis para que possa modificar para as suas necessidades. Para uma disponibilidade de script, verifique novamente mais tarde.
+**Q**: Existe uma ferramenta que pode me ajudar a migrar as minhas tarefas do Scheduler para o Logic Apps? <br>
+**A**: Cada tarefa do Scheduler é exclusiva, pelo que não existe uma ferramenta adequada. No entanto, vários scripts vão estar disponíveis para que possa modificar para as suas necessidades. Para uma disponibilidade de script, verifique novamente mais tarde.
 
-**As perguntas e**: onde posso obter suporte para migrar as minhas tarefas do Scheduler? <br>
-**A**: seguem-se algumas formas de obter suporte: 
+**Q**: Onde posso obter suporte para migrar as minhas tarefas do Scheduler? <br>
+**A**: Aqui estão algumas formas de obter suporte: 
 
 **Portal do Azure**
 
@@ -218,10 +218,10 @@ Se a sua subscrição do Azure tiver um plano de suporte pago, pode criar um ped
 
 1. Sob **suportar**, selecione **novo pedido de suporte**. Forneça estes detalhes para o seu pedido:
 
-   | Definição | Valor |
+   | Definição | Value |
    |---------|-------|
-   | **Tipo de problema** | **Técnica** | 
-   | **Subscrição** | <*a subscrição do Azure*> | 
+   | **Tipo de problema** | **Technical** | 
+   | **Subscrição** | <*your-Azure-subscription*> | 
    | **Serviço** | Sob **monitorização e gestão**, selecione **Scheduler**. | 
    ||| 
 

@@ -15,13 +15,13 @@ ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549959"
 ---
-# <a name="persist-job-and-task-output"></a>Saída persistente de função e tarefa
+# <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
