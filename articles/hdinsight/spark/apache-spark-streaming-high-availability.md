@@ -1,7 +1,6 @@
 ---
 title: Criar tarefas de transmissão em fluxo do Spark altamente disponíveis no YARN - Azure HDInsight
 description: Como configurar a transmissão em fluxo do Spark para um cenário de elevada disponibilidade.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
 ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53649726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536955"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar tarefas de Apache Spark Streaming de elevada disponibilidade com o YARN
 

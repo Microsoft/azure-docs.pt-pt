@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: ebe2c2b488e3d71597dd24f5504a14dd7ce6671e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494631"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como posso configurar alertas para problemas de desempenho no Azure Monitor para contentores
 Monitor do Azure para contentores monitora o desempenho de cargas de trabalho de contentor que são implementadas no Azure Container Instances, ou para Kubernetes clusters geridos que estão alojados no Azure Kubernetes Service (AKS).
@@ -285,5 +285,5 @@ Siga estes passos para criar um alerta de registo no Azure Monitor, utilizando a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Modo de exibição [exemplos de consulta de registo](container-insights-analyze.md#search-logs-to-analyze-data) para saber mais sobre consultas predefinidas e exemplos para avaliar ou personalizar para outros cenários de alerta.
-* Para saber mais sobre o Azure Monitor e como monitorizar outros aspectos do seu cluster do AKS, veja [estado de funcionamento do serviço de Kubernetes do Azure de modo de exibição](container-insights-analyze.md).
+- Modo de exibição [exemplos de consulta de registo](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para os alertas, visualizar ou analisar os seus clusters.
+- Para saber mais sobre o Azure Monitor e como monitorizar outros aspectos do seu cluster do AKS, veja [estado de funcionamento do serviço de Kubernetes do Azure de modo de exibição](container-insights-analyze.md).

@@ -17,11 +17,11 @@ ms.date: 09/19/2018
 ms.author: akjosh; cynthn
 ms.custom: ''
 ms.openlocfilehash: 08c7e84a27a4c8e9527083360dbd08296bd86775
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542483"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-the-azure-cli"></a>Pré-visualização: Criar uma galeria de imagem partilhada com a CLI do Azure
 

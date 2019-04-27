@@ -10,11 +10,11 @@ ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478451"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(PRETERIDO) Conjuntos de agentes do DC/OS para o Azure Container Service
 

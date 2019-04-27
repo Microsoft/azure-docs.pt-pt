@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475338"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Descrição geral do portal meu perfil (pré-visualização)
 

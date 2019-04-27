@@ -2,23 +2,19 @@
 title: Conceder permissão para muitos aplicativos para aceder a um cofre de chaves do Azure - Azure Key Vault | Documentos da Microsoft
 description: Saiba como pode conceder permissão para muitos aplicativos para aceder a um cofre de chaves
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 187d455003cf8b1c9402e24755c5f15b703cd9ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
+ms.openlocfilehash: e0008f6eb54dd690fda6833b96cda69fe8e1e954
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304970"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Conceder acesso de aplicações de vários para um cofre de chaves
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a099fa8d223643e5b339d35c0ff5cf7a5589049c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415591"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Qual é a versão do MFA do Azure é adequada para a minha organização?
 

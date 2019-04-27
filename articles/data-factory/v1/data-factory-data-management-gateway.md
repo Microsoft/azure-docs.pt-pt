@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60489770"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -367,7 +367,7 @@ Propriedade de monitorização | Descrição
 :------------------ | :----------
 Name | Nome do gateway lógico e nós associado ao gateway. Nó é uma máquina com Windows no local que tem o gateway instalado no mesmo. Para obter informações sobre a ter mais de um nó (até quatro nós) num único gateway lógico, consulte [Gateway de gestão de dados - elevada disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).
 Estado | Estado do gateway lógico e os nós de gateway. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte [estado do Gateway](#gateway-status) secção.
-Versão | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração de gateway lógico, apenas os nós com o mesmo número de versão e a função de gateway lógico corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática).
+Version | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração de gateway lógico, apenas os nós com o mesmo número de versão e a função de gateway lógico corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática).
 Memória disponível | Memória disponível num nó de gateway. Este valor é um instantâneo de quase em tempo real.
 Utilização da CPU | Utilização da CPU de um nó de gateway. Este valor é um instantâneo de quase em tempo real.
 Funcionamento em rede (entrada/saída) | Utilização de um nó de gateway de rede. Este valor é um instantâneo de quase em tempo real.

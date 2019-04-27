@@ -2,17 +2,18 @@
 title: Encaminhamento inteligente e versões de proteção com Istio no Azure Kubernetes Service (AKS)
 description: Saiba como utilizar Istio fornecem encaminhamento inteligentes e implementar versões de proteção num cluster do Azure Kubernetes Service (AKS)
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465946"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utilize o encaminhamento inteligente e versões de proteção com Istio no Azure Kubernetes Service (AKS)
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Pode ver mais facilmente, agora só encaminhadas para a versão *1.1* do seu *an
 
 É possível visualizar a agora apenas encaminhado para a versão *1.1* do seu *análise de votação* componente da seguinte forma. Lembre-se utilizar o endereço IP do seu próprio Gateway de entrada Istio:
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Aguarde até que todos os a versão *2.0* pods em execução. Utilize o [kubectl obter pods] [ kubectl-get] comando para ver todos os pods no *voto* espaço de nomes:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

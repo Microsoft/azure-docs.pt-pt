@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 01b93a667fef8c56d6b7c78e8c6346357a2ff36c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527494"
 ---
 # <a name="cloud-partner-portal-tour"></a>Tour de Portal de parceiro de cloud
 

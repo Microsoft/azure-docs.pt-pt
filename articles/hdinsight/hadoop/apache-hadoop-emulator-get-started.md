@@ -3,7 +3,6 @@ title: Aprenda a utilizar uma área de segurança do Apache Hadoop - emulador - 
 description: 'Para começar a aprender sobre a utilização do ecossistema do Apache Hadoop, pode configurar um sandbox do Hadoop da Hortonworks numa máquina virtual do Azure. '
 keywords: emulador do hadoop, sandbox do hadoop
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
 ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536347"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução à área de segurança do Apache Hadoop, um emulador numa máquina virtual
 

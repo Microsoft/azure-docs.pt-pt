@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
 ms.openlocfilehash: d137576b4beb5cf36dce99ffb1869049f37b60b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494648"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Descrição geral da monitorização de contentores no Azure
 Com o Azure, pode efetivamente de monitorizar e gerir as suas cargas de trabalho implementadas em contentores do Azure com o Docker ou o Kubernetes. É importante compreender o desempenho de contentores com várias aplicações de microsserviços para fornecer um serviço fiável em escala e suporta o seu plano de monitoramento. Este artigo fornece uma breve descrição geral da gestão e capacidades de monitorização no Azure para ajudar a compreendê-los e que são adequadas com base nos seus requisitos.

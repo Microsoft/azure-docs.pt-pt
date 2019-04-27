@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: lyrana
 ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533833"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ligar e autenticar para APIs
 
@@ -25,11 +25,11 @@ Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programado
 
 [Cinco cenários de aplicação principal](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) são suportadas pelo Azure AD:
 
-* Aplicação de página única (SPA): o utilizador precisa de iniciar sessão a uma aplicação de página única que está protegida pelo Azure AD.
-* Navegador da Web para a aplicação web: o utilizador precisa de iniciar sessão a uma aplicação web que está protegida pelo Azure AD.
-* Aplicação nativa a web API: um aplicativo nativo que é executado num telefone, tablet ou PC tem de autenticar um usuário para obter recursos de uma API web que está protegido pelo Azure AD.
-* Aplicação Web API Web: uma aplicação web tem de obter recursos de uma API web protegida pelo Azure AD.
-* O daemon ou servidor de aplicativo web API: uma aplicação de daemon ou um aplicativo de servidor com nenhuma IU da web tem de obter recursos de uma API web protegida pelo Azure AD.
+* Aplicação de página única (SPA): O utilizador precisa de iniciar sessão a uma aplicação de página única que está protegida pelo Azure AD.
+* Navegador da Web para a aplicação web: O utilizador precisa de iniciar sessão a uma aplicação web que está protegida pelo Azure AD.
+* Aplicação nativa a web API: Um aplicativo nativo que é executado num telefone, tablet ou PC tem de autenticar um usuário para obter recursos de uma API web que está protegido pelo Azure AD.
+* Aplicação Web a web API: Uma aplicação web tem de obter recursos de uma API web protegida pelo Azure AD.
+* Aplicação de daemon ou servidor a web API: Um aplicativo de daemon ou um aplicativo de servidor com nenhum web tem de interface do Usuário obter recursos de uma API web protegida pelo Azure AD.
 
 A biblioteca de autenticação do Windows Azure oferece várias formas de adquirir os tokens de Active Directory. Para obter detalhes sobre os exemplos de código e de biblioteca, consulte [este artigo](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 

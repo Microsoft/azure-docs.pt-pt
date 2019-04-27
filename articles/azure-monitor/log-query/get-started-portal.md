@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60520670"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao Log Analytics do Azure Monitor
 

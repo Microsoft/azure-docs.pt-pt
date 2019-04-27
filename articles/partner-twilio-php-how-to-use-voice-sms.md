@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: a51cd589702320ecb55e6a2e3c5f0a6139e281fe
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422360"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Como utilizar o Twilio para obter capacidades SMS no PHP e de voz
 Este guia demonstra como realizar tarefas comuns de programação com o serviço de Twilio API no Azure. Os cenários abrangidos incluem uma ligação telefônica e enviar uma mensagem de serviço de mensagens curtas (SMS). Para obter mais informações sobre o Twilio e voz e SMS a utilizar nas suas aplicações, consulte a [passos seguintes](#NextSteps) secção.
@@ -39,21 +39,21 @@ A API Twilio é uma API RESTful, que fornece funcionalidade SMS e de voz para ap
 
 Principais aspectos da API do Twilio são Twilio verbos e linguagem de marcação do Twilio (TwiML).
 
-### <a id="Verbs"></a>Verbos de Twilio
+### <a id="Verbs"></a>Twilio Verbs
 A API usa Twilio verbos; Por exemplo, o **&lt;Digamos&gt;** verbo instrui o Twilio para poder ouvi-lo entregar uma mensagem numa chamada.
 
 Segue-se uma lista de verbos Twilio. Saiba mais sobre os outros verbos e capacidades através de [documentação da linguagem de marcação do Twilio](https://www.twilio.com/docs/api/twiml).
 
 * **&lt;Dial&gt;**: Liga-se o autor da chamada para outro telefone.
-* **&lt;Reunir&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
+* **&lt;Gather&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
 * **&lt;Hangup&gt;**: Termina uma chamada.
 * **&lt;Reproduzir&gt;**: Reproduz um arquivo de áudio.
-* **&lt;Colocar em pausa&gt;**: Aguarda silenciosamente um número de segundos especificado.
+* **&lt;Pause&gt;**: Aguarda silenciosamente um número de segundos especificado.
 * **&lt;Registo&gt;**: Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
-* **&lt;Redirecionar&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
-* **&lt;Rejeitar&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação
-* **&lt;Digamos&gt;**: Converte texto em voz, que é efetuado numa chamada.
-* **&lt;SMS&gt;**: Envia uma mensagem SMS.
+* **&lt;Redirect&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
+* **&lt;Reject&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação
+* **&lt;Say&gt;**: Converte texto em voz, que é efetuado numa chamada.
+* **&lt;Sms&gt;**: Envia uma mensagem SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções com base em XML, com base nos verbos de Twilio informam Twilio de como processar uma chamada ou SMS.

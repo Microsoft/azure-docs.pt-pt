@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519223"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -56,7 +56,7 @@ Em todas as localizações de quatro, pode usar imagens PNG, GIF ou JPEG.
 
 A tabela seguinte resume os tamanhos de imagem, que pode usar:
 
-| Localização | Tamanhos |
+| Location | Tamanhos |
 | -------- | ------ |
 | Gestor de aplicações | 268x160 px |
 | Modelo de dispositivos | 64x64 px |

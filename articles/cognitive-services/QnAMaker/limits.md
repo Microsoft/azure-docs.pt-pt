@@ -12,11 +12,11 @@ ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518980"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 Lista completa dos limites entre a ferramenta QnA Maker.

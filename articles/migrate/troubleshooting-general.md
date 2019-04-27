@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533203"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -21,13 +21,13 @@ ms.locfileid: "58652642"
 
 ### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando o OVA que Deteta continuamente meu ambiente no local, mas as VMs que são eliminadas no meu ambiente no local ainda estão a ser mostradas no portal.
 
-A aplicação de deteção contínua só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
+A aplicação de deteção contínua recolhe apenas dados de desempenho continuamente, não deteta qualquer alteração de configuração no ambiente no local (ou seja, adição de VM, eliminação, adição de disco, etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
-- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção na aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
    ![Parar deteção](./media/troubleshooting-general/stop-discovery.png)
 
-- Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+- Eliminação das VMs: Devido à forma como a aplicação foi concebida, a eliminação das VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
 
 ### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos do Azure Migrate e espaço de trabalho do Log Analytics associado
 
@@ -82,7 +82,7 @@ Se não é possível exportar o relatório de avaliação a partir do portal, te
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Dados de desempenho de CPU, memória e discos são apresentados como zeros
 
-O Azure Migrate perfis continuamente o ambiente no local para recolher dados de desempenho das VMs no local. Se tiver iniciado a deteção do seu ambiente, tem de aguardar pelo menos um dia para a recolha de dados de desempenho a ser feito. Se uma avaliação for criada sem aguardar por um dia, as métricas de desempenho serão apresentados como zeros. Depois de aguardar por dia, pode criar uma nova avaliação ou atualizar a avaliação existente com a opção "Recalcular" no relatório de avaliação.
+O Azure Migrate cria continuamente o perfil do ambiente no local para recolher os dados de desempenho das VMs no local. Se tiver acabado de iniciar a deteção do ambiente, tem de aguardar pelo menos um dia pela conclusão da recolha de dados de desempenho. Se uma avaliação for criada sem ter esperado um dia, as métricas de desempenho serão mostradas a zeros. Depois de aguardar um dia, pode criar uma avaliação nova ou atualizar a existente, através da opção “Recalculate” (“Recalcular”) no relatório da avaliação.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Eu especifiquei uma geografia do Azure, ao criar um projeto de migração, como posso saber a região do Azure exata em que os metadados detetados seriam armazenados?
 

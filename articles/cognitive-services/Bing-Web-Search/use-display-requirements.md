@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738730"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499890"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisitos de utilização e apresentação da API de Pesquisa do Bing
 
@@ -165,7 +165,7 @@ Utilizam as secções anteriores das APIs de pesquisa e requisitos de apresenta�
 - Certifique-se de que a utilização de dados (incluindo os URLs) recebida das APIs de pesquisa não viole qualquer leis aplicáveis ou direitos de terceiros.
 - Não utilize os dados (incluindo os URLs) recebidos das APIs de pesquisa como parte de qualquer aprendizado de máquina ou índice de pesquisa ou de uma atividade de algoritmo semelhante. Não utilize estes dados para criar a treinar, avaliar ou melhorar os serviços que ou de terceiros pode oferecer.
 
-## <a name="gdpr-compliance"></a>Conformidade do GDPR  
+## <a name="gdpr-compliance"></a>Conformidade com o RGPD  
 
 Em relação a quaisquer dados pessoais sujeitos a União Europeia geral regulamento de proteção de dados (GDPR) e que é processado juntamente com chamadas a APIs de pesquisa, a API de verificação ortográfica do Bing ou a API de sugestão automática do Bing, compreende que a Microsoft e são controladores de dados independente no GDPR. É responsável independentemente de sua conformidade com o GDPR.  
 

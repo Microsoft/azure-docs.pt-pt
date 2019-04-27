@@ -12,11 +12,11 @@ ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884244"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60510801"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Criar seu primeiro fluxo de trabalho automatizado com o Azure Logic Apps - portal do Azure
 
@@ -42,7 +42,7 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
 
    ![Indicar os detalhes da aplicação lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------| 
    | **Nome** | MyFirstLogicApp | O nome para a aplicação lógica | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
@@ -69,7 +69,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Configurar o acionador com o feed RSS, a frequência e o intervalo](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------| 
    | **O URL do feed RSS** | ```http://feeds.reuters.com/reuters/topNews``` | A ligação para o feed RSS que quer monitorizar | 
    | **Intervalo** | 1 | O número de intervalos de espera entre verificações | 

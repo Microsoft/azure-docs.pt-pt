@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457481"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure
 
@@ -45,7 +45,7 @@ Para resolver este problema, siga estes passos:
 
 2. Certifique-se de que os seguintes certificados estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | User\Personal\Certificates atual |
     | Azuregateway-*GUID*.cloudapp.net  | Autoridades de certificação de raiz User\Trusted atual|
@@ -122,7 +122,7 @@ Ao tentar ligar a uma rede virtual do Azure com o cliente VPN, receberá a segui
 
 1. Certifique-se de que os seguintes certificados estão no local correto:
 
-    | Certificado | Localização |
+    | Certificado | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | User\Personal\Certificates atual |
     | Azuregateway-*GUID*.cloudapp.net  | Autoridades de certificação de raiz User\Trusted atual|

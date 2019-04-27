@@ -17,11 +17,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304279"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps
 
@@ -275,7 +275,7 @@ Eis o que o esquema JSON aparência agora para o **resposta** ação:
 
 ## <a name="q--a"></a>P&R
 
-#### <a name="q-what-about-url-security"></a>P: E quanto a segurança de URL?
+#### <a name="q-what-about-url-security"></a>P. E quanto a segurança de URL?
 
 R: Azure gera em segurança os URLs de retorno de chamada de aplicação lógica com uma assinatura de acesso partilhado (SAS). Essa assinatura passa por meio de como um parâmetro de consulta e têm de ser validada antes de pode acionar a sua aplicação lógica. Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do acionador e a operação que é executada. Portanto, a menos que alguém tem acesso para a chave da aplicação lógica secreta, não é possível gerar uma assinatura válida.
 
@@ -285,7 +285,7 @@ R: Azure gera em segurança os URLs de retorno de chamada de aplicação lógica
    > * A chave de acesso partilhado é apresentado no URL.
    > * Não é possível gerir políticas de conteúdo seguras devido a domínios compartilhadas entre os clientes de aplicação lógica.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Pode configurar pontos finais HTTP ainda mais?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>P. Pode configurar pontos finais HTTP ainda mais?
 
 R: Sim, pontos de extremidade HTTP suportam configurações mais avançadas através de [ **gestão de API**](../api-management/api-management-key-concepts.md). Este serviço também oferece a capacidade para gerir todas as suas APIs, incluindo aplicações lógicas consistentemente, configurar nomes de domínio personalizado, utilize os métodos de autenticação mais e muito mais, por exemplo:
 
@@ -294,7 +294,7 @@ R: Sim, pontos de extremidade HTTP suportam configurações mais avançadas atra
 * Configurar seus domínios de gestão de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
 * Configurar a política para verificar a existência de autenticação básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que foi alterado quando o esquema migrada a partir da pré-visualização do dia 1 de Dezembro de 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P. O que foi alterado quando o esquema migrada a partir da pré-visualização do dia 1 de Dezembro de 2014?
 
 R: Aqui está um resumo sobre estas alterações:
 

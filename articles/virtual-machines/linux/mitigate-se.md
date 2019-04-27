@@ -1,27 +1,27 @@
 ---
 title: Documentação de orientação para mitigar a execução especulativa no Azure | Documentos da Microsoft
 description: Documentação de orientação para atenuar vulnerabilidades side-channel de execução especulativa no Azure.
-services: virtual-machines-linux
+services: cloud-services
 documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: Spectre, meltdown, specter
-ms.service: virtual-machines-linux
+ms.service: cloud-services
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 05/21/2018
 ms.author: cynthn
-ms.openlocfilehash: ce7f0bcbfdb3e23ff77431b95ac109e322b132cc
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: ea2b4c07376adabcc0ca138d33da376a664c2199
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542956"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Documentação de orientação para mitigar vulnerabilidades side-channel de execução especulativa no Azure
 
-[!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
+[!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]

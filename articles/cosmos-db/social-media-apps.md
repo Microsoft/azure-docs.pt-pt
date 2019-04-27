@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: maquaran
 ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446264"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socializar com o Azure Cosmos DB
 

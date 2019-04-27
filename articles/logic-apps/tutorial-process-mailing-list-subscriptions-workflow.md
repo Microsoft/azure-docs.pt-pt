@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232669"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60503463"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerir pedidos de listas de correio com o Azure Logic Apps
 
@@ -79,7 +79,7 @@ Todas as aplicações lógicas têm de ser iniciadas com um acionador, que é ac
 
 1. No estruturador, introduza "when email arrives" (quando chegarem e-mails) na caixa de pesquisa. Selecione o acionador para o seu fornecedor de e-mail: **<*fornecedor_de_e-mail*> - When a new email arrives** (Quando é recebido um e-mail novo)
    
-   ![Selecione este acionador para o fornecedor de e-mail: "When a new email arrives"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   ![Selecione este acionador para o fornecedor de e-mail: "Quando a new email arrives"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
    * Relativamente a contas escolares ou profissionais do Azure, selecione Office 365 Outlook (Outlook do Office 365).
    * Quanto a contas Microsoft pessoais, selecione Outlook.com.
@@ -183,7 +183,7 @@ Em seguida, especifique a ação que a sua aplicação lógica executa quando o 
 Agora, adicione uma ação que adiciona o membro aprovado à sua lista de correio.
 
 1. Dentro do ramo **Se verdadeiro** da condição, escolha **Adicionar uma ação**.
-Procure "mailchimp" e selecione a ação **MailChimp - Add member to list**
+Procure "mailchimp" e selecione a ação: **MailChimp - Adicionar membro à lista**
 
    ![Selecione "MailChimp - Add member to list"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
@@ -248,8 +248,8 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
    | **Para** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Assunto** | <*subject-for-success-email*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Êxito! Membro adicionado a “test-members-ML”: **Endereço de e-mail**" | 
-   | **Corpo** | <*body-for-success-email*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto e selecione os campos especificados em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico:  <p>"Um membro novo foi associado a ‘test-members-ML': **Endereço de e-mail**"</br>"Estado de inclusão do membro: **Estado**" | 
+   | **Assunto** | <*subject-for-success-email*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Êxito! Membro adicionado a 'test-members-ML': **Endereço de e-mail**" | 
+   | **Corpo** | <*body-for-success-email*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto e selecione os campos especificados em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico:  <p>"Membro novo foi associado a 'test-members-ML': **Endereço de e-mail**"</br>"Estado de optar ativamente por participar no membro: **Estado**" | 
    | | | | 
 
 5. Guarde a aplicação lógica.
@@ -273,7 +273,7 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
    | **Para** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Assunto** | <*subject-for-failure-email*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Falha, o membro não foi adicionado a 'test-members-ML': **Endereço de E-mail**" | 
+   | **Assunto** | <*subject-for-failure-email*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Falha, membro não adicionado a 'test-members-ML': **Endereço de e-mail**" | 
    | **Corpo** | <*body-for-failure-email*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>"É possível que o membro já exista. Verifique a sua conta do MailChimp." | 
    | | | | 
 
@@ -319,7 +319,7 @@ Quando já não for necessário, elimine o grupo de recursos que contém a aplic
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma aplicação lógica que gere aprovações para pedidos de listas de correio. Agora, aprenda a criar uma aplicação lógica que processa e armazena anexos de e-mail através da integração de serviços do Azure, como o Armazenamento do Azure e as Funções do Azure.
 

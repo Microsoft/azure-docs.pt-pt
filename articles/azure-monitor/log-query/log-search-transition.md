@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
 ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519895"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição de pesquisa de registos do Log Analytics para registos do Azure Monitor
 A pesquisa de registos no Log Analytics recentemente foi substituída por uma nova experiência para analisar os registos do Azure Monitor. A página de pesquisa de registo está atualmente continua acessível através do **registos (clássico)** item de menu no **áreas de trabalho do Log Analytics** página na Azure mas portal será removida até 15 de Fevereiro de 2019. Este artigo descreve as diferenças entre as duas experiências para o ajudar a fazer a transição de pesquisa de registos. 

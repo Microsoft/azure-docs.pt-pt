@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: e10cd3f60c3b12c6d5115ff34f4cbde2ef19d9fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505409"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitetura de referência do agente de segurança
 

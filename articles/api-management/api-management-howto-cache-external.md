@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527838"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Utilizar uma Cache do Azure externo para Redis na gestão de API do Azure
 

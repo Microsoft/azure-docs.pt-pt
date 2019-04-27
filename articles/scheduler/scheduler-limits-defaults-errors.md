@@ -3,23 +3,24 @@ title: Limites, quotas e limites no agendador do Azure
 description: Saiba mais sobre os limites, quotas, valores padrão e limiares de limitação do Azure Scheduler
 services: scheduler
 ms.service: scheduler
-author: derek1ee
-ms.author: deli
+author: WenJason
+ms.author: v-jay
 ms.reviewer: klam
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: 0c1e704a3bdec239c87d879ae1ef95e6e76d27fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+origin.date: 08/18/2016
+ms.date: 11/12/2018
+ms.openlocfilehash: 478afb20f3dabec74d66d00bec325408ce6604fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531297"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites, quotas e limites de limitação no agendador do Azure
 
 > [!IMPORTANT]
-> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [Experimente o Azure Logic Apps antes](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="limits-quotas-and-thresholds"></a>Limites, quotas e limites
 
@@ -36,5 +37,5 @@ Cada pedido efetuado para o serviço de agendador retorna um cabeçalho de respo
 
 ## <a name="see-also"></a>Consulte também
 
-* [O que é o agendador do Azure?](scheduler-intro.md)
+* [O que é o Microsoft Azure Scheduler?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)

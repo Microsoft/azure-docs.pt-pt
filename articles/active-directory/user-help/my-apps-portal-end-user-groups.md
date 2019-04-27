@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483412"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Atualizar as suas informações de grupos no portal as minhas aplicações
 Pode utilizar a sua conta escolar ou profissional com baseada na web **as minhas aplicações** portal, para ver e iniciar a muitas das aplicações de base na cloud da sua organização, para atualizar algumas das suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **as revisões de acesso** para as aplicações e grupos. Se não tiver acesso para o **as minhas aplicações** portal, tem de contactar o suporte técnico para obter permissão.
@@ -53,17 +53,19 @@ Se o administrador concedeu permissão para ver os **grupos** mosaico, pode:
 
     - **Reveja os grupos que é proprietário.** O proprietário de vista de grupos de obter informações sobre quaisquer dentro de sua organização a partir da **grupos que possuo** área. Selecionar um nome de grupo específico fornece mais detalhes sobre o grupo, incluindo o tipo de grupo, o número de membros, a política de associação e a lista de membros ativos.
 
-    - **Crie um novo grupo.** Criar um novo grupo com, como o proprietário do **grupos que possuo** área. Para obter passos específicos, consulte [criar um novo grupo](#create-a-new-group) seção deste artigo.
+    - **Crie um novo grupo.** Criar um novo grupo com, como o proprietário do **grupos que possuo** área. Para obter passos específicos, consulte a [criar um novo grupo](#create-a-new-group) seção deste artigo.
 
-    - **Edite um grupo existente.** Edite os detalhes de qualquer um dos seus próprios grupos. Para obter passos específicos, consulte [editar um grupo existente](#edit-an-existing-group) seção deste artigo.
+    - **Edite um grupo existente.** Edite os detalhes de qualquer um dos seus próprios grupos. Para obter passos específicos, consulte a [editar um grupo existente](#edit-an-existing-group) seção deste artigo.
 
-    - **Adicionar ou remover membros.** Adicionar ou remover membros de grupos de que é proprietário. Para obter passos específicos, consulte [adicionar ou remover membros](#add-or-remove-a-member) seção deste artigo.
+    - **Adicionar ou remover membros.** Adicionar ou remover membros de grupos de que é proprietário. Para obter passos específicos, consulte a [adicionar ou remover membros](#add-or-remove-a-member) seção deste artigo.
 
-    - **Elimine um grupo.** Elimine todos os grupos que é proprietário. Para obter passos específicos, consulte [eliminar um grupo](#delete-a-group) seção deste artigo.
+    - **Renove um grupo do Office 365.** Se sua organização permitir, pode renovar os grupos do Office 365. Para obter passos específicos, consulte a [renovar um grupo do Office 365](#renew-an-office-365-group) seção deste artigo. 
+
+    - **Elimine um grupo.** Elimine todos os grupos que é proprietário. Para obter passos específicos, consulte a [eliminar um grupo](#delete-a-group) seção deste artigo.
 
     - **Reveja os grupos que façam parte do.** Ver os nomes de todos os grupos aos quais é membro do **grupos a que pertenço** área. Selecionar um nome de grupo específico fornece mais detalhes sobre o grupo, incluindo o tipo de grupo, o número de membros, a política de associação e a lista de membros ativos.
 
-    - **Aderir a um grupo.** Junte-se a um grupo existente, para que não ainda tenha um membro do **grupos a que pertenço** área. Para obter passos específicos, consulte [participe de um grupo existente](#join-an-existing-group).
+    - **Aderir a um grupo.** Junte-se a um grupo existente, para que não ainda tenha um membro do **grupos a que pertenço** área. Para obter passos específicos, consulte a [participe de um grupo existente](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Criar um novo grupo
 1. Na **grupos** página, selecione **criar um grupo** do **grupos que possuo** área.
@@ -117,6 +119,18 @@ Pode adicionar ou remover membros de qualquer um dos seus próprios grupos.
 3. Se tiver adicionado um membro por engano ou, se um membro deixou a sua organização, pode remover o membro selecionando **remover membro** junto ao nome do membro no *&lt;group_name&gt;* página.
 
     ![Remover um membro, com a ligação de remoção realçada](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Renovar um grupo do Office 365
+Se sua organização permitir, pode renovar um grupo do Office 365, estendendo a data de validade.
+
+### <a name="to-renew-a-group"></a>Para renovar um grupo
+1. Selecione o grupo do Office 365 que pretende renovar e, em seguida, selecione **renovar grupo**.
+
+    ![Renovar um grupo do Office 365, estendendo a data de expiração](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Clique em **OK** para fechar a mensagem de confirmação.
+
+    Depois de atualizar a página, verá sua atualizada **renovado último** e **expiração de grupo** datas.
 
 ## <a name="delete-a-group"></a>Eliminar um grupo
 Pode eliminar qualquer um dos seus próprios grupos em qualquer altura. No entanto, se eliminar um grupo por engano terá de criá-la e adicionar membros novamente.

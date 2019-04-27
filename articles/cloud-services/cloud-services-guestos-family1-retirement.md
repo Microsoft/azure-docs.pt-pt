@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518958"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de 1 de família de SO convidado
 A desativação de 1 de família do SO foi anunciada pela primeira vez no dia 1 de Junho de 2013.

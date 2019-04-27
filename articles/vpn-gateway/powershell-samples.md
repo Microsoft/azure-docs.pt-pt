@@ -3,8 +3,8 @@ title: Exemplos do Azure PowerShell para o Gateway de VPN | Microsoft Docs
 description: Exemplos do Azure PowerShell para o Gateway de VPN.
 services: vpn-gateway
 documentationcenter: ''
-author: cherylmc
-manager: jeconnoc
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/25/2018
-ms.author: cherylmc
-ms.openlocfilehash: f577edc4c60164d3fb56d13f201854797962ecf3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+origin.date: 04/25/2018
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.openlocfilehash: bdc9fd503f3ae1a3ededb9eba71268765c8801aa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539626"
 ---
 # <a name="azure-powershell-samples-for-vpn-gateway"></a>Exemplos do Azure PowerShell para o Gateway de VPN
 

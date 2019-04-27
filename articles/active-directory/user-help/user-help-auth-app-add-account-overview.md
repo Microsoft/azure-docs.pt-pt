@@ -13,11 +13,11 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474047"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Descrição geral sobre como adicionar contas para a aplicação Microsoft Authenticator
 

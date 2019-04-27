@@ -1,17 +1,19 @@
 ---
 title: Otimizar o tempo de consulta numa base de dados do Azure para o servidor PostgreSQL usando a estratégia de armazenamento de tabela de alerta
 description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela ALERTAS numa base de dados do Azure para o servidor PostgreSQL.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
+editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421061"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de tabela de alerta 
 Este artigo descreve como otimizar os tempos de consultas com a estratégia de armazenamento de tabela do armazenamento de atributo superdimensionadas técnica (alerta).

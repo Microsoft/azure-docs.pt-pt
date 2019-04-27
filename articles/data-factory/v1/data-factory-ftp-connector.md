@@ -14,11 +14,11 @@ ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486588"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP através do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,7 +69,7 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
 | anfitrião |Especifique o nome ou endereço IP do servidor de FTP. |Sim |&nbsp; |
 | authenticationType |Especifique o tipo de autenticação. |Sim |Básica, anônima |
 | o nome de utilizador |Especifique o utilizador quem tem acesso ao servidor de FTP. |Não |&nbsp; |
-| palavra-passe |Especifique a palavra-passe para o utilizador (nome de utilizador). |Não |&nbsp; |
+| password |Especifique a palavra-passe para o utilizador (nome de utilizador). |Não |&nbsp; |
 | encryptedCredential |Especifique a credencial encriptada para aceder ao servidor FTP. |Não |&nbsp; |
 | gatewayName |Especifique o nome do gateway no Gateway de gestão de dados para ligar a um servidor FTP no local. |Não |&nbsp; |
 | porta |Especifique a porta em que o servidor de FTP está a escutar. |Não |21 |

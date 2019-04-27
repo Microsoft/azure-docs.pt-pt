@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345795"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para serviços que enviam mensagens SMS, para registrar bugs, para notificar a equipa através de bate-papo ou serviços de mensagens ou para várias outras ações. 
@@ -73,10 +73,10 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 |:--- |:--- |:--- |:--- |
 | status |S |Ativado, resolvido |O estado do alerta com base nas condições que definir. |
 | context |S | |O contexto do alerta. |
-| carimbo de data/hora |S | |A hora em que o alerta foi acionado. |
+| timestamp |S | |A hora em que o alerta foi acionado. |
 | ID |S | |Cada regra de alerta tem um ID exclusivo. |
 | nome |S | |O nome do alerta. |
-| descrição |S | |Uma descrição do alerta. |
+| description |S | |Uma descrição do alerta. |
 | conditionType |S |Métrica, eventos |Dois tipos de alertas são suportados: métricas e eventos. Alertas de métricas são baseadas em condições de métricas. Alertas de eventos baseiam-se num evento no registo de atividades. Utilize este valor para verificar se o alerta é com base numa métrica ou num evento. |
 | condition |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
 | MetricName |Para alertas de métricas | |O nome da métrica que define o que a regra monitoriza. |
@@ -88,12 +88,12 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 | Operador |Para alertas de métricas | |O operador que é utilizado para comparar os dados de métricos atuais para o limiar definido. |
 | subscriptionId |S | |O ID de subscrição do Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
-| resourceName |S | |O nome de recurso do recurso afetado. |
+| nomeRecurso |S | |O nome de recurso do recurso afetado. |
 | resourceType |S | |O tipo de recurso do recurso afetado. |
 | resourceId |S | |O ID de recurso do recurso afetado. |
 | resourceRegion |S | |A região ou a localização do recurso afetado. |
 | portalLink |S | |Uma ligação direta para a página de resumo de recursos de portal. |
-| propriedades |N |Opcional |Um conjunto de pares chave/valor que contém os detalhes sobre o evento. Por exemplo, `Dictionary<String, String>`. O campo de propriedades é opcional. Numa interface do Usuário personalizada ou um fluxo de trabalho de base na aplicação lógica, os utilizadores podem introduzir pares de chave/valor que podem ser passados via o payload. Outra forma de passar as propriedades personalizadas para o webhook é através do webhook URI em si (como parâmetros de consulta). |
+| properties |N |Opcional |Um conjunto de pares chave/valor que contém os detalhes sobre o evento. Por exemplo, `Dictionary<String, String>`. O campo de propriedades é opcional. Numa interface do Usuário personalizada ou um fluxo de trabalho de base na aplicação lógica, os utilizadores podem introduzir pares de chave/valor que podem ser passados via o payload. Outra forma de passar as propriedades personalizadas para o webhook é através do webhook URI em si (como parâmetros de consulta). |
 
 > [!NOTE]
 > Pode definir o **propriedades** campo utilizando apenas [APIs de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
@@ -106,4 +106,3 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem numa fila do Azure a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

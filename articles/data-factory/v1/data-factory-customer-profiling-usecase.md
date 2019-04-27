@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487217"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Criação de Perfis de Cliente
 O Azure Data Factory é um dos vários serviços utilizados para implementar o Cortana Intelligence Suite de Aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso simples de utilização para ajudar a começar com a compreensão de como o Azure Data Factory pode resolver problemas comuns de análise.

@@ -2,23 +2,19 @@
 title: Monitorizar e gerir a criação do certificados
 description: Cenários que demonstram uma variedade de opções para a criação, monitorização e interagir com a criação do certificado processam com o Key Vault.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306024"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorizar e gerir a criação do certificados
 Aplica-se a: Azure
@@ -417,7 +413,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Nome do elemento|Necessário|Type|Versão|Descrição|
+|Nome do elemento|Necessário|Type|Version|Descrição|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|Sim|array|\<Introdução ao versão >|Cadeia de certificados X509 como base matriz de cadeia 64.|
 
