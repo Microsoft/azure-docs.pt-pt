@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540362"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Node.js
 
@@ -50,7 +50,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
-    | Definições        | Valor           | Descrição  |
+    | Definições        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Node.js | Tipo de aplicação que está a monitorizar |

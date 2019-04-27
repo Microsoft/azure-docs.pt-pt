@@ -2,19 +2,20 @@
 title: Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure com o serviço Azure Site Recovery
 description: Saiba como executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure para VMs IaaS do Azure através do serviço Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.author: raynew
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 16c791287cc50b5ac8992a86f6de1e3eeb5e329e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60552948"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -33,7 +34,6 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 
 - Antes de executar uma ativação pós-falha de teste, recomendamos que verifique as propriedades da VM para garantir que funciona tudo conforme o esperado.  Aceda às propriedades da VM nos **Itens replicados**. O painel **Informações Básicas** mostra informações sobre estados e definições de computadores.
 - **Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste**, e não a rede predefinida que foi configurada quando ativou a replicação.
-
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 
@@ -55,3 +55,6 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 
 > [!div class="nextstepaction"]
 > [Executar uma ativação pós-falha ](azure-to-azure-tutorial-failover-failback.md)
+
+<!-- Update_Description: update meta properties -->
+

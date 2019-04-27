@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551745"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros nas vistas do Azure Monitor
 A **filtro** num [vista de Azure Monitor](view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma determinada propriedade sem modificar a própria exibição.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um determinado computador ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir que os utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma para uma vista personalizada.

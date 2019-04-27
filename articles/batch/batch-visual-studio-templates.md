@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550099"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utilizar modelos de projeto do Visual Studio para o pontapé inicial em soluções do Batch
 
@@ -167,7 +167,7 @@ A sua implementação de Split() tem acesso a:
 * O objeto de CloudJob que representa a tarefa, via o `_job` campo.
 * O objeto de CloudTask que representa a tarefa de gestão, via o `_jobManagerTask` campo.
 
-Sua `Split()` implementação não precisa de adicionar tarefas ao trabalho diretamente. Em vez disso, seu código deverá devolver uma seqüência de objetos de CloudTask e estes serão adicionados ao trabalho automaticamente por classes do framework que invocam o divisor de tarefa. É comum para iterador do utilizar o # (`yield return`) funcionalidade para implementar os separadores de tarefa, pois isso permite que as tarefas iniciar em execução logo que possível, em vez de aguardar que todas as tarefas deve ser calculado.
+Sua `Split()` implementação não precisa de adicionar tarefas ao trabalho diretamente. Em vez disso, seu código deverá devolver uma seqüência de objetos de CloudTask e estes serão adicionados ao trabalho automaticamente por classes do framework que invocam o divisor de tarefa. É comum para utilizar o C#do iterador (`yield return`) funcionalidade para implementar os separadores de tarefa, pois isso permite que as tarefas iniciar em execução logo que possível, em vez de aguardar que todas as tarefas deve ser calculado.
 
 **Falha da tarefa divisor**
 

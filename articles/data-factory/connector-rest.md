@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546647"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final REST através do Azure Data Factory
 
@@ -68,7 +68,7 @@ Definir o **authenticationType** propriedade **básica**. Além de propriedades 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | userName | O nome de utilizador a utilizar para aceder ao ponto final REST. | Sim |
-| palavra-passe | A palavra-passe para o utilizador (o **nome de utilizador** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe para o utilizador (o **nome de utilizador** valor). Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
 **Exemplo**
 
@@ -293,7 +293,7 @@ Este conector genérico do REST suporta os seguintes padrões de paginação:
 
 **Valores suportados** nas regras de paginação:
 
-| Valor | Descrição |
+| Value | Descrição |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header" é definida pelo utilizador que referencia um nome de cabeçalho na resposta HTTP atual, o valor que será utilizado para emitir o pedido seguinte. |
 | Uma expressão de JSONPath começando com "$" (que representa a raiz do corpo da resposta) | O corpo da resposta deve conter apenas um objeto JSON. A expressão de JSONPath deverá devolver um valor único primitivo, que será utilizado para emitir o pedido seguinte. |

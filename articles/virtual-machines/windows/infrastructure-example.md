@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540407"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Infraestrutura do Azure de exemplo passo a passo para VMs do Windows
 Este artigo explica-criar uma infraestrutura de aplicativo de exemplo. Vamos detalhar a estruturar uma infraestrutura para uma loja online simple, que reúne todas as diretrizes e as decisões sobre as convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e Balanceadores de carga e realmente implantar suas máquinas virtuais (VMs).
@@ -73,13 +73,13 @@ Uma vez que a rede virtual não necessita de conectividade em curso para a rede 
 Criaram uma rede virtual apenas na cloud com as seguintes definições no portal do Azure:
 
 * Nome: AZOS-USE-VN01
-* Localização: E.U.A. Leste 2
-* Espaço de endereços de rede virtual: 10.0.0.0/8
+* Localização: EUA Leste 2
+* espaço de endereços de rede virtual: 10.0.0.0/8
 * Primeira sub-rede:
-  * Nome: front-end
+  * Nome: FrontEnd
   * Espaço de endereços: 10.0.1.0/24
 * Segunda sub-rede:
-  * Nome: back-end
+  * Nome: BackEnd
   * Espaço de endereços: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

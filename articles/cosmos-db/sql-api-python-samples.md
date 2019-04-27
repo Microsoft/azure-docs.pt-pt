@@ -9,11 +9,11 @@ ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
 ms.openlocfilehash: cf296d8bb494307dbb58b9de522d55a83892c6d5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546634"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python do Azure Cosmos DB
 
@@ -82,7 +82,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 ## <a name="indexing-examples"></a>Exemplos de indexação
 O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) ficheiro da [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) projeto mostra como fazer as seguintes tarefas.  Para saber mais sobre a indexação no Azure Cosmos DB, antes de executar os exemplos seguintes, veja [políticas de indexação](index-policy.md), [indexação tipos](index-types.md), e [indexação caminhos](index-paths.md) artigos conceptuais. 
 
-| Tarefa | Referência de API |
+| Tarefa | Referência da API |
 | --- | --- |
 | [Utilizar indexação manual (em vez do automática)](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L245-L246) | Política de indexação automática |
 | [Excluir caminhos do documento especificado do índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L294-L367) | Política de indexação com caminhos excluídos|
@@ -95,7 +95,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 Os projetos de exemplo também mostram como realizar as seguintes tarefas de consulta. Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos seguintes, veja [exemplos de consulta SQL](how-to-sql-query.md) artigo conceitual. Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos seguintes, veja [exemplos de consulta SQL](how-to-sql-query.md) artigo conceitual. 
 
 
-| Tarefa | Referência de API |
+| Tarefa | Referência da API |
 | --- | --- |
 | [Consultar uma conta para uma base de dados](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py#L49-L62) |[CosmosClient.QueryDatabases](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#querydatabases-query--options-none-) |
 | [Consultar documentos](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L152-L169) |[CosmosClient.QueryItems](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#queryitems-database-or-container-link--query--options-none--partition-key-none-) |

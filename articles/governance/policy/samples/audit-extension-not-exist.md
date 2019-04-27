@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: cca8becc70602dc99e9c3fefc7b0600de4a8fc20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545613"
 ---
 # <a name="sample---audit-if-extension-does-not-exist"></a>Exemplo - auditoria se a extensão não existe
 

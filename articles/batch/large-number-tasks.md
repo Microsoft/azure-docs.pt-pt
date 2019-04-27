@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: ed04774969f72f1d6037a350f019d81d812d73f6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549670"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Submeta um grande número de tarefas para uma tarefa do Batch
 

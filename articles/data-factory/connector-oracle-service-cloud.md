@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b65bcfa5252a150c8101322eaf6d84ce46eef755
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546357"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copiar dados de Cloud de serviço do Oracle com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço Oracle Cloud de servi�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **OracleServiceCloud** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **OracleServiceCloud** | Sim |
 | anfitrião | O URL da instância de Oracle serviço Cloud.  | Sim |
 | o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor Oracle serviço Cloud.  | Sim |
 | palavra-passe | A palavra-passe correspondente ao nome do usuário fornecida na chave do nome de utilizador. Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar extração de atividade a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -83,7 +83,7 @@ Para copiar dados de Cloud de serviço do Oracle, defina a propriedade de tipo d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **OracleServiceCloudObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **OracleServiceCloudObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -113,7 +113,7 @@ Para copiar dados do Oracle Cloud de serviço, defina o tipo de origem na ativid
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **OracleServiceCloudSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **OracleServiceCloudSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

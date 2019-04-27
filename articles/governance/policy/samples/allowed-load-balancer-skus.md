@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 0c808dda6873921693621cf14aa7933007fad620
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546017"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>Exemplo - SKUs de Balanceador de carga permitidos
 

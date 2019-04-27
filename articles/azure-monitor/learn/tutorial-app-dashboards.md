@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540884"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537909"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -71,14 +71,14 @@ Estes passos utilizam o [portal do Azure](https://portal.azure.com) para criar u
 
 3. Partir do __Noções básicas__ separador, introduza as seguintes informações:  
   
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Subscrição |Selecione a subscrição adequada.|
     |Grupo de recursos |Selecione o grupo de recursos que contém a rede virtual que criou anteriormente.|
     |Nome da máquina virtual | Introduza um nome amigável que identifica esta máquina virtual. Este exemplo utiliza **DNSProxy**.|
     |Região | Selecione a mesma região que a rede virtual que criou anteriormente.  Nem todos os tamanhos VM estão disponíveis em todas as regiões.  |
     |Opções de disponibilidade |  Selecione o nível desejado de disponibilidade.  O Azure oferece uma gama de opções para gerir a disponibilidade e resiliência para as suas aplicações.  Arquitete a sua solução para utilizar as VMs replicadas em zonas de disponibilidade ou conjuntos de disponibilidade para proteger as aplicações e dados de falhas de datacenter e de eventos de manutenção. Este exemplo utiliza **nenhuma redundância de infraestrutura necessária**. |
-    |Imagem | Deixe **LTS do Ubuntu Server 18.04**. |
+    |Image | Deixe **LTS do Ubuntu Server 18.04**. |
     |Tipo de autenticação | __Palavra-passe__ ou __chave pública SSH__: O método de autenticação para a conta SSH. Recomendamos a utilização de chaves públicas, como eles são mais seguros. Este exemplo utiliza **palavra-passe**.  Para obter mais informações, consulte a [criar e utilizar chaves SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md) documento.|
     |Nome de utilizador |Introduza o nome de utilizador de administrador para a VM.  Este exemplo utiliza **sshuser**.|
     |Chave pública de palavra-passe ou SSH | O campo disponível é determinado à sua escolha para **tipo de autenticação**.  Introduza o valor apropriado.|
@@ -90,7 +90,7 @@ Estes passos utilizam o [portal do Azure](https://portal.azure.com) para criar u
 
 4. Partir do **redes** separador, introduza as seguintes informações:
 
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Rede virtual | Selecione a rede virtual que criou anteriormente.|
     |Subrede | Selecione a sub-rede de predefinição para a rede virtual que criou anteriormente. Fazer __não__ selecione a sub-rede utilizada pelo gateway de VPN.|

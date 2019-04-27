@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 044091ab83d64676c011ea25c73c8bf00528a6b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60545372"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Exemplo - Certifique-se de tráfego HTTPS apenas para a conta de armazenamento
 

@@ -10,11 +10,11 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 2aa103b36f60a84aaafc47f03a6cf6d5b6b66160
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554946"
 ---
 # <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutorial: Implementar aplicações ASP.NET Core no serviço Kubernetes do Azure com projetos de Azure DevOps
 
