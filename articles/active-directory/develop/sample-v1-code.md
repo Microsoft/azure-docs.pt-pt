@@ -1,5 +1,5 @@
 ---
-title: Exemplos de código do Azure Active Directory | Documentos da Microsoft
+title: Exemplos de código de versão 1.0 do Azure Active Directory | Documentos da Microsoft
 description: Fornece exemplos de código, organizados por cenário de um índice do Azure Active Directory (v1.0 ponto final).
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b7e88c672e72549d813971ce72fc7b85ee8619eb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298602"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemplos de código do Azure Active Directory (v1.0 ponto final)
 
@@ -67,7 +67,7 @@ As seguintes amostras ilustram aplicativos Web, os utilizadores de assinatura. A
 
 Os exemplos seguintes mostram como implementar o controlo de acesso baseado em funções (RBAC). RBAC é utilizado para restringir as permissões de determinadas funcionalidades numa aplicação web a determinados utilizadores. Os utilizadores estão autorizados dependendo se pertencem a um **grupo do Azure AD** ou tem um determinado aplicativo **função**.
 
-Plataforma | Sample |
+Plataforma | Exemplo |
  -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Uma aplicação web de MVC do .NET 4.5 que utiliza o Azure AD **funções** para autorização
 
@@ -108,7 +108,7 @@ O exemplo a seguir mostra como proteger uma API com o Azure AD da web de node. j
 
 Nas secções anteriores deste artigo, também pode encontrar outros exemplos que ilustram uma aplicação de cliente **chamar** um ASP.NET ou ASP.NET Core **Web API**. Estes exemplos não são novamente mencionados nesta secção, mas vai encontrá-las na última coluna das tabelas acima ou abaixo
 
-Plataforma | Sample
+Plataforma | Exemplo
  -------- | -------------------
 ![PHP](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi)
 

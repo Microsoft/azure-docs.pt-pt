@@ -14,11 +14,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486966"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados com a atividade de cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

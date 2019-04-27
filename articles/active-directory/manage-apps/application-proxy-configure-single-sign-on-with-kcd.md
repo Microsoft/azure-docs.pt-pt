@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453728"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para início de sessão único às suas aplicações com o Proxy de aplicações
 

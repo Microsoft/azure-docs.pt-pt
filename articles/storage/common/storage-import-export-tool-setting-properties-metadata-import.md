@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 3e2796d943fbc4a4ce99576de74b2fc5c77bcca9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320538"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>Definir propriedades e metadados durante o processo de importação
 

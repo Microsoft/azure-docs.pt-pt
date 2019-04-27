@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325872"
 ---
 # <a name="design-for-querying"></a>Design das consultas
 Soluções de serviço de tabela podem ser lido com uso intensivo, com uso intensivo de escrita ou uma combinação dos dois. Este artigo se concentra em coisas que deve ter em mente quando está a conceber o seu serviço de tabela para suportar operações de leitura com eficiência. Normalmente, um design que suporta operações de leitura com eficiência é também eficiente para operações de escrita. No entanto, existem considerações adicionais a ter em mente ao projetar para oferecer suporte a operações de escrita, discutidas no artigo [Design para modificação de dados](table-storage-design-for-modification.md).

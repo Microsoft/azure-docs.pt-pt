@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196209"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para zonas de disponibilidade
 As zonas de disponibilidade no Azure ajudam a proteger as suas aplicações e dados de falhas de datacenter. Cada Zona de Disponibilidade é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região ajuda a proteger aplicações e dados contra falhas de datacenter. Com as zonas de disponibilidade, o Azure oferece um contrato de nível de serviço (SLA) de 99,99% de tempo de atividade de máquinas virtuais (VMs). As zonas de disponibilidade são suportadas em determinadas regiões, conforme mencionado na [quais são as zonas de disponibilidade no Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).

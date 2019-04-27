@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 542505c5a6c3af91669ebe28287ae6e1477e214d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325991"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade Always On em máquinas virtuais do Azure em regiões diferentes
 
@@ -31,7 +31,7 @@ Este artigo aplica-se às máquinas de virtuais do Azure no modo Resource Manage
 
 A imagem seguinte mostra uma implementação comum de um grupo de disponibilidade em máquinas virtuais do Azure:
 
-   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
+   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
 Nesta implementação, todas as máquinas virtuais estão numa região do Azure. As réplicas do grupo de disponibilidade podem ter consolidação síncrona com ativação pós-falha automática em SQL-1 e 2 do SQL. Para criar esta arquitetura, veja [modelo de grupo de disponibilidade ou tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
@@ -53,7 +53,7 @@ Quando as réplicas do grupo de disponibilidade estão em máquinas virtuais do 
 
 O diagrama seguinte mostra como as redes comunicam entre centros de dados.
 
-   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
+   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Esta arquitetura incorre em custos de dados de saída para os dados replicados entre regiões do Azure. Ver [preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -119,7 +119,7 @@ Para criar uma réplica num Datacenter remoto, siga os passos abaixo:
 
    Captura de ecrã seguinte mostra um recurso de cluster de endereço IP configurado corretamente:
 
-   ![Grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
+   ![Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-dr/50-configure-dependency-multiple-ip.png)
 
    >[!IMPORTANT]
    >O grupo de recursos de cluster inclui os dois endereços IP. Os dois endereços IP são dependências para o ponto de acesso de cliente do serviço de escuta. Utilize o **ou** operador na configuração de dependência do cluster.
@@ -165,7 +165,7 @@ Para testar a conectividade de serviço de escuta para a região remota, pode ef
 
 Depois de testar a conectividade, regresse a réplica primária para o seu Datacenter primário e definir o modo de disponibilidade para as definições de funcionamento normais. A tabela seguinte mostra as definições operacionais normais para a arquitetura descrita neste documento:
 
-| Localização | Instância de servidor | Função | Modo de disponibilidade | Modo de ativação pós-falha
+| Location | Instância de servidor | Função | Modo de disponibilidade | Modo de ativação pós-falha
 | ----- | ----- | ----- | ----- | -----
 | Centro de dados primária | SQL-1 | Primária | Síncrona | Automático
 | Centro de dados primária | SQL-2 | Secundária | Síncrona | Automático

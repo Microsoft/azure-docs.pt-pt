@@ -14,11 +14,11 @@ ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291848"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 

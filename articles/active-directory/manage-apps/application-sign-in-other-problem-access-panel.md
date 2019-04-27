@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441534"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas ao iniciar sessão a uma aplicação a partir do painel de acesso
 

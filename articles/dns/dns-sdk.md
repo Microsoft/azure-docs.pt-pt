@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
 ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308948"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registos com o SDK .NET
 

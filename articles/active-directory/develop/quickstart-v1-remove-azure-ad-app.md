@@ -18,11 +18,11 @@ ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0038dcc10aafa191121b2797f68d66a3e32b3fa7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298765"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Início rápido: Remover uma aplicação do Azure Active Directory
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
 ms.openlocfilehash: 623f95eac029e808746d5d08fa088eba134592dd
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798044"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459037"
 ---
 Clique nas **criar um recurso** botão. No campo **Procurar no Marketplace**, escreva `Azure Active Directory B2C`.
 

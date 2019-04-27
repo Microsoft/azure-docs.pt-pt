@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: 8d2933f6a3bbab792acb708f2a59cad4eb2cabf7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60510433"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de sentença e alinhamento em documentos paralelos
 

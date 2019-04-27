@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480359"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registo de contentor clássico
 

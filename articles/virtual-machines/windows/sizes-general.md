@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: jonbeck
 ms.openlocfilehash: 543629e8b14039ce6e9a229d7bd5be05ade4d3ec
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252170"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de fins gerais
 

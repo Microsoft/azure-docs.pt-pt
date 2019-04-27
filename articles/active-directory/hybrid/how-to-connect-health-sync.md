@@ -16,11 +16,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245477"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorizar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para informações sobre como monitorizar o AD FS com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Adicionalmente, para informações sobre como monitorizar os Serviços de Domínio do Active Directory com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
@@ -80,7 +80,7 @@ Esta funcionalidade fornece um relatório sobre erros de sincronização que pod
 ### <a name="categorization-of-errors"></a>Categorização de Erros
 O relatório categoriza os erros de sincronização existentes nas seguintes categorias:
 
-| Categoria | Descrição |
+| Category | Descrição |
 | --- | --- |
 | Atributo Duplicado |Erros quando o Azure AD Connect tenta criar ou atualizar objetos com valores duplicados de um ou mais atributos no Azure AD que têm de ser exclusivos num Inquilino, como proxyAddresses e UserPrincipalName. |
 | Erro de Correspondência de Dados |Erros quando existe falha na correspondência de objetos que resulta em erros de sincronização. |

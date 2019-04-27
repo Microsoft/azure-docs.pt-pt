@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402688"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações baseados no pedido-resposta
 
@@ -315,7 +315,7 @@ O corpo da mensagem de resposta deve consistir numa **amqp valor** secção que 
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|expiração|carimbo de data/hora|Sim|Expiração de novo.|  
+|expiração|timestamp|Sim|Expiração de novo.|  
   
 ### <a name="peek-session-message"></a>Observar mensagem de sessão  
 
@@ -439,7 +439,7 @@ O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção qu
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|carimbo de data/hora|Sim|Filtre para incluir apenas as sessões atualizadas após um determinado momento.|  
+|last-updated-time|timestamp|Sim|Filtre para incluir apenas as sessões atualizadas após um determinado momento.|  
 |ignorar|int|Sim|Ignore um número de sessões.|  
 |parte superior|int|Sim|Número máximo de sessões.|  
   
@@ -505,7 +505,7 @@ O **filtro de correlação** mapa tem de incluir, pelo menos, uma das seguintes 
 |id de sessão|string|Não||  
 |reply-to-session-id|string|Não||  
 |content-type|string|Não||  
-|propriedades|map|Não|É mapeado para o Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
+|properties|map|Não|É mapeado para o Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 O **ação de regra sql** mapa tem de incluir as seguintes entradas:  
   

@@ -13,11 +13,11 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d03cdc8093651605839f813c264880b778167a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473353"
 ---
 # <a name="reset-password-overview"></a>Descrição geral de Repor a palavra-passe
 

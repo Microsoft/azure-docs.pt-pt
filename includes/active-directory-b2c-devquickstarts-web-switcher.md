@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
-ms.author: patricka
+origin.date: 11/03/2016
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 8f0633340beb1f277e5d235d594c4840e7969126
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456059"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet.md)
@@ -19,4 +20,5 @@ ms.locfileid: "54355904"
 > * [Ruby](active-directory-b2c-devquickstarts-graph-ruby.md)
 > 
 > 
+
 

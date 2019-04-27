@@ -2,7 +2,6 @@
 title: Carregar dados para as tarefas do Apache Hadoop no HDInsight
 description: Saiba como carregar e aceder a dados para as tarefas do Apache Hadoop no HDInsight com a CLI clássica do Azure, o Explorador de armazenamento do Azure, Azure PowerShell, a linha de comandos do Hadoop ou Sqoop.
 keywords: hadoop de ETL, colocar dados no hadoop, dados de carga do hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
@@ -11,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486333"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para as tarefas do Apache Hadoop no HDInsight
 

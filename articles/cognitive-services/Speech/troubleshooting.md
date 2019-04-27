@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513959"
 ---
 # <a name="troubleshooting-bing-speech"></a>Resolução de problemas de voz do Bing
 

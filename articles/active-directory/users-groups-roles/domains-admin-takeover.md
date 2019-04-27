@@ -16,11 +16,11 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472486"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 
@@ -82,7 +82,7 @@ Se já gere um inquilino com os serviços do Azure ou do Office 365, não é pos
 Ao verificar a propriedade do nome do domínio, o Azure AD remove o nome de domínio do inquilino não gerido e move-o para o seu inquilino existente. Obtenção do controlo administrativo externos de um diretório não gerido requer o mesmo processo de validação de TXT de DNS como a obtenção de controlo de administrador interno. A diferença é que a seguir é também movida com o nome de domínio:
 
 - Utilizadores
-- Subscrições
+- Subscriptions
 - Atribuições de licenças
 
 ### <a name="support-for-external-admin-takeover"></a>Suporte para obtenção do controlo administrativo externo

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498768"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz em recursos do Azure
 

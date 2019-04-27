@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475557"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gerir as suas organizações a partir do portal do meu perfil (pré-visualização)
 Pode gerir a sua organização do **organizações** página do **meu perfil** portal.

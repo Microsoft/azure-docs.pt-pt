@@ -2,17 +2,18 @@
 title: Conceitos - acesso e identidade dos serviços de Kubernetes no Azure (AKS)
 description: Saiba mais sobre o acesso e identidade no Azure Kubernetes Service (AKS), incluindo a integração do Active Directory do Azure, Kubernetes controlo de acesso baseado em funções (RBAC) e funções e associações.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
+ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467060"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opções de acesso e identidade para o Azure Kubernetes Service (AKS)
 
@@ -92,7 +93,7 @@ Para obter mais informações sobre principais Kubernetes e conceitos do AKS, co
 
 <!-- LINKS - Internal -->
 [openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: aad-integration.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

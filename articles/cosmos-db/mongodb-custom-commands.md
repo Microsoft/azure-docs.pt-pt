@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446589"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar os comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
 

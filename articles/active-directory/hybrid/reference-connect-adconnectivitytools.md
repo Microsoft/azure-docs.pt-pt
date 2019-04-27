@@ -5,17 +5,18 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+origin.date: 10/19/2018
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650518"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454647"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADConnectivityTools
 
@@ -963,3 +964,5 @@ Accept wildcard characters: False
 
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
+
+<!-- Update_Description: wording update -->

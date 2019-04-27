@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441736"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para as aplicações no Azure Active Directory
 Azure Active Directory (Azure AD) fornece várias formas de personalizáveis para implementar aplicações para utilizadores finais em sua organização:

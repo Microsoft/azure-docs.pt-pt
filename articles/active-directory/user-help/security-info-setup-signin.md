@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475303"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurar as suas informações de segurança (pré-visualização) no prompt de página de início de sessão de
 Pode seguir estes passos, se lhe for pedido para configurar as informações de segurança imediatamente depois de iniciar sessão na sua conta escolar ou profissional.

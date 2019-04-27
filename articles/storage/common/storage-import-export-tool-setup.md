@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: d2ce6c409ae9cbf99589d11dfc850e2324d1b0c9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320470"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Configurar a ferramenta de importação/exportação do Azure
 

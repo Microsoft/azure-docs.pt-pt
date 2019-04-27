@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418267"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506238"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH detalhada, resolução de problemas de passos para problemas de ligação a uma VM do Linux no Azure
 Existem muitas razões possíveis para que o cliente SSH pode não ser capaz de alcançar o serviço SSH na VM. Se tiver acompanhado por meio de mais [SSH geral, passos de resolução de problemas](troubleshoot-ssh-connection.md), precisa resolver o problema de ligação. Este artigo orienta-o pelos passos de resolução de problemas detalhados para determinar em que está a falhar a ligação SSH e como resolvê-lo.
@@ -55,7 +55,7 @@ O cliente SSH no seu computador pode não conseguir ligar ao serviço SSH na VM 
 * [Grupos de segurança de rede](#source-4-network-security-groups)
 * [Baseado em Linux VM do Azure](#source-5-linux-based-azure-virtual-machine)
 
-## <a name="source-1-ssh-client-computer"></a>Origem 1: SSH computador cliente
+## <a name="source-1-ssh-client-computer"></a>Origem 1: Computador de cliente SSH
 Para eliminar o seu computador como a origem da falha, certifique-se de que ele possa fazer ligações SSH para o outro local, computador baseado em Linux.
 
 ![Diagrama realça os componentes de computador do cliente SSH](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
@@ -77,7 +77,7 @@ Se estiver a utilizar autenticação de certificados, certifique-se de que tem e
 * ~/.Ssh/known_hosts chmod 644 (contém anfitriões que se ligar à através de SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Origem 2: Dispositivo de limite de organização
-Para eliminar o seu dispositivo de borda da organização como a origem da falha, certifique-se de que um computador diretamente ligado à Internet pode efetuar ligações SSH à VM do Azure. Se estiver a aceder a VM através de uma VPN de site a site ou uma ligação do ExpressRoute do Azure, avance para o [origem 4: grupos de segurança de rede](#nsg).
+Para eliminar o seu dispositivo de borda da organização como a origem da falha, certifique-se de que um computador diretamente ligado à Internet pode efetuar ligações SSH à VM do Azure. Se estiver a aceder a VM através de uma VPN de site a site ou uma ligação do ExpressRoute do Azure, avance para o [4 de origem: Grupos de segurança de rede](#nsg).
 
 ![Diagrama que destaca o dispositivo de limite de organização](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
@@ -91,9 +91,9 @@ Se pode criar uma ligação SSH com um computador que está diretamente ligado �
 
 Contactar o administrador de rede para corrigir as definições dos seus dispositivos de borda da organização para permitir o tráfego SSH com a Internet.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origem 3: Ponto final de serviço de nuvem e a ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Origem de 3: Ponto final de serviço de nuvem e de ACL
 > [!NOTE]
-> Esta origem de só se aplica a VMs que foram criadas utilizando o modelo de implementação clássica. Para as VMs que foram criadas utilizando o Gestor de recursos, avance para o [da origem de 4: grupos de segurança de rede](#nsg).
+> Esta origem de só se aplica a VMs que foram criadas utilizando o modelo de implementação clássica. Para as VMs que foram criadas utilizando o Gestor de recursos, avance para o [4 de origem: Grupos de segurança de rede](#nsg).
 
 Para eliminar o ponto final de serviço de nuvem e a ACL como a origem da falha, certifique-se de que outra VM do Azure na mesma rede virtual pode ligar-se através de SSH.
 
@@ -110,13 +110,13 @@ Para eliminar o ponto de extremidade como uma origem do problema, remova o ponto
 
 <a id="nsg"></a>
 
-## <a name="source-4-network-security-groups"></a>Origem 4: Grupos de segurança de rede
+## <a name="source-4-network-security-groups"></a>Origem de 4: Grupos de segurança de rede
 Grupos de segurança de rede permitem-lhe ter um controle mais granular do tráfego de entrada e saído permitido. Pode criar regras que abrangem a sub-redes e serviços em nuvem na rede virtual do Azure. Verifique as suas regras de grupo de segurança de rede para se certificar de que o tráfego SSH e para a Internet é permitido.
 Para obter mais informações, consulte [sobre os grupos de segurança de rede](../../virtual-network/security-overview.md).
 
 Também pode utilizar o IP verificar para validar a configuração de NSG. Para obter mais informações, consulte [descrição geral da monitorização de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
-## <a name="source-5-linux-based-azure-virtual-machine"></a>: 5 baseado em Linux do Azure máquina virtual de origem
+## <a name="source-5-linux-based-azure-virtual-machine"></a>Origem 5: Baseado em Linux máquina virtual do Azure
 A última fonte possíveis problemas é a máquina virtual do Azure em si.
 
 ![Diagrama que destaca baseado em Linux máquina virtual do Azure](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)

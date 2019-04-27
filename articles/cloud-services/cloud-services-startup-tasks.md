@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405992"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Como configurar e executar tarefas de arranque para um serviço cloud
 Pode utilizar tarefas de arranque para executar operações antes de uma função de inicialização. As operações que pode querer executar incluem instalar um componente, registar componentes COM, definir chaves do Registro ou a partir de um processo de execução demorada.

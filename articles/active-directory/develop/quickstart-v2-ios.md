@@ -18,11 +18,11 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6340e0f349d66ecf6baaca481722396a6d786c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298839"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação nativa do iOS
 

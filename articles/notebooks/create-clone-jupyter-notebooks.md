@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237555"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 

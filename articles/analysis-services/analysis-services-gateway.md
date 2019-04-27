@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497408"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligar a origens de dados no local com o Gateway de dados no local
 O gateway de dados no local fornece a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma subscrição e na mesma região com um único gateway. 

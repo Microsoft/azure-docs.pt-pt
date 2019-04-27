@@ -1,17 +1,18 @@
 ---
 title: Otimizar a recolha de estatísticas de consulta numa base de dados do Azure para o servidor PostgreSQL
 description: Este artigo descreve como pode otimizar a recolha de estatísticas de consulta numa base de dados do Azure para o servidor PostgreSQL.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
+origin.date: 10/25/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422713"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Otimizar a recolha de estatísticas de consulta numa base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como otimizar a recolha de estatísticas de consulta numa base de dados do Azure para o servidor PostgreSQL.

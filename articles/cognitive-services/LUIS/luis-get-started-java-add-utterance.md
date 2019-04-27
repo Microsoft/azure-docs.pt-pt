@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 43af108b821daaf0d8b030879816ec339e432dee
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196750"
 ---
 # <a name="quickstart-change-model-using-java"></a>Início rápido: Modelo de alteração com Java 
 

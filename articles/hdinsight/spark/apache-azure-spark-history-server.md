@@ -1,7 +1,6 @@
 ---
 title: Utilização alargada de servidor de histórico do Spark para depurar e diagnosticar aplicações do Spark - Azure HDInsight
 description: Utilização alargada de servidor de histórico do Spark para depurar e diagnosticar aplicações do Spark - Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484586"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilizar servidor expandida de histórico do Apache Spark para depurar e diagnosticar aplicações Apache Spark
 

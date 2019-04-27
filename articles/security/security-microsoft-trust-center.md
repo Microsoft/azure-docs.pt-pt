@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 794c78e6e31c58563b68a58774db90af98a44d95
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445690"
 ---
 # <a name="microsoft-trust-center"></a>Centro de Fidedignidade da Microsoft
 O site de informações de segurança do Azure no Azure.com dá-lhe as informações que precisa para planejar, design, implementar, configurar e gerir soluções na cloud de forma segura. Com o Microsoft Trust center, também tem as informações necessárias ter a certeza de que a plataforma do Azure no qual executa seus serviços é segura.

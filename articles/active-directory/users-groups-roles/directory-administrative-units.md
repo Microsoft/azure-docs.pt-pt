@@ -16,11 +16,11 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77f1a6e5b1e8191c1497e437cc26e1caf1255ba7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472372"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Gestão de unidades administrativas no Azure Active Directory (pré-visualização pública)
 

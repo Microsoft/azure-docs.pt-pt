@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310221"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Utilizar runbooks de automatização do Azure para gerir os dispositivos do StorSimple
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 08d74f866fe28a4c424ba504795b4a22f09785ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337328"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementação de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507543"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Verificar o tráfego com base numa agenda com o Azure Logic Apps
 

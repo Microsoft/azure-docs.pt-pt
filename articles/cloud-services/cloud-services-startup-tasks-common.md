@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406400"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do serviço Cloud comuns
 Este artigo fornece alguns exemplos de tarefas de arranque comuns, que talvez queira executar no seu serviço cloud. Pode utilizar tarefas de arranque para executar operações antes de uma função de inicialização. As operações que pode querer executar incluem instalar um componente, registar componentes COM, definir chaves do Registro ou a partir de um processo de execução demorada. 

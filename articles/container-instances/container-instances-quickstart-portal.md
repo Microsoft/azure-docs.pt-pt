@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519617"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: Implementar uma instância de contentor no Azure com o portal do Azure
 
@@ -35,31 +35,29 @@ Selecione **Criar um recurso** > **Contentores** >  **Container Instances**.
 
 ![Começar a criar uma nova instância do contentor no portal do Azure][aci-portal-01]
 
-Introduza os seguintes valores nas caixas de texto **Nome do contentor**, **Imagem do contentor** e **Grupo de recursos**. Deixe os outros valores nas predefinições e, em seguida, selecione **OK**.
+Sobre o **Noções básicas** página, introduza os seguintes valores no **grupo de recursos**, **nome do contentor**, e **imagem de contentor** caixas de texto. Deixe os outros valores nas predefinições e, em seguida, selecione **OK**.
 
+* Grupo de recursos: **Criar um novo** > `myresourcegroup`
 * Nome do contentor: `mycontainer`
 * Imagem de contentor: `mcr.microsoft.com/azuredocs/aci-helloworld`
-* Grupo de recursos: **Criar um novo** > `myResourceGroup`
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Neste início rápido, deixe a predefinição de **pública** para implementar o Microsoft público `aci-helloworld` imagem. Esta imagem de pacotes de uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
+Neste início rápido, utilize a predefinição **tipo de imagem** definição do **público** para implementar o Microsoft público `aci-helloworld` imagem. Esta imagem de Linux pacotes uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
 
-Em **Configuração**, especifique uma **Etiqueta de nome DNS** para o contentor. O nome tem de ser exclusivo dentro da região do Azure, onde cria a instância de contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
-
-Deixe as outras predefinições da **Configuração** e, em seguida, selecione **OK** para validar a configuração.
+Sobre o **redes** , especifique um **etiqueta de nome DNS** para o contentor. O nome tem de ser exclusivo dentro da região do Azure, onde cria a instância de contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
 ![Configurar uma nova instância do contentor no portal do Azure][aci-portal-04]
 
-Quando a validação estiver concluída, é apresentado um resumo das definições de contentor. Selecione **OK** para submeter o pedido de implementação do contentor.
+Deixe as outras predefinições, em seguida, selecione **rever + criar**.
+
+Quando a validação estiver concluída, é apresentado um resumo das definições de contentor. Selecione **criar** para submeter o pedido de implementação do contentor.
 
 ![Resumo das definições para uma nova instância do contentor no portal do Azure][aci-portal-05]
 
 Quando inicia a implementação, é apresentado uma notificação que indica que a implementação está em curso. É apresentada outra notificação quando o grupo de contentores tiver sido implementado.
 
-![Progresso da criação de uma nova instância do contentor no portal do Azure][aci-portal-08]
-
-Aceda à descrição geral do grupo de contentores ao navegar até **Grupos de Recursos** > **myResourceGroup** > **mycontainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
+Abra a visão geral para o grupo de contentores ao navegar até **grupos de recursos** > **myresourcegroup** > **mycontainer**. Tome nota do **FQDN** (nome de domínio completamente qualificado) da instância do contentor, bem como do **Estado**.
 
 ![Descrição geral do grupo de contentores no portal do Azure][aci-portal-06]
 

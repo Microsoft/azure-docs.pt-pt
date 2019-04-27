@@ -10,11 +10,11 @@ ms.date: 03/13/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57909163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500400"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerir módulos na automatização do Azure
 

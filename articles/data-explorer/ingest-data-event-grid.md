@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 01/30/2019
 ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446453"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início rápido: Ingerir blobs no Explorador de dados do Azure através da subscrição de notificações do Event Grid
 

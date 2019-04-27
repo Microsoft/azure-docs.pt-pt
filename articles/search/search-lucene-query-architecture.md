@@ -11,11 +11,11 @@ ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
 ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198823"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Completa como funciona a pesquisa de texto no Azure Search
 
@@ -270,7 +270,7 @@ Para o **Descrição** campo, o índice é o seguinte:
 | Termo | Lista de documentos |
 |------|---------------|
 | air | 3
-| e em | 4
+| e | 4
 | praia | 1
 | condicionadas de | 3
 | mais confortáveis | 3
@@ -395,7 +395,7 @@ Este artigo explorou a pesquisa em texto completo no contexto do Azure Search. E
 
 + [Compare os analisadores de padrão e em inglês](https://alice.unearth.ai/)) lado a lado neste site da web de demonstração. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

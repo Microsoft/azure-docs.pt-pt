@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486520"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de dados do Azure - funções e variáveis de sistema
 > [!NOTE]
@@ -78,7 +78,7 @@ Ver [data de personalizado e cadeias de caracteres de formato de tempo](https://
 ### <a name="functions"></a>Funções
 As tabelas seguintes listam todas as funções no Azure Data Factory:
 
-| Categoria | Função | Parâmetros | Descrição |
+| Category | Função | Parâmetros | Descrição |
 | --- | --- | --- | --- |
 | Hora |AddHours(X,Y) |X: DateTime <br/><br/>Y int |Adiciona as horas de Y para o momento de X. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Hora |AddMinutes(X,Y) |X: DateTime <br/><br/>Y int |Adiciona Y minutos a X.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
@@ -97,7 +97,7 @@ As tabelas seguintes listam todas as funções no Azure Data Factory:
 | Date |StartOfDay(X) |X: DateTime |Obtém o início do dia representado pelo componente de dia do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |FROM(X) |X: String |Analisar a cadeia de caracteres X para uma hora de data. |
 | DateTime |Ticks(X) |X: DateTime |Obtém os ticks propriedade do parâmetro X. Uma escala é igual a 100 nanossegundos. O valor desta propriedade representa o número de tiques decorridos desde 12: 00:00 meia-noite, 1 de Janeiro, 0001. |
-| Texto |Format(X) |X: Variável de cadeia de caracteres |Formata o texto (use `\\'` combinação para o escape `'` carateres).|
+| Text |Format(X) |X: Variável de cadeia de caracteres |Formata o texto (use `\\'` combinação para o escape `'` carateres).|
 
 > [!IMPORTANT]
 > Quando utilizar uma função dentro de outra função, não é necessário usar **$$** prefixo para a função interna. Por exemplo: $$Text.Format ("PartitionKey eq \\' my_pkey_filter_value\\' e RowKey ge \\' {0: DD-MM-AAAA HH: mm:}\\', Time.AddHours (SliceStart, -6)). Neste exemplo, tenha em atenção que **$$** prefixo não é utilizado para o **Time.AddHours** função. 

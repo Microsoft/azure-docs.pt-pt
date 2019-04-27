@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60355340"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite de colaboração do Azure Active Directory B2B
 

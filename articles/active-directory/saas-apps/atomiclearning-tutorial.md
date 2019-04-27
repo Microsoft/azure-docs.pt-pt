@@ -16,11 +16,11 @@ ms.date: 06/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74df7bd7073716dbbb372a43af809bf56c6cd32c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Tutorial: Integração do Active Directory do Azure com aprendizagem atómico
 

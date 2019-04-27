@@ -18,11 +18,11 @@ ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298313"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326159"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure que estejam a executar com o Azure Resource Manager. Um grupo de disponibilidade necessita de um balanceador de carga quando são de instâncias do SQL Server em máquinas virtuais do Azure. O Balanceador de carga armazena o endereço IP para o serviço de escuta do grupo de disponibilidade. Se a um grupo de disponibilidade se estende por várias regiões, cada região tem um balanceador de carga.
@@ -246,7 +246,7 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
     |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
     |**Persistência da sessão** |Nenhuma
     |**Tempo limite de inatividade (minutos)** |Padrão (4)
-    |**Vírgula flutuante (devolução direta do servidor) de IP** | Ativado
+    |**Vírgula flutuante (devolução direta do servidor) de IP** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Configurar o grupo de disponibilidade para utilizar o novo endereço IP
 
@@ -295,7 +295,7 @@ Se um grupo de disponibilidade participa de um grupo de disponibilidade distribu
    |**Sonda de estado de funcionamento** |Escolha a sonda que criou.
    |**Persistência da sessão** |Nenhuma
    |**Tempo limite de inatividade (minutos)** |Padrão (4)
-   |**Vírgula flutuante (devolução direta do servidor) de IP** | Ativado
+   |**Vírgula flutuante (devolução direta do servidor) de IP** | Enabled
 
 Repita estes passos para o Balanceador de carga em outros grupos de disponibilidade que participam de grupos de disponibilidade distribuída.
 

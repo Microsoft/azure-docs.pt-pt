@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528143"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar e implementar uma aplicação web de node. js com o Express num serviços Cloud do Azure
 

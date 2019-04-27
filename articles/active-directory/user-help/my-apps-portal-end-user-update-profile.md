@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483022"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Atualizar as suas informações de perfil e conta do portal minhas aplicações
 Pode utilizar a sua conta escolar ou profissional com baseada na web **as minhas aplicações** portal, para ver e iniciar a muitas das aplicações de base na cloud da sua organização, para atualizar algumas das suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **as revisões de acesso** para as aplicações e grupos. Se não tiver acesso para o **as minhas aplicações** portal, tem de contactar o suporte técnico para obter permissão.

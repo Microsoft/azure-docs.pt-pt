@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b98d494f3c567b92de53da42079c5bbf0734942
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appblade"></a>Tutorial: Integração do Active Directory do Azure com AppBlade
 

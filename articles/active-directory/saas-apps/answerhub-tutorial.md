@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05f865f0fd76e93b92f3bb09f1babd780074065
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure com AnswerHub
 
@@ -184,7 +184,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     a. Na **Name** , introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** , introduza **brittasimon @< yourcompanydomain.extension >**.  
+    b. Na **nome de utilizador** , introduza **brittasimon\@< yourcompanydomain.extension >**.  
     Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.

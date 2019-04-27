@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Gerar metadados para imagens do armazenamento do Azure'
+title: 'Tutorial: Gerar metadados para imagens do Azure'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá aprender como integrar o serviço de visão do computador do Azure numa aplicação web para gerar metadados de imagens.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202098"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Utilizar imagem digitalizada para gerar metadados de imagem no armazenamento do Azure
 
@@ -52,11 +52,11 @@ Terá de criar um recurso de imagem digitalizada para a sua conta do Azure; Este
 
 1. Regresse ao menu de grupo de recursos e clique na subscrição de API de imagem digitalizada que acabou de criar. Copie o URL sob **ponto final** para algum lugar pode facilmente recuperá-lo em breve. Em seguida, clique em **Mostrar chaves de acesso**.
 
-    ![Ver as teclas de acesso](../Images/copy-vision-endpoint.png)
+    ![Página do portal do Azure com o ponto final URL e acesso chaves ligação descrita](../Images/copy-vision-endpoint.png)
 
 1. Na janela seguinte, copie o valor da **chave 1** na área de transferência.
 
-    ![Copiar a chave de acesso](../Images/copy-vision-key.png)
+    ![Gerir a caixa de diálogo de chaves, com o botão de copiar descrito](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Adicionar credenciais de imagem digitalizada
 
@@ -136,7 +136,7 @@ Guardar as alterações no Visual Studio e prima **Ctrl + F5** para iniciar o ap
 
 Para ver todos os metadados de anexado, utilize o Explorador de armazenamento do Azure para ver o contentor de armazenamento que está a utilizar para imagens. Com qualquer um dos blobs no contentor e selecione o botão direito **propriedades**. Na caixa de diálogo, verá uma lista de pares chave-valor. A descrição da imagem gerada pelo computador é armazenada no item de "Legenda", e as palavras-chave de pesquisa são armazenadas em "Tag0", "Tag1" e assim por diante. Quando tiver terminado, clique em **Cancelar** para fechar a caixa de diálogo.
 
-![Metadados do blob](../Images/blob-metadata.png)
+![Janela de caixa de diálogo de propriedades de imagem, com marcas de metadados listados](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

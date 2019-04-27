@@ -3,8 +3,8 @@ title: Introdução ao fluxo de IP, certifique-se no observador de rede do Azure
 description: Esta página fornece uma descrição geral de integração do observador de rede capacidade de verificação de fluxo
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: d352fb2d-4b4f-4ac4-9c2e-1cfccf0e7e03
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2017
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 88cb7e2cd04d13ade5c581a1ff2dc09669d89ab2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838009"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532599"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Introdução ao fluxo de IP, certifique-se no observador de rede do Azure
 

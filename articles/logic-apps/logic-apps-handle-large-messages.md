@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303795"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Processar mensagens grandes com a segmentação no Azure Logic Apps
 
@@ -117,18 +117,18 @@ Estes passos descrevem o processo detalhado que Logic Apps utiliza para carregar
 
 1. A aplicação lógica envia um pedido de HTTP POST ou PUT inicial com um corpo de mensagem vazio. O cabeçalho do pedido, inclui estas informações sobre o conteúdo que quer que a aplicação lógica para carregar em blocos:
 
-   | Campo de cabeçalho do pedido de aplicações lógicas | Valor | Tipo | Descrição |
+   | Campo de cabeçalho do pedido de aplicações lógicas | Value | Type | Descrição |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transferência-modo** | segmentado | Cadeia | Indica que o conteúdo é carregado em blocos |
-   | **x-ms-content-length** | <*comprimento do conteúdo*> | Número inteiro | O tamanho do conteúdo todo em bytes antes de segmentação |
+   | **x-ms-transfer-mode** | chunked | String | Indica que o conteúdo é carregado em blocos |
+   | **x-ms-content-length** | <*content-length*> | Número inteiro | O tamanho do conteúdo todo em bytes antes de segmentação |
    ||||
 
 2. O ponto final responde com o código de estado de sucesso "200" e estas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto final | Tipo | Necessário | Descrição |
+   | Campo de cabeçalho de resposta do ponto final | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
-   | **x-ms--tamanho do segmento** | Número inteiro | Não | O tamanho do segmento sugerido em bytes |
-   | **Localização** | Cadeia | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
+   | **x-ms-chunk-size** | Número inteiro | Não | O tamanho do segmento sugerido em bytes |
+   | **Localização** | String | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
    ||||
 
 3. A aplicação lógica cria e envia mensagens de HTTP PATCH seguimento - cada um com estas informações:
@@ -137,11 +137,11 @@ Estes passos descrevem o processo detalhado que Logic Apps utiliza para carregar
 
    * Estes detalhes de cabeçalho sobre o conteúdo segmentos enviados em cada mensagem de PATCH:
 
-     | Campo de cabeçalho do pedido de aplicações lógicas | Valor | Tipo | Descrição |
+     | Campo de cabeçalho do pedido de aplicações lógicas | Value | Type | Descrição |
      |---------------------------------|-------|------|-------------|
-     | **Intervalo de conteúdos** | <*Intervalo*> | Cadeia | O intervalo de bytes para o segmento atual do conteúdo, incluindo o valor inicial, terminando o valor e o tamanho total do conteúdo, por exemplo: "bytes = 0-1023/10100" |
-     | **Tipo de conteúdo** | <*tipo de conteúdo*> | Cadeia | O tipo de conteúdo em partes |
-     | **Comprimento do conteúdo** | <*comprimento do conteúdo*> | Cadeia | O comprimento do tamanho em bytes do segmento atual |
+     | **Content-Range** | <*range*> | String | O intervalo de bytes para o segmento atual do conteúdo, incluindo o valor inicial, terminando o valor e o tamanho total do conteúdo, por exemplo: "bytes = 0-1023/10100" |
+     | **Content-Type** | <*content-type*> | String | O tipo de conteúdo em partes |
+     | **Content-Length** | <*content-length*> | String | O comprimento do tamanho em bytes do segmento atual |
      |||||
 
 4. Depois de cada pedido de PATCH, o ponto final confirma o recebimento para cada bloco de responder com o código de estado "200".

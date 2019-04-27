@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322238"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>O Azure Event Grid esquemas para eventos de serviços de multimédia
 
@@ -457,7 +457,7 @@ O objeto de dados tem as seguintes propriedades:
 | trackType | string | Tipo da faixa (áudio / vídeo). |
 | trackName | string | Nome da faixa. |
 | Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
-| carimbo de data/hora | string | Timestamp do segmento de dados removida. |
+| timestamp | string | Timestamp do segmento de dados removida. |
 | escala temporal | string | Escala temporal do período de tempo. |
 | resultCode | string | Motivo da lista de segmentos de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
@@ -500,7 +500,7 @@ O objeto de dados tem as seguintes propriedades:
 | ingestUrl | string | Ingestão de URL fornecido pelo evento em direto. |
 | encoderIp | string  | IP do codificador. |
 | encoderPort | string | Porta do codificador de onde vem esse fluxo. |
-| carimbo de data/hora | string | Primeira timestamp do segmento de dados recebido. |
+| timestamp | string | Primeira timestamp do segmento de dados recebido. |
 | escala temporal | string | Escala temporal em que é representado timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync

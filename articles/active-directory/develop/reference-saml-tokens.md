@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298262"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do AD do Azure
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no
 > |Name | `unique_name` |Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e foi concebido para ser utilizado apenas para fins de exibição. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |ID de objeto | `oid` |Contém um identificador exclusivo de um objeto no Azure AD. Este valor é imutável e não pode ser reatribuído ou reutilizado. Utilize o ID de objeto para identificar um objeto nas consultas para o Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |Funções | `roles` |Representa todas as funções de aplicação que o assunto tenha sido concedido são feitas direta e indiretamente através da associação de grupo e pode ser usado para impor o controlo de acesso baseado em funções. Funções de aplicação são definidas numa base por aplicação, através do `appRoles` propriedade do manifesto do aplicativo. O `value` propriedade de cada função de aplicação é o valor que é apresentado na afirmação de funções. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Requerente | `sub` |Identifica a entidade de segurança sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizados, por isso, ele pode ser utilizado para realizar verificações de autorização com segurança. Uma vez que o assunto é sempre presente nos tokens de problemas do Azure AD, recomendamos utilizar este valor num sistema de autorização de fins gerais. <br> `SubjectConfirmation` Não é uma afirmação. Ele descreve como o assunto do token é verificado. `Bearer` indica que o assunto é confirmado pela sua posse do token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Subject | `sub` |Identifica a entidade de segurança sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizados, por isso, ele pode ser utilizado para realizar verificações de autorização com segurança. Uma vez que o assunto é sempre presente nos tokens de problemas do Azure AD, recomendamos utilizar este valor num sistema de autorização de fins gerais. <br> `SubjectConfirmation` Não é uma afirmação. Ele descreve como o assunto do token é verificado. `Bearer` indica que o assunto é confirmado pela sua posse do token. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |ID do inquilino | `tid` |Um identificador de imutável, não reutilizável que identifica o inquilino do diretório que emitiu o token. Pode utilizar este valor para aceder aos recursos de diretório específico de inquilino num aplicativo de multi-inquilino. Por exemplo, pode utilizar este valor para identificar o inquilino numa chamada para a Graph API. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Duração do Token | `nbf`, `exp` |Define o intervalo de tempo durante o qual um token é válido. O serviço que valida o token deve verificar que a data atual está dentro da duração do token, outra que ele deve rejeitar o token. O serviço poderá permitir até cinco minutos, além do intervalo de duração do token para levar em conta as diferenças no tempo do relógio ("distorção de tempo") entre o Azure AD e o serviço. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 

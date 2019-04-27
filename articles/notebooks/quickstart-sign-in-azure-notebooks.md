@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
 ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237959"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e definir um ID de utilizador
 

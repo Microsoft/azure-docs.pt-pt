@@ -15,11 +15,11 @@ ms.date: 01/14/2019
 ms.author: mbaldwin
 ms.custom: seodec18
 ms.openlocfilehash: 4af2db5af49e1fc70ee46f4fc4c953731daedf0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445758"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Início rápido: Encriptar uma VM de IaaS do Windows com o Azure PowerShell
 

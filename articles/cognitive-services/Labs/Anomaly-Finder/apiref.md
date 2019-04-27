@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
 ms.openlocfilehash: 8e56bdd184c93ab0346e9800676083e3d1c6d30d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309552"
 ---
 # <a name="anomaly-finder-api-reference"></a>Referência da API do localizador de anomalias
 

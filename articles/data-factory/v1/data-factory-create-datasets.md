@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487270"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -235,8 +235,8 @@ A tabela seguinte descreve as propriedades que pode utilizar a secção de dispo
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |ND |
-| intervalo |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido. Por exemplo, se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo não menos do que 15. |Sim |ND |
+| frequency |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |ND |
+| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido. Por exemplo, se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo não menos do que 15. |Sim |ND |
 | Estilo |Especifica se o setor de deve ser produzido no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definida como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definida como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definida como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definida como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de 1 PM - 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo scheduler para computar os limites de setor de conjunto de dados. <br/><br/>Tenha em atenção que, se esta propriedade tem partes de data que são mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes de minutos e segundos da **anchorDateTime** são ignorados. |Não |01/01/0001 |
 | offset |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/>Observe que, se os dois **anchorDateTime** e **deslocamento** forem especificados, o resultado é a mudança combinada. |Não |ND |

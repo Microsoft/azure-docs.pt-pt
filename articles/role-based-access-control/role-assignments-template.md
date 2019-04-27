@@ -14,11 +14,11 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344605"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerir o acesso aos recursos do Azure com modelos RBAC e do Azure Resource Manager
 
@@ -252,5 +252,5 @@ Para implementar o modelo anterior com a CLI do Azure, siga estes passos.
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Quickstart: Criar e implementar modelos Azure Resource Manager com o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

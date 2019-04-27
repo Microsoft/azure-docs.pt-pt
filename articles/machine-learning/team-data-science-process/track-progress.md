@@ -11,11 +11,11 @@ ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252582"
 ---
 # <a name="tracking-the-progress-of-data-science-projects"></a>Rastreamento do progresso de projetos de ciência de dados
 

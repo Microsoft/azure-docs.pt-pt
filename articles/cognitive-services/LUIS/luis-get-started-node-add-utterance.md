@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 01/17/2019
 ms.author: diberry
 ms.openlocfilehash: e2a8bed2b07934bf178ea338e074ec8e239ee646
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196400"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Início rápido: Modelo de alteração com node. js
 

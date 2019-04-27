@@ -3,8 +3,8 @@ title: Exemplo de script da CLI do Azure - encaminhar o tráfego através de uma
 description: Exemplo de script da CLI do Azure - encaminhar o tráfego através de uma aplicação virtual de rede de firewall.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: e935aff95c0a37525de343e808cf2e88791fce30
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309791"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Encaminhar o tráfego através de um exemplo de script da aplicação virtual de rede
 

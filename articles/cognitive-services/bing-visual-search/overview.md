@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
 ms.openlocfilehash: 8bcb0372ebb60ac3a46cf06bf85322b288e153ba
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511499"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 

@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292219"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para início de sessão único federado
 

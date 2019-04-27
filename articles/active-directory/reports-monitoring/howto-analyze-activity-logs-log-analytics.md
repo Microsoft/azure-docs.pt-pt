@@ -1,6 +1,6 @@
 ---
-title: Analisar registos de atividades do Azure Active Directory através de registos do Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Saiba como analisar registos de atividades do Azure Active Directory através de registos do Azure Monitor (pré-visualização)
+title: Analisar registos de atividades do Azure Active Directory com os registos do Azure Monitor | Documentos da Microsoft
+description: Saiba como analisar registos de atividades do Azure Active Directory com os registos do Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60438241"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Azure AD de analisar os registos de atividades com os registos do Azure Monitor (pré-visualização)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure AD de analisar os registos de atividades com os registos do Azure Monitor
 
 Depois de [integrar o Azure AD registos de atividades com os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), pode utilizar o poder do Azure Monitor registos para obter informações sobre o seu ambiente. Também pode instalar o [vistas de análise para a atividade do Azure AD de registo registos](howto-install-use-log-analytics-views.md) para obter acesso aos relatórios criados previamente em torno de auditoria e eventos de início de sessão no seu ambiente.
 

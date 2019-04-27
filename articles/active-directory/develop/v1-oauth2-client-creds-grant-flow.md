@@ -19,11 +19,11 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74c79dbfb397a8e6d87de75b5468414f2b7adf2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251724"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Chamadas serviço a serviço com as credenciais de cliente (segredo partilhado ou certificado)
 

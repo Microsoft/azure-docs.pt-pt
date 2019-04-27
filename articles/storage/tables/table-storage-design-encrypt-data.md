@@ -9,11 +9,11 @@ ms.date: 04/11/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: f56946702011968a0fcb31f6fbecbaacdc89ea42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326008"
 ---
 # <a name="encrypt-table-data"></a>Encriptar dados da tabela
 Biblioteca de cliente de armazenamento do Azure de .NET suporta a encriptação das propriedades de entidade de cadeia de caracteres para inserir e substitua operações. As cadeias de caracteres encriptadas são armazenadas no serviço como propriedades binárias e elas são convertidas para cadeias de caracteres após desencriptação.    

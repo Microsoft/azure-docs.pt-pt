@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465381"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar a existência de práticas recomendadas do Kubernetes no seu cluster
 
@@ -27,7 +27,7 @@ O [ferramenta de aconselhamento kube] [ kube-advisor-github] é um único conten
 
 ## <a name="running-kube-advisor"></a>A executar o Assistente do kube
 
-Para executar a ferramenta num cluster que está configurado para [controlo de acesso baseado em funções (RBAC)](aad-integration.md), com os comandos seguintes. O primeiro comando cria uma conta de serviço do Kubernetes. O segundo comando executa a ferramenta num pod com essa conta de serviço e configura o pod para eliminação após sai. 
+Para executar a ferramenta num cluster que está configurado para [controlo de acesso baseado em funções (RBAC)](azure-ad-integration.md), com os comandos seguintes. O primeiro comando cria uma conta de serviço do Kubernetes. O segundo comando executa a ferramenta num pod com essa conta de serviço e configura o pod para eliminação após sai. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337345"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ligar funções de serviços do Azure na nuvem a um controlador de domínio do AD alojado no Azure de personalizado
 Vamos primeiro configurar uma rede Virtual (VNet) no Azure. Em seguida, vamos adicionar um controlador de domínio do Active Directory (alojada numa máquina Virtual do Azure) para a VNet. Em seguida, podemos irá adicionar as funções de serviço cloud existentes para a VNet previamente criada, em seguida, ligá-los para o controlador de domínio.

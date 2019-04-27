@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337535"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Descrição geral dos serviços Cloud do Azure
 Serviços Cloud do Azure é um exemplo de um [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Como [App Service do Azure](../app-service/overview.md), esta tecnologia foi concebida para suportar aplicações que são escaláveis, fiáveis e de baixo custo operar. Da mesma forma que o serviço de aplicações é alojado em máquinas virtuais (VMs), portanto, é demasiado serviços Cloud do Azure. No entanto, tem mais controlo sobre as VMs. Pode instalar o seu próprio software nas VMs que utilizam serviços Cloud do Azure, e pode acessá-los remotamente.

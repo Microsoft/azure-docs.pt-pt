@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: dkshir
 ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533541"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionar a sua criação e o monitor trabalhar condições duplos Digital do Azure
 

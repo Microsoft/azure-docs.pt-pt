@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196704"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão
 Depois de uma aplicação do LUIS recebe expressões de ponto de extremidade, utilize um [padrão](luis-concept-patterns.md) para melhorar a exatidão da previsão para expressões que revelam um padrão na ordem das palavras e a escolha do word. Padrões de utilizam específico [sintaxe](luis-concept-patterns.md#pattern-syntax) para indicar a localização dos: [entidades](luis-concept-entity-types.md), entidade [funções](luis-concept-roles.md)e o texto opcional.

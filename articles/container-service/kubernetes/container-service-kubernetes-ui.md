@@ -10,11 +10,11 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309771"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(PRETERIDO) Utilizar a IU web do Kubernetes com o Azure Container Service
 
@@ -123,7 +123,7 @@ Em primeiro lugar, clique em **implementações** no painel de navegação à es
 
 Assim que estiver em exibição, clique no conjunto de réplicas e, em seguida, clique em **editar** na barra de navegação superior:
 
-![Edição do Kubernetes](./media/container-service-kubernetes-ui/edit.png)
+![Kubernetes Edit](./media/container-service-kubernetes-ui/edit.png)
 
 Editar a `spec.replicas` campo esteja `2`e clique em **atualização**.
 

@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 115354985284b090fef890068ade6ddaf5867f04
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474115"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Descrição geral sobre como alterar seus métodos de informações (pré-visualização) de segurança e informações
 Pode adicionar, editar, eliminar e alterar o seu método de informações de segurança do padrão de dentro do **informações de segurança** páginas. Para obter mais informações sobre cada método e como alterar as informações, consulte o artigo associado, com base no método.

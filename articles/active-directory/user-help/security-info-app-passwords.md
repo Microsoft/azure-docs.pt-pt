@@ -13,11 +13,11 @@ ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475117"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerir palavras-passe de aplicação a partir da sua página de informações (pré-visualização) de segurança
 Certas aplicações, como o Outlook 2010, não oferecem suporte a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos na sua organização, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.

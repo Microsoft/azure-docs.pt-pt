@@ -9,11 +9,11 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237630"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar para alteração de formato para os registos de diagnóstico do Azure Monitor arquivado para uma conta de armazenamento
 

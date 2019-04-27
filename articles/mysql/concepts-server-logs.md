@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525830"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registos do servidor na base de dados do Azure para MySQL
 Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas. 

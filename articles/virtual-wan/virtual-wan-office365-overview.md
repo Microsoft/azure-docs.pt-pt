@@ -7,14 +7,14 @@ services: virtual-wan
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 815b91295540e93f8f0ffbc002fcf02ce1c13365
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458607"
 ---
-# <a name="office-365-control-plane-in-virtual-wan"></a>Plano de controlo do Office 365 na Virtual WAN
+# <a name="office-365-control-plane-in-virtual-wan"></a>Plano de controlo do Office 365 em WAN Virtual
 
 Os clientes WAN virtual com determinados dispositivos SDWAN podem configurar políticas de abertas de Internet do Office 365 para o tráfego fidedigno no portal do Azure. Isso permite:
 - Tráfego do O365 para introduzir a rede da Microsoft perto de utilizador, dando a experiência de usuário ideal.

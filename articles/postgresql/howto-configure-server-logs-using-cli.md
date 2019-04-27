@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700201"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421198"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos de servidor com a CLI do Azure
 Pode transferir os registos de erros de servidor PostgreSQL, utilizando a interface de linha de comandos (CLI do Azure). No entanto, o acesso aos logs de transação não é suportado. 

@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345856"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividades do Azure
 Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell ou CLI de várias plataformas para arquivar sua [ **registo de atividades do Azure** ](../../azure-monitor/platform/activity-logs-overview.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter o registo de atividades mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estática. Se só precisa de manter seus eventos durante 90 dias ou menos não é necessário configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de Atividades são mantidos na plataforma do Azure durante 90 dias sem ativar arquivamento.
@@ -61,7 +61,7 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 | StorageAccountId |Sim |ID de recurso da conta do Storage para o qual os registos de atividades devem ser salvos. |
 | Localizações |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. Pode ver uma lista de todas as regiões para a sua subscrição com `(Get-AzLocation).Location`. |
 | RetentionInDays |Não |Número de dias para que eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazena os logs de indefinidamente (Eterno). |
-| Categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação.  Se não for indicado, em seguida, todos os valores possíveis são pressupõe-se |
+| Categories |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação.  Se não for indicado, em seguida, todos os valores possíveis são pressupõe-se |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arquivar o registo de atividade através da CLI
 
@@ -154,10 +154,10 @@ No ficheiro PT1H.json cada evento é armazenado na matriz "registos", seguindo e
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| hora |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
+| time |Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
 | resourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
-| categoria |Categoria da ação, por exemplo. Escrita, leitura, a ação. |
+| category |Categoria da ação, por exemplo. Escrita, leitura, a ação. |
 | resultType |O tipo de resultado, por exemplo. Início de sucesso, falha, |
 | resultSignature |Depende do tipo de recurso. |
 | durationMs |Duração da operação em milissegundos |
@@ -167,7 +167,7 @@ No ficheiro PT1H.json cada evento é armazenado na matriz "registos", seguindo e
 | Autorização |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso", "Informativo" e "Verbose" |
 | localização |Região em que ocorreu a localização (ou global). |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
+| properties |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
 
 > [!NOTE]
 > As propriedades e o uso dessas propriedades podem variar dependendo do recurso.

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531810"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure
 
@@ -269,4 +269,4 @@ Para atualizar a função personalizada, atualize o ficheiro JSON e, em seguida,
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar funções personalizadas para recursos do Azure com a CLI do Azure](custom-roles-cli.md)
+> [Create custom roles for Azure resources using Azure CLI](custom-roles-cli.md) (Utilizar a CLI do Azure para criar funções personalizadas para recursos do Azure)

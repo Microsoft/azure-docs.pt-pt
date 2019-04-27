@@ -17,11 +17,11 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252231"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar o Microsoft Graph API a partir de uma aplicação plataforma Universal do Windows (XAML)
 

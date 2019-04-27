@@ -18,11 +18,11 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298652"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 

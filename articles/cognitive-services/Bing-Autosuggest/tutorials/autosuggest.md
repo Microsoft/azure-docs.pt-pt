@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: v-jaswel
 ms.openlocfilehash: 8a338eb6ea3dfeea2027d44487138f290f6c8803
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309356"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obter sugestões de pesquisa numa página da web
 

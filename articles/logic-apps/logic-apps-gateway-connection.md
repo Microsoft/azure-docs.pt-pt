@@ -10,11 +10,11 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304185"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 

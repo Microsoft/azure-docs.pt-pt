@@ -1,6 +1,6 @@
 ---
-title: Elemento de IU PasswordBox do Azure | Microsoft Docs
-description: Descreve o elemento de IU Microsoft.Common.PasswordBox para o portal do Azure.
+title: Elemento de interface do Usuário de PasswordBox do Azure | Documentos da Microsoft
+description: Descreve o elemento de interface do Usuário de Microsoft.Common.PasswordBox para o portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: adaece4a450f758c22ffecb356826962806d9d9b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251973"
 ---
-# <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento de IU Microsoft.Common.PasswordBox
-Um controlo que pode ser utilizado para fornecer e confirmar uma palavra-passe.
+# <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.PasswordBox
+Um controlo que pode ser utilizado para fornecer e confirme uma palavra-passe.
 
-## <a name="ui-sample"></a>Exemplo de IU
+## <a name="ui-sample"></a>Exemplo de interface do Usuário
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
 ## <a name="schema"></a>Esquema
@@ -50,8 +50,8 @@ Um controlo que pode ser utilizado para fornecer e confirmar uma palavra-passe.
 
 ## <a name="remarks"></a>Observações
 - Este elemento não suporta o `defaultValue` propriedade.
-- Para detalhes de implementação de `constraints`, consulte [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Se `options.hideConfirmation` está definido como **verdadeiro**, a segunda caixa de texto para confirmar a palavra-passe do utilizador está oculto. O valor predefinido é **falso**.
+- Para obter detalhes de implementação do `constraints`, consulte [Microsoft.Common.TextBox](microsoft-common-textbox.md).
+- Se `options.hideConfirmation` está definido como **true**, a segunda caixa de texto para confirmar a palavra-passe do utilizador está oculto. O valor predefinido é **false**.
 
 ## <a name="sample-output"></a>Resultado da amostra
 ```json
@@ -59,5 +59,5 @@ Um controlo que pode ser utilizado para fornecer e confirmar uma palavra-passe.
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

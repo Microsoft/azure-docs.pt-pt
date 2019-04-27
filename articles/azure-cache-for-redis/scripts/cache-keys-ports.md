@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: yegu
 ms.openlocfilehash: ff410db561879089c4c1f20acb7cb349f0484fda
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234324"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-cache-for-redis"></a>Obter o nome de anfitrião, portas e as chaves para a Cache do Azure para Redis
 

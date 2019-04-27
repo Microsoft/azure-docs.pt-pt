@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286865"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -52,7 +52,7 @@ Atualmente, o Azure Active Directory Deteta seis tipos de eventos de risco:
 A informação que obtém um evento de risco detetados está associada à sua subscrição do Azure AD. 
 
 * Com o **edição Azure AD Premium P2**, obtém as informações mais detalhadas sobre todas as detecções subjacentes. 
-* Com o **do Azure AD Premium P1 edition**, deteções de Trojans não são cobertas pela sua licença aparecem como o evento de risco **início de sessão com risco adicional detetado**.
+* Com o **do Azure AD Premium P1 edition**, avançado deteções (por exemplo, desconhecidas início de sessão propriedades) não são cobertas pela sua licença e será apresentado sob o nome **início de sessão com risco adicional detetado** . Além disso, os campos de detalhe de risco e o nível de risco estão ocultas.
 
 Embora a deteção de eventos de risco já representa um aspecto importante de proteger as identidades, tem também a opção a resolvê-los manualmente ou implementar respostas automáticas ao configurar políticas de acesso condicional. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

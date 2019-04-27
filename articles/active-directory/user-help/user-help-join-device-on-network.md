@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474540"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Associar o seu dispositivo de trabalho para a rede da sua organização
 Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua organização para que possa aceder a recursos potencialmente restritos.

@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: 122282d168246e34aaa4a6369f7433b167355887
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416743"
 ---
 # <a name="configure-dns-to-access-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Configurar o DNS para aceder a um domínio gerido do Azure AD Domain Services usando o LDAP seguro (LDAPS)
 
 ## <a name="before-you-begin"></a>Antes de começar
 Completa [tarefa 3: Ativar o LDAP seguro para o domínio gerido com o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
-## <a name="task-4-configure-dns-to-access-the-managed-domain-from-the-internet"></a>Tarefa 4: Configurar o DNS para aceder ao domínio gerido a partir da internet
+## <a name="task-4-configure-dns-to-access-the-managed-domain-from-the-internet"></a>Tarefa 4: configurar o DNS para aceder ao domínio gerido a partir da Internet
 > [!TIP]
 > **Tarefas opcionais** - se não planear acessar o domínio gerido com o LDAPS através da internet, ignorar esta tarefa de configuração.
 >

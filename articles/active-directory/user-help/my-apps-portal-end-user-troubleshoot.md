@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475032"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Resolver problemas relacionados com o portal as minhas aplicações
 Se estiver a ter problemas com a iniciar sessão ou ao utilizar o **as minhas aplicações** portal, experimente estes sugestões de resolução de problemas, antes de contactar o suporte técnico ou o seu administrador para obter ajuda.

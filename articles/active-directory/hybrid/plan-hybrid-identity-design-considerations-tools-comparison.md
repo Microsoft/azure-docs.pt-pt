@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456922"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação das ferramentas de integração de diretórios de identidade híbrida
 Ao longo dos anos, as ferramentas de integração de diretórios cresceram e evoluíram.  Este documento tem o objetivo de ajudar a fornecer uma visão consolidada destas ferramentas e uma comparação das funcionalidades que estão disponíveis em cada uma.

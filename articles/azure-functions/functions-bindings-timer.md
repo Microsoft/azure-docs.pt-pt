@@ -10,15 +10,16 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/08/2018
-ms.author: cshoe
+origin.date: 09/08/2018
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.custom: ''
 ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310048"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -197,7 +198,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Recomendamos a definição **runOnStartup** para `true` na produção. Com esta definição faz com código executar em momentos imprevisíveis altamente. Em determinadas configurações de produção, essas execuções Extras podem resultar em custos significativamente mais para aplicações alojadas nos planos de consumo. Por exemplo, com **runOnStartup** ativado o acionador na invocado sempre que a sua aplicação function app é dimensionada. Certifique-se de que compreende totalmente o comportamento de produção das suas funções antes de ativar **runOnStartup** na produção.   
+> Recomendamos a definição **runOnStartup** para `true` na produção. Com esta definição faz com código executar em momentos imprevisíveis altamente. Em determinadas configurações de produção, essas execuções Extras podem resultar em custos significativamente mais para aplicações alojadas nos planos de consumo. Por exemplo, com **runOnStartup** ativado o acionador na invocado sempre que a sua aplicação function app é dimensionada. Certifique-se de que compreende totalmente o comportamento de produção das suas funções antes de ativar **runOnStartup** na produção.
 
 ## <a name="usage"></a>Utilização
 
@@ -314,3 +315,5 @@ Para obter informações sobre o que fazer quando o acionador de temporizador n�
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
+
+<!-- Update_Description: wording update -->

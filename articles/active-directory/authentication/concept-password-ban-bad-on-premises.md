@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415859"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
 

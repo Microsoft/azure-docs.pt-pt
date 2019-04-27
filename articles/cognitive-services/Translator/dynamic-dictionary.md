@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.openlocfilehash: 0b4362d78ef105c249aafb4c6b203f69754a56c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916602"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507985"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Como utilizar a funcionalidade de dicionário dinâmica da API de texto do tradutor
 

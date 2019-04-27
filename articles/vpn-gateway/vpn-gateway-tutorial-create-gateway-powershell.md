@@ -9,11 +9,11 @@ ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 790a8b74f437fe8fd7b8660c2ac9d208328b487f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457669"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir um gateway de VPN com o PowerShell
 

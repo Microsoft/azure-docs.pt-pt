@@ -10,11 +10,11 @@ ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329825"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480389"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(PRETERIDO) Criar e montar uma partilha de ficheiros para um cluster DC/OS
 

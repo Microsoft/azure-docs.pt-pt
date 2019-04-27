@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325889"
 ---
 # <a name="design-for-data-modification"></a>Design da modificação de dados
 Este artigo concentra-se em considerações de design para otimizar as inserções, atualizações e eliminações. Em alguns casos, terá de avaliar os designs que otimizar para a consulta em relação a designs que otimizar para modificação de dados, tal como acontece no designs para bases de dados relacionais (embora as técnicas para gerenciar as compensações de design são diferentes aspetos diferentes na base de dados relacional). Os padrões de Design de tabela de seção descreve alguns padrões de design detalhado para o serviço de tabela e destaca alguns essas compensações. Na prática, verá que muitos designs otimizados para consultar entidades também funcionam bem para modificar entidades.  

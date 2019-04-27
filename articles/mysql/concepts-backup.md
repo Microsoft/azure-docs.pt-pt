@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6fe5aea9b8fa87efdfa7cc57716cf548a52e076b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532132"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Cópia de segurança e restauro na base de dados do Azure para MySQL
 

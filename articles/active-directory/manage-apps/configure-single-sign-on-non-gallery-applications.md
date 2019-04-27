@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292082"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o início de sessão único para aplicações externas à galeria no Azure Active Directory
 

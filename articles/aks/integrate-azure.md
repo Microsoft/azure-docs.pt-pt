@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
 ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465568"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integração com serviços geridos pelo Azure com o Open Service Broker for Azure (OSBA)
 

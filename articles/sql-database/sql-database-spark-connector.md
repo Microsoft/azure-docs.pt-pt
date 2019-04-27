@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331527"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelerar a análise de macrodados em tempo real com o conector do Spark para a base de dados do Azure SQL e SQL Server
 

@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
 ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618214"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502277"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps e Microsoft Flow
 
@@ -759,12 +759,12 @@ and(<expression1>, <expression2>, ...)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Expression1*>, <*expression2*>,... | Sim | Booleano | As expressões para verificar |
+| <*Expression1*>, <*expression2*>,... | Sim | Boolean | As expressões para verificar |
 |||||
 
 | Valor de retorno | Type | Descrição |
 | ------------ | -----| ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando todas as expressões forem verdadeiras. Retornar false quando pelo menos uma expressão é falsa. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando todas as expressões forem verdadeiras. Retornar false quando pelo menos uma expressão é falsa. |
 ||||
 
 *Exemplo 1*
@@ -926,7 +926,7 @@ E devolve o resultado: `"hello"`
 
 <a name="binary"></a>
 
-### <a name="binary"></a>binário
+### <a name="binary"></a>binary
 
 Devolva a versão binária para uma cadeia de caracteres.
 
@@ -1020,7 +1020,7 @@ bool(<value>)
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | A versão booleana para o valor especificado |
+| VERDADEIRO ou FALSO | Boolean | A versão booleana para o valor especificado |
 ||||
 
 *Exemplo*
@@ -1131,7 +1131,7 @@ Especificamente, essa função funciona nestes tipos de coleção:
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o item é encontrado. Retornar falso quando não encontrado. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando o item é encontrado. Retornar falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1678,7 +1678,7 @@ empty([<collection>])
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando a coleção está vazia. Retornar falso quando não está vazio. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando a coleção está vazia. Retornar falso quando não está vazio. |
 ||||
 
 *Exemplo*
@@ -1715,7 +1715,7 @@ endsWith('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando a subcadeia final é encontrada. Retornar falso quando não encontrado. |
+| VERDADEIRO ou FALSO  | Boolean | Devolve verdadeiro quando a subcadeia final é encontrada. Retornar falso quando não encontrado. |
 ||||
 
 *Exemplo 1*
@@ -1756,7 +1756,7 @@ equals('<object1>', '<object2>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando ambos são equivalentes. Retornar falso quando não é equivalente. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando ambos são equivalentes. Retornar falso quando não é equivalente. |
 ||||
 
 *Exemplo*
@@ -1826,7 +1826,7 @@ float('<value>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Flutuante | O número de vírgula flutuante para a cadeia especificada |
+| <*float-value*> | Float | O número de vírgula flutuante para a cadeia especificada |
 ||||
 
 *Exemplo*
@@ -2041,7 +2041,7 @@ greater('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é maior do que o segundo valor. Retornar falso quando o primeiro valor é igual ou menor que o segundo valor. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando o primeiro valor é maior do que o segundo valor. Retornar falso quando o primeiro valor é igual ou menor que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2078,7 +2078,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é maior que ou igual ao segundo valor. Retornar falso quando o primeiro valor é menor do que o segundo valor. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando o primeiro valor é maior que ou igual ao segundo valor. Retornar falso quando o primeiro valor é menor do que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2144,7 +2144,7 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | Sim | Booleano | A expressão para verificar |
+| <*expression*> | Sim | Boolean | A expressão para verificar |
 | <*valueIfTrue*> | Sim | Qualquer | O valor a devolver quando a expressão for verdadeira |
 | <*valueIfFalse*> | Sim | Qualquer | O valor a devolver quando a expressão é falsa |
 |||||
@@ -2530,7 +2530,7 @@ less('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando o primeiro valor é menor do que o segundo valor. Retornar falso quando o primeiro valor é igual ou maior do que o segundo valor. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando o primeiro valor é menor do que o segundo valor. Retornar falso quando o primeiro valor é igual ou maior do que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2567,7 +2567,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando o primeiro valor é menor ou igual ao segundo valor. Retornar falso quando o primeiro valor é maior do que o segundo valor. |
+| VERDADEIRO ou FALSO  | Boolean | Devolve verdadeiro quando o primeiro valor é menor ou igual ao segundo valor. Retornar falso quando o primeiro valor é maior do que o segundo valor. |
 ||||
 
 *Exemplo*
@@ -2773,12 +2773,12 @@ not(<expression>)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | Sim | Booleano | A expressão para verificar |
+| <*expression*> | Sim | Boolean | A expressão para verificar |
 |||||
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando a expressão é falsa. Retornar falso quando a expressão for verdadeira. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando a expressão é falsa. Retornar falso quando a expressão for verdadeira. |
 ||||
 
 *Exemplo 1*
@@ -2822,12 +2822,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Expression1*>, <*expression2*>,... | Sim | Booleano | As expressões para verificar |
+| <*Expression1*>, <*expression2*>,... | Sim | Boolean | As expressões para verificar |
 |||||
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO | Booleano | Devolve verdadeiro quando pelo menos uma expressão é verdadeira. Retorne false quando todas as expressões forem falsos. |
+| VERDADEIRO ou FALSO | Boolean | Devolve verdadeiro quando pelo menos uma expressão é verdadeira. Retorne false quando todas as expressões forem falsos. |
 ||||
 
 *Exemplo 1*
@@ -2860,7 +2860,7 @@ E retornar esses resultados:
 
 <a name="parameters"></a>
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>parameters
 
 Devolva o valor para um parâmetro que é descrito na sua definição de fluxo de trabalho.
 
@@ -3226,7 +3226,7 @@ startsWith('<text>', '<searchText>')
 
 | Valor de retorno | Type | Descrição |
 | ------------ | ---- | ----------- |
-| VERDADEIRO ou FALSO  | Booleano | Devolve verdadeiro quando a subcadeia inicial é encontrada. Retornar falso quando não encontrado. |
+| VERDADEIRO ou FALSO  | Boolean | Devolve verdadeiro quando a subcadeia inicial é encontrada. Retornar falso quando não encontrado. |
 ||||
 
 *Exemplo 1*

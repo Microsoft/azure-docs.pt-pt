@@ -18,11 +18,11 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502192"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introdução à máquina de Virtual de ciência de dados de Inteligência Artificial Geo
 

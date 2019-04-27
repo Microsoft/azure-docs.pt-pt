@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309118"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **SapBw** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **SapBw** | Sim |
 | servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
@@ -125,7 +125,7 @@ Para copiar dados do SAP BW, defina o tipo de origem na atividade de cópia para
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
 | consulta | Especifica a consulta MDX para ler dados a partir da instância do SAP BW. | Sim |
 
 **Exemplo:**

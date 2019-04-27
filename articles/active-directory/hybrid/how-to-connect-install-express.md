@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244545"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.

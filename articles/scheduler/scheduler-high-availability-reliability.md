@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50ab6cfefe4a7df9d671e7fd1287aa16b803f260
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533388"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Elevada disponibilidade e fiabilidade do Scheduler do Azure
 
 > [!IMPORTANT]
-> [O Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [Experimente o Azure Logic Apps antes](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> O [Azure Logic Apps](../logic-apps/logic-apps-overview.md) está a substituir o Microsoft Azure Scheduler, que está a ser descontinuado. Para agendar tarefas, [experimente antes o Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 O Azure Scheduler fornece [elevada disponibilidade](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) e fiabilidade para os trabalhos. Para obter mais informações, consulte [SLA do Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -50,7 +50,7 @@ O Azure Scheduler garante sua própria elevada disponibilidade, mas utiliza uma 
 
 <a name="retry-policies"></a>
 
-### <a name="retry-policies"></a>Políticas de repetição
+### <a name="retry-policies"></a>Repetir políticas
 
 O Azure Scheduler permite-lhe configurar as políticas de repetição. Se uma tarefa falhar, em seguida, por predefinição, o Scheduler tentará novamente a tarefa de quatro vezes mais em intervalos de 30 segundos. Pode fazer esta política de repetição intervalos mais agressivos, por exemplo, 10 vezes em intervalos de 30 segundos ou menos agressivos, por exemplo, duas vezes no diário.
 
@@ -72,7 +72,7 @@ Para saber como configurar um ponto final alternativo, consulte [errorAction](sc
 
 ## <a name="see-also"></a>Consulte também
 
-* [O que é o agendador do Azure?](scheduler-intro.md)
+* [O que é o Microsoft Azure Scheduler?](scheduler-intro.md)
 * [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)
-* [Limites, quotas, valores padrão e códigos de erro](scheduler-limits-defaults-errors.md)
+* [Limites, quotas, valores predefinidos e códigos de erro](scheduler-limits-defaults-errors.md)

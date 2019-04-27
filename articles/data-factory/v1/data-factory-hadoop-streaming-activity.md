@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486350"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados com a atividade de transmissão em fluxo do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]

@@ -5,16 +5,16 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453829"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorizar a utilização e custos estimados no Azure Monitor
 
@@ -102,155 +102,14 @@ A estimativa de custos mostra os efeitos dessas alterações.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços
 
-Se tiver decidido a adotar o novo modelo de preços para obter uma subscrição, selecione o **seleção de modelo de preços** opção na parte superior a **utilização e custos estimados** página:
+Se decidir adotar o novo modelo de preços para uma determinada subscrição, aceda a cada recurso do Application Insights, abra a **utilização e custos estimados** e certifique-se de que está a ser o escalão de preços básico e aceda a cada Log Analytics área de trabalho, abra a **escalão de preço** página e altere para o **por GB (2018)** escalão de preço. 
 
-![Monitorizar a utilização e custos estimados no novo preço captura de ecrã do modelo](./media/usage-estimated-costs/006.png)
-
-O **seleção de modelo de preços** será aberta a página. Mostra uma lista de cada uma das subscrições que exibida na página anterior:
-
-![Captura de ecrã de seleção de modelo de preços](./media/usage-estimated-costs/007.png)
-
-Para mover uma subscrição para o novo modelo de preços, basta selecionar a caixa e, em seguida, selecione **guardar**. Pode mover novamente para o modelo de preços mais antigo da mesma forma. Tenha em mente que esse proprietário da subscrição ou são necessárias permissões de Contribuidor para alterar o modelo de preços.
+> [!NOTE]
+> O requisito de que todos os recursos do Application Insights e áreas de trabalho do Log Analytics numa determinada subscrição adotam o modelo de preços mais recente foi removido, que permite maior flexibilidade e a configuração mais fácil. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatizar a migração para o novo modelo de preços
 
-Os scripts abaixo exigem o módulo do PowerShell do Azure. Para verificar se tem a versão mais recente, consulte [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+Conforme indicado acima, o já não é um requisito para mover todos os recursos de monitorização numa subscrição para o novo modelo de preços, ao mesmo tempo e, por conseguinte, o ``migratetonewpricingmodel`` ação já não terá qualquer efeito. Agora pode mover recursos do Application Insights e áreas de trabalho do Log Analytics separadamente para os escalões de preços mais recentes.  
 
-Assim que tiver a versão mais recente do Azure PowerShell, primeiro terá de executar ``Connect-AzAccount``.
+Automatizar essa alteração é documentado para o Application Insights com [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) com ``-PricingPlan "Basic"`` e a utilização do Log Analytics [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) com ``-sku "PerGB2018"``. 
 
-``` PowerShell
-# To check if your subscription is eligible to adjust pricing models.
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-Um resultado True em isGrandFatherableSubscription indica que o modelo de preços desta subscrição pode ser movido entre modelos de preços. A falta de um valor em optedInDate significa que esta subscrição está atualmente configurada para o modelo de preços antigo.
-
-```
-isGrandFatherableSubscription optedInDate
------------------------------ -----------
-                         True            
-```
-
-Para migrar esta subscrição para o novo modelo de preços execute:
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-```
-
-Para confirmar que a alteração foi efetuada com êxito volte a executar:
-
-```powershell
-$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-```
-
-Se a migração foi concluída com êxito, o resultado deverá agora ser semelhante:
-
-```
-isGrandFatherableSubscription optedInDate                      
------------------------------ -----------                      
-                         True 2018-05-31T13:52:43.3592081+00:00
-```
-
-O optInDate agora contém um carimbo de quando esta subscrição selecionada para o novo modelo de preços.
-
-Se precisar de reverter para o modelo de preços antigo, deve executar:
-
-```powershell
- $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action rollbacktolegacypricingmodel `
- -Force
-```
-
-Se, em seguida, execute novamente o script anterior que tenha ``-Action listmigrationdate``, deverá ver um valor de optedInDate vazia que indica a sua subscrição foi devolvida para o modelo de preços legado.
-
-Se tiver várias subscrições, o que deseja migrar que estão alojados no mesmo inquilino, pode criar seu próprio variante usando partes dos seguintes scripts:
-
-```powershell
-#Query tenant and create an array comprised of all of your tenants subscription IDs
-$TenantId = <Your-tenant-id>
-$Tenant =Get-AzSubscription -TenantId $TenantId
-$Subscriptions = $Tenant.Id
-```
-
-Para verificar se todas as subscrições no seu inquilino são elegíveis para o novo modelo de preços, pode executar:
-
-```powershell
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-}
-```
-
-O script poderia ser refinado adicional através da criação de um script que gera três matrizes. Uma matriz consistirá em subscrição todos os IDs tenham ```isGrandFatherableSubscription``` definida como True e optedInDate não tem atualmente um valor. Uma segunda matriz de quaisquer subscrições atualmente no novo modelo de preços. E uma matriz de terceiro preenchida apenas com IDs de subscrição no seu inquilino que não são elegíveis para o novo modelo de preços:
-
-```powershell
-[System.Collections.ArrayList]$Eligible= @{}
-[System.Collections.ArrayList]$NewPricingEnabled = @{}
-[System.Collections.ArrayList]$NotEligible = @{}
-
-Foreach ($id in $Subscriptions)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action listmigrationdate `
- -Force
-
-     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
-     {
-     $Eligible.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
-     {
-     $NewPricingEnabled.Add($id)
-     }
-
-     elseif ($Result.isGrandFatherableSubscription -eq $False)
-     {
-     $NotEligible.add($id)
-     }
-}
-```
-
-> [!NOTE]
-> Dependendo do número de subscrições, o script acima pode demorar algum tempo para ser executado. Devido ao uso do método .add() a janela do PowerShell irá retornar valores incrementação que itens são adicionados a cada matriz.
-
-Agora que tem as suas subscrições divididas em três matrizes Revise cuidadosamente os seus resultados. Pode querer fazer uma cópia de segurança do conteúdo das matrizes, para que pode facilmente reverter as alterações caso precise no futuro. Se decidiu, pretendesse converter todas as subscrições elegíveis que estão atualmente no antigo modelo de preços para o novo modelo de preços que essa tarefa, agora pode ser realizada com:
-
-```powershell
-Foreach ($id in $Eligible)
-{
-$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzResourceAction `
- -ResourceId $ResourceID `
- -ApiVersion "2017-10-01" `
- -Action migratetonewpricingmodel `
- -Force
-}
-
-```

@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd26fa53c91c53893c7f326afda5158fa430be1e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188142"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248166"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não-administrador aos utilizadores no Azure Active Directory
 Se um utilizador na sua organização necessita da permissão para gerir os recursos do Azure Active Directory (Azure AD), tem de atribuir ao utilizador uma função adequada no Azure AD, com base nas ações que o utilizador tem permissão para executar.

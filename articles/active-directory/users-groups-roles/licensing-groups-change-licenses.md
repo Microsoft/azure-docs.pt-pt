@@ -17,11 +17,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471200"
 ---
 # <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>Alterar a licença para um único utilizador num grupo licenciado no Azure Active Directory
 

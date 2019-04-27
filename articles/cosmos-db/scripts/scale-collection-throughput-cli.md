@@ -9,11 +9,11 @@ ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446657"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Dimensionar débito do contentor do Azure Cosmos DB com a CLI do Azure
 

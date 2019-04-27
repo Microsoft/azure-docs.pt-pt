@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252424"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem VM não gerida a partir de uma VM do Azure
 
@@ -29,7 +29,7 @@ Este artigo explica como utilizar contas de armazenamento. Recomendamos que util
 
 Este artigo mostra-lhe como utilizar o Azure PowerShell para criar uma imagem de uma VM generalizada do Azure através de uma conta de armazenamento. Em seguida, pode utilizar a imagem para criar outra VM. A imagem inclui o disco do SO e os discos de dados que estão anexados à máquina virtual. A imagem não inclui os recursos de rede virtual, por isso terá de configurar esses recursos, ao criar a nova VM. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>Generalizar a VM 
 Esta secção mostra-lhe como generalizar a máquina virtual do Windows para utilização como uma imagem. Generalizar uma VM remove todas as suas informações de conta pessoal como, entre outras coisas e prepara a máquina a ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [como utilizar Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
@@ -116,7 +116,7 @@ Pode obter o URL da imagem do modelo de ficheiro JSON. Vá para o **recursos** >
    
 Também pode verificar o URI no portal. A imagem é copiada para um contentor com o nome **sistema** na sua conta de armazenamento. 
 
-## <a name="create-a-vm-from-the-image"></a>Criar uma VM a partir da imagem
+## <a name="create-a-vm-from-the-image"></a>Crie uma VM a partir da imagem
 
 Agora pode criar uma ou mais VMs a partir da imagem não gerida.
 

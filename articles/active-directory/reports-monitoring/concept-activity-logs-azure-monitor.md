@@ -1,6 +1,6 @@
 ---
-title: Registos de atividades do Azure Active Directory no Azure Monitor (pré-visualização) | Microsoft Docs
-description: Introdução à atividade do Azure Active Directory que inicia sessão no Azure Monitor (pré-visualização)
+title: Registos de atividades de Active Directory do Azure no Azure Monitor | Documentos da Microsoft
+description: Introdução à atividade do Azure Active Directory que inicia sessão no Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286691"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registos de atividades do Azure AD no Azure Monitor (pré-visualização)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividades do Azure AD no Azure Monitor
 
-Agora, pode encaminhar registos de atividades do Azure Active Directory (Azure AD) vários pontos finais de longo termo dados e retenção de informações. A pré-visualização pública dos registos do Azure AD no Azure Monitor permite-lhe:
+Pode encaminhar os registos de atividades do Azure Active Directory (Azure AD) para vários pontos finais de longo termo dados e retenção de informações. Esta funcionalidade permite-lhe:
 
 * Registos de atividades de arquivo do Azure AD para uma conta de armazenamento do Azure, para manter os dados durante muito tempo.
 * Registos de atividades de Stream do Azure AD para um hub de eventos do Azure para análise, com ferramentas populares de informações de segurança e gestão de eventos (SIEM), como Splunk e QRadar.
@@ -72,14 +72,14 @@ Se já tiver uma licença do Azure AD, precisa de uma subscrição do Azure para
 
 Cada evento de registo de auditoria consome cerca de 2 KB de armazenamento de dados. Para um inquilino com 100 000 utilizadores, o que implicaria cerca de 1,5 milhões de eventos por dia, precisaria de aproximadamente 3 GB de armazenamento de dados por dia. Uma vez que ocorrem escritas em lotes com a duração aproximada de cinco minutos, é possível prever aproximadamente 9000 operações de escrita por mês. 
 
-A tabela seguinte contém uma estimativa do custo, dependendo do tamanho do inquilino, de uma conta de armazenamento para fins gerais v2 nos E.U.A. Oeste durante, pelo menos, um ano de retenção. Para criar uma estimativa mais exata do volume de dados que prevê para a sua aplicação, utilize a [calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). 
+A tabela seguinte contém uma estimativa do custo, dependendo do tamanho do inquilino, de uma conta de armazenamento para fins gerais v2 nos E.U.A. Oeste durante, pelo menos, um ano de retenção. Para criar uma estimativa mais exata do volume de dados que prevê para a sua aplicação, utilize a [calculadora de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). A tabela inclui apenas o custo de processamento/armazenamento e não o custo da subscrição. 
 
-| Categoria do registo | Número de utilizadores | Eventos por dia | Volume de dados por mês (est.) | Custo por mês (est.) | Custo por ano (est.) |
-|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Auditoria | 100 000 | 1,5&nbsp;milhões | 90 GB | $1,93 | $23,12 |
-| Auditoria | 1,000 | 15 000 | 900 MB | $0,02 | $0,24 |
-| Inícios de sessão | 1,000 | 34 800 | 4GB | $0,13 | $1,56 |
-| Inícios de sessão | 100 000 | 15&nbsp;milhões | 1,7 TB | $35,41 | $424,92 | 
+
+| Categoria do registo       | Número de utilizadores | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em dólares americanos (est). |
+| ---                | ---             | ---            | ---                        | ---                          | 
+| Auditoria e inícios de sessão | 100 000         | 16,500,000     | 495,000,000                | $1093                        |
+| Auditoria              | 100 000         | 1,500,000      | 45,000,000                 | $246.66                      |
+| Inícios de sessão           | 100 000         | 15,000,000     | 450,000,000                | $847.28                      |
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Mensagens do hub de eventos para os registos de atividades

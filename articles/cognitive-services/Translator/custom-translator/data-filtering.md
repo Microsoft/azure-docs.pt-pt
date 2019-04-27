@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
 ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513395"
 ---
 # <a name="data-filtering"></a>Filtragem de dados
 

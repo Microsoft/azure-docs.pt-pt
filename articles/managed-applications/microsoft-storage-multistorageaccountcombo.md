@@ -1,6 +1,6 @@
 ---
-title: Elemento de IU MultiStorageAccountCombo do Azure | Microsoft Docs
-description: Descreve o elemento de IU Microsoft.Storage.MultiStorageAccountCombo para o portal do Azure.
+title: Elemento de interface do Usuário de MultiStorageAccountCombo do Azure | Documentos da Microsoft
+description: Descreve o elemento de interface do Usuário de Microsoft.Storage.MultiStorageAccountCombo para o portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5fa81d53e1728e8f566a2a39aed8311828b20c7
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 08b65770414e9ee1cb5e478427fe7654b2bb9a78
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252433"
 ---
-# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de IU Microsoft.Storage.MultiStorageAccountCombo
-Um grupo de controlos para criar várias contas de armazenamento com nomes que começam com um prefixo comuns.
+# <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de interface do Usuário de Microsoft.Storage.MultiStorageAccountCombo
+Um grupo de controles para a criação de várias contas de armazenamento com nomes que começam com um prefixo comum.
 
-## <a name="ui-sample"></a>Exemplo de IU
+## <a name="ui-sample"></a>Exemplo de interface do Usuário
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
 ## <a name="schema"></a>Esquema
@@ -53,11 +53,11 @@ Um grupo de controlos para criar várias contas de armazenamento com nomes que c
 ```
 
 ## <a name="remarks"></a>Observações
-- O valor para `defaultValue.prefix` é concatenado com números inteiros de um ou mais para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **sa** e `count` é **2**, em seguida, os nomes da conta de armazenamento **sa1** e **sa2** são gerados. Os nomes das contas de armazenamento gerado são validadas exclusividade automaticamente.
-- Os nomes de conta de armazenamento são gerados com base lexicographically `count`. Por exemplo, se `count` é 10, em seguida, os nomes de conta de armazenamento de terminar com dois dígitos números inteiros (01, 02, 03).
+- O valor para `defaultValue.prefix` é concatenado com números inteiros de um ou mais para gerar a sequência de nomes de conta de armazenamento. Por exemplo, se `defaultValue.prefix` é **sa** e `count` é **2**, em seguida, os nomes da conta de armazenamento **sa1** e **sa2** são gerados. Nomes de conta de armazenamento geradas automaticamente são validados exclusividade.
+- Os nomes de conta de armazenamento são gerados lexicographically com base no `count`. Por exemplo, se `count` é 10, em seguida, os nomes de conta de armazenamento terminam com dois dígitos inteiros (01, 02, 03).
 - O valor predefinido para `defaultValue.prefix` é **nulo**e para `defaultValue.type` é **Premium_LRS**.
-- Qualquer tipo que não foram especificado no `constraints.allowedTypes` está oculto e qualquer tipo que não foram especificadas no `constraints.excludedTypes` é apresentado. `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser utilizados em simultâneo.
-- Além de gerar nomes de conta de armazenamento, `count` é utilizado para definir o multiplicador adequado para o elemento. Suporta um valor estático, tal como **2**, ou como um valor dinâmico de outro elemento, `[steps('step1').storageAccountCount]`. O valor predefinido é **1**.
+- Qualquer tipo não especificado nas `constraints.allowedTypes` está oculta e qualquer tipo não especificado no `constraints.excludedTypes` é mostrado. `constraints.allowedTypes` e `constraints.excludedTypes` são ambos opcionais, mas não pode ser utilizada em simultâneo.
+- Além de gerar nomes de contas de armazenamento, `count` é usado para definir o multiplicador apropriado para o elemento. Ele oferece suporte a um valor estático, como **2**, ou um valor dinâmico a partir de outro elemento, como `[steps('step1').storageAccountCount]`. O valor predefinido é **1**.
 
 ## <a name="sample-output"></a>Resultado da amostra
 
@@ -71,5 +71,5 @@ Um grupo de controlos para criar várias contas de armazenamento com nomes que c
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

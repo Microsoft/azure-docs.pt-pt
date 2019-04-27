@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406758"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -148,7 +148,7 @@ O runtime fornece os `customDimensions.LogLevel` e `customDimensions.Category` c
 
 Pode utilizar o Application Insights sem qualquer configuração personalizada. A configuração predefinida pode resultar em grandes volumes de dados. Se estiver a utilizar uma subscrição do Azure do Visual Studio, que pode usar o limite de dados do Application Insights. Neste artigo, saiba como configurar e personalizar os dados que as suas funções enviam para o Application Insights. Para uma aplicação de funções, é configurar o registo no [Host. JSON] ficheiro.
 
-### <a name="categories"></a>Categorias
+### <a name="categories"></a>Categories
 
 O agente de log de funções do Azure inclui um *categoria* para cada registo. A categoria indica qual a parte do código de tempo de execução ou o código de função escreveu o registo. 
 

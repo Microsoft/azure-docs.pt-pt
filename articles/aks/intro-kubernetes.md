@@ -9,11 +9,11 @@ ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465534"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
 

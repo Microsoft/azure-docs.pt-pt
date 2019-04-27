@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
 ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327954"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparar uma máquina virtual do Ubuntu para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

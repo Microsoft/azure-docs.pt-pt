@@ -10,11 +10,11 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237847"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuração de diagnósticos do Azure 1.0
 > [!NOTE]

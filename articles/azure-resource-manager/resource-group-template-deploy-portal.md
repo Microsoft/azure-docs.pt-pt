@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60520577"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 

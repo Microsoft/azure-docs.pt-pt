@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 6324eb11b334fd6a00e30d6f2fc6d1bec3f7a82c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310032"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restaurar um armazém de dados SQL do Azure (PowerShell)
 > [!div class="op_single_selector"]

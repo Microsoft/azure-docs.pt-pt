@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358654"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
 

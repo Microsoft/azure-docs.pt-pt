@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292134"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de aplicações
 

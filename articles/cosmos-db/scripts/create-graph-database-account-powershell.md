@@ -2,20 +2,22 @@
 title: Script do Azure PowerShell-criar uma conta de API do Azure Cosmos DB Gremlin
 description: Exemplo de Script do Azure PowerShell - Criar uma conta API Gremlin do Azure Cosmos DB
 ms.service: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rockboyfor
+ms.author: v-yeche
 ms.subservice: cosmosdb-graph
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 05/29/2018
+origin.date: 05/29/2018
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 06f4379a0100b4a0d5335ed6e8c99bb16160715d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497385"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446640"
 ---
+<!--Verify sucessfully-->
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-powershell"></a>o Azure Cosmos DB: Criar uma conta da API do Gremlin com o PowerShell
 
 Este script do PowerShell de exemplo cria uma conta API Gremlin do Azure Cosmos DB. 
@@ -26,7 +28,52 @@ Este script do PowerShell de exemplo cria uma conta API Gremlin do Azure Cosmos 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-and-configure-graph-database/create-and-configure-graph-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
+```powershell
+# Set the Azure resource group name and location
+$resourceGroupName = "myResourceGroupgraph1"
+$resourceGroupLocation = "China East"
+
+# Create the resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+
+# Database name
+$DBName = "testdbgraph1"
+
+# Write and read locations and priorities for the database
+$locations = @(@{"locationName"="China East"; 
+                 "failoverPriority"=0}, 
+               @{"locationName"="China North"; 
+                  "failoverPriority"=1})
+
+# IP addresses that can access the database through the firewall
+$iprangefilter = "10.0.0.1"
+
+# Consistency policy
+$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
+                       "maxIntervalInSeconds"="10"; 
+                       "maxStalenessPrefix"="200"}
+
+# Create a Gremlin API Cosmos DB account
+$Capability= "EnableGremlin"
+
+$capabilities= @(@{"name"=$Capability})
+
+# DB properties
+$DBProperties = @{"databaseAccountOfferType"="Standard"; 
+                          "locations"=$locations; 
+                          "consistencyPolicy"=$consistencyPolicy;
+                          "capabilities"=$capabilities; 
+                          "ipRangeFilter"=$iprangefilter}
+
+# Create the database
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+                    -ApiVersion "2015-04-08" `
+                    -ResourceGroupName $resourceGroupName `
+                    -Location $resourceGroupLocation `
+                    -Name $DBName `
+                    -PropertyObject $DBProperties
+
+```
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
@@ -52,3 +99,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
 Pode ver exemplos do script do Azure PowerShell Cosmos DB adicionais nos [scripts do PowerShell do Azure Cosmos DB](../powershell-samples.md).
+
+<!--Verify sucessfully-->
+<!--Update_Description: update link -->

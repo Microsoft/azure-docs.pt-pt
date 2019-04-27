@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 034/08/2019
+ms.date: 04/08/2019
 ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331541"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma base de dados na base de dados do Azure SQL
 

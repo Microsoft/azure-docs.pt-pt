@@ -14,11 +14,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309211"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,10 +69,10 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **Salesforce**. |Sim |
+| type |A propriedade de tipo tem de ser definida como: **Salesforce**. |Sim |
 | environmentUrl | Especifique a instância de URL do Salesforce. <br><br> -Predefinição é "https:\//login.salesforce.com". <br> -Para copiar dados de proteção de segurança, especifique "https://test.salesforce.com". <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
-| palavra-passe |Especifique uma palavra-passe da conta de utilizador. |Sim |
+| password |Especifique uma palavra-passe da conta de utilizador. |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Ver [obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -287,7 +287,7 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | Tipo de Salesforce | . Tipo de NET |
 | --- | --- |
 | Número de automática |String |
-| Caixa de verificação |Booleano |
+| Caixa de verificação |Boolean |
 | Moeda |Decimal |
 | Date |DateTime |
 | Data/Hora |DateTime |
@@ -299,7 +299,7 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | Percentagem |Decimal |
 | Telefone |String |
 | Lista de opções |String |
-| Texto |String |
+| Text |String |
 | Área de texto |String |
 | Área de texto (longa) |String |
 | Área de texto (avançado) |String |

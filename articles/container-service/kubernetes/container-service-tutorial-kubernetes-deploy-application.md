@@ -10,16 +10,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309236"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(PRETERIDO) Executar aplicações no Kubernetes
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: executar aplicações no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Executar aplicações no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

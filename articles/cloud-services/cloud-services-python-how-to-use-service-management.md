@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
 ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525533"
 ---
 # <a name="use-service-management-from-python"></a>Utilize a gestão de serviço do Python
 Este guia mostra como executar tarefas de gestão comuns do serviço do Python. O **ServiceManagementService** classe na [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta acesso programático a muitas das funcionalidades de serviços relacionados com a gestão que está disponível no [Azure Portal][management-portal]. Pode utilizar esta funcionalidade para criar, atualizar e eliminar serviços cloud, implementações, os serviços de gestão de dados e as máquinas virtuais. Essa funcionalidade pode ser útil para criar aplicativos que precisam de acesso programático a gestão de serviço.

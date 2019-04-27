@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441138"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -79,7 +79,7 @@ Selecione um item na vista de lista para obter informações mais detalhadas.
 Pode filtrar os dados de auditoria nos seguintes campos:
 
 - Serviço
-- Categoria
+- Category
 - Atividade
 - Estado
 - Destino
@@ -111,7 +111,7 @@ O **categoria** filtro permite-lhe selecionar um dos seguintes filtros:
 - Todos
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Autenticação
 - Autorização
 - Contacto
 - Dispositivo

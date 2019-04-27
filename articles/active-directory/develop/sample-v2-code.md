@@ -19,11 +19,11 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9a04dfd7009028197bee2602394a34803b1f8c6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298469"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código de plataforma do Microsoft identity (ponto final v2.0)
 
@@ -102,7 +102,7 @@ O exemplo seguinte mostra uma aplicação de cliente pública em execução num 
 
 O exemplo a seguir mostra como proteger uma API web com o ponto de final de plataforma de identidade Microsoft. Esta API é exercida por um aplicativo do WPF, mas ele pode ser chamado por qualquer aplicação. A API web também chama Microsoft Graph.
 
-| Plataforma | Sample |
+| Plataforma | Exemplo |
 | -------- | ------------------- |
 | ![.NET/C#](media/sample-v2-code/logo_NET.png) | WebAPI (serviço) de [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph) |
 

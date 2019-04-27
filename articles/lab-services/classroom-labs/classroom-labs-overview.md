@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303745"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introdução aos laboratórios de sala de aula
 O Azure Lab Services permite-lhe configurar rapidamente um ambiente de laboratório de sala de aula na cloud. O educador cria um laboratório de sala de aula, aprovisiona máquinas virtuais do Linux ou Windows, instala os laboratórios de ferramentas e software necessários na sala de aula e disponibiliza-os aos utilizadores. Os alunos na sala de aula ligam-se a máquinas virtuais (VMs) no laboratório e utilizam-nas para os projetos, tarefas ou para fazer exercícios da sala de aula. 
@@ -31,7 +31,7 @@ O Azure Lab Services é um serviço gerido, o que significa que o aprovisionamen
 ## <a name="simple-experience-for-your-lab-users"></a>Experiência de simples para os seus utilizadores de laboratório 
 Os utilizadores convidados a seu laboratório obtêm acesso imediato a recursos que lhes dentro de seus laboratórios. Têm de iniciar sessão para ver a lista completa das máquinas virtuais que têm acesso através de vários laboratórios. Pode clicar num único botão para ligar às máquinas virtuais e começar a trabalhar. Os utilizadores não têm subscrições do Azure para utilizar o serviço. 
 
-## <a name="cost-optimization-and-tracking"></a>Otimização de custo e controlo  
+## <a name="cost-optimization-and-tracking"></a>Otimização e controlo de custos  
 Manter seu orçamento sob ao controlar exatamente quantas horas seu laboratório os utilizadores podem utilizar as máquinas virtuais. Configure agendas no laboratório para permitir que os utilizadores utilizar as máquinas virtuais apenas durante as ranhuras de tempo designado ou configurar o encerramento automático recorrente e as horas de início. Mantenha um registo de utilização de utilizadores individuais e definir limites.
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d69bd931f2f8c72fd1e6fc79c16662ea367617d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248231"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaure ou remover um utilizador eliminado recentemente com o Azure Active Directory
 Depois de eliminar um utilizador, a conta permanece num estado suspenso durante 30 dias. Durante esse período de 30 dias, pode ser restaurada a conta de utilizador, juntamente com as respetivas propriedades. Depois de passa essa janela de 30 dias, o utilizador é automaticamente e permanentemente, eliminado.

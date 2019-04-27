@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197090"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integração de geração 1 de armazenamento do Azure Data Lake com outros serviços do Azure
 Geração de armazenamento 1 do Azure Data Lake pode ser utilizado em conjunto com outros serviços do Azure para ativar uma vasta gama de cenários. O artigo seguinte lista os serviços de geração 1 de armazenamento do Data Lake pode ser integrado.

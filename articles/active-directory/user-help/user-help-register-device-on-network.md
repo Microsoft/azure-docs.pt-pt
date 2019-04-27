@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 041c8bb6b4de2bbe2cbeb4c1a89e452239ae57bd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473699"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registar o seu dispositivo pessoal na rede da sua organização
 Registe o seu dispositivo pessoal (normalmente, um telefone ou tablet) na rede da sua organização. Depois do dispositivo estiver registado, será capaz de acessar recursos restritos da sua organização.

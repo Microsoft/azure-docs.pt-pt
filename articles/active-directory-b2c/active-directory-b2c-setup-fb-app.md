@@ -3,7 +3,7 @@ title: Configurar a inscrição e início de sessão com uma conta do Facebook -
 description: Forneça a inscrição e início de sessão para clientes com contas do Facebook nas suas aplicações com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428504"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316447"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Facebook com o Azure Active Directory B2C
 

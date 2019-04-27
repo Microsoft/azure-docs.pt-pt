@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: a4277e8bbd130588e343019a8b02221593efad52
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513102"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e eliminar projetos
 

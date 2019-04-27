@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459431"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de armazenamento
 
@@ -99,7 +99,7 @@ Além disso, pode trabalhar com contas de armazenamento no Azure global e nacion
 
 2. O painel esquerdo apresenta agora todas as contas do Azure, que iniciou a sessão para. Para ligar a outra conta, selecione **adicionar uma conta**
 
-3. Se quiser entrar numa nuvem nacional ou uma pilha do Azure, clique nas **ambiente do Azure** lista pendente para selecionar a cloud do Azure que pretende utilizar. Depois de escolher seu ambiente, clique no **iniciar sessão...**  botão. Se estiver a iniciar sessão no Azure Stack, veja [ligar o Explorador de armazenamento a uma subscrição do Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md) para obter mais informações.
+3. Se quiser entrar numa nuvem nacional ou uma pilha do Azure, clique nas **ambiente do Azure** lista pendente para selecionar a cloud do Azure que pretende utilizar. Depois de escolher seu ambiente, clique no **iniciar sessão...**  botão. Se estiver a iniciar sessão no Azure Stack, veja [ligar o Explorador de armazenamento a uma subscrição do Azure Stack](/azure-stack/user/azure-stack-storage-connect-se) para obter mais informações.
 
     ![Inicie sessão na opção][2]
 

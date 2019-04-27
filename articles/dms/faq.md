@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 3da3a8dbe337f649fe7d0516b49c03a2f01d7eea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb685c501c6aff2b44820ba3986bd6942308838f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532573"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas frequentes sobre como utilizar o serviço de migração de base de dados do Azure em conjunto com respostas relacionadas.

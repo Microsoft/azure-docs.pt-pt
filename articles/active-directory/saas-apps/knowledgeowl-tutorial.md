@@ -17,11 +17,11 @@ ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60262272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Active Directory do Azure com KnowledgeOwl
 

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
 ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326436"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10
 
 Serviços de multimédia do Azure suportam offline download/reprodução com proteção DRM. Este artigo aborda o suporte offline de clientes de 10/PlayReady de serviços de multimédia do Azure para Windows. Pode ler sobre o suporte de modo offline para iOS/FairPlay e dispositivos Android/Widevine nos seguintes artigos:
 
-- [Offline FairPlay Streaming para iOS](offline-fairplay-for-ios.md)
+- [Offline FairPlay Streaming for iOS](offline-fairplay-for-ios.md) (Transmissão Offline do FairPlay para iOS)
 - [Offline Widevine para transmissão em fluxo para Android](offline-widevine-for-android.md)
 
 ## <a name="overview"></a>Descrição geral
@@ -122,4 +122,4 @@ Em resumo, alcançámos modo offline nos serviços de multimédia do Azure:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso](design-multi-drm-system-with-access-control.md)
+[Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md) (Design de um sistema de proteção de conteúdo multi-DRM com controlo de acesso)

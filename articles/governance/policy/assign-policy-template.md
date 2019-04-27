@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: 1a811d3d0796b37053ffbabf56b63b4e4f68e203
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60500209"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Criar uma atribuição de política para identificar recursos incompatíveis com um modelo do Resource Manager
 
@@ -41,11 +41,11 @@ Esta é uma cópia do modelo:
 
 1. Selecione ou introduza os seguintes valores:
 
-   | Name | Valor |
+   | Name | Value |
    |------|-------|
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | Selecione **criar novo**, especifique um nome e, em seguida, selecione **OK**. Na captura de ecrã, é o nome do grupo de recursos *mypolicyquickstart\<data no MMDD > rg*. |
-   | Localização | Selecione uma região. Por exemplo, **E.U.A. Central**. |
+   | Location | Selecione uma região. Por exemplo, **E.U.A. Central**. |
    | Nome da atribuição de política | Especifique um nome de atribuição de política. Se desejar, pode usar a exibição de definição de política. Por exemplo, **VMs de auditoria que não utilizam discos geridos**. |
    | Nome de RG | Especifique um nome de grupo de recursos em que pretende atribuir a política. Neste início rápido, utilize o valor predefinido **[resourceGroup () name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)**  é uma função de modelo que obtém o grupo de recursos. |
    | ID de definição de política | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |

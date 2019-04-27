@@ -1,7 +1,6 @@
 ---
 title: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package - Azure
 description: Saiba como configurar as políticas do Apache Ranger para Kafka no Azure HDInsight com o Pacote de Segurança Enterprise.
-services: hdinsight
 ms.service: hdinsight
 author: mamccrea
 ms.author: mamccrea
@@ -9,11 +8,11 @@ ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536428"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (pré-visualização)
 

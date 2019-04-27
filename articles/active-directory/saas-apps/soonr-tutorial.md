@@ -17,11 +17,11 @@ ms.date: 08-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efae272e1eadb852158005325146a58dd9e74318
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60339137"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Tutorial: Integração do Active Directory do Azure com Soonr à área de trabalho
 

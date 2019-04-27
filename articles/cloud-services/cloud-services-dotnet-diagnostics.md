@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
 ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786246"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337396"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Ativar diagnósticos do Azure nos serviços Cloud do Azure
 Ver [descrição geral de diagnóstico do Azure](../azure-diagnostics.md) para um plano de fundo do diagnóstico do Azure.

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
 ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440833"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de utilizar a máquina virtual gerido extensão de identidades e comece a utilizar o serviço de metadados de instância do Azure
 

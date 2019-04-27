@@ -15,11 +15,11 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472897"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -387,7 +387,7 @@ Determinar se necessita [transferir a propriedade de uma subscrição do Azure p
 
 Para obter mais informações sobre como o Microsoft Office 365 lida com incidentes de segurança, consulte [gestão de incidentes de segurança no Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: Perguntas comuns que recebemos relativamente à proteção de acesso privilegiado  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>PERGUNTAS FREQUENTES: Perguntas comuns que recebemos relativamente à proteção de acesso privilegiado  
 
 **P:** O que devo fazer se eu ainda não Implementei quaisquer componentes de acesso seguro?
 

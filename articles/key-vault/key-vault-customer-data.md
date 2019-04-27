@@ -2,22 +2,19 @@
 title: Recursos de Azure dados de cliente do Cofre de chaves - Azure Key Vault | Documentos da Microsoft
 description: Saiba mais sobre os dados do cliente no Cofre de chaves
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 12492fad419fdc703ddabcf2288be282f2fd47be
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60305483"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 

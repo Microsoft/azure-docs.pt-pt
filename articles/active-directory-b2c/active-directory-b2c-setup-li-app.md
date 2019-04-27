@@ -3,7 +3,7 @@ title: Configurar a inscrição e início de sessão com uma conta do LinkedIn -
 description: Forneça a inscrição e início de sessão para clientes com contas do LinkedIn nas suas aplicações com o Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316386"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do LinkedIn com o Azure Active Directory B2C
 

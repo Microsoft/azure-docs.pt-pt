@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60278526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Active Directory do Azure com Form.com
 

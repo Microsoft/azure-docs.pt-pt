@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
 ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466333"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 

@@ -11,11 +11,11 @@ ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
 ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892919"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60484021"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 

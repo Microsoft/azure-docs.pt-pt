@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
 ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087113"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197060"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em node. js com o Bot Framework 3.x e bot de aplicação Web do Azure
 

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8181fc259ffbed11672fe64a8fc821e234183b72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60511330"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Suporte de idioma e região para a API de pesquisa Visual do Bing
 

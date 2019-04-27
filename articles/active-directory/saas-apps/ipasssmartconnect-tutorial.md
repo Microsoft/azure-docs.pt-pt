@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264867"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60271020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: Integração do Active Directory do Azure com iPass SmartConnect
 

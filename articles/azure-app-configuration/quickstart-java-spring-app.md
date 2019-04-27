@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: e52c14051d038ae36af9f31f1ab13da11d032a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202268"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início rápido: Criar uma aplicação de Java Spring com a configuração de aplicações
 
@@ -35,30 +35,11 @@ Para fazer este início rápido, instale um suportados [Kit de desenvolvimento J
 
 ## <a name="create-an-app-configuration-store"></a>Criar um arquivo de configuração de aplicação
 
-1. Para criar um novo arquivo de configuração de aplicação, inicie sessão para o [portal do Azure](https://aka.ms/azconfig/portal). No canto superior esquerdo da página, selecione **+ criar um recurso**. Na **pesquisar no Marketplace** , introduza **configuração de aplicações** e prima Enter.
-
-    ![Pesquisa de configuração de aplicações](./media/quickstarts/azure-app-configuration-new.png)
-
-2. Selecione **configuração da aplicação** partir da linha de resultados da pesquisa e, em seguida, selecione **criar**.
-
-3. Sobre o **configuração da aplicação** > **criar** página, introduza as seguintes definições.
-
-    | Definição | Valor sugerido | Descrição |
-    |---|---|---|
-    | **Nome do recurso** | Nome globalmente exclusivo | Introduza um nome de recurso exclusiva para utilizar para o recurso de arquivo de configuração de aplicações. O nome tem de ser uma cadeia entre 1 e 63 carateres e conter apenas números, letras e o caráter `-`. O nome não pode começar nem terminar com o `-` caráter e consecutivas `-` carateres não são válidos.  |
-    | **Subscrição** | A sua subscrição | Selecione a subscrição do Azure que pretende utilizar para testar a configuração de aplicações. Se a sua conta tiver apenas uma subscrição, é selecionada automaticamente e o **subscrição** não for apresentada a lista pendente. |
-    | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o seu recurso de arquivo de configuração de aplicação. Este grupo é útil para organizar os vários recursos que pode querer eliminar ao mesmo tempo, eliminando o grupo de recursos. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Localização** | *E.U.A. central* | Utilize **Localização** para especificar a localização geográfica onde o seu recurso SignalR está alojado. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes da sua aplicação. |
-
-    ![Criar um arquivo de configuração de aplicação](./media/quickstarts/azure-app-configuration-create.png)
-
-4. Selecione **Criar**. A implementação pode demorar alguns minutos a concluir.
-
-5. Depois de concluída a implementação, selecione **configurações** > **chaves de acesso**. Tome nota da cadeia de caracteres de só de leitura ou primária de leitura-escrita ligação da chave primária. Utilize esta cadeia de ligação mais tarde para configurar a sua aplicação para comunicar com o armazenamento de configuração de aplicação que criou.
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. Selecione **Explorador de chave/valor** > **+ criar** para adicionar os seguintes pares de chave-valor:
 
-    | Chave | Valor |
+    | Chave | Value |
     |---|---|
     | /application/config.message | Olá |
 
@@ -172,4 +153,4 @@ Neste início rápido, criou um novo arquivo de configuração de aplicação e 
 Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades geridas para a integração de recursos do Azure](./howto-integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)

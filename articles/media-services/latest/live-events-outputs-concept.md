@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
 ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325838"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
@@ -48,7 +48,7 @@ Ver um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-S
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![codificação do Live](./media/live-streaming/live-encoding.svg)
+![codificação em direto](./media/live-streaming/live-encoding.svg)
 
 Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) O Evento em Direto codifica essa transmissão em fluxo de velocidade única recebia numa [transmissão de vídeo em fluxo de velocidade múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e disponibiliza-a para entrega nos dispositivos de reprodução através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de Evento em Direto, especifique o tipo de codificação como **Standard** (LiveEventEncodingType.Standard).
 
