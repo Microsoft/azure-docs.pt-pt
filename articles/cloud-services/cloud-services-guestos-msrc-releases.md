@@ -14,11 +14,11 @@ ms.workload: tbd
 ms.date: 3/26/2019
 ms.author: raiye
 ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623073"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
@@ -487,7 +487,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 17-09 | [4038779], [4038786], [4038793] |Segurança do Windows apenas |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
 | Rel 17-09 | [4040966], [4040960], [4040965], [4040959], [4033988], [4040955], [4040967], [4040958]|Atualização de Setembro de .NET |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
 | Rel 17-09 | [4036586] |Do Internet explorer |2.66, 3.53, 4.46 |12 de Setembro de 2017 |
-| CVE-2017-8704 | [4038782] |Negação de serviço |5.11 |12 de Setembro de 2017 |
+| CVE-2017-8704 | [4038782] |Denial of Service (DoS) |5.11 |12 de Setembro de 2017 |
 | N/A | [4034664] |Agregação de não-segurança de Agosto  |2.66 |8 de Agosto de 2017 |
 | N/A | [4034665] |Agregação de não-segurança de Agosto |5.11 |8 de Agosto de 2017 |
 | N/A | [4034681] |Agregação de não-segurança de Agosto |4.46 |8 de Agosto de 2017 |

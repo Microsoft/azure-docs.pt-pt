@@ -17,11 +17,11 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883675"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Define a descrição geral do dimensionamento automático com o dimensionamento de máquina virtual do Azure
 Um conjunto de dimensionamento de máquina virtual do Azure automaticamente pode aumentar ou diminuir o número de instâncias VM que execute a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho aceitável para uma experiência de cliente positivo. Quando esses limites definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo de vezes. Este artigo fornece uma descrição geral do desempenho de que as métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.
@@ -66,8 +66,8 @@ As métricas baseadas no anfitrião seguintes estão disponíveis para utilizaç
 | Nome da métrica               |
 |---------------------------|
 | Percentagem da CPU            |
-| Entrada de Rede                |
-| Saída de Rede               |
+| Entrada na Rede                |
+| Saída da Rede               |
 | Bytes de Leitura do Disco           |
 | Bytes de Escrita de Disco          |
 | Operações/Seg de Leitura do Disco  |

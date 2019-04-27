@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 2/14/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: b01811d9c933802263e975b23b5d40cd77303766
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722954"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar ficheiros do Azure para um Servidor Windows
 
@@ -70,7 +70,7 @@ Um assistente de interface de utilizador útil denominado Microsoft Azure Backup
 
     Assim que o instantâneo é desmontado, aparece **Tarefa Concluída** no painel **Tarefas** na consola do agente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Isto conclui os tutoriais na cópia de segurança e restauração dos dados do Windows Server para o Azure. Para saber mais sobre o Azure Backup, veja o exemplo do PowerShell para realizar a cópia de segurança de máquinas virtuais encriptadas.
 

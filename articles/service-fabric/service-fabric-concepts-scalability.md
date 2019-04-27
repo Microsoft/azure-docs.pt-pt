@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 14a7389fe562b5f3206b81411d2224257051c636
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60781136"
 ---
 # <a name="scaling-in-service-fabric"></a>Dimensionamento no Service Fabric
 O Azure Service Fabric simplifica a criação de aplicações escaláveis ao gerir os serviços, partições e réplicas em nós de um cluster. Executar várias cargas de trabalho no mesmo hardware permite a utilização de recursos máximo, mas também fornece flexibilidade em termos de como optar por dimensionar as cargas de trabalho. Este vídeo do Channel 9 descreve como pode criar aplicações de microsserviços dimensionáveis:

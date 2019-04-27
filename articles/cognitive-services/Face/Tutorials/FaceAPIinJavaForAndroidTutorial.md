@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
 ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815505"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar uma aplicação Android para detetar e rostos numa imagem de fotograma
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
 ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773555"
 ---
 # <a name="configure-prerequisites"></a>Configurar os pré-requisitos
 

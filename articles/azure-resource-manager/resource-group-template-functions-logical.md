@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782995"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
@@ -75,7 +75,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | Falso |
 | orExampleOutput | Booleano | Verdadeiro |
@@ -128,7 +128,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior com os valores predefinidos é:
 
-| Nome | Tipo | Valor |
+| Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | trueString | Booleano | Verdadeiro |
 | falseString | Booleano | Falso |
@@ -186,7 +186,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | yesOutput | String | sim |
 | noOutput | String | não |
@@ -284,7 +284,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | Falso |
 | orExampleOutput | Booleano | Verdadeiro |
@@ -308,7 +308,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | Verdadeiro |
 
@@ -358,7 +358,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 
 O resultado do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Name | Tipo | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | Falso |
 | orExampleOutput | Booleano | Verdadeiro |

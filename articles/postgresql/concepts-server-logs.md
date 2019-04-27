@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871536"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registos do servidor na base de dados do Azure para PostgreSQL 
 Base de dados do Azure para PostgreSQL gera erro de consulta e registos. Registos de consulta e o erro podem ser utilizados para identificar, resolução de problemas e reparar erros de configuração e de desempenho inferior ao ideal. (O acesso aos logs de transação não está incluído.) 
@@ -47,7 +47,7 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | ResourceType | `Servers` |
 | ResourceId | URI do recurso |
 | Recurso | Nome do servidor |
-| Categoria | `PostgreSQLLogs` |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Exemplo de nível de registo: LOG, ERROR, NOTICE |
 | Mensagem | Mensagem do registo principal | 

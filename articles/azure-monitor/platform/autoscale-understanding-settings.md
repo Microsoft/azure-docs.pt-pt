@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787500"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
 Definições de dimensionamento automático ajudam a garantir que tenha a quantidade certa de recursos em execução para processar a carga flutuantes da sua aplicação. Pode configurar definições de dimensionamento automático para ser acionado com base nas métricas que indicam a carga e de desempenho ou acionadas numa data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma definição de dimensionamento automático. O artigo começa com o esquema e propriedades de uma configuração e, em seguida, percorre os tipos de perfis diferentes que podem ser configurados. Por fim, o artigo discute como a funcionalidade de dimensionamento automático no Azure avalia que perfil de executar um determinado momento.
@@ -94,8 +94,8 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 | Definição | ID | ID de recurso. da definição de dimensionamento automático Definições de dimensionamento automático são um recurso do Azure Resource Manager. |
 | Definição | nome | O nome da definição de dimensionamento automático. |
 | Definição | localização | A localização da definição de dimensionamento automático. Esta localização pode ser diferente da localização do recurso que está a ser dimensionado. |
-| propriedades | targetResourceUri | O ID de recurso do recurso que está a ser dimensionado. Só pode ter uma definição de dimensionamento automático por recurso. |
-| propriedades | Perfis | Uma definição de dimensionamento automático é composta por um ou mais perfis. Sempre que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
+| properties | targetResourceUri | O ID de recurso do recurso que está a ser dimensionado. Só pode ter uma definição de dimensionamento automático por recurso. |
+| properties | Perfis | Uma definição de dimensionamento automático é composta por um ou mais perfis. Sempre que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
 | perfil | nome | O nome do perfil. Pode escolher qualquer nome que o ajuda a identificar o perfil. |
 | perfil | Capacity.Maximum | A capacidade máxima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensionar seu recurso acima deste número. |
 | perfil | Capacity.Minimum | A capacidade mínima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensionar seu recurso abaixo deste número. |
@@ -110,7 +110,7 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 | metricTrigger | timeAggregation | O método de agregação utilizado para agregar as métricas de amostragem. Por exemplo, **TimeAggregation = "Average"** devem se agregar as métricas de amostragem pela média. No caso anterior, pegar os dez exemplos de 1 minuto e, média-los. |
 | regra | scaleAction | A ação a tomar quando o metricTrigger da regra é acionada. |
 | scaleAction | direção | "Aumente" para aumentar horizontalmente, ou "Diminuir" para reduzir horizontalmente.|
-| scaleAction | valor | Quanto para aumentar ou diminuir a capacidade do recurso. |
+| scaleAction | value | Quanto para aumentar ou diminuir a capacidade do recurso. |
 | scaleAction | arrefecimento | A quantidade de tempo de espera após uma operação de dimensionamento antes de dimensionar novamente. Por exemplo, se **arrefecimento = "PT10M"**, dimensionamento automático não tentar Dimensionar novamente para mais de 10 minutos. O arrefecimento é permitir que as métricas estabilizar após a adição ou remoção de instâncias. |
 
 ## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
@@ -310,4 +310,3 @@ Saiba mais sobre dimensionamento automático ao referir-se ao seguinte:
 * [Melhores práticas do dimensionamento automático do Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
-

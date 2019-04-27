@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
 ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803602"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Resolução de problemas de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais
 **Problema** – criar uma infraestrutura de dimensionamento automático no Azure Resource Manager com conjuntos de dimensionamento de máquinas virtuais – por exemplo, ao implementar um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – tiver suas regras de dimensionamento definidas e ele funciona muito bem, exceto não é importante que coloca nas VMs de carga, ela não o dimensionamento automático.

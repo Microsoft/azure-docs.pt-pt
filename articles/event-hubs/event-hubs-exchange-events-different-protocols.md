@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
 ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821774"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Eventos de Exchange entre os consumidores e produtores que utilizam os protocolos diferentes: AMQP, Kafka e HTTPS
 Os Hubs de eventos do Azure oferece suporte a três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um desses protocolos tem sua própria maneira de representar uma mensagem, naturalmente a seguinte questão é: se uma aplicação para enviar eventos para um Hub de eventos com um protocolo e consome-los com um protocolo diferente, o que fazer as várias partes e valores do evento aspeto quando chegam ao consumidor? Este artigo discute as práticas recomendadas para o produtor e consumidor garantir que os valores dentro de um evento corretamente são interpretados pela aplicação de consumo.

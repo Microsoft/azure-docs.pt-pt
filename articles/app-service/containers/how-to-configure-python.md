@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
 ms.openlocfilehash: f8894132dae179be2d5d9d9b6887851be78d7746
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60854907"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar uma aplicação Python de Linux para o serviço de aplicações do Azure
 

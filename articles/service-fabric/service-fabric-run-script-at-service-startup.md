@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837799"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Executar um script de arranque do serviço como uma conta de utilizador local ou conta de sistema
 Antes de um serviço do Service Fabric executável é iniciado poderá ser necessário executar algum trabalho de configuração ou configuração.  Por exemplo, a configurar variáveis de ambiente. Pode especificar um script para executar antes do executável do serviço é iniciado no manifesto do serviço para o serviço. Ao configurar uma política de RunAs para o ponto de entrada de configuração de serviço que pode alterar a conta, o executável de configuração é executado sob.  Um ponto de entrada de configuração individual permite-lhe executar a configuração de privilégios elevados durante um curto período de tempo para que o executável de host de serviço não tem de executar com privilégios elevados por longos períodos de tempo.

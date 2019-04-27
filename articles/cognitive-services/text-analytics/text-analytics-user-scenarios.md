@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
 ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59502484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828058"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Cenários de utilizador de exemplo para a API de análise de texto
 

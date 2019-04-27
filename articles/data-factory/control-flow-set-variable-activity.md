@@ -12,11 +12,11 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767970"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Atividade de variável de conjunto de Azure Data Factory
 
@@ -27,9 +27,9 @@ Utilize a atividade definir variável para definir o valor de uma variável exis
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
 nome | Nome da atividade no pipeline | Sim
-descrição | Texto que descreve o que faz a atividade | não
+description | Texto que descreve o que faz a atividade | não
 tipo | Tipo de atividade é SetVariable | sim
-valor | Cadeia de caracteres literal ou expressão de valor de objeto usado para definir a variável especificada | sim
+value | Cadeia de caracteres literal ou expressão de valor de objeto usado para definir a variável especificada | sim
 variableName | Nome da variável que esta atividade definirá | sim
 
 

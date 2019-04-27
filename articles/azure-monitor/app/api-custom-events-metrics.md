@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
 ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60794423"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -1171,7 +1171,7 @@ Se definir qualquer um destes valores por conta própria, considere remover a li
 * **Sessão**: A sessão do utilizador. O ID é definido como um valor gerado, o que é alterado quando o utilizador não esteve ativo durante algum tempo.
 * **Utilizador**: Informações do utilizador.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 

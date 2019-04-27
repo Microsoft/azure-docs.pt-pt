@@ -1,5 +1,5 @@
 ---
-title: 'Configurar filtros de rota para peering da Microsoft: Portal do Azure ExpressRoute - | Documentos da Microsoft'
+title: 'Configure filtros de rota para peering da Microsoft: O Azure ExpressRoute - Portal | Documentos da Microsoft'
 description: Este artigo descreve como configurar filtros de rota para peering da Microsoft com o portal do Azure.
 services: expressroute
 author: ganesr
@@ -9,13 +9,13 @@ ms.date: 09/26/2018
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60839322"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar filtros de rota para peering da Microsoft: portal do Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configure filtros de rota para peering da Microsoft: Portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -106,7 +106,7 @@ Pode selecionar os serviços que pretende ligar a partir da lista pendente e gua
 ![Criar um filtro de rota](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Passo 3: Ligar o filtro de rota para um circuito do ExpressRoute
+## <a name="attach"></a>Passo 3: Anexar o filtro de rota para um circuito do ExpressRoute
 
 Pode anexar o filtro de rota para um circuito ao selecionar o botão "adicionar o circuito" e selecionando o circuito do ExpressRoute na lista pendente.
 

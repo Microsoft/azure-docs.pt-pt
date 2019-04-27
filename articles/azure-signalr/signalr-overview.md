@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 198eb0ff6c9f8de311cc2d39ba8fb7c8b6ed3a11
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808748"
 ---
 # <a name="what-is-azure-signalr-service"></a>O que é o serviço Azure SignalR?
 

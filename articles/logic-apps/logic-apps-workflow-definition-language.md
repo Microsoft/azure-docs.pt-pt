@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
 ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845755"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de esquema para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -42,7 +42,7 @@ Esta é a estrutura de alto nível para uma definição de fluxo de trabalho:
 | definição | Sim | O elemento de partida para a sua definição de fluxo de trabalho |
 | $schema | Apenas quando externamente que referencia uma definição de fluxo de trabalho | A localização para o ficheiro de esquema JSON que descreve a versão de linguagem de definição de fluxo de trabalho, que pode ser encontrado aqui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Não | O número de versão para a sua definição de fluxo de trabalho, o que é "1.0.0.0" por predefinição. Para ajudar a identificar e confirmar a definição correta quando implementar um fluxo de trabalho, especifique um valor a utilizar. |
-| parâmetros | Não | As definições para um ou mais parâmetros que passam dados para seu fluxo de trabalho <p><p>Parâmetros máximos: 50 |
+| parameters | Não | As definições para um ou mais parâmetros que passam dados para seu fluxo de trabalho <p><p>Parâmetros máximos: 50 |
 | acionadores | Não | As definições para um ou mais disparadores que criar uma instância de seu fluxo de trabalho. Pode definir mais do que um acionador, mas apenas com a linguagem de definição de fluxo de trabalho, não visualmente por meio do Designer de aplicações lógicas. <p><p>Acionadores máximos: 10 |
 | Ações | Não | As definições para uma ou mais ações executar em tempo de execução do fluxo de trabalho <p><p>Ações máximas: 250 |
 | saídas | Não | As definições para as saídas que retornam a partir de um fluxo de trabalho execute <p><p>Saídas máximas: 10 |
@@ -103,7 +103,7 @@ Esta é a estrutura geral para obter uma definição de saída:
 |---------|----------|------|-------------|
 | <*key-name*> | Sim | String | O nome da chave para a saída de valor de retorno |
 | tipo | Sim | int, número de vírgula flutuante, cadeia de caracteres, securestring, booleano, matriz, objeto JSON | O tipo para o valor de retorno de saída |
-| valor | Sim | Mesmo que `type` | O valor de retorno de saída |
+| value | Sim | Mesmo que `type` | O valor de retorno de saída |
 |||||
 
 Para obter o resultado de um fluxo de trabalho execute, reveja o histórico de execuções e detalhes no portal do Azure da sua aplicação lógica ou utilize o [API do REST de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Também é possível passar saída a sistemas externos, por exemplo, o Power BI para que possa criar dashboards.

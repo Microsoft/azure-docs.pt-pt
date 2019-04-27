@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
 ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844182"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
@@ -50,7 +50,7 @@ Os acionadores têm esses elementos de nível superior, apesar de alguns são op
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*trigger-name*> | String | O nome do acionador | 
 | <*trigger-type*> | String | O tipo de Acionador, como "Http" ou "ApiConnection" | 
@@ -61,7 +61,7 @@ Os acionadores têm esses elementos de nível superior, apesar de alguns são op
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*array-with-conditions*> | Array | Uma matriz que contém um ou mais [condições](#trigger-conditions) que determinar se deve executar o fluxo de trabalho. Disponível apenas para acionadores. | 
 | <*runtime-config-options*> | Objeto JSON | Pode alterar o comportamento de tempo de execução do acionador definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
@@ -130,7 +130,7 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | String | O nome do acionador | 
 | <*connection-name*> | String | O nome para a ligação para a API gerenciada que utiliza o fluxo de trabalho | 
@@ -142,7 +142,7 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a API de chamam. Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
@@ -224,7 +224,7 @@ Este acionador envia um pedido de subscrição para um ponto de extremidade atra
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*connection-name*> | String | O nome para a ligação para a API gerenciada que utiliza o fluxo de trabalho | 
 | <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem para enviar como carga para a API gerenciada | 
@@ -232,7 +232,7 @@ Este acionador envia um pedido de subscrição para um ponto de extremidade atra
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a chamada de API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
@@ -303,7 +303,7 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*method-type*> | String | O método HTTP a utilizar para consultar o ponto final especificado: "GET", "COLOCAR", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | String | O HTTP ou HTTPS URL para o ponto final para consultar <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -313,7 +313,7 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Os cabeçalhos para enviar com o pedido <p>Por exemplo, para definir o idioma e o tipo de um pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | String | O conteúdo da mensagem a enviar como payload com o pedido | 
@@ -400,7 +400,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*method-type*> | String | O método HTTP a utilizar para o pedido de subscrição: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*endpoint-subscribe-URL*> | String | O URL de ponto final para onde enviar o pedido de subscrição | 
@@ -408,7 +408,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*method-type*> | String | O método HTTP a utilizar para a solicitação de cancelamento: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*endpoint-unsubscribe-URL*> | String | O URL de ponto final para onde enviar a solicitação de cancelamento | 
@@ -494,7 +494,7 @@ Este acionador é executado com base na agenda de periodicidade especificados e 
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
 | <*number-of-time-units*> | Número inteiro | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
@@ -502,7 +502,7 @@ Este acionador é executado com base na agenda de periodicidade especificados e 
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | A data de início e a hora neste formato: <p>AAAA-MM-ddTHH se especificar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não especificar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e especificar um fuso horário, como "Hora padrão do Pacífico", ou "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não especificar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. Para obter mais informações sobre datas de início e horas, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md). | 
 | <*time-zone*> | String | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que pretende aplicar. | 
@@ -603,7 +603,7 @@ Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está d
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*property-name*> | String | O nome de uma propriedade no esquema JSON, que descreve o payload | 
 | <*property-type*> | String | O tipo de propriedade | 
@@ -611,7 +611,7 @@ Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está d
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*method-type*> | String | O método que solicitações de entrada tem de utilizar para chamar a sua aplicação lógica: "GET", "COLOCAR", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | O caminho relativo para o parâmetro que pode aceitar o URL do ponto de extremidade | 
@@ -776,7 +776,7 @@ Ações têm esses elementos de alto nível, embora alguns são opcionais:
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|
 | <*action-name*> | String | O nome da ação | 
 | <*action-type*> | String | O tipo de ação, por exemplo, "Http" ou "ApiConnection"| 
@@ -787,7 +787,7 @@ Ações têm esses elementos de alto nível, embora alguns são opcionais:
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte as políticas de repetição. | 
 | <*runtime-config-options*> | Objeto JSON | Para algumas ações, pode alterar o comportamento da ação em tempo de execução definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
@@ -889,7 +889,7 @@ Esta ação envia um pedido HTTP para um [API gerida pela Microsoft](../connecto
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*action-name*> | String | O nome da ação fornecida pelo conector do | 
 | <*api-name*> | String | O nome da API gerida pela Microsoft que é utilizado para a ligação | 
@@ -899,7 +899,7 @@ Esta ação envia um pedido HTTP para um [API gerida pela Microsoft](../connecto
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*other-action-specific-input-properties*> | Objeto JSON | Quaisquer outras propriedades de entrada que se aplicam a esta ação específica | 
 | <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
@@ -969,7 +969,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*action-name*> | String | O nome da ação fornecida pelo conector do | 
 | <*method-type*> | String | O método HTTP a utilizar para subscrever ou anular a subscrição de um ponto de extremidade: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
@@ -978,7 +978,7 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | String | O URI a utilizar para anular a subscrição da API | 
 | <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar o pedido <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1009,7 +1009,7 @@ Em seguida, pode utilizar o resultado da ação em outras ações.
 
 *Necessário* 
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*inputs-to-compose*> | Qualquer | As entradas para a criação de uma única saída | 
 |||| 
@@ -1072,7 +1072,7 @@ Esta ação chama um criado anteriormente [função do Azure](../azure-functions
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | String | O ID de recurso para a função do Azure que pretende chamar. Este é o formato para este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | String | O método HTTP a utilizar para chamar a função: "GET", "PUT", "POST", "PATCH" ou "Eliminar" <p>Se não for especificado, a predefinição é o método "POST". | 
@@ -1080,7 +1080,7 @@ Esta ação chama um criado anteriormente [função do Azure](../azure-functions
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar com a chamada <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar no pedido | 
@@ -1143,7 +1143,7 @@ Esta ação envia um pedido para o ponto final especificado e verifica a respost
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*method-type*> | String | O método a utilizar para enviar o pedido: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | String | O HTTP ou HTTPS ponto final para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -1151,7 +1151,7 @@ Esta ação envia um pedido para o ponto final especificado e verifica a respost
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar com o pedido <p>Por exemplo, para definir o idioma e tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar no pedido | 
@@ -1194,7 +1194,7 @@ Esta ação cria uma cadeia de caracteres a partir de todos os itens numa matriz
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. | 
 | <*delimiter*> | Cadeia de caracteres único | O caráter que separa cada item na cadeia de caracteres | 
@@ -1238,7 +1238,7 @@ Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objeto JSON | O que pretende analisar o conteúdo JSON | 
 | <*JSON-schema*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON, o que a ação utiliza para analisar a origem de conteúdo JSON subjacente. <p>**Sugestão**: No estruturador de aplicações lógicas, pode fornecer o esquema ou fornecer um payload de exemplo, para que a ação pode gerar o esquema. | 
@@ -1340,7 +1340,7 @@ Esta ação cria uma matriz de itens na outra matriz com base numa condição es
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. |
 | <*condition-or-filter*> | String | A condição utilizada para filtrar itens na matriz de origem <p>**Nota**: Se não existem valores satisfaçam a condição, em seguida, a ação cria uma matriz vazia. |
@@ -1381,14 +1381,14 @@ Esta ação cria o payload de resposta a um pedido HTTP.
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*response-status-code*> | Número inteiro | O código de estado HTTP que é enviado para a solicitação de entrada. O código de padrão é "200 OK", mas o código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx, mas não com 3xxx. | 
 |||| 
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*response-headers*> | Objeto JSON | Um ou mais cabeçalhos a incluir com a resposta | 
 | <*response-body*> | Vários | O corpo da resposta, que pode ser uma cadeia de caracteres, o objeto JSON ou o conteúdo até mesmo binário a partir de uma ação anterior | 
@@ -1456,7 +1456,7 @@ Esta ação cria uma matriz com objetos JSON, transformando os itens a partir de
 
 *Necessário* 
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Certifique-se de que coloque uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
 | <*key-name*> | String | O nome de propriedade atribuído para o resultado de <*expressão*> <p>Para adicionar uma nova propriedade de todos os objetos da matriz de saída, forneça um <*nome da chave*> para essa propriedade e um <*expressão*> para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos da matriz, omita o <*nome da chave*> para essa propriedade. | 
@@ -1554,7 +1554,7 @@ Esta ação cria uma tabela CSV ou HTML de uma matriz. Para as matrizes com obje
 
 *Necessário* 
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | < CSV *ou* HTML >| String | O formato para a tabela que pretende criar | 
 | <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
@@ -1564,7 +1564,7 @@ Esta ação cria uma tabela CSV ou HTML de uma matriz. Para as matrizes com obje
 
 Para especificar ou personalizar os cabeçalhos de coluna e os valores, utilize o `columns` matriz. Quando `header-value` pares de tem o mesmo nome de cabeçalho, seus valores são apresentados na mesma coluna sob esse nome de cabeçalho. Caso contrário, cada cabeçalho exclusivo define uma única coluna.
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*column-name*> | String | O nome do cabeçalho para uma coluna | 
 | <*column-value*> | Qualquer | O valor dessa coluna | 
@@ -1667,7 +1667,7 @@ Esta ação impede a execução de uma instância de fluxo de trabalho, cancela 
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*status*> | String | O estado a devolver para a execução: "Falha", "Cancelada" ou "Foi concluída com êxito" |
 |||| 
@@ -1676,7 +1676,7 @@ Esta ação impede a execução de uma instância de fluxo de trabalho, cancela 
 
 As propriedades para o objeto "runStatus" aplicam-se apenas quando a propriedade "runStatus" está definida para o status de "Falhado".
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | String | O código ou um nome para o erro |
 | <*error-message*> | String | A mensagem ou o texto que descreve o erro e quaisquer ações o utilizador de aplicação pode tirar | 
@@ -1737,7 +1737,7 @@ Esta ação coloca em pausa a execução de fluxo de trabalho para o intervalo e
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*number-of-units*> | Número inteiro | Para o **atraso** ação, o número de unidades de espera | 
 | <*interval*> | String | Para o **atraso** ação, o intervalo de espera: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
@@ -1810,7 +1810,7 @@ O motor do Logic Apps verifica o acesso ao acionador que pretende chamar, por is
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | String | O nome para a aplicação lógica que pretende chamar | 
 | <*trigger-name*> | String | O nome para o acionador na aplicação lógica aninhada deseja chamar | 
@@ -1821,7 +1821,7 @@ O motor do Logic Apps verifica o acesso ao acionador que pretende chamar, por is
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar com a chamada | 
 | <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar com a chamada | 
@@ -1887,7 +1887,7 @@ Esta ação loop itera através de uma matriz e realiza ações em cada item da 
 
 *Necessário* 
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*ação-1... n*> | String | Os nomes das ações que são executadas em cada item da matriz | 
 | <*action-definition-1...n*> | Objeto JSON | As definições das ações que executar | 
@@ -1896,7 +1896,7 @@ Esta ação loop itera através de uma matriz e realiza ações em cada item da 
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*count*> | Número inteiro | Por predefinição, o loop "for each" iterações executam ao mesmo tempo, ou em paralelo, até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [alterar loop "for each" simultaneidade](#change-for-each-concurrency). | 
 | <*operation-option*> | String | Para executar um loop "for each" em seqüência, em vez de em paralelo, defina <*opção de operação*> para `Sequential` ou <*contagem*> para `1`, mas não ambos. Para obter mais informações, consulte [executar "for each" faz um loop sequencialmente](#sequential-for-each). | 
@@ -1960,7 +1960,7 @@ Esta ação, o que é um *instrução condicional*, avalia uma expressão que re
 }
 ```
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*condição*> | Objeto JSON | A condição, o que pode ser uma expressão, para avaliar | 
 | <*action-1*> | Objeto JSON | A ação de execução quando <*condição*> avalia como verdadeiro | 
@@ -2050,7 +2050,7 @@ Esta ação agrupa logicamente ações em *âmbitos*, que obter seu próprio Est
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*inner-action-1...n*> | Objeto JSON | Uma ou mais ações que são executados dentro do escopo |
 | <*entradas de ação*> | Objeto JSON | As entradas para cada ação |
@@ -2091,7 +2091,7 @@ Esta ação, também conhecida como um *mudar a instrução*, organiza outras a�
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varia | A expressão, o objeto JSON ou o token para avaliar | 
 | <*action-name*> | String | O nome da ação a ser executado para o caso de correspondência | 
@@ -2101,7 +2101,7 @@ Esta ação, também conhecida como um *mudar a instrução*, organiza outras a�
 
 *Opcional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*default-action-name*> | String | O nome da ação predefinida para ser executada quando não existe nenhum caso correspondente | 
 | <*default-action-definition*> | Objeto JSON | A definição da ação ser executada quando não existe nenhum caso correspondente | 
@@ -2217,7 +2217,7 @@ Esta ação de loop contém ações que executar até que a condição especific
 }
 ```
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*action-name*> | String | O nome para a ação que pretende executar dentro do loop | 
 | <*action-type*> | String | O tipo de ação que pretende executar | 

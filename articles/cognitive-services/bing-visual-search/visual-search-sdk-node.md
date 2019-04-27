@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
 ms.openlocfilehash: c46c33b81a1162bdb30edc7a39a04fea8c0abb7d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829332"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Início rápido: Obtenha informações de imagem com o SDK de pesquisa Visual do Bing para node. js
 

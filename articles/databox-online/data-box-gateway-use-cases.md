@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/2/2019
 ms.author: alkohli
 ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754186"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de utilização para o Gateway de caixa de dados do Azure
 

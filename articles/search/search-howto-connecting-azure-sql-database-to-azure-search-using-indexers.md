@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817171"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
@@ -297,7 +297,7 @@ O **softDeleteMarkerValue** deve ser uma cadeia de caracteres – utilize a repr
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geografia |Edm.GeographyPoint |São suportadas apenas as instâncias de geografia do tipo POINT com 4326 SRID (que é a predefinição) |
-| ROWVERSION |N/A |Colunas de versão de linha não podem ser armazenadas no índice de pesquisa, mas pode ser utilizados para controlo de alterações |
+| rowversion |N/A |Colunas de versão de linha não podem ser armazenadas no índice de pesquisa, mas pode ser utilizados para controlo de alterações |
 | tempo, período de tempo, binary, varbinary, imagem, xml, geometry, tipos CLR |N/A |Não suportado |
 
 ## <a name="configuration-settings"></a>Definições de configuração

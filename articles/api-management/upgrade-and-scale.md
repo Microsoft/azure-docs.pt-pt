@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
 ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859551"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e dimensionar uma instância de gestão de API do Azure  
 
@@ -69,5 +69,5 @@ Pode atualizar e mudar para a versão de e para qualquer camada. Tenha em atenç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como implementar uma instância de serviço de gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
+- [Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
 - [Como Dimensionar automaticamente uma instância de serviço de gestão de API do Azure](api-management-howto-autoscale.md)

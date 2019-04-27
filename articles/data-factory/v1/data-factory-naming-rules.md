@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: daf0b1c12ab10230690a62eb5dc772417d8b92f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824240"
 ---
 # <a name="azure-data-factory---naming-rules"></a>O Azure Data Factory - regras de nomenclatura
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54024506"
 
 A tabela seguinte fornece regras de nomenclatura dos artefactos do Data Factory.
 
-| Nome | Exclusividade de nome | Verificações de validação |
+| Name | Exclusividade de nome | Verificações de validação |
 |:--- |:--- |:--- |
 | Data Factory |Exclusivo em todo o Microsoft Azure. Nomes diferenciam maiúsculas de minúsculas, ou seja, `MyDF` e `mydf` fazer referência à fábrica de dados mesmo. |<ul><li>Cada fábrica de dados está associada a exatamente uma subscrição do Azure.</li><li>Nomes de objeto tem de começar com uma letra ou um número e só podem conter letras, números e o caráter de travessão (-).</li><li>Cada caráter de travessão (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Traços consecutivos não são permitidos em nomes de contentor.</li><li>Nome pode ter entre 3 e 63 carateres.</li></ul> |
 | Serviços ligados/tabelas/Pipelines |Exclusivo numa fábrica de dados. Nomes diferenciam maiúsculas de minúsculas. |<ul><li>Número máximo de carateres de um nome de tabela: 260.</li><li>Nomes de objeto tem de começar com uma letra, número ou um caráter de sublinhado (_).</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |

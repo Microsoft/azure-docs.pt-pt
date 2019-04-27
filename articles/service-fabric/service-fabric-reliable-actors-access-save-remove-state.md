@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725402"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Aceder, guardar e remover o estado de Reliable Actors
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) são objetos de thread único de mensagens em fila que podem encapsular a lógica e o estado e manter o estado de forma fiável. Todas as instâncias de ator tem a sua própria [Gestor de estado](service-fabric-reliable-actors-state-management.md): pares chave/valor uma estrutura de dicionário de dados que armazena de forma fiável. O Gestor de estado é um wrapper em torno de um fornecedor de estado. Pode usá-lo para armazenar dados, independentemente de qual [definição de persistência](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) é utilizado.

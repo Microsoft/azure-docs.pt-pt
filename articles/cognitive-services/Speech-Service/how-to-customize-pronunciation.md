@@ -12,11 +12,11 @@ ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60863773"
 ---
 # <a name="enable-custom-pronunciation"></a>Ativar pronúncia personalizada
 

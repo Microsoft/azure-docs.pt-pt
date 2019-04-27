@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
 ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60804713"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Otimização de geração 2 de armazenamento do Azure Data Lake para o desempenho
 

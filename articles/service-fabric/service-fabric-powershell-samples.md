@@ -17,11 +17,11 @@ ms.date: 11/29/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 8a3a80fb6ae20eddc3237d986ecda1d4cb5b65a5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773253"
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 

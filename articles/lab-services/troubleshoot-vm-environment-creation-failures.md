@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.openlocfilehash: a653a785e99619c3e256613d6a4d2c7592f54c8c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848490"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Resolver problemas de máquina virtual (VM) e de falhas de criação do ambiente no Azure DevTest Labs
 DevTest Labs dá avisos se um nome de máquina é inválido ou se está prestes a violar uma política de laboratório. Às vezes, pode ver a vermelho `X` junto ao seu estado VM ou de ambiente que informa-o de que algo saiu errado de laboratório.  Este artigo fornece alguns truques que pode utilizar para localizar o problema subjacente e, Espero que evitar o problema no futuro.

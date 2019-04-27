@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: mbullwin
 ms.openlocfilehash: 8c722eb0db3022620ba03e02dd2ae00f97a78f28
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691160"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Explore Core.NET/.NET registos de rastreio no Application Insights
 

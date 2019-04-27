@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b4f8577724781e5df10846a5fc4e30c8320403f2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824906"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Kubernetes rede políticas descrição geral do Azure
 
@@ -38,11 +38,11 @@ Durante a implementação de segurança para o seu cluster, utilize a rede grupo
 Políticas de rede do Azure pode ser usadas das seguintes formas para fornecer microssegmentação de pods.
 
 ### <a name="acs-engine"></a>Motor de ACS
-Motor de ACS é uma ferramenta que gera um modelo do Azure Resource Manager para a implementação de um cluster de Kubernetes no Azure. A configuração do cluster é especificada num ficheiro JSON que é passado para a ferramenta ao gerar o modelo. Para saber mais sobre a lista completa das definições de cluster suportadas e suas descrições, consulte o motor do Microsoft Azure Container Service - a definição do Cluster.
+Motor de ACS é uma ferramenta que gera um modelo do Azure Resource Manager para a implementação de um cluster de Kubernetes no Azure. A configuração do cluster está especificada num ficheiro JSON transmitido à ferramenta ao gerar o modelo. Para saber mais sobre a lista completa das definições de cluster suportadas e suas descrições, consulte o motor do Microsoft Azure Container Service - a definição do Cluster.
 
 Para ativar as políticas em clusters implementados através de motor de acs, especifique o valor da definição networkPolicy no arquivo de definição do cluster seja "azure".
 
-#### <a name="example-configuration"></a>Exemplo de configuração
+#### <a name="example-configuration"></a>Configuração de exemplo
 
 O abaixo JSON a configuração de exemplo cria uma nova rede virtual e uma sub-rede e implementa um cluster de Kubernetes no mesmo com CNI do Azure. Recomendamos que utilize "Bloco de notas" para editar o ficheiro JSON. 
 ```json
@@ -87,7 +87,7 @@ O abaixo JSON a configuração de exemplo cria uma nova rede virtual e uma sub-r
 
 ```
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Criar seu próprio cluster do Kubernetes no Azure
-A implementação pode ser usada para fornecer as diretivas de rede para Pods em clusters do Kubernetes que implemente por conta própria, sem depender de ferramentas como o motor de ACS. Neste caso, primeiro instalar o plug-in de CNI e ativá-lo em todas as máquinas virtuais num cluster. Para obter instruções detalhadas, consulte [implementar o plug-in para um cluster do Kubernetes que implementar mesmo](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+A implementação pode ser usada para fornecer as diretivas de rede para Pods em clusters do Kubernetes que implemente por conta própria, sem depender de ferramentas como o motor de ACS. Neste caso, primeiro instalar o plug-in de CNI e ativá-lo em todas as máquinas virtuais num cluster. Para obter instruções detalhadas, veja [Implementar o plug-in para um cluster do Kubernetes que implementar por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
 Depois do cluster é implementado, execute o seguinte `kubectl` comando para transferir e aplicar a política de rede do Azure *daemonset* ao cluster.
 

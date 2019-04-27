@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845771"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Crie esquemas para controlo de X12 de mensagens em contas de integração para o Azure Logic Apps
 
@@ -72,10 +72,10 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | transactionSetControlNumber | String | Número de controlo do conjunto de transações. (Opcional) |
 | CorrelationMessageId | String | ID de mensagem de correlação. Uma combinação de {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Opcional) |
 | messageType | String | Transação definir ou tipo de documento. (Opcional) |
-| isMessageFailed | Booleano | Se o X12 mensagem de falha. (Obrigatório) |
-| isTechnicalAcknowledgmentExpected | Booleano | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
-| isFunctionalAcknowledgmentExpected | Booleano | Se a confirmação funcional é configurada no X12 contrato. (Obrigatório) |
-| needAk2LoopForValidMessages | Booleano | Se o loop de ciclo AK2 é necessário para uma mensagem válida. (Obrigatório) |
+| isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
+| isFunctionalAcknowledgmentExpected | Boolean | Se a confirmação funcional é configurada no X12 contrato. (Obrigatório) |
+| needAk2LoopForValidMessages | Boolean | Se o loop de ciclo AK2 é necessário para uma mensagem válida. (Obrigatório) |
 | segmentsCount | Número inteiro | Número de segmentos numa X12 conjunto de transações. (Opcional) |
 ||||
 
@@ -131,11 +131,11 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | respondingFunctionalGroupId | String | ID do grupo funcional, que mapeia para AK101 na confirmação de responder. (Opcional) |
 | respondingtransactionSetControlNumber | String | Número de controlo do conjunto de transações está a responder. (Opcional) |
 | respondingTransactionSetId | String | ID, que mapeia para AK201 na confirmação do conjunto de transações está a responder. (Opcional) |
-| statusCode | Booleano | Código de estado de confirmação do conjunto de transações. (Obrigatório) |
+| statusCode | Boolean | Código de estado de confirmação do conjunto de transações. (Obrigatório) |
 | segmentsCount | Enum | Código de estado de confirmação. Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Estado de processamento da confirmação. Valores permitidos são **recebidos**, **Generated**, e **enviados**. (Obrigatório) |
 | CorrelationMessageId | String | ID de mensagem de correlação. Uma combinação de {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Opcional) |
-| isMessageFailed | Booleano | Se o X12 mensagem de falha. (Obrigatório) |
+| isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
 | ak2Segment | String | Confirmação de uma transação definido dentro do grupo funcional recebido. (Opcional) |
 | ak3Segment | String | Relatórios de erros num segmento de dados. (Opcional) |
 | ak5Segment | String | Se o conjunto identificadas no segmento do ciclo AK2 de transações é aceites ou rejeitadas e, por isso que os relatórios. (Opcional) |
@@ -183,8 +183,8 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Número de controlo de intercâmbio. (Opcional) |
 | isaSegment | String | Segmento ISA de mensagem. (Opcional) |
-| isTechnicalAcknowledgmentExpected | Booleano | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
-| isMessageFailed | Booleano | Se o X12 mensagem de falha. (Obrigatório) |
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
+| isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
 | isa09 | String | Intercâmbio de X12 documentos data. (Opcional) |
 | isa10 | String | Tempo de intercâmbio de documentos X12. (Opcional) |
 | isa11 | String | Controlo de intercâmbio de X12 identificador de padrões. (Opcional) |
@@ -235,7 +235,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | interchangeControlNumber | String | Número de controlo da confirmação técnica recebidos de parceiros de intercâmbio. (Opcional) |
 | isaSegment | String | Segmento ISA para a confirmação de técnica de parceiros é recebido. (Opcional) |
 | respondingInterchangeControlNumber |String | Número de controlo para a confirmação técnica recebidos de parceiros de intercâmbio. (Opcional) |
-| isMessageFailed | Booleano | Se o X12 mensagem de falha. (Obrigatório) |
+| isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
 | statusCode | Enum | Intercâmbio do código de estado de confirmação. Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Estado de confirmação. Valores permitidos são **recebidos**, **Generated**, e **enviados**. (Obrigatório) |
 | ta102 | String | Intercâmbio data. (Opcional) |
@@ -288,9 +288,9 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | interchangeControlNumber | String | Número de controlo de intercâmbio. (Opcional) |
 | functionalGroupControlNumber | String | Número de controle funcional. (Opcional) |
 | gsSegment | String | Segmento de mensagem GS. (Opcional) |
-| isTechnicalAcknowledgmentExpected | Booleano | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
-| isFunctionalAcknowledgmentExpected | Booleano | Se a confirmação funcional é configurada no X12 contrato. (Obrigatório) |
-| isMessageFailed | Booleano | Se o X12 mensagem de falha. (Obrigatório)|
+| isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
+| isFunctionalAcknowledgmentExpected | Boolean | Se a confirmação funcional é configurada no X12 contrato. (Obrigatório) |
+| isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório)|
 | gs01 | String | Código de identificação funcional. (Opcional) |
 | gs02 | String | Código do remetente do aplicativo. (Opcional) |
 | gs03 | String | Código do destinatário do aplicativo. (Opcional) |
@@ -347,7 +347,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | gsSegment | String | Mesmo que o grupo funcional controlar o número, mas preenchida apenas em casos específicos. (Opcional) |
 | respondingfunctionalGroupControlNumber | String | Número de controlo do grupo funcional original. (Opcional) |
 | respondingFunctionalGroupId | String | ID do Maps para AK101 no grupo funcional de confirmação. (Opcional) |
-| isMessageFailed | Booleano | Se o X12 mensagem de falha. (Obrigatório) |
+| isMessageFailed | Boolean | Se o X12 mensagem de falha. (Obrigatório) |
 | statusCode | Enum | Código de estado de confirmação. Valores permitidos são **aceite**, **rejeitado**, e **AcceptedWithErrors**. (Obrigatório) |
 | processingStatus | Enum | Estado de processamento da confirmação. Valores permitidos são **recebidos**, **Generated**, e **enviados**. (Obrigatório) |
 | ak903 | String | Número de conjuntos de transação recebido. (Opcional) |

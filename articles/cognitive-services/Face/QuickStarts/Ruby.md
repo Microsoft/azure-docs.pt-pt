@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815307"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início rápido: Detetar rostos numa imagem usando a REST API e Ruby
 

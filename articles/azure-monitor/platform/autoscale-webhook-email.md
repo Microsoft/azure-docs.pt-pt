@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787314"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilizar ações de dimensionamento automático para enviar e-mail e webhook notificações de alertas no Azure Monitor
 Este artigo mostra-lhe como configurar acionadores, para que pode chamar URLs da web específica ou enviar e-mails com base em ações de dimensionamento automático no Azure.  
@@ -68,7 +68,7 @@ Ao utilizar o modelo de REST API ou do Resource Manager, inclua o elemento de no
 | customEmails |sim |valor pode ser [null] ou matriz de cadeia de caracteres de mensagens de e-mail |
 | webhooks |sim |o valor pode ser nulo ou válido Uri |
 | serviceUri |sim |um Uri de https válido |
-| propriedades |sim |o valor tem de estar vazio {} ou podem conter pares chave-valor |
+| properties |sim |o valor tem de estar vazio {} ou podem conter pares chave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
 O webhook pode autenticar através da autenticação baseada em tokens, onde guardar o webhook URI com um ID de token como um parâmetro de consulta. Por exemplo, https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
@@ -108,13 +108,13 @@ Quando a notificação de dimensionamento automático é gerada, os seguintes me
 | status |sim |O estado que indica que uma ação de dimensionamento automático foi gerada |
 | operação |sim |Para um aumento do número de instâncias, é "Aumentar horizontalmente" e para uma diminuição nas instâncias, será "Escala em" |
 | context |sim |O contexto de ação de dimensionamento automático |
-| carimbo de data/hora |sim |Carimbo de hora quando a ação de dimensionamento automático foi acionada |
+| timestamp |sim |Carimbo de hora quando a ação de dimensionamento automático foi acionada |
 | ID |Sim |Gestor de recursos do ID de definição de dimensionamento automático |
 | nome |Sim |O nome da definição de dimensionamento automático |
 | detalhes |Sim |Explicação da ação que demorou o serviço de dimensionamento automático e a alteração na contagem de instâncias |
 | subscriptionId |Sim |ID de subscrição do recurso de destino que está a ser ajustado |
 | resourceGroupName |Sim |Nome do grupo de recursos do recurso de destino que está a ser ajustado |
-| resourceName |Sim |Nome do recurso de destino que está a ser ajustado |
+| nomeRecurso |Sim |Nome do recurso de destino que está a ser ajustado |
 | resourceType |Sim |Os três valores de suportados: "microsoft.classiccompute/domainnames/slots/roles" - funções do serviço em nuvem, "Compute/virtualmachinescalesets" - conjuntos de dimensionamento de máquinas virtuais e "Microsoft.Web/serverfarms" - aplicação Web |
 | resourceId |Sim |ID de Gestor de recursos do recurso de destino que está a ser ajustado |
 | portalLink |Sim |Hiperligação do portal do Azure para a página de resumida do recurso de destino |

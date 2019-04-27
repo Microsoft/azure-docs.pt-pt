@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: kumud
 ms.openlocfilehash: 6ffecf973632911113608b7478d2af2aef036257
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884369"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Início rápido: Criar um perfil do Gestor de tráfego para uma aplicação web de elevada disponibilidade com o Azure PowerShell
 

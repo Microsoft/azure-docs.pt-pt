@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827436"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série de tempo no Explorador de dados do Azure
 
@@ -72,7 +72,7 @@ Na tabela acima, temos três partições. Podemos criar uma série de tempo sepa
 Nesta secção, vai realizar funções de processamento de série típica.
 Depois de criar um conjunto de séries de tempo, ADX oferece suporte a uma lista crescente de funções para processar e analisá-los, que pode ser encontrado na [documentação da série de tempo](/azure/kusto/query/machine-learning-and-tsa). Iremos descrever algumas funções representativas para processamento e análise de séries de tempo.
 
-### <a name="filtering"></a>Filtragem
+### <a name="filtering"></a>Filtering
 
 A filtragem é uma prática comum no sinal de processamento e útil para tarefas de processamento de séries de tempo (por exemplo, suavizar um sinal do ruído, alterar a deteção).
 - Existem duas funções de filtragem genéricas:

@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883875"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
 
@@ -64,7 +64,7 @@ Para configurar as máquinas virtuais com o software de FSLogix, efetue o seguin
 
 | Name                | Type               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
-| Ativado             | DWORD              | 1                                 |
+| Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Valor de múltiplas cadeias | "Caminho de rede para a partilha de ficheiros"     |
 
 >[!IMPORTANT]

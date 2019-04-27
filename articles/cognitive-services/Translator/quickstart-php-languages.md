@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/08/2019
-ms.author: erhopf
+origin.date: 02/08/2019
+ms.date: 03/12/2019
+ms.author: v-junlch
 ms.openlocfilehash: c902296b6ad3ebd4f012f1f6119a9aa5111916fb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879381"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Início rápido: Obter idiomas com suporte com a API de REST de texto de tradutor (PHP)
 
@@ -37,7 +38,7 @@ O seguinte código obtém uma lista dos idiomas suportados para tradução, tran
 <?php
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
-$host = "https://api.cognitive.microsofttranslator.com";
+$host = "https://api.translator.azure.cn";
 $path = "/languages?api-version=3.0";
 $output_path = "output.txt";
 function GetLanguages ($host, $path) {
@@ -160,3 +161,4 @@ Explore o código de exemplo neste início rápido e noutros, incluindo a tradu�
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)
+

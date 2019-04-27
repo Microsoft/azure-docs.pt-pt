@@ -3,22 +3,23 @@ title: Importar a coleção do Postman para chamadas REST de transmissão em flu
 description: Este artigo fornece uma definição de coleção do Postman para chamadas REST de serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 897513abcc9f829f1cbdc315208e4451ae4dbc41
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637595"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção do Postman com operações de transmissão em direto 
 
@@ -35,7 +36,7 @@ Este artigo contém uma definição do **Postman** coleção que contenha HTTP a
     "item": [
         {
             "name": "1. Get AAD Auth Token copy",
-            "description": "To get started making calls to Azure Media Services you have to first do the following:\n1) Get Token and cache it.\n2) Get the Closest API endpoint from http://media.windows.net",
+            "description": "To get started making calls to Azure Media Services you have to first do the following:\n1) Get Token and cache it.\n2) Get the Closest API endpoint from http://media.chinacloudapi.cn",
             "item": [
                 {
                     "name": "Get Azure AD Token for Auth (Expires every Hour!)",
@@ -86,14 +87,14 @@ Este artigo contém uma definição do **Postman** coleção que contenha HTTP a
                                 },
                                 {
                                     "key": "resource",
-                                    "value": "https://rest.media.azure.net",
-                                    "description": "Normally this is https://rest.media.azure.net",
+                                    "value": "https://rest.media.chinacloudapi.cn",
+                                    "description": "Normally this is https://rest.media.chinacloudapi.cn",
                                     "type": "text"
                                 }
                             ]
                         },
                         "url": {
-                            "raw": "https://login.microsoftonline.com/{{TenantId}}/oauth2/token",
+                            "raw": "https://login.partner.microsoftonline.cn/{{TenantId}}/oauth2/token",
                             "protocol": "https",
                             "host": [
                                 "login",

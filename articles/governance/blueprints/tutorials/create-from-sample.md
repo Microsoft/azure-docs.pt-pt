@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874670"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>Criar um ambiente a partir de um exemplo de esquema
 
@@ -102,13 +102,13 @@ Depois da cópia do exemplo de plano gráfico de ter sido com êxito **publicado
 
      Os parâmetros definidos nesta secção aplicam-se para o artefacto sob a qual está definido. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) , uma vez que estão definidos durante a atribuição do esquema. Para cada artefato, defina o valor de parâmetro para o que é definido no **valor** coluna. Para `{Your ID}`, selecione a sua conta de utilizador do Azure.
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
+     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos de ProdRG|Grupo de recursos|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
-     |Grupo de recursos de ProdRG|Grupo de recursos|Localização|EUA Oeste 2|Define a localização do primeiro grupo de recursos.|
+     |Grupo de recursos de ProdRG|Grupo de recursos|Location|EUA Oeste 2|Define a localização do primeiro grupo de recursos.|
      |Contribuinte|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _contribuinte_ atribuição de função no primeiro grupo de recursos.|
      |Grupo de recursos de PreProdRG|Grupo de recursos|Name|PreProductionRG|Define o nome do segundo grupo de recursos.|
-     |Grupo de recursos de PreProdRG|Grupo de recursos|Localização|EUA Oeste|Define a localização do segundo grupo de recursos.|
+     |Grupo de recursos de PreProdRG|Grupo de recursos|Location|EUA Oeste|Define a localização do segundo grupo de recursos.|
      |Proprietário|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _proprietário_ atribuição de função dentro do segundo grupo de recursos.|
      |Leitores|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _leitores_ atribuição de função dentro do segundo grupo de recursos.|
 

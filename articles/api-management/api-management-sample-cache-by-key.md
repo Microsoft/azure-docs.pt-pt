@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780826"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>A colocação em cache personalizada na gestão de API do Azure
 O serviço de gestão de API do Azure tem suporte incorporado para [colocação em cache de resposta HTTP](api-management-howto-cache.md) usando o URL de recurso como chave. A chave pode ser modificada por cabeçalhos de solicitação usando o `vary-by` propriedades. Isto é útil para a colocação em cache as respostas HTTP inteiras (também conhecido como representações), mas às vezes é útil para a cache de apenas uma parte de uma representação. A nova [valor de pesquisa de cache](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) e [valor do arquivo do cache](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) políticas oferecem a capacidade de armazenar e obter partes arbitrárias de dados a partir de definições de política. Esta capacidade também adiciona valor ao anteriormente introduzido [pedido de envio](/azure/api-management/api-management-advanced-policies#SendRequest) política porque agora pode colocar em cache as respostas dos serviços externos.

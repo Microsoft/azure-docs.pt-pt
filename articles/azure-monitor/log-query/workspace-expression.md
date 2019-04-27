@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60785681"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>expressão de Workspace() na consulta de registo do Azure Monitor
 

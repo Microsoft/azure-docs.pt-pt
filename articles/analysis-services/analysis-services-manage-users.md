@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7673b115a3ad2e6ca7aec34b1cfabfb38d2a16f4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859214"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
 
@@ -51,7 +51,7 @@ Servidores do Analysis Services do Azure suportam ligações a partir [SSMS V17.
 
 SSDT liga-se ao Azure Analysis Services com o Active Directory Universal Authentication com suporte MFA. É pedido aos utilizadores iniciar sessão para o Azure, na primeira implementação. Os utilizadores devem iniciar sessão no Azure com uma conta com permissões de administrador do servidor no servidor que estão a implementar. Quando iniciar sessão Azure pela primeira vez, é atribuído um token. SSDT armazena em cache o token na memória para a reconexão do futuro.
 
-### <a name="power-bi-desktop"></a>O ambiente de trabalho do Power BI
+### <a name="power-bi-desktop"></a>Power BI Desktop
 
 Power BI Desktop liga-se para utilizar o Active Directory Universal Authentication com suporte MFA do Azure Analysis Services. É pedido aos utilizadores iniciar sessão para o Azure, na primeira ligação. Os utilizadores devem iniciar sessão no Azure com uma conta que está incluída num administrador do servidor ou a função de base de dados.
 
