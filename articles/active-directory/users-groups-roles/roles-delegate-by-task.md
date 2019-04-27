@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468322"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador pela tarefa de administração no Azure Active Directory
 
@@ -45,7 +45,7 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar diretórios do Azure AD B2C | Todos os utilizadores não-convidado ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Criar aplicações B2C | Administrador Global | 
-Criar aplicações empresariais | Administrador da Aplicação Cloud | Administrador de Aplicações
+Criar aplicações empresariais | Administrador de Aplicações de Cloud | Administrador de Aplicações
 Criar, ler, atualizar e eliminar políticas de B2C | Administrador Global | 
 Criar, ler, atualizar e eliminar os fornecedores de identidade | Administrador Global | 
 Criar, ler, atualizar e eliminar fluxos de utilizador de reposição de palavra-passe | Administrador Global | 
@@ -115,8 +115,8 @@ Leia toda a configuração | Leitor de subscrição do Azure que contém o servi
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Desativar dispositivo | Administrador de dispositivo na cloud | 
-Ativar dispositivo | Administrador de dispositivo na cloud | 
+Desativar dispositivo | Administrador de dispositivos de cloud | 
+Ativar dispositivo | Administrador de dispositivos de cloud | 
 Configuração básica de leitura | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Chaves do BitLocker de leitura | Leitor de Segurança | Administrador de palavras-passe, o administrador de segurança
 
@@ -124,11 +124,11 @@ Chaves do BitLocker de leitura | Leitor de Segurança | Administrador de palavra
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Dar consentimento a permissões delegadas | Administrador da aplicação Cloud | Administrador de aplicações
-Dar consentimento a permissões de aplicação não incluindo o Microsoft Graph ou Graph do Azure AD | Administrador da aplicação Cloud | Administrador de aplicações
+Dar consentimento a permissões delegadas | Administrador de aplicações de cloud | Administrador de aplicações
+Dar consentimento a permissões de aplicação não incluindo o Microsoft Graph ou Graph do Azure AD | Administrador de aplicações de cloud | Administrador de aplicações
 Dar consentimento a permissões de aplicação para o Microsoft Graph ou Graph do Azure AD | Administrador Global | 
 Autorizar aplicações aceder aos dados próprios | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Criar aplicação empresarial | Administrador da aplicação Cloud | Administrador de aplicações
+Criar aplicação empresarial | Administrador de aplicações de cloud | Administrador de aplicações
 Gerir o Proxy de aplicações | Administrador de aplicações | 
 Gerir definições de utilizador | Administrador Global | 
 Revisão de acesso de leitura de um grupo ou de uma aplicação | Leitor de Segurança | Administrador de segurança, administrador de utilizadores
@@ -152,7 +152,7 @@ Gerir definições do grupo | Administrador Global |
 Leia toda a configuração (exceto associação oculta) | Leitores de diretórios | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Associação de leitura, ocultada | Membro do grupo | O proprietário do grupo, o administrador de palavras-passe, administrador do Exchange, administrador do SharePoint, o administrador de Equipes, administrador de utilizadores
 Leia a associação de grupos com associação oculta a | Administrador de Suporte Técnico | Administrador de utilizador, administrador de Equipes
-Revogar a licença | Administrador de licença | Administrador de utilizadores
+Revogar a licença | Administrador de licenças | Administrador de utilizadores
 Atualizar associação de grupo | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de utilizadores
 Proprietários do grupo de atualização | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de utilizadores
 Propriedades do grupo de atualização | O proprietário do grupo ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrador de utilizadores
@@ -176,9 +176,9 @@ Vulnerabilidades de leitura | Leitor de Segurança |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Atribuir licenças | Administrador de licença | Administrador de utilizadores
+Atribuir licenças | Administrador de licenças | Administrador de utilizadores
 Leia toda a configuração | Leitores de diretórios | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Revogar a licença | Administrador de licença | Administrador de utilizadores
+Revogar a licença | Administrador de licenças | Administrador de utilizadores
 Experimente ou adquira subscrição | Administrador de faturação | 
 
 
@@ -202,8 +202,8 @@ Eliminar todas as palavras-passe de aplicação existentes geradas pelos utiliza
 Desativar a MFA | Administrador Global | 
 Ativar MFA | Administrador Global | 
 Gerir definições do serviço MFA | Administrador Global | 
-Exigir que os utilizadores selecionados forneçam novamente os métodos de contacto | Administrador da Autenticação | 
-Restaurar a autenticação multifator em todos os dispositivos memorizados  | Administrador da Autenticação | 
+Exigir que os utilizadores selecionados forneçam novamente os métodos de contacto | Administrador de Autenticação | 
+Restaurar a autenticação multifator em todos os dispositivos memorizados  | Administrador de Autenticação | 
 
 ## <a name="mfa-server"></a>Servidor MFA
 
@@ -247,8 +247,8 @@ Leia toda a configuração | Administrador de Segurança | Administrador de Util
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Atribuir utilizadores a funções | Administrador com Função Privilegiada | 
-Configurar as definições de função | Administrador com Função Privilegiada | 
+Atribuir utilizadores a funções | Administrador de Funções Privilegiadas | 
+Configurar as definições de função | Administrador de Funções Privilegiadas | 
 Ver a atividade de auditoria | Leitor de segurança | 
 Associações de função do Vista | Leitor de segurança | 
 
@@ -256,7 +256,7 @@ Associações de função do Vista | Leitor de segurança |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Gerir atribuições de funções | Administrador com Função Privilegiada | 
+Gerir atribuições de funções | Administrador de Funções Privilegiadas | 
 Revisão de acesso de leitura de uma função do Azure AD  | Leitor de Segurança | Administrador de segurança, o administrador com função privilegiada
 Leia toda a configuração | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 
@@ -314,10 +314,10 @@ Utilizadores sinalizados para risco de leitura | Leitor de Segurança |
 
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
-Adicionar utilizador à função de diretório | Administrador com Função Privilegiada | 
+Adicionar utilizador à função de diretório | Administrador de Funções Privilegiadas | 
 Adicionar utilizador ao grupo | Administrador de utilizadores | 
-Atribuir licenças | Administrador de licença | Administrador de utilizadores
-Criar utilizador convidado | Autor de convites | Administrador de utilizadores
+Atribuir licenças | Administrador de licenças | Administrador de utilizadores
+Criar utilizador convidado | Emitente de Convites | Administrador de utilizadores
 Criar utilizador | Administrador de utilizadores | 
 Eliminar utilizadores | Administrador de utilizadores | 
 Invalidar os tokens de atualização de administradores limitados (consulte a documentação) | Administrador de utilizadores | 
@@ -327,7 +327,7 @@ Configuração básica de leitura | Função de utilizador padrão ([consulte a 
 Repor palavra-passe para administradores limitados (consulte a documentação) | Administrador de utilizadores | 
 Repor palavra-passe de não-administradores (consulte a documentação) | Administrador de palavras-passe | Administrador de utilizadores
 Repor palavra-passe de administradores com privilégios | Administrador Global | 
-Revogar a licença | Administrador de licença | Administrador de utilizadores
+Revogar a licença | Administrador de licenças | Administrador de utilizadores
 Atualizar todas as propriedades, exceto o nome Principal de utilizador | Administrador de utilizadores | 
 Atualizar o nome do Principal de utilizador para administradores limitados (consulte a documentação) | Administrador de utilizadores | 
 Atualize a propriedade de nome Principal de utilizador em administradores com privilégios (consulte a documentação) | Administrador Global | 

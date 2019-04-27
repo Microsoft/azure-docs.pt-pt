@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 1b89679d88e3e4ce9912da81faebfccfcf23096f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cd29ec2f2d27a01abeb001cb49cb2c3cd372497d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444389"
 ---
 # <a name="azure-security-overview"></a>Descrição geral da segurança do Azure
 

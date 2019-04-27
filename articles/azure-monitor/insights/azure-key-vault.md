@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498530"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise do Cofre de chaves do Azure no Azure Monitor
 
@@ -108,7 +108,7 @@ A solução de Cofre de chaves do Azure analisa os registos que tenham um tipo d
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | CallerIpAddress |Endereço IP do cliente que efetuou o pedido |
-| Categoria | *AuditEvent* |
+| Category | *AuditEvent* |
 | CorrelationId |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
 | DurationMs |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Desta vez não inclui a latência de rede, para que o tempo que medir do lado do cliente pode não corresponder neste momento. |
 | httpStatusCode_d |Código de estado HTTP devolvido pelo pedido (por exemplo, *200*) |

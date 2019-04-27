@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 12/14/2018
 ms.author: jgao
 ms.openlocfilehash: eb46966c3a28b3fa4c2b23668109b7c5d23a609b
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390873"
 ---
 # <a name="provide-post-deployment-configurations-by-using-extensions"></a>Fornecer as configurações de pós-implementação através de extensões
 

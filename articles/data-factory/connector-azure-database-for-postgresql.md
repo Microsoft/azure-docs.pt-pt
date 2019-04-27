@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 35ac227bd420b614525d468f2d3332a2a02b5388
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60390912"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar dados da base de dados do Azure para PostgreSQL com o Azure Data Factory
 
@@ -41,7 +41,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para o s
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **AzurePostgreSql** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **AzurePostgreSql** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para ligar à base de dados do Azure para PostgreSQL.<br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault e obter o `password` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -102,7 +102,7 @@ Para copiar dados da base de dados do Azure para PostgreSQL, defina a propriedad
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AzurePostgreSqlTable** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **AzurePostgreSqlTable** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -131,7 +131,7 @@ Para copiar dados da base de dados do Azure para PostgreSQL, defina o tipo de or
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzurePostgreSqlSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzurePostgreSqlSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

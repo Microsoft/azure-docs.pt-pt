@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: diberry
 ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60496966"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Adicionar os formatos de expressão de modelo padrão comuns
 

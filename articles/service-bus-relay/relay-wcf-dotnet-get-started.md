@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: ee78227f645cbeded7a5c689750db835faf1055f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420228"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Reencaminhamentos de como usar o WCF de reencaminhamento do Azure com .NET
 Este artigo descreve como utilizar o serviço de reencaminhamento do Azure. Os exemplos são escritos em C# e utilizam a API do Windows Communication Foundation (WCF) com extensões contidas na assemblagem do Service Bus. Para obter mais informações sobre o reencaminhamento do Azure, consulte a [descrição geral do reencaminhamento do Azure](relay-what-is-it.md).

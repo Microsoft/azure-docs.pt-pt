@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437182"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro de relatório de atividades de início de sessão 
 
@@ -174,9 +174,11 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |81012|Não se trata de uma condição de erro. Ele indica que o utilizador tentar iniciar sessão com o Azure AD é diferente do utilizador com sessão iniciado no dispositivo. Pode ignorar este código nos registos.|
 |90010|O pedido não é suportado por vários motivos. Por exemplo, a solicitação é feita usando um método de pedido não suportado (o único método de mensagem é suportado) ou o algoritmo de assinatura de token que foi pedido não é suportado. Contacte o programador da aplicação.|
 |90014| Um campo obrigatório de uma mensagem de protocolo estava em falta, contacte o proprietário da aplicação. Se for o proprietário da aplicação, certifique-se de que tem todos os parâmetros necessários para o pedido de início de sessão. |
+|90051| Token de delegação inválido. ID de Cloud nacional inválido ({cloudId}) está especificado.|
 |90072| A conta tem de ser adicionado como um utilizador externo no inquilino pela primeira vez. Fim de sessão e inicie sessão novamente com um diferente do Azure AD conta.|
 |90094| A concessão de permissões de administrador. Peça ao administrador de inquilino para fornecer o consentimento para esta aplicação.|
 |500133| A declaração não está dentro do seu intervalo de tempo válida. Certifique-se de que o token de acesso não expirou antes de o utilizar para a asserção de utilizador ou pedir um novo token.|
+|530021|Aplicação não cumpre os requisitos de aplicação de acesso condicional aprovado.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415689"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter o Azure multi-factor Authentication
 
@@ -30,7 +30,7 @@ Quando se trata de proteger as suas contas, verificação de dois passos deve se
 
 A tabela seguinte descreve as diferenças entre três versões da autenticação multifator:
 
-| Versão | Descrição |
+| Version | Descrição |
 | --- | --- |
 | Multi-Factor Authentication para Office 365 <br> Microsoft 365 Empresas |Esta versão funciona exclusivamente em aplicações do Office 365 e é gerido a partir do portal do Office 365 ou do Microsoft 365. Os administradores podem [proteger os recursos do Office 365 com verificação de dois passos](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versão faz parte de uma subscrição do Office 365 ou do Microsoft 365 empresas. |
 | Multi-factor Authentication para administradores do Azure AD | Utilizadores atribuídos a função de Administrador Global do Azure AD em inquilinos do Azure AD podem ativar a verificação de dois passos, sem custos adicionais.|

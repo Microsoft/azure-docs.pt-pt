@@ -11,11 +11,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498617"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
