@@ -58,7 +58,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade de tipo tem de ser definida como: **AzureSearch**. | Sim |
+| type | A propriedade de tipo tem de ser definida como: **AzureSearch**. | Sim |
 | url | URL para o serviço Azure Search. | Sim |
 | key | Chave de administrador para o serviço Azure Search. | Sim |
 
@@ -68,7 +68,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade de tipo deve ser definida como **AzureSearchIndex**.| Sim |
+| type | A propriedade de tipo deve ser definida como **AzureSearchIndex**.| Sim |
 | indexName | Nome do índice da Azure Search. Fábrica de dados não cria o índice. O índice tem de existir no Azure Search. | Sim |
 
 
@@ -100,13 +100,13 @@ A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou
 
 | Tipo de dados do Azure Search | Suportado no Sink do Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadeia | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
-| Valor de duplo | S |
-| Booleano | S |
+| Double | S |
+| Boolean | S |
 | DataTimeOffset | S |
-| Matriz de cadeia de caracteres | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemplo JSON: Copiar dados do SQL Server no local para o índice da Azure Search
