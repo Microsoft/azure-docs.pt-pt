@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a6cf2276da463f71f008c4bfb6eee4c232b18308
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61433780"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implementar um serviço cloud
 O portal do Azure fornece duas formas para criar e implementar um serviço cloud: *Criação rápida* e *criação personalizada*.

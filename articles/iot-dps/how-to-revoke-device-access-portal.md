@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0dadf0ec248dac01e5cc65779004477bf4afc823
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113584"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como disenroll um dispositivo a partir do serviço de aprovisionamento de dispositivos do Azure IoT Hub
 

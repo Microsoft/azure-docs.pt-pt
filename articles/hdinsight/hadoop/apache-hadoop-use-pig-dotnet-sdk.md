@@ -1,7 +1,6 @@
 ---
 title: Executar tarefas do Apache Pig com o .NET SDK para Hadoop - Azure HDInsight
 description: Saiba como utilizar o SDK de .NET para o Hadoop para submeter tarefas do Pig ao Hadoop no HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: MT
+ms.openlocfilehash: ebf1f2806a6606294c61860a24fb2f02033a4bf4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110961"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>Executar tarefas do Apache Pig com o SDK .NET para o Apache Hadoop no HDInsight
 
@@ -43,11 +42,11 @@ O SDK de .NET do HDInsight fornece bibliotecas de cliente .NET, que torna mais f
 
 2. Para o novo projeto, escreva ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | ------ | ------ |
-   | Categoria | Templates/Visual C#/Windows |
+   | Category | Templates/Visual C#/Windows |
    | Modelo | Aplicação de Consola |
-   | Nome | SubmitPigJob |
+   | Name | SubmitPigJob |
 
 3. Clique em **OK** para criar o projeto.
 

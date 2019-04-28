@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129212"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -389,7 +389,7 @@ Elemento | Value
 espaço de nomes | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for especificado, o valor predefinido é "raiz/scx", implementado pelos [fornecedores de plataformas do System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 consulta | A consulta OMI a ser executado.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (consulte [definições protegido](#protected-settings)).
-frequência | (opcional) O número de segundos entre a execução da consulta. Valor predefinido é 300 (5 minutos) valor mínimo é de 15 segundos.
+frequency | (opcional) O número de segundos entre a execução da consulta. Valor predefinido é 300 (5 minutos) valor mínimo é de 15 segundos.
 Coletores de | (opcional) Uma lista separada por vírgulas dos nomes dos sinks adicionais para que os resultados de métrica de exemplo em bruto devem ser publicados. Nenhuma agregação destes exemplos não processados é calculada pela extensão ou por métricas do Azure.
 
 O "tabela" ou "Coletores de" ou ambos, tem de ser especificados.

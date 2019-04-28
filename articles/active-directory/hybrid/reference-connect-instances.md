@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096101"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Considerações especiais sobre instâncias
 O Azure AD Connect é geralmente utilizado com a instância de nível mundial do Azure AD e o Office 365. Mas também existem outras instâncias e estes têm diferentes requisitos para URLs e outras considerações especiais.

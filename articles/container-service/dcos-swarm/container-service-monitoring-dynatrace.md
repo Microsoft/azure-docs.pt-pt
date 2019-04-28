@@ -10,11 +10,11 @@ ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119862"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(PRETERIDO) Monitorizar um cluster DC/OS do Azure Container Service com o Dynatrace SaaS/gerida
 
@@ -27,7 +27,7 @@ A Dynatrace é uma solução de monitorização de nativas da cloud para o conte
 
 A figura seguinte mostra a interface do Usuário de Dynatrace:
 
-![A Dynatrace interface de Usuário](./media/container-service-monitoring-dynatrace/dynatrace.png)
+![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 [Implementar](container-service-deployment.md) e [ligar](./../container-service-connect.md) para um cluster configurado pelo Azure Container Service. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ https://www.dynatrace.com/trial/ ](https://www.dynatrace.com/trial/) para configurar uma conta de Dynatrace SaaS.  

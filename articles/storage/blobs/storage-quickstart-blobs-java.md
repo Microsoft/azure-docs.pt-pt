@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
 ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999941"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128924"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, transferir e listar blobs com a biblioteca de cliente para v7 de Java
 

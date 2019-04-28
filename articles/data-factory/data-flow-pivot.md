@@ -7,11 +7,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: e16cac281b77f3ca93d9ef358ae806203bc8b663
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61348506"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformação de dinâmica de fábrica de dados do Azure
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]

@@ -10,11 +10,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: c850d2b01e098a10aacf383f0ed4340cb9e64e10
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129792"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Introdução ao Armazenamento de tabelas no Azure
 

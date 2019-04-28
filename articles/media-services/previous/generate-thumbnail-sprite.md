@@ -12,13 +12,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61229055"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite em miniatura  
+# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura  
 
 Pode utilizar o Media Encoder Standard para gerar um sprite em miniatura, que é um arquivo JPEG, que contém vários miniaturas de resolução pequeno Unidas numa única imagem (grande), juntamente com um ficheiro VTT. Este ficheiro VTT Especifica o intervalo de tempo no vídeo de entrada que representa cada miniatura, juntamente com o tamanho e as coordenadas dessa miniatura dentro do arquivo JPEG grandes. Leitores de vídeo utilizar a imagem de ficheiro e o sprite VTT para mostrar um seekbar "visual", fornecendo um visualizador com comentários visuais quando voltar a limpeza e reencaminhar juntamente com a linha cronológica de vídeo.
 

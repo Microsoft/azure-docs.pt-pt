@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098850"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Utilizar um modelo ONNX de visão personalizada com o Windows ML (pré-visualização)
 
@@ -85,4 +85,4 @@ Para descobrir outras formas de exportar e utilizar um modelo de Visão Personal
 * [Utilizar o modelo exportado do CoreML numa aplicação Swift iOS](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Utilizar o modelo exportado do CoreML numa aplicação iOS com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-Para obter mais informações sobre como utilizar modelos ONNX com o Windows ML, veja o documento [Integrate a model into your app with Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) (Integrar um modelo na sua aplicação com o Windows ML).
+Para obter mais informações sobre como utilizar modelos ONNX com o Windows ML, veja o documento [Integrate a model into your app with Windows ML](/windows/ai/windows-ml/integrate-model) (Integrar um modelo na sua aplicação com o Windows ML).

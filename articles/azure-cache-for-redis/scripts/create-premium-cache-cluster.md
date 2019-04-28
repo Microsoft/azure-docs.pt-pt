@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: yegu
 ms.openlocfilehash: 18538cf713d2938b0b595c9d4664c39c6ada5231
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130454"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Criar uma Cache do Azure Premium para Redis com clustering
 

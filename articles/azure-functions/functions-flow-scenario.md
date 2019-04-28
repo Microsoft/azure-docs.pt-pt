@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106975"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função a partir do Microsoft Flow
 
@@ -75,11 +75,11 @@ Começar através da criação de uma lista que utilizar como uma origem de dado
 
 5. Repita os dois últimos passos para as outras três colunas na lista:
 
-    1. **Número** > "MaxOutput"
+    1. **Number** > "MaxOutput"
 
-    2. **Sim/não** > "ServiceRequired"
+    2. **Yes/No** > "ServiceRequired"
 
-    3. **Número** > "EstimatedEffort"
+    3. **Number** > "EstimatedEffort"
 
 Isso é tudo por agora – deve ter uma lista vazia que se parece com a imagem seguinte. Adicionar dados à lista depois de criar o fluxo.
 
@@ -132,7 +132,7 @@ Primeiro criar um fluxo do zero (sem um modelo) e adicione um *acionador* que é
 
     ![Adicionar uma condição](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow adiciona duas ramificações para o fluxo: **se Sim** e **se não**. Adicione passos para um ou ambos os ramos depois de definir a condição que pretende corresponder.
+    Microsoft Flow adiciona duas ramificações para o fluxo: **Se Sim** e **se não**. Adicione passos para um ou ambos os ramos depois de definir a condição que pretende corresponder.
 
     ![Ramos de condição](media/functions-flow-scenario/condition-branches.png)
 
@@ -224,7 +224,7 @@ Agora que o fluxo está concluído, adicionar uma linha à lista do SharePoint e
 
 2. Introduza os seguintes valores na grade de edição.
 
-    | Coluna de lista     | Valor           |
+    | Coluna de lista     | Value           |
     |-----------------|---------------------|
     | **Title** (Título)           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |

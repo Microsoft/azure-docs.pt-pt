@@ -1,6 +1,6 @@
 ---
-title: Configurar a recuperação após desastre para VMs Hyper-V em sites no local com o Azure Site Recovery | Microsoft Docs
-description: Saiba como configurar a recuperação após desastre para VMs Hyper-V entre os sites no local com o Azure Site Recovery.
+title: Configurar a recuperação após desastre para VMs de Hyper-V em sites no local com o Azure Site Recovery | Microsoft Docs
+description: Saiba como configurar a recuperação após desastre para VMs de Hyper-V entre os sites no local com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -10,17 +10,17 @@ ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124152"
 ---
-# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs Hyper-V para um site no local secundário
+# <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs de Hyper-V para um site no local secundário
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
 
-Este artigo mostra-lhe como configurar a recuperação após desastre para um site secundário para VMs Hyper-V no local geridas em clouds do System Center Virtual Machine Manager (VMM). Neste artigo, vai aprender a:
+Este artigo mostra-lhe como configurar a recuperação após desastre para um site secundário para VMs de Hyper-V no local geridas em clouds do System Center Virtual Machine Manager (VMM). Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Preparar os servidores do VMM no local e os anfitriões de Hyper-V
@@ -52,7 +52,7 @@ Prepare o VMM da seguinte forma:
 1. Confirme que tem [redes lógicas do VMM](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores do VMM de origem e de destino.
     - A rede lógica no servidor de origem deve ser associada à cloud de origem na qual os anfitriões de Hyper-V estão localizados.
     - A rede lógica no servidor de destino deve ser associada à cloud de destino.
-1. Certifique-se de que tem [redes lógicas de VMs](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores do VMM de origem e de destino. As redes de VMs devem ser ligadas à rede lógica em cada localização.
+1. Certifique-se de que tem [redes de VMs](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores do VMM de origem e de destino. As redes de VMs devem ser ligadas à rede lógica em cada localização.
 2. Ligue as VMs nos anfitriões de Hyper-V de origem à rede de VMs de origem. 
 
 
@@ -154,6 +154,6 @@ Antes de começar, confirme que todos os anfitriões que utilizam a política t�
 
 Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a replicação inicial estará concluída e a VM estará preparada para a ativação pós-falha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Executar um teste de recuperação após desastre](hyper-v-vmm-test-failover.md)

@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437859"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar as extensões de vinculação de funções do Azure
 
@@ -37,7 +38,7 @@ Os seguintes tipos de ligação são exceções que não exigem Registro explíc
 
 ## <a name="azure-portal-development"></a>Desenvolvimento de portal do Azure
 
-Quando criar uma função ou adicionar um enlace, é solicitado quando a extensão para o acionador ou enlace requer o registo. Responder à solicitação clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos num plano de consumo.
+Quando criar uma função ou adicionar um enlace, é solicitado quando a extensão para o acionador ou enlace requer o registo. Responder à solicitação clicando **instalar** para registar a extensão. A instalação pode demorar até 10 minutos num plano de consumo. 
 
 Precisa apenas instalar cada extensão de uma vez para uma aplicação de função especificada. Para ligações suportadas que não estão disponíveis no portal ou para atualizar a uma extensão instalada, também pode [manualmente instalar ou atualizar as funções do Azure enlace extensões a partir do portal do](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Substitua `<target_version>` no exemplo com uma versão específica do pacote, t
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Exemplo do Azure de Acionador e associação de função](./functions-bindings-example.md)
+
 

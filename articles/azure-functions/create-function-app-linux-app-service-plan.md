@@ -12,11 +12,11 @@ ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
 ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126630"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar uma aplicação de funções no Linux num plano do serviço de aplicações do Azure
 
@@ -53,7 +53,7 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
     | **Plano do serviço de aplicações/localização** | Criar plano | Escolher **criar novo** e forneça uma **plano do App Service** nome. Escolher uma **localização** num [região](https://azure.microsoft.com/regions/) perto de ou outros serviços as suas funções de acesso. Escolha sua pretendido  **[escalão de preço](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>Não é possível executar o Linux e Windows, as aplicações de funções no mesmo plano de serviço de aplicações. |
     | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. Selecione **.NET** para funções C# e F#. [Podpora Pythonu](functions-reference-python.md) está em pré-visualização neste momento. |
     | **[Armazenamento](../storage/common/storage-quickstart-create-account.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento para ser utilizada pela sua aplicação de funções. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. Também pode utilizar uma conta existente, a qual tem de cumprir os [requisitos de contas de armazenamento](functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](functions-monitoring.md)** | Ativado | O Application Insights está desativada por predefinição. É recomendado ativar agora a integração do Application Insights e escolher uma localização perto de sua localização do plano de serviço de aplicações de alojamento. Se quiser fazê-lo mais tarde, consulte [as funções do Azure de Monitor](functions-monitoring.md).  |
+    | **[Application Insights](functions-monitoring.md)** | Enabled | O Application Insights está desativada por predefinição. É recomendado ativar agora a integração do Application Insights e escolher uma localização perto de sua localização do plano de serviço de aplicações de alojamento. Se quiser fazê-lo mais tarde, consulte [as funções do Azure de Monitor](functions-monitoring.md).  |
 
 3. Selecione **Criar** para aprovisionar e implementar a aplicação de função.
 

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
 ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103579"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "58098030"
 Consulte [Networking considerations for Azure Active Directory Domain Services (Considerações sobre o funcionamento em rede do Azure Active Directory Domain Services)](active-directory-ds-networking.md).
 
 
-## <a name="task-2-configure-network-settings"></a>Tarefa 2: Configurar definições de rede
+## <a name="task-2-configure-network-settings"></a>Tarefa 2: configurar as definições de rede
 A tarefa de configuração seguinte é criar uma rede virtual do Azure e uma sub-rede dedicada na mesma. O Azure Active Directory Domain Services é ativado nesta sub-rede dentro da sua rede virtual. Também pode escolher uma rede virtual existente e criar a sub-rede dedicada na mesma.
 
 1. Clique em **rede Virtual** para selecionar uma rede virtual.

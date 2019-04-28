@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248152"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ A tabela seguinte fornece descrições para as propriedades genéricas usadas na
 Para utilizar autenticação do principal de serviço, registe-se uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder o acesso ao Data Lake Store. Para obter passos detalhados, consulte [autenticação serviço a serviço](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
 * ID da aplicação
 * Chave da aplicação 
-* ID do Inquilino
+* ID do inquilino
 
 Utilize autenticação do principal de serviço ao especificar as seguintes propriedades:
 
@@ -215,7 +215,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | Script              | Especifique o script inline em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. | Não (se usar scriptPath e scriptLinkedService) |
 | degreeOfParallelism | O número máximo de nós em simultâneo utilizada para executar a tarefa. | Não                                       |
 | prioridade            | Determina quais os trabalhos em fila de espera devem ser selecionados para executar primeiro. Menor o número, maior será a prioridade. | Não                                       |
-| parâmetros          | Parâmetros para o script de U-SQL          | Não                                       |
+| parameters          | Parâmetros para o script de U-SQL          | Não                                       |
 | runtimeVersion      | Versão de Runtime do motor de U-SQL para utilizar | Não                                       |
 | compilationMode     | <p>Modo de compilação do U-SQL. Tem de ser um dos seguintes valores:</p> <ul><li>**Semântica:** Execute apenas verificações semânticas e verificações de sanidade necessário.</li><li>**Total:** Execute a compilação completa, incluindo a verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** Execute a compilação completa, com a definição de TargetType para SingleBox.</li></ul><p>Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. </p> | Não                                       |
 

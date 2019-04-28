@@ -1,7 +1,6 @@
 ---
 title: Guia de programação SCP.NET para o Storm no HDInsight do Azure
 description: Saiba como utilizar SCP.NET para criar. Com base em NET topologias do Storm para utilização com o Storm em execução no Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126890"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](https://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
@@ -359,8 +358,8 @@ SCP.NET adicionou as seguintes funções para definir topologias transacional:
 | **scp-tx-batch-bolt** |exec-name<br />args<br />Campos |Defina um Bolt Batch transacional. Ele executa o aplicativo com ***exec-name*** usando ***args.***<br /><br />Os campos é os campos de saída para o bolt. |
 | **scp-tx-commit-bolt** |exec-name<br />args<br />Campos |Defina um bolt de consolidação transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt |
 | **nontx-topolopy** |nome de topologia<br />spout-map<br />bolt-map |Definir uma topologia não transacional com o nome de topologia,&nbsp; spouts mapa de definição e o mapa de definição de bolts |
-| **scp-spout** |exec-name<br />args<br />Campos<br />parâmetros |Defina um spout não transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
-| **scp-bolt** |exec-name<br />args<br />Campos<br />parâmetros |Defina um não transacional Bolt. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
+| **scp-spout** |exec-name<br />args<br />Campos<br />parameters |Defina um spout não transacional. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para spout<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
+| **scp-bolt** |exec-name<br />args<br />Campos<br />parameters |Defina um não transacional Bolt. Ele executa o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***campos*** é os campos de saída para o bolt<br /><br />O ***parâmetros*** são opcionais, utilizá-la para especificar alguns parâmetros, como "nontransactional.ack.enabled". |
 
 SCP.NET tem as seguintes palavras-chave definidas:
 

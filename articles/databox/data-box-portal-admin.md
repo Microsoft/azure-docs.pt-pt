@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607114"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128741"
 ---
 # <a name="use-the-azure-portal-to-administer-your-data-box"></a>Utilizar o portal do Azure para administrar o Data Box
 

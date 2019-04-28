@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Neste tutorial, saiba como encaminhar o tráfego de rede com uma tabela de rotas através do portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098646"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Encaminhar o tráfego de rede com uma tabela de rotas com o portal do Azure
 
@@ -57,7 +57,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
     | Name | Introduza *myRouteTablePublic*. |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **criar novo**, introduza *myResourceGroup*e selecione *OK*. |
-    | Localização | Deixe a predefinição **E.U.A. Leste**.
+    | Location | Deixe a predefinição **E.U.A. Leste**.
     | Propagação de rotas BGP | Deixe a predefinição **ativado**. |
 
 1. Selecione **Criar**.
@@ -99,7 +99,7 @@ Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma red
     | Espaço de endereços | Enter *10.0.0.0/16*. |
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione ***selecionar existente*** > **myResourceGroup**. |
-    | Localização | Deixe a predefinição **E.U.A. Leste**. |
+    | Location | Deixe a predefinição **E.U.A. Leste**. |
     | Sub-rede - nome | Introduza *público*. |
     | Sub-rede - Intervalo de endereços | Enter *10.0.0.0/24*. |
 
@@ -160,7 +160,7 @@ NVAs são VMs que o ajudam a com as funções de rede, como a otimização de en
     | Nome da máquina virtual | Enter *myVmNva*. |
     | Região | Selecione **E.U.A. Leste**. |
     | Opções de disponibilidade | Deixe a predefinição **nenhuma redundância de infraestrutura necessária**. |
-    | Imagem | Deixe a predefinição **Windows Server 2016 Datacenter**. |
+    | Image | Deixe a predefinição **Windows Server 2016 Datacenter**. |
     | Tamanho | Deixe a predefinição **Standard DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Introduza um nome de utilizador à sua escolha. |
@@ -241,7 +241,7 @@ Conclua os passos 1 a 12 [criar uma NVA](#create-an-nva). Usar a maior parte as 
 | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
 | Selecione as portas de entrada | Selecione **HTTP** e **RDP**. |
 | GESTÃO | |
-| Conta de armazenamento de diagnóstico | Deixe a predefinição **mynvastorageaccount**. |
+| Conta de armazenamento de diagnósticos | Deixe a predefinição **mynvastorageaccount**. |
 | **VM PRIVADA** | |
 | NOÇÕES BÁSICAS |  |
 | Nome da máquina virtual | Introduza *myVmPrivate*. |
@@ -251,7 +251,7 @@ Conclua os passos 1 a 12 [criar uma NVA](#create-an-nva). Usar a maior parte as 
 | Portas de entrada públicas | Selecione **permitir portas selecionadas**. |
 | Selecione as portas de entrada | Selecione **HTTP** e **RDP**. |
 | GESTÃO | |
-| Conta de armazenamento de diagnóstico | Deixe a predefinição **mynvastorageaccount**. |
+| Conta de armazenamento de diagnósticos | Deixe a predefinição **mynvastorageaccount**. |
 
 Pode criar a VM *myVmPrivate* enquanto o Azure cria a VM *myVmPublic*. Não continue com o resto dos passos até que o Azure acaba de criar ambas as VMs.
 

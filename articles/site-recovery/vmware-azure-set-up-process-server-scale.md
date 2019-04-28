@@ -1,28 +1,30 @@
 ---
-title: Configurar um servidor de processos no Azure para falhar durante a recuperação após desastre de VMs de VMware e servidores físicos com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como configurar um servidor de processos no Azure, para a reativação pós-falha do Azure no local durante a recuperação após desastre de VMs de VMware e servidores físicos.
+title: Configurar um servidor de processos de escalamento horizontal durante a recuperação após desastre de VMs de VMware e servidores físicos com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo descreve como configurar o servidor de processos de escalamento horizontal durante a recuperação após desastre de VMs de VMware e servidores físicos.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362167"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101902"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Escala para reativação pós-falha com servidores de processos adicionais
+# <a name="scale-with-additional-process-servers"></a>Dimensionar com os servidores de processos adicionais
 
-Por predefinição, quando está a replicar VMs de VMware ou servidores físicos para o Azure com [recuperação de Site](site-recovery-overview.md), um servidor de processos está instalado na máquina do servidor de configuração e é usado para coordenar a transferência de dados entre o Site Recovery e sua infraestrutura no local. Para aumentar a capacidade e ampliar a sua implementação de replicação, pode adicionar servidores de processos adicionais autónomo. Este artigo descreve como fazer isso.
+Por predefinição, quando está a replicar VMs de VMware ou servidores físicos para o Azure com [recuperação de Site](site-recovery-overview.md), um servidor de processos está instalado na máquina do servidor de configuração e é usado para coordenar a transferência de dados entre o Site Recovery e sua infraestrutura no local. Para aumentar a capacidade e ampliar a sua implementação de replicação, pode adicionar servidores de processos adicionais autónomo. Este artigo descreve como configurar um servidor de processos de escalamento horizontal.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 ### <a name="capacity-planning"></a>Planeamento de capacidade
 
 Certifique-se de que já executou [planeamento de capacidade](site-recovery-plan-capacity-vmware.md) para a replicação de VMware. Isto ajuda a identificar como e quando deve implantar os servidores de processos adicionais.
+
+Da versão 9.24, documentação de orientação é adicionada durante a seleção de servidor de processos das replicações de novo. Servidor de processos será marcado bom estado de funcionamento, aviso e críticas com base em determinados critérios. Para compreender os diferentes cenários que podem influenciar o estado do servidor de processos, visite [as orientações de seleção de servidor de processo](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > Não é suportada a utilização de um componente de servidor de processos clonado. Siga os passos neste artigo para cada PS Escalamento horizontal.
@@ -44,8 +46,6 @@ Em que cada máquina de origem protegida está configurada com discos de 3 de 10
 As pré-requisitos para o servidor de processos adicionais estão resumidos na tabela seguinte.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Transferir ficheiro de instalação
 

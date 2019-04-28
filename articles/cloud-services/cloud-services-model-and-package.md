@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432641"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como empacotá-lo?
 Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)* e um pacote de serviço *(. cspkg)*. Ambas as **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrever a estrutura de serviço em nuvem e de configuração; coletivamente chamados o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. O Azure cria um serviço em nuvem, tanto o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -266,7 +266,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Onde as variáveis são definidas da seguinte forma:
 
-| Variável | Valor |
+| Variável | Value |
 | --- | --- |
 | \[DirectoryName\] |O subdiretório sob o diretório de raiz do projeto que contém o ficheiro. csdef do projeto do Azure. |
 | \[ServiceDefinition\] |O nome do ficheiro de definição de serviço. Por predefinição, este arquivo é intitulado servicedefinition. Csdef. |

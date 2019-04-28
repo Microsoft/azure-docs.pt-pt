@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112655"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Ativar a sincronização offline com aplicações móveis iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,7 +163,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 | --- | --- |
 | ID | Número inteiro de 64 |
 | itemId | String |
-| propriedades | Dados binários |
+| properties | Dados binários |
 | tabela | String |
 | tableKind | Número inteiro de 16 |
 
@@ -176,7 +176,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 | --- | --- |
 | ID |String |
 | operationId |Número inteiro de 64 |
-| propriedades |Dados binários |
+| properties |Dados binários |
 | tableKind |Número inteiro de 16 |
 
  **MS_TableConfig**
@@ -189,7 +189,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 | key |String |
 | keyType |Número inteiro de 64 |
 | tabela |String |
-| valor |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabela de dados
 
@@ -198,7 +198,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 | Atributo | Type | Nota |
 | --- | --- | --- |
 | ID | Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
-| Concluir | Booleano | Campo de item de tarefas pendentes |
+| Concluir | Boolean | Campo de item de tarefas pendentes |
 | texto |String |Campo de item de tarefas pendentes |
 | createdAt | Date | (opcional) É mapeado para **createdAt** propriedade do sistema |
 | updatedAt | Date | (opcional) É mapeado para **updatedAt** propriedade do sistema |

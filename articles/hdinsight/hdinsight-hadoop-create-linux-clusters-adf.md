@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight do Azure com o Data Factory '
 description: Saiba como criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b65cb05643ffca3cbf25a207dce683d2d60fd64
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 11827d8e355483b278a4c5ab5fcce41c03f0565a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62102038"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

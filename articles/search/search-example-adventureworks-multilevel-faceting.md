@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 7fa17528931be40109d81edac0f15a6a6822ec01
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61291784"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Exemplo: Faceta de múltiplos níveis no Azure Search
 

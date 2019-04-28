@@ -1,7 +1,6 @@
 ---
 title: Implementar e gerir topologias do Apache Storm no HDInsight do Azure
 description: Saiba como implementar, monitorizar e gerir topologias do Apache Storm com o Dashboard do Storm no HDInsight baseado em Linux. Utilize as ferramentas Hadoop do Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8b27ad34bdc6fcbd7a1eb46515fbf33c96d02528
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125243"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir topologias do Apache Storm no HDInsight do Azure 
 
@@ -222,7 +221,7 @@ Pode encontrar o nome de domínio completamente qualificado (FQDN) para o nó pr
 * **Da Web do Ambari**: Selecione **serviços** na parte superior da página, em seguida, selecione **Storm**. Do **resumo** separador, selecione **servidor de IU do Storm**. O FQDN do nó que aloja a API de REST de IU do Storm e é apresentado na parte superior da página.
 * **A partir da API REST Ambari**: Utilize o comando `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` para obter informações sobre a API de REST e a IU do Storm em execução no nó. Substitua **CLUSTERNAME** com o nome do cluster. Quando lhe for pedido, introduza a palavra-passe da conta de início de sessão (admin). Em resposta, a entrada de "host_name" contém o FQDN do nó.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Tem de utilizar pedidos para a API REST **autenticação básica**, por isso, utilize o nome de administrador de cluster do HDInsight e a palavra-passe.
 

@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Criar uma aplicação Scala Maven para o Spark no HDInsight do Azure com o IntelliJ'
 description: Crie uma aplicação do Spark escrita em Scala tendo como sistema de compilação o Apache Maven e um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 01/30/2019
-ms.openlocfilehash: a969c026d702c423bee4871651c8b4fa26b3d37a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.openlocfilehash: 2d431659e46465bf16f6e597f3a49f7008432bb5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124480"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para o Apache Spark no HDInsight com o IntelliJ
 

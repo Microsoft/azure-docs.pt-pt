@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: db1c2b9c852479b9af3674f6c5e1f1135ee289f1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107446"
 ---
 # <a name="internet-of-things-security-overview"></a>Descrição geral da segurança de Internet das coisas
 Azure internet dos serviços de coisas (IoT) oferecem uma vasta gama de capacidades. Estes serviços de nível empresarial permitem-lhe:

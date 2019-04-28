@@ -13,11 +13,11 @@ ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344630"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107147"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função a utilizar o Azure para estudantes iniciante
 
@@ -56,7 +56,7 @@ Precisa de uma aplicação Function App para alojar a execução das suas funç�
     | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
    | **[Plano do serviço de aplicações/localização](./functions-scale.md)** | Novo | O plano de alojamento que controla em que região para a sua aplicação de função é implementada e a densidade dos seus recursos. Várias aplicações de funções implementadas para o mesmo plano irá partilhar a mesma instância gratuita única. Esta é uma restrição do plano para estudantes iniciante. São as opções de hospedagem completas [explicadas a seguir.](./functions-scale.md)|
     | **Pilha de tempo de execução** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. Selecione **.NET** para funções C# e F#. |
-    |**[Application Insights](./functions-monitoring.md)**| Ativado | O Application Insights é utilizado para armazenar e analisar registos da sua aplicação de função. Ele é habilitado por padrão se escolher uma localização que suporta o Application Insights. O Application Insights pode ser ativado para qualquer função escolhendo manualmente uma região próximas para implementar o Application Insights. Sem o Application Insights, só poderá ver os registos de transmissão em fluxo em direto.
+    |**[Application Insights](./functions-monitoring.md)**| Enabled | O Application Insights é utilizado para armazenar e analisar registos da sua aplicação de função. Ele é habilitado por padrão se escolher uma localização que suporta o Application Insights. O Application Insights pode ser ativado para qualquer função escolhendo manualmente uma região próximas para implementar o Application Insights. Sem o Application Insights, só poderá ver os registos de transmissão em fluxo em direto.
 
 3. Selecione **plano do serviço de aplicações/localização** acima para escolher uma localização diferente
 

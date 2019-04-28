@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449426"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766824"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -128,6 +128,8 @@ Para executar a sincronização, utilize [sincronização AzAnalysisServicesInst
 Para definir o número de réplicas de consulta, utilize [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o opcional `-ReadonlyReplicaCount` parâmetro.
 
 Para separar o servidor de processamento do conjunto de consultas, utilize [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Especifique o opcional `-DefaultConnectionMode` parâmetro a utilizar `Readonly`.
+
+Para obter mais informações, consulte [com um principal de serviço com o módulo de Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
 ## <a name="connections"></a>Ligações
 

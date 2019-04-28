@@ -11,11 +11,11 @@ ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120184"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Efetuar operações de dados no Azure Logic Apps
 
@@ -38,8 +38,8 @@ Estas ações ajudam a trabalhar com dados em matrizes.
 | [**Criar tabela CSV**](#create-csv-table-action) | Crie uma tabela de valores separados por vírgulas (CSV) de uma matriz. | 
 | [**Criar tabela HTML**](#create-html-table-action) | Crie uma tabela HTML a partir de uma matriz. | 
 | [**Matriz de filtro**](#filter-array-action) | Crie um subconjunto de matriz de uma matriz com base no filtro especificado ou condição. | 
-| [**Junte-se**](#join-action) | Criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar cada item pelo caractere especificado. | 
-| [**Selecione**](#select-action) | Crie uma matriz das propriedades especificadas para todos os itens numa matriz de diferente. | 
+| [**Join**](#join-action) | Criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar cada item pelo caractere especificado. | 
+| [**Select**](#select-action) | Crie uma matriz das propriedades especificadas para todos os itens numa matriz de diferente. | 
 ||| 
 
 **Ações de JSON**
@@ -49,7 +49,7 @@ Estas ações ajudam a trabalhar com dados no formato de JavaScript Object Notat
 | Ação | Descrição | 
 |--------|-------------| 
 | [**Compor**](#compose-action) | Crie uma mensagem ou a cadeia de caracteres, a partir de várias entradas, que podem ter vários tipos de dados. Em seguida, pode usar essa cadeia de caracteres como uma única entrada, em vez de introduzir repetidamente as mesmas entradas. Por exemplo, pode criar uma única mensagem JSON de várias entradas. | 
-| [**Analisar JSON**](#parse-json-action) | Crie tokens de dados amigável para as propriedades no JSON conteúdo para que possa mais fácil de utilizar as propriedades nas suas aplicações lógicas. | 
+| [**Parse JSON**](#parse-json-action) | Crie tokens de dados amigável para as propriedades no JSON conteúdo para que possa mais fácil de utilizar as propriedades nas suas aplicações lógicas. | 
 ||| 
 
 Para criar transformações de JSON mais complexas, consulte [executar transformações de JSON com modelos de fluidos avançadas](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
@@ -62,7 +62,7 @@ Para seguir os exemplos neste artigo, precisa destes itens:
 
 * A aplicação lógica em que precisa que a operação para trabalhar com dados 
 
-  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * R [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts) como a primeira etapa na sua aplicação lógica 
 
@@ -82,7 +82,7 @@ e cria esta saída:
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-Para experimentar um exemplo, siga estes passos, utilizando o Estruturador da aplicação lógica. Ou, se preferir trabalhar no editor de vista de código, pode copiar o exemplo **Compose** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [exemplos de código de operação de dados - compor](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+Para experimentar um exemplo, siga estes passos, utilizando o Estruturador da aplicação lógica. Ou, se preferir trabalhar no editor de vista de código, pode copiar o exemplo **Compose** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - compor](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
 
@@ -100,7 +100,7 @@ Para experimentar um exemplo, siga estes passos, utilizando o Estruturador da ap
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "compor" como o filtro. Na lista de ações, selecione a ação: **Compose**
+3. Na caixa de pesquisa, introduza "compor" como o filtro. Na lista de ações, selecione a ação: **Compor**
 
    ![Selecione a ação de "Compor"](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -142,7 +142,7 @@ Para confirmar se o **Compose** ação cria os resultados esperados, envie uma n
 
 Para criar uma tabela de valores separados por vírgulas (CSV) que tem as propriedades e os valores dos objetos JavaScript Object Notation (JSON) numa matriz, utilize o **operações de dados - criar tabela CSV** ação. Em seguida, pode utilizar a tabela resultante nas ações que se seguem a **criar tabela CSV** ação. 
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **criar tabela CSV** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [exemplos de código de operação de dados - criar tabela CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
+Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **criar tabela CSV** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - criar tabela CSV](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
 
@@ -161,7 +161,7 @@ Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **cri
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "Criar tabela csv" como o filtro. Na lista de ações, selecione a ação: **criar tabela CSV**
+3. Na caixa de pesquisa, introduza "Criar tabela csv" como o filtro. Na lista de ações, selecione a ação: **Criar tabela CSV**
 
    ![Selecione "Criar CSV tabela" ação](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -211,7 +211,7 @@ Para confirmar se o **criar tabela CSV** ação cria os resultados esperados, en
 
 Para criar uma tabela HTML que tem as propriedades e os valores dos objetos JavaScript Object Notation (JSON) numa matriz, utilize o **operações de dados - criar tabela HTML** ação. Em seguida, pode utilizar a tabela resultante nas ações que se seguem a **criar tabela HTML** ação.
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **criar tabela HTML** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [exemplos de código de operação de dados - criar tabela HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **criar tabela HTML** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - criar tabela HTML](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
 
@@ -230,7 +230,7 @@ Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **cri
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "Criar tabela html" como o filtro. Na lista de ações, selecione a ação: **criar tabela HTML**
+3. Na caixa de pesquisa, introduza "Criar tabela html" como o filtro. Na lista de ações, selecione a ação: **Criar tabela HTML**
 
    ![Selecione a ação de "Tabela de criar HTML"](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -288,7 +288,7 @@ Para criar uma matriz mais pequena que tem itens, que satisfazem critérios espe
 > 
 > Para ações utilizar a saída de matriz do **matriz de filtro** ação, essas ações devem aceitar matrizes como entrada ou poderá ter de transformar a matriz de saída em formato compatível com o outro. 
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **matriz de filtro** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [exemplos de código de operação de dados - matriz de filtro](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
+Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **matriz de filtro** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes do fluxo de trabalho definição: [Exemplos de código de operação de dados - matriz de filtro](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
 
@@ -309,7 +309,7 @@ Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **mat
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "matriz de filtro" como o filtro. Na lista de ações, selecione a ação: **matriz de filtro**
+3. Na caixa de pesquisa, introduza "matriz de filtro" como o filtro. Na lista de ações, selecione a ação: **Matriz de filtro**
 
    ![Selecione a ação "Filtrar matriz"](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -357,7 +357,7 @@ Para confirmar se **matriz de filtro** ação cria os resultados esperados, envi
 
 Para criar uma cadeia de caracteres que tem todos os itens de uma matriz e separar esses itens com um caráter delimitador específica, utilize o **operações de dados - associar** ação. Em seguida, pode utilizar a cadeia de caracteres nas ações que se seguem após a **associar** ação.
 
-Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **aderir** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes da definição de fluxo de trabalho: [ Junte-se exemplos de código de operação de dados-](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
+Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **aderir** e **Initialize variable** definições de ação do artigo na sua própria aplicação de lógica subjacentes da definição de fluxo de trabalho: [Junte-se exemplos de código de operação de dados-](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a> ou o Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. 
 
@@ -376,7 +376,7 @@ Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **ade
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "associar" como o filtro. Na lista de ações, selecione a ação: **aderir**
+3. Na caixa de pesquisa, introduza "associar" como o filtro. Na lista de ações, selecione a ação: **Associar**
 
    ![Selecione a ação de "Dados operações – associar"](./media/logic-apps-perform-data-operations/select-join-action.png)
 
@@ -440,7 +440,7 @@ Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **Par
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "analisar json" como o filtro. Na lista de ações, selecione a ação: **Parse JSON**
+3. Na caixa de pesquisa, introduza "analisar json" como o filtro. Na lista de ações, selecione a ação: **Analisar JSON**
 
    ![Selecione a ação "Parse JSON"](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -518,7 +518,7 @@ Se preferir trabalhar no editor de vista de código, pode copiar o exemplo **sel
    * Para adicionar uma ação entre etapas, mova o rato sobre a seta para a ligação para que apareça o sinal de adição (+). 
    Selecione o sinal de adição e, em seguida, selecione **adicionar uma ação**.
 
-3. Na caixa de pesquisa, introduza "selecionar" como o filtro. Na lista de ações, selecione a ação: **selecione**
+3. Na caixa de pesquisa, introduza "selecionar" como o filtro. Na lista de ações, selecione a ação: **Selecionar**
 
    ![Selecione a ação "Select"](./media/logic-apps-perform-data-operations/select-select-action.png)
 

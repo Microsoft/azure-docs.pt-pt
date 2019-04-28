@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8590c9ef89e68a823beefd7e74a894edd219359
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104835"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -78,7 +78,7 @@ Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| categoria | A categoria para a pesquisa guardada.  Qualquer pesquisas guardadas na mesma solução, muitas vezes, irão partilhar uma única categoria para que estes são agrupados em conjunto na consola do. |
+| category | A categoria para a pesquisa guardada.  Qualquer pesquisas guardadas na mesma solução, muitas vezes, irão partilhar uma única categoria para que estes são agrupados em conjunto na consola do. |
 | DisplayName | Nome a apresentar para a pesquisa guardada no portal. |
 | consulta | Consulta seja executada. |
 
@@ -120,11 +120,13 @@ Uma pesquisa guardada pode ter uma ou mais agendas com cada agenda que represent
         }
     }
 As propriedades de recursos de agenda são descritas na tabela seguinte.
+
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | enabled       | Sim | Especifica se o alerta é ativado quando é criado. |
-| intervalo      | Sim | A frequência com que a consulta é executada em minutos. |
+| interval      | Sim | A frequência com que a consulta é executada em minutos. |
 | queryTimeSpan | Sim | Período de tempo em minutos sobre o qual avaliar os resultados. |
+
 O recurso de agenda deve depender a pesquisa guardada para que ele seja criado antes da agenda.
 > [!NOTE]
 > Nome da agenda tem de ser exclusivo numa determinada área de trabalho; duas agendas não podem ter o mesmo ID, mesmo que estejam associados a diferentes pesquisas guardadas. Também o nome para pesquisas guardadas tudo, cronogramas e criadas com a API de análise de registo de ações deve estar em minúsculas.
@@ -231,9 +233,9 @@ Cada agenda tem um **alerta** ação. Isso define os detalhes do alerta e, opcio
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| Destinatários | Sim | Lista delimitada por vírgulas de endereços de e-mail para enviar a notificação quando é criado um alerta, tal como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Requerente | Sim | Assunto da mensagem. |
-| Anexo | Não | Anexos não são atualmente suportados. Se este elemento está incluído, não haverá **None**. |
+| Recipients | Sim | Lista delimitada por vírgulas de endereços de e-mail para enviar a notificação quando é criado um alerta, tal como no exemplo a seguir.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Sim | Assunto da mensagem. |
+| Attachment | Não | Anexos não são atualmente suportados. Se este elemento está incluído, não haverá **None**. |
 
 ##### <a name="remediation"></a>Remediação
 Esta secção é opcional incluí-lo se pretender que um runbook para começar em resposta ao alerta. 
@@ -242,7 +244,7 @@ Esta secção é opcional incluí-lo se pretender que um runbook para começar e
 |:--|:--|:--|
 | RunbookName | Sim | Nome do runbook para começar. |
 | WebhookUri | Sim | URI do webhook do runbook. |
-| Validade | Não | Data e hora que expira a remediação. |
+| Expiry | Não | Data e hora que expira a remediação. |
 
 ##### <a name="webhook-actions"></a>Ações de Webhook
 
@@ -266,6 +268,7 @@ Se o alerta chamar um webhook, então, esta terá de um recurso de ação com um
       }
     }
 As propriedades de recursos de ação do Webhook são descritas nas tabelas seguintes.
+
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | tipo | Sim | Tipo de ação. Isto é **Webhook** para ações de webhook. |
@@ -273,7 +276,7 @@ As propriedades de recursos de ação do Webhook são descritas nas tabelas segu
 | webhookUri | Sim | URI do webhook. |
 | customPayload | Não | Payload personalizado para ser enviado para o webhook. O formato depende o que o webhook está esperando. |
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Exemplo
 
 Segue-se um exemplo de uma solução que inclui os seguintes recursos:
 

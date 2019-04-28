@@ -3,16 +3,16 @@ title: Criar uma definição de política personalizada
 description: Crie uma definição de política personalizada do Azure Policy para impor regras de negócio personalizada.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267757"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760875"
 ---
 # <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
@@ -69,9 +69,9 @@ Existem várias formas de considerar uma [modelo do Resource Manager](../../../a
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente no portal
 
 A forma mais simples de localizar as propriedades é examinar um recurso existente do mesmo tipo. Recursos já configurados com a definição que deseja impor também fornecem o valor de comparação.
-Examinar os **script de automação** página (sob **definições**) no portal do Azure para esse recurso específico.
+Examinar os **exportar modelo** página (sob **definições**) no portal do Azure para esse recurso específico.
 
-![Exportar modelo de página de recursos existentes](../media/create-custom-policy-definition/automation-script.png)
+![Exportar modelo de página de recursos existentes](../media/create-custom-policy-definition/export-template.png)
 
 Fazendo isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 
@@ -197,8 +197,9 @@ Como a CLI do Azure, os resultados mostram um suportados pelas contas de armazen
 
 [Gráfico de recursos do Azure](../../resource-graph/overview.md) é um novo serviço em pré-visualização. Permite que outro método localizar as propriedades de recursos do Azure. Eis uma consulta de exemplo para observar uma única conta de armazenamento com o gráfico de recursos:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +210,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Os resultados semelhante-se de que o que vemos nos modelos do Resource Manager e através do Explorador de recursos do Azure. No entanto, os resultados de gráfico de recursos do Azure também incluem [alias](../concepts/definition-structure.md#aliases) detalhes. Este é o resultado de exemplo de uma conta de armazenamento para aliases:
+Os resultados semelhante-se de que o que vemos nos modelos do Resource Manager e através do Explorador de recursos do Azure. No entanto, também podem incluir resultados de gráfico de recursos do Azure [alias](../concepts/definition-structure.md#aliases) detalha por _projekci_ o _aliases_ matriz:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Este é o resultado de exemplo de uma conta de armazenamento para aliases:
 
 ```json
 "aliases": {

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9939bfb08031b3062fd65fbdeed908a09e5e124c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: f09d9dcb60370c2cc51f5652def92e5ad9c9b512
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61226400"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Implementar uma aplicação gerida para catálogo de serviço com a CLI do Azure
 
@@ -42,7 +42,7 @@ Este script utiliza o seguinte comando para implementar a aplicação gerida. Ca
 | [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | Criar uma aplicação gerida. Dê o ID de definição e os parâmetros para o modelo. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
 * Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).

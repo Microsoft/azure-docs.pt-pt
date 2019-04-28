@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 948110e5532aeeb2b9acbbb66361eb9c55eaf897
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124667"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Pesquisa de entidades com a API de entidades do Bing
 
@@ -327,7 +327,7 @@ Tal como a API de Pesquisa na Web do Bing, a API de Pesquisa de Entidades do Bin
 
 Se não tiver a certeza se a sua experiência pode ser considerada uma experiência semelhante a pesquisa, recomenda-se que verifique junto da Microsoft.
 
-## <a name="throttling-requests"></a>Pedidos de limitação
+## <a name="throttling-requests"></a>Limitar pedidos
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 

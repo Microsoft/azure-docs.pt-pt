@@ -1,19 +1,18 @@
 ---
 title: Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 description: Saiba como utilizar a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004963"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766933"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -69,7 +68,7 @@ Atribuir a identidade gerida para o **proprietário de dados de Blob de armazena
         ![Definições de identidade para a utilização de geração 2 de armazenamento do Data Lake com o Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> Pode adicionar uma ou mais contas de geração 2 de armazenamento do Data Lake como armazenamento secundário no mesmo cluster. Apenas os repetimos as etapas acima em cada conta de geração 2 de armazenamento do Data Lake que pretende adicionar a utilizar a mesma identidade gerida.
+> Para adicionar uma conta de geração 2 de armazenamento do Data Lake secundária, ao nível da conta de armazenamento, basta atribua a identidade gerida que criou anteriormente para a nova conta de armazenamento de geração 2 de armazenamento do Data Lake que pretende adicionar. Note que a adição de uma conta de geração 2 de armazenamento do Data Lake secundária através do painel de "contas de armazenamento adicionais" no HDInsight não é suportada. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Criar um cluster com geração 2 de armazenamento do Data Lake através da CLI do Azure
 

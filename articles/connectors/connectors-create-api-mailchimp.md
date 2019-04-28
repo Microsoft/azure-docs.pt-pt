@@ -1,6 +1,6 @@
 ---
-title: Ligar ao MailChimp - as do Azure Logic Apps | Microsoft Docs
-description: Criar e gerir marketing e-mails com as APIs REST do MailChimp e Azure Logic Apps
+title: Ligar ao MailChimp - Azure Logic Apps | Documentos da Microsoft
+description: Criar e gerir os emails de marketing com APIs de REST do MailChimp e o Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,24 +11,24 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: c9bcf48254d05ccb18abc55e49ea44b714b727cd
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ffe2760c004db24d503ee381b8752c875c286fca
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105841"
 ---
-# <a name="get-started-with-the-mailchimp-connector"></a>Começar a utilizar o conector do MailChimp
-MailChimp é um serviço de SaaS que permite às empresas gerir e automatizar atividades de marketing de e-mail, incluindo o envio de e-mails de marketing, mensagens automatizadas e campanhas segmentadas.
+# <a name="get-started-with-the-mailchimp-connector"></a>Comece com o conector do MailChimp
+MailChimp é um serviço de SaaS que permite às empresas gerir e automatizar as atividades de marketing por e-mail, incluindo o envio de mensagens de correio eletrónico de marketing, mensagens automáticas e campanhas direcionadas.
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pode começar a utilizar ao criar uma aplicação lógica agora, veja [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-mailchimp"></a>Criar uma ligação a MailChimp
-Para criar aplicações lógicas com MailChimp, primeiro tem de criar um **ligação** , em seguida, forneça os detalhes para as seguintes propriedades:
+## <a name="create-a-connection-to-mailchimp"></a>Criar uma ligação para MailChimp
+Para criar aplicações lógicas com MailChimp, primeiro tem de criar uma **ligação** , em seguida, forneça os detalhes para as seguintes propriedades:
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Certificado de |Sim |Forneça as credenciais do MailChimp |
+| Certificado de |Sim |Fornecer Credenciais do MailChimp |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 > 
@@ -36,7 +36,7 @@ Para criar aplicações lógicas com MailChimp, primeiro tem de criar um **liga�
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/mailchimp/).
+Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/mailchimp/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+Volte para o [lista APIs](apis-list.md).

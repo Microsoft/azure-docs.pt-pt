@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895888"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759438"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
 
@@ -117,7 +117,7 @@ Aqui estão os conectores para criar soluções de empresa-empresa (B2B) com as 
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![Ícone de API][as2-icon]<br/>**AS2</br> descodificação**][as2-decode-doc] | [![Ícone de API][as2-icon]<br/>**AS2</br> codificação**][as2-encode-doc] | [![Ícone de API][edifact-icon]<br/>**EDIFACT</br> descodificação**][edifact-decode-doc] | [![Ícone de API][edifact-icon]<br/>**EDIFACT</br> codificação**][edifact-encode-doc] | 
+| [![Ícone de API][as2-icon]<br/>**AS2</br> descodificação**][as2-doc] | [![Ícone de API][as2-icon]<br/>**AS2</br> codificação**][as2-doc] | [![Ícone de API][edifact-icon]<br/>**EDIFACT</br> descodificação**][edifact-decode-doc] | [![Ícone de API][edifact-icon]<br/>**EDIFACT</br> codificação**][edifact-encode-doc] | 
 | [![Ícone de API][flat-file-decode-icon]<br/>**ficheiro simples</br> descodificação**][flat-file-decode-doc] | [![Ícone de API][flat-file-encode-icon]<br/>**ficheiro simples</br> codificação**][flat-file-encode-doc] | [![Ícone de API][integration-account-icon]<br/>**integração<br/>conta**][integration-account-doc] | [![Ícone de API][liquid-icon]<br/>**líquidos**</br>**transforma**][json-liquid-transform-doc] | 
 | [![Ícone de API][x12-icon]<br/>**X12</br> descodificação**][x12-decode-doc] | [![Ícone de API][x12-icon]<br/>**X12</br> codificação**][x12-encode-doc] | [![Ícone de API][xml-transform-icon]<br/>**XML**</br>**transforma**][xml-transform-doc] | [![Ícone de API][xml-validate-icon]<br/>**XML <br/>validação**][xml-validate-doc] |  
 ||||| 
@@ -257,8 +257,6 @@ Para tornar as aplicações API personalizadas ou de conectores pública para qu
 
 <!--Enterprise Intregation Pack doc links-->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Saiba mais sobre a integração empresarial AS2."
-[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Saiba mais sobre a integração empresarial de descodificação AS2."
-[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Saiba mais sobre a integração empresarial de codificação AS2."
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Saiba mais sobre a integração empresarial de descodificação EDIFACT."
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Saiba mais sobre a integração empresarial de codificação EDIFACT."
 [flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Saiba mais sobre a integração empresarial de ficheiros simples."

@@ -1,5 +1,5 @@
 ---
-title: Como criar um pedido de suporte do Azure | Microsoft Docs
+title: Como criar um pedido de suporte do Azure | Documentos da Microsoft
 description: Como criar um pedido de suporte do Azure.
 services: Azure Supportability
 documentationcenter: ''
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 0b45bd2a1a2599908d2077198dce0062071b79af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129064"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar um pedido de suporte do Azure
 ## <a name="summary"></a>Resumo
-Clientes do Azure podem criar e gerir pedidos de suporte no portal do Azure, [ https://portal.azure.com ](https://portal.azure.com).
+Os clientes do Azure podem criar e gerir pedidos de suporte no portal do Azure, [ https://portal.azure.com ](https://portal.azure.com).
 
 > [!NOTE]
-> Portal do Azure para a Alemanha é [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> Portal do Azure para o governamentais dos Estados Unidos é [ https://portal.azure.us ](https://portal.azure.us).
+> É o portal do Azure para a Alemanha [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
+> É o portal do Azure para o Governo dos Estados Unidos [ https://portal.azure.us ](https://portal.azure.us).
 
 
-Com base nos comentários de clientes, atualizámos a experiência de pedido de suporte concentrar-se em três objetivos principais:
+Com base nos comentários dos clientes, atualizámos a experiência de pedido de suporte nos concentrar em três objetivos principais:
 
-* **Simplificada**: reduzir cliques e painéis para facilitar o processo de submeter um pedido de suporte simples.
-* **Integrada**: quando estiver a resolver um problema com um recurso do Azure, deve ser fácil de abrir um pedido de suporte para esse recurso sem comutar contexto.
-* **Eficiente**: recolher as informações da chave engenheiro de suporte tem de forma eficiente resolver o problema.
+* **Simplificado**: Reduza cliques e os painéis para tornar o processo de submissão de um pedido de suporte simples.
+* **Integrada**: Quando estiver a resolver problemas um problema com um recurso do Azure, deve ser fácil abrir um pedido de suporte para esse recurso sem mudar de contexto.
+* **Eficiente**: Recolha as informações da chave que tem do engenheiro de suporte com eficiência resolver seu problema.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pedido de suporte no menu de navegação superior, ou diretamente a partir do painel de recursos.
+Pode criar um pedido de suporte no menu de navegação superior, ou diretamente a partir de um painel de recursos.
 
 **Na barra de navegação superior**
 
-![Ajuda e suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Ajuda e Suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
-Na página de ajuda e suporte, selecione "Novo suporte de pedido"
+Na página de ajuda e suporte, selecione "Novo pedido de suporte"
 
 ![Novo pedido de suporte](./media/how-to-create-azure-support-request/NewSupportRequest.png)
 
@@ -52,73 +52,73 @@ Na página de ajuda e suporte, selecione "Novo suporte de pedido"
 ![No contexto](./media/how-to-create-azure-support-request/Incontext.png)
 
 ## <a name="basics"></a>Noções básicas
-O primeiro passo do processo de pedido de suporte recolhe informações básicas sobre o problema e o seu plano de suporte.
+A primeira etapa do processo de pedido de suporte de coleta informações básicas sobre o problema e o seu plano de suporte.
 
-Vejamos um exemplo: está a enfrentam dificuldades técnicas com a máquina virtual e suspeitar um problema de conectividade de rede.
-Selecionar os recursos (o nome da sua máquina virtual) e o serviço ("Máquina Virtual com o Windows") no primeiro passo do assistente, inicia o processo de obter ajuda para este problema.
+Vejamos um exemplo: Estiver a ter problemas técnicos com a sua máquina virtual e suspeitar que um problema de conectividade de rede.
+Selecionar o serviço ("Máquina Virtual a executar o Windows") e o recurso (o nome da sua máquina virtual) na primeira etapa do assistente, inicia o processo de obter ajuda para este problema.
 
 ![Painel Básico](./media/how-to-create-azure-support-request/Basics.png)
 
 > [!NOTE]
-> O Azure oferece suporte ilimitado para a gestão de subscrição (por exemplo, de faturação, ajustes de quota e transferências de conta). Para obter suporte técnico, precisa de um plano de suporte. [Saiba mais sobre os planos de suporte](https://azure.microsoft.com/support/plans).
+> O Azure proporciona suporte ilimitado para gestão de subscrições (por exemplo, faturação, ajustes de quotas e transferências de conta). Para obter suporte técnico, terá de um plano de suporte. [Saiba mais sobre os planos de suporte](https://azure.microsoft.com/support/plans).
 >
 >
 
 ## <a name="problem"></a>Problema
-O segundo passo do assistente reúne detalhes adicionais sobre o problema. Fornecer detalhes exatos este passo permite-nos para encaminhar o seu incidente para o melhor engenheiro de suporte para o problema e para iniciar a diagnosticar o problema logo que possível.
+A segunda etapa do assistente coleta detalhes adicionais sobre o problema. Fornecer detalhes precisos neste passo permite-nos para encaminhar o seu caso para o engenheiro de suporte melhor para o problema e para iniciar a diagnosticar o problema assim que possível.
 
-![Painel do problema](./media/how-to-create-azure-support-request/Problem01.png)
+![Painel de problema](./media/how-to-create-azure-support-request/Problem01.png)
 
-Continuar com o exemplo de conectividade de máquina virtual de acima, seria preencha este formulário para indicar um problema de conectividade de rede e iria fornecer mais detalhes sobre o problema, incluindo o tempo aproximado quando que ocorreu o problema.
+Continuando com o exemplo de conectividade de máquina virtual acima, iria preencha este formulário para indicar um problema de conectividade de rede e iria fornecer mais detalhes sobre o problema, incluindo o tempo aproximado que quando teve o problema.
 
 ![Painel de problema 2](./media/how-to-create-azure-support-request/Problem02.png)
 
-## <a name="related-help"></a>Ajuda relacionadas
-Com base no tipo de problema e a categoria que selecionar, podemos fornecer uma solução que pode ajudar a resolver o problema.
+## <a name="related-help"></a>Ajuda relacionada
+Com base no tipo de problema e a categoria que selecionar, fornecemos uma solução que pode ajudar a resolver seu problema.
 
 ![Ajuda relacionada](./media/how-to-create-azure-support-request/RelatedHelp.png)
 
-Fornecemos também soluções conhecidas contextuais com base na descrição textual do seu problema.
+Também fornecemos soluções contextuais de ajuda autónoma, com base na descrição textual do seu problema.
 
 ![Ajuda relacionada 2](./media/how-to-create-azure-support-request/RelatedHelp02.png)
 
-Se as soluções recomendadas ajuda, pode continuar o processo de criação de um pedido de suporte.
+Se as soluções recomendadas não ajudar, pode continuar o processo de criação de um pedido de suporte.
 
 ![Painel de problema 3](./media/how-to-create-azure-support-request/Problem03.png)
 
 ## <a name="contact-information"></a>Informações de Contacto
-O último passo do assistente confirma as opções de contactos e as informações de contacto para que possamos saber como contactá-lo.
+A última etapa do assistente confirma suas opções de contacto e as informações de contacto, pelo que sabemos como contactá-lo.
 
 ![Informações de Contacto](./media/how-to-create-azure-support-request/ContactInformation.png)
 
-Consoante a gravidade do seu problema, poderá ser-lhe pedido para indicar se desejar que enviemos para contactá-lo durante o horário comercial ou se preferir uma 24x7 resposta, o que significa que poderá contactá-lo em qualquer altura.
+Dependendo da gravidade do problema, poderá ser-lhe pedido para indicar se preferir que entremos em contacto consigo durante o horário comercial ou se desejar uma resposta de 24 x 7, o que significa que podemos contactá-lo em qualquer altura.
 
 ![Informações de contacto 24x7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
 
 ## <a name="all-support-requests"></a>Todos os pedidos de suporte
-Depois de criar o pedido de suporte, pode ver os detalhes do **suportam todos os pedidos** página.
+Depois de criar o pedido de suporte, pode ver os detalhes do **todos os pedidos de suporte** página.
 
 **Na barra de navegação superior**
 
-![Ajuda e suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Ajuda e Suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
-Na página de ajuda e suporte, selecione "Todas suportam pedidos" no menu esquerdo.
+Na página de ajuda e suporte, selecione "Todos os pedidos de suporte" no menu à esquerda.
 
-![Ligação todos os pedidos de suporte](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
+![Todos os ligação pedido de suporte](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
 
-No **suportam todos os pedidos** página, pode ver todos os pedidos de suporte e o respetivo estado.
+Sobre o **todos os pedidos de suporte** página, pode ver todos os pedidos de suporte e o respetivo estado.
 
 ![Todos os pedidos de suporte](./media/how-to-create-azure-support-request/AllSupportRequest.png)
 
-O suporte da página pedidos, fornece aos clientes para filtrar casos por subscrição, criado data (UTC) e o estado.
-Além disso, pode ordenar e procure suportar pedidos nesta página.
+O suporte a solicitações de página, oferece aos clientes para filtrar casos por subscrição, criado data (UTC) e o estado.
+Além disso, pode ordenar e procurar pedidos de suporte nesta página.
 
-Selecione o pedido de suporte para ver mais detalhes, incluindo a gravidade e a hora esperada demora para um engenheiro de suporte responder.
+Selecione o pedido de suporte para ver os detalhes, incluindo gravidade e o tempo esperado, será necessário para que um engenheiro de suporte responder.
 ![VID](./media/how-to-create-azure-support-request/VID.png)
 
-Se pretender alterar a gravidade do pedido, clique em de **impacto comercial** mosaico. No exemplo anterior, o pedido está atualmente configurado para gravidade C.
+Se pretender alterar a gravidade do pedido, clique nas **impacto empresarial** mosaico. No exemplo anterior, o pedido está definido para a gravidade C.
 
-Ao clicar no mosaico mostra a lista de gravidades que pode atribuir a um pedido de suporte aberta.
+Clicar no mosaico mostra a lista de gravidades que pode atribuir a um pedido de suporte aberto.
 
 > [!NOTE]
 > O nível de gravidade máxima depende do seu plano de suporte. [Saiba mais sobre os planos de suporte](https://azure.microsoft.com/support/plans).
@@ -128,7 +128,7 @@ Ao clicar no mosaico mostra a lista de gravidades que pode atribuir a um pedido 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 
 ## <a name="feedback"></a>Comentários
-Podemos sempre estão abertos para comentários e sugestões! Envie-na sua [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, pode interagir com connosco através de [Twitter](https://twitter.com/azuresupport) ou [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Estamos sempre abertas para comentários e sugestões! Envie-nos seus [sugestões](https://feedback.azure.com/forums/266794-support-feedback). Além disso, pode interagir com os-nos através de [Twitter](https://twitter.com/azuresupport) ou o [fóruns do MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>Saiba mais
 [FAQ de suporte do Azure](https://azure.microsoft.com/support/faq)

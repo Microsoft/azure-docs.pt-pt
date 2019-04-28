@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485516"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de Evento 
 
@@ -54,38 +54,38 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do registo:** sistema <br />
-**Origem:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:** *tempo* <br />
-**ID de evento:** 1058 <br />
-**Categoria de tarefa:** None <br />
-**Nível:** erro <br />
-**Palavras-chave:** clássico <br />
-**Utilizador:** n/d <br />
-**Computador:** *computador* <br />
-**Descrição:** o servidor de anfitrião de sessões de RD tem falha ao substituir a expirou auto assinado o certificado utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL. O código de estado relevantes era que o acesso é negado.
+**Nome do registo:**      Sistema <br />
+**Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Data:***tempo* <br />
+**ID de evento:**      1058 <br />
+**Categoria de tarefa:** Nenhuma <br />
+**Nível de:**         Erro <br />
+**Palavras-chave:**      Clássica <br />
+**Utilizador:**          N/A <br />
+**Computador:***computador* <br />
+**Descrição:** O servidor de anfitrião de sessões de RD não substitua auto assinado o certificado utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL expirados. O código de estado relevantes era que o acesso é negado.
 
-**Nome do registo:** sistema <br />
-**Origem:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:** *tempo* <br />
-**ID de evento:** 1058 <br />
-**Categoria de tarefa:** None <br />
-**Nível:** erro <br />
-**Palavras-chave:** clássico <br />
-**Utilizador:** n/d <br />
-**Computador:** *computador* <br />
-**Descrição:** servidor de anfitrião de sessões de RD não conseguiu criar um novo certificado autoassinado a ser utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL, o código de estado relevantes era objeto já existe.
+**Nome do registo:**      Sistema <br />
+**Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Data:***tempo* <br />
+**ID de evento:**      1058 <br />
+**Categoria de tarefa:** Nenhuma <br />
+**Nível de:**         Erro <br />
+**Palavras-chave:**      Clássica <br />
+**Utilizador:**          N/A <br />
+**Computador:***computador* <br />
+**Descrição:** Servidor de anfitrião de sessões de RD não conseguiu criar um novo certificado autoassinado a ser utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL, o código de estado relevantes foi o objeto já existe.
 
-**Nome do registo:** sistema <br />
-**Origem:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:** *tempo* <br />
-**ID de evento:** 1057 <br />
-**Categoria de tarefa:** None <br />
-**Nível:** erro <br />
-**Palavras-chave:** clássico <br />
-**Utilizador:** n/d <br />
-**Computador:** *computador* <br />
-**Descrição:** o servidor de anfitrião de sessões de RD não conseguiu criar um novo certificado a ser utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL auto assinado. O código de estado relevantes foi o que conjunto de chaves não existe
+**Nome do registo:**      Sistema <br />
+**Origem:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Data:***tempo* <br />
+**ID de evento:**      1057 <br />
+**Categoria de tarefa:** Nenhuma <br />
+**Nível de:**         Erro <br />
+**Palavras-chave:**      Clássica <br />
+**Utilizador:**          N/A <br />
+**Computador:***computador* <br />
+**Descrição:** O servidor de anfitrião de sessões de RD não conseguiu criar um novo que certificado a ser utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL auto assinado. O código de estado relevantes foi o que conjunto de chaves não existe
 
 Também pode procurar eventos de erro SCHANNEL 36872 e 36870 ao executar os comandos seguintes:
 
@@ -94,15 +94,15 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do registo:** sistema <br />
-**Origem:** Schannel <br />
+**Nome do registo:**      Sistema <br />
+**Origem:**        Schannel <br />
 **Data:** — <br />
-**ID de evento:** 36870 <br />
-**Categoria de tarefa:** None <br />
-**Nível:** erro <br />
+**ID de evento:**      36870 <br />
+**Categoria de tarefa:** Nenhuma <br />
+**Nível de:**         Erro <br />
 **Palavras-chave:**       <br />
-**Utilizador:** sistema <br />
-**Computador:** *computador* <br />
+**Utilizador:**          SISTEMA <br />
+**Computador:***computador* <br />
 **Descrição:** Ocorreu um erro fatal ao tentar aceder à chave privada do servidor credencial SSL. O código de erro devolvido do módulo criptográfico é 0x8009030D.  <br />
 O estado de erro interno é 10001.
 
@@ -216,15 +216,15 @@ Numa instância CMD, execute os seguintes comandos para verificar se o evento de
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do registo:** sistema <br />
-**Origem:** Schannel <br />
+**Nome do registo:**      Sistema <br />
+**Origem:**        Schannel <br />
 **Data:** — <br />
-**ID de evento:** 36871 <br />
-**Categoria de tarefa:** None <br />
-**Nível:** erro <br />
+**ID de evento:**      36871 <br />
+**Categoria de tarefa:** Nenhuma <br />
+**Nível de:**         Erro <br />
 **Palavras-chave:**       <br />
-**Utilizador:** sistema <br />
-**Computador:** *computador* <br />
+**Utilizador:**          SISTEMA <br />
+**Computador:***computador* <br />
 **Descrição:** Ocorreu um erro fatal ao criar uma credencial de servidor TLS. O estado de erro interno é 10013.
  
 ### <a name="cause"></a>Causa
@@ -246,32 +246,32 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nome do registo:** Microsoft-Windows-TerminalServices-SessionBroker/operacional <br />
-**Origem:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Data:** *tempo* <br />
-**ID de evento:** 2056 <br />
+**Nome do registo:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**Origem:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Data:***tempo* <br />
+**ID de evento:**      2056 <br />
 **Categoria de tarefa:** (109) <br />
-**Nível:** erro <br />
+**Nível de:**         Erro <br />
 **Palavras-chave:**       <br />
-**Utilizador:** serviço de rede <br />
-**Computador:** *fqdn do computador* <br />
-**Descrição:** não é possível encontrar a descrição do evento ID 2056 da Microsoft-Windows-TerminalServices-SessionBroker de origem. O componente que gera esse evento não está instalado no seu computador local ou a instalação está danificada. Pode instalar ou reparar o componente no computador local. <br />
+**Utilizador:**          SERVIÇO DE REDE <br />
+**Computador:***fqdn do computador* <br />
+**Descrição:** A descrição do evento 2056 de ID de origem não é possível localizar o Microsoft-Windows-TerminalServices-SessionBroker. O componente que gera esse evento não está instalado no seu computador local ou a instalação está danificada. Pode instalar ou reparar o componente no computador local. <br />
 Se a origem do evento em outro computador, tinham de apresentar as informações sejam guardados com o evento. <br />
 As seguintes informações foi incluídas com o evento: <br />
 NULL <br />
 NULL <br />
 Falha de início de sessão para a base de dados.
 
-**Nome do registo:** Microsoft-Windows-TerminalServices-SessionBroker-cliente/operacional <br />
-**Origem:** Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Data:** *tempo* <br />
-**ID de evento:** 1296 <br />
+**Nome do registo:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Origem:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Data:***tempo* <br />
+**ID de evento:**      1296 <br />
 **Categoria de tarefa:** (104) <br />
-**Nível:** erro <br />
+**Nível de:**         Erro <br />
 **Palavras-chave:**       <br />
-**Utilizador:** serviço de rede <br />
-**Computador:** *fqdn do computador* <br />
-**Descrição:** não é possível encontrar a descrição de 1296 de ID de evento da origem Microsoft-Windows-TerminalServices-SessionBroker-Client. O componente que gera esse evento não está instalado no seu computador local ou a instalação está danificada. Pode instalar ou reparar o componente no computador local.
+**Utilizador:**          SERVIÇO DE REDE <br />
+**Computador:***fqdn do computador* <br />
+**Descrição:** A descrição do evento 1296 de ID de origem não é possível localizar o Microsoft-Windows-TerminalServices-SessionBroker-Client. O componente que gera esse evento não está instalado no seu computador local ou a instalação está danificada. Pode instalar ou reparar o componente no computador local.
 Se a origem do evento em outro computador, tinham de apresentar as informações sejam guardados com o evento.
 As seguintes informações foi incluídas com o evento:  <br />
 *text* <br />

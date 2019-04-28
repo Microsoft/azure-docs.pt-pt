@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752131"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764273"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais 
 
@@ -48,9 +48,9 @@ Com uma imagem personalizada configurada para o seu cenário, pode fornecer vár
 
 No Azure pode preparar uma imagem gerida a partir de instantâneos do SO de uma VM do Azure e discos de dados, a partir de uma VM generalizada do Azure com discos geridos ou a partir de um VHD generalizado no local que carrega. Para dimensionar conjuntos do Batch com confiança com uma imagem personalizada, recomendamos que crie uma imagem gerida utilizando *apenas* o primeiro método: utilizando instantâneos de discos da VM. Consulte os seguintes passos para preparar uma VM, tire um instantâneo e criar uma imagem a partir do instantâneo. 
 
-### <a name="prepare-a-vm"></a>Preparar uma VM 
+### <a name="prepare-a-vm"></a>Preparar uma VM
 
-Se estiver a criar uma nova VM para a imagem, utilizar uma imagem do Azure Marketplace suportada pelo Batch, como a imagem de base para a sua imagem gerida e, em seguida, personalizá-lo.  Para obter uma lista de referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/rest/api/batchservice/account/listnodeagentskus) operação. 
+Se estiver a criar uma nova VM para a imagem, utilize uma primeira imagem do Azure Marketplace terceiros suportada pelo Batch, como a imagem base para a sua imagem gerida. Apenas as primeiras imagens de terceiros podem ser utilizadas como uma imagem base. Para obter uma lista completa das referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/rest/api/batchservice/account/listnodeagentskus) operação.
 
 > [!NOTE]
 > Não é possível utilizar uma imagem de terceiros que tenha licenças adicionais e os termos de compra que sua imagem base. Para obter informações sobre estas imagens do Marketplace, consulte a documentação de orientação para [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ Depois de guardar sua imagem personalizada e sabe o ID de recurso ou o nome, cri
 > [!NOTE]
 > Se estiver a criar o conjunto utilizar uma das APIs do Batch, certifique-se de que a identidade utilizada para autenticação de AAD tem permissões para o recurso de imagem. Ver [soluções de serviço do Batch de autenticar com o Active Directory](batch-aad-auth.md).
 >
+> O recurso para a imagem gerida tem de existir durante o ciclo de vida do conjunto. Se o recurso subjacente é eliminado, o conjunto não pode ser ampliado. 
 
 1. No portal do Azure, navegue para a sua conta do Batch. Esta conta tem de ser na mesma subscrição e região que o grupo de recursos que contém a imagem personalizada. 
 2. Na **definições** janela à esquerda, selecione a **conjuntos** item de menu.
@@ -109,6 +110,16 @@ Tenha também em atenção o seguinte:
 - **Tempo limite de redimensionamento** - se o conjunto tiver fixa aumentar o número de nós (dimensionamento automático não), a propriedade resizeTimeout do conjunto para um valor como 20 a 30 minutos. Se o seu conjunto não chega ao seu tamanho de destino dentro do período de tempo limite, executar outra [redimensionar operação](/rest/api/batchservice/pool/resize).
 
   Se pretender um conjunto com mais de 300 nós de computação, precisará de redimensionar o conjunto de várias vezes para alcançar o tamanho de destino.
+
+## <a name="considerations-for-using-packer"></a>Considerações sobre como utilizar o Packer
+
+Criação de um recurso de imagem gerida diretamente com o Packer só pode ser feito com contas de Batch de modo de subscrição de utilizador. Para contas de modo de serviço do Batch, terá de criar um VHD em primeiro lugar, em seguida, importar o VHD para um recurso de imagem gerida. Dependendo do modo de alocação agrupamento, (subscrição de utilizador ou serviço do Batch), os passos para criar um recurso de imagem gerida irão variar.
+
+Certifique-se de que o recurso utilizado para criar a imagem gerida existe para os tempos de vida de qualquer conjunto a referenciar a imagem personalizada. Falhas ao fazer isso podem resultar em falhas de alocação do conjunto e/ou falhas de redimensionar. 
+
+Se a imagem ou o recurso subjacente for removido, poderá receber um erro semelhante a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Se isto acontecer, certifique-se de que o recurso subjacente não foi removido.
+
+Para obter mais informações sobre como utilizar o Packer para criar uma VM, consulte [crie uma imagem do Linux com o Packer](../virtual-machines/linux/build-image-with-packer.md) ou [crie uma imagem do Windows com o Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

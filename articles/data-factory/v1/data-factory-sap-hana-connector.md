@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258441"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-sap-hana-connector.md)
 > * [Versão 2 (versão atual)](../connector-sap-hana.md)
 
@@ -60,12 +60,12 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | cadeia | Sim
+servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
-o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | cadeia | Sim
-palavra-passe | A palavra-passe do utilizador. | cadeia | Sim
-gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
+o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | string | Sim
+palavra-passe | A palavra-passe do utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | string | Sim
+encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, BLOBs do Azure, tabela do Azure, etc.).
@@ -288,18 +288,18 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-REAL | Único
-VALOR DE DUPLO | Único
+REAL | Single
+VALOR DE DUPLO | Single
 DECIMAL | Decimal
 VALOR BOOLEANO | Byte
-VARCHAR | Cadeia
-NVARCHAR | Cadeia
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Cadeia
+ALPHANUM | String
 BLOB | Byte[]
 DATA | DateTime
-HORA | Período de tempo
-TIMESTAMP | DateTime
+HORA | TimeSpan
+CARIMBO DE DATA/HORA | DateTime
 SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limitações conhecidas

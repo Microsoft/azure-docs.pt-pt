@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: shsha
 ms.openlocfilehash: 9589d6ea69a2293d592a9e63f2b726f1a620bb9e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126992"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configurar um certificado de encriptação e encriptar os segredos em clusters do Linux
 Este artigo mostra como configurar um certificado de encriptação e utilizá-la para encriptar os segredos em clusters do Linux. Para clusters do Windows, consulte [definir um certificado de encriptação a cópia de segurança e encriptar os segredos em clusters do Windows][secret-management-windows-specific-link].

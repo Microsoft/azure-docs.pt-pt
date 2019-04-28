@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128020"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de Dados Offline nas Aplicações Móveis do Azure
 ## <a name="what-is-offline-data-sync"></a>O que é a sincronização de dados offline?
@@ -37,13 +37,13 @@ Sincronização offline apresenta várias vantagens:
 
 Os tutoriais seguintes mostram como adicionar sincronização offline para os seus clientes móveis com aplicações móveis do Azure:
 
-* [Android: Ativar a sincronização offline]
-* [Apache Cordova: Ativar a sincronização offline](app-service-mobile-cordova-get-started-offline-data.md)
-* [iOS: Ativar a sincronização offline]
-* [Xamarin iOS: Ativar a sincronização offline]
-* [Xamarin Android: Ativar a sincronização offline]
-* [Xamarin. Forms: Sincronização offline Enable](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Plataforma universal do Windows: Ativar a sincronização offline]
+* [Android: Permitir sincronização offline]
+* [Apache Cordova: Permitir sincronização offline](app-service-mobile-cordova-get-started-offline-data.md)
+* [iOS: Permitir sincronização offline]
+* [Xamarin iOS: Permitir sincronização offline]
+* [Xamarin Android: Permitir sincronização offline]
+* [Xamarin.Forms: Permitir sincronização offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [Plataforma universal do Windows: Permitir sincronização offline]
 
 ## <a name="what-is-a-sync-table"></a>O que é uma tabela de sincronização?
 Para aceder ao ponto de final de "/ tabelas", os SDKs do cliente do Azure Mobile fornecem interfaces, como `IMobileServiceTable` (cliente SDK do .NET) ou `MSTable` (cliente iOS). Estas APIs ligam diretamente para o back-end de aplicação móvel do Azure e falharem se o dispositivo de cliente não tem uma ligação de rede.
@@ -53,7 +53,7 @@ Para suportar a utilização offline, a sua aplicação em vez disso, deve utili
 ## <a name="what-is-a-local-store"></a>O que é um armazenamento local?
 Um armazenamento local é a camada de persistência de dados no dispositivo cliente. Os SDKs de cliente de Mobile Apps do Azure fornecem uma implementação de arquivo local padrão. No Windows, Xamarin e Android, baseia-se no SQLite. No iOS, baseia-se em dados principais.
 
-Para utilizar a implementação com base em SQLite num Windows Phone ou Microsoft Store, terá de instalar uma extensão do SQLite. Para obter mais informações, consulte [Plataforma universal do Windows: Ativar a sincronização offline]. Android e iOS fornecido com uma versão do SQLite no sistema operativo do dispositivo em si, pelo que não é necessário fazer referência a sua própria versão do SQLite.
+Para utilizar a implementação com base em SQLite num Windows Phone ou Microsoft Store, terá de instalar uma extensão do SQLite. Para obter mais informações, consulte [plataforma Universal do Windows: Permitir sincronização offline]. Android e iOS fornecido com uma versão do SQLite no sistema operativo do dispositivo em si, pelo que não é necessário fazer referência a sua própria versão do SQLite.
 
 Os desenvolvedores também podem implementar seu próprio arquivo local. Por exemplo, se desejar armazenar os dados num formato encriptado no cliente móvel, pode definir um arquivo local que utiliza SQLCipher para encriptação.
 
@@ -66,8 +66,8 @@ Um arquivo local está associado com o contexto de sincronização com como um m
 Ao usar tabelas de sincronização, o código do cliente controla quando as alterações locais sejam sincronizadas com um back-end de aplicação móvel do Azure. Nada é enviado para o back-end até que haja uma chamada para *push* alterações locais feitas. Da mesma forma, o armazenamento local é preenchido com novos dados apenas quando existe uma chamada para *pull* dados.
 
 * **Push**: Push é uma operação no contexto de sincronização e envia todas as alterações CUD desde o último push. Tenha em atenção que não é possível enviar apenas alterações de uma tabela individual, uma vez que caso contrário, operações poderiam ser enviadas fora de ordem. Push executa uma série de chamadas REST para o back-end aplicação móvel do Azure, que por sua vez modifica sua base de dados do servidor.
-* **Extrair**: Pull é executada numa base por tabela e pode ser personalizada com uma consulta para recuperar apenas um subconjunto dos dados de servidor. Os SDKs de cliente móveis do Azure, em seguida, insira os dados resultantes para o arquivo local.
-* **Pushes implícitas**: se uma solicitação for executada com base numa tabela que tenha locais atualizações pendentes, a solicitação primeiro executa um `push()` no contexto de sincronização. Este push ajuda a minimizar os conflitos entre as alterações que já estão a ser colocados em fila e os novos dados do servidor.
+* **Extrair**: Extração é executada numa base por tabela e pode ser personalizada com uma consulta para recuperar apenas um subconjunto dos dados de servidor. Os SDKs de cliente móveis do Azure, em seguida, insira os dados resultantes para o arquivo local.
+* **Pushes implícitas**: Se uma solicitação for executada com base numa tabela que tenha locais atualizações pendentes, a solicitação primeiro executa um `push()` no contexto de sincronização. Este push ajuda a minimizar os conflitos entre as alterações que já estão a ser colocados em fila e os novos dados do servidor.
 * **Sincronização incremental**: o primeiro parâmetro para a operação de solicitação é um *nome da consulta* que é utilizado apenas no cliente. Se utilizar um nome de consulta não nulo, o SDK do Mobile Azure realiza uma *sincronização incremental*. Sempre que uma operação de solicitação retorna um conjunto de resultados, o mais `updatedAt` timestamp desse conjunto de resultados é armazenado nas tabelas de sistema local do SDK. Operações de recebimento subsequentes obtêm apenas os registos após esse timestamp.
 
   Utilizar a sincronização incremental, o servidor tem de devolver significativo `updatedAt` valores e também tem de suportar ordenar por este campo. No entanto, uma vez que o SDK adiciona seu próprio tipo no campo updatedAt, não é possível utilizar uma consulta de extração que tem o seu próprio `orderBy` cláusula.
@@ -82,7 +82,7 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
             syncTable.Where(u => u.UserId == userid));
 
   Se pretender desativar a sincronização incremental, passar `null` como o ID de consulta. Neste caso, todos os registos são obtidos em cada chamada para `PullAsync`, que é potencialmente ineficiente.
-* **Remoção**: pode limpar o conteúdo do arquivo local `IMobileServiceSyncTable.PurgeAsync`.
+* **Remover**: Pode limpar o conteúdo do arquivo local com `IMobileServiceSyncTable.PurgeAsync`.
   Remoção pode ser necessário se o ter dados obsoletos da base de dados do cliente, ou se pretender eliminar todas as alterações pendentes.
 
   Uma remoção limpa uma tabela do arquivo local. Se existirem operações que aguardam a sincronização com a base de dados do servidor, a remoção lança uma exceção a menos que o *Forçar remoção* parâmetro estiver definido.
@@ -90,15 +90,15 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
   Como um exemplo de dados obsoletos no cliente, suponha que o exemplo de "lista de tarefas", Device1 obtém apenas os itens que não estão concluídos. Um todoitem "Comprar milk" está marcada como concluído no servidor, por outro dispositivo. No entanto, Device1 ainda tem o todoitem "Comprar milk" no arquivo local porque ele só está obtendo os itens que não são marcados como concluídos. Uma remoção limpa este item obsoleto.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [iOS: Ativar a sincronização offline]
-* [Xamarin iOS: Ativar a sincronização offline]
-* [Xamarin Android: Ativar a sincronização offline]
-* [Plataforma universal do Windows: Ativar a sincronização offline]
+* [iOS: Permitir sincronização offline]
+* [Xamarin iOS: Permitir sincronização offline]
+* [Xamarin Android: Permitir sincronização offline]
+* [Plataforma universal do Windows: Permitir sincronização offline]
 
 <!-- Links -->
 [SDK de cliente .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
-[Android: Ativar a sincronização offline]: app-service-mobile-android-get-started-offline-data.md
-[iOS: Ativar a sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS: Ativar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: Ativar a sincronização offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Plataforma universal do Windows: Ativar a sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Android: Permitir sincronização offline]: app-service-mobile-android-get-started-offline-data.md
+[iOS: Permitir sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: Permitir sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Permitir sincronização offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
+[Plataforma universal do Windows: Permitir sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

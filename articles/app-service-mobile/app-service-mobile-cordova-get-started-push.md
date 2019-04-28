@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114360"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Adicionar notificações push à aplicação Apache Cordova
 
@@ -240,11 +240,11 @@ As bibliotecas necessárias atuais são apresentadas no [documentação de insta
 
 Notificações de push de teste agora pode executá-la e inserir itens na tabela TodoItem. Pode testar a partir do mesmo dispositivo ou a partir de um segundo dispositivo, enquanto estiver a utilizar o mesmo back-end. Teste a aplicação Cordova na plataforma Android em uma das seguintes formas:
 
-* *Num dispositivo físico:* anexar o seu dispositivo Android para o seu computador de desenvolvimento com um cabo USB.  Em vez de **emulador do Google Android**, selecione **dispositivo**. Visual Studio implementa a aplicação no dispositivo e executa o aplicativo. Em seguida, pode interagir com a aplicação no dispositivo.
+* *Num dispositivo físico:* Anexe o seu dispositivo Android para o seu computador de desenvolvimento com um cabo USB.  Em vez de **emulador do Google Android**, selecione **dispositivo**. Visual Studio implementa a aplicação no dispositivo e executa o aplicativo. Em seguida, pode interagir com a aplicação no dispositivo.
 
   Aplicativos de compartilhamento de tela, como [Mobizen] [ 20] pode ajudá-lo a desenvolver aplicações Android. Mobizen projeta sua tela Android para um navegador da web no seu PC.
 
-* *No emulador do Android:* existem passos de configuração adicionais que são necessários quando estiver a utilizar um emulador.
+* *No emulador do Android:* Existem passos de configuração adicionais que são necessários quando estiver a utilizar um emulador.
 
     Certifique-se de que está a implementar um dispositivo virtual com APIs do Google definida como destino, conforme mostrado no Gestor de dispositivo Virtual Android (AVD).
 

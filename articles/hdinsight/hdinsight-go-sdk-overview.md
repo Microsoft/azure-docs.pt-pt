@@ -1,19 +1,18 @@
 ---
 title: SDK do Go do Azure HDInsight
 description: Referência para o Azure HDInsight Go SDK
-services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098563"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Pré-visualização do SDK de gestão do Go do HDInsight
 
@@ -32,7 +31,7 @@ O SDK Go do HDInsight fornece classes e funções que permitem que gerencie seus
 
 A partir da sua localização GOPATH, execute `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Primeiro, o SDK precisa de ser autenticada com a sua subscrição do Azure.  Siga o exemplo abaixo para criar um principal de serviço e utilizá-lo para autenticar. Depois de o fazer, terá uma instância de um `ClustersClient`, que contém muitas funções (descritas a seguir secções) que podem ser utilizadas para efetuar operações de gestão.
 

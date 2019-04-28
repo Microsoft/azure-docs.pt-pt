@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61233181"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Início rápido: Ficheiros de vídeo do Stream - node. js
+# <a name="quickstart-stream-video-files---nodejs"></a>Início rápido: Transmitir ficheiros de vídeo - Node.js
 
 Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.

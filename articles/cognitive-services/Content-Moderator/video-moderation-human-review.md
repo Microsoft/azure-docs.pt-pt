@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
 ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098206"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeos com revisão humana
 

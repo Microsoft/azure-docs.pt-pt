@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107878"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualizar as soluções de análise de macrodados de geração 1 de armazenamento do Azure Data Lake para geração 2 de armazenamento do Azure Data Lake
 
@@ -249,7 +249,7 @@ A principal tarefa aqui é converter o URI que têm um prefixo de `adl://` para 
 
 O esquema URI para a geração 1 de armazenamento do Data Lake é mencionado [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) em detalhes, mas falando genericamente, é *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>.*
 
-O esquema URI para aceder a ficheiros de geração 2 de armazenamento do Data Lake é explicado [aqui](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) em detalhes, mas falando genericamente, é `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+O esquema URI para aceder a ficheiros de geração 2 de armazenamento do Data Lake é explicado [aqui](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) em detalhes, mas falando genericamente, é `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Precisará passar por seus aplicativos existentes e certifique-se de que alterou os URIs adequadamente para apontar para a geração 2 de armazenamento do Data Lake aqueles. Além disso, terá de adicionar as credenciais apropriadas. Por fim, como extinguir os aplicativos originais e substitua o novo aplicativo terão de estar alinhado atentamente para a sua estratégia de atualização global.
 

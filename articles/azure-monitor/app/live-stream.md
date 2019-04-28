@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115359"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
@@ -50,10 +50,13 @@ Métricas dinâmicas são atualmente suportadas para aplicações ASP.NET, ASP.N
 
 4. [Proteja o canal de controlo](#secure-the-control-channel) se pode utilizar os dados confidenciais, tais como nomes de clientes nos filtros.
 
+### <a name="nodejs"></a>Node.js
+
+Utilizar métricas em direto com o node. js tem de atualizar para versão 1.30 ou superior do SDK. Por predefinição, métricas em direto está desativada no SDK do node. js. Para ativar a adicionar métricas em direto `setSendLiveMetrics(true)` a sua [métodos de configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) como inicializar o SDK.
+
 ### <a name="no-data-check-your-server-firewall"></a>Não existem dados? Verifique a firewall do servidor
 
 Verifique os [portas de saída para o Stream de métricas em direto](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos seus servidores. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Stream de métricas em direto difere do Explorador de métricas e análise?
 
@@ -65,7 +68,6 @@ Verifique os [portas de saída para o Stream de métricas em direto](../../azure
 |Gratuito|Não tem custos para os dados do Stream em direto|Sujeito à [preços](../../azure-monitor/app/pricing.md)
 |Amostragem|Contadores e métricas de todos os selecionados são transmitidas. Falhas e de rastreamentos de pilha são objeto de amostragem. TelemetryProcessors não são aplicadas.|Eventos podem ter [amostragem](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de controlo|Sinais de controle de filtro são enviadas para o SDK. Recomendamos que proteja este canal.|A comunicação é unidirecional, para o portal|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar as suas métricas
 

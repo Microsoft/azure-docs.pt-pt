@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: scottwhi
 ms.openlocfilehash: d9ee97955f7d63d4fb9afc2a70582d2c63ce32de
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462465"
 ---
 # <a name="how-to-get-analytics-for-bing-entities-api"></a>Como obter a análise para a API de entidades do Bing
 

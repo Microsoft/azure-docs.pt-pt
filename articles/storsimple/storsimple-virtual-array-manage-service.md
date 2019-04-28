@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9f6e5b606caa661429a3c4d4a53e2021d57730aa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116960"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementar o serviço StorSimple Device Manager do StorSimple Virtual Array
 ## <a name="overview"></a>Descrição geral
@@ -67,7 +67,7 @@ Execute os passos seguintes para eliminar um serviço.
 
 #### <a name="to-delete-a-service"></a>Para eliminar um serviço
 
-1. Aceda a **todos os recursos**. Pesquisa para o seu serviço StorSimple Device Manager. Selecione o serviço que pretende eliminar.
+1. Vá para **Todos os recursos**. Pesquisa para o seu serviço StorSimple Device Manager. Selecione o serviço que pretende eliminar.
    
     ![Selecione o serviço para eliminar](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
 2. Aceda ao seu dashboard de serviço para garantir que não há nenhum dispositivo ligado ao serviço. Se não existirem não existem dispositivos registados com este serviço, também verá uma mensagem de faixa para o efeito. Clique em **Eliminar**.

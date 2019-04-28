@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 08/10/2018
+origin.date: 08/10/2018
+ms.date: 12/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112539"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -36,8 +37,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-+ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Criar e publicar um produto
 
@@ -48,10 +49,10 @@ Neste tutorial, ficará a saber como:
 
     Ao adicionar um produto, tem de fornecer as seguintes informações: 
 
-    | Nome                     | Descrição                                                                                                                                                                                                                                                                                                             |
+    | Name                     | Descrição                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome a apresentar             | O nome, como pretende que seja apresentado no **Portal do programador**.                                                                                                                                                                                                                                                        |
-    | Nome                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
+    | Name                     | Um nome descritivo do produto.                                                                                                                                                                                                                                                                                      |
     | Descrição              | O campo **Descrição** permite-lhe fornecer informações detalhadas sobre o produto, como a respetiva finalidade, as APIs às quais fornece acesso e outras informações úteis.                                                                                                                                               |
     | Estado                    | Prima **Publicado** se pretender publicar o produto. Antes de as APIs num produto poderem ser chamadas, o produto tem de ser publicado. Por predefinição, os novos produtos não são publicados, e são visíveis apenas para o grupo **Administradores**.                                                                                      |
     | Exige subscrição    | Selecione **Exigir subscrição** se um utilizador precisar de subscrever para utilizar o produto.                                                                                                                                                                                                                                   |
@@ -88,7 +89,7 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 > [!TIP]
 > Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) ou do comando do PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

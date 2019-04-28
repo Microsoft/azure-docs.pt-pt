@@ -1,7 +1,6 @@
 ---
 title: Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight - Azure
 description: Ative capturas de área dinâmica para dados para os serviços do Apache Hadoop de clusters do HDInsight baseado em Linux para depuração e análise.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098359"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux
 
@@ -102,7 +101,7 @@ Para modificar a configuração para um serviço, utilize os seguintes passos:
 
 4. Encontrar o  **\* \_OPTS** entrada para o serviço que pretende ativar a captura de área dinâmica para dados para e adicione as opções que pretende ativar. Na imagem seguinte, adicionei `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` para o **HADOOP\_NAMENODE\_OPTS** entrada:
 
-    ![HADOOP_NAMENODE_OPTS com - XX: + HeapDumpOnOutOfMemoryError - XX: HeapDumpPath = / tmp /](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![HADOOP_NAMENODE_OPTS with -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
    > [!NOTE]  
    > Quando ativar a área dinâmica para dados informações do Estado para o mapa ou reduzir o processo filho, procure para os campos com o nome **mapreduce.admin.map.child.java.opts** e **mapreduce.admin.reduce.child.java.opts**.

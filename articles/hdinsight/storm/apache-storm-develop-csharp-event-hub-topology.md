@@ -1,7 +1,6 @@
 ---
 title: Processar eventos dos Hubs de eventos com o Storm - Azure HDInsight
 description: Saiba como processar os dados dos Hubs de eventos do Azure com uma topologia de Storm em c#, criada no Visual Studio, utilizando as ferramentas do HDInsight para Visual Studio.
-services: hdinsight,notification hubs
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: MT
+ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125209"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -136,7 +135,7 @@ Os Hubs de eventos é a origem de dados para este exemplo. Utilize as informaç�
 
 1. Depois de criar o hub de eventos, ver o **EventHub** definições no portal do Azure e selecione **políticas de acesso partilhado**. Selecione **+ adicionar** para adicionar as seguintes políticas:
 
-   | Nome | Permissões |
+   | Name | Permissões |
    | --- | --- |
    | escritor |Enviar |
    | leitor |Vigiar |
@@ -153,7 +152,7 @@ Os Hubs de eventos é a origem de dados para este exemplo. Utilize as informaç�
 
 3. Na **EventHubWriter** projeto, abra o **App. config** ficheiro. Utilize as informações do hub de eventos que configurou anteriormente para preencher o valor para as seguintes chaves:
 
-   | Chave | Valor |
+   | Chave | Value |
    | --- | --- |
    | EventHubPolicyName |gravador (se tiver utilizado um nome diferente para a política com *enviar* permissão, utilizá-lo em vez disso.) |
    | EventHubPolicyKey |A chave para a política de escritor. |
@@ -169,7 +168,7 @@ Os Hubs de eventos é a origem de dados para este exemplo. Utilize as informaç�
 
 2. Abra o **App. config** de ficheiros para o **EventHubReader**. Utilize as informações do hub de eventos que configurou anteriormente para preencher o valor para as seguintes chaves:
 
-   | Chave | Valor |
+   | Chave | Value |
    | --- | --- |
    | EventHubPolicyName |leitor (se tiver utilizado um nome diferente para a política com *escutar* permissão, utilizá-lo em vez disso.) |
    | EventHubPolicyKey |A chave para a política de leitor. |

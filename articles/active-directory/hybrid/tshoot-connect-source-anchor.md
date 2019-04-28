@@ -11,11 +11,11 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114160"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Resolução de problemas de âncora de origem durante a instalação
 Este artigo explica os diferentes problemas que possam ocorrer durante a instalação e ofertas formas de resolver esses problemas relacionados com a âncora de origem.

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680911"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111837"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -132,7 +132,7 @@ Não.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>Pode aprovisionar uma computação com extra RAM para minha carga de trabalho de memória intensiva
 
-Não. Para obter mais RAM, terá de atualizar para um tamanho de computação mais elevado. Hardware de Gen4 fornece mais RAM, em comparação comparado o hardware de Gen5. Para obter mais informações, consulte [tamanhos de armazenamento e computação de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+Não. Para obter mais RAM, terá de atualizar para um tamanho de computação mais elevado. Hardware de Gen4 fornece mais RAM, em comparação comparado o hardware de Gen5. Para obter mais informações, consulte [tamanhos de armazenamento e computação de Hiperescala](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Pode aprovisionar vários nós de computação de tamanhos diferentes
 

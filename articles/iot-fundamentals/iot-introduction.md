@@ -8,15 +8,15 @@ ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
 ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61232256"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure Internet das coisas (IoT)?
 
-A Azure Internet das coisas (IoT) é uma coleção de serviços cloud geridos pela Microsoft que ligue, monitorize e controle milhares de milhões de recursos de IoT. Em termos mais simples, uma solução de IoT é constituída por um ou mais dispositivos de IoT e um ou mais serviços back-end em execução na cloud que se comunicam entre si. 
+A Internet das Coisas (IoT) do Azure é uma coleção de serviços cloud geridos pela Microsoft que ligam, monitorizam e controlam milhares de milhões de recursos de IoT. Em termos mais simples, uma solução IoT é composta por um ou mais dispositivos IoT e por um ou mais serviços de back-end em execução na cloud que comunicam entre si. 
 
 Este artigo discute as noções básicas do IoT, fala sobre casos de utilização e explica resumidamente os oito serviços separados disponíveis. Ao compreender o que está disponível, pode descobrir o que deseja examinar mais atentamente que ajudam a projetar seu cenário.
 
@@ -119,7 +119,7 @@ Existem vários serviços relacionados com a IoT no Azure e pode ser confuso des
 
 7. [**Time Series Insights**](/azure/time-series-insights): Este serviço permite-lhe armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo geradas pelos dispositivos de IoT. Pode utilizar este serviço com o IoT Hub. 
 
-8. [**O Azure Maps**](/azure/azure-maps): Este serviço fornece informações geográficas para aplicações web e móveis. Existe um conjunto completo de REST APIs, bem como um controlo de JavaScript baseado na web que pode ser utilizado para criar aplicações flexíveis que funcionam em aplicações de ambiente de trabalho ou móveis para dispositivos Apple e Windows.
+8. [**Azure Maps**](/azure/azure-maps): Este serviço fornece informações geográficas para aplicações web e móveis. Existe um conjunto completo de REST APIs, bem como um controlo de JavaScript baseado na web que pode ser utilizado para criar aplicações flexíveis que funcionam em aplicações de ambiente de trabalho ou móveis para dispositivos Apple e Windows.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

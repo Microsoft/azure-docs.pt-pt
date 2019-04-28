@@ -2,19 +2,27 @@
 title: Topologias do Apache Storm com o Visual Studio e do c# – Azure HDInsight
 description: Saiba como criar topologias Storm em c#. Crie uma topologia de contagem de palavras simples no Visual Studio com as ferramentas do Hadoop para Visual Studio.
 services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+ms.custom: ''
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 11/27/2017
-ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 11/27/2017
+ms.date: 04/01/2019
+ms.author: v-yiso
+ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125226"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias c# para Apache Storm, utilizando as ferramentas do Data Lake para Visual Studio
 
@@ -22,7 +30,7 @@ Saiba como criar um C# topologia de Apache Storm, utilizando as ferramentas do A
 
 Também irá aprender a criar topologias híbridas que utilizam o c# e componentes em Java.
 
-> [!NOTE]  
+> [!NOTE]
 > Embora os passos neste documento dependem de um ambiente de desenvolvimento do Windows com o Visual Studio, o projeto compilado pode ser submetido para o cluster do Linux ou do HDInsight baseado em Windows. Apenas os clusters baseados em Linux criados após a 28 de Outubro de 2016, suportam SCP.NET topologias.
 
 Para utilizar uma topologia c# com um cluster baseado em Linux, tem de atualizar o pacote NuGet Microsoft utilizado pelo seu projeto para a versão 0.10.0.6 ou posterior. A versão do pacote também tem de corresponder à versão principal do Storm instalada no HDInsight.
@@ -34,7 +42,7 @@ Para utilizar uma topologia c# com um cluster baseado em Linux, tem de atualizar
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > As topologias C# em clusters baseados em Linux têm de utilizar o .NET 4.5 e utilizar o Mono para serem executadas no cluster do HDInsight. Verifique [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/) quanto a potenciais incompatibilidades.
 
 ## <a name="install-visual-studio"></a>Instalar o Visual Studio
@@ -125,7 +133,7 @@ Os modelos de leitor e gravador de HBase utilizam a API de REST de HBase, não, 
 
 ### <a name="eventhub-templates-notes"></a>Notas de modelos de EventHub
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > O componente de spout de EventHub baseadas em Java incluído com o modelo de leitor de EventHub poderá não funcionar com o Storm no HDInsight versão 3.5 ou posterior. Uma versão atualizada deste componente está disponível em [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 Para uma topologia de exemplo que utiliza este componente e funciona com o Storm no HDInsight 3.5, consulte [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
@@ -230,7 +238,7 @@ Para uma topologia de exemplo que utiliza este componente e funciona com o Storm
 
    * **Counter.cs**: Implementa um bolt que contabiliza cada palavra e emite um novo fluxo de palavras e a contagem de cada palavra.
 
-     > [!NOTE]  
+     > [!NOTE]
      > Estes bolts de leitura e escrita aos fluxos, mas também pode utilizar um bolt para comunicar com origens, como uma base de dados ou serviço.
 
 3. Open **Splitter.cs**. Ele tem apenas um método por predefinição: **Executar**. O método Execute é chamado quando o bolt recebe uma cadeia de identificação para processamento. Aqui, pode ler e processar as tuplas de entrada e emitir as tuplas de saída.
@@ -408,21 +416,21 @@ return topologyBuilder;
 
 1. Na **Explorador de soluções**, clique com o botão direito no projeto e selecione **submeter para Storm no HDInsight**.
 
-   > [!NOTE]  
+   > [!NOTE]
    > Se lhe for pedido, introduza as credenciais para a sua subscrição do Azure. Se tiver mais de uma subscrição, inicie sessão no que contém o seu cluster Storm no HDInsight.
 
 2. Selecione o Storm no cluster do HDInsight a partir da **Cluster do Storm** na lista pendente e, em seguida, selecione **submeter**. Pode monitorizar se a submissão for bem sucedida, utilizando o **saída** janela.
 
 3. Quando a topologia foi submetida com êxito, o **topologias do Storm** para o cluster deve aparecer. Selecione o **WordCount** topologia da lista para ver informações sobre a topologia em execução.
 
-   > [!NOTE]  
+   > [!NOTE]
    > Também pode ver **topologias do Storm** partir **Explorador de servidores**. Expanda **Azure** > **HDInsight**, um Storm num cluster do HDInsight com o botão direito e, em seguida, selecione **Zobrazit Topologie Stormu**.
 
     Para ver informações sobre os componentes da topologia, faça duplo clique o componente no diagrama.
 
 4. Do **resumo da topologia** ver, clique em **Kill** para parar a topologia.
 
-   > [!NOTE]  
+   > [!NOTE]
    > Topologias do Storm continuam a ser executado até que eles são desativados ou o cluster é eliminado.
 
 ## <a name="transactional-topology"></a>Topologia transacional
@@ -459,13 +467,13 @@ Para obter um exemplo de uma topologia de híbrida, crie um projeto e selecione 
 
     * Uma versão transacional é definida no **HybridTopologyTx_csharpSpout_javaBolt**.
 
-  > [!NOTE]  
+  > [!NOTE]
   > Esta versão também demonstra como utilizar o código de Clojure de um arquivo de texto como um componente de Java.
 
 
 Para mudar a topologia que é utilizada quando o projeto é submetido, mover o `[Active(true)]` instrução para a topologia que pretende utilizar, antes de enviá-lo para o cluster.
 
-> [!NOTE]  
+> [!NOTE]
 > Todos os arquivos de Java que são necessários são fornecidos como parte deste projeto na **JavaDependency** pasta.
 
 Quando estiver a criar e submeter uma topologia de híbrida, considere o seguinte:
@@ -484,7 +492,7 @@ Versão SCP.NET 0.9.4.203 introduz uma nova classe e método especificamente par
 
 * **TopologyBuilder.SetEventHubSpout** método: Adiciona o componente de spout do Hub de eventos para a topologia.
 
-> [!NOTE]  
+> [!NOTE]
 > Ainda tem de utilizar o **CustomizedInteropJSONSerializer** para serializar dados produzidos pelo spout.
 
 ## <a id="configurationmanager"></a>Usar ConfigurationManager
@@ -532,7 +540,7 @@ Lançamentos recentes de SCP.NET suportam a atualização do pacote através do 
 
 2. A partir do Gestor de pacotes, selecione **atualizações**. Se está disponível uma atualização, estão listadas. Clique em **atualização** para o pacote para instalá-lo.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Se o projeto foi criado com uma versão anterior do SCP.NET que não utilizou o NuGet, tem de efetuar os seguintes passos para atualizar para uma versão mais recente:
 >
 > 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Gerir Pacotes NuGet**.
@@ -562,7 +570,7 @@ Para os clusters do HDInsight baseado em Linux, certifique-se de que o seu proje
 
 Embora seja fácil de implementar uma topologia para um cluster, em alguns casos, se pretender testar localmente uma topologia. Utilize os seguintes passos para executar e testar a topologia de exemplo neste tutorial localmente no seu ambiente de desenvolvimento.
 
-> [!WARNING]  
+> [!WARNING]
 > Realização de testes locais só funciona para basic, c#-apenas topologias. Não é possível utilizar a realização de testes locais para topologias híbridas ou topologias que utilizam múltiplos fluxos.
 
 1. Na **Explorador de soluções**, clique com o botão direito no projeto e selecione **propriedades**. Nas propriedades do projeto, alterar os **tipo de saída** ao **aplicação de consola**.
@@ -686,10 +694,10 @@ Embora seja fácil de implementar uma topologia para um cluster, em alguns casos
 
 3. Uso **Windows Explorer** para localizar o diretório que contém o seu projeto. Por exemplo: **C:\Users\<your_user_name > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Neste diretório, abra **Bin**e, em seguida, clique em **depurar**. Deverá ver os ficheiros de texto que foram produzidos quando os testes foi executada: sentences.txt counter.txt e splitter.txt. Abrir cada arquivo de texto e inspecionar os dados.
 
-   > [!NOTE]  
+   > [!NOTE]
    > Persistir os dados de cadeia de caracteres como uma matriz de valores decimais nesses arquivos. Por exemplo, \[[97,103,111]] no **splitter.txt** arquivo é a palavra *e*.
 
-> [!NOTE]  
+> [!NOTE]
 > Certifique-se de que definir o **tipo de projeto** voltar ao **biblioteca de classes** antes de implementar um cluster Storm no HDInsight.
 
 ### <a name="log-information"></a>Informações de registo
@@ -702,7 +710,7 @@ Context.Logger.Info("Component started");
 
 Com sessão iniciada informações podem ser visualizadas a partir do **registo de serviço do Hadoop**, que se encontra no **Explorador de servidores**. Expanda a entrada para o Storm no cluster do HDInsight e, em seguida, expanda **registo de serviço do Hadoop**. Por fim, selecione o ficheiro de registo para ver.
 
-> [!NOTE]  
+> [!NOTE]
 > Os registos são armazenados na conta de armazenamento do Azure que é utilizada pelo seu cluster. Para ver os registos no Visual Studio, tem de iniciar sessão subscrição do Azure, que é proprietário da conta de armazenamento.
 
 ### <a name="view-error-information"></a>Ver informações de erro
@@ -721,7 +729,7 @@ Para ver os erros que ocorreram numa topologia em execução, utilize os seguint
 
 Se encontrar erros submeter uma topologia para HDInsight, pode encontrar registos para os componentes de servidor que tratam de submissão de topologia no seu cluster do HDInsight. Para obter estes registos, utilize o seguinte comando numa linha de comandos:
 
-    scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
+    scp sshuser@clustername-ssh.azurehdinsight.cn:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
 Substitua __sshuser__ com a conta de utilizador SSH para o cluster. Substitua __clustername__ com o nome do HDInsight cluster. Para obter mais informações sobre como usar `scp` e `ssh` com o HDInsight, veja [utilizar o SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
 ms.openlocfilehash: af684a4fcc3a70326c1a57cb10a39204b4fd12dc
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103929"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Criar a sua primeira função de Python no Azure (pré-visualização)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129081"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de controladores de NVIDIA GPU para Linux
 
@@ -35,7 +35,7 @@ Uma extensão também está disponível para instalar controladores NVIDIA GPU n
 
 Esta extensão suporta distribuições de SO seguintes, consoante o suporte a driver para a versão de SO específica.
 
-| Distribuição | Versão |
+| Distribuição | Version |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
@@ -85,7 +85,7 @@ Todas as definições são opcionais. O comportamento padrão é não atualizar 
 | Name | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o kernel, mesmo que não é necessário para instalação de controladores | false | VERDADEIRO, FALSO | boolean |
-| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | mais recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | mais recente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale o Kit de ferramentas de CUDA. Relevante apenas para VMs de série de NC/ND. | true | VERDADEIRO, FALSO | boolean |
 
 

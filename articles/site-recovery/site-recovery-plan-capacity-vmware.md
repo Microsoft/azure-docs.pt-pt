@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124971"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planear a capacidade e dimensionamento para recuperação de desastre do VMware para o Azure
 
@@ -120,7 +120,7 @@ Antes de configurar a infraestrutura de recuperação de sites, aceder ao ambien
 
 ## <a name="deploy-additional-process-servers"></a>Implementar servidores de processos adicionais
 
-Se aumentar horizontalmente a implementação, além de 200 máquinas de origem, ou se tiver um total de alterações diariamente a taxa de mais de 2 TB, tem de adicionar servidores de processos para processar o volume de tráfego. Para saber como configurar o servidor de processos, veja [escala para reativação pós-falha ao utilizar servidores de processos adicionais](vmware-azure-set-up-process-server-scale.md). Depois de configurar o servidor de processos, pode migrar máquinas de origem para utilizá-lo.
+Se aumentar horizontalmente a implementação, além de 200 máquinas de origem, ou se tiver um total de alterações diariamente a taxa de mais de 2 TB, tem de adicionar servidores de processos para processar o volume de tráfego. Temos ainda o enhanced produto na versão 9.24 para fornecer [orientação no produto](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre quando configurar um servidor de processos de escalamento horizontal. [Configurar o servidor de processos](vmware-azure-set-up-process-server-scale.md) para proteger de novas máquinas de origem ou [balancear a carga](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar máquinas para utilizar o novo servidor de processos
 

@@ -2,22 +2,24 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: azure-resource-manager
-author: tfitzmac
+author: rockboyfor
+manager: digimobile
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
-ms.author: tomfitz
+origin.date: 02/16/2018
+ms.date: 04/30/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b4b06119b9d46781b967fc8d98808c60d2b41ccb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f77a5d482c3f8632a3d86bd8e027fbb4418168c3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38753671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122911"
 ---
 Deve confirmar que os utilizadores na sua organização possuem o nível adequado de acesso a estes recursos. Não vai querer conceder acesso ilimitado aos utilizadores, mas também precisa de confirmar que estes podem fazer o seu trabalho. Controlo de acesso baseado em funções (RBAC) permite-lhe gerir os utilizadores que tem permissão para concluir as ações específicas a um âmbito. Uma função define um conjunto de ações permitidas. Atribuir a função a um âmbito e especificar os utilizadores que pertencem a essa função para o âmbito.
 
-Ao planejar sua estratégia de controlo de acesso, conceda aos utilizadores o menor privilégio para fazer o seu trabalho. A imagem seguinte mostra um padrão sugerido para atribuir o RBAC.
+Quando planear a estratégia de controlo de acesso, conceda aos utilizadores o privilégio menor de que precisam para trabalhar. A imagem seguinte mostra um padrão sugerido para atribuir o RBAC.
 
 ![Âmbito](./media/resource-manager-governance-rbac/role-examples.png)
 
@@ -28,3 +30,4 @@ A maioria dos usuários são concedidos [funções de recursos específicos](../
 ### <a name="who-can-assign-roles"></a>Quem pode atribuir funções
 
 Para criar e remover atribuições de funções, os utilizadores devem ter acesso `Microsoft.Authorization/roleAssignments/*`. Este acesso é concedido através das funções Proprietário ou Administrador de Acesso dos Utilizadores.
+<!--ms.date: 04/30/2018-->

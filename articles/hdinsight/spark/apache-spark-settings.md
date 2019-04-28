@@ -1,7 +1,6 @@
 ---
 title: Configurar as definições do Spark - Azure HDInsight
 description: Como configurar o Spark para um cluster do HDInsight do Azure.
-services: hdinsight
 author: maxluk
 ms.author: maxluk
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098389"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
 
@@ -111,8 +110,8 @@ Eis um exemplo de dois nós de trabalho com valores de configuração diferentes
 A lista seguinte mostra os parâmetros de memória de chave executor do Spark.
 
 * `spark.executor.memory` Define a quantidade total de memória disponível para um executor.
-* `spark.storage.memoryFraction` (~ 60% predefinida) define a quantidade de memória disponível para armazenamento persistentes RDDs.
-* `spark.shuffle.memoryFraction` (~ 20% predefinida) define a quantidade de memória reservada para shuffle.
+* `spark.storage.memoryFraction` (predefinição ~ 60%) Define a quantidade de memória disponível para armazenamento persistentes RDDs.
+* `spark.shuffle.memoryFraction` (predefinição aproximadamente 20%) Define a quantidade de memória reservada para shuffle.
 * `spark.storage.unrollFraction` e `spark.storage.safetyFraction` (totalizando aproximadamente 30% do total de memória) - estes valores são usados internamente pelo Spark e não deve ser alterados.
 
 YARN controla a soma de máxima de memória utilizada pelos contentores em cada nó do Spark. O diagrama seguinte mostra as relações de por nó entre objetos de configuração do YARN e do Spark.

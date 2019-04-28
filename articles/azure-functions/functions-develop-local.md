@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 0f1d4fdbb9e5d2b05b8ec43c1393951a4c6a87b8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6486b38040fc92c2ece839801293817c4afc7cf5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614024"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar as funções do Azure localmente
 
@@ -25,7 +25,7 @@ Enquanto pode desenvolver e testar as funções do Azure no [portal do Azure], m
 
 A forma de desenvolver as funções no seu computador local depende da sua [linguagem](supported-languages.md) e preferências de ferramentas. Os ambientes na seguinte tabela ofereça suporte ao desenvolvimento local:
 
-|Ambiente                              |Linguagens         |Descrição|
+|Ambiente                              |Languages         |Descrição|
 |-----------------------------------------|------------|---|
 | [Linha de comandos ou terminal](functions-run-local.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script c# (. csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Ferramentas de núcleo das funções do Azure] fornece o tempo de execução de núcleo e modelos para a criação de funções, que permite o desenvolvimento local. Versão 2.x o desenvolvimento de suporta no Linux, MacOS e Windows. Todos os ambientes contam com ferramentas de núcleo para o runtime das funções local. |
 |[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script c# (. csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | O [extensão de funções do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona as funções de suporte para o VS Code. Requer as ferramentas de núcleo. Oferece suporte ao desenvolvimento no Linux, MacOS e Windows, ao utilizar a versão 2.x das ferramentas de núcleo. Para obter mais informações, consulte [criar a sua primeira função com o Visual Studio Code](functions-create-first-function-vs-code.md). |

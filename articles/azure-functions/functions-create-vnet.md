@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.openlocfilehash: 96ab479d3373eb6e575a00898f7007a4df252e39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125678"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrar uma aplicação de função com uma rede virtual do Azure
 

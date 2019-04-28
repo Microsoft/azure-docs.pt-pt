@@ -1,7 +1,6 @@
 ---
 title: SDK de REST - Azure HDInsight do Phoenix Query Server
 description: Instalar e utilizar o SDK de REST para o Phoenix Query Server no Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: b7c94fd2372f1d995c50439b2bd5eaefb237e175
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123064"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK de REST do Apache Phoenix Query Server
 
@@ -77,7 +76,7 @@ Aqui estão algumas propriedades de interesse:
 | Confirmação automática | Um booleano que denota se `autoCommit` está ativada para transações de Phoenix. |
 | ReadOnly | Um valor booleano que indica se a ligação é só de leitura. |
 | TransactionIsolation | Um número inteiro que indica o nível de isolamento de transação pela especificação de JDBC - consulte a tabela seguinte.|
-| catálogo | O nome do catálogo, para utilizar quando a obter propriedades de ligação. |
+| Catálogo | O nome do catálogo, para utilizar quando a obter propriedades de ligação. |
 | Esquema | O nome do esquema a utilizar quando a obter propriedades de ligação. |
 | IsDirty | Um valor booleano que indica se as propriedades foram alteradas. |
 

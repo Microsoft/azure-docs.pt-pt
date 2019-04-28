@@ -1,6 +1,6 @@
 ---
-title: Ligar para o OneDrive para empresas - as do Azure Logic Apps | Microsoft Docs
-description: Carregar e gerir ficheiros com o OneDrive para APIs REST de empresas e Azure Logic Apps
+title: Ligar ao OneDrive para empresas - Azure Logic Apps | Documentos da Microsoft
+description: Carregar e gerir os ficheiros com o OneDrive para empresas REST APIs e Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,33 +11,33 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104923"
 ---
-# <a name="get-started-with-the-onedrive-for-business-connector"></a>Começar a utilizar o OneDrive para o conector de negócio
-Ligar para o OneDrive para empresas para gerir os seus ficheiros. Pode efetuar várias ações, como o carregamento, atualizar, obter e eliminar ficheiros.
+# <a name="get-started-with-the-onedrive-for-business-connector"></a>Comece com o OneDrive para o conector de negócios
+Ligar ao OneDrive para empresas para gerir os seus ficheiros. Pode executar várias ações como carregar, atualizar, obter e eliminar ficheiros.
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pode começar a utilizar ao criar uma aplicação lógica agora, veja [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-onedrive-for-business"></a>Criar uma ligação para o OneDrive para empresas
-Para criar aplicações lógicas com o OneDrive para empresas, primeiro tem de criar um **ligação** , em seguida, forneça os detalhes para as seguintes propriedades:
+Para criar aplicações lógicas com o OneDrive para empresas, primeiro tem de criar uma **ligação** , em seguida, forneça os detalhes para as seguintes propriedades:
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
 | Certificado de |Sim |Fornecer Credenciais do OneDrive para Empresas |
 
-Depois de criar a ligação, pode utilizá-lo para executar as ações e escutar os acionadores descritos neste artigo.
+Depois de criar a ligação, pode usá-lo para executar as ações e ouvir os disparadores descritos neste artigo.
 
 > [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/onedriveforbusinessconnector/).
+Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/onedriveforbusinessconnector/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+Volte para o [lista APIs](apis-list.md).

@@ -1,7 +1,6 @@
 ---
 title: Utilizar uma Shell interativa do Spark no HDInsight do Azure
 description: Uma Shell interativa do Spark fornece um processo de impressão leitura executar para executar o Spark comandos um por vez e observando os resultados.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116078"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark a partir da Shell do Spark
 
@@ -30,7 +29,7 @@ Pode obter o comando SSH completado para o seu cluster no portal do Azure:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Navegue para o painel para o seu cluster do HDInsight Spark.
-3. Selecione Secure Shell (SSH).
+3. Select Secure Shell (SSH).
 
     ![Painel de HDInsight no portal do Azure](./media/apache-spark-shell/hdinsight-spark-blade.png)
 
@@ -60,10 +59,10 @@ Para acessar a instância de SparkSession, introduza `spark`. Para acessar a ins
 
 O comando do Shell do Spark (`spark-shell`, `pyspark`, ou `sparkR`) oferece suporte a muitos parâmetros da linha de comandos. Para ver uma lista completa de parâmetros, inicie a Shell do Spark com o comutador `--help`. Tenha em atenção que alguns desses parâmetros talvez só se aplicam a `spark-submit`, que encapsula o Shell do Spark.
 
-| Comutador | descrição | Exemplo |
+| Comutador | description | Exemplo |
 | --- | --- | --- |
-| – dominar MASTER_URL | Especifica o URL principal. No HDInsight, este valor é sempre `yarn`. | `--master yarn`|
-| – jars JAR_LIST | Lista separada por vírgulas de jars locais para incluir nos caminhos de controlador e do executor. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no armazenamento do Azure ou o armazenamento do Data Lake. | `--jars /path/to/examples.jar` |
+| --master MASTER_URL | Especifica o URL principal. No HDInsight, este valor é sempre `yarn`. | `--master yarn`|
+| --jars JAR_LIST | Lista separada por vírgulas de jars locais para incluir nos caminhos de controlador e do executor. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no armazenamento do Azure ou o armazenamento do Data Lake. | `--jars /path/to/examples.jar` |
 | – MAVEN_COORDS de pacotes | Lista separada por vírgulas de coordenadas do maven do Intune para incluir nos caminhos de controlador e do executor. Procura o repositório local maven, em seguida, maven central, em seguida, quaisquer repositórios remotos adicionais especificados com `--repositories`. É o formato para as coordenadas *groupId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | LISTA de ficheiros – py | Para Python apenas, uma lista separada por vírgulas de ficheiros. zip, .egg ou. PY para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
 

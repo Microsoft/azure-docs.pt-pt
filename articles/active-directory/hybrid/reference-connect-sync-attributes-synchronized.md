@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096132"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -64,7 +64,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | Empresa |X |X | | |
 | countryCode |X |X | | |
 | Departamento |X |X | | |
-| descrição |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -186,7 +186,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | Empresa |X |X | | |
 | countryCode |X |X | | |
 | Departamento |X |X | | |
-| descrição |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -266,7 +266,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | Co |X |X | | |
 | Empresa |X |X | | |
 | Departamento |X |X | | |
-| descrição |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -328,7 +328,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
 | CN |X | |X | |
-| descrição |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
@@ -350,7 +350,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | Co |X |X | | |
 | Empresa |X |X | | |
 | countryCode |X |X | | |
-| descrição |X |X |X | |
+| description |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |

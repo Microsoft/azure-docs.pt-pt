@@ -1,18 +1,17 @@
 ---
 title: Resolver problemas de YARN no HDInsight do Azure
 description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apache Hadoop YARN e o Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: MT
+ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408835"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764299"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache Hadoop YARN com o Azure HDInsight
 
@@ -25,8 +24,9 @@ Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads
 Utilize os seguintes passos Ambari para criar uma nova fila do YARN e, em seguida, equilibrar a alocação de capacidade entre todas as filas. 
 
 Neste exemplo, dois filas existentes (**predefinição** e **thriftsvr**) ambos forem alteradas, da capacidade de 50%, a capacidade de 25%, o que lhe dá a nova capacidade de 50% da fila (spark).
+
 | Filas | Capacidade | Capacidade máxima |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | predefinição | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 0e811fb8d084f90410d48124f488843daa31a5a5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107658"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Ligar o seu dispositivo da Palo Alto Networks
 

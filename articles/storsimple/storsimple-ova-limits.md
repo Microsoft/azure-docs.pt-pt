@@ -1,6 +1,6 @@
 ---
-title: Limites de matriz Virtual StorSimple | Microsoft Docs
-description: Descreve os limites de sistema e os tamanhos recomendados para os componentes de matriz Virtual do Microsoft Azure StorSimple e ligações.
+title: Limites da matriz Virtual StorSimple | Documentos da Microsoft
+description: Descreve os limites de sistema e os tamanhos recomendados para os componentes do Microsoft Azure StorSimple Virtual Array e ligações.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,18 +15,18 @@ ms.workload: TBD
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f8d338cf07999d7791cbd5d3e8ddcc0d6b2b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43e8134ede0735c40b18be739f58b7b69e88fce1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875054"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127867"
 ---
-# <a name="what-are-storsimple-virtual-array-limits"></a>Quais são os limites de matriz Virtual StorSimple?
+# <a name="what-are-storsimple-virtual-array-limits"></a>Quais são os limites da matriz Virtual do StorSimple?
 
 ## <a name="overview"></a>Descrição geral
-Considere estes limites como planear, implementar e operar a matriz Virtual do Microsoft Azure StorSimple. A tabela seguinte descreve estes limites para o dispositivo virtual.
+Considere estes limites, como planejar, implantar e operar o Microsoft Azure StorSimple Virtual Array. A tabela seguinte descreve estes limites para o dispositivo virtual.
 
-## <a name="storsimple-virtual-array-limits"></a>Limites de matriz Virtual StorSimple
+## <a name="storsimple-virtual-array-limits"></a>Limites da matriz Virtual StorSimple
 [!INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 

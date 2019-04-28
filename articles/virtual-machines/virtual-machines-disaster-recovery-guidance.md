@@ -1,5 +1,5 @@
 ---
-title: Cenários de recuperação após desastre para as VMs do Azure | Microsoft Docs
+title: Cenários de recuperação após desastre para VMs do Azure | Documentos da Microsoft
 description: Saiba o que fazer no caso de uma interrupção do serviço do Azure tem impacto sobre máquinas virtuais do Azure.
 services: virtual-machines
 documentationcenter: ''
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: kmouss;aglick
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70aec41c885ab81371f5318f7557b0e628ac3308
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc71e8564b35f4fdd4153a04c66a3d8c5df88c30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478849"
 ---
-# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>O que fazer no caso de uma interrupção do serviço do Azure tem impacto sobre as VMs do Azure
-Na Microsoft, trabalhamos rígido para assegurar que os nossos serviços de sempre estão disponíveis para si quando precisá-los. Força se para além dos nosso controlo, por vezes, um impacto no-nos de formas que provocar interrupções de serviço não planeada.
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-vms"></a>O que fazer no caso de uma interrupção do serviço do Azure afeta as VMs do Azure
+Na Microsoft, trabalhamos arduamente para certificar-se de que os nossos serviços estão sempre disponíveis para si quando precisar delas. Forças além do nosso controle afetam-nos, às vezes, de forma a fazer com que as interrupções de serviço não planeada.
 
-A Microsoft fornece um contrato de nível de serviço (SLA) para os respetivos serviços, como um compromisso de tempo de atividade e conectividade. O SLA para serviços do Azure individuais pode ser encontrado em [contratos de nível de serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
+A Microsoft fornece um contrato de nível de serviço (SLA) para seus serviços, como um compromisso durante o tempo de atividade e a conectividade. O SLA para serviços do Azure individuais pode ser encontrado em [contratos de nível de serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
 
-O Azure já tem muitas funcionalidades de plataforma incorporado que suportam aplicações altamente disponíveis. Para mais informações sobre estes serviços, leia o artigo [recuperação após desastre e elevada disponibilidade para aplicações do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+O Azure já tem muitos recursos de plataforma interna que suportam aplicações de elevada disponibilidade. Para obter mais informações sobre estes serviços, leia [recuperação após desastre e elevada disponibilidade para aplicações do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Este artigo abrange um cenário de recuperação de desastre verdadeiro, quando uma região toda sofre uma falha devido a desastre natural principais ou interrupção do serviço ampla. Estes são ocorrências raras, mas tem de preparar para a possibilidade de se houver uma falha de uma região de toda. Se uma região toda sofre uma interrupção do serviço, as cópias dos seus dados localmente redundantes seria temporariamente indisponíveis. Se tiver ativado a georreplicação, três cópias adicionais dos blobs de armazenamento do Azure e tabelas são armazenadas numa região diferente. Em caso de uma falha regional concluída ou um desastre no qual a região primária não é recuperável, a Azure remaps todas as entradas DNS para a região de georreplicação.
+Este artigo aborda um cenário de recuperação após desastre verdadeiro, quando uma região inteira sofre uma falha devido a grandes proporções natural ou a interrupção do serviço de distribuição. Estes são ocorrências raras, mas tem de preparar para a possibilidade de que existe uma falha de uma região inteira. Se uma região inteira sofrer uma interrupção de serviço, as cópias localmente redundantes dos seus dados seria temporariamente indisponíveis. Se tiver ativado os replicação geográfica, três cópias adicionais dos blobs de armazenamento do Azure e tabelas são armazenadas numa região diferente. Em caso de uma falha regional completa ou um desastre no qual a região primária não é recuperável, o Azure remapeamentos dos todas as entradas de DNS para a região georreplicado.
 
-Para ajudar a lidar com estas ocorrências raras, podemos fornecer as seguintes orientações para máquinas virtuais do Azure no caso de uma interrupção do serviço da região de toda, onde a aplicação de máquina virtual do Azure está implementada.
+Para ajudar a lidar com essas ocorrências raras, fornecemos as seguintes orientações para máquinas virtuais do Azure, no caso de uma interrupção do serviço de toda a região onde a aplicação de máquina virtual do Azure é implementada.
 
-## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opção 1: Iniciar uma ativação pós-falha utilizando o Azure Site Recovery
-Pode configurar o Azure Site Recovery para as suas VMs, de modo a que pode recuperar a sua aplicação com um único clique no fim de minutos. Pode replicar a região do Azure à sua escolha e não restringida a regiões emparelhadas. Pode começar a utilizar pelo [replicar as máquinas virtuais](https://aka.ms/a2a-getting-started). Pode [criar um plano de recuperação](../site-recovery/site-recovery-create-recovery-plans.md) para que pode automatizar o processo de ativação pós-falha completa para a sua aplicação. Pode [as ativações pós-falha de teste](../site-recovery/site-recovery-test-failover-to-azure.md) porta antecipadamente sem afetar a aplicação de produção ou a replicação em curso. Em caso de uma interrupção de região primária, acabou [inicie uma ativação pós-falha](../site-recovery/site-recovery-failover.md) e colocar a sua aplicação na região de destino.
+## <a name="option-1-initiate-a-failover-by-using-azure-site-recovery"></a>Opção 1: Inicie uma ativação pós-falha com o Azure Site Recovery
+Pode configurar o Azure Site Recovery para as suas VMs, para que pode recuperar a sua aplicação com um único clique em questão de minutos. Pode replicar para uma região do Azure à sua escolha e não restrito em regiões emparelhadas. Pode começar a utilizar pelo [replicar as máquinas virtuais](https://aka.ms/a2a-getting-started). Pode [criar um plano de recuperação](../site-recovery/site-recovery-create-recovery-plans.md) para que pode automatizar o processo de ativação pós-falha todo para a sua aplicação. Pode [suas ativações pós-falha de teste](../site-recovery/site-recovery-test-failover-to-azure.md) antecipadamente sem afetar a replicação contínua ou o aplicativo de produção. Em caso de uma interrupção da região primária, que acabou [inicie uma ativação pós-falha](../site-recovery/site-recovery-failover.md) e traga a sua aplicação na região de destino.
 
 
-## <a name="option-2-wait-for-recovery"></a>Opção 2: Aguardar para recuperação
-Neste caso, não é necessária qualquer ação da sua parte. Sabe que estamos a trabalhar diligently para restaurar a disponibilidade do serviço. Pode ver o estado atual do serviço no nosso [Dashboard de estado de funcionamento do serviço de Azure](https://azure.microsoft.com/status/).
+## <a name="option-2-wait-for-recovery"></a>Opção 2: Aguarde pela recuperação
+Neste caso, nenhuma ação da sua parte é necessária. Sabe-se de que estamos a trabalhar diligentemente para restaurar a disponibilidade do serviço. Pode ver o estado atual do serviço no nosso [Dashboard de estado de funcionamento do serviço de Azure](https://azure.microsoft.com/status/).
 
-Esta é a melhor opção se não tiver definido cópias de segurança do Azure Site Recovery, o armazenamento georredundante com acesso de leitura ou o armazenamento georredundante antes da interrupção. Se configurou armazenamento georredundante ou armazenamento georredundante com acesso de leitura para a conta de armazenamento onde estão armazenados os seus discos rígidos virtuais (VHDs) do VM, pode parecer para recuperar a imagem de base de VHD e tente aprovisionar uma nova VM a partir do mesmo. Não é uma opção preferencial porque existem sem garantias de sincronização de dados. Por conseguinte, esta opção não é garantida funcione.
+Esta é a melhor opção se não tiver definido do Azure Site Recovery, armazenamento georredundante com acesso de leitura ou armazenamento georredundante antes da interrupção. Se tiver definido um armazenamento georredundante ou armazenamento georredundante de acesso de leitura para a conta de armazenamento onde estão armazenados os seus discos rígidos virtuais (VHDs) das VMS, pode ter um aspeto para recuperar o VHD da imagem base e tentar aprovisionar uma nova VM a partir do mesmo. Isso não é uma opção preferencial, porque não há garantias de sincronização de dados. Por conseguinte, esta opção não é garantida para trabalhar.
 
 
 > [!NOTE]
-> Lembre-se de que não têm qualquer controlo sobre este processo e ocorrerá apenas para interrupções ao serviço de toda a região. Por este motivo, deve também dependem outras estratégias de cópia de segurança específicos da aplicação para atingir o nível mais elevado de disponibilidade. Para obter mais informações, consulte a secção sobre [estratégias de dados para recuperação após desastre](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
+> Lembre-se de que não tem nenhum controle sobre este processo, e ocorrerá apenas para as interrupções do serviço de toda a região. Por este motivo, deve também contam com outras estratégias de cópia de segurança específicas da aplicação para alcançar o nível mais elevado de disponibilidade. Para obter mais informações, consulte a secção sobre [estratégias de dados para recuperação após desastre](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#data-strategies-for-disaster-recovery).
 >
 >
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Iniciar [proteger as suas aplicações em execução em máquinas virtuais do Azure](https://aka.ms/a2a-getting-started) utilizando o Azure Site Recovery
+- Inicie [proteger seus aplicativos em execução em máquinas virtuais do Azure](https://aka.ms/a2a-getting-started) com o Azure Site Recovery
 
-- Para obter mais informações sobre como implementar uma estratégia de elevada disponibilidade e recuperação após desastre, consulte o artigo [recuperação após desastre e elevada disponibilidade para aplicações do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+- Para saber mais sobre como implementar uma estratégia de elevada disponibilidade e recuperação após desastre, veja [recuperação após desastre e elevada disponibilidade para aplicações do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-- Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma em nuvem, consulte [orientações técnica do Azure resiliência](../resiliency/resiliency-technical-guidance.md).
+- Para desenvolver uma compreensão detalhada técnica sobre as capacidades de uma plataforma em nuvem, consulte [orientações técnicas sobre resiliência do Azure](../resiliency/resiliency-technical-guidance.md).
 
 
-- Se as instruções que se não desmarque ou, se pretende que a Microsoft execute as operações em seu nome, contacte [suporte ao cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Se as instruções são não limpar, ou se desejar Microsoft execute as operações em seu nome, contacte [suporte ao cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

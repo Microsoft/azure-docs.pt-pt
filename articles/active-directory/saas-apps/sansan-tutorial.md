@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 59cfdfaae597feb8f1cab212b407a8879d78f9f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Active Directory do Azure com Sansan
 

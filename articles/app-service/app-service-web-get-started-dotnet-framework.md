@@ -16,11 +16,11 @@ ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 8dc062a1c9490a03aa5369dc103db750d7531140
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117796"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
@@ -101,7 +101,7 @@ Na caixa de diálogo **Configurar Plano do Alojamento**, use as definições na 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Plano do Serviço de Aplicações| myAppServicePlan | Nome do plano de serviço de aplicações. |
-| Localização | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
+| Location | Europa Ocidental | O centro de dados onde o a aplicação Web está alojada. |
 | Tamanho | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina as funcionalidades do alojamento. |
 
 Selecione **OK**.

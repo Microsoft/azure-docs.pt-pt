@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
 ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127884"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Permitir sincronização offline para a sua aplicação móvel Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,8 +40,8 @@ O código de sincronização offline está incluído no projeto com o C# diretiv
         #define OFFLINE_SYNC_ENABLED
 3. (Opcional) Para suportar dispositivos Windows, instale um dos seguintes pacotes de tempo de execução do SQLite:
 
-   * **Tempo de execução do Windows 8.1:** instale [SQLite para o Windows 8.1][3].
-   * **Windows Phone 8.1:** instale [SQLite para o Windows Phone 8.1][4].
+   * **Tempo de execução do Windows 8.1:** Instale [SQLite para o Windows 8.1][3].
+   * **Windows Phone 8.1:** Instale [SQLite para o Windows Phone 8.1][4].
    * **Plataforma Windows universal** instale [SQLite para o Universal do Windows Universal][5].
 
      Embora o guia de introdução não contém um projeto do Windows Universal, a plataforma Windows Universal é suportada com o Xamarin Forms.

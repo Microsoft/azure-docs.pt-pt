@@ -1,7 +1,6 @@
 ---
 title: Utilizar vistas do Apache Ambari para trabalhar com o Hive no HDInsight (Apache Hadoop) - Azure
 description: Saiba como utilizar a vista de ramo de registo de mensagens em fila do seu navegador da web para submeter consultas do Hive. A vista do Hive é parte da IU da Web do Ambari fornecido com o seu cluster do HDInsight baseado em Linux.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 55f8f453faf35d52c5c292e6b309194443980466
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095324"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilize a vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 

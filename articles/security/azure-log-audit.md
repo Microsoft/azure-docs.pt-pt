@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121506"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -101,7 +101,7 @@ Registos de diagnóstico do Azure oferecem várias opções de configuração, c
 **Serviços suportados, o esquema para os registos de diagnóstico e categorias de registo suportadas por tipo de recurso**
 
 
-| Serviço | Esquema e documentação | Tipo de recurso | Categoria |
+| Serviço | Esquema e documentação | Tipo de recurso | Category |
 | ------- | ------------- | ------------- | -------- |
 |Azure Load Balancer| [Registos de Monitor do Azure para o Balanceador de carga (pré-visualização)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
 |Grupos de Segurança de Rede|[Registos de Monitor do Azure para grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
@@ -114,8 +114,8 @@ Registos de diagnóstico do Azure oferecem várias opções de configuração, c
 |Azure Batch|[Registos de diagnóstico do Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Automatização do Azure|[Registos de Monitor do Azure para a automatização do Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Registos de diagnóstico de Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
-|Azure Stream Analytics|[Registos de diagnóstico da tarefa](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Execução<br>Criação de conteúdos|
-|Service Bus do Azure|[Registos de diagnóstico do Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
+|Azure Stream Analytics|[Registos de diagnóstico da tarefa](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Execução<br>Criação|
+|Service Bus do Azure|[Registos de diagnósticos do Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
 
@@ -135,7 +135,7 @@ Os relatórios incluídos estão listados na tabela a seguir:
 |Inícios de sessão de dispositivos possivelmente infetados|   Atividade de utilizador individuais||
 |Utilizadores com atividade anómala de início de sessão| Relatório de atividade de grupos||
 ||Relatório de registo de atividade de reposição de palavra-passe||
-||Atividade de reposição de palavra-passe|||
+||Atividade de reposição de palavra-passe||
 
 Os dados nestes relatórios podem ser útil para seus aplicativos, como sistemas de informações de segurança e gestão de eventos (SIEM), auditoria e ferramentas de business intelligence. As APIs dos relatórios do Azure AD proporcionam acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas [APIs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started) de várias linguagens de programação e ferramentas.
 
@@ -230,15 +230,15 @@ Para além das capacidades de registo mencionado anteriormente, o observador de 
 
 - [Captura de pacote variável](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Captura de dados de pacote dentro e fora de uma máquina virtual. Opções de filtragem e controles de ajuste fino, tais como definições de limite de tempo e tamanho, avançadas fornecem a versatilidade. Os dados de pacotes podem ser armazenados num armazenamento de BLOBs ou no disco no local *. cap* formato de ficheiro.
 
-* [Verificação de fluxo IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Verifica se um pacote é permitido ou negado com base nos parâmetros de pacote de 5 cadeias de identificação do fluxo informações (ou seja, IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se o pacote for recusado por um grupo de segurança, a regra e o grupo que negou o pacote é devolvido.
+- [Verificação de fluxo IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Verifica se um pacote é permitido ou negado com base nos parâmetros de pacote de 5 cadeias de identificação do fluxo informações (ou seja, IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se o pacote for recusado por um grupo de segurança, a regra e o grupo que negou o pacote é devolvido.
 
-* [Do próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determina o próximo salto para pacotes que está a ser encaminhada para os recursos de infraestrutura de rede do Azure, para que pode diagnosticar quaisquer rotas definidas pelo utilizador configurado incorretamente.
+- [Do próximo salto](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determina o próximo salto para pacotes que está a ser encaminhada para os recursos de infraestrutura de rede do Azure, para que pode diagnosticar quaisquer rotas definidas pelo utilizador configurado incorretamente.
 
-* [Vista de grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Obtém as regras de segurança aplicada e eficiente que são aplicadas numa VM.
+- [Vista de grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Obtém as regras de segurança aplicada e eficiente que são aplicadas numa VM.
 
-* [Gateway de rede virtual e a resolução de problemas de ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ajuda-o a resolver problemas de ligações e gateways de rede virtual.
+- [Gateway de rede virtual e a resolução de problemas de ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ajuda-o a resolver problemas de ligações e gateways de rede virtual.
 
-* [Limites de subscrição de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Permite-lhe ver a utilização de recursos de rede contra limites.
+- [Limites de subscrição de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Permite-lhe ver a utilização de recursos de rede contra limites.
 
 ### <a name="application-insights"></a>Application Insights
 
@@ -276,17 +276,17 @@ A tabela seguinte apresenta uma lista e descreve os cenários de integração:
 
 | Cenário de integração | Descrição |
 | --------------------- | :---------- |
-|[Mapa da aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Os componentes da sua aplicação, com as principais métricas e alertas.||
-|[Por exemplo pesquisa nos diagnósticos dados](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.||
-|[Explorador de métricas para dados agregados](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas.||
-|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa.||
-|[Stream de métricas em direto](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado.||
-|[Análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas.||
-|[Alertas automáticas e manuais](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Alertas automáticos se adaptar a padrões normais da sua aplicação de telemetria e são acionadas se ocorrer algo fora do padrão habitual. Também pode definir alertas em níveis específicos de métricas personalizadas ou padrão.||
-|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Ver dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.||
-|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integre métricas de utilização com outras métricas de business intelligence.||
-|[API REST](https://dev.applicationinsights.io/)|Escreva código para executar consultas nas métricas e nos dados não processados.||
-|[Exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportação de dados não processados para o armazenamento em massa quando for lançado.||
+|[Mapa da aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Os componentes da sua aplicação, com as principais métricas e alertas.|
+|[Por exemplo pesquisa nos diagnósticos dados](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.|
+|[Explorador de métricas para dados agregados](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas.|
+|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa.|
+|[Stream de métricas em direto](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado.|
+|[Análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas.|
+|[Alertas automáticas e manuais](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Alertas automáticos se adaptar a padrões normais da sua aplicação de telemetria e são acionadas se ocorrer algo fora do padrão habitual. Também pode definir alertas em níveis específicos de métricas personalizadas ou padrão.|
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Ver dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integre métricas de utilização com outras métricas de business intelligence.|
+|[API REST](https://dev.applicationinsights.io/)|Escreva código para executar consultas nas métricas e nos dados não processados.|
+|[Exportação contínua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportação de dados não processados para o armazenamento em massa quando for lançado.|
 
 ### <a name="azure-security-center-alerts"></a>Alertas do Centro de segurança do Azure
 
@@ -304,7 +304,7 @@ O Centro de Segurança emprega análises de segurança avançadas, que ultrapass
 
 Muitas operações de segurança e as equipes de resposta a incidentes contam com uma solução SIEM como ponto de partida para separação e investigar alertas de segurança. Com integração de registos do Azure, pode sincronizar alertas do Centro de segurança e os eventos de segurança de máquina virtual, recolhidos por registos de diagnóstico e auditoria do Azure, com a solução de SIEM em tempo real ou registos do Azure Monitor.
 
-## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+## <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 Registos de Monitor do Azure é um serviço no Azure que ajuda a recolher e analisar os dados que são gerados por recursos na sua cloud e ambientes no local. Ele fornece informações em tempo real ao utilizar pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores, independentemente da respetiva localização física.
 
@@ -358,7 +358,7 @@ Existem quatro formas de [recolher registos e métricas para serviços do Azure]
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Farms de servidores Web|Microsoft.Web/<br>serverfarms||   Diagnóstico
 |Sites|  Microsoft.Web/<br>sites ||      Diagnóstico|    [Mais informações](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
-||Microsoft.Web/<br>sites/<br>ranhuras|||||
+||Microsoft.Web/<br>sites/<br>ranhuras||||
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integração de registos com sistemas SIEM no local

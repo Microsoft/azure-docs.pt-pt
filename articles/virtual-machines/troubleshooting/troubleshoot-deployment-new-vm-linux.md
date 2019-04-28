@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
 ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125621"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Resolver problemas de implementação do Resource Manager com a criação de uma nova máquina virtual do Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "57450308"
 ## <a name="top-issues"></a>Principais problemas
 [!INCLUDE [support-disclaimer](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
-Para outros problemas de implantação de VM e perguntas, consulte [resolver problemas de implantação problemas de máquina virtual do Linux no Azure](troubleshoot-deploy-vm-linux.md).
+Para outras questões e problemas de implementação de VM, veja [Resolver problemas de implementação de máquina virtual do Linux no Azure](troubleshoot-deploy-vm-linux.md).
 
 ## <a name="collect-activity-logs"></a>Registos de atividades de recolha
 Para iniciar a resolução de problemas, recolha os registos de atividade para identificar o erro associado com o problema. As ligações seguintes contêm informações detalhadas sobre o processo a seguir.

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248169"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Aprovisionar dispositivos em vários hubs IoT com balanceamento de carga
 
@@ -46,11 +46,11 @@ A lista de inscrição informa o Serviço Aprovisionamento de Dispositivos sobre
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
-A política de alocação é uma definição do Serviço Aprovisionamento de Dispositivos que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
+A política de alocação é uma definição do Serviço Aprovisionamento de Dispositivos que determina a forma como os dispositivos são atribuídos a um hub IoT. Existem três políticas de alocação suportadas: 
 
-1. **Latência mais baixa**: os dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa para o dispositivo.
-2. **Distribuição ponderada uniformemente** (predefinição): os hubs IoT associados são igualmente suscetíveis de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
-3. **Configuração estática através da lista de inscrição**: a especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação ao nível do Serviço Aprovisionamento de Dispositivos.
+1. **Latência mais baixa**: Dispositivos são aprovisionados para um hub IoT com base no hub com a latência mais baixa no dispositivo.
+2. **Distribuição ponderada uniformemente** (predefinição): Ligado a hubs IoT são igualmente suscetível de ter dispositivos aprovisionados para eles. Esta é a predefinição. Se estiver a aprovisionar dispositivos apenas para um hub IoT, pode manter esta definição. 
+3. **Configuração estática através da lista de inscrição**: Especificação do hub IoT pretendido na lista de inscrição tem prioridade sobre a política de alocação de nível de serviço aprovisionamento de dispositivos.
 
 Siga estes passos para definir a política de alocação:
 
@@ -68,7 +68,7 @@ Ligar o Serviço Aprovisionamento de Dispositivos e o Hub IoT para que o Serviç
 4. Na página **Adicionar ligação ao hub IoT**, utilize os botões de opção para especificar se o hub IoT associado se encontra na subscrição atual ou numa subscrição diferente. Em seguida, escolha o nome do hub IoT na caixa **hub IoT**.
 5. Clique em **Guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

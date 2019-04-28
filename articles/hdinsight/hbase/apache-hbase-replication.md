@@ -1,7 +1,6 @@
 ---
 title: Configurar a replicação de cluster HBase em redes virtuais do Azure - Azure HDInsight
 description: Saiba como configurar a replicação do HBase de uma versão do HDInsight para outro para balanceamento de carga, elevada disponibilidade, sem período de indisponibilidade migração e as atualizações e recuperação após desastre.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123087"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -69,7 +68,7 @@ Alguns dos valores codificados no modelo:
 
 | Propriedade | Value |
 |----------|-------|
-| Localização | EUA Oeste |
+| Location | EUA Oeste |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |
@@ -86,7 +85,7 @@ Alguns dos valores codificados no modelo:
 
 | Propriedade | Value |
 |----------|-------|
-| Localização | EUA Leste |
+| Location | EUA Leste |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | sub-rede 1 |

@@ -2,18 +2,18 @@
 title: Utilizar uma partilha de ficheiros do Azure com o Windows | Microsoft Docs
 description: Saiba como utilizar uma partilha de ficheiros do Azure com o Windows e o Windows Server.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048848"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764371"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -237,13 +237,13 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 | Windows Server 2019 (pré-visualização)             | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server, versões 1709+            | Desativado             | Funcionalidade Remover com o Windows |
 | Windows 10, versões 1709+                | Desativado             | Funcionalidade Remover com o Windows |
-| Windows Server 2016                       | Ativado              | Funcionalidade Remover com o Windows |
-| Windows 10, versões 1507, 1607 e 1703 | Ativado              | Funcionalidade Remover com o Windows |
-| Windows Server 2012 R2                    | Ativado              | Funcionalidade Remover com o Windows | 
-| Windows 8.1                               | Ativado              | Funcionalidade Remover com o Windows | 
-| Windows Server 2012                       | Ativado              | Desativar com o Registo       | 
-| Windows Server 2008 R2                    | Ativado              | Desativar com o Registo       |
-| Windows 7                                 | Ativado              | Desativar com o Registo       | 
+| Windows Server 2016                       | Enabled              | Funcionalidade Remover com o Windows |
+| Windows 10, versões 1507, 1607 e 1703 | Enabled              | Funcionalidade Remover com o Windows |
+| Windows Server 2012 R2                    | Enabled              | Funcionalidade Remover com o Windows | 
+| Windows 8.1                               | Enabled              | Funcionalidade Remover com o Windows | 
+| Windows Server 2012                       | Enabled              | Desativar com o Registo       | 
+| Windows Server 2008 R2                    | Enabled              | Desativar com o Registo       |
+| Windows 7                                 | Enabled              | Desativar com o Registo       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditorias à utilização de SMB 1
 > Aplica-se a Windows Server 2019 (pré-visualização), canal semianual do Windows Server (versões 1709 e 1803), Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1

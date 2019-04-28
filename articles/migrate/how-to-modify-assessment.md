@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129828"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -45,19 +45,19 @@ ms.locfileid: "54200314"
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>O que é a diferença entre o dimensionamento como no local e o dimensionamento com base no desempenho?
 
-Quando especificar o critério de tamanho para ser como no local de dimensionamento, do Azure Migrate não considera os dados de desempenho das VMs e os tamanhos de VMs com base na configuração no local. Se o critério de dimensionamento for baseado no desempenho, o dimensionamento é feito com base nos dados de utilização. Por exemplo, se houver uma VM no local com 4 núcleos e 8 GB de memória com 50% da CPU de utilização e a utilização da memória de 50%. Se o critério de dimensionamento é que um SKU de VM do Azure com 4 núcleos de dimensionamento no local e 8 GB de memória é recomendado, no entanto, se o critério de dimensionamento for baseado no desempenho como SKU de VM de 2 núcleos e 4 GB teria de ser recomendada como a percentagem de utilização é considerada enquanto Recomendamos o tamanho.
+Quando especificar o critério de tamanho para ser como no local de dimensionamento, do Azure Migrate não considera os dados de desempenho das VMs e os tamanhos de VMs com base na configuração no local. Se o critério de dimensionamento for baseado no desempenho, o dimensionamento é feito com base nos dados de utilização. Por exemplo, se existir uma VM no local com 4 núcleos e 8 GB de memória com 50% de utilização da CPU e 50% de utilização da memória. Se o critério de dimensionamento for como o dimensionamento no local, é recomendado um SKU de VM do Azure com 4 núcleos e 8 GB de memória. No entanto, se o critério de dimensionamento for baseado no desempenho, seria recomendado um SKU de VM de 2 núcleos e 4 GB, uma vez que é considerada a percentagem de utilização ao recomendar o tamanho.
 
-Da mesma forma, para discos, o dimensionamento do disco depende de duas propriedades de avaliação - tipo de armazenamento e de critério de dimensionamento. Se o critério de dimensionamento for baseado no desempenho e o tipo de armazenamento é automático, são considerados os valores IOPS e débito do disco para identificar o tipo de disco de destino (Standard ou Premium). Se o critério de dimensionamento for baseado no desempenho e é o tipo de armazenamento premium, recomenda-se um disco premium, o disco premium que SKU no Azure está selecionada com base no tamanho do disco no local. A mesma lógica é utilizada para o disco de dimensionamento quando o critério de dimensionamento é como o dimensionamento no local e o tipo de armazenamento é standard ou premium.
+Da mesma forma, para discos, o dimensionamento do disco depende de duas propriedades de avaliação - tipo de armazenamento e de critério de dimensionamento. Se o critério de dimensionamento for baseado no desempenho e o tipo de armazenamento for automático, os valores de IOPS e de débito do disco são considerados para identificar o tipo de disco de destino (Standard ou Premium). Se o critério de dimensionamento for baseado no desempenho e o tipo de armazenamento for premium, é recomendado um disco premium e o SKU de disco premium no Azure é selecionado com base no tamanho do disco no local. É utilizada a mesma lógica para o dimensionamento do disco quando o critério de dimensionamento for como o dimensionamento no local e o tipo de armazenamento for standard ou premium.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>O impacto que o utilização de percentil e de histórico de desempenho tem as recomendações de tamanho?
 
-Estas propriedades só são aplicáveis para o dimensionamento baseado no desempenho. O Azure Migrate recolhe histórico de desempenho das máquinas no local e utiliza-o para recomendar o tipo de disco e de tamanho VM no Azure.
+Estas propriedades só são aplicáveis ao dimensionamento baseado no desempenho. O Azure Migrate recolhe o histórico de desempenho das máquinas no local e utiliza-o para recomendar o tipo de disco e o tamanho da VM no Azure.
 
-- A aplicação recoletora perfis continuamente o ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos.
-- A aplicação agrega os exemplos de 20 segundos e cria um ponto de dados individual para cada 15 minutos. Para criar o ponto de dados individual, a aplicação seleciona o valor de pico de todos os exemplos de 20 segundos e envia-os para o Azure.
-- Quando cria uma avaliação no Azure, com base na duração do desempenho e valor de percentil de histórico de desempenho, o Azure Migrate calcula o valor de utilização eficiente e utiliza-o para o dimensionamento.
+- A aplicação de recoletor cria continuamente perfis do ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos.
+- A aplicação acumula os exemplos de 20 segundos e cria um ponto de dados individual para cada 15 minutos. Para criar o ponto de dados individual, a aplicação seleciona o valor de pico de todos os exemplos de 20 segundos e envia-o para o Azure.
+- Quando cria uma avaliação no Azure, com base na duração do desempenho e no valor de percentil do histórico de desempenho, o Azure Migrate calcula o valor de utilização eficiente e utiliza-o no dimensionamento.
 
-Por exemplo, se tiver definido a duração do desempenho ser 1 dia e o valor de percentil para o percentil 95, do Azure Migrate utiliza pontos de exemplo de 15 minutos enviados pelo recoletor para o último dia, classifica-os por ordem ascendente e escolhe o valor de percentil 95 como em vigor a partir do utilização. O valor de percentil 95 garante que está a ignorar quaisquer valores atípicos, que podem ser se escolher percentil de 99. Se quer recolher a utilização de pico para o período e não pretende perder quaisquer exceções, deve selecionar o percentil de 99.
+Por exemplo, se tiver definido a duração do desempenho para ser de 1 dia e o valor de percentil para 95, o Azure Migrate utiliza os pontos de exemplo de 15 minutos enviados pelo recoletor para o último dia, classifica-os por ordem ascendente e escolhe o valor de percentil 95 como utilização eficiente. O valor de percentil 95 garante que está a ignorar todos os valores atípicos, que podem surgir se escolher o percentil 99. Se quiser escolher a utilização de pico para o período e não quiser perder quaisquer valores atípicos, deve selecionar o percentil 99.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

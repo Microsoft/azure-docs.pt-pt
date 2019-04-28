@@ -1,6 +1,6 @@
 ---
-title: Ligar ao Microsoft tradutor - as do Azure Logic Apps | Microsoft Docs
-description: Traduzir texto e efetuar outras tarefas de idioma com as APIs REST do Microsoft tradutor e Azure Logic Apps
+title: Ligar ao Microsoft Translator - Azure Logic Apps | Documentos da Microsoft
+description: Traduzir texto e executar outras tarefas de idioma com APIs de REST do Microsoft Translator e Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,29 +11,29 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: f6b8d96b7be3c87692b9a3db47e7e8e7d8e2649c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 29212cf1c1f06ecae9892e0fc8aaaa4a01b2612b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105790"
 ---
-# <a name="get-started-with-the-microsoft-translator-connector"></a>Começar a utilizar o conector do Microsoft Translator
+# <a name="get-started-with-the-microsoft-translator-connector"></a>Começar com o conector do Microsoft Translator
 Ligar ao Microsoft Translator para traduzir texto, detetar uma linguagem e muito mais. Com o Microsoft Translator, pode: 
 
-* Crie o fluxo de negócio com base nos dados que aproveitar Translator Microsoft. 
-* Utilize ações para traduzir texto, detetar uma linguagem e muito mais. Estas ações obter uma resposta e, em seguida, torne a saída disponível para outras ações. Por exemplo, quando é criado um novo ficheiro no Dropbox, pode converter o texto no ficheiro para outro idioma Translator Microsoft a utilizar.
+* Crie o seu fluxo de negócios com base nos dados que obtém do Microsoft Translator. 
+* Utilize ações para traduzir texto, detetar uma linguagem e muito mais. Estas ações obtém uma resposta e, em seguida, disponibilizá-a saída para outras ações. Por exemplo, quando é criado um novo ficheiro no Dropbox, é possível converter o texto no ficheiro para outro idioma, com o Microsoft Translator.
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pode começar a utilizar ao criar uma aplicação lógica agora, veja [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="create-a-connection-to-microsoft-translator"></a>Criar uma ligação à Microsoft Translator
+## <a name="create-a-connection-to-microsoft-translator"></a>Criar uma ligação ao Microsoft Translator
 > [!INCLUDE [Steps to create a connection to Microsoft Translator](../../includes/connectors-create-api-microsofttranslator.md)]
 > 
 > 
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/microsofttranslator/).
+Ver os acionadores e as ações definidas no swagger e também ver quaisquer limites na [detalhes do conector](/connectors/microsofttranslator/).
 
 ## <a name="more-connectors"></a>Mais conectores
-Volte à [lista APIs](apis-list.md).
+Volte para o [lista APIs](apis-list.md).

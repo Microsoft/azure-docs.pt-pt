@@ -16,11 +16,11 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130794"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral
@@ -45,7 +45,7 @@ Segue-se uma lista das portas utilizadas pelo ambiente de serviço de aplicaçõ
 * 443: Porta predefinida para tráfego de entrada de SSL para aplicações em execução em planos de serviço de aplicações num ambiente de serviço de aplicações.  Num ASE com ILB ativado, esta porta está vinculada ao endereço do ILB de ASE.
 * 21:  Canal de controlo de FTP.  Esta porta pode ser bloqueada com segurança se não está a ser utilizado o FTP.  Num ASE com ILB ativado, esta porta pode ser vinculada para o endereço do ILB para um ASE.
 * 990:  Canal de controlo de FTPS.  Esta porta pode ser bloqueada com segurança se não está a ser utilizado o FTPS.  Num ASE com ILB ativado, esta porta pode ser vinculada para o endereço do ILB para um ASE.
-* 10001 10020: Canais de dados para FTP.  Tal como acontece com o canal de controlo, estas portas podem com segurança bloqueadas se não está a ser utilizado o FTP.  Num ASE com ILB ativado, esta porta pode ser vinculada ao endereço ILB de ASE.
+* 10001-10020: Canais de dados para FTP.  Tal como acontece com o canal de controlo, estas portas podem com segurança bloqueadas se não está a ser utilizado o FTP.  Num ASE com ILB ativado, esta porta pode ser vinculada ao endereço ILB de ASE.
 * 4016: Utilizado para depuração remota com o Visual Studio 2012.  Esta porta pode ser bloqueada com segurança se o recurso não está a ser utilizado.  Num ASE com ILB ativado, esta porta está vinculada ao endereço do ILB de ASE.
 * 4018: Utilizado para depuração remota com o Visual Studio 2013.  Esta porta pode ser bloqueada com segurança se o recurso não está a ser utilizado.  Num ASE com ILB ativado, esta porta está vinculada ao endereço do ILB de ASE.
 * 4020: Utilizado para depuração remota com o Visual Studio 2015.  Esta porta pode ser bloqueada com segurança se o recurso não está a ser utilizado.  Num ASE com ILB ativado, esta porta está vinculada ao endereço do ILB de ASE.

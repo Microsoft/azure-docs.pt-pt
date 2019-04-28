@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126482"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com um modelo do Azure Resource Manager
 
@@ -342,7 +342,7 @@ az group delete --name {your resource group name}
 
 Também pode eliminar grupos de recursos e recursos individuais através do portal do Azure, do PowerShell, das APIs REST ou dos SDKs de plataforma suportados e publicados para o Azure Resource Manager ou o Serviço de Aprovisionamento de Dispositivos no Hub IoT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste Início Rápido, implementou um hub do IoT e uma instância do Serviço Aprovisionamento de Dispositivos e ligou ambos os recursos. Para saber como utilizar esta configuração para aprovisionar um dispositivo simulado, avance para o Início Rápido para a criação de dispositivos simulados.
 

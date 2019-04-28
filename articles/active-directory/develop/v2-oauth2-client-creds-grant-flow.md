@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112203"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0
 
@@ -272,7 +272,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 Leitura a [documentação de visão geral de credenciais de cliente](https://aka.ms/msal-net-client-credentials) partir da biblioteca de autenticação da Microsoft
 
-| Sample | Plataforma |Descrição |
+| Exemplo | Plataforma |Descrição |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Consola do .NET core 2.1 | Uma aplicação .NET Core simple que apresenta os utilizadores de um inquilino do Microsoft Graph com a identidade da aplicação, em vez de nome de um utilizador a consultar. O exemplo também ilustra a variação utilizar certificados para autenticação. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Um aplicativo web que sincroniza os dados do Microsoft Graph com a identidade da aplicação, em vez de nome de um utilizador. |

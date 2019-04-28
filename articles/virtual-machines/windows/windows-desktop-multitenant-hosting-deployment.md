@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485491"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de alojamento multi-inquilino 
 Para os clientes com Windows 10 Enterprise E3/E5 por usuário ou o Windows Virtual Desktop Access por utilizador (licenças de subscrição de utilizador ou licenças de subscrição de utilizador do suplemento), o multi-inquilino de alojamento direitos para Windows 10 permite-lhe reunir as suas licenças do Windows 10 para a cloud e executar máquinas virtuais do Windows 10 no Azure sem ter de adquirir outra licença. Para obter mais informações, consulte [alojamento do multi-inquilino para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -56,7 +56,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-Para mais informações: 
+Para obter mais informações: 
 * [Como carregar o VHD para o Azure](upload-generalized-managed.md)
 * [Como preparar um VHD do Windows para carregar para o Azure](prepare-for-upload-vhd-image.md)
 

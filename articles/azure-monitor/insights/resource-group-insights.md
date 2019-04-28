@@ -12,11 +12,11 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119426"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorizar grupos de recursos com o Azure Monitor (pré-visualização)
 
@@ -122,5 +122,5 @@ O Azure Monitor para grupos de recursos se baseia no sistema de gestão de alert
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
-- [Estado de funcionamento de recursos do Azure](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Alertas de Monitor do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

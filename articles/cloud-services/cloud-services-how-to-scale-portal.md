@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435321"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço em nuvem no portal
 
@@ -41,14 +41,14 @@ Deve considerar as seguintes informações antes de configurar o dimensionamento
 
 * Para ativar a elevada disponibilidade do seu aplicativo, deve garantir que é implementado com duas ou mais instâncias de função. Para obter mais informações, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
 
-* Dimensionamento automático só acontece quando todas as funções na **pronto** estado.  
+* Dimensionamento automático só acontece quando todas as funções na **pronto** estado.  
 
 
 ## <a name="where-scale-is-located"></a>Onde está localizado o dimensionamento
 Depois de selecionar o seu serviço cloud, deve ter o painel do serviço cloud visível.
 
 1. No painel do serviço cloud, sobre o **funções e instâncias** mosaico, selecione o nome do serviço cloud.   
-   **IMPORTANTE**: certificar-se de que clique na função de serviço cloud, não a instância de função que é inferior a função.
+   **IMPORTANTE**: Lembre-se de que clique na função de serviço cloud, não a instância de função que é inferior a função.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Selecione o **dimensionamento** mosaico.

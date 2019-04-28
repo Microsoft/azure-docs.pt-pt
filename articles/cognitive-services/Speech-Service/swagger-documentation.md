@@ -11,13 +11,13 @@ ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
 ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461668"
 ---
-# <a name="swagger-documentation"></a>Documentação do swagger
+# <a name="swagger-documentation"></a>Documentação do Swagger
 
 Os serviços de voz oferecem uma especificação do Swagger para interagir com um punhado de APIs REST, utilizado para importar dados, criar modelos, testar a precisão do modelo, criar pontos finais personalizados, enfileirar transcrições de batch e gerir as subscrições. A maioria das operações disponíveis através do portal de voz personalizada pode ser concluída por meio de programação com essas APIs. 
 

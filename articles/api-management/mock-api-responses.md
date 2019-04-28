@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412751"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128088"
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 
@@ -42,7 +42,7 @@ Neste tutorial, ficará a saber como:
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Compreender o [conceito das políticas da Gestão de API do Azure](api-management-howto-policies.md).
-+ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Criar uma API de teste 
 
@@ -120,7 +120,7 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61364082"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -50,7 +50,7 @@ Quando utilizar Event Hubs SDKs ou integrações de produtos que não estão cie
 
 No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia de ligação dos Hubs de eventos completa semelhante a: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se estiver a utilizar o SDK requer outros valores, em seguida, eles seria:
 
-| Name | Valor |
+| Name | Value |
 | ---- | ----- |
 | Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome de anfitrião | abcd1234namespace.servicebus.windows.net |

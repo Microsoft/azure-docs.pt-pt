@@ -9,11 +9,11 @@ ms.date: 04/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61333428"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Enviar uma imagem de contentor atualizada para um registo de contentor georreplicado para implementações de aplicações web regionais
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130216"
 ---
 # <a name="geofencing-geojson-data"></a>Dados de barreira geográfica GeoJSON
 
-O Azure Maps [obter perímetro geográfico](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) e [perímetro geográfico de POSTAGEM](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) APIs permitem-lhe obter proximidade de uma coordenada em relação a um perímetro geográfico fornecido ou conjunto de limites. Este artigo fornece detalhes sobre como preparar os dados do perímetro geográfico que podem ser utilizados na introdução do Azure Maps e API de publicação.
+O Azure Maps [obter perímetro geográfico](/rest/api/maps/spatial/getgeofence) e [perímetro geográfico de POSTAGEM](/rest/api/maps/spatial/postgeofence) APIs permitem-lhe obter proximidade de uma coordenada em relação a um perímetro geográfico fornecido ou conjunto de limites. Este artigo fornece detalhes sobre como preparar os dados do perímetro geográfico que podem ser utilizados na introdução do Azure Maps e API de publicação.
 
 Os dados para o perímetro geográfico ou conjunto de perímetros geográficos são representados por `Feature` objeto e `FeatureCollection` objeto `GeoJSON` formato, o que é definido no [rfc7946](https://tools.ietf.org/html/rfc7946). Além de que:
 

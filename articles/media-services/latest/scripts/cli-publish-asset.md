@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
 ms.openlocfilehash: d841c0b62092cb58142a52eed52dc0c32d04c500
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61224331"
 ---
 # <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: Publicar um elemento
 

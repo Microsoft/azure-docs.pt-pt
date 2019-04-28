@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 743246881463d9cb5156677a0c3ec719d80a079c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 18ee967d421eb2a170955a4b75939e5f084a65fb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Active Directory do Azure com Promapp
 
@@ -121,7 +121,7 @@ Para configurar o Azure AD início de sessão único com Promapp, execute os seg
     > [!NOTE] 
     > Atualmente integração do Azure AD com Promapp apenas foi configurada para autenticação do serviço iniciado por exemplo, vai para um URL de Promapp inicia o processo de autenticação. No entanto, o URL de resposta é um campo obrigatório.
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 

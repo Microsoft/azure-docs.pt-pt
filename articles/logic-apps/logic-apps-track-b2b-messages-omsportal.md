@@ -10,13 +10,13 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120131"
 ---
-# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Monitorizar mensagens B2B com os registos do Azure Monitor
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Controlar mensagens B2B com os registos do Azure Monitor
 
 Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta de integração, os parceiros podem trocar mensagens com protocolos, como o AS2, X12 e EDIFACT. Para verificar que estas mensagens são processadas corretamente, pode controlar estas mensagens com [registos do Azure Monitor](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controle baseado na web para mensagens de controlo:
 
@@ -153,7 +153,7 @@ Aqui estão as descrições de propriedade para cada mensagem AS2.
 | Aplicação Lógica | A aplicação lógica em que são configuradas as ações de AS2 |
 | Estado | O estado de mensagem AS2 <br>Êxito = recebida ou enviada uma mensagem AS2 válida. Não existem MDN está definida. <br>Êxito = recebida ou enviada uma mensagem AS2 válida. MDN foi definida e recebido ou MDN é enviada. <br>Falha ao = recebida uma mensagem AS2 inválida. Não existem MDN está definida. <br>Pendente = recebida ou enviada uma mensagem AS2 válida. MDN está configurado e é esperado o MDN. |
 | ACK | O estado da mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = esperando para receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessário = MDN não está definido no contrato. |
-| Direção | A direção de mensagem AS2 |
+| Direction | A direção de mensagem AS2 |
 | ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
 | ID da Mensagem | O ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
 | Carimbo de data/hora | A hora quando a ação de AS2 processado a mensagem |
@@ -184,7 +184,7 @@ Aqui estão as descrições de propriedade para cada X12 mensagem.
 | Aplicação Lógica | A aplicação lógica em que as ações são configuradas de X12 |
 | Estado | O estado da mensagem X12 <br>Êxito = recebidos ou enviados um X12 válido mensagem. Não existem ack funcional é configurado. <br>Êxito = recebidos ou enviados um X12 válido mensagem. Ack funcional foi definida e recebido, ou um ack funcional é enviado. <br>Falha ao = recebidos ou enviados um X12 inválido mensagem. <br>Pendente = recebidos ou enviados um X12 válido mensagem. Ack funcional é configurado e prevê-se uma ack funcional. |
 | ACK | Estado funcional do Ack (997) <br>Aceite = recebidos ou enviados uma ACK positivo. funcionais <br>Rejeitado = recebidos ou enviados uma ACK negativo. funcionais <br>Pendente = esperando um ack funcional, mas não foi recebido. <br>Pendente = gerado um ack funcional, mas não é possível enviar para o parceiro. <br>Não é necessário = funcional ack não está configurado. |
-| Direção | A direção da mensagem X12 |
+| Direction | A direção da mensagem X12 |
 | ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
 | Tipo de mensagem | O tipo de mensagem 12 X de EDI |
 | ICN | O número de controlo de intercâmbio de X12 mensagem |
@@ -217,7 +217,7 @@ Aqui estão as descrições de propriedade para cada mensagem EDIFACT.
 | Aplicação Lógica | A aplicação lógica em que são configuradas as ações de EDIFACT |
 | Estado | O estado de mensagem EDIFACT <br>Êxito = recebida ou enviada uma mensagem EDIFACT válida. Não existem ack funcional é configurado. <br>Êxito = recebida ou enviada uma mensagem EDIFACT válida. Ack funcional foi definida e recebido, ou um ack funcional é enviado. <br>Falha ao = recebida ou enviada uma mensagem EDIFACT inválida <br>Pendente = recebida ou enviada uma mensagem EDIFACT válida. Ack funcional é configurado e prevê-se uma ack funcional. |
 | ACK | Estado funcional do Ack (997) <br>Aceite = recebidos ou enviados uma ACK positivo. funcionais <br>Rejeitado = recebidos ou enviados uma ACK negativo. funcionais <br>Pendente = esperando um ack funcional, mas não foi recebido. <br>Pendente = gerado um ack funcional, mas não é possível enviar para o parceiro. <br>Não é necessário = Ack funcional não está configurado. |
-| Direção | A direção de mensagem de EDIFACT |
+| Direction | A direção de mensagem de EDIFACT |
 | ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
 | Tipo de mensagem | O tipo de mensagem EDIFACT |
 | ICN | O número de controlo de intercâmbio para a mensagem EDIFACT |

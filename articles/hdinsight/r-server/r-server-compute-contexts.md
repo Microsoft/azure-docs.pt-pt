@@ -1,7 +1,6 @@
 ---
 title: Opções de contexto para os serviços de ML no HDInsight - Azure de computação
 description: Saiba mais sobre as opções de contexto diferente de computação disponíveis para os utilizadores com os serviços de ML a no HDInsight
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: MT
+ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124645"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto para os serviços de ML no HDInsight de computação
 
@@ -29,7 +28,7 @@ Nó de extremidade de um cluster fornece um local conveniente para ligar ao clus
 Em geral, um script R que é executado no cluster de serviços de ML no nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são os passos que chamam uma função de RevoScaleR. As chamadas de RevoScaleR executam num ambiente de computação que é determinado pelo como definir o contexto de cálculo de RevoScaleR.  Quando executar o script R a partir de um nó de extremidade, os valores possíveis do contexto de computação são:
 
 - local seqüencial (*local*)
-- paralelo local (*localpar*)
+- local parallel (*localpar*)
 - Reduzir o mapa
 - Spark
 

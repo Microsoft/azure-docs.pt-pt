@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
 ms.openlocfilehash: a72ff65c7b9434ca2f43e4e4f06fc4e95dfbb4e7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115879"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais otimizadas para armazenamento
 

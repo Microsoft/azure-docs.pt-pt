@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 971af370425f733649f0b8d0079baaf93cc72129
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 90723afd8864bd7ec64f7b2e81e11644561cb52d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681544"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763445"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Exemplos do Java
 

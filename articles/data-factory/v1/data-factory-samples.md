@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61260478"
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de dados do Azure - exemplos
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "54020817"
 ## <a name="samples-on-github"></a>Exemplos no GitHub
 O [repositório do GitHub do Azure-DataFactory](https://github.com/azure/azure-datafactory) contém vários exemplos que ajudam a rapidamente aprimore-se com o serviço Azure Data Factory (ou) modificar os scripts e utilizá-lo no próprio aplicativo. A pasta de Samples\JSON contém trechos de código JSON para cenários comuns.
 
-| Sample | Descrição |
+| Exemplo | Descrição |
 |:--- |:--- |
 | [Instruções ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Este exemplo fornece uma passo a passo-a-ponto para o processamento de ficheiros de registo com o Azure Data Factory para transformar os dados de ficheiros de registo às informações. <br/><br/>Nestas instruções, o pipeline da fábrica de dados recolhe registos de exemplo, processos e otimiza os dados de registos com dados de referência e transforma os dados para avaliar a eficácia de uma campanha de marketing que foi lançada recentemente. |
 | [Exemplos de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Este exemplo fornece exemplos JSON para cenários comuns. |

@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108067"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de dimensionamento de Máquina Virtual com o Visual Studio
 Este artigo mostra-lhe como implementar uma Azure Virtual Machine conjunto de dimensionamento com uma implementação de grupo de recursos do Studio Visual.
 
 [Conjuntos de dimensionamento de máquinas virtuais do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) é um recurso de computação do Azure para implementar e gerir uma coleção de máquinas virtuais semelhantes com dimensionamento automático e balanceamento de carga. Pode aprovisionar e implementar conjuntos de dimensionamento de Máquina Virtual usando [modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Modelos Azure Resource Manager podem ser implementados com a CLI do Azure, PowerShell, REST e também diretamente a partir do Visual Studio. O Visual Studio fornece um conjunto de modelos de exemplo, o que pode ser implementado como parte de um projeto de implementação de grupo de recursos do Azure.
 
-As implementações de grupo de recursos do Azure são uma forma de agrupar e publicar um conjunto de recursos relacionados do Azure numa operação de implementação única. Pode saber mais sobre as mesmas aqui: [criar e implementar grupos de recursos do Azure através do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+As implementações de grupo de recursos do Azure são uma forma de agrupar e publicar um conjunto de recursos relacionados do Azure numa operação de implementação única. Pode saber mais sobre as mesmas aqui: [Criar e implementar grupos de recursos do Azure através do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 Para começar a implementar conjuntos de dimensionamento de Máquina Virtual no Visual Studio, precisa do seguinte:
@@ -63,7 +63,7 @@ O Balanceador de carga permite-lhe ligar às instâncias de VM com SSH (Linux) o
 
  Uma boa forma de editar os seus modelos com o Visual Studio é usar o contorno de JSON para organizar os parâmetros, variáveis e recursos. Com uma compreensão do esquema Visual Studio pode apontar erros no seu modelo antes de o implementar.
 
-![Explorador JSON][json_explorer]
+![JSON Explorer][json_explorer]
 
 ## <a name="deploy-the-project"></a>Implementar o projeto
 1. Implemente o modelo de Gestor de recursos do Azure para criar o recurso de conjunto de dimensionamento de Máquina Virtual. Com o botão direito no nó do projeto e escolha **implementar | Nova implementação**.

@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8c7c17811a64e05fc0d3246385eb3c64f848ea1b
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: e8e5afa0a29136dd4f266f4356f082365c3f6c22
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580315"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763436"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Amostras de Python
 

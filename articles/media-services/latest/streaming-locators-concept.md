@@ -12,15 +12,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466736"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
-Para fazer vídeos na saída Asset disponível para os clientes para a reprodução, tem de criar uma [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, crie URLs de transmissão em fluxo. Para obter exemplo de .NET, veja [obter um localizador de transmissão em fluxo](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+Para fazer vídeos no Recurso de saída disponível para a reprodução em clientes, tem de criar um [Localizador de Transmissões em Fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) e, em seguida, criar os URLs das transmissões. Para um exemplo de .NET, veja [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator) (Obter um Localizador de Transmissão em Fluxo).
 
 O processo de criação de um **localizador de transmissão em fluxo** é chamado de publicação. Por predefinição, o **localizador de transmissão em fluxo** é válido, imediatamente após fazer as chamadas à API e dura até serem eliminada, a menos que configure o início opcional e de horas de fim. 
 
@@ -42,5 +42,5 @@ Ver [filtragem, ordenação, a paginação de entidades de serviços de multimé
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Tutorial: Carregar, codificar e transmitir vídeos com .NET](stream-files-tutorial-with-api.md)
-* [Utilizar DRM dinâmico licença e de encriptação de serviço de entrega](protect-with-drm.md)
+* [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir vídeos em fluxo com .NET)
+* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md) (Procedimentos: utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM)

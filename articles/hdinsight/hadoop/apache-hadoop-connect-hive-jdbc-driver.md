@@ -1,7 +1,6 @@
 ---
 title: Consulte o Apache Hive através do controlador JDBC - Azure HDInsight
 description: Utilize o controlador JDBC a partir de uma aplicação de Java para submeter consultas do Apache Hive para o Hadoop no HDInsight. Ligar através de programação e do cliente SQuirrel SQL.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: dc088d3a6baa4198a1d5cb566b968c631ae5f2c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: aaf54907ca0cf218b126fc9fc74080c02ef6cf6c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122120"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulte o Apache Hive através do controlador JDBC no HDInsight
 
@@ -39,7 +38,7 @@ Ligações de JDBC, para um cluster do HDInsight no Azure são efetuadas atravé
 
 Substitua `CLUSTERNAME` pelo nome do seu cluster do HDInsight.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Ao estabelecer a ligação, tem de utilizar o nome de administrador de cluster do HDInsight e a palavra-passe para autenticar para o gateway do cluster. Ao ligar a partir de clientes JDBC, como o SQuirreL SQL, tem de introduzir o nome de administrador e a palavra-passe nas definições do cliente.
 

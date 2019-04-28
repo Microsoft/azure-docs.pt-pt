@@ -2,18 +2,18 @@
 title: Planear uma implementação do Azure File Sync | Documentos da Microsoft
 description: Saiba o que considerar quando planear uma implementação de ficheiros do Azure.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996361"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766858"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -245,6 +245,8 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Ásia Oriental | RAE de Hong Kong |
 | EUA Leste | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
+| Coreia do Sul Central| Seoul |
+| Coreia do Sul| Busan |
 | Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaka |
 | EUA Centro-Norte | Illinois |

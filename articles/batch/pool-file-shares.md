@@ -16,11 +16,11 @@ ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
 ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127833"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utilizar uma partilha de ficheiros do Azure com um conjunto do Batch
 

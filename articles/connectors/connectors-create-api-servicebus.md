@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105585"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Mensagens do Exchange na nuvem com o Azure Service Bus e Azure Logic Apps
 
@@ -74,7 +74,7 @@ Confirme que a aplicação lógica tem permissões para aceder ao seu espaço de
 
 1. Para adicionar um *acionador* para uma aplicação lógica em branco, na caixa de pesquisa, introduza "Do Azure Service Bus" como o filtro. Abaixo da lista de disparadores, selecione o acionador que pretende. 
 
-   Por exemplo, para acionar a sua aplicação lógica quando um novo item é enviado para uma fila do Service Bus, selecione este acionador: **quando uma mensagem é recebida numa fila (concluir automaticamente)**
+   Por exemplo, para acionar a sua aplicação lógica quando um novo item é enviado para uma fila do Service Bus, selecione este acionador: **Quando uma mensagem é recebida numa fila (concluir automaticamente)**
 
    ![Selecione o acionador do Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -95,7 +95,7 @@ Confirme que a aplicação lógica tem permissões para aceder ao seu espaço de
    1. Na caixa de pesquisa, introduza "Do Azure Service Bus" como o filtro. 
    Abaixo da lista de ações, selecione a ação que pretende. 
  
-      Por exemplo, selecione a ação: **enviar mensagem**
+      Por exemplo, selecione a ação: **Enviar mensagem**
 
       ![Selecione a ação de barramento de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,14 +118,14 @@ Confirme que a aplicação lógica tem permissões para aceder ao seu espaço de
 
 1. Forneça os detalhes necessários para o seu acionador ou ação. Neste exemplo, siga os passos relevantes para o seu acionador ou ação: 
 
-   * **Para o acionador de exemplo**: definir o intervalo de consulta e a frequência para verificar a fila.
+   * **Para o acionador de exemplo**: Defina o intervalo de consulta e a frequência para verificar a fila.
 
      ![Configurar o intervalo de consulta](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Quando tiver terminado, continue a criar o fluxo de trabalho da sua aplicação lógica, adicionando as ações desejadas. Por exemplo, pode adicionar uma ação que envia um e-mail quando uma nova mensagem chega.
      Quando o acionador verifica sua fila e localiza uma nova mensagem, a sua aplicação lógica executa suas ações selecionadas para a mensagem foi encontrada.
 
-   * **Para a ação de exemplo**: introduza o conteúdo da mensagem e quaisquer outros detalhes. 
+   * **Para a ação de exemplo**: Introduza o conteúdo da mensagem e outros detalhes. 
 
      ![Fornecer conteúdo da mensagem e detalhes](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
