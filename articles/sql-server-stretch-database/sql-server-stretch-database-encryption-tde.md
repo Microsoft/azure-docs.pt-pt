@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 06/14/2016
 ms.author: douglasl
 ms.openlocfilehash: 1e40e3d9eb1231666acda89c752ebc8f517e8fc6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708905"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Ativar a encriptação de dados transparente (TDE) para Stretch Database no Azure
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Para desativar a TDE para um Azure base de dados que está armazenando os dados 
 4. Selecione o **Off** definição e, em seguida, selecione **guardar**
 
 <!--Anchors-->
-[Encriptação de dados transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Encriptação de Dados Transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

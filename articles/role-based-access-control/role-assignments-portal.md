@@ -15,11 +15,11 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533166"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure
 
@@ -208,4 +208,4 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Siga estes 
 * [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
 * [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 * [Resolver problemas relacionados com o RBAC para recursos do Azure](troubleshooting.md)
-* [Organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md)
+* [Organize your resources with Azure management groups](../governance/management-groups/index.md) (Organizar os recursos com os grupos de gestão do Azure)

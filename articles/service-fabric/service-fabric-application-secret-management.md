@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614473"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerir os segredos encriptados em aplicações do Service Fabric
 Este guia explica os passos para gerir segredos na aplicação do Service Fabric. Segredos podem ser qualquer informações confidenciais, como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que não devem ser processados em texto simples.
