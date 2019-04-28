@@ -9,11 +9,11 @@ ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58051607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620400"
 ---
 Galeria de imagens partilhado é um serviço que ajuda a criar a estrutura e a organização em torno de suas imagens VM geridas personalizadas. Utilizar uma galeria de imagens partilhado pode partilhar suas imagens para diferentes utilizadores, principais de serviço ou grupos do AD na sua organização. Imagens partilhadas podem ser replicadas para várias regiões, mais rápido dimensionamento das suas implementações.
 

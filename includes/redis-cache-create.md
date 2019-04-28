@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527808"
 ---
 1. Para criar uma cache, primeiro, inicie sessão no [portal do Azure](https://portal.azure.com). Em seguida, selecione **criar um recurso** > **bases de dados** > **a Cache de Redis do Azure**.
 

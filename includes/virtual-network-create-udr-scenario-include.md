@@ -2,30 +2,30 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-network
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: genli
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b91ae155761f6357e286f4742d57b97cf96d909a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743387"
 ---
 ## <a name="scenario"></a>Cenário
-Para ilustrar melhor como criar UDRs, este documento utiliza o seguinte cenário:
+Para melhor ilustrar como criar as UDRs, este documento usa o seguinte cenário:
 
 ![DESCRIÇÃO DA IMAGEM](./media/virtual-network-create-udr-scenario-include/figure1.png)
 
-Neste cenário, vai criar um UDR para o *sub-rede front-end* e UDR outro para o *sub-rede de Back-end*, da seguinte forma: 
+Neste cenário, vai criar um UDR para o *sub-rede de front-end* e outra UDR para o *sub-rede de Back-end*, da seguinte forma: 
 
-* **UDR-front-end**. O front-end UDR é aplicada para a *front-end* sub-rede e contêm uma rota:    
+* **UDR-FrontEnd**. O UDR front-end é aplicado para o *front-end* sub-rede e contêm uma rota:    
   * **RouteToBackend**. Esta rota envia todo o tráfego para a sub-rede de back-end para o **FW1** máquina virtual.
-* **UDR-back-end**. É aplicada a UDR de back-end para o *back-end* sub-rede e contêm uma rota:    
-  * **RouteToFrontend**. Esta rota envia todo o tráfego para a sub-rede do front-end para o **FW1** máquina virtual.
+* **UDR-BackEnd**. O UDR de back-end é aplicado para o *back-end* sub-rede e contêm uma rota:    
+  * **RouteToFrontend**. Esta rota envia todo o tráfego para a sub-rede de front-end para o **FW1** máquina virtual.
 
-A combinação destas rotas garante que todo o tráfego destinado a partir de uma sub-rede para outra é encaminhado para o **FW1** máquina virtual, que está a ser utilizada como uma aplicação virtual. Terá também de ativar o IP de reencaminhamento para o **FW1** VM, certifique-se de que pode receber o tráfego destinado ao outras VMs.
-
+A combinação destas rotas garante que todo o tráfego destinado a partir de uma sub-rede para outra é encaminhado para o **FW1** máquina virtual, que está a ser utilizada como uma aplicação virtual. Terá também de ativar o IP de reencaminhamento para o **FW1** VM, para garantir que ele pode receber o tráfego destinado a outras VMs.

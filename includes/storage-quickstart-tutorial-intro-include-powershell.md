@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 1f8f8d314a8bb37a08b3696f597b395a8a4beb8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392023"
 ---
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

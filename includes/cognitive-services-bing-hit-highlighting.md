@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527941"
 ---
 Bing suporta detetor de ocorrências que marca a termos de consulta (ou outros termos que Bing encontra relevantes) nas cadeias de apresentação de algumas de respostas. Por exemplo, uma página Web `name`, `displayUrl`, e `snippet` campos podem marcar os termos de consulta.
 
@@ -25,28 +25,28 @@ Se `textDecorations` é **true**, Bing pode incluir os seguintes marcadores em c
 
 |Unicode|HTML|Descrição
 |-|-|-
-|U + E000|\<b >|Marca o início do período da consulta (detetor de ocorrências)
-|U + E001|\</ b >|Marca o fim do período da consulta
-|U + E002|\<eu >|Marca o início do conteúdo em itálico 
-|U + E003|\</ i >|Marca o fim do conteúdo em itálico
-|U + E004|\<br / >|Marca uma quebra de linha
-|U + E005||Marca o início de um número de telefone
-|U + E006||Marca o fim de um número de telefone
-|U + E007||Marca o início de um endereço
-|U + E008||Marca o fim de um endereço
-|U + E009|\&nbsp;|Marca um espaço sem quebra
-|U + E00C|\<strong >|Marca o início do conteúdo em negrito
-|U + E00D|\</ strong >|Marca o fim do conteúdo em negrito
-|U + E00E||Marca o início do cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
-|U + E00F||Marca o fim de cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
-|U + E010||Marca o início do cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
-|U + E011||Marca o fim de cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
-|U + E012|\<del >|Marca o início do conteúdo que deve ser chamaram a atenção por meio de
-|U + E013|\</del >|Marca o fim de conteúdo que deve ser chamaram a atenção por meio de
-|U + E016|\<Sub >|Marca o início do conteúdo subscrito
-|U + E017|\</ sub >|Marca o fim do conteúdo subscrito
-|U + E018|\<sup >|Marca o início do conteúdo sobrescrito
-|U + E019|\</ sup >|Marca o fim do conteúdo sobrescrito
+|U+E000|\<b>|Marca o início do período da consulta (detetor de ocorrências)
+|U+E001|\</b>|Marca o fim do período da consulta
+|U+E002|\<i>|Marca o início do conteúdo em itálico 
+|U+E003|\</i>|Marca o fim do conteúdo em itálico
+|U+E004|\<br/>|Marca uma quebra de linha
+|U+E005||Marca o início de um número de telefone
+|U+E006||Marca o fim de um número de telefone
+|U+E007||Marca o início de um endereço
+|U+E008||Marca o fim de um endereço
+|U+E009|\&nbsp;|Marca um espaço sem quebra
+|U+E00C|\<strong>|Marca o início do conteúdo em negrito
+|U+E00D|\</strong>|Marca o fim do conteúdo em negrito
+|U+E00E||Marca o início do cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
+|U+E00F||Marca o fim de cujo em segundo plano deve ser mais leve do seu plano de fundo ao redor de conteúdo
+|U+E010||Marca o início do cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
+|U+E011||Marca o fim de cujo em segundo plano deve ser mais do que o plano de fundo ao redor de conteúdo
+|U+E012|\<del>|Marca o início do conteúdo que deve ser chamaram a atenção por meio de
+|U+E013|\</del>|Marca o fim de conteúdo que deve ser chamaram a atenção por meio de
+|U+E016|\<sub>|Marca o início do conteúdo subscrito
+|U+E017|\</sub>|Marca o fim do conteúdo subscrito
+|U+E018|\<sup>|Marca o início do conteúdo sobrescrito
+|U+E019|\</sup>|Marca o fim do conteúdo sobrescrito
 
 A exemplo a seguir mostra um `Computation` resposta que contém os marcadores subscrito para um termo de consulta log(2). O `expression` campo contém o se apenas de marcadores `textDecoration` é **verdadeiro**.
 

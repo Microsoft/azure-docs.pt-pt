@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 74d96952d6cafb6bd7bb16ccf2f4d69b4fbd6de3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: ace22a6896a121f5cd8af838c7b0e427bd0287dc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40233970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427687"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Ativar o fornecedor de recursos do Event Grid
 

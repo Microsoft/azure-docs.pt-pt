@@ -2,18 +2,19 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines-windows
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: cynthn
+origin.date: 09/12/2018
+ms.date: 11/12/2018
+ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405397"
 ---
 Abrir uma porta ou criar um ponto de extremidade, a uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou uma interface de rede VM. Estes filtros que controlam o tráfego de entrada e saído, coloca num grupo de segurança de rede anexado ao recurso que recebe o tráfego.
 
@@ -29,12 +30,8 @@ Depois de criar uma VM que está configurada para atender solicitações da web 
 
    - **Intervalos de portas de origem**: * (permite que qualquer porta de origem)
 
-   - **Valor de prioridade**: introduza um valor que é menor do que a regra de entrada de negação de 65,500 e superior numa prioridade de que não o predefinido catch-all.
+   - **Valor de prioridade**: Introduza um valor que é menor do que a regra de entrada de negação de 65,500 e superior numa prioridade de que não o predefinido catch-all.
 
 3. Associe o grupo de segurança de rede com a interface de rede VM ou a sub-rede.
 
-Embora esse exemplo usa uma regra simples para permitir o tráfego HTTP, também pode utilizar grupos de segurança de rede e regras para criar configurações de rede mais complexas. 
-
-
-
-
+    Embora esse exemplo usa uma regra simples para permitir o tráfego HTTP, também pode utilizar grupos de segurança de rede e regras para criar configurações de rede mais complexas.

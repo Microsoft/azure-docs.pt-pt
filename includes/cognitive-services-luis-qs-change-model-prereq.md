@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 3e8130388b048f68788dbd018275b9b22db714bf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710382"
 ---
 * A **[chave de criação](../articles/cognitive-services/luis/luis-concept-keys.md#authoring-key)** do LUIS. 
 * Importar os [TravelAgent aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) partir do repositório GitHub cognitivos-services--compreensão de idiomas. 

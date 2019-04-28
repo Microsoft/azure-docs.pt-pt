@@ -1,15 +1,10 @@
 ---
-author: ecfan
-ms.service: logic-apps
-ms.topic: include
-ms.date: 11/09/2018
-ms.author: estfan
 ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598488"
 ---
 Para estimar os custos de consumo mais precisos, considere o número possível de mensagens ou eventos que podem chegar num determinado dia, em vez de basear os seus cálculos em apenas o intervalo de consulta. Quando um evento ou uma mensagem cumpre os critérios de Acionador, muitos acionadores imediatamente a tentar ler quaisquer e todos os outros eventos de espera ou mensagens que cumprem os critérios. Este comportamento significa que, mesmo quando selecionar um intervalo de consulta mais tempo, o acionador é acionado com base no número de eventos de espera ou de mensagens que se qualificar para a partir de fluxos de trabalho. Acionadores que se seguem esse comportamento incluem Service bus do Azure e o Hub de eventos do Azure.
 

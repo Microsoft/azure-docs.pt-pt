@@ -2,18 +2,19 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/19/2018
-ms.author: cherylmc
+origin.date: 12/19/2018
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125110"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407786"
 ---
 1. No portal, clique em **Criar um recurso**.
 2. Na caixa de pesquisa, escreva **Gateway de rede Local** e, em seguida, prima **Enter** para procurar. Isto irá devolver uma lista de resultados. Clique em **Gateway de rede Local** e, em seguida, clique no botão **Criar** para abrir a página **Criar gateway de rede local**.

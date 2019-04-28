@@ -9,11 +9,11 @@ ms.date: 04/01/2019
 ms.author: jehollan
 ms.custom: include file
 ms.openlocfilehash: f01ad6e1e6444a417300b38009ac9fbbe5cdbc88
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031229"
 ---
 1. Aceda ao portal do Azure.
 2. Adicionar um novo recurso, selecionando o **criar um recurso** botão no portal do Azure.

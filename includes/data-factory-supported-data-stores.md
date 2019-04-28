@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "52156808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486839"
 ---
-| Categoria | Arquivo de dados | Suportado como origem | Suportado como sink |
+| Category | Arquivo de dados | Suportado como origem | Suportado como sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Armazenamento de Blobs do Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |

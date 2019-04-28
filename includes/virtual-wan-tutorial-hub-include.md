@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457890"
 ---
 Um hub contém o gateway. Depois de criar o hub, vai ser cobrado pelo hub, mesmo que não anexe quaisquer sites. Demora 30 minutos para criar o hub e o gateway.
 
@@ -21,7 +21,7 @@ Um hub contém o gateway. Depois de criar o hub, vai ser cobrado pelo hub, mesmo
 2. Na página de Hubs, clique em **+ novo Hub** para abrir o **criar hub de virtual** página.
 3. Sobre o **hub virtual de criar** página, preencha os campos seguintes:
 
-   * Localização
+   * Location
    * Name
    * Espaço de endereços privados do Hub
 

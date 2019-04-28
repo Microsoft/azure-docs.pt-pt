@@ -1,15 +1,16 @@
 ---
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: include
-ms.date: 11/25/2018
-ms.author: victorh
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563392"
 ---
 ### <a name="record-names"></a>Nomes de registo
 
@@ -21,7 +22,7 @@ Um registo *apex* é um registo DNS na raiz (ou *apex*) de uma zona DNS. Por exe
 
 Cada registo DNS tem um nome e um tipo. Os registos são organizados em vários tipos de acordo com os dados que contêm. O tipo mais comum é um registo “A”, que mapeia um nome para um endereço IPv4. Outro tipo comum é um registo “MX”, que mapeia um nome para um servidor de correio.
 
-DNS do Azure suporta todos os tipos de registo DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
+O DNS do Azure suporta todos os tipos de registo DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT. Tenha em atenção que [os registos SPF são representados utilizando registos TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registos
 

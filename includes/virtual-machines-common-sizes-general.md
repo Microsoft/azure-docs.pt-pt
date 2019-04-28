@@ -9,11 +9,11 @@ ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542123"
 ---
 Tamanhos de VM de fins gerais oferecem rácio de CPU / memória equilibrado. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como débito de armazenamento para tamanhos neste agrupamento. 
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386340"
 ---
 **Discos de máquinas de virtuais não geridos Premium: Limites de por conta**
 
@@ -26,7 +26,7 @@ ms.locfileid: "57553938"
 | Tipo de disco de armazenamento Premium | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
 | Tamanho do disco |128 GiB |512 GiB |1.024 giB (1 TB) |2048 giB (2 TB)|4095 giB (4 TB)|
-| IOPS máximo por disco |500 |2,300 |5.000 |7.500 |7,500 |
+| IOPS máximo por disco |500 |2.300 |5.000 |7.500 |7.500 |
 | Débito máximo por disco |100 MB/seg | 150 MB/seg |200 MB/sec |250 MB/sec |250 MB/sec |
 | Número máximo de discos por conta de armazenamento |280 |70 |35 | 17 | 8 |
 

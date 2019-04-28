@@ -2,23 +2,25 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-network
-author: jimdial
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 03/11/2018
-ms.author: jdial
+origin.date: 03/11/2018
+ms.date: 04/02/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 3d84f29b27e47fce695c35082539d078884a14f9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1d75b51ee008a9d8c86dce003a98a820c83cef9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597038"
 ---
 > [!div class="op_single_selector"]
 > * [Portal do Azure](../articles/virtual-network/quick-create-portal.md)
 > * [PowerShell](../articles/virtual-network/quick-create-powershell.md)
 > * [CLI do Azure](../articles/virtual-network/quick-create-cli.md)
-> * [Portal do Azure (clássica)](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+> * [Portal do Azure (clássico)](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 > * [PowerShell (Clássico)](../articles/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps.md)
-> * [CLI do Azure (clássica)](../articles/virtual-network/virtual-networks-create-vnet-classic-cli.md)
+> * [CLI do Azure (clássico)](../articles/virtual-network/virtual-networks-create-vnet-classic-cli.md)
+<!--ms.date: 04/02/2018 -->

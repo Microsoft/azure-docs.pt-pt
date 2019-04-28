@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187692"
+ms.locfileid: "60418660"
 ---
 Se se deparar com problemas ao realizar qualquer operação em galerias de imagens partilhadas, definições de imagens e versões de imagens, execute o comando de falha novamente no modo de depuração. Modo de depuração está ativado, passando a **-debug** mudar com a CLI e o **-depurar** mudar com o PowerShell. Depois de ter de localizar o erro, siga este documento para resolver os erros.
 

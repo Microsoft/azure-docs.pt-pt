@@ -1,15 +1,16 @@
 ---
 author: diberry
-ms.author: diberry
+ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/02/2019
+origin.date: 04/02/2019
+ms.date: 04/23/2019
 ms.openlocfilehash: d1c880ddc90ae3ce18dfde7e1983b45ac239de85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60599434"
 ---
 O `Logging` suporte de registo do ASP.NET Core para o contentor de gerir as definições. Pode usar as mesmas definições de configuração e os valores para o contentor que utiliza para uma aplicação ASP.NET Core. 
 
@@ -56,4 +57,5 @@ O `Disk` provedor de log suporta as seguintes definições de configuração:
 | `MaxFileSize` | Número inteiro | O tamanho máximo, em megabytes (MB), de um ficheiro de registo. Quando o tamanho do arquivo de log atual atende ou excede este valor, um novo ficheiro de registo é iniciado pelo fornecedor de registo. Se não for especificado -1, o tamanho do ficheiro de registo está limitado apenas pelo tamanho máximo do ficheiro, se existir, para a montagem de saída. O valor predefinido é 1. |
 
 Para obter mais informações sobre como configurar o suporte de registo do ASP.NET Core, consulte [configuração das definições do ficheiro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+
 

@@ -4,27 +4,26 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: fa8340ec6f555258f159e14133305b847e2e3cc3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754349"
 ---
-- **Detalhes da encomenda** – Depois de criada a encomenda, o endereço de envio, o e-mail e as informações de contacto dos utilizadores são armazenados no portal do Azure. As informações guardadas incluem:
+- **Detalhes de pedidos**. Quando um pedido é criado, o endereço de envio, endereço de correio eletrónico e informações de contacto do utilizador são armazenados no portal do Azure. As informações guardadas incluem:
   - Nome do contacto
   - Número de telefone
-  - Email
+  - Endereço de e-mail
   - Morada
   - Localidade
-  - Código postal
+  - CEP/caixa postal
   - Estado
-  - País/Província/Região
+  - País/província/região
   - Número de controlo de envio
 
-    Os detalhes do pedido são encriptados e armazenados no serviço. O serviço mantém as informações até que elimine o recurso ou ordem explicitamente. Além disso, a eliminação de recursos e a ordem de correspondente está bloqueada desde o momento em que o dispositivo é enviado até que o dispositivo regressa ao Microsoft.
+    Detalhes do pedido são encriptados e armazenados no serviço. O serviço mantém as informações até eliminar explicitamente o recurso ou uma ordem. A eliminação do recurso e a ordem correspondente está bloqueada desde o momento em que o dispositivo é enviado até que o dispositivo regressa ao Microsoft.
 
-- **Endereço para remessa** – depois do pedido é feito, o serviço do Data Box fornece o endereço de envio para os operadores de terceiros, como no-BREAK.
+- **Endereço para remessa**. Depois de uma ordem seja feita, o serviço do Data Box fornece o endereço de envio para os operadores de terceiros, como no-BREAK.
 
-- **Os utilizadores de partilhar** -os utilizadores no seu dispositivo também podem aceder os dados que residem nas partilhas de. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser visualizada. Esta lista também será eliminada quando as partilhas são eliminadas.
-
+- **Os utilizadores de partilhar**. Os utilizadores no seu dispositivo também podem aceder os dados localizados nas partilhas de. É possível ver uma lista de utilizadores que podem aceder os dados de partilha. Quando as partilhas são eliminadas, esta lista também é eliminada.

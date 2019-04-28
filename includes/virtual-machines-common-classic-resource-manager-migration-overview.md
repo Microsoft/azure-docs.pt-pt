@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37780677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542939"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração suportada por plataforma de recursos de IaaS do clássico para o Azure Resource Manager
 Este artigo descreve como migrar a infraestrutura como um recursos de serviço (IaaS) do clássico para modelos de implementação do Resource Manager e os detalhes como ligar recursos a partir de dois modelos de implementação que coexistir na sua subscrição, utilizando a rede virtual gateways de site a site. Pode ler mais sobre [recursos do Azure Resource Manager e os benefícios](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -28,7 +28,7 @@ Estes recursos de IaaS clássicos são suportados durante a migração
 
 * Virtual Machines
 * Conjuntos de Disponibilidade
-* Serviços cloud com as máquinas virtuais
+* Serviços Cloud com Máquinas Virtuais
 * Contas de Armazenamento
 * Redes Virtuais
 * Gateways de VPN
@@ -115,7 +115,7 @@ As seguintes configurações não são atualmente suportadas.
 | Rede |Redes virtuais que contêm máquinas virtuais e funções de trabalho/web |Isso não é atualmente suportado. Mova as funções da Web/de trabalho para a sua própria rede Virtual antes de migrar. Assim que a rede Virtual clássica é migrada, a rede Virtual do Gestor de recursos do migrados do Azure pode ser em modo de peering com a rede Virtual clássica para alcançar a configuração semelhante como antes.|
 | Rede | Circuitos de Expressroute clássicos |Isso não é atualmente suportado. Estes circuitos tem de ser migrados para o Azure Resource Manager antes de iniciar a migração de IaaS. Para obter mais informações, consulte [circuitos do ExpressRoute mover do clássico para o modelo de implementação do Resource Manager](../articles/expressroute/expressroute-move.md).|
 | Serviço de Aplicações do Azure |Redes virtuais que contêm os ambientes de serviço de aplicações |Isso não é atualmente suportado. |
-| O Azure HDInsight |Redes virtuais que contêm os serviços do HDInsight |Isso não é atualmente suportado. |
+| Azure HDInsight |Redes virtuais que contêm os serviços do HDInsight |Isso não é atualmente suportado. |
 | Serviços de ciclo de vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais que são geridas pelo Dynamics Lifecycle Services |Isso não é atualmente suportado. |
 | Azure AD Domain Services |Redes virtuais que contêm os serviços de domínio do Azure AD |Isso não é atualmente suportado. |
 | Azure RemoteApp |Redes virtuais que contêm as implementações do Azure RemoteApp |Isso não é atualmente suportado. |

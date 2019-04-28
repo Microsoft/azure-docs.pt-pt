@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506684"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 

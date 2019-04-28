@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 83fce210fe76b436dc4923710578fb21157d320d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 498a4471d1ba6803d68e0b497c7c8352f19ff743
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56741500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768662"
 ---
 | Categoria | Arquivo de dados |
 |:--- |:--- |
@@ -79,7 +79,8 @@ ms.locfileid: "56741500"
 | &nbsp; |[Marketo (Pré-visualização)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (Pré-visualização)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (Pré-visualização)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Oracle serviço Cloud (pré-visualização)](../articles/data-factory/connector-oracle-service-cloud.md) || &nbsp; |[Paypal (Pré-visualização)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[Oracle serviço Cloud (pré-visualização)](../articles/data-factory/connector-oracle-service-cloud.md) |
+| &nbsp; |[Paypal (Pré-visualização)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (Pré-visualização)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |

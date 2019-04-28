@@ -15,11 +15,11 @@ ms.date: 04/12/2019
 ms.author: celested
 ms.custom: include file
 ms.openlocfilehash: 06300f487d11d7f0751a35231aedf389fb3e82b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59502959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442994"
 ---
 |   |
 |---|

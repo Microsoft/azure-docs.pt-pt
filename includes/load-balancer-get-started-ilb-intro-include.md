@@ -1,15 +1,16 @@
 ---
-author: kumudD
+author: WenJason
 ms.service: load-balancer
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: kumud
+origin.date: 11/09/2018
+ms.date: 12/31/2018
+ms.author: v-jay
 ms.openlocfilehash: b3f9a453573de0737cfaddb3107df92335507366
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398780"
 ---
 O Balanceador de Carga Interno do Azure (ILB) fornece balanceamento de carga de rede entre máquinas virtuais que residem dentro de um serviço cloud ou uma rede virtual com um âmbito regional.
 

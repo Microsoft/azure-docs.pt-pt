@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 44ee258567ca357687feb24337f2d5974e2532b0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392805"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
