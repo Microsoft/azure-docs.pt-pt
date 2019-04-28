@@ -1,6 +1,6 @@
 ---
 title: Núcleos de relatórios da Verizon | Documentos da Microsoft
-description: 'Pode ver padrões de utilização da sua CDN utilizando os seguintes relatórios: largura de banda, os dados transferidos, acertos, Estados de Cache, taxa de acessos de Cache, IPV4/IPV6 dados transferidos.'
+description: 'Pode ver padrões de utilização da sua CDN utilizando os seguintes relatórios: Largura de banda, os dados transferidos, visitas, Estados de Cache, a taxa, dados de IPV4/IPV6 transferidos de acerto na Cache.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061584"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleos da Verizon
 
@@ -86,17 +86,17 @@ Para reduzir acertos na cache expirada, defina um recurso `max-age` para um long
 ![Relatório de Estados de cache](./media/cdn-reports/cdn-cache-statuses.png)
 
 ### <a name="main-cache-statuses-include"></a>Estados da cache principal incluem:
-* TCP_HIT: Servido a partir do servidor de borda. O objeto foi na cache e não excedeu a respetiva duração máxima.
+* TCP_HIT: Servidos a partir do servidor de borda. O objeto foi na cache e não excedeu a respetiva duração máxima.
 * TCP_MISS: Servidos a partir do servidor de origem. O objeto não estava no cache e a resposta era para a origem.
-* TCP_EXPIRED _MISS: servido a partir do servidor de origem após a revalidação com origem. O objeto foi na cache, mas tinha excedeu a respetiva duração máxima. Uma revalidação com origem resultou no objeto de cache a ser substituído por uma nova resposta de origem.
-* TCP_EXPIRED _HIT: atendidos a partir de borda após a revalidação com origem. O objeto foi na cache, mas tinha excedeu a respetiva duração máxima. Uma revalidação com o servidor de origem resultou no objeto de cache que está a ser sem modificações.
+* TCP_EXPIRED _MISS: Servido a partir do servidor de origem após a revalidação com origem. O objeto foi na cache, mas tinha excedeu a respetiva duração máxima. Uma revalidação com origem resultou no objeto de cache a ser substituído por uma nova resposta de origem.
+* TCP_EXPIRED _HIT: Servido a partir do Edge após a revalidação com origem. O objeto foi na cache, mas tinha excedeu a respetiva duração máxima. Uma revalidação com o servidor de origem resultou no objeto de cache que está a ser sem modificações.
 
 ### <a name="full-list-of-cache-statuses"></a>Lista completa de Estados de cache
 * TCP_HIT - este estado é comunicado quando uma solicitação será atendida diretamente a partir do POP ao cliente. Um recurso é servido imediatamente a partir de um preenchimento de quando ele é armazenado em cache no POP de mais próximo para o cliente e possui um válido time-to-live (TTL). TTL é determinado pelos seguintes cabeçalhos de resposta:
   
-  * Controlo de cache: s-: maxage
+  * Cache-Control: s-maxage
   * Cache-Control: idade máxima
-  * Expira em
+  * Expira
 * TCP_MISS: Este status indica que uma versão em cache do recurso solicitado não foi encontrada no POP de mais próximo ao cliente. O elemento é pedido a partir de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de origem do escudo retornar um recurso, é fornecido ao cliente e colocados em cache no cliente e o servidor de borda. Caso contrário, um código de estado que não 200 (por exemplo, 403 proibido ou 404 não encontrado) é devolvido.
 * TCP_EXPIRED_HIT: Este estado é comunicado quando um pedido que tenha como destino um recurso com um valor de TTL expirado tiver sido servido diretamente a partir do POP ao cliente. Por exemplo, quando o elemento da duração máxima expirou. 
   
@@ -123,7 +123,7 @@ O relatório não inclui:
 * Pedidos ativos cujos cabeçalhos indicam que eles devem não ser colocados em cache. Por exemplo, `Cache-Control: private`, `Cache-Control: no-cache`, ou `Pragma: no-cache` cabeçalhos de impedem que um recurso que está a ser colocados em cache.
 * Pedidos de intervalo de bytes do conteúdo parcialmente em cache.
 
-A fórmula é: (TCP_ ACERTOS / (TCP_ ACESSOS + TCP_MISS)) * 100
+A fórmula é: (TCP_ HIT/(TCP_ HIT+TCP_MISS))*100
 
 ![Relatório de taxa de acertos da cache](./media/cdn-reports/cdn-cache-hit-ratio.png)
 

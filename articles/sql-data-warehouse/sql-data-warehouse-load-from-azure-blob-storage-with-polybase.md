@@ -2,20 +2,21 @@
 title: Carregar dados de revenda da Contoso para o Azure SQL Data Warehouse | Documentos da Microsoft
 description: Utilize comandos T-SQL e o PolyBase para carregar duas tabelas dos dados de revenda da Contoso para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 5cf4ac0e0950e7b6ab6345476501931a9cb46b27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474016"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Carregar dados de revenda da Contoso para o Azure SQL Data Warehouse
 
@@ -66,7 +67,7 @@ WITH
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
+    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.chinacloudapi.cn',
     CREDENTIAL = AzureStorageCredential
 );
 ```
@@ -81,7 +82,7 @@ CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
 WITH 
 (  
     TYPE = Hadoop 
-,   LOCATION = 'wasbs://contosoretaildw-tables@contosoretaildw.blob.core.windows.net/'
+,   LOCATION = 'wasbs://contosoretaildw-tables@contosoretaildw.blob.core.chinacloudapi.cn/'
 ); 
 ```
 
@@ -365,5 +366,7 @@ Para carregar os dados de armazém de dados de revenda de Contoso completos, uti
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
 <!--Other Web references-->
-[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+
+<!--Update_Description: wording update -->

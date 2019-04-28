@@ -3,21 +3,22 @@ title: Copiar dados da MariaDB com o Azure Data Factory | Documentos da Microsof
 description: Saiba como copiar dados de MariaDB para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: jingwang
+origin.date: 02/01/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: f99a96f1b886f9f426c5dac64ac852368544475a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61401274"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar dados da MariaDB com o Azure Data Factory
 
@@ -43,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de MariaDB ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **MariaDB** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **MariaDB** | Sim |
 | connectionString | Uma cadeia de ligação de ODBC para estabelecer ligação ao MariaDB. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault e obter o `pwd` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -129,7 +130,7 @@ Para copiar dados de MariaDB, definir o tipo de origem na atividade de cópia pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MariaDBSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MariaDBSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

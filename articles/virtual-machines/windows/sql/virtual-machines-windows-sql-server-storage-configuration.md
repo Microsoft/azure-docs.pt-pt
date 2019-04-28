@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477458"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração do armazenamento para VMs do SQL Server
 
@@ -70,7 +70,7 @@ Se utilizar os seguintes modelos do Resource Manager, dois discos de dados premi
 Para VMs existentes do SQL Server, pode modificar algumas definições de armazenamento no portal do Azure. Selecione a sua VM, vá para a área de definições e, em seguida, selecione configuração do SQL Server. O painel de configuração do SQL Server mostra a utilização do armazenamento atual da sua VM. Todas as unidades que existem na sua VM são apresentadas neste gráfico. Para cada unidade, o espaço de armazenamento é apresentado em quatro seções:
 
 * Dados do SQL
-* Registo SQL
+* Registo do SQL
 * Outro (armazenamento de não-SQL)
 * Disponível
 
@@ -129,8 +129,8 @@ O Azure utiliza as seguintes definições para criar o agrupamento de armazename
 | Tamanhos de disco |1 TB |
 | Cache |Leitura |
 | Tamanho de alocação |Tamanho da unidade de alocação NTFS 64 KB |
-| Inicialização instantânea de arquivo |Ativado |
-| Bloquear páginas na memória |Ativado |
+| Inicialização instantânea de arquivo |Enabled |
+| Bloquear páginas na memória |Enabled |
 | Recuperação |Recuperação simples (sem resiliência) |
 | Número de colunas |Número de discos de dados<sup>1</sup> |
 | Localização de TempDB |Armazenados em discos de dados<sup>2</sup> |

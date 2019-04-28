@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262305"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Copiar dados do serviço Web do Amazon Marketplace com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço do serviço Web do Ama
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **AmazonMWS** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **AmazonMWS** | Sim |
 | endpoint | O ponto final do servidor Amazon MWS, (ou seja, mws.amazonservices.com)  | Sim |
 | marketplaceID | O ID de Marketplace Amazon para obter dados a partir de. Para recuperar dados de vários IDs de Marketplace, separá-los com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
 | sellerID | O ID do vendedor Amazon.  | Sim |
@@ -88,7 +88,7 @@ Para copiar dados do serviço Web do Amazon Marketplace, defina a propriedade de
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **AmazonMWSObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **AmazonMWSObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -118,7 +118,7 @@ Para copiar dados do serviço Web do Amazon Marketplace, defina o tipo de origem
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonMWSSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonMWSSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

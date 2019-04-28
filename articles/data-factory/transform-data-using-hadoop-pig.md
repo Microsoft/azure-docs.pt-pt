@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61399527"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados com atividade Pig do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,8 +58,8 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 
 | Propriedade            | Descrição                              | Necessário |
 | ------------------- | ---------------------------------------- | -------- |
-| name                | Nome da atividade                     | Sim      |
-| descrição         | Texto que descreve o que a atividade é utilizada para | Não       |
+| nome                | Nome da atividade                     | Sim      |
+| description         | Texto que descreve o que a atividade é utilizada para | Não       |
 | tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | Sim      |
 | linkedServiceName   | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | scriptLinkedService | Referência para um serviço ligado de armazenamento do Azure utilizada para armazenar o script Pig a ser executado. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |

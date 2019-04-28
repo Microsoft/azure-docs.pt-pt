@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475801"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para as novas tarefas de bases de dados elásticas
 

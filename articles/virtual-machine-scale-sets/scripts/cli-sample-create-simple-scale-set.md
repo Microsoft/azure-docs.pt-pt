@@ -17,11 +17,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7327468722f4f3b0fc7048bc8afcdb757df50bc7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61388655"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais do Azure com um sistema operativo Ubuntu e recursos de rede relacionados, incluindo um balanceador de carga. Depois de executar o script, pode aceder às instâncias de VMs através de SSH.

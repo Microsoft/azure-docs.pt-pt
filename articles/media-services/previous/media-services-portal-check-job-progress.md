@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: a4578703ebe224747c10956736b3be9c33a954dd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463488"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorizar o progresso de tarefa de codificação com o portal do Azure
 > [!div class="op_single_selector"]

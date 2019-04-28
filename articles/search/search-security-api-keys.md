@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61283746"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir as chaves de api para um serviço Azure Search
 
@@ -31,7 +31,7 @@ Uma chave de api é uma cadeia de caracteres composta por letras e números gera
 
 Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa: administrador (leitura / escrita) e a consulta (só de leitura).
 
-|Chave|Descrição|Limites|  
+|Chave|Descrição|Limits|  
 |---------|-----------------|------------|  
 |Administração|Concede todos os direitos para todas as operações, incluindo a capacidade para gerir o serviço, criar e eliminar índices, indexadores e origens de dados.<br /><br /> Duas chaves de administração, conhecido como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido. Ter duas chaves permite-lhe fazer o rollover de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Chaves de administração só são especificadas nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave de api de administração num URL.|Máximo de 2 por serviço|  
 |Consulta|Concede acesso só de leitura aos índices e documentos e normalmente são distribuídas por aplicações cliente que emitem pedidos de pesquisa.<br /><br /> Chaves de consulta são criadas a pedido. Pode criá-las manualmente no portal ou através de programação através de [API REST da gestão](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Chaves de consulta podem ser especificadas no cabeçalho de pedido HTTP para pesquisa, sugestões ou operação de pesquisa. Em alternativa, pode transmitir uma chave de consulta como um parâmetro numa URL. Dependendo de como a aplicação cliente formulates o pedido, poderá ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 por serviço|  

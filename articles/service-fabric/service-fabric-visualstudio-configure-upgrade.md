@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082849"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configurar a atualização de uma aplicação do Service Fabric no Visual Studio
 O Visual Studio tools para o Azure Service Fabric fornecem suporte de atualização para a publicação de clusters locais ou remotos. Existem três cenários em que pretende atualizar a sua aplicação para uma versão mais recente em vez de substituir o aplicativo durante o teste e depuração:
@@ -31,7 +31,7 @@ O Visual Studio tools para o Azure Service Fabric fornecem suporte de atualizaç
 ## <a name="parameters-needed-to-upgrade"></a>Parâmetros necessários para atualizar
 Pode escolher entre dois tipos de implementação: regular ou atualização. Uma implantação regular apaga quaisquer informações de implementação anterior e os dados no cluster, enquanto preserva a uma implantação de atualização-lo. Ao atualizar uma aplicação do Service Fabric no Visual Studio, terá de fornecer os parâmetros de atualização de aplicativo e o estado de funcionamento, consulte as políticas. Parâmetros de atualização de aplicação ajudam a controlar a atualização, enquanto as políticas de verificação de estado de funcionamento determinam se a atualização foi concluída com êxito. Ver [atualização da aplicação de Service Fabric: parâmetros de atualização](service-fabric-application-upgrade-parameters.md) para obter mais detalhes.
 
-Existem três modos de atualização: *monitorizados*, *UnmonitoredAuto*, e *UnmonitoredManual*.
+Existem três modos de atualização: *Monitorizado*, *UnmonitoredAuto*, e *UnmonitoredManual*.
 
 * Uma atualização de monitorizados automatiza a atualização e verificação de estado de funcionamento da aplicação.
 * Uma atualização de UnmonitoredAuto automatiza a atualização, mas ignora a verificação de estado de funcionamento da aplicação.

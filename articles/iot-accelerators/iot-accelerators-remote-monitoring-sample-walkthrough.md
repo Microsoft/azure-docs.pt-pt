@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442553"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Monitorização Remota
 
@@ -102,7 +102,7 @@ O [microsserviços de placa de armazenamento](https://github.com/Azure/remote-mo
 
 Valores estão organizados em coleções. Pode trabalhar em valores individuais ou coleções inteiras de obter. Estruturas de dados complexos são serializadas pelos clientes e geridas como o payload de texto simples.
 
-O serviço fornece um ponto de extremidade RESTful para operações CRUD em pares chave-valor. Valores
+O serviço fornece um ponto de extremidade RESTful para operações CRUD em pares chave-valor. valores
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 

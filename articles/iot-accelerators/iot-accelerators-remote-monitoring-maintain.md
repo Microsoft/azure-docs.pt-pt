@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 1cd1eb9a0bd4b8457ea82303a747acb2553ab707
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61452668"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Resolver problemas e corrigir erros do dispositivo
 

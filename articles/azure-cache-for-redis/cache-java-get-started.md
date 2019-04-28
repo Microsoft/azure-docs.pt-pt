@@ -16,11 +16,11 @@ ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 047350fa957d9ca1fdec50f97a590ba90a42e1b2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830573"
 ---
 # <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Início rápido: Como utilizar o Azure Cache de Redis com Java
 

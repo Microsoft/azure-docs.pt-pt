@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
 ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466651"
 ---
 # <a name="azure-media-player-overview"></a>Descrição geral de leitor de multimédia do Azure
 
@@ -50,5 +50,5 @@ O leitor de multimédia do Azure é fácil de configurar. Demora apenas alguns m
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Documentação do leitor de multimédia do Azure](https://aka.ms/ampdocs)
+- [Azure Media Player documentation](https://aka.ms/ampdocs) (Documentação do Leitor de Multimédia do Azure)
 - [Exemplos de leitor de multimédia do Azure](https://aka.ms/ampsamples)

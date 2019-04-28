@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 2bc79801864481562967702a7c52a7670950199b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293116"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consultar a API de Gremlin do Azure Cosmos DB através do Gremlin
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9d9369afd36f64c27cd2222cab0de5912aa913de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909201"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança do Azure monitorizadas pelo centro de segurança
 Este artigo fornece uma lista de definições de política do Azure de monitorização no Centro de segurança do Azure. Para obter mais informações sobre as políticas de segurança, consulte [trabalhar com políticas de segurança](tutorial-security-policy.md).

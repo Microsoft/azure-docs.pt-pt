@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
 ms.openlocfilehash: da56c06e215e02ee3eefe3d0552c962a8c59011e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61054327"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Débito de aprovisionar uma base de dados no Azure Cosmos DB
 

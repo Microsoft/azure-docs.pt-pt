@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 67ec9765e4334330da04739dd5daa3be0d7c7342
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911106"
 ---
-# <a name="all-offers-page"></a>Página de todas as ofertas
+# <a name="all-offers-page"></a>Página com todas as ofertas
 
 O [ **todas as ofertas** ](https://cloudpartner.azure.com/#alloffers) página, os parceiros ver uma lista de ofertas de criado, incluindo o seu nome, o tipo, o publicador e o estado atual.  Pode especificar uma cadeia de caracteres para filtrar os resultados.   A área de status na parte inferior da página mostra as contagens de agregação e de página e permite-lhe navegar entre as páginas de lista. Selecionar uma oferta nesta lista irá apresentar essa oferta no editor de oferta associada. 
 
@@ -30,7 +30,7 @@ O [ **todas as ofertas** ](https://cloudpartner.azure.com/#alloffers) página, o
 
 A imagem seguinte mostra os **todas as ofertas** página filtrado com base na cadeia de caracteres `Contoso`.
 
-![Página de todas as ofertas](./media/all-offers-page1.png)
+![Página com todas as ofertas](./media/all-offers-page1.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61070101"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -111,7 +111,7 @@ O dashboard contém um gráfico que controla uma métrica ao longo do período d
 | Bytes em |Indica a quantidade de dados, em bytes, enviados a partir dos solicitantes (por exemplo, navegador da web) para a CDN (servidores de borda). |
 | Bytes remoto |Indica a quantidade de dados, em bytes, enviados a partir de servidores de origem CDN e o cliente para a CDN (servidores de borda). |
 
-#### <a name="performance-metrics"></a>Métricas de desempenho
+#### <a name="performance-metrics"></a>Métricas de Desempenho
 É a finalidade destas métricas controlar o desempenho de CDN global para o tráfego.
 
 | Campo | Descrição |

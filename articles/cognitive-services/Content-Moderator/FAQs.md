@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: sajagtap
 ms.openlocfilehash: df8d957fc2de620d63567a9cc1b14b24b73052bb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61268926"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 

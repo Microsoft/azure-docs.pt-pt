@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8214ff821bad8a46eb710c8b9506d337715db103
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58450045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484350"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure
 

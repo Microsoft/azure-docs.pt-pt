@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61128185"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo com o portal do Azure
  Com os serviços de multimédia do Azure, pode proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Pode utilizar os serviços de multimédia para distribuir os seus conteúdos encriptados dinamicamente com a encriptação AES (Advanced Standard) utilizando as chaves de encriptação de 128 bits. Também pode utilizá-lo com a encriptação comum (CENC) com o PlayReady e/ou Widevine gestão de direitos digitais (DRM) e o Apple FairPlay. 

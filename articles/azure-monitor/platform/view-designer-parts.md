@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341928"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência a partes de visualização do estruturador de vistas no Azure Monitor
 Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
@@ -89,7 +89,7 @@ O cabeçalho apresenta um único número, que mostra uma contagem de registos de
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | Name |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -120,7 +120,7 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | Name |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -143,7 +143,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Consulta |A consulta seja executada para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. |
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Anel** |**> Center** |
-| Texto |O texto que é apresentado no valor dentro do anel. |
+| Text |O texto que é apresentado no valor dentro do anel. |
 | Operação |A operação para executar na propriedade de valor para resumi-lo como um único valor.<ul><li>Soma: Adiciona os valores de todos os registos.</li><li>Percentagem de: A proporção de registros retornado pelos valores na **resultar valores utilizados na operação do centro** para o total de registos na consulta.</li></ul> |
 | Valores dos resultados utilizados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que especificar. Se não os valores são adicionados, todos os registos estão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
@@ -161,7 +161,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | Name |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -193,7 +193,7 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | Name |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -209,7 +209,7 @@ O cabeçalho exibe texto estático e uma ligação opcional. A lista apresenta u
 | Novo Grupo |Selecione esta ligação para criar um novo grupo na exibição, começando a exibição atual. |
 | Cor |A cor de fundo para o cabeçalho. |
 | **Cabeçalho** | |
-| Imagem |O ficheiro de imagem que é apresentado no cabeçalho. |
+| Image |O ficheiro de imagem que é apresentado no cabeçalho. |
 | Label |O texto que é apresentado no cabeçalho. |
 | **Cabeçalho** |**> Link** |
 | Label |O texto da ligação. |
@@ -254,7 +254,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | Name |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -290,7 +290,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
 | Name |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 

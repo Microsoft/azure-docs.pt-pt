@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
 ms.openlocfilehash: 794638496931f72a12fcb3bd8819b04c7e2e7c97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995721"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado, a partir da consola de API
 

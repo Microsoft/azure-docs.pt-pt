@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
 ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682275"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61054597"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Como configurar vários mestres em seus aplicativos que utilizam o Azure Cosmos DB
 

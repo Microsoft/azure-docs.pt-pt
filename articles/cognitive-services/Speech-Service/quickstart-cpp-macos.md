@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
 ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461413"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no macOS com o SDK de voz
 

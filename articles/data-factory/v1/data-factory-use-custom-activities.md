@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61254639"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -1022,7 +1022,7 @@ namespace DataFactoryAPITestApp
 O [do Azure Data Factory - ambiente local](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) exemplo no GitHub inclui uma ferramenta que lhe permite depurar atividades .NET personalizadas no Visual Studio.
 
 ## <a name="sample-custom-activities-on-github"></a>Atividades personalizadas de exemplo no GitHub
-| Sample | Que atividade personalizada faz |
+| Exemplo | Que atividade personalizada faz |
 | --- | --- |
 | [Dispositivo de transferência da dados HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Transfere dados a partir de um ponto final HTTP ao armazenamento de Blobs do Azure com a atividade personalizada em C# no Data Factory. |
 | [Exemplo de análise de sentimentos do twitter](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo do Azure Machine Learning studio e fazer a análise de sentimentos, classificação, previsão, etc. |

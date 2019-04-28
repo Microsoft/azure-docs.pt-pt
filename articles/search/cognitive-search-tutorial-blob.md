@@ -11,11 +11,11 @@ ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463077"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial REST: Chamar APIs serviços cognitivos num Azure Search, indexação do pipeline (pré-visualização)
 

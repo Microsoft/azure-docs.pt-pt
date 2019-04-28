@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: e291cb46b5f8cb8722348bd8fcd6031ed29beb9a
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61423451"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar e gerir ler réplicas na base de dados do Azure para MySQL com a CLI do Azure
 

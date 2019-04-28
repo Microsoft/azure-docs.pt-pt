@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
 ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904814"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Descrição Passo a Passo: Exportar para o SQL a partir do Application Insights com o Stream Analytics
 Este artigo mostra como mover os dados de telemetria dos [do Azure Application Insights] [ start] numa base de dados SQL do Azure utilizando [exportação contínua] [ export] e [do Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 

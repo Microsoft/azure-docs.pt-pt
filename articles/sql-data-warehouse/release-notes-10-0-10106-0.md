@@ -11,11 +11,11 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.openlocfilehash: 10d703ad613a340a0f99c4d5dd8f4c748ff3e6bd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475104"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de versão do armazém de dados SQL do Azure
 

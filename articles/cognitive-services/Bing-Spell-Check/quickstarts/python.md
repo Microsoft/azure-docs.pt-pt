@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 1cf46fd5ec55f0b240f6bb4adbe49c1344a4663b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61384879"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e Python
 

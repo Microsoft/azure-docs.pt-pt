@@ -14,11 +14,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61250583"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma origem de tabela da Web com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +73,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida como: **Web** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **Web** |Sim |
 | Url |URL para a origem da Web |Sim |
 | authenticationType |Anónimo. |Sim |
 

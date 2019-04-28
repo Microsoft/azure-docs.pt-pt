@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 44ee23a510bc15d5cb52a338be1652180b922db9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478441"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>Referência rápida para comandos utilizados com frequência para tarefas de importação
 Esta seção fornece que uma referência rápida para alguns comandos de usados com freqüência. Para utilização detalhada, consulte [preparar os discos rígidos para uma tarefa de importação](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  

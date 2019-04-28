@@ -11,11 +11,11 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474707"
 ---
 # <a name="sql-data-warehouse-workload-importance-preview"></a>Importância de carga de trabalho do armazém de dados SQL (pré-visualização)
 

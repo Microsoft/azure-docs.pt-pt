@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913522"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Como utilizar a API de REST do QnA Maker com node. js 
 <a name="HOLTop"></a>

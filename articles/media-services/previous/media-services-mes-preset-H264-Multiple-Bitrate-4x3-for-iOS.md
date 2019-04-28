@@ -1,8 +1,8 @@
 ---
 title: H264 taxa de bits múltiplas 4x3 para iOS | Documentos da Microsoft
 description: O tópico fornece uma visão geral do **h264 taxa de bits múltiplas 4x3 para iOS** predefinido de tarefa.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+origin.date: 03/18/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: 45dbaea4e2c6f8cdbe3d33df5d3b82b9df519ff2
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463655"
 ---
-# <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 taxa de bits múltiplas 4x3 para iOS
+# <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 Taxas de Bits Múltiplas 4x3 para iOS
 `Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Este tópico mostra o `H264 Multiple Bitrate 4x3 for iOS` predefinidos no formato XML e JSON.  

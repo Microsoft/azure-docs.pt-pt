@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466804"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta de serviços de multimédia com REST
 
@@ -63,4 +63,4 @@ Utilize as APIs de armazenamento do Azure ou SDKs (por exemplo, o [API do REST d
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Tutorial: Um ficheiro remoto com base no URL de codificar e transmitir o vídeo - REST](stream-files-tutorial-with-rest.md)
+[Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

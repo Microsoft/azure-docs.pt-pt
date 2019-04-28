@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
 ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61051890"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB - descrição geral
 

@@ -11,11 +11,11 @@ ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335335"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Projeto Acoustics perguntas mais frequentes
 

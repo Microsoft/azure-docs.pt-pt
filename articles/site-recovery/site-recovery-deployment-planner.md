@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
 ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035797"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.

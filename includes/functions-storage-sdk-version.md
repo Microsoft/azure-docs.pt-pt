@@ -6,16 +6,19 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 05/17/2018
-ms.author: tdykstra
+origin.date: 05/17/2018
+ms.date: 05/30/2018
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 97c56b07833f7d93541bb0b3747889f5a50a8203
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f8733ef907b8f31ace7ea72f705ba1b37d1adece
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34675280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306743"
 ---
-### <a name="azure-storage-sdk-version-in-functions-1x"></a>Versão do SDK de armazenamento do Azure nas funções de 1. x
+### <a name="azure-storage-sdk-version-in-functions-1x"></a>Versão do SDK do armazenamento do Azure nas funções 1.x
 
-As funções, 1. x, os acionadores de armazenamento e os enlaces de utilizam a versão 7.2.1 do SDK de armazenamento do Azure ([Windowsazure](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) pacote NuGet). Se referenciar uma versão diferente do SDK de armazenamento e vincular a um tipo de SDK de armazenamento na sua assinatura da função, o tempo de execução de funções poderá reportar que não é possível vincular desse tipo. A solução é certificar-se de que as referências do projeto [Windowsazure 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).
+As funções, 1.x, os acionadores do armazenamento e ligações de utilizam a versão 7.2.1 do SDK de armazenamento do Azure ([windowsazure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) pacote NuGet). Se fazer referência a uma versão diferente do SDK do armazenamento e vincular a um tipo de SDK de armazenamento na sua assinatura de função, o runtime das funções pode comunicar que não é possível vincular a esse tipo. A solução é certificar-se de que suas referências de projeto [windowsazure. Storage 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).
+
+<!-- ms.date: 05/30/2018 -->

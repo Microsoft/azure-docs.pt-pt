@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478050"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de importação/exportação do Azure
 

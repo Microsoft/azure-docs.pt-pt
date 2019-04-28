@@ -9,13 +9,13 @@ ms.date: 12/07/2018
 ms.author: tamram
 ms.custom: seodec18
 ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427531"
 ---
-# <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutorial: Utilização da CDN do Azure, para ativar um domínio personalizado com SSL para um Web site estático
+# <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutorial: Utilizar a CDN do Azure para ativar um domínio personalizado com SSL para um Web site estático
 
 Este tutorial é a segunda parte de uma série. Nela, vai aprender a ativar um ponto final de domínio personalizado com SSL para o seu Web site estático. 
 
@@ -29,7 +29,7 @@ Na segunda parte da série, saiba como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar este tutorial, preencha a parte um, [Tutorial: alojar um Web site estático no armazenamento de BLOBs](storage-blob-static-website-host.md). 
+Antes de começar este tutorial, preencha a parte um, [Tutorial: Alojar um Web site estático no armazenamento de BLOBs](storage-blob-static-website-host.md). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

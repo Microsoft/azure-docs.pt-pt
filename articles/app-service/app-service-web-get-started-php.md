@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: seodec18
 ms.openlocfilehash: 48df416002a2c89e0172e82278f6154c6a6da836
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129672"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar uma aplicação Web PHP no Azure
 

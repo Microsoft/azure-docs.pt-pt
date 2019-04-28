@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450028"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador de solução de fábrica ligada
 
@@ -264,10 +264,10 @@ Todas as propriedades utilizadas no ficheiro de configuração podem ser agrupad
 
 Propriedades nesta categoria definem a aparência visual do dashboard de fábrica ligada. Os exemplos incluem:
 
-* Nome
+* Name
 * Descrição
-* Imagem
-* Localização
+* Image
+* Location
 * Unidades
 * Visível
 

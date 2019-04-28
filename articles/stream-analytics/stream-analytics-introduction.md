@@ -9,11 +9,11 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/07/2018
 ms.openlocfilehash: 09f402f81700b53eb9e4a95e36545ef02850660a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479716"
 ---
 # <a name="what-is-azure-stream-analytics"></a>O que é o Azure Stream Analytics?
 

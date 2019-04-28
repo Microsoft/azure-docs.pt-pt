@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424759"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Agir com um Runbook da automatização de um resultado de pesquisa de registos do Log Analytics
 

@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043021"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>Descrição geral da continuidade comercial com a base de dados do Azure para MariaDB
 
@@ -26,7 +26,7 @@ A tabela seguinte compara o ERT e o RPO para as funcionalidades disponíveis:
 | **Capacidade** | **Básica** | **Fins gerais** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção | Qualquer ponto de restauro dentro do período de retenção |
-| Georrestauro a partir de cópias de segurança georreplicado | Não suportado | ERT < 12h<br/>RPO < 1 hora | ERT < 12h<br/>RPO < 1 hora |
+| Georrestauro a partir de cópias de segurança georreplicado | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
 > Se eliminar o servidor, todas as bases de dados contidos no servidor também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor foi eliminado.

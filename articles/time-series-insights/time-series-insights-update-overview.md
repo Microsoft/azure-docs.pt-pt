@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: fbf347ceb3ccae4802c984a2737c2298a4e43e72
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438776"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760103"
 ---
 # <a name="azure-time-series-insights-preview-overview"></a>Descrição geral de pré-visualização do Time Series Insights do Azure
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 25bc7798853d350139a7802eaad68d52a1d7d99f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996630"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming para iOS 
 
@@ -29,7 +29,7 @@ ms.locfileid: "57834817"
 - Microsoft PlayReady
 - Google Widevine
 - Apple FairPlay
-- Encriptação AES-128
+- Encriptação de AES-128
 
 Gestão de direitos digitais (DRM) / encriptação Advanced Encryption Standard (AES) de conteúdo é realizada dinamicamente mediante pedido para diversos protocolos de transmissão em fluxo. Serviços de entrega de chave de desencriptação de licença/AES de DRM também são fornecidos pelos serviços de multimédia.
 
@@ -47,8 +47,8 @@ Antes de implementar offline DRM para o FairPlay num dispositivo iOS 10 e poster
 
 * Reveja a proteção de conteúdo online para o FairPlay: 
 
-    - [Configuração e requisitos de licença do Apple FairPlay](fairplay-license-overview.md)
-    - [Utilizar DRM dinâmico licença e de encriptação de serviço de entrega](protect-with-drm.md)
+    - [Requisitos de licença e configuração do Apple FairPlay](fairplay-license-overview.md)
+    - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md) (Procedimentos: utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM)
     - Um exemplo de .NET que inclui a configuração de online FPS de transmissão em fluxo: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
 * Obter o SDK de FPS a partir da rede de programador da Apple. O SDK de FPS contém dois componentes:
 

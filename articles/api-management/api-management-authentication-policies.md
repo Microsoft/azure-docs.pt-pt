@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994954"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764325"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -73,15 +73,20 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Exemplo  
+### <a name="examples"></a>Exemplos  
   
+Neste cliente de exemplo o certificado é identificado por sua impressão digital.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+Neste exemplo, o certificado de cliente é identificado por nome de recurso.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Elementos  
   
 |Name|Descrição|Necessário|  
@@ -92,7 +97,8 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|O thumbprint do certificado de cliente.|Sim|N/A|  
+|thumbprint|O thumbprint do certificado de cliente.|Seja `thumbprint` ou `certificate-id` tem de estar presente.|N/A|  
+|certificate-id|O nome de recurso de certificado.|Seja `thumbprint` ou `certificate-id` tem de estar presente.|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

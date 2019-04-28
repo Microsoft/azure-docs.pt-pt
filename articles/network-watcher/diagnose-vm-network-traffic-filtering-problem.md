@@ -3,8 +3,8 @@ title: Diagnosticar um problema de filtro de tráfego de rede na máquina virtua
 description: Neste guia de início rápido, saiba como diagnosticar um problema de filtro de tráfego de rede de máquina virtual ao utilizar a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61065130"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Início rápido: Diagnosticar um problema de filtragem do tráfego do máquina virtual rede com o portal do Azure
 
@@ -47,7 +47,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Location| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -82,7 +82,7 @@ Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, 
     | Máquina virtual   | Selecionar myVm                                                                                       |
     | Interface de rede | myvm – O nome da interface de rede que o portal criou quando criou a VM é diferente. |
     | Protocolo          | TCP                                                                                               |
-    | Direção         | Saída                                                                                          |
+    | Direction         | Saída                                                                                          |
     | Endereço IP local  | 10.0.0.4                                                                                          |
     | Porta local      | 60000                                                                                                |
     | Endereço IP remoto | 13.107.21.200 - um dos endereços para < www.bing.com>.                                             |

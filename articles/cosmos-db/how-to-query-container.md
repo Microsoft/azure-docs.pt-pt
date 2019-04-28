@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
 ms.openlocfilehash: 2ea228a1db204170f947b5fe71f1865a4620b0f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61053957"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consultar um contentor do Cosmos do Azure
 

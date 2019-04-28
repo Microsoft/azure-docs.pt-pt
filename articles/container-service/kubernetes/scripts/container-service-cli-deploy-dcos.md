@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
 ms.openlocfilehash: 2d9f58527908a17dd445b6afecbcd7e93f70de2c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896086"
 ---
 # <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Criar um Cluster de DC/OS do serviço de contentor do Azure
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906586"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure
 Centro de segurança do Azure recomendará que restringir o acesso através de pontos finais de acesso à Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tem um ou mais regras de entrada que permitem o acesso de "qualquer" endereço IP de origem. Abrir o acesso a "todos" pode permitir que atacantes acedam aos seus recursos. Centro de segurança irá recomendar que editar estas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisam de acesso.

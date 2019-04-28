@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733905"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -40,12 +40,12 @@ Antes de fazer cópias de segurança da base de dados do SQL Server, verifique a
 
 ### <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 
-Para todas as operações, a máquina virtual de VM do SQL Server necessita de conectividade para os endereços IP públicos do Azure. Operações da VM (base de dados de deteção, configurar cópias de segurança, agendar cópias de segurança, restaurar pontos de recuperação e assim por diante) falhar sem conectividade com os endereços IP públicos. Estabelecer conectividade com uma destas opções:
+Para todas as operações, a máquina virtual de VM do SQL Server necessita de conectividade para os endereços IP públicos do Azure. Operações de VM (deteção de base de dados, configurar cópias de segurança, agendar cópias de segurança, restaurar pontos de recuperação e assim por diante) falharem sem conectividade com os endereços IP públicos. Estabelecer conectividade com uma destas opções:
 
 - **Permitir que os intervalos IP do datacenter do Azure**: Permitir a [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no download. Para aceder ao grupo de segurança de rede (NSG), utilize o **Set-AzureNetworkSecurityRule** cmdlet.
 - **Implementar um servidor proxy HTTP para encaminhar o tráfego**: Quando copia em segurança um banco de dados do SQL Server numa VM do Azure, a extensão de cópia de segurança na VM utiliza as APIs de HTTPS para enviar comandos de gestão para a cópia de segurança do Azure e dados para o armazenamento do Azure. A extensão de cópia de segurança também utiliza o Azure Active Directory (Azure AD) para autenticação. Encaminhe o tráfego de extensão de cópia de segurança para estes três serviços através do proxy HTTP. A extensão é o único componente que está configurado para acesso à internet pública.
 
-Cada opções tem vantagens e desvantagens
+Cada opção tem vantagens e desvantagens
 
 **Opção** | **Vantagens** | **Desvantagens**
 --- | --- | ---
@@ -60,11 +60,11 @@ Cópia de segurança do Azure faz uma série de coisas quando configurar a cópi
 - Para detetar as bases de dados na máquina virtual, o Azure Backup cria a conta **NT SERVICE\AzureWLBackupPluginSvc**. Esta conta é utilizada para cópia de segurança e restauro e necessita de permissões de administrador do sistema do SQL.
 - Tira partido de cópia de segurança do Azure a **NT AUTHORITY\SYSTEM** de conta para deteção/consulta de base de dados, para que esta conta tem de ser um início de sessão público no SQL.
 
-Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga esta instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Verifique se as diretrizes de nomenclatura de base de dados para cópia de segurança do Azure
 
-Evite as seguintes opções para nomes de base de dados:
+Evitar o abaixo para nomes de base de dados:
 
   * Espaços à direita/líder
   * À direita '!'
@@ -106,7 +106,7 @@ Detete as bases de dados em execução na VM.
 
     ![Mensagem de êxito da implementação](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Cópia de segurança do Azure Deteta todas as bases de dados do SQL Server na VM. Durante a deteção, ocorre o seguinte em segundo plano:
+8. Cópia de segurança do Azure Deteta todas as bases de dados do SQL Server na VM. Durante a deteção de abaixo ocorre em segundo plano:
 
     - Cópia de segurança do Azure registar a VM com o Cofre de cópia de segurança da carga de trabalho. Todas as bases de dados na VM registada só podem ser copiadas para este cofre.
     - O Azure Backup instala o **AzureBackupWindowsWorkload** extensão na VM. Nenhum agente está instalado na base de dados SQL.
@@ -171,7 +171,7 @@ Uma política de cópia de segurança define quando os backups são feitos e o p
 Para criar uma política de cópia de segurança:
 
 1. No cofre, clique em **políticas de cópia de segurança** > **Add**.
-2. Na **Add** menu, clique em **do SQL Server na VM do Azure**. Isso define o tipo de política.
+2. Na **Add** menu, clique em **do SQL Server na VM do Azure**. Para define o tipo de política.
 
    ![Escolha um tipo de política para a nova política de cópia de segurança](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Para criar uma política de cópia de segurança:
 4. Na **política de cópia de segurança completa**, selecione um **frequência de cópia de segurança**, escolha **diária** ou **semanal**.
 
    - Para **diária**, selecione a hora e fuso horário quando começa a tarefa de cópia de segurança.
-   - Tem de executar um backup completo, não é possível desativar a **cópia de segurança completa** opção.
+   - Tem de executar um backup completo, não pode desativar a **cópia de segurança completa** opção.
    - Clique em **cópia de segurança completa** para ver a política.
    - Não é possível criar cópias de segurança diferenciais para cópias de segurança completas diárias.
    - Para **semanal**, selecione o dia da semana, hora e fuso horário quando começa a tarefa de cópia de segurança.

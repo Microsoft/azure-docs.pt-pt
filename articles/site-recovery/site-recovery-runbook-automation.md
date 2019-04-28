@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 26c3466080cb356ca3610d42eaaf5ee4975d3731
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471949"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de automatização do Azure aos planos de recuperação
 Neste artigo, descrevemos como o Azure Site Recovery se integra com a automatização do Azure para ajudar a expandir seus planos de recuperação. Planos de recuperação podem orquestrar a recuperação de VMs que são protegidas com o Site Recovery. Planos de recuperação funcionam tanto para a replicação para uma nuvem secundária e para replicação no Azure. Planos de recuperação também ajudam a tornar a recuperação **consistentemente preciso**, **repetíveis**, e **automatizada**. Se efetuar a ativação pós-falha suas VMs do Azure, integração com a automatização do Azure expande a seus planos de recuperação. Pode usá-lo para executar runbooks, que oferecem as tarefas de automação poderoso.
@@ -27,9 +27,9 @@ Neste artigo, descrevemos como integrar os runbooks de automatização do Azure 
     ![Clique no botão Personalizar](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. Com o botão direito **grupo 1: Iniciar**e, em seguida, selecione **adicionar ação posterior**.
+2. Com o botão direito **grupo 1: Inicie**e, em seguida, selecione **adicionar ação posterior**.
 
-    ![Inicie o botão direito do mouse grupo 1: E adicionar ação posterior](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Atalho grupo 1: Iniciar e adicionar a ação de postagem](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Clique em **escolher um script**.
 
@@ -43,7 +43,7 @@ Neste artigo, descrevemos como integrar os runbooks de automatização do Azure 
 
 6. Na sua conta de automatização, selecione um runbook. Este runbook é o script que é executado durante a execução do plano de recuperação, após a recuperação do primeiro grupo.
 
-7. Para guardar o script, clique em **OK**. O script é adicionado ao **grupo 1: passos posteriores**.
+7. Para guardar o script, clique em **OK**. O script é adicionado ao **grupo 1: Pós-passos**.
 
     ![Grupo de pós-ação 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 

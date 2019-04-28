@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/27/2018
 ms.openlocfilehash: 8b38c5b94a3019b0c4ccaaa5c0cb86f74380469e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545061"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911332"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Exemplos da CLI do Azure para a base de dados do Azure para MariaDB 
 A tabela seguinte inclui ligações para scripts da CLI do Azure de exemplo da base de dados do Azure para MariaDB.

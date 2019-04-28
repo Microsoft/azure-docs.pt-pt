@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747613"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse perguntas mais frequentes
 
@@ -82,19 +82,19 @@ P. Que controladores de cliente suporta?
 
 R. Suporte a Driver para o armazém de dados pode ser encontrado no [cadeias de ligação] página
 
-P: Que formatos de ficheiro suportados pelo PolyBase com o SQL Data Warehouse?
+P. Que formatos de ficheiro suportados pelo PolyBase com o SQL Data Warehouse?
 
 R: ORC, o RC, o Parquet e o texto delimitado simples
 
-P: O que posso ligar a partir do armazém de dados SQL com o PolyBase? 
+P. O que posso ligar a partir do armazém de dados SQL com o PolyBase? 
 
 R: [Azure Data Lake Store] e [Blobs de armazenamento do Azure]
 
-P: Propagação de computação é possível ao ligar a Blobs de armazenamento do Azure ou do ADLS? 
+P. Propagação de computação é possível ao ligar a Blobs de armazenamento do Azure ou do ADLS? 
 
 R: Não, o PolyBase do SQL DW interage apenas os componentes de armazenamento. 
 
-P: Pode ligar para HDI?
+P. Pode ligar para HDI?
 
 R: HDI pode utilizar o ADLS ou WASB como a camada HDFS. Se tiver como sua camada de HDFS, em seguida, pode carregar esses dados no armazém de dados do SQL. No entanto, não é possível gerar o cálculo de propagação para a instância do HDI. 
 

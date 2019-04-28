@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.openlocfilehash: 57da4fcb6fb1a91477b6c31387ab06205be8138c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60890506"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de API com node. js e o Azure Cosmos DB tabela
 

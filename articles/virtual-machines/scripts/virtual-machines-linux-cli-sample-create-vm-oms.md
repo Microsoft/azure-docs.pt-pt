@@ -17,11 +17,11 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 6aed5f40d689fc84c82f37760e78fc7c3fe94dd1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127710"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Monitorizar uma VM com o Azure Monitor
 

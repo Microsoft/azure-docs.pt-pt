@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56231914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948868"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Início rápido: Criar a primeira instância de pesquisa personalizada do Bing
 

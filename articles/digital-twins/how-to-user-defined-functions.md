@@ -10,11 +10,11 @@ ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
 ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076251"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921889"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Como criar funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -67,7 +67,7 @@ Com o corpo JSON:
 }
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Qual sua instância estiver alojada num servidor a região |
 
@@ -107,7 +107,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Um nome de limites com várias partes de conteúdo |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
@@ -212,7 +212,7 @@ Crie uma atribuição de função para a função definida pelo utilizador ser e
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Valor | Substituir |
+    | Value | Substituir |
     | --- | --- |
     | YOUR_SPACE_NAME | O nome do espaço de que pretende utilizar |
 
@@ -232,7 +232,7 @@ Crie uma atribuição de função para a função definida pelo utilizador ser e
     }
     ```
 
-    | Valor | Substituir |
+    | Value | Substituir |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
     | YOUR_USER_DEFINED_FUNCTION_ID | O ID para a função definida pelo utilizador que pretende utilizar |

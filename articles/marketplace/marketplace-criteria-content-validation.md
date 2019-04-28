@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093204"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -95,7 +95,7 @@ Todas as ofertas têm de cumprir os [todos os requisitos de listagem](https://do
 | 7 | Política de privacidade e termos de utilização disponíveis  |  As políticas ou termos, não é necessários  | | 
 | 8 | Tipos de serviço | Certifique-se de que tipo de serviço corresponde ao título | |
 | 9 | Competências |<br>• Tem de ser, pelo menos, um dos seguintes procedimentos:<br>Desenvolvimento de aplicativos • <br>• Integração de aplicações <br>Gerenciamento de ciclo de vida de aplicativos • <br>• Plataforma de cloud <br>Análise de dados • <br>• Data Center <br>Plataforma de dados • <br>• DevOps |
-| 10 | Produtos | Tem de ser Azure | |
+| 10 | Products | Tem de ser Azure | |
 | 11 | País/Região | Certifique-se de correspondências de país e região escolhidas moeda | |
 | 12 | Saiba Mais  | <br>• Ligações na parte inferior (sob a descrição, não as ligações do marketplace no lado esquerdo) leva para obter mais informações sobre a solução e estão publicamente disponíveis e mostrando corretamente. <br>• Ligações tem de ter um nome"amigável" e não ser que aparece como o nome do ficheiro de qualquer downloads | |
 

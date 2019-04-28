@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60931828"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de registo para o Azure Monitor com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados de registo para o Azure Monitor, de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Azure Monitor.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -142,7 +142,7 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
 | String |_s |
-| Booleano |_b |
+| Boolean |_b |
 | Double |_d |
 | Data/hora |_t |
 | GUID |_g |
@@ -171,7 +171,7 @@ Se, em seguida, submetido a seguinte entrada, antes do tipo de registo foi criad
 ## <a name="reserved-properties"></a>Propriedades reservadas
 As seguintes propriedades estão reservadas e não devem ser usadas num tipo de registo personalizado. Receberá um erro se o payload inclui um destes nomes de propriedade.
 
-- inquilino
+- tenant
 
 ## <a name="data-limits"></a>Limites de dados
 Existem algumas restrições sobre os dados publicados para a API de recolha de dados do Azure Monitor.

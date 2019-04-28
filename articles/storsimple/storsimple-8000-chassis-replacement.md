@@ -1,6 +1,6 @@
 ---
-title: Substitua o chassis no dispositivo de série 8000 do StorSimple | Microsoft Docs
-description: Descreve como remover e substitua o chassis para o seu inclusão principal do StorSimple ou a inclusão EBOD.
+title: Substituir o chassis no dispositivo da série StorSimple 8000 | Documentos da Microsoft
+description: Descreve como remover e substituir o chassis para o seu StorSimple de bastidor principal ou o bastidor EBOD.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 073fcf0064f1d1482f4683d733f00cf918ff2f38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dfc39f4d08c8a49d1564a0a5bd7e3ef4156e3fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874802"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61312450"
 ---
-# <a name="replace-the-chassis-on-your-storsimple-device"></a>Substitua o chassis no dispositivo StorSimple
+# <a name="replace-the-chassis-on-your-storsimple-device"></a>Substituir o chassis no dispositivo StorSimple
 ## <a name="overview"></a>Descrição geral
-Este tutorial explica como remover e substituir um chassis de um dispositivo de série 8000 do StorSimple. O modelo do StorSimple 8100 é um dispositivo de inclusão único (chassis), enquanto o 8600 é um dispositivo de inclusão dupla (dois chassis). Para um modelo de 8600, existem dois chassis potencialmente poderá falhar no dispositivo: chassis para a inclusão principal ou o chassis para o bastidor EBOD.
+Este tutorial explica como remover e substituir um chassis num dispositivo da série StorSimple 8000. O modelo de StorSimple 8100 é um dispositivo de bastidor único (chassis), ao passo que o 8600 é um dispositivo de bastidor dupla (dois chassis). Para um modelo 8600, são potencialmente por um período de dois chassis, que pode falhar no dispositivo: chassis para o bastidor principal ou os chassis para a inclusão EBOD.
 
-Em ambos os casos, o chassis de substituição que é enviado pela Microsoft está vazio. Sem energia e arrefecimento módulos do (PCMs), módulos de controlador, unidades de disco de estado sólido (SSDs), unidades de disco rígido (HDDs) ou EBOD módulos será incluídos.
+Em ambos os casos, o chassi de substituição que é fornecido pela Microsoft está vazio. Sem energia e refrigeração módulos do (PCMs), módulos de controlador, unidades de disco de estado sólido (SSDs), unidades de disco rígido (HDDs) ou módulos EBOD serão incluídos.
 
 > [!IMPORTANT]
-> Antes de remover e de substituir o chassis, reveja as informações de segurança no [substituição de componente de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
+> Antes de remover e substituir os chassis, reveja as informações de segurança na [substituição de componente de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
 
 
-## <a name="remove-the-chassis"></a>Remova o chassis
-Execute os seguintes passos para remover o chassis no dispositivo StorSimple.
+## <a name="remove-the-chassis"></a>Remover os chassis
+Execute os seguintes passos para remover chassis no dispositivo StorSimple.
 
 #### <a name="to-remove-a-chassis"></a>Para remover um chassis
-1. Certifique-se de que o dispositivo StorSimple é encerrado e desligado da todas as origens de energia.
-2. Remova a rede e cabos SAS, se aplicável.
-3. Remova a unidade de bastidor.
-4. Remova cada unidades e tenha em atenção os blocos de que são removidos. Para obter mais informações, consulte [remover a unidade de disco](storsimple-8000-disk-drive-replacement.md#remove-the-disk-drive).
-5. Na caixa EBOD (se este for o chassis que falharam), remova os módulos de controlador EBOD. Para obter mais informações, consulte [remover um controlador EBOD](storsimple-8000-ebod-controller-replacement.md#remove-an-ebod-controller).
+1. Certifique-se de que o dispositivo StorSimple é encerrado e desligado de todas as origens de energia.
+2. Remova toda a rede e cabos SAS, se aplicável.
+3. Remova a unidade de rack.
+4. Remova as unidades e tenha em atenção as ranhuras a partir da qual são removidas. Para obter mais informações, consulte [remover a unidade de disco](storsimple-8000-disk-drive-replacement.md#remove-the-disk-drive).
+5. Na caixa EBOD (se este é os chassis que falha), remover os módulos do controlador EBOD. Para obter mais informações, consulte [remover um controlador EBOD](storsimple-8000-ebod-controller-replacement.md#remove-an-ebod-controller).
    
-    Na caixa primária (se este for o chassis que falharam), remova os controladores e tenha em atenção os blocos de que são removidos. Para obter mais informações, consulte [remover um controlador](storsimple-8000-controller-replacement.md#remove-a-controller).
+    Na caixa primária (se este é os chassis que falha), remova os controladores e tenha em atenção as ranhuras a partir da qual são removidas. Para obter mais informações, consulte [remover um controlador de](storsimple-8000-controller-replacement.md#remove-a-controller).
 
-## <a name="install-the-chassis"></a>Instalar o chassis
-Execute os seguintes passos para instalar o chassis no dispositivo StorSimple.
+## <a name="install-the-chassis"></a>Instalar os chassis
+Execute os seguintes passos para instalar o chassi no dispositivo StorSimple.
 
 #### <a name="to-install-a-chassis"></a>Para instalar um chassis
-1. Monte o chassis no bastidor. Para obter mais informações, consulte [montar em Bastidor os cabos do 8100 StorSimple dispositivo](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) ou [montar em Bastidor os cabos do 8600 StorSimple dispositivo](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
-2. Depois do chassis está montado num bastidor, instale os módulos de controlador as posições mesmas que tenham sido anteriormente instalados no.
-3. Instale as unidades nas posições e ranhuras que tenham sido anteriormente instalados no mesmo.
+1. Monte o chassi no rack. Para obter mais informações, consulte [dispositivo montar em Bastidor seu StorSimple 8100](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) ou [dispositivo montar em Bastidor seu StorSimple 8600](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
+2. Depois do chassis esteja montada em rack, instale os módulos do controlador nas posições mesmo que anteriormente estivessem instalados no.
+3. Instale as unidades no posições e ranhuras que anteriormente estivessem instalados no mesmo.
    
    > [!NOTE]
-   > Recomendamos que instale SSD nas ranhuras primeiro e, em seguida, instale os HDDs.
+   > Recomendamos que instale os SSDs nas ranhuras primeiro e, em seguida, instale os HDDs.
   
-4. Com o dispositivo montado em bastidor e os componentes instalados, ligar o seu dispositivo para as fontes de alimentação apropriado e ative o dispositivo. Para obter mais informações, consulte [instalar os cabos do dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [instalar os cabos do dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+4. Com o dispositivo montado em bastidor e os componentes instalados, ligue o seu dispositivo para as origens de dados apropriadas e ativar o dispositivo. Para obter detalhes, consulte [ligar o seu dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) ou [instalar os cabos do dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [substituição de componente de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
 

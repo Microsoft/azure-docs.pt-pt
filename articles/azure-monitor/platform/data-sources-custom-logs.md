@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996522"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
 A origem de dados de registos personalizado no Azure Monitor permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.

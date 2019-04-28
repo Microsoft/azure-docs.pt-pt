@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
 ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850909"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996178"
 ---
 # <a name="handling-event-grid-events"></a>A processar eventos do Event Grid
 

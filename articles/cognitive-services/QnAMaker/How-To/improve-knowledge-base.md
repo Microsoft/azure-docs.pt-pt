@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372735"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar o Active Directory de aprendizagem para melhorar a sua base de dados de conhecimento
 

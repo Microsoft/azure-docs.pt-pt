@@ -12,11 +12,11 @@ ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61408984"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Java para consultar uma base de dados SQL do Azure
 

@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926505"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos duplos Digital do Azure
 
@@ -51,16 +51,16 @@ Metadados do blob JSON está em conformidade com o modelo seguinte:
   }
 ```
 
-| Atributo | Tipo | Descrição |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
-| **parentId** | Cadeia | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
-| **name** |Cadeia | Um nome amigável a humanos para o blob |
-| **tipo** | Cadeia | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
+| **parentId** | String | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
+| **name** |String | Um nome amigável a humanos para o blob |
+| **tipo** | String | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
 | **typeId** | Número inteiro | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
-| **subtype** | Cadeia | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
+| **subtype** | String | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
 | **subtypeId** | Número inteiro | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
-| **description** | Cadeia | Descrição personalizada do blob |
-| **sharing** | Cadeia | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Descrição personalizada do blob |
+| **sharing** | String | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
 
 Metadados do blob é sempre fornecido como o primeiro segmento com **Content-Type** `application/json` ou como um `.json` ficheiro. Os dados de ficheiro são fornecidos no segundo segmento e podem ser de qualquer tipo MIME suportado.
 
@@ -108,20 +108,20 @@ Blobs individualmente retornados está em conformidade com o esquema JSON do seg
 }
 ```
 
-| Atributo | Tipo | Descrição |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
-| **id** | Cadeia | O identificador exclusivo para o blob |
-| **name** |Cadeia | Um nome amigável a humanos para o blob |
-| **parentId** | Cadeia | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
-| **tipo** | Cadeia | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
+| **id** | String | O identificador exclusivo para o blob |
+| **name** |String | Um nome amigável a humanos para o blob |
+| **parentId** | String | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
+| **tipo** | String | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
 | **typeId** | Número inteiro | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
-| **subtype** | Cadeia | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
+| **subtype** | String | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
 | **subtypeId** | Número inteiro | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
-| **sharing** | Cadeia | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
-| **description** | Cadeia | Descrição personalizada do blob |
+| **sharing** | String | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Descrição personalizada do blob |
 | **contentInfos** | Array | Especifica informações de metadados não estruturados, incluindo a versão |
-| **fullName** | Cadeia | O nome completo do blob |
-| **spacePaths** | Cadeia | O caminho de espaço |
+| **fullName** | String | O nome completo do blob |
+| **spacePaths** | String | O caminho de espaço |
 
 Metadados do blob é sempre fornecido como o primeiro segmento com **Content-Type** `application/json` ou como um `.json` ficheiro. Os dados de ficheiro são fornecidos no segundo segmento e podem ser de qualquer tipo MIME suportado.
 
@@ -159,7 +159,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Um nome de limites com várias partes de conteúdo |
 
@@ -195,7 +195,7 @@ curl
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | YOUR_TOKEN | O token de OAuth 2.0 válido |
 | YOUR_SPACE_ID | O ID do espaço para associar o blob com |

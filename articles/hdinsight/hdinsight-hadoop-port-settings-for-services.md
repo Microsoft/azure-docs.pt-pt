@@ -1,7 +1,6 @@
 ---
 title: Portas utilizadas pelo serviços do Hadoop no HDInsight - Azure
 description: Uma lista das portas utilizadas pelo serviços do Hadoop em execução no HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715465"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761247"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas utilizadas pelos serviços do Apache Hadoop no HDInsight
 
@@ -78,7 +77,7 @@ Todos os serviços expostos publicamente na internet têm de ser autenticados:
 | Serviço | Nós | Porta | Caminho do URL | Protocolo | 
 | --- | --- | --- | --- | --- |
 | IU web do Ambari | Nós de cabeça | 8080 | / | HTTP |
-| API REST do Ambari | Nós de cabeça | 8080 | / api/v1 | HTTP |
+| API REST do Ambari | Nós de cabeça | 8080 | /api/v1 | HTTP |
 
 Exemplos:
 
@@ -114,7 +113,7 @@ Exemplos:
 | Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nós de cabeça |10001 |Thrift |Serviço para ligar ao Hive (Thrift/JDBC) |
-| Hive Metastore |Nós de cabeça |9083 |Thrift |Serviço para ligar aos metadados do Hive (Thrift/JDBC) |
+| Metastore do Hive |Nós de cabeça |9083 |Thrift |Serviço para ligar aos metadados do Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Portas de WebHCat
 
@@ -157,7 +156,7 @@ Exemplos:
 
 | Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
-| Mediador |Nós de trabalho |9092 |[Protocolo de Kafka](https://kafka.apache.org/protocol.html) |Utilizado para comunicação de cliente |
+| Broker |Nós de trabalho |9092 |[Protocolo de Kafka](https://kafka.apache.org/protocol.html) |Utilizado para comunicação de cliente |
 | &nbsp; |Nós do Zookeeper |2181 |&nbsp; |A porta que os clientes utilizam para ligar ao Zookeeper |
 
 ### <a name="spark-ports"></a>Portas de Spark

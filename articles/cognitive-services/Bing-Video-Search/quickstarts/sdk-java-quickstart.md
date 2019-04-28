@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
 ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105714"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473302"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Início rápido: Executar uma pesquisa de vídeos com o SDK de pesquisa de vídeos do Bing para Java
 

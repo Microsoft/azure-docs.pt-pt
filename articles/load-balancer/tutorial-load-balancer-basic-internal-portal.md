@@ -16,11 +16,11 @@ ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61318503"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Carga de tráfego interno de saldo com um balanceador de carga básico no portal do Azure
 

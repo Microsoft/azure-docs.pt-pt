@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
 ms.openlocfilehash: d948798f161eb36578cb679b6d96409917424fd4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61056145"
 ---
 # <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Como implementar personalizado de sincronização para otimizar para elevada disponibilidade e desempenho
 

@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 5064f47444b4ca6d9194ed66144938e6e3d51a4e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261976"
 ---
 # <a name="what-are-mapping-data-flows-in-azure-data-factory"></a>O que são o mapeamento de fluxos de dados do Azure Data Factory?
 

@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900855"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetria de evento: Modelo de dados do Application Insights
 
@@ -25,7 +25,7 @@ Pode criar itens de telemetria de evento (no [Application Insights](../../azure-
 
 Semanticamente, eventos podem ou não podem ser correlacionados com pedidos. No entanto, se usados corretamente, é mais importante do que os pedidos ou rastreios de telemetria dos eventos. Eventos representam a telemetria de negócios e deve ser um assunto para separar, menos agressivos [amostragem](../../azure-monitor/app/api-filtering-sampling.md).
 
-## <a name="name"></a>Nome
+## <a name="name"></a>Name
 
 Nome do evento. Para permitir que o agrupamento correto e de métricas úteis, restringir o seu aplicativo para que ele gera um pequeno número de nomes de eventos separado. Por exemplo, não utilize um nome separado para cada instância gerado de um evento.
 

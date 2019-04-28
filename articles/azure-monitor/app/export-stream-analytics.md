@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
 ms.openlocfilehash: 58eaec32fee149c845dc77a83763f2fcd8133a06
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901464"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilizar o Stream Analytics para processar os dados exportados do Application Insights
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de origens. Pode transformar e filtrar os dados e, em seguida, encaminhar para uma variedade de sinks.

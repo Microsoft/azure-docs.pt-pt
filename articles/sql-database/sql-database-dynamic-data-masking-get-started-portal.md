@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2018
 ms.openlocfilehash: 3d5ab203268ced1951d2ba9c852ece5bd5467c68
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61077850"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara com o portal do Azure de dados dinâmicos da base de dados SQL
 

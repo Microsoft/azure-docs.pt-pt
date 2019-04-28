@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363527"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows e Linux origens de dados de desempenho no Azure Monitor
 Contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode recolher contadores de desempenho em intervalos frequentes para análise quase em Tempo Real (NRT), além de agregar dados de desempenho para análise de termo mais tempo e relatórios.
@@ -85,7 +85,7 @@ Os parâmetros neste elemento são descritos na tabela seguinte.
 | object\_name | Nome do objeto para a coleção. |
 | instance\_regex |  R *expressão regular* definir quais as instâncias para recolher. O valor: `.*` Especifica todas as instâncias. Para recolher métricas de processador para apenas os \_instância Total, poderia especificar `_Total`. Para recolher métricas de processo para apenas as instâncias crond ou sshd, pode especificar: `(crond\|sshd)`. |
 | counter\_name\_regex | R *expressão regular* definir quais contadores (para o objeto) para recolher. Para recolher todos os contadores para o objeto, especifique: `.*`. Para recolher contadores para espaço de comutação apenas para o objeto de memória, por exemplo, pode especificar: `.+Swap.+` |
-| intervalo | Frequência em que os contadores do objeto são recolhidos. |
+| interval | Frequência em que os contadores do objeto são recolhidos. |
 
 
 A tabela seguinte lista os objetos e os contadores que pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux no Azure Monitor](data-sources-linux-applications.md).

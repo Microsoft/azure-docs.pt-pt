@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450669"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger o OPC UA cliente e a aplicação de servidor OPC UA 
 O Cofre de OPC é um microsserviço que pode configurar, registe-se e gerenciar o ciclo de vida do certificado para o servidor OPC UA e aplicações de cliente na cloud. Este artigo mostra-lhe como proteger um cliente de OPC UA e um OPC UA, aplicação de servidor com um novo par de chaves e o certificado com o Cofre de OPC.

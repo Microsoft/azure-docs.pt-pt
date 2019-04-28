@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.openlocfilehash: a3c88953eea95871529e8ab257f52b694db443a9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61244315"
 ---
 # <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Procedimentos armazenados de base de dados do Azure para a replicação de dados MySQL
 
@@ -21,10 +21,10 @@ Os seguintes procedimentos armazenados são utilizados para configurar ou remove
 
 |**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Nota de utilização**|
 |-----|-----|-----|-----|
-|*MySQL.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Para transferir dados com o modo SSL, passe o contexto do certificado de AC para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, transmita uma cadeia vazia para o parâmetro master_ssl_ca.|
-|*Iniciar de MySQL.az_replication*|N/A|N/A|Inicia a replicação.|
-|*MySQL.az_replication _stop*|N/A|N/A|Para a replicação.|
-|*MySQL.az_replication _remove_master*|N/A|N/A|Remove a relação de replicação entre o mestre e a réplica.|
-|*MySQL.az_replication_skip_counter*|N/A|N/A|Ignora a um erro de replicação.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|Para transferir dados com o modo SSL, passe o contexto do certificado de AC para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, transmita uma cadeia vazia para o parâmetro master_ssl_ca.|
+|*mysql.az_replication _start*|N/A|N/A|Inicia a replicação.|
+|*mysql.az_replication _stop*|N/A|N/A|Para a replicação.|
+|*mysql.az_replication _remove_master*|N/A|N/A|Remove a relação de replicação entre o mestre e a réplica.|
+|*mysql.az_replication_skip_counter*|N/A|N/A|Ignora a um erro de replicação.|
 
 Para configurar a dados na replicação entre um mestre e uma réplica na base de dados do Azure para MySQL, consulte [como configurar a replicação de dados](howto-data-in-replication.md).

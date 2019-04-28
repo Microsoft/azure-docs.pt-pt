@@ -8,11 +8,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: b01c328812113ad721b7632978ad28e54a6a3ef1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61000132"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como ver dados relacionados ativos no catálogo de dados do Azure?
 O catálogo de dados do Azure permite-lhe ver os recursos de dados relacionados com um relações de recurso e da vista de dados selecionados entre eles. 

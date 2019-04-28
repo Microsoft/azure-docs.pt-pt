@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: MT
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558527"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759561"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
 Este artigo aborda os dois tipos de políticas de acesso de pré-visualização do Azure Time Series Insights.
 
-## <a name="grant-data-access"></a>Conceder acesso a dados
-
-Siga estes passos para conceder acesso a dados para um principal de utilizador.
+## <a name="sign-in-to-tsi"></a>Inicie sessão no TSI
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Localize o seu ambiente do Time Series Insights. Introduza `Time Series` no **pesquisa** caixa. Selecione **ambiente de Time Series** nos resultados da pesquisa.
 1. Selecione o seu ambiente do Time Series Insights na lista.
+
+## <a name="grant-data-access"></a>Conceder acesso a dados
+
+Siga estes passos para conceder acesso a dados para um principal de utilizador.
+
 1. Selecione **políticas de acesso de dados**e, em seguida, selecione **+ adicionar**.
 
     ![um de acesso de dados][1]
@@ -55,15 +58,12 @@ Siga estes passos para conceder acesso a dados para um principal de utilizador.
 
     ![Quinto de acesso de dados][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Fornecer acesso de convidado para um utilizador de outro inquilino do Azure Active Directory
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Fornecer acesso de convidado de outro inquilino do AAD
 
 `Guest` Não é uma função de gestão. É um termo utilizado para uma conta que é convidada a partir de um inquilino para outro. Depois da conta de convidado é convidada para o diretório do inquilino, ele pode ter o mesmo controle de acesso aplicado à mesma, como qualquer outra conta. Pode conceder acesso de gestão para um ambiente de informações de série de tempo utilizando o painel de controlo de acesso (IAM). Ou pode conceder acesso aos dados no ambiente por meio do painel de políticas de acesso de dados. Para obter mais informações sobre o acesso de convidado de inquilino do Azure Active Directory (Azure AD), leia [utilizadores de colaboração de adicionar Azure Active Directory B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Siga estes passos para conceder acesso de convidado para um ambiente do Time Series Insights para um utilizador de outro inquilino.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Localize o seu ambiente do Time Series Insights. Introduza **séries de tempo** no **pesquisa** caixa. Selecione **ambiente de Time Series** nos resultados da pesquisa.
-1. Selecione o seu ambiente do Time Series Insights na lista.
 1. Selecione **políticas de acesso de dados**e, em seguida, selecione **+ convidar**.
 
     ![acesso de dados-seis][6]
@@ -98,7 +98,7 @@ Siga estes passos para conceder acesso de convidado para um ambiente do Time Ser
 
 1. Agora, o utilizador convidado terá de seguir os passos para aceder ao ambiente localizado no inquilino do Azure para o qual convidado. Em primeiro lugar, eles aceitarem o convite enviado-los. Este convite é enviado por e-mail para o endereço de e-mail utilizado no passo 5. Eles selecionam **começar** para aceitar.
 
-    ![acesso de dados-doze][12]
+    ![Data-access-twelve][12]
 
 1. Em seguida, o utilizador convidado aceita as permissões associadas a organização do administrador.
 
@@ -112,12 +112,14 @@ Siga estes passos para conceder acesso de convidado para um ambiente do Time Ser
 
     ![acesso de dados-quinze][15]
 
-Após o utilizador convidado seleciona o seu inquilino, verão o ambiente do Time Series Insights para que que forneceu-lhes acesso. Tem agora todas as funcionalidades associadas à função que forneceu-los com o passo 8.
+Após o utilizador convidado seleciona o seu inquilino, verão o ambiente do Time Series Insights para que que forneceu-lhes acesso. Tem agora todas as funcionalidades associadas à função que forneceu-os na **passo 5**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais [como adicionar uma origem de eventos do Event Hubs do Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) ao seu ambiente do Time Series Insights.
+
 * Envie [eventos para a origem do evento](./time-series-insights-send-events.md).
+
 * Modo de exibição [seu ambiente no Explorador do Time Series Insights pré-visualização](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

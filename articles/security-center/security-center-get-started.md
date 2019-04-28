@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60908330"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Carregar sua subscrição do Azure para o Centro de segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).

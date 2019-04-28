@@ -3,21 +3,22 @@ title: Copiar dados do MongoDB com o Azure Data Factory | Documentos da Microsof
 description: Saiba como copiar dados de Mongo DB para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
-ms.author: jingwang
+origin.date: 12/20/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562226"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400445"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB com o Azure Data Factory
 
@@ -48,7 +49,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo tem de ser definida como: **MongoDbV2** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **MongoDbV2** |Sim |
 | connectionString |Por exemplo, a especificar a cadeia de ligação do MongoDB `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte a [MongoDB manual na cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | base de dados | Nome da base de dados que pretende aceder. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
@@ -81,7 +82,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbV2Collection** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbV2Collection** | Sim |
 | CollectionName |Nome da coleção na base de dados do MongoDB. |Sim |
 
 **Exemplo:**
@@ -112,7 +113,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbV2Source** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbV2Source** | Sim |
 | filtro | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
 | cursorMethods.project | Especifica os campos a devolver em documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |

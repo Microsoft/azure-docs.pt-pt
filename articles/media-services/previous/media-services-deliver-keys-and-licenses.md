@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: dbdfac143cb3254e558622fc1eecfdf95876240e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465787"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilizar serviços de multimédia para entregar licenças DRM ou chaves AES 
 
@@ -347,5 +347,5 @@ namespace DeliverDRMLicenses
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte também
-* [Utilizar a encriptação comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
+* [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md) (Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine)
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

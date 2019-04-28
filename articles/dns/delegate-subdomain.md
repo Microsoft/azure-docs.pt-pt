@@ -2,17 +2,18 @@
 title: Delegar um subdomínio de DNS do Azure
 description: Aprenda a delegar um subdomínio de DNS do Azure.
 services: dns
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: article
-ms.date: 2/7/2019
-ms.author: victorh
+origin.date: 2/7/2019
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790815"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegar um subdomínio de DNS do Azure
 

@@ -10,16 +10,16 @@ ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61230390"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(PRETERIDO) Dimensionar pods e infraestrutura do Kubernetes
 
 > [!TIP]
-> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: dimensionar aplicações no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: Dimensionar aplicações no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: tamram
 ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484279"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gerir definições de conta de armazenamento no portal do Azure
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: MT
+ms.openlocfilehash: 7d9aafeb920eab7f6a87061a135bf2e464add436
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744346"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763654"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix no HDInsight
 
@@ -94,7 +94,7 @@ Para alterar uma tabela existente seja transacional, utilize a mesma propriedade
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > Não é possível voltar a mudar uma tabela transacional para a ser não transacional.
 
 ### <a name="salted-tables"></a>Tabelas de Salt
@@ -130,7 +130,7 @@ Um cluster do HBase do HDInsight inclui a [IU do Ambari](hdinsight-hadoop-manage
 
 2. Selecione **HBase** na lista de serviços no menu da esquerda, em seguida, selecione a **configurações** separador.
 
-    ![Configuração do HBase do Ambari](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
+    ![Ambari HBase config](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
 
 3. Encontrar o **Phoenix SQL** seção de configuração para ativar ou desativar a phoenix e definir o tempo limite de consulta.
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61087135"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação com a API Management do Azure de pedidos avançada
 A capacidade de limitar os pedidos de entrada é uma função de chave de API Management do Azure. Ou, ao controlar a taxa de pedidos ou os dados/pedidos total transferidos, gestão de API permite que os fornecedores de API proteger suas APIs de abuso e criar valor para diferentes camadas de produto de API.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906202"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Informações sobre ameaças e mapa de alertas de segurança
 Este artigo ajuda-o a utilizar o mapa de alertas de segurança do Centro de segurança do Azure e a segurança mapa das informações sobre ameaças baseada em eventos para resolver problemas relacionados à segurança.

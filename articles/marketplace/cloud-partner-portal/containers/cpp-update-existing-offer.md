@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 2b568717b6656fb9ae15e9a6dbd27441689c4372
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979835"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472711"
 ---
 # <a name="update-an-existing-container-offer"></a>Atualizar uma oferta existente do contentor
 

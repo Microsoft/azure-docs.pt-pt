@@ -16,11 +16,11 @@ ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830539"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início rápido: Criar uma aplicação Web ASP.NET 
 

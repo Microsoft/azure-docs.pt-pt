@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2018
-ms.author: victorh
+origin.date: 04/23/2018
+ms.date: 04/17/2019
+ms.author: v-junlch
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361967"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Descrição geral do encaminhamento baseado no caminho do URL do Gateway de Aplicação do Azure
 
@@ -100,3 +101,5 @@ Fragmento da regra PathBasedRouting:
 ## <a name="next-steps"></a>Passos Seguintes
 
 Depois de saber mais sobre o encaminhamento de conteúdo baseado em URL, aceda a [Criar um gateway de aplicação com encaminhamento baseado em URL](tutorial-url-route-powershell.md) para criar um gateway de aplicação com regras de encaminhamento do URL.
+
+<!-- Update_Description: update metedata properties -->

@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456228"
 ---
 # <a name="monitor-and-tune"></a>Monitorizar e otimizar
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.

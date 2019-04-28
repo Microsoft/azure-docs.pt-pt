@@ -12,11 +12,11 @@ ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
 ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61468010"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas no Azure Logic Apps com o Enterprise Integration Pack
 

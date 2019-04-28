@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024963"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Crie e gira orçamentos do Azure
 

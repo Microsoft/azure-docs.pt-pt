@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476141"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Carregar dados de geração 1 de armazenamento do Azure Data Lake para o SQL Data Warehouse
 Utilize tabelas externas do PolyBase para carregar dados de geração 1 de armazenamento do Azure Data Lake para o Azure SQL Data Warehouse. Embora seja possível executar consultas ad hoc em dados armazenados no Data Lake Storage Gen1, recomendamos que importar os dados para o SQL Data Warehouse para um melhor desempenho.

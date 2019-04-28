@@ -10,11 +10,11 @@ ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
 ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61306367"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 

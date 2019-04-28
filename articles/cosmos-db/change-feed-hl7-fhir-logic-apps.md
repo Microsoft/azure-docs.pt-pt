@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
 ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893914"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificar os pacientes de alterações de cuidados de saúde registo HL7 FHIR com Logic Apps e do Azure Cosmos DB
 

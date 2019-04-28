@@ -9,11 +9,11 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478529"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígidas para uma tarefa de importação
 
@@ -366,7 +366,7 @@ Todas as versões do Microsoft .NET Framework estão instaladas no seguinte dire
 
 Navegue para a parte acima mencionada no seu computador de destino onde a ferramenta precisa ser executado. Procure o nome da pasta a partir do "v4". Ausência de um diretório tal significa que o .NET 4 não está instalado no seu computador. Pode baixar o .NET 4 no seu computador com [Microsoft .NET Framework 4 (instalador Web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>Limits
 
 #### <a name="how-many-drives-can-i-preparesend-at-the-same-time"></a>O número de unidades pode me preparar/send ao mesmo tempo?
 

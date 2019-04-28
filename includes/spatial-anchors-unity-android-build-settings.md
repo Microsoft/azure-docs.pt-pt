@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
 ms.openlocfilehash: 228f445dda2724985154723a292adb8215a5ad68
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60342511"
 ---
 Open **definições de criação** ao selecionar **ficheiro** > **definições de criação**.
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: cecdb9f9af9c5194eb56cfefd63b31348f111980
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400735"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copiar dados do Magento com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço de Magento ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Magento** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Magento** | Sim |
 | anfitrião | O URL da instância do Magento. (ou seja, 192.168.222.110/magento3)  | Sim |
 | accessToken | O token de acesso do Magento. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
@@ -80,7 +80,7 @@ Para copiar dados do Magento, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **MagentoObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **MagentoObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -109,7 +109,7 @@ Para copiar dados do Magento, defina o tipo de origem na atividade de cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MagentoSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MagentoSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Customers"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

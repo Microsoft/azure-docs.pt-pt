@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 41d7c3d851e75a14d0af69ad47c1ffbb9d731e13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60936453"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>Exemplo - criar VM com disco gerido
 

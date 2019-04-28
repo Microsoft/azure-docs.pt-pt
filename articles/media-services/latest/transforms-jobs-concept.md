@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.openlocfilehash: 1c2ec576211741390ef91233101261a7881e4180
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466753"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Tarefas
 
@@ -67,7 +67,7 @@ R **transformar** ajuda-o a criar uma vez a receita (passo 1) e submeter tarefas
 
 Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="paging"></a>Paginação
+## <a name="paging"></a>Paging
 
 Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
 
@@ -79,5 +79,5 @@ Para obter detalhes, consulte [Dimensionar processamento de multimédia com a CL
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tutorial: Carregar, codificar e transmitir vídeos com .NET](stream-files-tutorial-with-api.md)
+- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir vídeos em fluxo com .NET)
 - [Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET](analyze-videos-tutorial-with-api.md)

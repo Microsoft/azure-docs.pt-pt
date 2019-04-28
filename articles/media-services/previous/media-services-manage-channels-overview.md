@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61217578"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Descrição geral da transmissão em direto utilizando os Media Services
 

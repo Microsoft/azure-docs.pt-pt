@@ -15,11 +15,11 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475512"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão de DSC de PowerShell
 
@@ -116,7 +116,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 | settings.configurationArguments | Coleção | Define quaisquer parâmetros que pretende passar para a configuração de DSC. Esta propriedade não será encriptada.
 | settings.configurationData.url | string | Especifica o URL para transferir o ficheiro de dados (.pds1) de configuração para utilizar como entrada para a sua configuração de DSC. Se o URL fornecido necessita de um token SAS para o acesso, terá de definir a propriedade de protectedSettings.configurationDataUrlSasToken como o valor do seu token SAS.
 | settings.privacy.dataEnabled | string | Ativa ou desativa a coleção de telemetria. Os valores apenas possíveis para esta propriedade são "Ativar", "Desativar", ", ou $null. Deixar esta propriedade está em branco ou nulo irá ativar a telemetria
-| settings.advancedOptions.forcePullAndApply | Bool | Esta definição destina-se para melhorar a experiência de trabalhar com a extensão para registar nós DSC de automatização do Azure.  Se o valor for `$true`, a extensão de espera que a primeira execução da configuração obtida a partir do serviço antes de devolver êxito/falha.  Se o valor é definido como $false, o estado devolvido pela extensão só irá fazer referência a se em que o nó foi registado com êxito com a configuração de estado de automatização do Azure e a configuração do nó não será executada durante o registo.
+| settings.advancedOptions.forcePullAndApply | Booleano | Esta definição destina-se para melhorar a experiência de trabalhar com a extensão para registar nós DSC de automatização do Azure.  Se o valor for `$true`, a extensão de espera que a primeira execução da configuração obtida a partir do serviço antes de devolver êxito/falha.  Se o valor é definido como $false, o estado devolvido pela extensão só irá fazer referência a se em que o nó foi registado com êxito com a configuração de estado de automatização do Azure e a configuração do nó não será executada durante o registo.
 | settings.advancedOptions.downloadMappings | Coleção | Define locais alternativos para transferir as dependências, como o WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valores das propriedades de definições protegidos

@@ -11,11 +11,11 @@ ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61291712"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizar para o SDK .NET da Azure Search versão 5
 Se estiver a utilizar versão 4.0-pré-visualização ou mais antiga do [SDK .NET da Azure Search](https://aka.ms/search-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 5.

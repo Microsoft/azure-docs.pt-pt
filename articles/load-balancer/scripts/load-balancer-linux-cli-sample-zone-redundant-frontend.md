@@ -16,14 +16,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: c6413f923ca39293951044694303c50c049511c0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: fff34f6a36f9c01b1f28b6b1f13189537d8c9060
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323492"
 ---
-# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exemplo de script de CLI do Azure: Balancear carga de VMs por zonas de disponibilidade
+# <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exemplo do script da CLI do Azure: Balancear carga de VMs por zonas de disponibilidade
 
 Este exemplo de script de CLI do Azure cria tudo o que é preciso para executar várias máquinas virtuais com Ubuntu configuradas numa configuração de elevada disponibilidade e com balanceamento de carga. Depois de executar o script, terá três máquinas virtuais por todas as zonas de disponibilidade numa região que é acessível através de um Balanceador de Carga do Azure Standard do Azure. 
 
@@ -182,7 +182,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm create](/cli/azure/vm#az-vm-create) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

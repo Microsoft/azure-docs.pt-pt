@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61388093"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -51,7 +51,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
     É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
-    | Definições        |  Valor           | Descrição  |
+    | Definições        |  Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Web ASP.NET | Tipo de aplicação que está a monitorizar |

@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459713"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regras personalizadas para o firewall de aplicação web com porta da frente do Azure
 Firewall de aplicações web do Azure (WAF) com o serviço de porta de entrada permite-lhe controlar o acesso às suas aplicações web com base nas condições que definir. Uma regra personalizada de WAF é composta por um número de prioridade, um tipo de regra, condições de correspondência e uma ação. Existem dois tipos de regras personalizadas: corresponderem às regras e regras de limite de velocidade. Uma regra de correspondência controla o acesso com base em condições de correspondência, enquanto uma regra de limite de taxa controla o acesso com base na correspondência de condições e as taxas de pedidos recebidos. Pode desativar uma regra personalizada para impedi-lo de que está a ser avaliada, mas continuar a manter a configuração. Este artigo discute as regras de correspondência que se baseiam em parâmetros de http.

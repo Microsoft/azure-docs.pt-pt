@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946614"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -507,7 +507,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |set-header|Elemento raiz.|Sim|
-|valor|Especifica o valor do cabeçalho de ser definido. Para adicionar vários cabeçalhos com o mesmo nome `value` elementos.|Sim|
+|value|Especifica o valor do cabeçalho de ser definido. Para adicionar vários cabeçalhos com o mesmo nome `value` elementos.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
@@ -567,7 +567,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento raiz.|Sim|
-|valor|Especifica o valor do parâmetro de consulta seja definido. Para adicionar vários parâmetros de consulta com o mesmo nome `value` elementos.|Sim|
+|value|Especifica o valor do parâmetro de consulta seja definido. Para adicionar vários parâmetros de consulta com o mesmo nome `value` elementos.|Sim|
 
 ### <a name="properties"></a>Propriedades
 

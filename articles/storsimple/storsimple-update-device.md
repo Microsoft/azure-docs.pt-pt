@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d973a16c121a1e8ebee10826d135bcbb33ef748c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61409992"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualizar o seu dispositivo StorSimple série 8000
 > [!NOTE]
-> O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Relativamente a perguntas sobre a migração, veja [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (FAQ: migrar para o portal do Azure).
+> O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Para quaisquer perguntas sobre a migração, consulte [FAQ: Mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Descrição geral
 As funcionalidades de atualizações do StorSimple permitem-lhe facilmente manter atualizado o dispositivo StorSimple. Dependendo do tipo de atualização, pode aplicar atualizações para o dispositivo através do portal clássico do Azure ou a interface do Windows PowerShell. Este tutorial descreve os tipos de atualização e como instalar cada um deles.
@@ -49,7 +49,7 @@ Atualizações regulares são atualizações não disruptivas que podem ser inst
 * Também pode instalar atualizações regulares através do Windows PowerShell para StorSimple. Para obter detalhes, consulte [instalar atualizações regulares através do Windows PowerShell para StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Atualizações do modo de manutenção
-Atualizações do modo de manutenção são atualizações disruptivas, tais como atualizações de firmware do disco. Estas atualizações exigem que o dispositivo para ser colocado no modo de manutenção. Para obter detalhes, consulte [passo 2: modo de manutenção introduza](#step2). Não é possível utilizar o portal clássico do Azure para instalar atualizações de modo de manutenção. Em vez disso, tem de utilizar o Windows PowerShell para StorSimple. 
+Atualizações do modo de manutenção são atualizações disruptivas, tais como atualizações de firmware do disco. Estas atualizações exigem que o dispositivo para ser colocado no modo de manutenção. Para obter detalhes, consulte [passo 2: Introduza o modo de manutenção](#step2). Não é possível utilizar o portal clássico do Azure para instalar atualizações de modo de manutenção. Em vez disso, tem de utilizar o Windows PowerShell para StorSimple. 
 
 Para obter detalhes sobre como instalar atualizações de modo de manutenção, consulte [atualizações de modo de manutenção instalar através do Windows PowerShell para StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -76,7 +76,7 @@ Em alternativa, pode utilizar o Windows PowerShell para StorSimple para aplicar 
 ## <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Instale as atualizações de modo de manutenção através do Windows PowerShell para StorSimple
 Utilizar o Windows PowerShell para StorSimple para aplicar atualizações de modo de manutenção para o seu dispositivo StorSimple. Todos os pedidos de e/s são colocadas em pausa nesse modo. Serviços, tais como a memória de acesso de aleatório não volátil (NVRAM) ou o serviço de clustering também são paradas. Ambos os controladores são reiniciados quando entrem ou saia neste modo. Quando sair deste modo, todos os serviços serão retomada e devem ser bom estado de funcionamento. (Pode demorar alguns minutos.)
 
-Se precisar de aplicar atualizações de modo de manutenção, receberá um alerta através do portal clássico do Azure que tem as atualizações que devem ser instaladas. Este alerta irá incluir instruções para utilizar o Windows PowerShell para StorSimple para instalar as atualizações. Depois de atualizar o seu dispositivo, utilize o mesmo procedimento para alterar o dispositivo para o modo normal. Para obter instruções passo a passo, consulte [passo 4: modo de manutenção de saída](#step4).
+Se precisar de aplicar atualizações de modo de manutenção, receberá um alerta através do portal clássico do Azure que tem as atualizações que devem ser instaladas. Este alerta irá incluir instruções para utilizar o Windows PowerShell para StorSimple para instalar as atualizações. Depois de atualizar o seu dispositivo, utilize o mesmo procedimento para alterar o dispositivo para o modo normal. Para obter instruções passo a passo, consulte [passo 4: Sair do modo de manutenção](#step4).
 
 > [!IMPORTANT]
 > * Antes de entrar no modo de manutenção, certifique-se de que os dois controladores de dispositivo estão em bom Estados ao verificar a **estado do Hardware** sobre o **manutenção** página no portal clássico do Azure. Se o controlador não está em bom estado, contacte o Support da Microsoft para os passos seguintes. Para obter mais informações, vá para o contactar suporte da Microsoft. 
@@ -99,7 +99,7 @@ Em seguida, instale as atualizações.
 
 [!INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
 
-### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Passo 4: Modo de manutenção de saída <a name="step4">
+### <a name="step-4-exit-maintenance-mode-a-namestep4"></a>Passo 4: Sair do modo de manutenção <a name="step4">
 Por fim, saia do modo de manutenção.
 
 [!INCLUDE [storsimple-exit-maintenance-mode](../../includes/storsimple-exit-maintenance-mode.md)]

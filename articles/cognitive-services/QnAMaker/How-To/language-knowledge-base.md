@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.openlocfilehash: f6c317cc1281a5a9bc18a2057fa12b7b61bb7689
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61372055"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Suporte de idiomas de conteúdo de base de dados para o QnA Maker
 A ferramenta QnA Maker suporta conteúdos da base de dados de conhecimento em vários idiomas. No entanto, cada serviço QnA Maker deve ser reservado para um único idioma. A primeira base de dados de conhecimento criado visando um serviço específico do QnA Maker define o idioma desse serviço. Ver [aqui](../Overview/languages-supported.md) para a lista de idiomas suportados.
@@ -34,7 +34,7 @@ O idioma é automaticamente reconhecido do conteúdo das origens de dados que es
 
 4. Selecione **campos** secção que mostra os detalhes de testkb.
 
-    ![Selecionar campos](../media/qnamaker-how-to-language-kb/selectfields.png)
+    ![Selecionar Campos](../media/qnamaker-how-to-language-kb/selectfields.png)
 
 5. Marque a caixa **Analyzer** para ver detalhes do idioma.
 

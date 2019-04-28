@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/4/2019
 ms.author: aahi
 ms.openlocfilehash: e788da047cb0567fc00f27130621a2f21e575dc4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335542"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é a API de Pesquisa Personalizada do Bing?
 

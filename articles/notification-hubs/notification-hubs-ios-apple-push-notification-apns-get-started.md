@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884668"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Notificações push para aplicações iOS com Notification Hubs do Azure
 

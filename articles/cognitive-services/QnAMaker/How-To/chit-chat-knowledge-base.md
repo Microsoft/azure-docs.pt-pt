@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376117"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar Chit-bate-papo para uma base de dados de conhecimento
 
@@ -24,7 +24,8 @@ Adicionar chit-bate-papo ao seu bot torna mais conversacionais e apelativas. A f
 
 Este conjunto de dados tem aproximadamente 100 cenários de chit chat na voz das três pessoas - o Professional, o amigo, o da revista em Quadrinhos. Escolha a pessoa que se assemelhe mais às voz seu bot. Devido uma consulta de utilizador, a QnA Maker tenta fazer sua correspondência com o mais próximo QnA chit-bate-papo conhecidos. 
 
-Alguns exemplos dos personalidades diferentes: <!-- added quotes so acrolinx doesn't score these sentences -->
+Alguns exemplos dos personalidades diferentes:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Consulta de utilizador|O Professional|O amigo|Revista em Quadrinhos|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|

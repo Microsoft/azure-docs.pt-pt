@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583ccb6076dae2f33e265b95387bcd35aa9fa4d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 79b45bd423ed6715cdb7cc7c0e079c150eefede5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547287"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763691"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Nós de computação de execução de tarefas em simultâneo para maximizar a utilização do Batch 
 
@@ -41,7 +41,7 @@ Em vez de usar o padrão\_nós D1 com 1 núcleo de CPU, poderia usar [padrão\_D
 ## <a name="enable-parallel-task-execution"></a>Ativar a execução de tarefas paralelas
 Configurar nós de computação para a execução da tarefa paralela ao nível do conjunto. Com a biblioteca .NET do Batch, definir o [CloudPool.MaxTasksPerComputeNode] [ maxtasks_net] propriedade quando cria um conjunto. Se estiver a utilizar a API de REST do Batch, defina o [maxTasksPerNode] [ rest_addpool] elemento no corpo do pedido durante a criação do conjunto.
 
-O Azure Batch permite-lhe definir tarefas máximas por nó até quatro vezes (4 x) o número de núcleos do nó. Por exemplo, se o conjunto está configurado connosco de tamanho "Large" (quatro núcleos), em seguida, `maxTasksPerNode` pode ser definido como 16. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, veja [tamanhos para os serviços Cloud](../cloud-services/cloud-services-sizes-specs.md). Para obter mais informações sobre limites de serviço, consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md).
+O Azure Batch permite-lhe definir tarefas por nó até (4 x) o número de nós principais. Por exemplo, se o conjunto está configurado connosco de tamanho "Large" (quatro núcleos), em seguida, `maxTasksPerNode` pode ser definido como 16. No entanto, independentemente de quantos núcleos do nó tem, não pode ter mais de 256 tarefas por nó. Para obter detalhes sobre o número de núcleos para cada um dos tamanhos de nó, veja [tamanhos para os serviços Cloud](../cloud-services/cloud-services-sizes-specs.md). Para obter mais informações sobre limites de serviço, consulte [Quotas e limites para o serviço Azure Batch](batch-quota-limit.md).
 
 > [!TIP]
 > Certifique-se de que levar em conta a `maxTasksPerNode` valor ao construir um [fórmula de dimensionamento automático] [ enable_autoscaling] para o seu conjunto. Por exemplo, uma fórmula que avalia `$RunningTasks` poderia ser drasticamente afetados por um aumento de tarefas por nó. Ver [nós num conjunto do Azure Batch de computação de dimensionamento de automaticamente](batch-automatic-scaling.md) para obter mais informações.

@@ -1,7 +1,6 @@
 ---
 title: Sincronizar utilizadores do Azure Active Directory para um cluster - Azure HDInsight
 description: Sincronize utilizadores autenticados do Azure Active Directory para um cluster.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,14 +8,14 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: MT
+ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407292"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764050"
 ---
-# <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory para um cluster do HDInsight
+# <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight
 
 [Clusters do HDInsight com o pacote de segurança da empresa (ESP)](hdinsight-domain-joined-introduction.md) podem utilizar a autenticação forte com utilizadores do Azure Active Directory (Azure AD), bem como utilizar *controlo de acesso baseado em funções* políticas (RBAC). À medida que adiciona utilizadores e grupos para o Azure AD, pode sincronizar os utilizadores que necessitam de aceder ao seu cluster.
 
@@ -140,7 +139,7 @@ Abra o [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) para verificar 
 
 3. O novo utilizador deve estar listado na tabela Users. O tipo está definido como `LDAP` vez `Local`.
 
-    ![Página usuários](./media/hdinsight-sync-aad-users-to-cluster/users.png)
+    ![Página de utilizadores](./media/hdinsight-sync-aad-users-to-cluster/users.png)
 
 ## <a name="log-in-to-ambari-as-the-new-user"></a>Inicie sessão no Ambari como o novo utilizador
 

@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
 ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551609"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359380"
 ---
 > [!IMPORTANT]
 > **Ative a sincronização de hash de palavra-passe para o Azure AD Domain Services, antes de concluir as tarefas neste artigo.**

@@ -1,18 +1,19 @@
 ---
 title: Funcionalidades TTL de cada documento do MongoDB no Azure Cosmos DB
 description: Saiba como definir o tempo para o valor de TTL para documentos com a API do Azure Cosmos DB para o MongoDB automaticamente removê-los a partir do sistema após um período de tempo.
-author: sivethe
-ms.author: sivethe
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 12/26/2018
+origin.date: 12/26/2018
+ms.date: 03/18/2019
 ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330696"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Expirar dados com a API do Azure Cosmos DB para o MongoDB
 
@@ -38,7 +39,7 @@ O comando no exemplo acima irá criar um índice com a funcionalidade TTL. Depoi
 > [!NOTE]
 > **_ts** é um campo específico do Cosmos DB e não está acessível a partir dos clientes do MongoDB. É uma propriedade reservada (sistema) que contém o carimbo de data/hora da última modificação do documento.
 >
-    
+
 Além disso, um exemplo C#: 
 
 ```csharp
@@ -72,6 +73,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 ## <a name="how-to-activate-the-per-document-ttl-feature"></a>Como ativar a funcionalidade TTL por documento
 
+<!-- Verify successfully on mongodb TTL-->
 A funcionalidade de valor de TTL por documento pode ser ativada com a API do Azure Cosmos DB para o MongoDB.
 
 ![Captura de ecrã da ativação do recurso TTL do documento por no Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
@@ -79,3 +81,5 @@ A funcionalidade de valor de TTL por documento pode ser ativada com a API do Azu
 ## <a name="next-steps"></a>Passos Seguintes
 * [Expirar dados no Azure Cosmos DB automaticamente com o tempo de duração](../cosmos-db/time-to-live.md)
 * [Indexação da base de dados do Cosmos configurado com a API do Azure Cosmos DB para o MongoDB](../cosmos-db/mongodb-indexing.md)
+
+<!-- Update_Description: update meta properties, wording update -->

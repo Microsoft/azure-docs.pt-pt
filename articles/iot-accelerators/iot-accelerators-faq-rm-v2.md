@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447918"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador de solução de monitorização remota
 
@@ -32,7 +32,7 @@ Além de fornecer duas implementações diferenciadas, a nova solução de monit
 
 ### <a name="what-is-the-difference-between-the-basic-and-standard-deployment-options-how-do-i-decide-between-the-two-deployment-options"></a>O que é a diferença entre as opções de implementação de básico e standard? Como posso decidir entre as opções de implementação de dois?
 
-Cada opção de implementação responde às necessidades diferentes. A implementação básica destina-se para começar e desenvolver prova de conceito e pilotos pequenos. Ele fornece uma arquitetura simplificada com os recursos necessários mínimo e um custo mais baixo. A implementação padrão de foi concebida para criar e personalizar uma solução de prontos para produção e fornece uma implementação com os elementos necessários para perceber que. Para fiabilidade e dimensionamento, os microsserviços da aplicação são criados como contentores do Docker e implementados com um orquestrador (Kubernetes por predefinição). O orquestrador é responsável pela implementação, dimensionamento e gestão da aplicação. Deve escolher uma opção com base nas suas necessidades atuais. Pode usar um, a outra ou uma combinação de ambos, consoante a sua fase do projeto.
+Cada opção de implementação responde às necessidades diferentes. A implementação básica destina-se para começar e desenvolver prova de conceito e pilotos pequenos. Ele fornece uma arquitetura simplificada com os recursos necessários mínimo e um custo mais baixo. A implementação padrão de foi concebida para criar e personalizar uma solução de prontos para produção e fornece uma implementação com os elementos necessários para perceber que. Para fiabilidade e dimensionamento, os microsserviços da aplicação são criados como contentores do Docker e implementados com um orquestrador (Kubernetes por predefinição). O orquestrador é responsável por implementar, dimensionar e gerir a aplicação. Deve escolher uma opção com base nas suas necessidades atuais. Pode usar um, a outra ou uma combinação de ambos, consoante a sua fase do projeto.
 
 ### <a name="how-do-i-configure-a-dynamic-map-on-the-dashboard"></a>Como posso configurar um mapa dinâmico no dashboard?
 

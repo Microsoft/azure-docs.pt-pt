@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e80033d696de1b83da43fc27e5be9eca3b3f8757
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: MT
+ms.openlocfilehash: 40a5416f15b0e2d66d6ce4b4787573560ee4af00
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44169066"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346272"
 ---
 ## <a name="create-a-device-identity"></a>Criar uma identidade de dispositivo
 
-Nesta seção, de usar a CLI do Azure para criar uma identidade de dispositivo para este tutorial. A CLI do Azure está pré-instalado na [Azure Cloud Shell](https://docs.microsoft.com/zure/cloud-shell/overview), ou pode [instalá-lo localmente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
+Nesta seção, de usar a CLI do Azure para criar uma identidade de dispositivo para este tutorial. A CLI do Azure está pré-instalado na [Azure Cloud Shell](~/articles/cloud-shell/overview.md), ou pode [instalá-lo localmente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os IDs dos dispositivos são sensíveis às maiúsculas e minúsculas.
 
 1. Execute o seguinte comando no ambiente de linha de comando em que estiver a utilizar a CLI do Azure para instalar a extensão de IoT:
 

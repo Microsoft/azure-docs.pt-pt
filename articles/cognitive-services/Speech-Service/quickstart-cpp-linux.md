@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.openlocfilehash: d504e3abe148f1f607d8ee359e182832ec7d19f6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461430"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
 

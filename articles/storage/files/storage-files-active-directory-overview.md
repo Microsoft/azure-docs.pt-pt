@@ -2,17 +2,17 @@
 title: Descrição geral da autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização) - armazenamento do Azure
 description: Ficheiros do Azure suportam autenticação baseada em identidades, através de SMB (Server Message Block) (pré-visualização) através dos serviços de domínio do Azure Active Directory (Azure AD). Máquinas de virtuais de Windows (VMs) do seu associados a um domínio, em seguida, pode aceder a partilhas de ficheiros do Azure com credenciais do Azure AD.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
-ms.author: tamram
-ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.author: rogarana
+ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427642"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766479"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Descrição geral da autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -25,7 +25,7 @@ Para saber como ativar a autenticação do Azure AD através de SMB para ficheir
 -   **Azure Active Directory (Azure AD)**  
     Azure Active Directory (Azure AD) é multi-inquilino com base na cloud diretório e identidade do serviço de gestão da Microsoft. O Azure AD combina serviços de diretório centrais, gestão de acesso de aplicações e proteção de identidade numa única solução. Para obter mais informações, consulte [o que é o Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
--   **Serviços de domínio do Azure AD**  
+-   **Azure AD Domain Services**  
     O Azure AD Domain Services fornece serviços de domínio geridos, tais como associação a um domínio, as políticas de grupo, LDAP e Kerberos/NTLM authentication. Esses serviços são totalmente compatíveis com o Windows Server Active Directory. Para obter mais informações, consulte [dos serviços de domínio do Azure Active Directory (AD)](../../active-directory-domain-services/active-directory-ds-overview.md).
 
 -   **Controlo de acesso (RBAC) baseado em funções do Azure**  

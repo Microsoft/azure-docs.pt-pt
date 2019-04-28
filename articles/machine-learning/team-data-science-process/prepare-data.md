@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2b3ec3352d6e1939b195bbba87b8a824404346ae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044605"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para machine learning otimizado
 Pré-processar e limpeza de dados são tarefas importantes que, normalmente, têm de ser conduzidas antes do conjunto de dados pode ser utilizado eficazmente para o machine learning. Dados não processados costuma desnecessárias e pouco fiáveis e podem estar em falta valores. Usar esses dados para a Modelagem pode produzir resultados enganosos. Essas tarefas fazem parte do Team Data Science Process (TDSP) e, normalmente, siga uma análise inicial de um conjunto de dados utilizado para detetar e planear o pré-processamento de necessário. Para obter instruções sobre o processo TDSP mais detalhadas, consulte os passos descritos no [Team Data Science Process](overview.md).

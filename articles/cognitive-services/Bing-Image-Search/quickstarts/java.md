@@ -13,11 +13,11 @@ ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3e00179f0fe3bf079cde672c9c8e3579f8c957b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916499"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Início rápido: Procure imagens usando a API de REST de pesquisa de imagens do Bing e o Java
 

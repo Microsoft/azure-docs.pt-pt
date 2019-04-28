@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
 ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61429795"
 ---
-# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Criar um registo de alias para fazer referência a um registo de recursos na zona
+# <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Tutorial: Criar um registo de alias para fazer referência a um registo de recurso de zona
 
 Os registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, pode ter um conjunto de registos CNAME do DNS que funciona como alias de outro conjunto de registos CNAME do mesmo tipo. Esta capacidade será útil se quiser ter alguns conjuntos de registos como aliases e alguns como não aliases em termos de comportamento.
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
 
-Para obter instruções sobre como alojar o seu domínio no DNS do Azure, veja [Tutorial: Alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções para alojar o seu domínio no DNS do Azure, consulte [Tutorial: Aloje o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 
 ## <a name="create-an-alias-record"></a>Criar um registo de alias
@@ -66,7 +66,7 @@ Crie um registo de alias que esteja associado a um registo de recursos na zona.
 Quando já não precisar dos recursos criados neste tutorial, elimine o **servidor** e **teste** os registos de recursos na sua zona.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um registo de alias para fazer referência a um registo de recursos na zona. Para saber mais sobre o DNS do Azure e as aplicações Web, avance para o tutorial de aplicações Web.
 

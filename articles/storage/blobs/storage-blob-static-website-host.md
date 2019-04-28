@@ -9,11 +9,11 @@ ms.date: 12/31/2018
 ms.author: tamram
 ms.custom: seodec18
 ms.openlocfilehash: eb472465c0d35150f2a13563058905751219411d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61428586"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 

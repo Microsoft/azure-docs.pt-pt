@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461991"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início rápido: Criar uma porta de entrada para um aplicativo web global de elevada disponibilidade
 
 Este início rápido descreve como criar um perfil do Front Door que proporciona elevada disponibilidade e elevado desempenho à sua aplicação Web global. 
 
@@ -39,10 +39,10 @@ Este início rápido requer que tenha implementado duas instâncias de uma aplic
 
      | Definição         | Valor     |
      | ---              | ---  |
-     | Nome           | Introduza um nome exclusivo para a aplicação Web  |
+     | Name           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD1* |
      | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanEastUS* e selecione **OK**. 
-     |      Localização  |   EUA Leste        |
+     |      Location  |   EUA Leste        |
     |||
 
 3. Selecione **Criar**.
@@ -51,10 +51,10 @@ Este início rápido requer que tenha implementado duas instâncias de uma aplic
 
      | Definição         | Valor     |
      | ---              | ---  |
-     | Nome           | Introduza um nome exclusivo para a aplicação Web  |
+     | Name           | Introduza um nome exclusivo para a aplicação Web  |
      | Grupo de recursos          | Selecione **Novo** e escreva *myResourceGroupFD2* |
      | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanWestEurope* e selecione **OK**. 
-     |      Localização  |   Europa Ocidental      |
+     |      Location  |   Europa Ocidental      |
     |||
 
 
@@ -93,5 +93,5 @@ Se pretender testar a ativação pós-falha global instantânea do Front Door em
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando já não for necessário, elimine os grupos de recursos, as aplicações Web e todos os recursos relacionados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste início rápido, criou um Front Door que permite direcionar o tráfego de utilizador para aplicações Web que requerem elevada disponibilidade e desempenho máximo. Para saber mais sobre o encaminhamento de tráfego, leia os [Métodos de Encaminhamento](front-door-routing-methods.md) utilizados pelo Front Door.

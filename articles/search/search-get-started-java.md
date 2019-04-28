@@ -10,11 +10,11 @@ ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
 ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61289880"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução à Azure Search em Java
 > [!div class="op_single_selector"]
@@ -46,13 +46,13 @@ Nesta aplicação, o programa **SearchServlet.java** compila e carrega o índice
 ## <a name="about-the-program-files"></a>Sobre os ficheiros de programa
 A lista seguinte descreve os ficheiros relevantes para este exemplo.
 
-* Search. jsp: Fornece a interface do usuário
-* Searchservlet. Java: Fornece métodos (semelhantes a um controlador em MVC)
-* Searchserviceclient. Java: Processa os pedidos HTTP
-* Searchservicehelper. Java: Uma classe auxiliar que fornece métodos estáticos
-* Document. Java: Fornece o modelo de dados
-* Config. Properties: A pesquisa de conjuntos do serviço URL e a chave de api
-* pom. XML: Uma dependência Maven
+* Search.jsp: Fornece a interface do usuário
+* SearchServlet.java: Fornece métodos (semelhantes a um controlador em MVC)
+* SearchServiceClient.java: Processa os pedidos HTTP
+* SearchServiceHelper.java: Uma classe auxiliar que fornece métodos estáticos
+* Document.java: Fornece o modelo de dados
+* config.properties: A pesquisa de conjuntos do serviço URL e a chave de api
+* pom.xml: Uma dependência Maven
 
 <a id="sub-2"></a>
 

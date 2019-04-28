@@ -1,20 +1,22 @@
 ---
 title: Migrar dados existentes para a conta da API de tabela no Azure Cosmos DB
 description: Saiba como migrar ou importar no local ou na cloud de dados para a conta de API de tabela do Azure no Azure Cosmos DB.
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/07/2017
-ms.author: sngun
+origin.date: 12/07/2017
+ms.date: 04/15/2019
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935868"
 ---
+<!--Verify sucessfully-->
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
 Este tutorial dá instruções sobre como importar dados para utilização com a [API de Tabelas](table-introduction.md) do Azure Cosmos DB. Se tiver dados armazenados no Armazenamento de Tabelas do Azure, poderá utilizar a Ferramenta de Migração de Dados ou AzCopy para importar os seus dados para a API de Tabela do Azure Cosmos DB. Se tiver dados armazenados numa conta API de Tabelas do Azure Cosmos DB (pré-visualização), terá de utilizar a ferramenta de Migração de Dados para migrar os dados. 
@@ -41,18 +43,18 @@ Para efetuar uma migração dos dados da tabela, faça as seguintes tarefas:
 1. Transfira a ferramenta de migração do [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Execute `dt.exe` utilizando os argumentos da linha de comandos do seu cenário. `dt.exe` executa um comando no seguinte formato:
 
-   ```bash
+    ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
-   ```
+    ```
 
-As opções do comando são:
+    As opções do comando são:
 
-    /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
-    /OverwriteErrorLog: Optional. Overwrite error log file
-    /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
-    /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
-    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
-    /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
+        /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
+        /OverwriteErrorLog: Optional. Overwrite error log file
+        /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
+        /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
+        /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
+        /CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
 
 ### <a name="command-line-source-settings"></a>Definições de origem da linha de comandos
 
@@ -90,21 +92,21 @@ Utilize as seguintes opções de destino ao definir a API de Tabelas do Azure Co
     /t.Throughput: Optional, service defaults if not specified. Specifies throughput to configure for table
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
-<a id="azure-table-storage"></a>
+<a name="azure-table-storage"></a>
 ### <a name="sample-command-source-is-azure-table-storage"></a>Comando de exemplo: Origem é o armazenamento de tabelas do Azure
 
 Eis um exemplo de linha de comandos a mostrar como importar do Armazenamento de Tabelas do Azure para a API de Tabelas:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
 ```
-<a id="table-api-preview"></a>
+<a name="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando de exemplo: Origem é a API de tabela do Azure Cosmos DB (pré-visualização)
 
 Eis um exemplo de linha de comandos para importar da pré-visualização de API de Tabelas para GA de API de Tabelas:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.cn; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.cn:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
 ## <a name="migrate-data-by-using-azcopy"></a>Migrar dados utilizando o AzCopy
@@ -116,7 +118,7 @@ Ao efetuar a importação para o Azure Cosmos DB, consulte o seguinte exemplo. T
 Exemplo de comando de importação:
 
 ```
-AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
+AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.chinacloudapi.cn/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
 ## <a name="migrate-from-table-api-preview-to-table-api"></a>Migrar da API de Tabelas (pré-visualização) para a API de Tabelas
@@ -148,3 +150,6 @@ Agora pode avançar para o próximo tutorial e ficar a saber como consultar dado
 
 > [!div class="nextstepaction"]
 >[Como consultar dados?](../cosmos-db/tutorial-query-table.md)
+
+<!--Update_Description: new articles on table import -->
+<!--ms.date: 03/18/2019-->

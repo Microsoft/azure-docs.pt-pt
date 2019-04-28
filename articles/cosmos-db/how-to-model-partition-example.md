@@ -1,17 +1,18 @@
 ---
 title: Como a partição e o modelo de dados no Azure Cosmos DB com um exemplo real
 description: Aprenda a modelar e faça a partição de um exemplo do mundo real usando a API de núcleos do Azure Cosmos DB
-author: ThomasWeiss
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
-ms.author: thweiss
+origin.date: 03/27/2019
+ms.date: 04/15/2019
+ms.author: v-yeche
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61057490"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como a partição e o modelo de dados no Azure Cosmos DB com um exemplo real
 
@@ -333,7 +334,7 @@ No nosso exemplo, utilizamos o feed de alterações da `users` contentor reagir 
 ```javascript
 function updateUsernames(userId, username) {
   var collection = getContext().getCollection();
-  
+
   collection.queryDocuments(
     collection.getSelfLink(),
     `SELECT * FROM p WHERE p.userId = '${userId}'`,
@@ -576,3 +577,6 @@ Depois desta introdução a práticas dados de modelagem e criação de partiç�
 - [Trabalhar com bancos de dados, contentores e itens](databases-containers-items.md)
 - [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 - [Alterar feed no Azure Cosmos DB](change-feed.md)
+
+<!--Update_Description: new articles on how to model partition example -->
+<!--ms.date: 04/15/2019-->

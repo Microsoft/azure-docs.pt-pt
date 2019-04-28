@@ -9,11 +9,11 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483296"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um pedido de suporte para uma tarefa de importação/exportação
 
@@ -22,7 +22,7 @@ Se encontrar algum problema com o seu serviço de importação/exportação, pod
 * Como criar um pedido de suporte.
 * Como gerir uma pedido de vida de suporte no portal.
 
-## <a name="create-a-support-request"></a>Criar um pedido de apoio
+## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
 Execute os seguintes passos para criar um pedido de suporte:
 

@@ -9,11 +9,11 @@ ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478679"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Obter informações de estado para uma tarefa de importação/exportação
 Pode chamar o [Get Job de](/rest/api/storageimportexport/jobs) operação para obter informações sobre ambos, importar e exportar tarefas. As informações devolvidas incluem:

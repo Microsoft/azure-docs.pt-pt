@@ -11,11 +11,11 @@ manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61281807"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos no Azure Search
 
@@ -23,7 +23,7 @@ Sinónimos em mecanismos de pesquisa associam termos equivalentes que implicitam
 
 No Azure Search, expansão de sinónimos é feita no momento da consulta. Pode adicionar mapas de sinónimos a um serviço com nenhuma interrupção para operações existentes. Pode adicionar um **synonymMaps** propriedade a uma definição de campo sem ter de recriar o índice.
 
-## <a name="feature-availability"></a>Funcionalidades disponíveis
+## <a name="feature-availability"></a>Disponibilidade de funcionalidades
 
 A funcionalidade de sinónimos é suportada na versão da api mais recente (api-version = 2017-11-11). Não existe suporte do portal do Azure neste momento.
 

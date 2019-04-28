@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257647"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas do Spark no Azure Data Factory pipelines
 
@@ -267,7 +267,8 @@ Neste passo, vai criar um pipeline com uma atividade de HDInsightSpark. Atualmen
 
     ![Resultados de consulta do Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Para obter instruções detalhadas, consulte a secção [executar uma consulta do Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Para obter instruções detalhadas, consulte a secção [executar uma consulta do Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 Porque definiu o getDebugInfo **sempre**, pode ver uma subpasta de log na pasta pyFiles no contentor de blob. O ficheiro de registo na pasta de registo fornece informações adicionais. Este ficheiro de registo é especialmente útil quando existe um erro. Num ambiente de produção, convém configurá-lo para **falha**.
@@ -329,7 +330,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | nome | Nome da atividade no pipeline. | Sim |
-| descrição | Texto que descreve o que faz a atividade. | Não |
+| description | Texto que descreve o que faz a atividade. | Não |
 | tipo | Esta propriedade tem de ser definida para HDInsightSpark. | Sim |
 | linkedServiceName | Nome do serviço ligado do HDInsight em que o programa Spark é executado. | Sim |
 | rootPath | O contentor de BLOBs e a pasta que contém o ficheiro de Spark. O nome de ficheiro diferencia maiúsculas de minúsculas. | Sim |
@@ -346,15 +347,15 @@ A atividade do Spark não suporta um script inline de como o Pig e Hive atividad
 
 Crie a seguinte estrutura de pasta no armazenamento de BLOBs referenciado pelo serviço ligado do HDInsight. Em seguida, carregue ficheiros dependentes para as subpastas apropriadas na pasta raiz representado pelo **entryFilePath**. Por exemplo, carregar ficheiros de Python para a subpasta pyFiles e jar ficheiros para a subpasta jars da pasta raiz. No tempo de execução, o serviço Data Factory espera que a seguinte estrutura de pasta no armazenamento de BLOBs: 
 
-| Caminho | Descrição | Necessário | Tipo |
+| Caminho | Descrição | Necessário | Type |
 | ---- | ----------- | -------- | ---- |
 | . | O caminho de raiz da tarefa do Spark no serviço ligado do armazenamento. | Sim | Pasta |
 | &lt;definido pelo utilizador &gt; | O caminho que aponta para o ficheiro de entrada da tarefa do Spark. | Sim | Ficheiro |
-| . / jars | Todos os ficheiros nessa pasta são carregados e colocados no caminho da classe de Java do cluster. | Não | Pasta |
-| . / pyFiles | Todos os ficheiros nessa pasta são carregados e colocados em PYTHONPATH do cluster. | Não | Pasta |
-| . / ficheiros | Todos os ficheiros nessa pasta são carregados e colocados no diretório de trabalho de executor. | Não | Pasta |
+| ./jars | Todos os ficheiros nessa pasta são carregados e colocados no caminho da classe de Java do cluster. | Não | Pasta |
+| ./pyFiles | Todos os ficheiros nessa pasta são carregados e colocados em PYTHONPATH do cluster. | Não | Pasta |
+| ./files | Todos os ficheiros nessa pasta são carregados e colocados no diretório de trabalho de executor. | Não | Pasta |
 | . / arquiva | Todos os ficheiros nessa pasta são descomprimidos. | Não | Pasta |
-| . / registos | A pasta onde estão armazenados os registos do cluster do Spark.| Não | Pasta |
+| ./logs | A pasta onde estão armazenados os registos do cluster do Spark.| Não | Pasta |
 
 Eis um exemplo para o armazenamento que contém dois arquivos de tarefa do Spark no armazenamento de BLOBs referenciada pelo serviço ligado do HDInsight:
 

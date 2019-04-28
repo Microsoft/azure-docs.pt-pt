@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465682"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilizar o moderador de conteúdo de multimédia do Azure para detetar possíveis conteúdos para adultos 
 
 ## <a name="overview"></a>Descrição geral
-O **moderador de conteúdo de multimédia do Azure** processador de multimédia (MP) permite-lhe utilizar moderação assistida por computador para os seus vídeos. Por exemplo, pode querer detetar possíveis conteúdos para adultos nos vídeos e rever o conteúdo sinalizado por suas equipes de moderação humana.
+O **moderador de conteúdo de multimédia do Azure** processador de multimédia (MP) permite-lhe utilizar moderação assistida por computador para os seus vídeos. Por exemplo, poderá querer detetar possível conteúdo para adultos nos vídeos e rever o conteúdo sinalizado pelas suas equipas de moderação humana.
 
 O **moderador de conteúdo de multimédia do Azure** MP está atualmente em pré-visualização.
 
@@ -61,7 +61,7 @@ A saída JSON inclui os seguintes elementos:
 |---|---|
 | start |A hora de início do primeiro evento na "ticks". |
 | duração |O comprimento do fragmento, em "ticks". |
-| intervalo |O intervalo de cada entrada de evento dentro do fragmento, na "ticks". |
+| interval |O intervalo de cada entrada de evento dentro do fragmento, na "ticks". |
 | [events](#events-json-elements) |Cada evento representa um clip e cada clip contém quadros-chave detetados e monitorizados dentro desse período de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
@@ -72,7 +72,7 @@ A saída JSON inclui os seguintes elementos:
 | adultScore | Pontuação de confiança para possível conteúdo para adultos, numa escala de 0,00 para 0,99. |
 | racyScore | Pontuação de confiança para possível conteúdo para adultos, numa escala de 0,00 para 0,99. |
 | índice | índice do quadro numa escala do primeiro quadro de índice para o último índice do quadro. |
-| carimbo de data/hora | A localização do quadro em "ticks". |
+| timestamp | A localização do quadro em "ticks". |
 | shotIndex | Captura o índice do pai. |
 
 

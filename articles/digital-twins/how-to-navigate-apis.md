@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924499"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como utilizar as APIs de gestão de duplos Digital do Azure
 
@@ -23,13 +23,13 @@ As APIs de gestão de duplos Digital do Azure fornecem funcionalidades poderosas
 
 A lista seguinte mostra os componentes das APIs de duplos Digital.
 
-* [/ espaços](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Essas APIs interagirem com os locais físicos em sua configuração. Isso o ajudará a criar, eliminar e gerir os mapeamentos digital de suas localizações físicas na forma de um [geográfico gráfico](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
+* [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): Essas APIs interagirem com os locais físicos em sua configuração. Isso o ajudará a criar, eliminar e gerir os mapeamentos digital de suas localizações físicas na forma de um [geográfico gráfico](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
 * [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): Essas APIs interagirem com os dispositivos em sua configuração. Estes dispositivos podem gerir os sensores de uma ou mais. Por exemplo, um dispositivo pode ser o seu telemóvel, ou um pod de sensor Raspberry Pi ou um gateway Lora e assim por diante.
 
 * [/Sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): Estas APIs ajudam a comunicar com os sensores associados com seus dispositivos e suas localizações físicas. Os sensores de registos e enviar valores de ambiente que, em seguida, podem ser usados para manipular o seu ambiente espacial.  
 
-* [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Estas APIs ajudam a configurar recursos, tais como um hub IoT, para a sua instância de duplos Digital.
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Estas APIs ajudam a configurar recursos, tais como um hub IoT, para a sua instância de duplos Digital.
 
 * [/ tipos](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Essas APIs permitem que associe tipos expandidos com seus objetos duplos digitais, para adicionar características específicas a esses objetos. Esses tipos permitem a fácil de filtragem e agrupamento de objetos na interface do Usuário e as funções personalizadas que processam os seus dados de telemetria. São exemplos dos tipos de expandida *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType* , *SpaceBlobType*, *SpaceResourceType*e assim por diante.
 

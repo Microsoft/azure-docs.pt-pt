@@ -14,11 +14,11 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61256023"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -307,7 +307,7 @@ A tabela seguinte descreve estas propriedades JSON:
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | nome | Nome da atividade |Sim |
-| descrição |Texto que descreve o que a atividade é utilizada para |Não |
+| description |Texto que descreve o que a atividade é utilizada para |Não |
 | tipo | Deve ser definida como: **SqlServerStoredProcedure** | Sim |
 | entradas | Opcional. Se especificar um conjunto de dados de entrada, tem de estar disponível (no estado "Pronto") para a atividade de procedimento armazenado ser executado. O conjunto de dados de entrada não pode ser consumido no procedimento armazenado como um parâmetro. Só é utilizado para verificar a dependência antes de iniciar a atividade de procedimento armazenado. |Não |
 | saídas | Tem de especificar um conjunto de dados de saída para uma atividade de procedimento armazenado. Conjunto de dados de saída especifica a **agenda** para a atividade de procedimento armazenado (hora a hora, semanalmente, mensalmente, etc.). <br/><br/>O conjunto de dados de saída tem de utilizar um **serviço ligado** que se refere a uma base de dados do SQL do Azure ou um Azure SQL Data Warehouse ou uma base de dados SQL Server em que pretenda que o procedimento armazenado a executar. <br/><br/>O conjunto de dados de saída pode servir como uma forma de transmitir o resultado do procedimento armazenado para processamento por outra atividade subsequente ([encadear atividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) no pipeline. No entanto, a fábrica de dados não automaticamente escrever a saída de um procedimento armazenado para este conjunto de dados. É o procedimento armazenado que escreve para uma tabela SQL que o conjunto de dados de saída aponta para. <br/><br/>Em alguns casos, o conjunto de dados de saída pode ser um **conjunto de dados fictício**, que é utilizado apenas para especificar a agenda para executar a atividade de procedimento armazenado. |Sim |

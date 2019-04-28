@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/16/2019
 ms.author: mjbrown
 ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61054803"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflito no Azure Cosmos DB
 

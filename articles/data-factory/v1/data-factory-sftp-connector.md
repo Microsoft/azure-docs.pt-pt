@@ -13,11 +13,11 @@ ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fe253feca6a22ee0177082e178f897c5b634bb3a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257211"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Mover dados de um servidor SFTP com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,7 +67,7 @@ Para utilizar a autenticação básica, defina `authenticationType` como `Basic`
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | o nome de utilizador | Utilizador que tenha acesso ao servidor SFTP. |Sim |
-| palavra-passe | Palavra-passe para o utilizador (nome de utilizador). | Sim |
+| password | Palavra-passe para o utilizador (nome de utilizador). | Sim |
 
 #### <a name="example-basic-authentication"></a>Exemplo: Autenticação básica
 ```json

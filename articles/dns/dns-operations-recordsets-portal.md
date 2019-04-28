@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/6/2018
 ms.author: victorh
 ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61296470"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos DNS e conjuntos de registos com o portal do Azure
 
@@ -46,7 +46,7 @@ Pode adicionar até 20 registos a qualquer conjunto de registos. Um conjunto de 
 3. Clique em **guardar** na parte superior do painel para guardar as suas definições. Em seguida, feche o painel.
 4. No canto, verá que o registo está a guardar.
 
-    ![A guardar o conjunto de registos](./media/dns-operations-recordsets-portal/saving150.png)
+    ![A guardar conjunto de registos](./media/dns-operations-recordsets-portal/saving150.png)
 
 Após o registo foi guardada, os valores na **zona DNS** painel irá refletir o novo Registro.
 

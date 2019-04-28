@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256826"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732372"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -22,7 +22,7 @@ O primeiro passo para compreender as consultas com Azure Resource Graph é obter
 Vamos examinar as seguintes consultas avançadas:
 
 > [!div class="checklist"]
-> - [Obter o tamanho e a capacidade do VMSS](#vmss-capacity)
+> - [Obter capacidade do conjunto de dimensionamento de máquina virtual e o tamanho](#vmss-capacity)
 > - [Listar todos os nomes de etiquetas](#list-all-tags)
 > - [Máquinas virtuais correspondidas por regex](#vm-regex)
 
@@ -38,7 +38,7 @@ A CLI do Azure (por meio de uma extensão) e o Azure PowerShell (por meio de um 
 
 Esta consulta procura recursos do conjunto de dimensionamento de máquinas virtuais e obtém vários detalhes, incluindo o tamanho da máquina virtual e a capacidade do conjunto de dimensionamento. A consulta utiliza a função `toint()` para converter a capacidade num número para poder ser ordenado. Por fim, o nome das colunas é mudado para propriedades de nome personalizadas.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +57,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 Esta consulta começa com a etiqueta e cria um objeto JSON que lista todos os nomes de etiquetas exclusivos e os tipos correspondentes.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -86,7 +86,7 @@ O **coincide com regex \@**  permite definir o regex para fazer corresponder, qu
 
 Depois da correspondência por nome, a consulta projeta o nome e ordena por nome em ordem crescente.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc

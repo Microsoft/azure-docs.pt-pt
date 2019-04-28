@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61057109"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Cosmos do Azure
 

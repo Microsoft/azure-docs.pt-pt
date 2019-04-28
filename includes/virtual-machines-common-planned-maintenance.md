@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301721"
 ---
 Azure atualiza periodicamente uma plataforma para melhorar a fiabilidade, desempenho e segurança da infraestrutura do anfitrião para máquinas virtuais. Estes variam de atualizações de componentes de software no ambiente de alojamento, atualizando os componentes de rede, a desativação de hardware de aplicação de patches. A maioria destas atualizações não tiver nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto e Azure escolhe o método com menos impacto de atualizações:
 

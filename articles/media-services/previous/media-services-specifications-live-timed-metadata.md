@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: 10dbf7e8cf67ab721cf525d4a1e7594473592bd4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459118"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Assinalar metadados temporizados na transmissão em direto 
 
@@ -72,7 +72,7 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 | ID         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem                            |
 | duração   | Number     | Necessário | Durante o processo de fusão. As unidades são segundos fracionais.                                                                |
 | elapsed    | Number     | Opcional | Quando o sinal é que está a ser repetido para oferecer suporte à Sintonize, este campo deve ser a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. Ao utilizar o modo simple, este valor não deve exceder o período original da fusão.                                                  |
-| hora       | Number     | Necessário | Será o momento da fusão, em tempo de apresentação. As unidades são segundos fracionais.                                     |
+| time       | Number     | Necessário | Será o momento da fusão, em tempo de apresentação. As unidades são segundos fracionais.                                     |
 
 ---------------------------
 
@@ -85,7 +85,7 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 | ID         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem.  As mensagens com uma semântica equivalente deverá ter o mesmo valor.|
 | duração   | Number     | Necessário | A duração do evento ou ad fusão-segmento, se conhecidos. Se desconhecido, o valor deve ser 0.                                                                 |
 | elapsed    | Number     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para Prepare-se, este campo deve ter a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. No modo de [SCTE-35], este valor pode exceder a duração especificada original da fusão ou segmento.                                                  |
-| hora       | Number     | Necessário | A hora de apresentação do evento ou ad fusão.  O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. As unidades são segundos fracionais.
+| time       | Number     | Necessário | A hora de apresentação do evento ou ad fusão.  O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. As unidades são segundos fracionais.
 
 ---------------------------
 
@@ -103,7 +103,7 @@ A faixa dispersa tem de ser declarada na caixa de manifesto de servidor ao vivo 
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Number         | Necessário      | TEM de ser "0", que indica uma faixa com velocidade de transmissão desconhecida, a variável.                                                                                                                                                                                                 |
 | parentTrackName    | String         | Necessário      | TEM de ser o nome da faixa principal, para que os códigos de tempo de dispersas track são escala temporal alinhado. A faixa de principal não pode ser um Roteiro disperso.                                                                                                                    |
-| manifestOutput     | Booleano        | Necessário      | TEM de ser "true", para indicar que a faixa dispersa será incorporada no manifesto do cliente Smooth.                                                                                                                                                               |
+| manifestOutput     | Boolean        | Necessário      | TEM de ser "true", para indicar que a faixa dispersa será incorporada no manifesto do cliente Smooth.                                                                                                                                                               |
 | Subtipo            | String         | Necessário      | DEVE ser "Dados de" código de quatro caracteres.                                                                                                                                                                                                                         |
 | Esquema             | String         | Necessário      | TEM de ser um URN ou uma URL identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
 | trackName          | String         | Necessário      | TEM de ser o nome da faixa dispersa. O trackName pode ser utilizado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo tem de ter um nome exclusivo.                                                                           |
@@ -283,7 +283,7 @@ O elemento de EventStream tem os seguintes atributos:
 | **Nome de atributo** | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scheme_id_uri      | string                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: scte:scte35:2013a:bin".                                                                |
-| valor              | string                  | Opcional      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor tem de ser definido para o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir). |
+| value              | string                  | Opcional      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor tem de ser definido para o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir). |
 | Escala temporal          | número inteiro sem sinal de 32 bits | Necessário      | Escala da temporal, em tiques por segundo, os tempos e campos de duração na caixa 'emsg'.                                                                                                                                                                                                       |
 
 

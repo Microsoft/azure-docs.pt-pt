@@ -10,11 +10,11 @@ services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
 ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437117"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926525"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Descrição geral do Azure Digital Twins
 
@@ -103,7 +103,7 @@ Para obter mais informações sobre o IoT, veja [do Azure IoT tecnologias e solu
 Ir para uma breve demonstração sobre duplos Digital do Azure:
 
 >[!div class="nextstepaction"]
->[Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure](./quickstart-view-occupancy-dotnet.md)
+>[Quickstart: Salas disponíveis ao utilizar o gémeos Digital do Azure](./quickstart-view-occupancy-dotnet.md)
 
 Examinar um aplicativo de gerenciamento de recursos utilizando duplos Digital do Azure:
 

@@ -12,11 +12,11 @@ ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 9aa009ed99b2067b5a3cbde910a7265f42ea478f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60917584"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Início rápido: Pesquisa de imagens com o SDK de pesquisa de imagens do Bing paraC#
 

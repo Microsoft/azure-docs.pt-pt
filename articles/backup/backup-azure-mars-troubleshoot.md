@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
 ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216130"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Resolver problemas de agente do Microsoft Azure Recovery Services (MARS)
 
@@ -35,7 +35,7 @@ Eis como resolver erros que poderá ver durante a configuração, registo, cópi
 
 | Detalhes do erro | Causas possíveis | Ações recomendadas |
 | ---     | ---     | ---    |
-| **Error** <br /><ol><li>*O agente de serviço de recuperação do Microsoft Azure não conseguiu ligar ao Microsoft Azure Backup. (ID: 100050) Verifique as definições de rede e certifique-se de que conseguir estabelecer ligação à internet*<li>*Autenticação do proxy (407) necessária* |Bloquear a ligação de proxy. |  <ul><li>Inicie **IE** > **definição** > **opções da Internet** > **segurança**  >  **Internet**. Em seguida, selecione **nível personalizado** e desloque-se até ver o ficheiro transferir secção. Selecione **Ativar**.<li>Também poderá ter de adicionar esses sites no IE [sites fidedignos](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Altere as definições para utilizar um servidor proxy. Em seguida, forneça o proxy de detalhes do servidor. <li>Se tiver software antivírus instalado no servidor, exclua os seguintes ficheiros da análise de software antivírus. <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionados com o .NET Framework). Há um CSC.exe para todas as versões do .NET que está instalada no servidor. Exclua ficheiros de CSC.exe que estão associados a todas as versões do .NET framework no servidor afetado. <li>Localização de pasta ou cache de rascunho. <br>*A localização predefinida para a pasta de rascunho ou o caminho de localização de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>A pasta bin C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Error** <br /><ol><li>*O agente de serviço de recuperação do Microsoft Azure não conseguiu ligar ao Microsoft Azure Backup. (ID: 100050) Verifique as definições de rede e certifique-se de que conseguir estabelecer ligação à internet*<li>*(407) Proxy Authentication Required* ((407) Autenticação de Proxy Necessária) |Bloquear a ligação de proxy. |  <ul><li>Inicie **IE** > **definição** > **opções da Internet** > **segurança**  >  **Internet**. Em seguida, selecione **nível personalizado** e desloque-se até ver o ficheiro transferir secção. Selecione **Ativar**.<li>Também poderá ter de adicionar esses sites no IE [sites fidedignos](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Altere as definições para utilizar um servidor proxy. Em seguida, forneça o proxy de detalhes do servidor. <li>Se tiver software antivírus instalado no servidor, exclua os seguintes ficheiros da análise de software antivírus. <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionados com o .NET Framework). Há um CSC.exe para todas as versões do .NET que está instalada no servidor. Exclua ficheiros de CSC.exe que estão associados a todas as versões do .NET framework no servidor afetado. <li>Localização de pasta ou cache de rascunho. <br>*A localização predefinida para a pasta de rascunho ou o caminho de localização de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>A pasta bin C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao definir a chave de encriptação de cópias de segurança seguras

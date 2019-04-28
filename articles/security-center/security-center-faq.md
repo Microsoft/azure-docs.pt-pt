@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
 ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909625"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.

@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61091896"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Base de dados do Azure para MySQL: Utilizar o PHP para se ligar e consultar dados
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: Utilizar o PHP para se ligar e consultar dados
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação [PHP](https://secure.php.net/manual/intro-whatis.php). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com PHP e que nunca trabalhou com a Base de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

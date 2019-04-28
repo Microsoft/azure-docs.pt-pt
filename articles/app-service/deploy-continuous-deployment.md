@@ -15,11 +15,11 @@ ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
 ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765707"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua no App Service do Azure
 Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](overview.md). Serviço de aplicações permite a implementação contínua do BitBucket, GitHub, e [serviços do Azure DevOps](https://www.visualstudio.com/team-services/) Pegando as atualizações mais recentes do seu repositório existente em um destes serviços.

@@ -2,18 +2,18 @@
 title: Início rápido para gerir partilhas de ficheiros do Azure com o portal do Azure
 description: Utilize este início rápido para aprender a utilizar o portal do Azure para gerir os Ficheiros do Azure.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ac78510a3f736d9d5a3f2aafcc1f77ef20e6d81a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: 69e7dba06fce14c2411a82dfade344ba1b14a6d3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467771"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763879"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com o portal do Azure 
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este guia orienta-o pelas noções básicas de utilizar partilhas de ficheiros do Azure com o [Portal do Azure](https://portal.azure.com/).

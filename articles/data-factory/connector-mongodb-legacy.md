@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61400479"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,13 +54,13 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo tem de ser definida como: **MongoDb** |Sim |
+| type |A propriedade de tipo tem de ser definida como: **MongoDb** |Sim |
 | servidor |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
 | databaseName |Nome da base de dados do MongoDB que pretende aceder. |Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados do MongoDB.<br/>Valores permitidos são: **Básica**, e **anônimo**. |Sim |
 | o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
-| palavra-passe |A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se for utilizada autenticação básica). |
+| password |A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se for utilizada autenticação básica). |
 | authSource |Nome da base de dados do MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, a predefinição é utilizar a conta de administrador e a base de dados especificada, utilizando a propriedade databaseName. |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
 | allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é false.  | Não |
@@ -97,7 +97,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
 | CollectionName |Nome da coleção na base de dados do MongoDB. |Sim |
 
 **Exemplo:**
@@ -128,7 +128,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbSource** | Sim |
 | consulta |Utilize a consulta de SQL-92 personalizada para ler os dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "collectionName" no conjunto de dados) |
 
 **Exemplo:**
@@ -177,14 +177,14 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são utilizados entre tipos
 | Tipo de dados do MongoDB | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | Binário |Byte[] |
-| Booleano |Booleano |
+| Boolean |Boolean |
 | Date |DateTime |
-| NumberDouble |Valor de duplo |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadeia |
-| Cadeia |Cadeia |
-| UUID |GUID |
+| ObjectID |String |
+| Cadeia |String |
+| UUID |Guid |
 | Object |Renormalized em colunas com "_" como separador aninhada de nivelamento |
 
 > [!NOTE]

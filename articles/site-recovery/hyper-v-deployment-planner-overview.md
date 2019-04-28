@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: e40a6b69b1cc4785b3055eaa31905c9ee88170e2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: aecbe666814a9ae80611de7798b4ab21fe15e219
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946499"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure
 

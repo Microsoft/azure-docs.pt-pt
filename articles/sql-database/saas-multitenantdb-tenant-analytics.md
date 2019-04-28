@@ -13,11 +13,11 @@ ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61486666"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise de entre inquilinos com dados extraídos - aplicação multi-inquilino
  

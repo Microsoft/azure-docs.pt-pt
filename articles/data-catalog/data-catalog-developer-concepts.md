@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002676"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de programador do catálogo de dados do Azure
 Microsoft **catálogo de dados do Azure** é um serviço cloud totalmente gerido que fornece capacidades para deteção de origens de dados e para crowdsourcing de metadados de origem de dados. Os programadores podem utilizar o serviço através de suas APIs de REST. Compreender os conceitos implementados no serviço é importante para os programadores integrar com êxito **catálogo de dados do Azure**.

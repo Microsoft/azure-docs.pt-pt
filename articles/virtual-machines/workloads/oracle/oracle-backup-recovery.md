@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 93fbd5bbba91b45e1afd123a2466b249302e2354
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567082"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Criar cópias de segurança e recuperar uma base de dados do Oracle Database 12C numa máquina virtual Linux do Azure
 
@@ -30,7 +30,7 @@ Antes de começar, certifique-se de que a CLI do Azure está instalada. Para obt
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente
 
-### <a name="step-1-prerequisites"></a>Passo 1: pré-requisitos
+### <a name="step-1-prerequisites"></a>Passo 1: Pré-requisitos
 
 *   Para executar o processo de cópia de segurança e recuperação, tem primeiro de criar uma VM do Linux que tenha uma instância instalada do Oracle Database 12C. A imagem do Marketplace que utilizar para criar a VM com o nome *Oracle: Oracle-base de dados-Ee:12.1.0.2:latest*.
 
@@ -133,7 +133,7 @@ Antes de começar, certifique-se de que a CLI do Azure está instalada. Para obt
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Passo 4: Cópia de segurança consistentes com aplicações para VMs do Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Passo 4: Cópia de segurança consistentes com aplicações para as VMs do Linux
 
 As cópias de segurança consistentes com a aplicação é um novo recurso do Azure Backup. Pode criar e selecione os scripts sejam executados antes e depois o instantâneo VM (anterior ao instantâneo e posterior ao instantâneo).
 
@@ -307,7 +307,7 @@ Para obter mais informações, consulte [cópias de segurança para VMs do Linux
 
     ![Cópia de segurança agora comando cofres de serviços de recuperação](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Clique nas **cópia de segurança** botão. Aguarde que o processo de cópia de segurança concluir. Em seguida, aceda a [passo 6: remover os ficheiros de base de dados](#step-6-remove-the-database-files).
+10. Clique nas **cópia de segurança** botão. Aguarde que o processo de cópia de segurança concluir. Em seguida, vá para [passo 6: Remover os ficheiros de base de dados](#step-6-remove-the-database-files).
 
     Para ver o estado da tarefa de cópia de segurança, clique em **tarefas**.
 
@@ -458,7 +458,7 @@ Em vez de restaurar os arquivos excluídos dos cofres de serviços de recuperaç
 
     ![Comando de eliminação do Cofre](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>Passo 2: Recuperar a VM
+### <a name="step-2-recover-the-vm"></a>Passo 2: Recuperar VM
 
 1.  Aceda a **cofres dos serviços de recuperação**e, em seguida, selecione **myVault**.
 
@@ -537,9 +537,9 @@ Depois de restaurar a VM, configure o endereço IP público.
     ```
 
     > [!IMPORTANT]
-    > Se a base de dados **inicialização** comando gera um erro, para recuperar a base de dados, consulte [passo 6: RMAN de utilização para recuperar a base de dados](#step-6-optional-use-rman-to-recover-the-database).
+    > Se a base de dados **inicialização** comando gera um erro, para recuperar a base de dados, consulte [passo 6: Utilize RMAN para recuperar a base de dados](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Passo 6: (Opcional) utilize RMAN para recuperar a base de dados
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Passo 6: (Opcional) Utilize RMAN para recuperar a base de dados
 *   Para recuperar a base de dados, utilize o seguinte script:
 
     ```bash

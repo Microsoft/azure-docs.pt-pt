@@ -18,11 +18,11 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473914"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual (VM) do Linux é fácil fazê-lo na linha de comando ou a partir do portal. Este tutorial mostra como Certifique-se de que o configurou para otimizar o desempenho na plataforma Microsoft Azure. Este tópico utiliza uma VM do Ubuntu Server, mas também pode criar a máquina virtual do Linux utilizar [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  

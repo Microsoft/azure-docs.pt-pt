@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075206"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bases de dados existentes para aumentar horizontalmente
 Gerencie facilmente sua aumentadas horizontalmente em partição horizontal bases de dados existentes com as ferramentas de base de dados de base de dados do Azure SQL (por exemplo, o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Comece por converter um conjunto existente de bases de dados para utilizar o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). 

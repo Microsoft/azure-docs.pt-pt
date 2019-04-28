@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60919006"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver e transferir a sua utilização do Azure e os encargos
 
@@ -77,7 +77,7 @@ Se tiver um contrato de cliente da Microsoft, pode transferir a sua utilização
 ### <a name="download-usage-for-billed-charges"></a>Transferir utilização para os custos de faturação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 4. Selecione **Faturas**.
 5. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente à utilização de que pretende transferir.
@@ -94,7 +94,7 @@ Se tiver um contrato de cliente da Microsoft, pode transferir a sua utilização
 Também pode transferir a utilização de mês até à data para o período de faturação atual. Estes custos de utilização que não foi paga ainda.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 3. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 4. Na **descrição geral** painel, encontra os links de download abaixo os encargos do mês até à data.
 5. Selecione **utilização do Azure e os encargos**.
@@ -113,7 +113,7 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 Para saber mais sobre as suas cobranças de fatura e utilização, consulte:
 
 - [Compreender os termos na utilização de detalhadas do Microsoft Azure](billing-understand-your-usage.md)
-- [Compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md)
+- [Understand your bill for Microsoft Azure](billing-understand-your-bill.md) (Compreender a sua fatura do Microsoft Azure)
 - [Ver e transferir a fatura do Microsoft Azure](billing-download-azure-invoice.md)
 - [Veja e transfira os preços do Azure da sua organização](billing-ea-pricing.md)
 

@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 0c2ad7e5a707c20db2773324e8047eedaad1a48b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61077124"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 

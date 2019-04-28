@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901737"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.

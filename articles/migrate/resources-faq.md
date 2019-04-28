@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
 ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578922"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61292992"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -132,11 +132,11 @@ Os dados recolhidos pelos agentes do dependência é também criptografado em tr
 
 ### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>Como o recoletor se comunique com o vCenter Server e o serviço Azure Migrate?
 
-A aplicação recoletor liga-se ao vCenter Server (porta 443) utilizando as credenciais fornecidas pelo utilizador na aplicação. Ele consulta o vCenter Server com o VMware PowerCLI para recolher os metadados sobre as VMs geridas pelo vCenter Server. Recolhe os dados de configuração acerca das VMs (núcleos, memória, discos, etc. NIC), bem como o histórico de desempenho de cada VM para o último mês do vCenter Server. Os metadados recolhidos, em seguida, é enviado para o serviço Azure Migrate (através da internet através de https) para avaliação. [Saiba mais](concepts-collector.md)
+A aplicação recoletora liga-se ao vCenter Server (porta 443) com as credenciais fornecidas pelo utilizador na aplicação. Utiliza o VMware PowerCLI para consultar o vCenter Server, de modo a recolher os metadados das VMs que este gere. Recolhe dados de configuração das VMs (núcleos, memória, discos, NIC, etc.), bem como o histórico de desempenho de cada VM relativo ao último mês, a partir do vCenter Server. Os metadados recolhidos são depois enviados para o serviço do Azure Migrate (pela Internet através de https), para efeitos de avaliação. [Saiba mais](concepts-collector.md)
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Pode ligar a aplicação recoletora mesmo para vários servidores vCenter?
 
-Sim, uma aplicação de recoletor único pode ser utilizada para detetar o vCenter vários servidores, mas não em simultâneo. Terá de executar a deteção de um após o outro.
+Sim, é possível utilizar uma única aplicação recoletora para detetar vários vCenter Servers, mas não em simultâneo. Tem de executar cada deteção uma a seguir à outra.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>O modelo de OVA utilizado pelo Site Recovery é integrado com o OVA utilizado pelo Azure Migrate?
 
@@ -144,7 +144,7 @@ Atualmente, não há nenhuma integração. A. Modelo de OVA no Site Recovery é 
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>Alterei a minha tamanho da máquina. Pode executar novamente a avaliação?
 
-Se alterar as definições numa VM que pretende avaliar, o acionador detetar novamente com a aplicação recoletora. A aplicação, utilize o **iniciar novamente a recolha** opção para fazer isso. Depois de terminar a coleção, selecione a opção **Recalcular** para a avaliação no portal, para obter os resultados da avaliação atualizada.
+Se alterar as definições numa VM que pretende avaliar, utilize a aplicação recoletora para acionar a deteção novamente. Na aplicação recoletora, utilize a opção **Start collection again** (Iniciar recolha novamente) para o fazer. Depois de terminar a coleção, selecione a opção **Recalcular** para a avaliação no portal, para obter os resultados da avaliação atualizada.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Como posso descobrir um ambiente de multi-inquilino no Azure Migrate?
 

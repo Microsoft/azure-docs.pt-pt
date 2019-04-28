@@ -3,8 +3,8 @@ title: O Azure Service Fabric Docker Compose pré-visualização de implementaç
 description: O Azure Service Fabric aceita o formato do Docker Compose para tornar mais fácil orquestrar contentores existentes através do Service Fabric. Este suporte está atualmente em pré-visualização.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
-ms.author: aljo, subramar
+origin.date: 02/23/2018
+ms.date: 01/07/2019
+ms.author: v-yeche
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948839"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte de implementação do docker Compose no Azure Service Fabric (pré-visualização)
 
@@ -165,3 +166,6 @@ Embora esse modelo oferece flexibilidade, estamos também a planear oferecer sup
 
 * Ler sobre o [modelo de aplicação do Service Fabric](service-fabric-application-model.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
+
+<!-- Update_Description: new articles on service fabric docker compose -->
+<!--ms.date: 01/14/2019 -->

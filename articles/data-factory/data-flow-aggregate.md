@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.openlocfilehash: 7b488b243c0520befb6b5470598f460b5a759fed
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467382"
 ---
 # <a name="azure-data-factory-mapping-data-flow-aggregate-transformation"></a>Mapeamento de transformação de agregação de fluxo de dados de fábrica de dados do Azure
 

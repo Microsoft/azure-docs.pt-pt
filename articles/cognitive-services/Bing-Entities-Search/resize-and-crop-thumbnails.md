@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: scottwhi
 ms.openlocfilehash: 99cf5200d1f64e4908f8037dd2a18390e2aad7ca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918870"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Redimensionamento e corte imagens em miniatura
 

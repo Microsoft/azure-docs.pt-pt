@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998460"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparar para implantar sua solução de IoT Edge em produção
 
@@ -208,7 +208,7 @@ Pode limitar o tamanho de todos os contentores logfiles nas opções de registo 
 
 Estas informações num arquivo chamado adicionar (ou de acréscimo) `daemon.json` e coloque-o a localização certa para a sua plataforma de dispositivo.
 
-| Plataforma | Localização |
+| Plataforma | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby-data\config\` |
